@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,14 @@ type NetworkPolicyDataSource struct {
 }
 
 type NetworkPolicyDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID          types.String                `tfsdk:"id"`
+	Name        types.String                `tfsdk:"name"`
+	Namespace   types.String                `tfsdk:"namespace"`
+	Description types.String                `tfsdk:"description"`
+	Labels      types.Map                   `tfsdk:"labels"`
+	Annotations types.Map                   `tfsdk:"annotations"`
+	Endpoint    *NetworkPolicyEndpointModel `tfsdk:"endpoint"`
+	Rules       *NetworkPolicyRulesModel    `tfsdk:"rules"`
 }
 
 func (d *NetworkPolicyDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +73,373 @@ func (d *NetworkPolicyDataSource) Schema(ctx context.Context, req datasource.Sch
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"endpoint": schema.SingleNestedAttribute{
+				MarkdownDescription: "Shape of the endpoint choices for a view.",
+				Attributes: map[string]schema.Attribute{
+					"any": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"inside_endpoints": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"label_selector": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+						Attributes: map[string]schema.Attribute{
+							"expressions": schema.ListAttribute{
+								MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+						},
+						Computed: true,
+					},
+					"outside_endpoints": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"prefix_list": schema.SingleNestedAttribute{
+						MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"prefixes": schema.ListAttribute{
+								MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"rules": schema.SingleNestedAttribute{
+				MarkdownDescription: "Rule Choice. Shape of Rule Choice.",
+				Attributes: map[string]schema.Attribute{
+					"egress_rules": schema.ListNestedAttribute{
+						MarkdownDescription: "Ordered list of rules applied to connections from policy endpoints.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"action": schema.StringAttribute{
+									MarkdownDescription: "[Enum: DENY|ALLOW] Network policy rule action configures the action to be taken on rule match Apply deny action on rule match Apply allow action on rule match. Possible values are `DENY`, `ALLOW`. Defaults to `DENY`.",
+									Computed:            true,
+								},
+								"adv_action": schema.SingleNestedAttribute{
+									MarkdownDescription: "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
+									Attributes: map[string]schema.Attribute{
+										"action": schema.StringAttribute{
+											MarkdownDescription: "[Enum: NOLOG|LOG] Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-. Possible values are `NOLOG`, `LOG`. Defaults to `NOLOG`.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"all_tcp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all tcp traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_udp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all udp traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"any": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"applications": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for applications.",
+									Attributes: map[string]schema.Attribute{
+										"applications": schema.ListAttribute{
+											MarkdownDescription: "[Enum: APPLICATION_HTTP|APPLICATION_HTTPS|APPLICATION_SNMP|APPLICATION_DNS] Application Protocols. Application protocols like HTTP, SNMP. Possible values are `APPLICATION_HTTP`, `APPLICATION_HTTPS`, `APPLICATION_SNMP`, `APPLICATION_DNS`. Defaults to `APPLICATION_HTTP`.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"inside_endpoints": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"ip_prefix_set": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of references to ip_prefix_set objects.",
+									Attributes: map[string]schema.Attribute{
+										"ref": schema.ListNestedAttribute{
+											MarkdownDescription: "List of references to ip_prefix_set objects.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"kind": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+														Computed:            true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+														Computed:            true,
+													},
+													"namespace": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+														Computed:            true,
+													},
+													"tenant": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+														Computed:            true,
+													},
+													"uid": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"label_matcher": schema.SingleNestedAttribute{
+									MarkdownDescription: "Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
+									Attributes: map[string]schema.Attribute{
+										"keys": schema.ListAttribute{
+											MarkdownDescription: "The list of label key names that have to match.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"label_selector": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Attributes: map[string]schema.Attribute{
+										"expressions": schema.ListAttribute{
+											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"metadata": schema.SingleNestedAttribute{
+									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Attributes: map[string]schema.Attribute{
+										"description_spec": schema.StringAttribute{
+											MarkdownDescription: "Description. Human readable description.",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"outside_endpoints": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"prefix_list": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+									Attributes: map[string]schema.Attribute{
+										"prefixes": schema.ListAttribute{
+											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"protocol_port_range": schema.SingleNestedAttribute{
+									MarkdownDescription: "Protocol and Port. Protocol and Port ranges.",
+									Attributes: map[string]schema.Attribute{
+										"port_ranges": schema.ListAttribute{
+											MarkdownDescription: "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+										"protocol": schema.StringAttribute{
+											MarkdownDescription: "[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp. Possible values are `ALL`, `TCP`, `UDP`, `ICMP`.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"ingress_rules": schema.ListNestedAttribute{
+						MarkdownDescription: "Ordered list of rules applied to connections to policy endpoints.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"action": schema.StringAttribute{
+									MarkdownDescription: "[Enum: DENY|ALLOW] Network policy rule action configures the action to be taken on rule match Apply deny action on rule match Apply allow action on rule match. Possible values are `DENY`, `ALLOW`. Defaults to `DENY`.",
+									Computed:            true,
+								},
+								"adv_action": schema.SingleNestedAttribute{
+									MarkdownDescription: "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
+									Attributes: map[string]schema.Attribute{
+										"action": schema.StringAttribute{
+											MarkdownDescription: "[Enum: NOLOG|LOG] Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-. Possible values are `NOLOG`, `LOG`. Defaults to `NOLOG`.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"all_tcp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all tcp traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_udp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all udp traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"any": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"applications": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for applications.",
+									Attributes: map[string]schema.Attribute{
+										"applications": schema.ListAttribute{
+											MarkdownDescription: "[Enum: APPLICATION_HTTP|APPLICATION_HTTPS|APPLICATION_SNMP|APPLICATION_DNS] Application Protocols. Application protocols like HTTP, SNMP. Possible values are `APPLICATION_HTTP`, `APPLICATION_HTTPS`, `APPLICATION_SNMP`, `APPLICATION_DNS`. Defaults to `APPLICATION_HTTP`.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"inside_endpoints": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"ip_prefix_set": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of references to ip_prefix_set objects.",
+									Attributes: map[string]schema.Attribute{
+										"ref": schema.ListNestedAttribute{
+											MarkdownDescription: "List of references to ip_prefix_set objects.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"kind": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+														Computed:            true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+														Computed:            true,
+													},
+													"namespace": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+														Computed:            true,
+													},
+													"tenant": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+														Computed:            true,
+													},
+													"uid": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"label_matcher": schema.SingleNestedAttribute{
+									MarkdownDescription: "Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
+									Attributes: map[string]schema.Attribute{
+										"keys": schema.ListAttribute{
+											MarkdownDescription: "The list of label key names that have to match.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"label_selector": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Attributes: map[string]schema.Attribute{
+										"expressions": schema.ListAttribute{
+											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"metadata": schema.SingleNestedAttribute{
+									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Attributes: map[string]schema.Attribute{
+										"description_spec": schema.StringAttribute{
+											MarkdownDescription: "Description. Human readable description.",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"outside_endpoints": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"prefix_list": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+									Attributes: map[string]schema.Attribute{
+										"prefixes": schema.ListAttribute{
+											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"protocol_port_range": schema.SingleNestedAttribute{
+									MarkdownDescription: "Protocol and Port. Protocol and Port ranges.",
+									Attributes: map[string]schema.Attribute{
+										"port_ranges": schema.ListAttribute{
+											MarkdownDescription: "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+										"protocol": schema.StringAttribute{
+											MarkdownDescription: "[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp. Possible values are `ALL`, `TCP`, `UDP`, `ICMP`.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +463,8 @@ func (d *NetworkPolicyDataSource) Read(ctx context.Context, req datasource.ReadR
 		return
 	}
 
-	resource, err := d.client.GetNetworkPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetNetworkPolicy(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NetworkPolicy: %s", err))
 		return
@@ -101,7 +472,11 @@ func (d *NetworkPolicyDataSource) Read(ctx context.Context, req datasource.ReadR
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +509,653 @@ func (d *NetworkPolicyDataSource) Read(ctx context.Context, req datasource.ReadR
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
+		data.Endpoint = &NetworkPolicyEndpointModel{
+			Any: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.Any.IsUnknown() {
+					return data.Endpoint.Any
+				}
+				if _, ok := blockData["any"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			InsideEndpoints: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.InsideEndpoints.IsUnknown() {
+					return data.Endpoint.InsideEndpoints
+				}
+				if _, ok := blockData["inside_endpoints"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			LabelSelector: func() *NetworkPolicyEndpointLabelSelectorModel {
+				if LabelSelectorData, ok := blockData["label_selector"].(map[string]interface{}); ok {
+					return &NetworkPolicyEndpointLabelSelectorModel{
+						Expressions: func() types.List {
+							if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+			OutsideEndpoints: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.OutsideEndpoints.IsUnknown() {
+					return data.Endpoint.OutsideEndpoints
+				}
+				if _, ok := blockData["outside_endpoints"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			PrefixList: func() *NetworkPolicyEndpointPrefixListModel {
+				if PrefixListData, ok := blockData["prefix_list"].(map[string]interface{}); ok {
+					return &NetworkPolicyEndpointPrefixListModel{
+						Prefixes: func() types.List {
+							if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["rules"].(map[string]interface{}); ok && (isImport || data.Rules != nil) {
+		data.Rules = &NetworkPolicyRulesModel{
+			EgressRules: func() types.List {
+				if !isImport && data.Rules != nil && (data.Rules.EgressRules.IsNull() || len(data.Rules.EgressRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
+				}
+				var EgressRulesExisting []NetworkPolicyRulesEgressRulesModel
+				if !isImport && data.Rules != nil && !data.Rules.EgressRules.IsNull() && !data.Rules.EgressRules.IsUnknown() {
+					data.Rules.EgressRules.ElementsAs(ctx, &EgressRulesExisting, false)
+				}
+				if rawList, ok := blockData["egress_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressRulesResult []NetworkPolicyRulesEgressRulesModel
+					for EgressRulesIdx, EgressRulesItem := range rawList {
+						_ = EgressRulesIdx
+						if EgressRulesItemMap, ok := EgressRulesItem.(map[string]interface{}); ok {
+							EgressRulesResult = append(EgressRulesResult, NetworkPolicyRulesEgressRulesModel{
+								Action: func() types.String {
+									if v, ok := EgressRulesItemMap["action"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								AdvAction: func() *NetworkPolicyRulesEgressRulesAdvActionModel {
+									if AdvActionData, ok := EgressRulesItemMap["adv_action"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesAdvActionModel{
+											Action: func() types.String {
+												if v, ok := AdvActionData["action"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllTCPTraffic.IsUnknown() {
+										return EgressRulesExisting[EgressRulesIdx].AllTCPTraffic
+									}
+									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllTraffic.IsUnknown() {
+										return EgressRulesExisting[EgressRulesIdx].AllTraffic
+									}
+									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllUDPTraffic.IsUnknown() {
+										return EgressRulesExisting[EgressRulesIdx].AllUDPTraffic
+									}
+									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Any: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].Any.IsUnknown() {
+										return EgressRulesExisting[EgressRulesIdx].Any
+									}
+									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Applications: func() *NetworkPolicyRulesEgressRulesApplicationsModel {
+									if ApplicationsData, ok := EgressRulesItemMap["applications"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								InsideEndpoints: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].InsideEndpoints.IsUnknown() {
+										return EgressRulesExisting[EgressRulesIdx].InsideEndpoints
+									}
+									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								IPPrefixSet: func() *NetworkPolicyRulesEgressRulesIPPrefixSetModel {
+									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].IPPrefixSet != nil && (EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsNull() || len(EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+												if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].IPPrefixSet != nil && !EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsNull() && !EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													EgressRulesExisting[EgressRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, NetworkPolicyRulesEgressRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								LabelMatcher: func() *NetworkPolicyRulesEgressRulesLabelMatcherModel {
+									if LabelMatcherData, ok := EgressRulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								LabelSelector: func() *NetworkPolicyRulesEgressRulesLabelSelectorModel {
+									if LabelSelectorData, ok := EgressRulesItemMap["label_selector"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Metadata: func() *NetworkPolicyRulesEgressRulesMetadataModel {
+									if MetadataData, ok := EgressRulesItemMap["metadata"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesMetadataModel{
+											DescriptionSpec: func() types.String {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								OutsideEndpoints: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].OutsideEndpoints.IsUnknown() {
+										return EgressRulesExisting[EgressRulesIdx].OutsideEndpoints
+									}
+									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								PrefixList: func() *NetworkPolicyRulesEgressRulesPrefixListModel {
+									if PrefixListData, ok := EgressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								ProtocolPortRange: func() *NetworkPolicyRulesEgressRulesProtocolPortRangeModel {
+									if ProtocolPortRangeData, ok := EgressRulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesEgressRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Protocol: func() types.String {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes}, EgressRulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesModelAttrTypes})
+			}(),
+			IngressRules: func() types.List {
+				if !isImport && data.Rules != nil && (data.Rules.IngressRules.IsNull() || len(data.Rules.IngressRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
+				}
+				var IngressRulesExisting []NetworkPolicyRulesIngressRulesModel
+				if !isImport && data.Rules != nil && !data.Rules.IngressRules.IsNull() && !data.Rules.IngressRules.IsUnknown() {
+					data.Rules.IngressRules.ElementsAs(ctx, &IngressRulesExisting, false)
+				}
+				if rawList, ok := blockData["ingress_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressRulesResult []NetworkPolicyRulesIngressRulesModel
+					for IngressRulesIdx, IngressRulesItem := range rawList {
+						_ = IngressRulesIdx
+						if IngressRulesItemMap, ok := IngressRulesItem.(map[string]interface{}); ok {
+							IngressRulesResult = append(IngressRulesResult, NetworkPolicyRulesIngressRulesModel{
+								Action: func() types.String {
+									if v, ok := IngressRulesItemMap["action"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								AdvAction: func() *NetworkPolicyRulesIngressRulesAdvActionModel {
+									if AdvActionData, ok := IngressRulesItemMap["adv_action"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesAdvActionModel{
+											Action: func() types.String {
+												if v, ok := AdvActionData["action"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllTCPTraffic.IsUnknown() {
+										return IngressRulesExisting[IngressRulesIdx].AllTCPTraffic
+									}
+									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllTraffic.IsUnknown() {
+										return IngressRulesExisting[IngressRulesIdx].AllTraffic
+									}
+									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllUDPTraffic.IsUnknown() {
+										return IngressRulesExisting[IngressRulesIdx].AllUDPTraffic
+									}
+									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Any: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].Any.IsUnknown() {
+										return IngressRulesExisting[IngressRulesIdx].Any
+									}
+									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Applications: func() *NetworkPolicyRulesIngressRulesApplicationsModel {
+									if ApplicationsData, ok := IngressRulesItemMap["applications"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								InsideEndpoints: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].InsideEndpoints.IsUnknown() {
+										return IngressRulesExisting[IngressRulesIdx].InsideEndpoints
+									}
+									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								IPPrefixSet: func() *NetworkPolicyRulesIngressRulesIPPrefixSetModel {
+									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesIPPrefixSetModel{
+											Ref: func() types.List {
+												if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].IPPrefixSet != nil && (IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsNull() || len(IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+												if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].IPPrefixSet != nil && !IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsNull() && !IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.IsUnknown() {
+													IngressRulesExisting[IngressRulesIdx].IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
+												if rawList, ok := IPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, NetworkPolicyRulesIngressRulesIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								LabelMatcher: func() *NetworkPolicyRulesIngressRulesLabelMatcherModel {
+									if LabelMatcherData, ok := IngressRulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								LabelSelector: func() *NetworkPolicyRulesIngressRulesLabelSelectorModel {
+									if LabelSelectorData, ok := IngressRulesItemMap["label_selector"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := LabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Metadata: func() *NetworkPolicyRulesIngressRulesMetadataModel {
+									if MetadataData, ok := IngressRulesItemMap["metadata"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesMetadataModel{
+											DescriptionSpec: func() types.String {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								OutsideEndpoints: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].OutsideEndpoints.IsUnknown() {
+										return IngressRulesExisting[IngressRulesIdx].OutsideEndpoints
+									}
+									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								PrefixList: func() *NetworkPolicyRulesIngressRulesPrefixListModel {
+									if PrefixListData, ok := IngressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								ProtocolPortRange: func() *NetworkPolicyRulesIngressRulesProtocolPortRangeModel {
+									if ProtocolPortRangeData, ok := IngressRulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
+										return &NetworkPolicyRulesIngressRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Protocol: func() types.String {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes}, IngressRulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesModelAttrTypes})
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

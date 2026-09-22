@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,19 @@ type CDNPurgeCommandDataSource struct {
 }
 
 type CDNPurgeCommandDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID          types.String                     `tfsdk:"id"`
+	Name        types.String                     `tfsdk:"name"`
+	Namespace   types.String                     `tfsdk:"namespace"`
+	Description types.String                     `tfsdk:"description"`
+	Labels      types.Map                        `tfsdk:"labels"`
+	Annotations types.Map                        `tfsdk:"annotations"`
+	HardPurge   types.Object                     `tfsdk:"hard_purge"`
+	PurgeAll    types.Object                     `tfsdk:"purge_all"`
+	SoftPurge   types.Object                     `tfsdk:"soft_purge"`
+	Hostname    types.String                     `tfsdk:"hostname"`
+	Pattern     types.String                     `tfsdk:"pattern"`
+	URLPath     types.String                     `tfsdk:"url_path"`
+	VirtualHost *CDNPurgeCommandVirtualHostModel `tfsdk:"virtual_host"`
 }
 
 func (d *CDNPurgeCommandDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +78,51 @@ func (d *CDNPurgeCommandDataSource) Schema(ctx context.Context, req datasource.S
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"hard_purge": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: hard_purge, soft_purge] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"purge_all": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"soft_purge": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"virtual_host": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+						Computed:            true,
+					},
+					"tenant": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"hostname": schema.StringAttribute{
+				MarkdownDescription: "[OneOf: hostname, pattern, purge_all, url_path] Exclusive with [pattern purge_all url_path] Purge cached content by Hostname.",
+				Computed:            true,
+			},
+			"pattern": schema.StringAttribute{
+				MarkdownDescription: "Exclusive with [hostname purge_all url_path] Purge cached content using PCRE 1 compliant regular expression.",
+				Computed:            true,
+			},
+			"url_path": schema.StringAttribute{
+				MarkdownDescription: "Exclusive with [hostname pattern purge_all] Purge cache by using a URL path.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +146,8 @@ func (d *CDNPurgeCommandDataSource) Read(ctx context.Context, req datasource.Rea
 		return
 	}
 
-	resource, err := d.client.GetCDNPurgeCommand(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetCDNPurgeCommand(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CDNPurgeCommand: %s", err))
 		return
@@ -101,7 +155,11 @@ func (d *CDNPurgeCommandDataSource) Read(ctx context.Context, req datasource.Rea
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +192,66 @@ func (d *CDNPurgeCommandDataSource) Read(ctx context.Context, req datasource.Rea
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && !data.HardPurge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok {
+		data.HardPurge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HardPurge = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.PurgeAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok {
+		data.PurgeAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PurgeAll = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.SoftPurge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok {
+		data.SoftPurge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SoftPurge = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["virtual_host"].(map[string]interface{}); ok && (isImport || data.VirtualHost != nil) {
+		data.VirtualHost = &CDNPurgeCommandVirtualHostModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Tenant: func() types.String {
+				if v, ok := blockData["tenant"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["hostname"].(string); ok && v != "" {
+		data.Hostname = types.StringValue(v)
+	} else {
+		data.Hostname = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["pattern"].(string); ok && v != "" {
+		data.Pattern = types.StringValue(v)
+	} else {
+		data.Pattern = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["url_path"].(string); ok && v != "" {
+		data.URLPath = types.StringValue(v)
+	} else {
+		data.URLPath = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

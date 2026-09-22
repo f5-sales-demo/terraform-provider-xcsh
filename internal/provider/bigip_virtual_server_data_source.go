@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,25 +28,659 @@ type BigIPVirtualServerDataSource struct {
 	client *client.Client
 }
 
+// BigIPVirtualServerEmptyModel represents empty nested blocks
+type BigIPVirtualServerEmptyModel struct {
+}
+
+// BigIPVirtualServerAPISpecificationModel represents api_specification block
+type BigIPVirtualServerAPISpecificationModel struct {
+	ValidationDisabled         types.Object                                                       `tfsdk:"validation_disabled"`
+	APIDefinition              *BigIPVirtualServerAPISpecificationAPIDefinitionModel              `tfsdk:"api_definition"`
+	ValidationAllSpecEndpoints *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModel `tfsdk:"validation_all_spec_endpoints"`
+	ValidationCustomList       *BigIPVirtualServerAPISpecificationValidationCustomListModel       `tfsdk:"validation_custom_list"`
+}
+
+// BigIPVirtualServerAPISpecificationModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationModel
+var BigIPVirtualServerAPISpecificationModelAttrTypes = map[string]attr.Type{
+	"validation_disabled":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"api_definition":                types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationAPIDefinitionModelAttrTypes},
+	"validation_all_spec_endpoints": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModelAttrTypes},
+	"validation_custom_list":        types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationAPIDefinitionModel represents api_definition block
+type BigIPVirtualServerAPISpecificationAPIDefinitionModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// BigIPVirtualServerAPISpecificationAPIDefinitionModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationAPIDefinitionModel
+var BigIPVirtualServerAPISpecificationAPIDefinitionModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModel represents validation_all_spec_endpoints block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModel struct {
+	FallThroughMode *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel `tfsdk:"fall_through_mode"`
+	Settings        *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModel        `tfsdk:"settings"`
+	ValidationMode  *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModel  `tfsdk:"validation_mode"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModelAttrTypes = map[string]attr.Type{
+	"fall_through_mode": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModelAttrTypes},
+	"settings":          types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModelAttrTypes},
+	"validation_mode":   types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel represents fall_through_mode block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel struct {
+	FallThroughModeAllow  types.Object                                                                                           `tfsdk:"fall_through_mode_allow"`
+	FallThroughModeCustom *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel `tfsdk:"fall_through_mode_custom"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModelAttrTypes = map[string]attr.Type{
+	"fall_through_mode_allow":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"fall_through_mode_custom": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel represents fall_through_mode_custom block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel struct {
+	OpenAPIValidationRules types.List `tfsdk:"open_api_validation_rules"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModelAttrTypes = map[string]attr.Type{
+	"open_api_validation_rules": types.ListType{ElemType: types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel represents open_api_validation_rules block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel struct {
+	ActionBlock  types.Object                                                                                                                            `tfsdk:"action_block"`
+	ActionReport types.Object                                                                                                                            `tfsdk:"action_report"`
+	ActionSkip   types.Object                                                                                                                            `tfsdk:"action_skip"`
+	APIGroup     types.String                                                                                                                            `tfsdk:"api_group"`
+	BasePath     types.String                                                                                                                            `tfsdk:"base_path"`
+	APIEndpoint  *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel `tfsdk:"api_endpoint"`
+	Metadata     *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel    `tfsdk:"metadata"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes = map[string]attr.Type{
+	"action_block":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"action_report": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"action_skip":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"api_group":     types.StringType,
+	"base_path":     types.StringType,
+	"api_endpoint":  types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModelAttrTypes},
+	"metadata":      types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel represents api_endpoint block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel struct {
+	Methods types.List   `tfsdk:"methods"`
+	Path    types.String `tfsdk:"path"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModelAttrTypes = map[string]attr.Type{
+	"methods": types.ListType{ElemType: types.StringType},
+	"path":    types.StringType,
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel represents metadata block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel struct {
+	DescriptionSpec types.String `tfsdk:"description_spec"`
+	Name            types.String `tfsdk:"name"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModelAttrTypes = map[string]attr.Type{
+	"description_spec": types.StringType,
+	"name":             types.StringType,
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModel represents settings block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModel struct {
+	OversizedBodyFailValidation       types.Object                                                                                               `tfsdk:"oversized_body_fail_validation"`
+	OversizedBodySkipValidation       types.Object                                                                                               `tfsdk:"oversized_body_skip_validation"`
+	PropertyValidationSettingsDefault types.Object                                                                                               `tfsdk:"property_validation_settings_default"`
+	PropertyValidationSettingsCustom  *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel `tfsdk:"property_validation_settings_custom"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModelAttrTypes = map[string]attr.Type{
+	"oversized_body_fail_validation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"oversized_body_skip_validation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"property_validation_settings_default": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"property_validation_settings_custom":  types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel represents property_validation_settings_custom block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel struct {
+	Queryparameters *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel `tfsdk:"query_parameters"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModelAttrTypes = map[string]attr.Type{
+	"query_parameters": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel represents query_parameters block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel struct {
+	AllowAdditionalParameters    types.Object `tfsdk:"allow_additional_parameters"`
+	DisallowAdditionalParameters types.Object `tfsdk:"disallow_additional_parameters"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModelAttrTypes = map[string]attr.Type{
+	"allow_additional_parameters":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disallow_additional_parameters": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModel represents validation_mode block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModel struct {
+	SkipResponseValidation       types.Object                                                                                                 `tfsdk:"skip_response_validation"`
+	SkipValidation               types.Object                                                                                                 `tfsdk:"skip_validation"`
+	ResponseValidationModeActive *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel `tfsdk:"response_validation_mode_active"`
+	ValidationModeActive         *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel         `tfsdk:"validation_mode_active"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModelAttrTypes = map[string]attr.Type{
+	"skip_response_validation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"skip_validation":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"response_validation_mode_active": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModelAttrTypes},
+	"validation_mode_active":          types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel represents response_validation_mode_active block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel struct {
+	EnforcementBlock             types.Object `tfsdk:"enforcement_block"`
+	EnforcementReport            types.Object `tfsdk:"enforcement_report"`
+	ResponseValidationProperties types.List   `tfsdk:"response_validation_properties"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModelAttrTypes = map[string]attr.Type{
+	"enforcement_block":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enforcement_report":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"response_validation_properties": types.ListType{ElemType: types.StringType},
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel represents validation_mode_active block
+type BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel struct {
+	EnforcementBlock            types.Object `tfsdk:"enforcement_block"`
+	EnforcementReport           types.Object `tfsdk:"enforcement_report"`
+	RequestValidationProperties types.List   `tfsdk:"request_validation_properties"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel
+var BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModelAttrTypes = map[string]attr.Type{
+	"enforcement_block":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enforcement_report":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"request_validation_properties": types.ListType{ElemType: types.StringType},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListModel represents validation_custom_list block
+type BigIPVirtualServerAPISpecificationValidationCustomListModel struct {
+	FallThroughMode        *BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModel `tfsdk:"fall_through_mode"`
+	OpenAPIValidationRules types.List                                                                  `tfsdk:"open_api_validation_rules"`
+	Settings               *BigIPVirtualServerAPISpecificationValidationCustomListSettingsModel        `tfsdk:"settings"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListModel
+var BigIPVirtualServerAPISpecificationValidationCustomListModelAttrTypes = map[string]attr.Type{
+	"fall_through_mode":         types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModelAttrTypes},
+	"open_api_validation_rules": types.ListType{ElemType: types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes}},
+	"settings":                  types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListSettingsModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModel represents fall_through_mode block
+type BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModel struct {
+	FallThroughModeAllow  types.Object                                                                                     `tfsdk:"fall_through_mode_allow"`
+	FallThroughModeCustom *BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel `tfsdk:"fall_through_mode_custom"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModel
+var BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModelAttrTypes = map[string]attr.Type{
+	"fall_through_mode_allow":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"fall_through_mode_custom": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel represents fall_through_mode_custom block
+type BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel struct {
+	OpenAPIValidationRules types.List `tfsdk:"open_api_validation_rules"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel
+var BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModelAttrTypes = map[string]attr.Type{
+	"open_api_validation_rules": types.ListType{ElemType: types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel represents open_api_validation_rules block
+type BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel struct {
+	ActionBlock  types.Object                                                                                                                      `tfsdk:"action_block"`
+	ActionReport types.Object                                                                                                                      `tfsdk:"action_report"`
+	ActionSkip   types.Object                                                                                                                      `tfsdk:"action_skip"`
+	APIGroup     types.String                                                                                                                      `tfsdk:"api_group"`
+	BasePath     types.String                                                                                                                      `tfsdk:"base_path"`
+	APIEndpoint  *BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel `tfsdk:"api_endpoint"`
+	Metadata     *BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel    `tfsdk:"metadata"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+var BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes = map[string]attr.Type{
+	"action_block":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"action_report": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"action_skip":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"api_group":     types.StringType,
+	"base_path":     types.StringType,
+	"api_endpoint":  types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModelAttrTypes},
+	"metadata":      types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel represents api_endpoint block
+type BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel struct {
+	Methods types.List   `tfsdk:"methods"`
+	Path    types.String `tfsdk:"path"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel
+var BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModelAttrTypes = map[string]attr.Type{
+	"methods": types.ListType{ElemType: types.StringType},
+	"path":    types.StringType,
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel represents metadata block
+type BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel struct {
+	DescriptionSpec types.String `tfsdk:"description_spec"`
+	Name            types.String `tfsdk:"name"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel
+var BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModelAttrTypes = map[string]attr.Type{
+	"description_spec": types.StringType,
+	"name":             types.StringType,
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModel represents open_api_validation_rules block
+type BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModel struct {
+	AnyDomain      types.Object                                                                                     `tfsdk:"any_domain"`
+	APIGroup       types.String                                                                                     `tfsdk:"api_group"`
+	BasePath       types.String                                                                                     `tfsdk:"base_path"`
+	SpecificDomain types.String                                                                                     `tfsdk:"specific_domain"`
+	APIEndpoint    *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModel    `tfsdk:"api_endpoint"`
+	Metadata       *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModel       `tfsdk:"metadata"`
+	ValidationMode *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel `tfsdk:"validation_mode"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
+var BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes = map[string]attr.Type{
+	"any_domain":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"api_group":       types.StringType,
+	"base_path":       types.StringType,
+	"specific_domain": types.StringType,
+	"api_endpoint":    types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModelAttrTypes},
+	"metadata":        types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModelAttrTypes},
+	"validation_mode": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModel represents api_endpoint block
+type BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModel struct {
+	Methods types.List   `tfsdk:"methods"`
+	Path    types.String `tfsdk:"path"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModel
+var BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModelAttrTypes = map[string]attr.Type{
+	"methods": types.ListType{ElemType: types.StringType},
+	"path":    types.StringType,
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModel represents metadata block
+type BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModel struct {
+	DescriptionSpec types.String `tfsdk:"description_spec"`
+	Name            types.String `tfsdk:"name"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModel
+var BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModelAttrTypes = map[string]attr.Type{
+	"description_spec": types.StringType,
+	"name":             types.StringType,
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel represents validation_mode block
+type BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel struct {
+	SkipResponseValidation       types.Object                                                                                                                 `tfsdk:"skip_response_validation"`
+	SkipValidation               types.Object                                                                                                                 `tfsdk:"skip_validation"`
+	ResponseValidationModeActive *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel `tfsdk:"response_validation_mode_active"`
+	ValidationModeActive         *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel         `tfsdk:"validation_mode_active"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel
+var BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModelAttrTypes = map[string]attr.Type{
+	"skip_response_validation":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"skip_validation":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"response_validation_mode_active": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModelAttrTypes},
+	"validation_mode_active":          types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel represents response_validation_mode_active block
+type BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel struct {
+	EnforcementBlock             types.Object `tfsdk:"enforcement_block"`
+	EnforcementReport            types.Object `tfsdk:"enforcement_report"`
+	ResponseValidationProperties types.List   `tfsdk:"response_validation_properties"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel
+var BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModelAttrTypes = map[string]attr.Type{
+	"enforcement_block":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enforcement_report":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"response_validation_properties": types.ListType{ElemType: types.StringType},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel represents validation_mode_active block
+type BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel struct {
+	EnforcementBlock            types.Object `tfsdk:"enforcement_block"`
+	EnforcementReport           types.Object `tfsdk:"enforcement_report"`
+	RequestValidationProperties types.List   `tfsdk:"request_validation_properties"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel
+var BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModelAttrTypes = map[string]attr.Type{
+	"enforcement_block":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enforcement_report":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"request_validation_properties": types.ListType{ElemType: types.StringType},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListSettingsModel represents settings block
+type BigIPVirtualServerAPISpecificationValidationCustomListSettingsModel struct {
+	OversizedBodyFailValidation       types.Object                                                                                         `tfsdk:"oversized_body_fail_validation"`
+	OversizedBodySkipValidation       types.Object                                                                                         `tfsdk:"oversized_body_skip_validation"`
+	PropertyValidationSettingsDefault types.Object                                                                                         `tfsdk:"property_validation_settings_default"`
+	PropertyValidationSettingsCustom  *BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel `tfsdk:"property_validation_settings_custom"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListSettingsModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListSettingsModel
+var BigIPVirtualServerAPISpecificationValidationCustomListSettingsModelAttrTypes = map[string]attr.Type{
+	"oversized_body_fail_validation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"oversized_body_skip_validation":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"property_validation_settings_default": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"property_validation_settings_custom":  types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel represents property_validation_settings_custom block
+type BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel struct {
+	Queryparameters *BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel `tfsdk:"query_parameters"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel
+var BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModelAttrTypes = map[string]attr.Type{
+	"query_parameters": types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModelAttrTypes},
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel represents query_parameters block
+type BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel struct {
+	AllowAdditionalParameters    types.Object `tfsdk:"allow_additional_parameters"`
+	DisallowAdditionalParameters types.Object `tfsdk:"disallow_additional_parameters"`
+}
+
+// BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModelAttrTypes defines the attribute types for BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel
+var BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModelAttrTypes = map[string]attr.Type{
+	"allow_additional_parameters":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disallow_additional_parameters": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryModel represents enable_api_discovery block
+type BigIPVirtualServerEnableAPIDiscoveryModel struct {
+	DefaultAPIAuthDiscovery         types.Object                                                       `tfsdk:"default_api_auth_discovery"`
+	DisableLearnFromRedirectTraffic types.Object                                                       `tfsdk:"disable_learn_from_redirect_traffic"`
+	EnableLearnFromRedirectTraffic  types.Object                                                       `tfsdk:"enable_learn_from_redirect_traffic"`
+	APICrawler                      *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModel               `tfsdk:"api_crawler"`
+	APIDiscoveryFromCodeScan        *BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel `tfsdk:"api_discovery_from_code_scan"`
+	CustomAPIAuthDiscovery          *BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel   `tfsdk:"custom_api_auth_discovery"`
+	DiscoveredAPISettings           *BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModel    `tfsdk:"discovered_api_settings"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryModel
+var BigIPVirtualServerEnableAPIDiscoveryModelAttrTypes = map[string]attr.Type{
+	"default_api_auth_discovery":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_learn_from_redirect_traffic": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_learn_from_redirect_traffic":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"api_crawler":                         types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModelAttrTypes},
+	"api_discovery_from_code_scan":        types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModelAttrTypes},
+	"custom_api_auth_discovery":           types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModelAttrTypes},
+	"discovered_api_settings":             types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModelAttrTypes},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModel represents api_crawler block
+type BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModel struct {
+	DisableAPICrawler types.Object                                                         `tfsdk:"disable_api_crawler"`
+	APICrawlerConfig  *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel `tfsdk:"api_crawler_config"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModel
+var BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModelAttrTypes = map[string]attr.Type{
+	"disable_api_crawler": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"api_crawler_config":  types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModelAttrTypes},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel represents api_crawler_config block
+type BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel struct {
+	Domains types.List `tfsdk:"domains"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel
+var BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModelAttrTypes = map[string]attr.Type{
+	"domains": types.ListType{ElemType: types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes}},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel represents domains block
+type BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel struct {
+	Domain      types.String                                                                           `tfsdk:"domain"`
+	SimpleLogin *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel `tfsdk:"simple_login"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
+var BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes = map[string]attr.Type{
+	"domain":       types.StringType,
+	"simple_login": types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModelAttrTypes},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel represents simple_login block
+type BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel struct {
+	User     types.String                                                                                   `tfsdk:"user"`
+	Password *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel `tfsdk:"password"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel
+var BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModelAttrTypes = map[string]attr.Type{
+	"user":     types.StringType,
+	"password": types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModelAttrTypes},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel represents password block
+type BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel struct {
+	BlindfoldSecretInfo *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel
+var BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModelAttrTypes = map[string]attr.Type{
+	"blindfold_secret_info": types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModelAttrTypes},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
+type BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel struct {
+	DecryptionProvider types.String `tfsdk:"decryption_provider"`
+	Location           types.String `tfsdk:"location"`
+	StoreProvider      types.String `tfsdk:"store_provider"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel
+var BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModelAttrTypes = map[string]attr.Type{
+	"decryption_provider": types.StringType,
+	"location":            types.StringType,
+	"store_provider":      types.StringType,
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel represents clear_secret_info block
+type BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel struct {
+	Provider types.String `tfsdk:"provider_ref"`
+	URL      types.String `tfsdk:"url"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel
+var BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
+	"provider_ref": types.StringType,
+	"url":          types.StringType,
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel represents api_discovery_from_code_scan block
+type BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel struct {
+	CodeBaseIntegrations types.List `tfsdk:"code_base_integrations"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel
+var BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModelAttrTypes = map[string]attr.Type{
+	"code_base_integrations": types.ListType{ElemType: types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes}},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel represents code_base_integrations block
+type BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel struct {
+	AllRepos            types.Object                                                                                              `tfsdk:"all_repos"`
+	CodeBaseIntegration *BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModel `tfsdk:"code_base_integration"`
+	SelectedRepos       *BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModel       `tfsdk:"selected_repos"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
+var BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes = map[string]attr.Type{
+	"all_repos":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"code_base_integration": types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModelAttrTypes},
+	"selected_repos":        types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModelAttrTypes},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModel represents code_base_integration block
+type BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModel
+var BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModel represents selected_repos block
+type BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModel struct {
+	APICodeRepo types.List `tfsdk:"api_code_repo"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModel
+var BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModelAttrTypes = map[string]attr.Type{
+	"api_code_repo": types.ListType{ElemType: types.StringType},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel represents custom_api_auth_discovery block
+type BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel struct {
+	APIDiscoveryRef *BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel `tfsdk:"api_discovery_ref"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel
+var BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModelAttrTypes = map[string]attr.Type{
+	"api_discovery_ref": types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModelAttrTypes},
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel represents api_discovery_ref block
+type BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel
+var BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModel represents discovered_api_settings block
+type BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModel struct {
+	PurgeDurationForInactiveDiscoveredApis types.Int64 `tfsdk:"purge_duration_for_inactive_discovered_apis"`
+}
+
+// BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModelAttrTypes defines the attribute types for BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModel
+var BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModelAttrTypes = map[string]attr.Type{
+	"purge_duration_for_inactive_discovered_apis": types.Int64Type,
+}
+
+// BigIPVirtualServerSensitiveDataPolicyModel represents sensitive_data_policy block
+type BigIPVirtualServerSensitiveDataPolicyModel struct {
+	SensitiveDataPolicyRef *BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModel `tfsdk:"sensitive_data_policy_ref"`
+}
+
+// BigIPVirtualServerSensitiveDataPolicyModelAttrTypes defines the attribute types for BigIPVirtualServerSensitiveDataPolicyModel
+var BigIPVirtualServerSensitiveDataPolicyModelAttrTypes = map[string]attr.Type{
+	"sensitive_data_policy_ref": types.ObjectType{AttrTypes: BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModelAttrTypes},
+}
+
+// BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModel represents sensitive_data_policy_ref block
+type BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModelAttrTypes defines the attribute types for BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModel
+var BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// BigIPVirtualServerServiceDiscoveryModel represents service_discovery block
+type BigIPVirtualServerServiceDiscoveryModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// BigIPVirtualServerServiceDiscoveryModelAttrTypes defines the attribute types for BigIPVirtualServerServiceDiscoveryModel
+var BigIPVirtualServerServiceDiscoveryModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
 type BigIPVirtualServerDataSourceModel struct {
-	ID                         types.String `tfsdk:"id"`
-	Name                       types.String `tfsdk:"name"`
-	Namespace                  types.String `tfsdk:"namespace"`
-	Description                types.String `tfsdk:"description"`
-	Labels                     types.Map    `tfsdk:"labels"`
-	Annotations                types.Map    `tfsdk:"annotations"`
-	APISpecification           types.String `tfsdk:"api_specification"`
-	BigIPHostname              types.String `tfsdk:"bigip_hostname"`
-	BigIPVersion               types.String `tfsdk:"bigip_version"`
-	BigIPVsDescription         types.String `tfsdk:"bigip_vs_description"`
-	DefaultSensitiveDataPolicy types.String `tfsdk:"default_sensitive_data_policy"`
-	DisableAPIDefinition       types.String `tfsdk:"disable_api_definition"`
-	DisableAPIDiscovery        types.String `tfsdk:"disable_api_discovery"`
-	EnableAPIDiscovery         types.String `tfsdk:"enable_api_discovery"`
-	SensitiveDataPolicy        types.String `tfsdk:"sensitive_data_policy"`
-	ServerName                 types.String `tfsdk:"server_name"`
-	ServiceDiscovery           types.String `tfsdk:"service_discovery"`
-	Type                       types.String `tfsdk:"type"`
+	ID                         types.String                                `tfsdk:"id"`
+	Name                       types.String                                `tfsdk:"name"`
+	Namespace                  types.String                                `tfsdk:"namespace"`
+	Description                types.String                                `tfsdk:"description"`
+	Labels                     types.Map                                   `tfsdk:"labels"`
+	Annotations                types.Map                                   `tfsdk:"annotations"`
+	BigIPHostname              types.String                                `tfsdk:"bigip_hostname"`
+	BigIPVersion               types.String                                `tfsdk:"bigip_version"`
+	BigIPVsDescription         types.String                                `tfsdk:"bigip_vs_description"`
+	DefaultSensitiveDataPolicy types.Object                                `tfsdk:"default_sensitive_data_policy"`
+	DisableAPIDefinition       types.Object                                `tfsdk:"disable_api_definition"`
+	DisableAPIDiscovery        types.Object                                `tfsdk:"disable_api_discovery"`
+	ServerName                 types.String                                `tfsdk:"server_name"`
+	Type                       types.String                                `tfsdk:"type"`
+	APISpecification           *BigIPVirtualServerAPISpecificationModel    `tfsdk:"api_specification"`
+	EnableAPIDiscovery         *BigIPVirtualServerEnableAPIDiscoveryModel  `tfsdk:"enable_api_discovery"`
+	SensitiveDataPolicy        *BigIPVirtualServerSensitiveDataPolicyModel `tfsdk:"sensitive_data_policy"`
+	ServiceDiscovery           *BigIPVirtualServerServiceDiscoveryModel    `tfsdk:"service_discovery"`
 }
 
 func (d *BigIPVirtualServerDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -82,9 +717,456 @@ func (d *BigIPVirtualServerDataSource) Schema(ctx context.Context, req datasourc
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
-			"api_specification": schema.StringAttribute{
+			"api_specification": schema.SingleNestedAttribute{
 				MarkdownDescription: "Settings for API specification (API definition, OpenAPI validation, etc.).",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"api_definition": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"validation_all_spec_endpoints": schema.SingleNestedAttribute{
+						MarkdownDescription: "API Inventory. Settings for API Inventory validation.",
+						Attributes: map[string]schema.Attribute{
+							"fall_through_mode": schema.SingleNestedAttribute{
+								MarkdownDescription: "Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a. Swagger) or doesn't have a specific rule in custom rules).",
+								Attributes: map[string]schema.Attribute{
+									"fall_through_mode_allow": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for fall through mode allow.",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"fall_through_mode_custom": schema.SingleNestedAttribute{
+										MarkdownDescription: "Configuration parameter for fall through mode custom.",
+										Attributes: map[string]schema.Attribute{
+											"open_api_validation_rules": schema.ListNestedAttribute{
+												MarkdownDescription: "Custom Fall Through Rule List. Rule or policy definition",
+												NestedObject: schema.NestedAttributeObject{
+													Attributes: map[string]schema.Attribute{
+														"action_block": schema.ObjectAttribute{
+															MarkdownDescription: "Enable this option",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"action_report": schema.ObjectAttribute{
+															MarkdownDescription: "Enable this option",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"action_skip": schema.ObjectAttribute{
+															MarkdownDescription: "Enable this option",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"api_endpoint": schema.SingleNestedAttribute{
+															MarkdownDescription: "API Endpoint. This defines API endpoint.",
+															Attributes: map[string]schema.Attribute{
+																"methods": schema.ListAttribute{
+																	MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] Methods. Methods to be matched. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+																	Computed:            true,
+																	ElementType:         types.StringType,
+																},
+																"path": schema.StringAttribute{
+																	MarkdownDescription: "Path. Path to be matched.",
+																	Computed:            true,
+																},
+															},
+															Computed: true,
+														},
+														"api_group": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [api_endpoint base_path] The API group which this validation applies to.",
+															Computed:            true,
+														},
+														"base_path": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [api_endpoint api_group] The base path which this validation applies to.",
+															Computed:            true,
+														},
+														"metadata": schema.SingleNestedAttribute{
+															MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+															Attributes: map[string]schema.Attribute{
+																"description_spec": schema.StringAttribute{
+																	MarkdownDescription: "Description. Human readable description.",
+																	Computed:            true,
+																},
+																"name": schema.StringAttribute{
+																	MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+																	Computed:            true,
+																},
+															},
+															Computed: true,
+														},
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"settings": schema.SingleNestedAttribute{
+								MarkdownDescription: "OpenAPI specification validation settings relevant for 'API Inventory' enforcement and for 'Custom list' enforcement.",
+								Attributes: map[string]schema.Attribute{
+									"oversized_body_fail_validation": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"oversized_body_skip_validation": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"property_validation_settings_custom": schema.SingleNestedAttribute{
+										MarkdownDescription: "Configuration parameter for property validation settings custom.",
+										Attributes: map[string]schema.Attribute{
+											"query_parameters": schema.SingleNestedAttribute{
+												MarkdownDescription: "Custom settings for query parameters validation.",
+												Attributes: map[string]schema.Attribute{
+													"allow_additional_parameters": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for allow additional parameters.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"disallow_additional_parameters": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for disallow additional parameters.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+									"property_validation_settings_default": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for property validation settings default.",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
+								Computed: true,
+							},
+							"validation_mode": schema.SingleNestedAttribute{
+								MarkdownDescription: "Validation mode of OpenAPI specification. When a validation mismatch occurs on a request to one of the endpoints listed on the OpenAPI specification file (a.k.a. Swagger).",
+								Attributes: map[string]schema.Attribute{
+									"response_validation_mode_active": schema.SingleNestedAttribute{
+										MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of response.",
+										Attributes: map[string]schema.Attribute{
+											"enforcement_block": schema.ObjectAttribute{
+												MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
+												Computed:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"enforcement_report": schema.ObjectAttribute{
+												MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
+												Computed:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"response_validation_properties": schema.ListAttribute{
+												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+												Computed:            true,
+												ElementType:         types.StringType,
+											},
+										},
+										Computed: true,
+									},
+									"skip_response_validation": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"skip_validation": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"validation_mode_active": schema.SingleNestedAttribute{
+										MarkdownDescription: "Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403.",
+										Attributes: map[string]schema.Attribute{
+											"enforcement_block": schema.ObjectAttribute{
+												MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
+												Computed:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"enforcement_report": schema.ObjectAttribute{
+												MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
+												Computed:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"request_validation_properties": schema.ListAttribute{
+												MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+												Computed:            true,
+												ElementType:         types.StringType,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"validation_custom_list": schema.SingleNestedAttribute{
+						MarkdownDescription: "Define API groups, base paths, or API endpoints and their OpenAPI validation modes. Any other API-endpoint not listed will act according to 'Fall Through Mode'.",
+						Attributes: map[string]schema.Attribute{
+							"fall_through_mode": schema.SingleNestedAttribute{
+								MarkdownDescription: "Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a. Swagger) or doesn't have a specific rule in custom rules).",
+								Attributes: map[string]schema.Attribute{
+									"fall_through_mode_allow": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for fall through mode allow.",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"fall_through_mode_custom": schema.SingleNestedAttribute{
+										MarkdownDescription: "Configuration parameter for fall through mode custom.",
+										Attributes: map[string]schema.Attribute{
+											"open_api_validation_rules": schema.ListNestedAttribute{
+												MarkdownDescription: "Custom Fall Through Rule List. Rule or policy definition",
+												NestedObject: schema.NestedAttributeObject{
+													Attributes: map[string]schema.Attribute{
+														"action_block": schema.ObjectAttribute{
+															MarkdownDescription: "Enable this option",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"action_report": schema.ObjectAttribute{
+															MarkdownDescription: "Enable this option",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"action_skip": schema.ObjectAttribute{
+															MarkdownDescription: "Enable this option",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"api_endpoint": schema.SingleNestedAttribute{
+															MarkdownDescription: "API Endpoint. This defines API endpoint.",
+															Attributes: map[string]schema.Attribute{
+																"methods": schema.ListAttribute{
+																	MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] Methods. Methods to be matched. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+																	Computed:            true,
+																	ElementType:         types.StringType,
+																},
+																"path": schema.StringAttribute{
+																	MarkdownDescription: "Path. Path to be matched.",
+																	Computed:            true,
+																},
+															},
+															Computed: true,
+														},
+														"api_group": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [api_endpoint base_path] The API group which this validation applies to.",
+															Computed:            true,
+														},
+														"base_path": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [api_endpoint api_group] The base path which this validation applies to.",
+															Computed:            true,
+														},
+														"metadata": schema.SingleNestedAttribute{
+															MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+															Attributes: map[string]schema.Attribute{
+																"description_spec": schema.StringAttribute{
+																	MarkdownDescription: "Description. Human readable description.",
+																	Computed:            true,
+																},
+																"name": schema.StringAttribute{
+																	MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+																	Computed:            true,
+																},
+															},
+															Computed: true,
+														},
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"open_api_validation_rules": schema.ListNestedAttribute{
+								MarkdownDescription: "Validation List. Rule or policy definition",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"any_domain": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"api_endpoint": schema.SingleNestedAttribute{
+											MarkdownDescription: "API Endpoint. This defines API endpoint.",
+											Attributes: map[string]schema.Attribute{
+												"methods": schema.ListAttribute{
+													MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] Methods. Methods to be matched. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"path": schema.StringAttribute{
+													MarkdownDescription: "Path. Path to be matched.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"api_group": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [api_endpoint base_path] The API group which this validation applies to.",
+											Computed:            true,
+										},
+										"base_path": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [api_endpoint api_group] The base path which this validation applies to.",
+											Computed:            true,
+										},
+										"metadata": schema.SingleNestedAttribute{
+											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+											Attributes: map[string]schema.Attribute{
+												"description_spec": schema.StringAttribute{
+													MarkdownDescription: "Description. Human readable description.",
+													Computed:            true,
+												},
+												"name": schema.StringAttribute{
+													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"specific_domain": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [any_domain] The rule will apply for a specific domain.",
+											Computed:            true,
+										},
+										"validation_mode": schema.SingleNestedAttribute{
+											MarkdownDescription: "Validation mode of OpenAPI specification. When a validation mismatch occurs on a request to one of the endpoints listed on the OpenAPI specification file (a.k.a. Swagger).",
+											Attributes: map[string]schema.Attribute{
+												"response_validation_mode_active": schema.SingleNestedAttribute{
+													MarkdownDescription: "Open API Validation Mode Active. Validation mode properties of response.",
+													Attributes: map[string]schema.Attribute{
+														"enforcement_block": schema.ObjectAttribute{
+															MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"enforcement_report": schema.ObjectAttribute{
+															MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"response_validation_properties": schema.ListAttribute{
+															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+															Computed:            true,
+															ElementType:         types.StringType,
+														},
+													},
+													Computed: true,
+												},
+												"skip_response_validation": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"skip_validation": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"validation_mode_active": schema.SingleNestedAttribute{
+													MarkdownDescription: "Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403.",
+													Attributes: map[string]schema.Attribute{
+														"enforcement_block": schema.ObjectAttribute{
+															MarkdownDescription: "Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403.",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"enforcement_report": schema.ObjectAttribute{
+															MarkdownDescription: "Report-only validation: record OpenAPI violations while allowing the request or response to continue.",
+															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"request_validation_properties": schema.ListAttribute{
+															MarkdownDescription: "[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger). Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`, `PROPERTY_RESPONSE_CODE`. Defaults to `PROPERTY_QUERY_PARAMETERS`.",
+															Computed:            true,
+															ElementType:         types.StringType,
+														},
+													},
+													Computed: true,
+												},
+											},
+											Computed: true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"settings": schema.SingleNestedAttribute{
+								MarkdownDescription: "OpenAPI specification validation settings relevant for 'API Inventory' enforcement and for 'Custom list' enforcement.",
+								Attributes: map[string]schema.Attribute{
+									"oversized_body_fail_validation": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"oversized_body_skip_validation": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"property_validation_settings_custom": schema.SingleNestedAttribute{
+										MarkdownDescription: "Configuration parameter for property validation settings custom.",
+										Attributes: map[string]schema.Attribute{
+											"query_parameters": schema.SingleNestedAttribute{
+												MarkdownDescription: "Custom settings for query parameters validation.",
+												Attributes: map[string]schema.Attribute{
+													"allow_additional_parameters": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for allow additional parameters.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"disallow_additional_parameters": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for disallow additional parameters.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+									"property_validation_settings_default": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for property validation settings default.",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"validation_disabled": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
 			},
 			"bigip_hostname": schema.StringAttribute{
 				MarkdownDescription: "Hostname. BIG-IP Hostname.",
@@ -98,33 +1180,248 @@ func (d *BigIPVirtualServerDataSource) Schema(ctx context.Context, req datasourc
 				MarkdownDescription: "Description. BIG-IP Virtual Server Description.",
 				Computed:            true,
 			},
-			"default_sensitive_data_policy": schema.StringAttribute{
+			"default_sensitive_data_policy": schema.ObjectAttribute{
 				MarkdownDescription: "Policy configuration for this feature.",
 				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
-			"disable_api_definition": schema.StringAttribute{
+			"disable_api_definition": schema.ObjectAttribute{
 				MarkdownDescription: "Enable this option",
 				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
-			"disable_api_discovery": schema.StringAttribute{
+			"disable_api_discovery": schema.ObjectAttribute{
 				MarkdownDescription: "Enable this option",
 				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
-			"enable_api_discovery": schema.StringAttribute{
+			"enable_api_discovery": schema.SingleNestedAttribute{
 				MarkdownDescription: "Specifies the settings used for API discovery.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"api_crawler": schema.SingleNestedAttribute{
+						MarkdownDescription: "API Crawling. API Crawler message.",
+						Attributes: map[string]schema.Attribute{
+							"api_crawler_config": schema.SingleNestedAttribute{
+								MarkdownDescription: "Crawler Configure.",
+								Attributes: map[string]schema.Attribute{
+									"domains": schema.ListNestedAttribute{
+										MarkdownDescription: "Enter domains and their credentials to allow authenticated API crawling. You can only include domains you own that are associated with this Load Balancer.",
+										NestedObject: schema.NestedAttributeObject{
+											Attributes: map[string]schema.Attribute{
+												"domain": schema.StringAttribute{
+													MarkdownDescription: "Select the domain to execute API Crawling with given credentials.",
+													Computed:            true,
+												},
+												"simple_login": schema.SingleNestedAttribute{
+													MarkdownDescription: "Configuration parameter for simple login.",
+													Attributes: map[string]schema.Attribute{
+														"password": schema.SingleNestedAttribute{
+															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Attributes: map[string]schema.Attribute{
+																"blindfold_secret_info": schema.SingleNestedAttribute{
+																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	Attributes: map[string]schema.Attribute{
+																		"decryption_provider": schema.StringAttribute{
+																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+																			Computed:            true,
+																		},
+																		"location": schema.StringAttribute{
+																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+																			Computed:            true,
+																			Sensitive:           true,
+																		},
+																		"store_provider": schema.StringAttribute{
+																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																			Computed:            true,
+																		},
+																	},
+																	Computed: true,
+																},
+																"clear_secret_info": schema.SingleNestedAttribute{
+																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	Attributes: map[string]schema.Attribute{
+																		"provider_ref": schema.StringAttribute{
+																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																			Computed:            true,
+																		},
+																		"url": schema.StringAttribute{
+																			MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+																			Computed:            true,
+																			Sensitive:           true,
+																		},
+																	},
+																	Computed: true,
+																},
+															},
+															Computed: true,
+														},
+														"user": schema.StringAttribute{
+															MarkdownDescription: "Enter the username to assign credentials for the selected domain to crawl.",
+															Computed:            true,
+														},
+													},
+													Computed: true,
+												},
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"disable_api_crawler": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"api_discovery_from_code_scan": schema.SingleNestedAttribute{
+						MarkdownDescription: "Select Code Base and Repositories.",
+						Attributes: map[string]schema.Attribute{
+							"code_base_integrations": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for code base integrations.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"all_repos": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"code_base_integration": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"selected_repos": schema.SingleNestedAttribute{
+											MarkdownDescription: "Select which API repositories represent the LB applications.",
+											Attributes: map[string]schema.Attribute{
+												"api_code_repo": schema.ListAttribute{
+													MarkdownDescription: "Code repository which contain API endpoints.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"custom_api_auth_discovery": schema.SingleNestedAttribute{
+						MarkdownDescription: "API Discovery Advanced Settings. API Discovery Advanced settings.",
+						Attributes: map[string]schema.Attribute{
+							"api_discovery_ref": schema.SingleNestedAttribute{
+								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Attributes: map[string]schema.Attribute{
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Computed:            true,
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Computed:            true,
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"default_api_auth_discovery": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_learn_from_redirect_traffic": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable learn from redirect traffic.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"discovered_api_settings": schema.SingleNestedAttribute{
+						MarkdownDescription: "Discovered API Settings. Configure Discovered API Settings.",
+						Attributes: map[string]schema.Attribute{
+							"purge_duration_for_inactive_discovered_apis": schema.Int64Attribute{
+								MarkdownDescription: "Inactive discovered API will be deleted after configured duration.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"enable_learn_from_redirect_traffic": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for enable learn from redirect traffic.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
 			},
-			"sensitive_data_policy": schema.StringAttribute{
+			"sensitive_data_policy": schema.SingleNestedAttribute{
 				MarkdownDescription: "Policy configuration for this feature.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"sensitive_data_policy_ref": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
 			},
 			"server_name": schema.StringAttribute{
 				MarkdownDescription: "Server Name. Virtual Server name.",
 				Computed:            true,
 			},
-			"service_discovery": schema.StringAttribute{
+			"service_discovery": schema.SingleNestedAttribute{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+						Computed:            true,
+					},
+					"tenant": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
 			},
 			"type": schema.StringAttribute{
 				MarkdownDescription: "[Enum: INVALID_VIRTUAL_SERVER|BIGIP_VIRTUAL_SERVER] VirtualServerType could be of type classic BIG-IP or BIG-IP-NEXT. BIG-IP-NEXT will be added later. Specifies the virtual server type Invalid Virtual Server Type Classic BIG-IP Virtual Server. Possible values are `INVALID_VIRTUAL_SERVER`, `BIGIP_VIRTUAL_SERVER`. Defaults to `INVALID_VIRTUAL_SERVER`.",
@@ -192,65 +1489,1122 @@ func (d *BigIPVirtualServerDataSource) Read(ctx context.Context, req datasource.
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["api_specification"]; ok && v != nil {
-		data.APISpecification = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.APISpecification = types.StringNull()
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["api_specification"].(map[string]interface{}); ok && (isImport || data.APISpecification != nil) {
+		data.APISpecification = &BigIPVirtualServerAPISpecificationModel{
+			APIDefinition: func() *BigIPVirtualServerAPISpecificationAPIDefinitionModel {
+				if APIDefinitionData, ok := blockData["api_definition"].(map[string]interface{}); ok {
+					return &BigIPVirtualServerAPISpecificationAPIDefinitionModel{
+						Name: func() types.String {
+							if v, ok := APIDefinitionData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := APIDefinitionData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := APIDefinitionData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ValidationAllSpecEndpoints: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModel {
+				if ValidationAllSpecEndpointsData, ok := blockData["validation_all_spec_endpoints"].(map[string]interface{}); ok {
+					return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsModel{
+						FallThroughMode: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel {
+							if FallThroughModeData, ok := ValidationAllSpecEndpointsData["fall_through_mode"].(map[string]interface{}); ok {
+								return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeModel{
+									FallThroughModeAllow: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeAllow.IsUnknown() {
+											return data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeAllow
+										}
+										if _, ok := FallThroughModeData["fall_through_mode_allow"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									FallThroughModeCustom: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel {
+										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
+											return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomModel{
+												OpenAPIValidationRules: func() types.List {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil && (data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+													}
+													var OpenAPIValidationRulesExisting []BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode != nil && data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom != nil && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+														data.APISpecification.ValidationAllSpecEndpoints.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+													}
+													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
+														var OpenAPIValidationRulesResult []BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+														for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+															_ = OpenAPIValidationRulesIdx
+															if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
+																OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel{
+																	ActionBlock: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock
+																		}
+																		if _, ok := OpenAPIValidationRulesItemMap["action_block"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	ActionReport: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport
+																		}
+																		if _, ok := OpenAPIValidationRulesItemMap["action_report"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	ActionSkip: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip
+																		}
+																		if _, ok := OpenAPIValidationRulesItemMap["action_skip"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	APIEndpoint: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel {
+																		if APIEndpointData, ok := OpenAPIValidationRulesItemMap["api_endpoint"].(map[string]interface{}); ok {
+																			return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel{
+																				Methods: func() types.List {
+																					if v, ok := APIEndpointData["methods"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																				Path: func() types.String {
+																					if v, ok := APIEndpointData["path"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	APIGroup: func() types.String {
+																		if v, ok := OpenAPIValidationRulesItemMap["api_group"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	BasePath: func() types.String {
+																		if v, ok := OpenAPIValidationRulesItemMap["base_path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Metadata: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel {
+																		if MetadataData, ok := OpenAPIValidationRulesItemMap["metadata"].(map[string]interface{}); ok {
+																			return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel{
+																				DescriptionSpec: func() types.String {
+																					if v, ok := MetadataData["description"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := MetadataData["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Settings: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModel {
+							if SettingsData, ok := ValidationAllSpecEndpointsData["settings"].(map[string]interface{}); ok {
+								return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsModel{
+									OversizedBodyFailValidation: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && !data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodyFailValidation.IsUnknown() {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodyFailValidation
+										}
+										if _, ok := SettingsData["oversized_body_fail_validation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									OversizedBodySkipValidation: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && !data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodySkipValidation.IsUnknown() {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.OversizedBodySkipValidation
+										}
+										if _, ok := SettingsData["oversized_body_skip_validation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									PropertyValidationSettingsCustom: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel {
+										if PropertyValidationSettingsCustomData, ok := SettingsData["property_validation_settings_custom"].(map[string]interface{}); ok {
+											return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomModel{
+												Queryparameters: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel {
+													if QueryparametersData, ok := PropertyValidationSettingsCustomData["queryParameters"].(map[string]interface{}); ok {
+														return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsSettingsPropertyValidationSettingsCustomQueryParametersModel{
+															AllowAdditionalParameters: func() types.Object {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil && !data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters.IsUnknown() {
+																	return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters
+																}
+																if _, ok := QueryparametersData["allow_additional_parameters"].(map[string]interface{}); ok {
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																}
+																return types.ObjectNull(map[string]attr.Type{})
+															}(),
+															DisallowAdditionalParameters: func() types.Object {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters != nil && !data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters.IsUnknown() {
+																	return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters
+																}
+																if _, ok := QueryparametersData["disallow_additional_parameters"].(map[string]interface{}); ok {
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																}
+																return types.ObjectNull(map[string]attr.Type{})
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									PropertyValidationSettingsDefault: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.Settings != nil && !data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsDefault.IsUnknown() {
+											return data.APISpecification.ValidationAllSpecEndpoints.Settings.PropertyValidationSettingsDefault
+										}
+										if _, ok := SettingsData["property_validation_settings_default"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ValidationMode: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModel {
+							if ValidationModeData, ok := ValidationAllSpecEndpointsData["validation_mode"].(map[string]interface{}); ok {
+								return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeModel{
+									ResponseValidationModeActive: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel {
+										if ResponseValidationModeActiveData, ok := ValidationModeData["response_validation_mode_active"].(map[string]interface{}); ok {
+											return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeResponseValidationModeActiveModel{
+												EnforcementBlock: func() types.Object {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementBlock.IsUnknown() {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementBlock
+													}
+													if _, ok := ResponseValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+													}
+													return types.ObjectNull(map[string]attr.Type{})
+												}(),
+												EnforcementReport: func() types.Object {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive != nil && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementReport.IsUnknown() {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ResponseValidationModeActive.EnforcementReport
+													}
+													if _, ok := ResponseValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+													}
+													return types.ObjectNull(map[string]attr.Type{})
+												}(),
+												ResponseValidationProperties: func() types.List {
+													if v, ok := ResponseValidationModeActiveData["response_validation_properties"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+									SkipResponseValidation: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipResponseValidation.IsUnknown() {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipResponseValidation
+										}
+										if _, ok := ValidationModeData["skip_response_validation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									SkipValidation: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipValidation.IsUnknown() {
+											return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.SkipValidation
+										}
+										if _, ok := ValidationModeData["skip_validation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									ValidationModeActive: func() *BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel {
+										if ValidationModeActiveData, ok := ValidationModeData["validation_mode_active"].(map[string]interface{}); ok {
+											return &BigIPVirtualServerAPISpecificationValidationAllSpecEndpointsValidationModeValidationModeActiveModel{
+												EnforcementBlock: func() types.Object {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementBlock.IsUnknown() {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementBlock
+													}
+													if _, ok := ValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+													}
+													return types.ObjectNull(map[string]attr.Type{})
+												}(),
+												EnforcementReport: func() types.Object {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationAllSpecEndpoints != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode != nil && data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive != nil && !data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementReport.IsUnknown() {
+														return data.APISpecification.ValidationAllSpecEndpoints.ValidationMode.ValidationModeActive.EnforcementReport
+													}
+													if _, ok := ValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+													}
+													return types.ObjectNull(map[string]attr.Type{})
+												}(),
+												RequestValidationProperties: func() types.List {
+													if v, ok := ValidationModeActiveData["request_validation_properties"].([]interface{}); ok && len(v) > 0 {
+														var items []string
+														for _, item := range v {
+															if s, ok := item.(string); ok {
+																items = append(items, s)
+															}
+														}
+														listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+														resp.Diagnostics.Append(diags...)
+														return listVal
+													}
+													return types.ListNull(types.StringType)
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ValidationCustomList: func() *BigIPVirtualServerAPISpecificationValidationCustomListModel {
+				if ValidationCustomListData, ok := blockData["validation_custom_list"].(map[string]interface{}); ok {
+					return &BigIPVirtualServerAPISpecificationValidationCustomListModel{
+						FallThroughMode: func() *BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModel {
+							if FallThroughModeData, ok := ValidationCustomListData["fall_through_mode"].(map[string]interface{}); ok {
+								return &BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeModel{
+									FallThroughModeAllow: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeAllow.IsUnknown() {
+											return data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeAllow
+										}
+										if _, ok := FallThroughModeData["fall_through_mode_allow"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									FallThroughModeCustom: func() *BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel {
+										if FallThroughModeCustomData, ok := FallThroughModeData["fall_through_mode_custom"].(map[string]interface{}); ok {
+											return &BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomModel{
+												OpenAPIValidationRules: func() types.List {
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil && (data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+													}
+													var OpenAPIValidationRulesExisting []BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+													if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.FallThroughMode != nil && data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom != nil && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.IsUnknown() {
+														data.APISpecification.ValidationCustomList.FallThroughMode.FallThroughModeCustom.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+													}
+													if rawList, ok := FallThroughModeCustomData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
+														var OpenAPIValidationRulesResult []BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel
+														for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+															_ = OpenAPIValidationRulesIdx
+															if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
+																OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModel{
+																	ActionBlock: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionBlock
+																		}
+																		if _, ok := OpenAPIValidationRulesItemMap["action_block"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	ActionReport: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionReport
+																		}
+																		if _, ok := OpenAPIValidationRulesItemMap["action_report"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	ActionSkip: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ActionSkip
+																		}
+																		if _, ok := OpenAPIValidationRulesItemMap["action_skip"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	APIEndpoint: func() *BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel {
+																		if APIEndpointData, ok := OpenAPIValidationRulesItemMap["api_endpoint"].(map[string]interface{}); ok {
+																			return &BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesAPIEndpointModel{
+																				Methods: func() types.List {
+																					if v, ok := APIEndpointData["methods"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																				Path: func() types.String {
+																					if v, ok := APIEndpointData["path"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	APIGroup: func() types.String {
+																		if v, ok := OpenAPIValidationRulesItemMap["api_group"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	BasePath: func() types.String {
+																		if v, ok := OpenAPIValidationRulesItemMap["base_path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Metadata: func() *BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel {
+																		if MetadataData, ok := OpenAPIValidationRulesItemMap["metadata"].(map[string]interface{}); ok {
+																			return &BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesMetadataModel{
+																				DescriptionSpec: func() types.String {
+																					if v, ok := MetadataData["description"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																				Name: func() types.String {
+																					if v, ok := MetadataData["name"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListFallThroughModeFallThroughModeCustomOpenAPIValidationRulesModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						OpenAPIValidationRules: func() types.List {
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && (data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() || len(data.APISpecification.ValidationCustomList.OpenAPIValidationRules.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
+							}
+							var OpenAPIValidationRulesExisting []BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
+							if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsNull() && !data.APISpecification.ValidationCustomList.OpenAPIValidationRules.IsUnknown() {
+								data.APISpecification.ValidationCustomList.OpenAPIValidationRules.ElementsAs(ctx, &OpenAPIValidationRulesExisting, false)
+							}
+							if rawList, ok := ValidationCustomListData["open_api_validation_rules"].([]interface{}); ok && len(rawList) > 0 {
+								var OpenAPIValidationRulesResult []BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModel
+								for OpenAPIValidationRulesIdx, OpenAPIValidationRulesItem := range rawList {
+									_ = OpenAPIValidationRulesIdx
+									if OpenAPIValidationRulesItemMap, ok := OpenAPIValidationRulesItem.(map[string]interface{}); ok {
+										OpenAPIValidationRulesResult = append(OpenAPIValidationRulesResult, BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModel{
+											AnyDomain: func() types.Object {
+												if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].AnyDomain.IsUnknown() {
+													return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].AnyDomain
+												}
+												if _, ok := OpenAPIValidationRulesItemMap["any_domain"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											APIEndpoint: func() *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModel {
+												if APIEndpointData, ok := OpenAPIValidationRulesItemMap["api_endpoint"].(map[string]interface{}); ok {
+													return &BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesAPIEndpointModel{
+														Methods: func() types.List {
+															if v, ok := APIEndpointData["methods"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														Path: func() types.String {
+															if v, ok := APIEndpointData["path"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											APIGroup: func() types.String {
+												if v, ok := OpenAPIValidationRulesItemMap["api_group"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											BasePath: func() types.String {
+												if v, ok := OpenAPIValidationRulesItemMap["base_path"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Metadata: func() *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModel {
+												if MetadataData, ok := OpenAPIValidationRulesItemMap["metadata"].(map[string]interface{}); ok {
+													return &BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesMetadataModel{
+														DescriptionSpec: func() types.String {
+															if v, ok := MetadataData["description"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Name: func() types.String {
+															if v, ok := MetadataData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											SpecificDomain: func() types.String {
+												if v, ok := OpenAPIValidationRulesItemMap["specific_domain"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											ValidationMode: func() *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel {
+												if ValidationModeData, ok := OpenAPIValidationRulesItemMap["validation_mode"].(map[string]interface{}); ok {
+													return &BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeModel{
+														ResponseValidationModeActive: func() *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel {
+															if ResponseValidationModeActiveData, ok := ValidationModeData["response_validation_mode_active"].(map[string]interface{}); ok {
+																return &BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeResponseValidationModeActiveModel{
+																	EnforcementBlock: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementBlock.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementBlock
+																		}
+																		if _, ok := ResponseValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	EnforcementReport: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive != nil && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementReport.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ResponseValidationModeActive.EnforcementReport
+																		}
+																		if _, ok := ResponseValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	ResponseValidationProperties: func() types.List {
+																		if v, ok := ResponseValidationModeActiveData["response_validation_properties"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														SkipResponseValidation: func() types.Object {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipResponseValidation.IsUnknown() {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipResponseValidation
+															}
+															if _, ok := ValidationModeData["skip_response_validation"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														SkipValidation: func() types.Object {
+															if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipValidation.IsUnknown() {
+																return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.SkipValidation
+															}
+															if _, ok := ValidationModeData["skip_validation"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														ValidationModeActive: func() *BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel {
+															if ValidationModeActiveData, ok := ValidationModeData["validation_mode_active"].(map[string]interface{}); ok {
+																return &BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesValidationModeValidationModeActiveModel{
+																	EnforcementBlock: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementBlock.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementBlock
+																		}
+																		if _, ok := ValidationModeActiveData["enforcement_block"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	EnforcementReport: func() types.Object {
+																		if !isImport && len(OpenAPIValidationRulesExisting) > OpenAPIValidationRulesIdx && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode != nil && OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive != nil && !OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementReport.IsUnknown() {
+																			return OpenAPIValidationRulesExisting[OpenAPIValidationRulesIdx].ValidationMode.ValidationModeActive.EnforcementReport
+																		}
+																		if _, ok := ValidationModeActiveData["enforcement_report"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	RequestValidationProperties: func() types.List {
+																		if v, ok := ValidationModeActiveData["request_validation_properties"].([]interface{}); ok && len(v) > 0 {
+																			var items []string
+																			for _, item := range v {
+																				if s, ok := item.(string); ok {
+																					items = append(items, s)
+																				}
+																			}
+																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																			resp.Diagnostics.Append(diags...)
+																			return listVal
+																		}
+																		return types.ListNull(types.StringType)
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes}, OpenAPIValidationRulesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerAPISpecificationValidationCustomListOpenAPIValidationRulesModelAttrTypes})
+						}(),
+						Settings: func() *BigIPVirtualServerAPISpecificationValidationCustomListSettingsModel {
+							if SettingsData, ok := ValidationCustomListData["settings"].(map[string]interface{}); ok {
+								return &BigIPVirtualServerAPISpecificationValidationCustomListSettingsModel{
+									OversizedBodyFailValidation: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && !data.APISpecification.ValidationCustomList.Settings.OversizedBodyFailValidation.IsUnknown() {
+											return data.APISpecification.ValidationCustomList.Settings.OversizedBodyFailValidation
+										}
+										if _, ok := SettingsData["oversized_body_fail_validation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									OversizedBodySkipValidation: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && !data.APISpecification.ValidationCustomList.Settings.OversizedBodySkipValidation.IsUnknown() {
+											return data.APISpecification.ValidationCustomList.Settings.OversizedBodySkipValidation
+										}
+										if _, ok := SettingsData["oversized_body_skip_validation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									PropertyValidationSettingsCustom: func() *BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel {
+										if PropertyValidationSettingsCustomData, ok := SettingsData["property_validation_settings_custom"].(map[string]interface{}); ok {
+											return &BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomModel{
+												Queryparameters: func() *BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel {
+													if QueryparametersData, ok := PropertyValidationSettingsCustomData["queryParameters"].(map[string]interface{}); ok {
+														return &BigIPVirtualServerAPISpecificationValidationCustomListSettingsPropertyValidationSettingsCustomQueryParametersModel{
+															AllowAdditionalParameters: func() types.Object {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil && !data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters.IsUnknown() {
+																	return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.AllowAdditionalParameters
+																}
+																if _, ok := QueryparametersData["allow_additional_parameters"].(map[string]interface{}); ok {
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																}
+																return types.ObjectNull(map[string]attr.Type{})
+															}(),
+															DisallowAdditionalParameters: func() types.Object {
+																if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom != nil && data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters != nil && !data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters.IsUnknown() {
+																	return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsCustom.Queryparameters.DisallowAdditionalParameters
+																}
+																if _, ok := QueryparametersData["disallow_additional_parameters"].(map[string]interface{}); ok {
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																}
+																return types.ObjectNull(map[string]attr.Type{})
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+									PropertyValidationSettingsDefault: func() types.Object {
+										if !isImport && data.APISpecification != nil && data.APISpecification.ValidationCustomList != nil && data.APISpecification.ValidationCustomList.Settings != nil && !data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsDefault.IsUnknown() {
+											return data.APISpecification.ValidationCustomList.Settings.PropertyValidationSettingsDefault
+										}
+										if _, ok := SettingsData["property_validation_settings_default"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ValidationDisabled: func() types.Object {
+				if !isImport && data.APISpecification != nil && !data.APISpecification.ValidationDisabled.IsUnknown() {
+					return data.APISpecification.ValidationDisabled
+				}
+				if _, ok := blockData["validation_disabled"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["bigip_hostname"]; ok && v != nil {
-		data.BigIPHostname = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["bigip_hostname"].(string); ok && v != "" {
+		data.BigIPHostname = types.StringValue(v)
 	} else {
 		data.BigIPHostname = types.StringNull()
 	}
-	if v, ok := resource.Spec["bigip_version"]; ok && v != nil {
-		data.BigIPVersion = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["bigip_version"].(string); ok && v != "" {
+		data.BigIPVersion = types.StringValue(v)
 	} else {
 		data.BigIPVersion = types.StringNull()
 	}
-	if v, ok := resource.Spec["bigip_vs_description"]; ok && v != nil {
-		data.BigIPVsDescription = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["bigip_vs_description"].(string); ok && v != "" {
+		data.BigIPVsDescription = types.StringValue(v)
 	} else {
 		data.BigIPVsDescription = types.StringNull()
 	}
-	if v, ok := resource.Spec["default_sensitive_data_policy"]; ok && v != nil {
-		data.DefaultSensitiveDataPolicy = types.StringValue(fmt.Sprintf("%v", v))
+	if !isImport && !data.DefaultSensitiveDataPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_sensitive_data_policy"].(map[string]interface{}); ok {
+		data.DefaultSensitiveDataPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 	} else {
-		data.DefaultSensitiveDataPolicy = types.StringNull()
+		data.DefaultSensitiveDataPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
-	if v, ok := resource.Spec["disable_api_definition"]; ok && v != nil {
-		data.DisableAPIDefinition = types.StringValue(fmt.Sprintf("%v", v))
+	if !isImport && !data.DisableAPIDefinition.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_api_definition"].(map[string]interface{}); ok {
+		data.DisableAPIDefinition = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 	} else {
-		data.DisableAPIDefinition = types.StringNull()
+		data.DisableAPIDefinition = types.ObjectNull(map[string]attr.Type{})
 	}
-	if v, ok := resource.Spec["disable_api_discovery"]; ok && v != nil {
-		data.DisableAPIDiscovery = types.StringValue(fmt.Sprintf("%v", v))
+	if !isImport && !data.DisableAPIDiscovery.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_api_discovery"].(map[string]interface{}); ok {
+		data.DisableAPIDiscovery = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 	} else {
-		data.DisableAPIDiscovery = types.StringNull()
+		data.DisableAPIDiscovery = types.ObjectNull(map[string]attr.Type{})
 	}
-	if v, ok := resource.Spec["enable_api_discovery"]; ok && v != nil {
-		data.EnableAPIDiscovery = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.EnableAPIDiscovery = types.StringNull()
+	if blockData, ok := apiResource.Spec["enable_api_discovery"].(map[string]interface{}); ok && (isImport || data.EnableAPIDiscovery != nil) {
+		data.EnableAPIDiscovery = &BigIPVirtualServerEnableAPIDiscoveryModel{
+			APICrawler: func() *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModel {
+				if APICrawlerData, ok := blockData["api_crawler"].(map[string]interface{}); ok {
+					return &BigIPVirtualServerEnableAPIDiscoveryAPICrawlerModel{
+						APICrawlerConfig: func() *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel {
+							if APICrawlerConfigData, ok := APICrawlerData["api_crawler_config"].(map[string]interface{}); ok {
+								return &BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigModel{
+									Domains: func() types.List {
+										if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil && (data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() || len(data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes})
+										}
+										var DomainsExisting []BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
+										if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && data.EnableAPIDiscovery.APICrawler.APICrawlerConfig != nil && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsNull() && !data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.IsUnknown() {
+											data.EnableAPIDiscovery.APICrawler.APICrawlerConfig.Domains.ElementsAs(ctx, &DomainsExisting, false)
+										}
+										if rawList, ok := APICrawlerConfigData["domains"].([]interface{}); ok && len(rawList) > 0 {
+											var DomainsResult []BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel
+											for DomainsIdx, DomainsItem := range rawList {
+												_ = DomainsIdx
+												if DomainsItemMap, ok := DomainsItem.(map[string]interface{}); ok {
+													DomainsResult = append(DomainsResult, BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModel{
+														Domain: func() types.String {
+															if v, ok := DomainsItemMap["domain"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														SimpleLogin: func() *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel {
+															if SimpleLoginData, ok := DomainsItemMap["simple_login"].(map[string]interface{}); ok {
+																return &BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginModel{
+																	Password: func() *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel {
+																		if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
+																			return &BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordModel{
+																				BlindfoldSecretInfo: func() *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+																					if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																						return &BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
+																							DecryptionProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							Location: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							StoreProvider: func() types.String {
+																								if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																				ClearSecretInfo: func() *BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel {
+																					if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																						return &BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsSimpleLoginPasswordClearSecretInfoModel{
+																							Provider: func() types.String {
+																								if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																							URL: func() types.String {
+																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																									return types.StringValue(v)
+																								}
+																								return types.StringNull()
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	User: func() types.String {
+																		if v, ok := SimpleLoginData["user"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes}, DomainsResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPICrawlerAPICrawlerConfigDomainsModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						DisableAPICrawler: func() types.Object {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APICrawler != nil && !data.EnableAPIDiscovery.APICrawler.DisableAPICrawler.IsUnknown() {
+								return data.EnableAPIDiscovery.APICrawler.DisableAPICrawler
+							}
+							if _, ok := APICrawlerData["disable_api_crawler"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			APIDiscoveryFromCodeScan: func() *BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel {
+				if APIDiscoveryFromCodeScanData, ok := blockData["api_discovery_from_code_scan"].(map[string]interface{}); ok {
+					return &BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanModel{
+						CodeBaseIntegrations: func() types.List {
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil && (data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsNull() || len(data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes})
+							}
+							var CodeBaseIntegrationsExisting []BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
+							if !isImport && data.EnableAPIDiscovery != nil && data.EnableAPIDiscovery.APIDiscoveryFromCodeScan != nil && !data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsNull() && !data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.IsUnknown() {
+								data.EnableAPIDiscovery.APIDiscoveryFromCodeScan.CodeBaseIntegrations.ElementsAs(ctx, &CodeBaseIntegrationsExisting, false)
+							}
+							if rawList, ok := APIDiscoveryFromCodeScanData["code_base_integrations"].([]interface{}); ok && len(rawList) > 0 {
+								var CodeBaseIntegrationsResult []BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel
+								for CodeBaseIntegrationsIdx, CodeBaseIntegrationsItem := range rawList {
+									_ = CodeBaseIntegrationsIdx
+									if CodeBaseIntegrationsItemMap, ok := CodeBaseIntegrationsItem.(map[string]interface{}); ok {
+										CodeBaseIntegrationsResult = append(CodeBaseIntegrationsResult, BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModel{
+											AllRepos: func() types.Object {
+												if !isImport && len(CodeBaseIntegrationsExisting) > CodeBaseIntegrationsIdx && !CodeBaseIntegrationsExisting[CodeBaseIntegrationsIdx].AllRepos.IsUnknown() {
+													return CodeBaseIntegrationsExisting[CodeBaseIntegrationsIdx].AllRepos
+												}
+												if _, ok := CodeBaseIntegrationsItemMap["all_repos"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											CodeBaseIntegration: func() *BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModel {
+												if CodeBaseIntegrationData, ok := CodeBaseIntegrationsItemMap["code_base_integration"].(map[string]interface{}); ok {
+													return &BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsCodeBaseIntegrationModel{
+														Name: func() types.String {
+															if v, ok := CodeBaseIntegrationData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := CodeBaseIntegrationData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := CodeBaseIntegrationData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											SelectedRepos: func() *BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModel {
+												if SelectedReposData, ok := CodeBaseIntegrationsItemMap["selected_repos"].(map[string]interface{}); ok {
+													return &BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsSelectedReposModel{
+														APICodeRepo: func() types.List {
+															if v, ok := SelectedReposData["api_code_repo"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes}, CodeBaseIntegrationsResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: BigIPVirtualServerEnableAPIDiscoveryAPIDiscoveryFromCodeScanCodeBaseIntegrationsModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			CustomAPIAuthDiscovery: func() *BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel {
+				if CustomAPIAuthDiscoveryData, ok := blockData["custom_api_auth_discovery"].(map[string]interface{}); ok {
+					return &BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryModel{
+						APIDiscoveryRef: func() *BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel {
+							if APIDiscoveryRefData, ok := CustomAPIAuthDiscoveryData["api_discovery_ref"].(map[string]interface{}); ok {
+								return &BigIPVirtualServerEnableAPIDiscoveryCustomAPIAuthDiscoveryAPIDiscoveryRefModel{
+									Name: func() types.String {
+										if v, ok := APIDiscoveryRefData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := APIDiscoveryRefData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := APIDiscoveryRefData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultAPIAuthDiscovery: func() types.Object {
+				if !isImport && data.EnableAPIDiscovery != nil && !data.EnableAPIDiscovery.DefaultAPIAuthDiscovery.IsUnknown() {
+					return data.EnableAPIDiscovery.DefaultAPIAuthDiscovery
+				}
+				if _, ok := blockData["default_api_auth_discovery"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableLearnFromRedirectTraffic: func() types.Object {
+				if !isImport && data.EnableAPIDiscovery != nil && !data.EnableAPIDiscovery.DisableLearnFromRedirectTraffic.IsUnknown() {
+					return data.EnableAPIDiscovery.DisableLearnFromRedirectTraffic
+				}
+				if _, ok := blockData["disable_learn_from_redirect_traffic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DiscoveredAPISettings: func() *BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModel {
+				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
+					return &BigIPVirtualServerEnableAPIDiscoveryDiscoveredAPISettingsModel{
+						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			EnableLearnFromRedirectTraffic: func() types.Object {
+				if !isImport && data.EnableAPIDiscovery != nil && !data.EnableAPIDiscovery.EnableLearnFromRedirectTraffic.IsUnknown() {
+					return data.EnableAPIDiscovery.EnableLearnFromRedirectTraffic
+				}
+				if _, ok := blockData["enable_learn_from_redirect_traffic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["sensitive_data_policy"]; ok && v != nil {
-		data.SensitiveDataPolicy = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.SensitiveDataPolicy = types.StringNull()
+	if blockData, ok := apiResource.Spec["sensitive_data_policy"].(map[string]interface{}); ok && (isImport || data.SensitiveDataPolicy != nil) {
+		data.SensitiveDataPolicy = &BigIPVirtualServerSensitiveDataPolicyModel{
+			SensitiveDataPolicyRef: func() *BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModel {
+				if SensitiveDataPolicyRefData, ok := blockData["sensitive_data_policy_ref"].(map[string]interface{}); ok {
+					return &BigIPVirtualServerSensitiveDataPolicySensitiveDataPolicyRefModel{
+						Name: func() types.String {
+							if v, ok := SensitiveDataPolicyRefData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := SensitiveDataPolicyRefData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := SensitiveDataPolicyRefData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["server_name"]; ok && v != nil {
-		data.ServerName = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
+		data.ServerName = types.StringValue(v)
 	} else {
 		data.ServerName = types.StringNull()
 	}
-	if v, ok := resource.Spec["service_discovery"]; ok && v != nil {
-		data.ServiceDiscovery = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.ServiceDiscovery = types.StringNull()
+	if blockData, ok := apiResource.Spec["service_discovery"].(map[string]interface{}); ok && (isImport || data.ServiceDiscovery != nil) {
+		data.ServiceDiscovery = &BigIPVirtualServerServiceDiscoveryModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Tenant: func() types.String {
+				if v, ok := blockData["tenant"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["type"]; ok && v != nil {
-		data.Type = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["type"].(string); ok && v != "" {
+		data.Type = types.StringValue(v)
 	} else {
 		data.Type = types.StringNull()
 	}

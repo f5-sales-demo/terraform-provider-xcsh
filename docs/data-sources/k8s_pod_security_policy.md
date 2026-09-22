@@ -64,6 +64,114 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="psp-spec"></a>&#x2022; [`psp_spec`](#psp-spec) - Optional String<br>Pod Security Policy Specification. Form based pod security specification
+
+<a id="yaml"></a>&#x2022; [`yaml`](#yaml) - Optional String<br>K8S YAML for Pod Security Policy
+
+<a id="allow-privilege-escalation"></a>&#x2022; [`allow_privilege_escalation`](#allow-privilege-escalation) - Optional Bool<br>Pod can request to privilege escalation
+
+<a id="allowed-capabilities"></a>&#x2022; [`allowed_capabilities`](#allowed-capabilities) - Optional String<br>List of capabilities that Docker container has
+
+<a id="allowed-csi-drivers"></a>&#x2022; [`allowed_csi_drivers`](#allowed-csi-drivers) - Optional List<br>Restrict the available CSI drivers for POD, default all drivers are available
+
+<a id="allowed-flex-volumes"></a>&#x2022; [`allowed_flex_volumes`](#allowed-flex-volumes) - Optional List<br>Restrict list of Flex volumes, default all volumes are allowed
+
+<a id="allowed-host-paths"></a>&#x2022; [`allowed_host_paths`](#allowed-host-paths) - Optional List<br>Restrict list of host paths, default all host paths are allowed
+
+<a id="allowed-proc-mounts"></a>&#x2022; [`allowed_proc_mounts`](#allowed-proc-mounts) - Optional List<br>Allowed list of proc mounts, empty list allows default proc mounts
+
+<a id="allowed-unsafe-sysctls"></a>&#x2022; [`allowed_unsafe_sysctls`](#allowed-unsafe-sysctls) - Optional List<br>Allowed list of unsafe sysctls, empty list allows none. Supports prefix reg-ex
+
+<a id="default-allow-privilege-escalation"></a>&#x2022; [`default_allow_privilege_escalation`](#default-allow-privilege-escalation) - Optional Bool<br>Pod has permission for privilege escalation by default
+
+<a id="default-capabilities"></a>&#x2022; [`default_capabilities`](#default-capabilities) - Optional String<br>List of capabilities that Docker container has
+
+<a id="drop-capabilities"></a>&#x2022; [`drop_capabilities`](#drop-capabilities) - Optional String<br>List of capabilities that Docker container has
+
+<a id="forbidden-sysctls"></a>&#x2022; [`forbidden_sysctls`](#forbidden-sysctls) - Optional List<br>Forbidden list of sysctls, empty list forbids none. Supports prefix reg-ex
+
+<a id="fs-group-strategy-options"></a>&#x2022; [`fs_group_strategy_options`](#fs-group-strategy-options) - Optional String<br>Configuration parameter for fs group strategy options
+
+<a id="host-ipc"></a>&#x2022; [`host_ipc`](#host-ipc) - Optional Bool<br>Host IPC determines if the policy allows the use of host IPC in the pod spec
+
+<a id="host-network"></a>&#x2022; [`host_network`](#host-network) - Optional Bool<br>Host Network determines if the policy allows the use of host network in the pod spec
+
+<a id="host-pid"></a>&#x2022; [`host_pid`](#host-pid) - Optional Bool<br>Host PID determines if the policy allows the use of host PID in the pod spec
+
+<a id="host-port-ranges"></a>&#x2022; [`host_port_ranges`](#host-port-ranges) - Optional String<br>Host port ranges determines which ports ranges are allowed to be exposed
+
+<a id="no-allowed-capabilities"></a>&#x2022; [`no_allowed_capabilities`](#no-allowed-capabilities) - Optional Object<br>Configuration parameter for no allowed capabilities
+
+<a id="no-default-capabilities"></a>&#x2022; [`no_default_capabilities`](#no-default-capabilities) - Optional Object<br>Configuration parameter for no default capabilities
+
+<a id="no-drop-capabilities"></a>&#x2022; [`no_drop_capabilities`](#no-drop-capabilities) - Optional Object<br>Configuration parameter for no drop capabilities
+
+<a id="no-fs-groups"></a>&#x2022; [`no_fs_groups`](#no-fs-groups) - Optional Object<br>Enable this option
+
+<a id="no-run-as-group"></a>&#x2022; [`no_run_as_group`](#no-run-as-group) - Optional Object<br>Configuration parameter for no run as group
+
+<a id="no-run-as-user"></a>&#x2022; [`no_run_as_user`](#no-run-as-user) - Optional Object<br>Configuration parameter for no run as user
+
+<a id="no-runtime-class"></a>&#x2022; [`no_runtime_class`](#no-runtime-class) - Optional String<br>Configuration parameter for no runtime class
+
+<a id="no-se-linux-options"></a>&#x2022; [`no_se_linux_options`](#no-se-linux-options) - Optional String<br>Configuration parameter for no se Linux options
+
+<a id="no-supplemental-groups"></a>&#x2022; [`no_supplemental_groups`](#no-supplemental-groups) - Optional Object<br>Enable this option
+
+<a id="privileged"></a>&#x2022; [`privileged`](#privileged) - Optional Bool<br>Privileged determines if a pod can request to be run as privileged
+
+<a id="read-only-root-filesystem"></a>&#x2022; [`read_only_root_filesystem`](#read-only-root-filesystem) - Optional Bool<br>Containers can only run with read only root filesystem
+
+<a id="run-as-group"></a>&#x2022; [`run_as_group`](#run-as-group) - Optional String<br>Configuration parameter for run as group
+
+<a id="run-as-user"></a>&#x2022; [`run_as_user`](#run-as-user) - Optional String<br>Configuration parameter for run as user
+
+<a id="supplemental-groups"></a>&#x2022; [`supplemental_groups`](#supplemental-groups) - Optional String<br>ID(User,Group,FSGroup) Strategy. ID ranges and rules
+
+<a id="volumes"></a>&#x2022; [`volumes`](#volumes) - Optional List<br>Allow List of volume plugins. Empty no volumes are allowed
+
+<a id="capabilities"></a>&#x2022; [`capabilities`](#capabilities) - Optional List<br>List of capabilities that Docker container has
+
+<a id="path-prefix"></a>&#x2022; [`path_prefix`](#path-prefix) - Optional String<br>Host path prefix is the path prefix that the host volume must match. It does not support *
+
+<a id="read-only"></a>&#x2022; [`read_only`](#read-only) - Optional Bool<br>Volume will be allowed to mount read only
+
+<a id="capabilities"></a>&#x2022; [`capabilities`](#capabilities) - Optional List<br>List of capabilities that Docker container has
+
+<a id="capabilities"></a>&#x2022; [`capabilities`](#capabilities) - Optional List<br>List of capabilities that Docker container has
+
+<a id="id-ranges"></a>&#x2022; [`id_ranges`](#id-ranges) - Optional List<br>ID Ranges. List of range of ID(s)
+
+<a id="rule"></a>&#x2022; [`rule`](#rule) - Optional String<br>Rule indicated how the FS group ID range is used
+
+<a id="max-id"></a>&#x2022; [`max_id`](#max-id) - Optional Number<br>Ending ID. Ending(maximum) ID for for ID range
+
+<a id="min-id"></a>&#x2022; [`min_id`](#min-id) - Optional Number<br>Starting ID. Starting(minimum) ID for for ID range
+
+<a id="id-ranges"></a>&#x2022; [`id_ranges`](#id-ranges) - Optional List<br>ID Ranges. List of range of ID(s)
+
+<a id="rule"></a>&#x2022; [`rule`](#rule) - Optional String<br>Rule indicated how the FS group ID range is used
+
+<a id="max-id"></a>&#x2022; [`max_id`](#max-id) - Optional Number<br>Ending ID. Ending(maximum) ID for for ID range
+
+<a id="min-id"></a>&#x2022; [`min_id`](#min-id) - Optional Number<br>Starting ID. Starting(minimum) ID for for ID range
+
+<a id="id-ranges"></a>&#x2022; [`id_ranges`](#id-ranges) - Optional List<br>ID Ranges. List of range of ID(s)
+
+<a id="rule"></a>&#x2022; [`rule`](#rule) - Optional String<br>Rule indicated how the FS group ID range is used
+
+<a id="max-id"></a>&#x2022; [`max_id`](#max-id) - Optional Number<br>Ending ID. Ending(maximum) ID for for ID range
+
+<a id="min-id"></a>&#x2022; [`min_id`](#min-id) - Optional Number<br>Starting ID. Starting(minimum) ID for for ID range
+
+<a id="id-ranges"></a>&#x2022; [`id_ranges`](#id-ranges) - Optional List<br>ID Ranges. List of range of ID(s)
+
+<a id="rule"></a>&#x2022; [`rule`](#rule) - Optional String<br>Rule indicated how the FS group ID range is used
+
+<a id="max-id"></a>&#x2022; [`max_id`](#max-id) - Optional Number<br>Ending ID. Ending(maximum) ID for for ID range
+
+<a id="min-id"></a>&#x2022; [`min_id`](#min-id) - Optional Number<br>Starting ID. Starting(minimum) ID for for ID range
+
 ---
 
 ## Common Types

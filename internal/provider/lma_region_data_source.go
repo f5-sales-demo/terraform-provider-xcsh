@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,19 +28,161 @@ type LmaRegionDataSource struct {
 	client *client.Client
 }
 
+// LmaRegionEmptyModel represents empty nested blocks
+type LmaRegionEmptyModel struct {
+}
+
+// LmaRegionAccessLogsS3ParamsModel represents access_logs_s3_params block
+type LmaRegionAccessLogsS3ParamsModel struct {
+	Bucket         types.String                                    `tfsdk:"bucket"`
+	AWSCredentials *LmaRegionAccessLogsS3ParamsAWSCredentialsModel `tfsdk:"aws_credentials"`
+}
+
+// LmaRegionAccessLogsS3ParamsModelAttrTypes defines the attribute types for LmaRegionAccessLogsS3ParamsModel
+var LmaRegionAccessLogsS3ParamsModelAttrTypes = map[string]attr.Type{
+	"bucket":          types.StringType,
+	"aws_credentials": types.ObjectType{AttrTypes: LmaRegionAccessLogsS3ParamsAWSCredentialsModelAttrTypes},
+}
+
+// LmaRegionAccessLogsS3ParamsAWSCredentialsModel represents aws_credentials block
+type LmaRegionAccessLogsS3ParamsAWSCredentialsModel struct {
+	AccessKeyID     types.String                                                   `tfsdk:"access_key_id"`
+	Region          types.String                                                   `tfsdk:"region"`
+	SecretAccessKey *LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModel `tfsdk:"secret_access_key"`
+}
+
+// LmaRegionAccessLogsS3ParamsAWSCredentialsModelAttrTypes defines the attribute types for LmaRegionAccessLogsS3ParamsAWSCredentialsModel
+var LmaRegionAccessLogsS3ParamsAWSCredentialsModelAttrTypes = map[string]attr.Type{
+	"access_key_id":     types.StringType,
+	"region":            types.StringType,
+	"secret_access_key": types.ObjectType{AttrTypes: LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModelAttrTypes},
+}
+
+// LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModel represents secret_access_key block
+type LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModel struct {
+	BlindfoldSecretInfo *LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModel     `tfsdk:"clear_secret_info"`
+}
+
+// LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModelAttrTypes defines the attribute types for LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModel
+var LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModelAttrTypes = map[string]attr.Type{
+	"blindfold_secret_info": types.ObjectType{AttrTypes: LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModelAttrTypes},
+}
+
+// LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModel represents blindfold_secret_info block
+type LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModel struct {
+	DecryptionProvider types.String `tfsdk:"decryption_provider"`
+	Location           types.String `tfsdk:"location"`
+	StoreProvider      types.String `tfsdk:"store_provider"`
+}
+
+// LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModelAttrTypes defines the attribute types for LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModel
+var LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModelAttrTypes = map[string]attr.Type{
+	"decryption_provider": types.StringType,
+	"location":            types.StringType,
+	"store_provider":      types.StringType,
+}
+
+// LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModel represents clear_secret_info block
+type LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModel struct {
+	Provider types.String `tfsdk:"provider_ref"`
+	URL      types.String `tfsdk:"url"`
+}
+
+// LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModelAttrTypes defines the attribute types for LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModel
+var LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModelAttrTypes = map[string]attr.Type{
+	"provider_ref": types.StringType,
+	"url":          types.StringType,
+}
+
+// LmaRegionClickhouseParamsModel represents clickhouse_params block
+type LmaRegionClickhouseParamsModel struct {
+	Host     types.String                            `tfsdk:"host"`
+	Port     types.Int64                             `tfsdk:"port"`
+	User     types.String                            `tfsdk:"user"`
+	Password *LmaRegionClickhouseParamsPasswordModel `tfsdk:"password"`
+}
+
+// LmaRegionClickhouseParamsModelAttrTypes defines the attribute types for LmaRegionClickhouseParamsModel
+var LmaRegionClickhouseParamsModelAttrTypes = map[string]attr.Type{
+	"host":     types.StringType,
+	"port":     types.Int64Type,
+	"user":     types.StringType,
+	"password": types.ObjectType{AttrTypes: LmaRegionClickhouseParamsPasswordModelAttrTypes},
+}
+
+// LmaRegionClickhouseParamsPasswordModel represents password block
+type LmaRegionClickhouseParamsPasswordModel struct {
+	BlindfoldSecretInfo *LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *LmaRegionClickhouseParamsPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
+}
+
+// LmaRegionClickhouseParamsPasswordModelAttrTypes defines the attribute types for LmaRegionClickhouseParamsPasswordModel
+var LmaRegionClickhouseParamsPasswordModelAttrTypes = map[string]attr.Type{
+	"blindfold_secret_info": types.ObjectType{AttrTypes: LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: LmaRegionClickhouseParamsPasswordClearSecretInfoModelAttrTypes},
+}
+
+// LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
+type LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModel struct {
+	DecryptionProvider types.String `tfsdk:"decryption_provider"`
+	Location           types.String `tfsdk:"location"`
+	StoreProvider      types.String `tfsdk:"store_provider"`
+}
+
+// LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModelAttrTypes defines the attribute types for LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModel
+var LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModelAttrTypes = map[string]attr.Type{
+	"decryption_provider": types.StringType,
+	"location":            types.StringType,
+	"store_provider":      types.StringType,
+}
+
+// LmaRegionClickhouseParamsPasswordClearSecretInfoModel represents clear_secret_info block
+type LmaRegionClickhouseParamsPasswordClearSecretInfoModel struct {
+	Provider types.String `tfsdk:"provider_ref"`
+	URL      types.String `tfsdk:"url"`
+}
+
+// LmaRegionClickhouseParamsPasswordClearSecretInfoModelAttrTypes defines the attribute types for LmaRegionClickhouseParamsPasswordClearSecretInfoModel
+var LmaRegionClickhouseParamsPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
+	"provider_ref": types.StringType,
+	"url":          types.StringType,
+}
+
+// LmaRegionElasticParamsModel represents elastic_params block
+type LmaRegionElasticParamsModel struct {
+	Urls types.List `tfsdk:"urls"`
+}
+
+// LmaRegionElasticParamsModelAttrTypes defines the attribute types for LmaRegionElasticParamsModel
+var LmaRegionElasticParamsModelAttrTypes = map[string]attr.Type{
+	"urls": types.ListType{ElemType: types.StringType},
+}
+
+// LmaRegionKafkaParamsModel represents kafka_params block
+type LmaRegionKafkaParamsModel struct {
+	BootstrapServers types.List `tfsdk:"bootstrap_servers"`
+}
+
+// LmaRegionKafkaParamsModelAttrTypes defines the attribute types for LmaRegionKafkaParamsModel
+var LmaRegionKafkaParamsModelAttrTypes = map[string]attr.Type{
+	"bootstrap_servers": types.ListType{ElemType: types.StringType},
+}
+
 type LmaRegionDataSourceModel struct {
-	ID                 types.String `tfsdk:"id"`
-	Name               types.String `tfsdk:"name"`
-	Namespace          types.String `tfsdk:"namespace"`
-	Description        types.String `tfsdk:"description"`
-	Labels             types.Map    `tfsdk:"labels"`
-	Annotations        types.Map    `tfsdk:"annotations"`
-	AccessLogsS3Params types.String `tfsdk:"access_logs_s3_params"`
-	ClickhouseParams   types.String `tfsdk:"clickhouse_params"`
-	Country            types.String `tfsdk:"country"`
-	ElasticParams      types.String `tfsdk:"elastic_params"`
-	IsDefault          types.String `tfsdk:"is_default"`
-	KafkaParams        types.String `tfsdk:"kafka_params"`
+	ID                 types.String                      `tfsdk:"id"`
+	Name               types.String                      `tfsdk:"name"`
+	Namespace          types.String                      `tfsdk:"namespace"`
+	Description        types.String                      `tfsdk:"description"`
+	Labels             types.Map                         `tfsdk:"labels"`
+	Annotations        types.Map                         `tfsdk:"annotations"`
+	Country            types.String                      `tfsdk:"country"`
+	IsDefault          types.Bool                        `tfsdk:"is_default"`
+	AccessLogsS3Params *LmaRegionAccessLogsS3ParamsModel `tfsdk:"access_logs_s3_params"`
+	ClickhouseParams   *LmaRegionClickhouseParamsModel   `tfsdk:"clickhouse_params"`
+	ElasticParams      *LmaRegionElasticParamsModel      `tfsdk:"elastic_params"`
+	KafkaParams        *LmaRegionKafkaParamsModel        `tfsdk:"kafka_params"`
 }
 
 func (d *LmaRegionDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -76,29 +219,157 @@ func (d *LmaRegionDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
-			"access_logs_s3_params": schema.StringAttribute{
+			"access_logs_s3_params": schema.SingleNestedAttribute{
 				MarkdownDescription: "Configuration parameter for access logs s3 params.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"aws_credentials": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for aws credentials.",
+						Attributes: map[string]schema.Attribute{
+							"access_key_id": schema.StringAttribute{
+								MarkdownDescription: "AWS Access key ID. AWS Access key ID.",
+								Computed:            true,
+							},
+							"region": schema.StringAttribute{
+								MarkdownDescription: "AWS Region. AWS Region.",
+								Computed:            true,
+							},
+							"secret_access_key": schema.SingleNestedAttribute{
+								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Attributes: map[string]schema.Attribute{
+									"blindfold_secret_info": schema.SingleNestedAttribute{
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Attributes: map[string]schema.Attribute{
+											"decryption_provider": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+												Computed:            true,
+											},
+											"location": schema.StringAttribute{
+												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+												Computed:            true,
+												Sensitive:           true,
+											},
+											"store_provider": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+												Computed:            true,
+											},
+										},
+										Computed: true,
+									},
+									"clear_secret_info": schema.SingleNestedAttribute{
+										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Attributes: map[string]schema.Attribute{
+											"provider_ref": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+												Computed:            true,
+											},
+											"url": schema.StringAttribute{
+												MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+												Computed:            true,
+												Sensitive:           true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"bucket": schema.StringAttribute{
+						MarkdownDescription: "S3 Bucket Name. S3 Bucket Name.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
 			},
-			"clickhouse_params": schema.StringAttribute{
+			"clickhouse_params": schema.SingleNestedAttribute{
 				MarkdownDescription: "Configuration parameter for clickhouse params.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"host": schema.StringAttribute{
+						MarkdownDescription: "Clickhouse Host. Clickhouse Host.",
+						Computed:            true,
+					},
+					"password": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"port": schema.Int64Attribute{
+						MarkdownDescription: "Clickhouse Port. Clickhouse Port.",
+						Computed:            true,
+					},
+					"user": schema.StringAttribute{
+						MarkdownDescription: "Clickhouse User. Clickhouse User.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
 			},
 			"country": schema.StringAttribute{
 				MarkdownDescription: "Country associated with this LMA region.",
 				Computed:            true,
 			},
-			"elastic_params": schema.StringAttribute{
+			"elastic_params": schema.SingleNestedAttribute{
 				MarkdownDescription: "Configuration parameter for elastic params.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"urls": schema.ListAttribute{
+						MarkdownDescription: "Elastic Search URLs. Elastic Search URL.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
 			},
-			"is_default": schema.StringAttribute{
+			"is_default": schema.BoolAttribute{
 				MarkdownDescription: "Is Default. Is this the default region.",
 				Computed:            true,
 			},
-			"kafka_params": schema.StringAttribute{
+			"kafka_params": schema.SingleNestedAttribute{
 				MarkdownDescription: "Configuration parameter for kafka params.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"bootstrap_servers": schema.ListAttribute{
+						MarkdownDescription: "Servers in a Kafka cluster that a client should use to bootstrap its connection to the cluster.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
 			},
 		},
 	}
@@ -162,37 +433,206 @@ func (d *LmaRegionDataSource) Read(ctx context.Context, req datasource.ReadReque
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["access_logs_s3_params"]; ok && v != nil {
-		data.AccessLogsS3Params = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.AccessLogsS3Params = types.StringNull()
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["access_logs_s3_params"].(map[string]interface{}); ok && (isImport || data.AccessLogsS3Params != nil) {
+		data.AccessLogsS3Params = &LmaRegionAccessLogsS3ParamsModel{
+			AWSCredentials: func() *LmaRegionAccessLogsS3ParamsAWSCredentialsModel {
+				if AWSCredentialsData, ok := blockData["aws_credentials"].(map[string]interface{}); ok {
+					return &LmaRegionAccessLogsS3ParamsAWSCredentialsModel{
+						AccessKeyID: func() types.String {
+							if v, ok := AWSCredentialsData["access_key_id"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Region: func() types.String {
+							if v, ok := AWSCredentialsData["region"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						SecretAccessKey: func() *LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModel {
+							if SecretAccessKeyData, ok := AWSCredentialsData["secret_access_key"].(map[string]interface{}); ok {
+								return &LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyModel{
+									BlindfoldSecretInfo: func() *LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := SecretAccessKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModel {
+										if ClearSecretInfoData, ok := SecretAccessKeyData["clear_secret_info"].(map[string]interface{}); ok {
+											return &LmaRegionAccessLogsS3ParamsAWSCredentialsSecretAccessKeyClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Bucket: func() types.String {
+				if v, ok := blockData["bucket"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["clickhouse_params"]; ok && v != nil {
-		data.ClickhouseParams = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.ClickhouseParams = types.StringNull()
+	if blockData, ok := apiResource.Spec["clickhouse_params"].(map[string]interface{}); ok && (isImport || data.ClickhouseParams != nil) {
+		data.ClickhouseParams = &LmaRegionClickhouseParamsModel{
+			Host: func() types.String {
+				if v, ok := blockData["host"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Password: func() *LmaRegionClickhouseParamsPasswordModel {
+				if PasswordData, ok := blockData["password"].(map[string]interface{}); ok {
+					return &LmaRegionClickhouseParamsPasswordModel{
+						BlindfoldSecretInfo: func() *LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &LmaRegionClickhouseParamsPasswordBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *LmaRegionClickhouseParamsPasswordClearSecretInfoModel {
+							if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+								return &LmaRegionClickhouseParamsPasswordClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Port: func() types.Int64 {
+				if v, ok := blockData["port"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			User: func() types.String {
+				if v, ok := blockData["user"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["country"]; ok && v != nil {
-		data.Country = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["country"].(string); ok && v != "" {
+		data.Country = types.StringValue(v)
 	} else {
 		data.Country = types.StringNull()
 	}
-	if v, ok := resource.Spec["elastic_params"]; ok && v != nil {
-		data.ElasticParams = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.ElasticParams = types.StringNull()
+	if blockData, ok := apiResource.Spec["elastic_params"].(map[string]interface{}); ok && (isImport || data.ElasticParams != nil) {
+		data.ElasticParams = &LmaRegionElasticParamsModel{
+			Urls: func() types.List {
+				if v, ok := blockData["urls"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["is_default"]; ok && v != nil {
-		data.IsDefault = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["is_default"].(bool); ok {
+		data.IsDefault = types.BoolValue(v)
 	} else {
-		data.IsDefault = types.StringNull()
+		data.IsDefault = types.BoolNull()
 	}
-	if v, ok := resource.Spec["kafka_params"]; ok && v != nil {
-		data.KafkaParams = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.KafkaParams = types.StringNull()
+	if blockData, ok := apiResource.Spec["kafka_params"].(map[string]interface{}); ok && (isImport || data.KafkaParams != nil) {
+		data.KafkaParams = &LmaRegionKafkaParamsModel{
+			BootstrapServers: func() types.List {
+				if v, ok := blockData["bootstrap_servers"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

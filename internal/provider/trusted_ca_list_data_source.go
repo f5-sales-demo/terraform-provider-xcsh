@@ -28,12 +28,13 @@ type TrustedCAListDataSource struct {
 }
 
 type TrustedCAListDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID           types.String `tfsdk:"id"`
+	Name         types.String `tfsdk:"name"`
+	Namespace    types.String `tfsdk:"namespace"`
+	Description  types.String `tfsdk:"description"`
+	Labels       types.Map    `tfsdk:"labels"`
+	Annotations  types.Map    `tfsdk:"annotations"`
+	TrustedCAURL types.String `tfsdk:"trusted_ca_url"`
 }
 
 func (d *TrustedCAListDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,10 @@ func (d *TrustedCAListDataSource) Schema(ctx context.Context, req datasource.Sch
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"trusted_ca_url": schema.StringAttribute{
+				MarkdownDescription: "Trusted CA certificates for validating certificates.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +98,8 @@ func (d *TrustedCAListDataSource) Read(ctx context.Context, req datasource.ReadR
 		return
 	}
 
-	resource, err := d.client.GetTrustedCAList(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetTrustedCAList(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read TrustedCAList: %s", err))
 		return
@@ -101,7 +107,11 @@ func (d *TrustedCAListDataSource) Read(ctx context.Context, req datasource.ReadR
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +144,12 @@ func (d *TrustedCAListDataSource) Read(ctx context.Context, req datasource.ReadR
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["trusted_ca_url"].(string); ok && v != "" {
+		data.TrustedCAURL = types.StringValue(v)
+	} else {
+		data.TrustedCAURL = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

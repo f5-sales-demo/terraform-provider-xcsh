@@ -28,12 +28,15 @@ type AddressAllocatorDataSource struct {
 }
 
 type AddressAllocatorDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                      types.String                                  `tfsdk:"id"`
+	Name                    types.String                                  `tfsdk:"name"`
+	Namespace               types.String                                  `tfsdk:"namespace"`
+	Description             types.String                                  `tfsdk:"description"`
+	Labels                  types.Map                                     `tfsdk:"labels"`
+	Annotations             types.Map                                     `tfsdk:"annotations"`
+	AddressPool             types.List                                    `tfsdk:"address_pool"`
+	Mode                    types.String                                  `tfsdk:"mode"`
+	AddressAllocationScheme *AddressAllocatorAddressAllocationSchemeModel `tfsdk:"address_allocation_scheme"`
 }
 
 func (d *AddressAllocatorDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +73,33 @@ func (d *AddressAllocatorDataSource) Schema(ctx context.Context, req datasource.
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"address_pool": schema.ListAttribute{
+				MarkdownDescription: "Address pool from which the allocator carves out subnets or addresses to its clients.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"address_allocation_scheme": schema.SingleNestedAttribute{
+				MarkdownDescription: "Decides the scheme to be used to allocate addresses from the configured address pool.",
+				Attributes: map[string]schema.Attribute{
+					"allocation_unit": schema.Int64Attribute{
+						MarkdownDescription: "Prefix length indicating the size of each allocated subnet. For example, if this is specified as 30, subnets of /30 will be allocated from the given address pool.",
+						Computed:            true,
+					},
+					"local_interface_address_offset": schema.Int64Attribute{
+						MarkdownDescription: "Used to derive address for the local interface from the allocated subnet. If Local Interface Address Type is set to 'Offset from beginning of Subnet', this offset value is added to the allocated subnet and used as the local interface address. For example, if the allocated subnet is 192.0.2.0/24..",
+						Computed:            true,
+					},
+					"local_interface_address_type": schema.StringAttribute{
+						MarkdownDescription: "[Enum: LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN|LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END|LOCAL_INTERFACE_ADDRESS_FROM_PREFIX] Dictates how local interface address is derived from the allocated subnet Use Nth address of the allocated subnet as the local interface address, N being the Local Interface Address Offset. For example, if the allocated subnet is 192.0.2.0/24, Local Interface Address Offset is set to 2 and Local.. Possible values are `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`, `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END`, `LOCAL_INTERFACE_ADDRESS_FROM_PREFIX`. Defaults to `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"mode": schema.StringAttribute{
+				MarkdownDescription: "[Enum: LOCAL|GLOBAL_PER_SITE_NODE] Mode of the address allocator Address allocator is for VERs within the local cluster or site Allocation is per site and then per node. Possible values are `LOCAL`, `GLOBAL_PER_SITE_NODE`. Defaults to `LOCAL`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +123,8 @@ func (d *AddressAllocatorDataSource) Read(ctx context.Context, req datasource.Re
 		return
 	}
 
-	resource, err := d.client.GetAddressAllocator(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAddressAllocator(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AddressAllocator: %s", err))
 		return
@@ -101,7 +132,11 @@ func (d *AddressAllocatorDataSource) Read(ctx context.Context, req datasource.Re
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +169,50 @@ func (d *AddressAllocatorDataSource) Read(ctx context.Context, req datasource.Re
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["address_pool"].([]interface{}); ok {
+		address_poolList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				address_poolList = append(address_poolList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, address_poolList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.AddressPool = listVal
+		}
+	} else if isImport || data.AddressPool.IsUnknown() {
+		data.AddressPool = types.ListNull(types.StringType)
+	}
+	if blockData, ok := apiResource.Spec["address_allocation_scheme"].(map[string]interface{}); ok && (isImport || data.AddressAllocationScheme != nil) {
+		data.AddressAllocationScheme = &AddressAllocatorAddressAllocationSchemeModel{
+			AllocationUnit: func() types.Int64 {
+				if v, ok := blockData["allocation_unit"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			LocalInterfaceAddressOffset: func() types.Int64 {
+				if v, ok := blockData["local_interface_address_offset"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			LocalInterfaceAddressType: func() types.String {
+				if v, ok := blockData["local_interface_address_type"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["mode"].(string); ok && v != "" {
+		data.Mode = types.StringValue(v)
+	} else {
+		data.Mode = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

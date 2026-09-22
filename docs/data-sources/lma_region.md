@@ -58,7 +58,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
-<a id="ClickHouse-params"></a>&#x2022; [`clickhouse_params`](#ClickHouse-params) - Optional String<br>Configuration parameter for ClickHouse params
+<a id="clickhouse-params"></a>&#x2022; [`clickhouse_params`](#clickhouse-params) - Optional String<br>Configuration parameter for ClickHouse params
 
 <a id="country"></a>&#x2022; [`country`](#country) - Optional String<br>Country associated with this LMA region
 
@@ -68,11 +68,61 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
 
-<a id="is-default"></a>&#x2022; [`is_default`](#is-default) - Optional String<br>Is Default. Is this the default region
+<a id="is-default"></a>&#x2022; [`is_default`](#is-default) - Optional Bool<br>Is Default. Is this the default region
 
 <a id="kafka-params"></a>&#x2022; [`kafka_params`](#kafka-params) - Optional String<br>Configuration parameter for kafka params
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
+
+<a id="aws-credentials"></a>&#x2022; [`aws_credentials`](#aws-credentials) - Optional String<br>Configuration parameter for AWS credentials
+
+<a id="bucket"></a>&#x2022; [`bucket`](#bucket) - Optional String<br>S3 Bucket Name. S3 Bucket Name
+
+<a id="access-key-id"></a>&#x2022; [`access_key_id`](#access-key-id) - Optional String<br>AWS Access key ID. AWS Access key ID
+
+<a id="region"></a>&#x2022; [`region`](#region) - Optional String<br>AWS Region. AWS Region
+
+<a id="secret-access-key"></a>&#x2022; [`secret_access_key`](#secret-access-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="host"></a>&#x2022; [`host`](#host) - Optional String<br>ClickHouse Host. ClickHouse Host
+
+<a id="password"></a>&#x2022; [`password`](#password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>ClickHouse Port. ClickHouse Port
+
+<a id="user"></a>&#x2022; [`user`](#user) - Optional String<br>ClickHouse User. ClickHouse User
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="urls"></a>&#x2022; [`urls`](#urls) - Optional List<br>Elastic Search URLs. Elastic Search URL
+
+<a id="bootstrap-servers"></a>&#x2022; [`bootstrap_servers`](#bootstrap-servers) - Optional List<br>Servers in a Kafka cluster that a client should use to bootstrap its connection to the cluster
 
 ---
 

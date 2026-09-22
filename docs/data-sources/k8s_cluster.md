@@ -67,7 +67,7 @@ spec: {}
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the K8SCluster
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the K8SCluster exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the K8SCluster exists
 
 ### Attributes Reference
 
@@ -75,11 +75,123 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="cluster-scoped-access-deny"></a>&#x2022; [`cluster_scoped_access_deny`](#cluster-scoped-access-deny) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="cluster-scoped-access-permit"></a>&#x2022; [`cluster_scoped_access_permit`](#cluster-scoped-access-permit) - Optional Object<br>Enable this option
+
+<a id="cluster-wide-app-list"></a>&#x2022; [`cluster_wide_app_list`](#cluster-wide-app-list) - Optional String<br>Cluster Wide Application List. List of cluster wide applications
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the K8SCluster
+
+<a id="global-access-enable"></a>&#x2022; [`global_access_enable`](#global-access-enable) - Optional Object<br>Configuration parameter for global access enable
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="insecure-registry-list"></a>&#x2022; [`insecure_registry_list`](#insecure-registry-list) - Optional String<br>Docker Insecure Registry List. List of Docker insecure registries
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="local-access-config"></a>&#x2022; [`local_access_config`](#local-access-config) - Optional String<br>Parameters required to enable local access
+
+<a id="no-cluster-wide-apps"></a>&#x2022; [`no_cluster_wide_apps`](#no-cluster-wide-apps) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="no-global-access"></a>&#x2022; [`no_global_access`](#no-global-access) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no global access.  Server applies default when omitted
+
+<a id="no-insecure-registries"></a>&#x2022; [`no_insecure_registries`](#no-insecure-registries) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="no-local-access"></a>&#x2022; [`no_local_access`](#no-local-access) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no local access.  Server applies default when omitted
+
+<a id="use-custom-cluster-role-bindings"></a>&#x2022; [`use_custom_cluster_role_bindings`](#use-custom-cluster-role-bindings) - Optional String<br>List of active cluster role binding list for a K8S cluster
+
+<a id="use-custom-cluster-role-list"></a>&#x2022; [`use_custom_cluster_role_list`](#use-custom-cluster-role-list) - Optional String<br>List of active cluster role list for a K8S cluster
+
+<a id="use-custom-pod-security-admission"></a>&#x2022; [`use_custom_pod_security_admission`](#use-custom-pod-security-admission) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="use-custom-psp-list"></a>&#x2022; [`use_custom_psp_list`](#use-custom-psp-list) - Optional String<br>List of active Pod security policies for a K8S cluster
+
+<a id="use-default-cluster-role-bindings"></a>&#x2022; [`use_default_cluster_role_bindings`](#use-default-cluster-role-bindings) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="use-default-cluster-roles"></a>&#x2022; [`use_default_cluster_roles`](#use-default-cluster-roles) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="use-default-pod-security-admission"></a>&#x2022; [`use_default_pod_security_admission`](#use-default-pod-security-admission) - Optional Object<br>Enable this option
+
+<a id="use-default-psp"></a>&#x2022; [`use_default_psp`](#use-default-psp) - Optional Object  Defaults to `map[]`<br>Configuration parameter for use default psp.  Server applies default when omitted
+
+<a id="vk8s-namespace-access-deny"></a>&#x2022; [`vk8s_namespace_access_deny`](#vk8s-namespace-access-deny) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="vk8s-namespace-access-permit"></a>&#x2022; [`vk8s_namespace_access_permit`](#vk8s-namespace-access-permit) - Optional Object<br>Enable this option
+
+<a id="cluster-wide-apps"></a>&#x2022; [`cluster_wide_apps`](#cluster-wide-apps) - Optional List<br>Cluster Wide Application List. List of cluster wide applications
+
+<a id="argo-cd"></a>&#x2022; [`argo_cd`](#argo-cd) - Optional String<br>Description Parameters for Argo Continuous Deployment(CD) application
+
+<a id="dashboard"></a>&#x2022; [`dashboard`](#dashboard) - Optional Object<br>Description Parameters for K8S dashboard
+
+<a id="metrics-server"></a>&#x2022; [`metrics_server`](#metrics-server) - Optional Object<br>Description Parameters for Kubernetes Metrics Server application
+
+<a id="prometheus"></a>&#x2022; [`prometheus`](#prometheus) - Optional Object<br>Description Parameters for Prometheus server access
+
+<a id="local-domain"></a>&#x2022; [`local_domain`](#local-domain) - Optional String<br>Parameters required to enable local access
+
+<a id="default-port"></a>&#x2022; [`default_port`](#default-port) - Optional Object<br>Enable this option
+
+<a id="local-domain"></a>&#x2022; [`local_domain`](#local-domain) - Optional String<br>ArgoCD will be accessible at `<site name>`.`<local domain>`
+
+<a id="password"></a>&#x2022; [`password`](#password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Use custom ArgoCD port. Available port range is less than 65000 except reserved ports
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="insecure-registries"></a>&#x2022; [`insecure_registries`](#insecure-registries) - Optional List<br>List of Docker insecure registries in format 'example.com:5000'
+
+<a id="default-port"></a>&#x2022; [`default_port`](#default-port) - Optional Object<br>Enable this option
+
+<a id="local-domain"></a>&#x2022; [`local_domain`](#local-domain) - Optional String<br>Local K8S API server will be accessible at `<site name>`.`<local domain>`
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Use custom K8S port for API server. Available port range is less than 65000 except reserved ports
+
+<a id="cluster-role-bindings"></a>&#x2022; [`cluster_role_bindings`](#cluster-role-bindings) - Optional List<br>List of active cluster role binding list for a K8S cluster
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="cluster-roles"></a>&#x2022; [`cluster_roles`](#cluster-roles) - Optional List<br>List of active cluster role list for a K8S cluster
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="pod-security-policies"></a>&#x2022; [`pod_security_policies`](#pod-security-policies) - Optional List<br>List of active Pod security policies for a K8S cluster
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

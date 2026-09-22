@@ -63,6 +63,11 @@ func RenderResourceExampleHCL(rt *openapi.ResourceTemplate, resourceName, namesp
 		sb.WriteString("  type      = 1\n")
 		sb.WriteString("  site_name = \"example-securemesh-site\"\n")
 	}
+	if resourceName == "dns_zone" {
+		sb.WriteString("\n  primary {\n")
+		sb.WriteString("    allow_http_lb_managed_records = true\n")
+		sb.WriteString("  }\n")
+	}
 
 	// Required top-level, non-block spec attributes with schema-valid values.
 	var required []openapi.TerraformAttribute
@@ -94,6 +99,20 @@ func RenderDataSourceExampleHCL(resourceName, namespaceVal string) string {
 	sb.WriteString(fmt.Sprintf("  name      = \"example-%s\"\n", strings.ReplaceAll(resourceName, "_", "-")))
 	sb.WriteString(fmt.Sprintf("  %s = %q\n", "namespace", namespaceVal))
 	sb.WriteString("}\n")
+	if resourceName == "dns_zone" {
+		sb.WriteString("\n# Fail closed when this stack depends on an externally owned zone.\n")
+		sb.WriteString("resource \"terraform_data\" \"require_managed_records\" {\n")
+		sb.WriteString("  lifecycle {\n")
+		sb.WriteString("    precondition {\n")
+		sb.WriteString("      condition = try(\n")
+		sb.WriteString("        data.xcsh_dns_zone.example.primary.allow_http_lb_managed_records,\n")
+		sb.WriteString("        false\n")
+		sb.WriteString("      )\n")
+		sb.WriteString("      error_message = \"The selected DNS zone must enable HTTP LB managed records.\"\n")
+		sb.WriteString("    }\n")
+		sb.WriteString("  }\n")
+		sb.WriteString("}\n")
+	}
 	// The output is not decoration: without something referencing it, the data
 	// source is an unused declaration and tflint rejects the example
 	// (terraform_unused_declarations). Dropping this block is what left 143

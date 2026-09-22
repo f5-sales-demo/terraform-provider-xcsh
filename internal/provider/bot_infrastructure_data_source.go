@@ -28,12 +28,14 @@ type BotInfrastructureDataSource struct {
 }
 
 type BotInfrastructureDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                types.String                             `tfsdk:"id"`
+	Name              types.String                             `tfsdk:"name"`
+	Namespace         types.String                             `tfsdk:"namespace"`
+	Description       types.String                             `tfsdk:"description"`
+	Labels            types.Map                                `tfsdk:"labels"`
+	Annotations       types.Map                                `tfsdk:"annotations"`
+	TrafficType       types.String                             `tfsdk:"traffic_type"`
+	CreateCloudHosted *BotInfrastructureCreateCloudHostedModel `tfsdk:"create_cloud_hosted"`
 }
 
 func (d *BotInfrastructureDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,45 @@ func (d *BotInfrastructureDataSource) Schema(ctx context.Context, req datasource
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"create_cloud_hosted": schema.SingleNestedAttribute{
+				MarkdownDescription: "F5 Cloud Hosted.",
+				Attributes: map[string]schema.Attribute{
+					"ip_addresses": schema.ListAttribute{
+						MarkdownDescription: "Only traffic from these IP addresses is allowed to access this Bot Defense infrastructure.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"production": schema.SingleNestedAttribute{
+						MarkdownDescription: "Production.",
+						Attributes: map[string]schema.Attribute{
+							"region_1": schema.StringAttribute{
+								MarkdownDescription: "Active-Active Infrastructure configuration where traffic is routed equally between the two regions.",
+								Computed:            true,
+							},
+							"region_2": schema.StringAttribute{
+								MarkdownDescription: "Active-Active Infrastructure configuration where traffic is routed equally between the two regions.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"testing": schema.SingleNestedAttribute{
+						MarkdownDescription: "Testing",
+						Attributes: map[string]schema.Attribute{
+							"region_1": schema.StringAttribute{
+								MarkdownDescription: "Active-Passive Infrastructure configuration where traffic is routed to a single region.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"traffic_type": schema.StringAttribute{
+				MarkdownDescription: "[Enum: WEB|MOBILE] The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic from native mobile apps with the Bot Defense SDK are routed.. Possible values are `WEB`, `MOBILE`. Defaults to `WEB`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +134,8 @@ func (d *BotInfrastructureDataSource) Read(ctx context.Context, req datasource.R
 		return
 	}
 
-	resource, err := d.client.GetBotInfrastructure(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetBotInfrastructure(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read BotInfrastructure: %s", err))
 		return
@@ -101,7 +143,11 @@ func (d *BotInfrastructureDataSource) Read(ctx context.Context, req datasource.R
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +180,63 @@ func (d *BotInfrastructureDataSource) Read(ctx context.Context, req datasource.R
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["create_cloud_hosted"].(map[string]interface{}); ok && (isImport || data.CreateCloudHosted != nil) {
+		data.CreateCloudHosted = &BotInfrastructureCreateCloudHostedModel{
+			IPAddresses: func() types.List {
+				if v, ok := blockData["ip_addresses"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			Production: func() *BotInfrastructureCreateCloudHostedProductionModel {
+				if ProductionData, ok := blockData["production"].(map[string]interface{}); ok {
+					return &BotInfrastructureCreateCloudHostedProductionModel{
+						Region1: func() types.String {
+							if v, ok := ProductionData["region_1"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Region2: func() types.String {
+							if v, ok := ProductionData["region_2"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Testing: func() *BotInfrastructureCreateCloudHostedTestingModel {
+				if TestingData, ok := blockData["testing"].(map[string]interface{}); ok {
+					return &BotInfrastructureCreateCloudHostedTestingModel{
+						Region1: func() types.String {
+							if v, ok := TestingData["region_1"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["traffic_type"].(string); ok && v != "" {
+		data.TrafficType = types.StringValue(v)
+	} else {
+		data.TrafficType = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

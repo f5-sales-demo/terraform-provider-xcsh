@@ -28,12 +28,14 @@ type AlertGenPolicyDataSource struct {
 }
 
 type AlertGenPolicyDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID          types.String                `tfsdk:"id"`
+	Name        types.String                `tfsdk:"name"`
+	Namespace   types.String                `tfsdk:"namespace"`
+	Description types.String                `tfsdk:"description"`
+	Labels      types.Map                   `tfsdk:"labels"`
+	Annotations types.Map                   `tfsdk:"annotations"`
+	AlertStatus types.String                `tfsdk:"alert_status"`
+	Details     *AlertGenPolicyDetailsModel `tfsdk:"details"`
 }
 
 func (d *AlertGenPolicyDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,32 @@ func (d *AlertGenPolicyDataSource) Schema(ctx context.Context, req datasource.Sc
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"details": schema.SingleNestedAttribute{
+				MarkdownDescription: "Notification Details. Notification Details.",
+				Attributes: map[string]schema.Attribute{
+					"alert_message": schema.StringAttribute{
+						MarkdownDescription: "Alert Message. Alert Message.",
+						Computed:            true,
+					},
+					"alert_message_details": schema.StringAttribute{
+						MarkdownDescription: "Alert Message Details. Detailed message of the alert.",
+						Computed:            true,
+					},
+					"alert_name": schema.StringAttribute{
+						MarkdownDescription: "Alert Name. Alert Name.",
+						Computed:            true,
+					},
+					"severity": schema.StringAttribute{
+						MarkdownDescription: "[Enum: MINOR|MAJOR|CRITICAL] List of alert severities Minor Major Critical. Possible values are `MINOR`, `MAJOR`, `CRITICAL`. Defaults to `MINOR`.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"alert_status": schema.StringAttribute{
+				MarkdownDescription: "[Enum: ALERT_ACTIVE|ALERT_INACTIVE] Alert Status. List of alert statuses Active Inactive. Possible values are `ALERT_ACTIVE`, `ALERT_INACTIVE`. Defaults to `ALERT_ACTIVE`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +121,8 @@ func (d *AlertGenPolicyDataSource) Read(ctx context.Context, req datasource.Read
 		return
 	}
 
-	resource, err := d.client.GetAlertGenPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAlertGenPolicy(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AlertGenPolicy: %s", err))
 		return
@@ -101,7 +130,11 @@ func (d *AlertGenPolicyDataSource) Read(ctx context.Context, req datasource.Read
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +167,41 @@ func (d *AlertGenPolicyDataSource) Read(ctx context.Context, req datasource.Read
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["details"].(map[string]interface{}); ok && (isImport || data.Details != nil) {
+		data.Details = &AlertGenPolicyDetailsModel{
+			AlertMessage: func() types.String {
+				if v, ok := blockData["alert_message"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			AlertMessageDetails: func() types.String {
+				if v, ok := blockData["alert_message_details"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			AlertName: func() types.String {
+				if v, ok := blockData["alert_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Severity: func() types.String {
+				if v, ok := blockData["severity"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["alert_status"].(string); ok && v != "" {
+		data.AlertStatus = types.StringValue(v)
+	} else {
+		data.AlertStatus = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

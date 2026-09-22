@@ -58,11 +58,90 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="cookie-params"></a>&#x2022; [`cookie_params`](#cookie-params) - Optional String<br>Specifies different cookie related config parameters for authentication
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Authentication
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="oidc-auth"></a>&#x2022; [`oidc_auth`](#oidc-auth) - Optional String<br>OIDCAuthType
+
+<a id="auth-hmac"></a>&#x2022; [`auth_hmac`](#auth-hmac) - Optional String<br>HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid
+
+<a id="cookie-expiry"></a>&#x2022; [`cookie_expiry`](#cookie-expiry) - Optional Number<br>Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client-side after which client will not be setting the cookie as part of the request
+
+<a id="cookie-refresh-interval"></a>&#x2022; [`cookie_refresh_interval`](#cookie-refresh-interval) - Optional Number<br>Specifies in seconds refresh interval for session cookie. This is used to keep the active user active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to expire falls behind this interval, RE-issue a cookie with new expiry and with the same
+original session
+
+<a id="kms-key-hmac"></a>&#x2022; [`kms_key_hmac`](#kms-key-hmac) - Optional Object<br>Configuration parameter for kms key HMAC
+
+<a id="session-expiry"></a>&#x2022; [`session_expiry`](#session-expiry) - Optional Number<br>Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours)
+
+<a id="prim-key"></a>&#x2022; [`prim_key`](#prim-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="prim-key-expiry"></a>&#x2022; [`prim_key_expiry`](#prim-key-expiry) - Optional String<br>HMAC Primary Key Expiry. Primary HMAC Key Expiry time
+
+<a id="sec-key"></a>&#x2022; [`sec_key`](#sec-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="sec-key-expiry"></a>&#x2022; [`sec_key_expiry`](#sec-key-expiry) - Optional String<br>HMAC Secondary Key Expiry. Secondary HMAC Key Expiry time
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="client-secret"></a>&#x2022; [`client_secret`](#client-secret) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="oidc-auth-params"></a>&#x2022; [`oidc_auth_params`](#oidc-auth-params) - Optional String<br>Configuration parameter for OIDC auth params
+
+<a id="oidc-client-id"></a>&#x2022; [`oidc_client_id`](#oidc-client-id) - Optional String<br>Client ID used while sending the Authorization Request to OIDC server
+
+<a id="oidc-well-known-config-url"></a>&#x2022; [`oidc_well_known_config_url`](#oidc-well-known-config-url) - Optional String<br>An OIDC well-known configuration URL that will be used to fetch authentication related endpoints
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="auth-endpoint-url"></a>&#x2022; [`auth_endpoint_url`](#auth-endpoint-url) - Optional String<br>URL of the authorization server's authorization endpoint
+
+<a id="end-session-endpoint-url"></a>&#x2022; [`end_session_endpoint_url`](#end-session-endpoint-url) - Optional String<br>URL of the authorization server's Logout endpoint
+
+<a id="token-endpoint-url"></a>&#x2022; [`token_endpoint_url`](#token-endpoint-url) - Optional String<br>URL of the authorization server's Token endpoint
 
 ---
 

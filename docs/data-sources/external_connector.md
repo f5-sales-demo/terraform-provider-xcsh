@@ -58,11 +58,255 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="ce-site-reference"></a>&#x2022; [`ce_site_reference`](#ce-site-reference) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the ExternalConnector
+
+<a id="gre"></a>&#x2022; [`gre`](#gre) - Optional String<br>GRE. External Connector with GRE tunnel
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ipsec"></a>&#x2022; [`ipsec`](#ipsec) - Optional String<br>IPsec. External Connector with IPsec tunnel
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+---
+
+#### Gre
+
+A [`gre`](#gre) block supports the following:
+
+<a id="nestedatt--gre-gre-parameters"></a>&#x2022; [`gre_parameters`](#nestedatt--gre-gre-parameters) - Optional String<br>GRE configuration parameters required for GRE Connection type
+
+#### Gre Gre Parameters
+
+A [`gre_parameters`](#gre-gre-parameters) block (within [`gre`](#gre)) supports the following:
+
+<a id="nestedatt--gre-peer-ip-address"></a>&#x2022; [`peer_ip_address`](#nestedatt--gre-peer-ip-address) - Optional String<br>IPv4 Address. IPv4 Address in dot-decimal notation
+
+<a id="nestedatt--gre-segment"></a>&#x2022; [`segment`](#nestedatt--gre-segment) - Optional String<br>Segment Reference Type. Reference to Segment Object
+
+<a id="network-b8ecd6"></a>&#x2022; [`site_local_inside_network`](#network-b8ecd6) - Optional Object<br>Enable this option
+
+<a id="nestedatt--gre-site-local-network"></a>&#x2022; [`site_local_network`](#nestedatt--gre-site-local-network) - Optional Object<br>Enable this option
+
+<a id="nestedatt--gre-tunnel-eps"></a>&#x2022; [`tunnel_eps`](#nestedatt--gre-tunnel-eps) - Optional List<br>Configure tunnel parameters, source, destination, IP addresses
+
+<a id="nestedatt--gre-tunnel-mtu"></a>&#x2022; [`tunnel_mtu`](#nestedatt--gre-tunnel-mtu) - Optional Number<br>Configure MTU for the GRE tunnel interface
+
+#### Gre Gre Parameters Peer IP Address
+
+A [`peer_ip_address`](#gre-gre-parameters-peer-ip-address) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
+
+<a id="nestedatt--gre-addr"></a>&#x2022; [`addr`](#nestedatt--gre-addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+#### Gre Gre Parameters Segment
+
+A [`segment`](#gre-gre-parameters-segment) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
+
+<a id="nestedatt--gre-refs"></a>&#x2022; [`refs`](#nestedatt--gre-refs) - Optional List<br>Segment. Reference to Segment Object
+
+#### Gre Gre Parameters Segment Refs
+
+A [`refs`](#gre-gre-parameters-segment-refs) block (within [`gre.gre_parameters.segment`](#gre-gre-parameters-segment)) supports the following:
+
+<a id="nestedatt--gre-kind"></a>&#x2022; [`kind`](#nestedatt--gre-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--gre-name"></a>&#x2022; [`name`](#nestedatt--gre-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--gre-namespace"></a>&#x2022; [`namespace`](#nestedatt--gre-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--gre-tenant"></a>&#x2022; [`tenant`](#nestedatt--gre-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--gre-uid"></a>&#x2022; [`uid`](#nestedatt--gre-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Gre Gre Parameters Site Local Inside Network
+
+A [`site_local_inside_network`](#gre-gre-parameters-site-local-inside-network) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
+
+#### Gre Gre Parameters Site Local Network
+
+A [`site_local_network`](#gre-gre-parameters-site-local-network) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
+
+#### Gre Gre Parameters Tunnel Eps
+
+A [`tunnel_eps`](#gre-gre-parameters-tunnel-eps) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
+
+<a id="nestedatt--gre-interface"></a>&#x2022; [`interface`](#nestedatt--gre-interface) - Optional String<br>For the chosen node, specify the interface that will be the tunnel source
+
+<a id="nestedatt--gre-local-tunnel-ip"></a>&#x2022; [`local_tunnel_ip`](#nestedatt--gre-local-tunnel-ip) - Optional String<br>For a particular tunnel on a node, specify the local tunnel IP Address i.e. The IP address of the tunnel on the CE node itself and a subnet prefix length
+
+<a id="nestedatt--gre-node"></a>&#x2022; [`node`](#nestedatt--gre-node) - Optional String<br>CE site is composed of multiple nodes. Choose a node that will be part of this external connection
+
+<a id="nestedatt--gre-remote-tunnel-ip"></a>&#x2022; [`remote_tunnel_ip`](#nestedatt--gre-remote-tunnel-ip) - Optional String<br>For a particular tunnel on a node, specify the remote tunnel IP Address i.e. The IP address of the tunnel on the remote gateway and a subnet prefix length
+
+#### Ipsec
+
+An [`ipsec`](#ipsec) block supports the following:
+
+<a id="nestedatt--ipsec-ike-parameters"></a>&#x2022; [`ike_parameters`](#nestedatt--ipsec-ike-parameters) - Optional String<br>IKE configuration parameters required for IPsec Connection type
+
+<a id="parameters-077b27"></a>&#x2022; [`ipsec_tunnel_parameters`](#parameters-077b27) - Optional String<br>In this section, we will configure the tunnel parameters, source, destination, IP addresses, and segment
+
+#### Ipsec IKE Parameters
+
+An [`ike_parameters`](#ipsec-ike-parameters) block (within [`ipsec`](#ipsec)) supports the following:
+
+<a id="nestedatt--ipsec-dpd-disabled"></a>&#x2022; [`dpd_disabled`](#nestedatt--ipsec-dpd-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--ipsec-dpd-keep-alive-timer"></a>&#x2022; [`dpd_keep_alive_timer`](#nestedatt--ipsec-dpd-keep-alive-timer) - Optional String<br>Configuration parameter for dpd keep alive timer
+
+<a id="nestedatt--ipsec-ike-phase1-profile"></a>&#x2022; [`ike_phase1_profile`](#nestedatt--ipsec-ike-phase1-profile) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--ipsec-ike-phase2-profile"></a>&#x2022; [`ike_phase2_profile`](#nestedatt--ipsec-ike-phase2-profile) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--ipsec-initiator"></a>&#x2022; [`initiator`](#nestedatt--ipsec-initiator) - Optional Object<br>Enable this option
+
+<a id="nestedatt--ipsec-responder"></a>&#x2022; [`responder`](#nestedatt--ipsec-responder) - Optional Object<br>Enable this option
+
+<a id="nestedatt--ipsec-rm-hostname"></a>&#x2022; [`rm_hostname`](#nestedatt--ipsec-rm-hostname) - Optional String<br>Configure an hostname Remote IKE ID
+
+<a id="nestedatt--ipsec-rm-ip-address"></a>&#x2022; [`rm_ip_address`](#nestedatt--ipsec-rm-ip-address) - Optional String<br>IP Address used to specify an IPv4 or IPv6 address
+
+<a id="ike-id-fd7142"></a>&#x2022; [`use_default_local_ike_id`](#ike-id-fd7142) - Optional String<br>Enable this option
+
+<a id="ike-id-6c4b7e"></a>&#x2022; [`use_default_remote_ike_id`](#ike-id-6c4b7e) - Optional Object<br>Enable this option
+
+#### Ipsec IKE Parameters Dpd Disabled
+
+A [`dpd_disabled`](#ipsec-ike-parameters-dpd-disabled) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
+
+#### Ipsec IKE Parameters Dpd Keep Alive Timer
+
+A [`dpd_keep_alive_timer`](#ipsec-ike-parameters-dpd-keep-alive-timer) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
+
+<a id="nestedatt--ipsec-timeout"></a>&#x2022; [`timeout`](#nestedatt--ipsec-timeout) - Optional Number<br>Keepalive Timer. Operation timeout duration
+
+#### Ipsec IKE Parameters IKE Phase1 Profile
+
+An [`ike_phase1_profile`](#ipsec-ike-parameters-ike-phase1-profile) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
+
+<a id="nestedatt--ipsec-name"></a>&#x2022; [`name`](#nestedatt--ipsec-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--ipsec-namespace"></a>&#x2022; [`namespace`](#nestedatt--ipsec-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--ipsec-tenant"></a>&#x2022; [`tenant`](#nestedatt--ipsec-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Ipsec IKE Parameters IKE Phase2 Profile
+
+An [`ike_phase2_profile`](#ipsec-ike-parameters-ike-phase2-profile) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
+
+<a id="nestedatt--ipsec-name"></a>&#x2022; [`name`](#nestedatt--ipsec-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--ipsec-namespace"></a>&#x2022; [`namespace`](#nestedatt--ipsec-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--ipsec-tenant"></a>&#x2022; [`tenant`](#nestedatt--ipsec-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Ipsec IKE Parameters Initiator
+
+An [`initiator`](#ipsec-ike-parameters-initiator) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
+
+#### Ipsec IKE Parameters Responder
+
+A [`responder`](#ipsec-ike-parameters-responder) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
+
+#### Ipsec IKE Parameters Rm IP Address
+
+A [`rm_ip_address`](#ipsec-ike-parameters-rm-ip-address) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
+
+<a id="nestedatt--ipsec-ipv4"></a>&#x2022; [`ipv4`](#nestedatt--ipsec-ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+
+<a id="nestedatt--ipsec-ipv6"></a>&#x2022; [`ipv6`](#nestedatt--ipsec-ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+#### Ipsec IKE Parameters Rm IP Address IPv4
+
+An [`ipv4`](#ipsec-ike-parameters-rm-ip-address-ipv4) block (within [`ipsec.ike_parameters.rm_ip_address`](#ipsec-ike-parameters-rm-ip-address)) supports the following:
+
+<a id="nestedatt--ipsec-addr"></a>&#x2022; [`addr`](#nestedatt--ipsec-addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+#### Ipsec IKE Parameters Rm IP Address IPv6
+
+An [`ipv6`](#ipsec-ike-parameters-rm-ip-address-ipv6) block (within [`ipsec.ike_parameters.rm_ip_address`](#ipsec-ike-parameters-rm-ip-address)) supports the following:
+
+<a id="nestedatt--ipsec-addr"></a>&#x2022; [`addr`](#nestedatt--ipsec-addr) - Optional String<br>IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
+
+#### Ipsec IKE Parameters Use Default Local IKE ID
+
+<a id="deep-afd286"></a>Deeply nested **ID** block collapsed for readability.
+
+#### Ipsec IKE Parameters Use Default Remote IKE ID
+
+<a id="deep-8ce540"></a>Deeply nested **ID** block collapsed for readability.
+
+#### Ipsec Ipsec Tunnel Parameters
+
+An [`ipsec_tunnel_parameters`](#ipsec-ipsec-tunnel-parameters) block (within [`ipsec`](#ipsec)) supports the following:
+
+<a id="nestedatt--ipsec-peer-ip-address"></a>&#x2022; [`peer_ip_address`](#nestedatt--ipsec-peer-ip-address) - Optional String<br>IPv4 Address. IPv4 Address in dot-decimal notation
+
+<a id="nestedatt--ipsec-psk"></a>&#x2022; [`psk`](#nestedatt--ipsec-psk) - Optional String<br>The IKE pre-shared key (PSK) is required to ensure the IKE peers can authenticate one another within IKE phase 1 negotiation
+
+<a id="nestedatt--ipsec-segment"></a>&#x2022; [`segment`](#nestedatt--ipsec-segment) - Optional String<br>Segment Reference Type. Reference to Segment Object
+
+<a id="network-1ad578"></a>&#x2022; [`site_local_inside_network`](#network-1ad578) - Optional Object<br>Enable this option
+
+<a id="nestedatt--ipsec-site-local-network"></a>&#x2022; [`site_local_network`](#nestedatt--ipsec-site-local-network) - Optional Object<br>Enable this option
+
+<a id="nestedatt--ipsec-tunnel-eps"></a>&#x2022; [`tunnel_eps`](#nestedatt--ipsec-tunnel-eps) - Optional List<br>Configure tunnel parameters, local and remote IP addresses
+
+<a id="nestedatt--ipsec-tunnel-mtu"></a>&#x2022; [`tunnel_mtu`](#nestedatt--ipsec-tunnel-mtu) - Optional Number<br>The tunnel MTU defines the maximum size of the packet that can be sent through the tunnel without needing to be fragmented
+
+#### Ipsec Ipsec Tunnel Parameters Peer IP Address
+
+A [`peer_ip_address`](#ipsec-ipsec-tunnel-parameters-peer-ip-address) block (within [`ipsec.ipsec_tunnel_parameters`](#ipsec-ipsec-tunnel-parameters)) supports the following:
+
+<a id="nestedatt--ipsec-addr"></a>&#x2022; [`addr`](#nestedatt--ipsec-addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+#### Ipsec Ipsec Tunnel Parameters Segment
+
+A [`segment`](#ipsec-ipsec-tunnel-parameters-segment) block (within [`ipsec.ipsec_tunnel_parameters`](#ipsec-ipsec-tunnel-parameters)) supports the following:
+
+<a id="nestedatt--ipsec-refs"></a>&#x2022; [`refs`](#nestedatt--ipsec-refs) - Optional List<br>Segment. Reference to Segment Object
+
+#### Ipsec Ipsec Tunnel Parameters Segment Refs
+
+A [`refs`](#ipsec-ipsec-tunnel-parameters-segment-refs) block (within [`ipsec.ipsec_tunnel_parameters.segment`](#ipsec-ipsec-tunnel-parameters-segment)) supports the following:
+
+<a id="nestedatt--ipsec-kind"></a>&#x2022; [`kind`](#nestedatt--ipsec-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--ipsec-name"></a>&#x2022; [`name`](#nestedatt--ipsec-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--ipsec-namespace"></a>&#x2022; [`namespace`](#nestedatt--ipsec-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--ipsec-tenant"></a>&#x2022; [`tenant`](#nestedatt--ipsec-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--ipsec-uid"></a>&#x2022; [`uid`](#nestedatt--ipsec-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Ipsec Ipsec Tunnel Parameters Site Local Inside Network
+
+<a id="deep-efcf61"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Ipsec Ipsec Tunnel Parameters Site Local Network
+
+A [`site_local_network`](#ipsec-ipsec-tunnel-parameters-site-local-network) block (within [`ipsec.ipsec_tunnel_parameters`](#ipsec-ipsec-tunnel-parameters)) supports the following:
+
+#### Ipsec Ipsec Tunnel Parameters Tunnel Eps
+
+A [`tunnel_eps`](#ipsec-ipsec-tunnel-parameters-tunnel-eps) block (within [`ipsec.ipsec_tunnel_parameters`](#ipsec-ipsec-tunnel-parameters)) supports the following:
+
+<a id="nestedatt--ipsec-interface"></a>&#x2022; [`interface`](#nestedatt--ipsec-interface) - Optional String<br>For the chosen node, specify the interface that will be the tunnel source
+
+<a id="nestedatt--ipsec-local-tunnel-ip"></a>&#x2022; [`local_tunnel_ip`](#nestedatt--ipsec-local-tunnel-ip) - Optional String<br>For a particular tunnel on a node, specify the local tunnel IP Address i.e. The IP address of the tunnel on the CE node itself and a subnet prefix length
+
+<a id="nestedatt--ipsec-node"></a>&#x2022; [`node`](#nestedatt--ipsec-node) - Optional String<br>CE site is composed of multiple nodes. Choose a node that will be part of this external connection
+
+<a id="nestedatt--ipsec-remote-tunnel-ip"></a>&#x2022; [`remote_tunnel_ip`](#nestedatt--ipsec-remote-tunnel-ip) - Optional String<br>For a particular tunnel on a node, specify the remote tunnel IP Address i.e. The IP address of the tunnel on the remote gateway and a subnet prefix length
 
 ---
 

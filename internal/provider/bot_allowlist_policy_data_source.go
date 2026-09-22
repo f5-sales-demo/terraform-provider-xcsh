@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,15 +28,81 @@ type BotAllowlistPolicyDataSource struct {
 	client *client.Client
 }
 
+// BotAllowlistPolicyEmptyModel represents empty nested blocks
+type BotAllowlistPolicyEmptyModel struct {
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentModel represents allowlist_policy_content block
+type BotAllowlistPolicyAllowlistPolicyContentModel struct {
+	IPAllowlist      types.List `tfsdk:"ip_allowlist"`
+	IPRangeAllowlist types.List `tfsdk:"ip_range_allowlist"`
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentModelAttrTypes defines the attribute types for BotAllowlistPolicyAllowlistPolicyContentModel
+var BotAllowlistPolicyAllowlistPolicyContentModelAttrTypes = map[string]attr.Type{
+	"ip_allowlist":       types.ListType{ElemType: types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModelAttrTypes}},
+	"ip_range_allowlist": types.ListType{ElemType: types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModelAttrTypes}},
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModel represents ip_allowlist block
+type BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModel struct {
+	IPDetail       *BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModel       `tfsdk:"ip_detail"`
+	IPPrefixDetail *BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModel `tfsdk:"ip_prefix_detail"`
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModelAttrTypes defines the attribute types for BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModel
+var BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModelAttrTypes = map[string]attr.Type{
+	"ip_detail":        types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModelAttrTypes},
+	"ip_prefix_detail": types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModelAttrTypes},
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModel represents ip_detail block
+type BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModel struct {
+	IPDescription types.String `tfsdk:"ip_description"`
+	IPValue       types.String `tfsdk:"ip_value"`
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModelAttrTypes defines the attribute types for BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModel
+var BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModelAttrTypes = map[string]attr.Type{
+	"ip_description": types.StringType,
+	"ip_value":       types.StringType,
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModel represents ip_prefix_detail block
+type BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModel struct {
+	IPDescription types.String `tfsdk:"ip_description"`
+	IPValue       types.String `tfsdk:"ip_value"`
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModelAttrTypes defines the attribute types for BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModel
+var BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModelAttrTypes = map[string]attr.Type{
+	"ip_description": types.StringType,
+	"ip_value":       types.StringType,
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModel represents ip_range_allowlist block
+type BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModel struct {
+	EndWith       types.String `tfsdk:"end_with"`
+	IPDescription types.String `tfsdk:"ip_description"`
+	StartWith     types.String `tfsdk:"start_with"`
+}
+
+// BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModelAttrTypes defines the attribute types for BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModel
+var BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModelAttrTypes = map[string]attr.Type{
+	"end_with":       types.StringType,
+	"ip_description": types.StringType,
+	"start_with":     types.StringType,
+}
+
 type BotAllowlistPolicyDataSourceModel struct {
-	ID                     types.String `tfsdk:"id"`
-	Name                   types.String `tfsdk:"name"`
-	Namespace              types.String `tfsdk:"namespace"`
-	Description            types.String `tfsdk:"description"`
-	Labels                 types.Map    `tfsdk:"labels"`
-	Annotations            types.Map    `tfsdk:"annotations"`
-	AllowlistPolicyContent types.String `tfsdk:"allowlist_policy_content"`
-	LatestVersion          types.String `tfsdk:"latest_version"`
+	ID                     types.String                                   `tfsdk:"id"`
+	Name                   types.String                                   `tfsdk:"name"`
+	Namespace              types.String                                   `tfsdk:"namespace"`
+	Description            types.String                                   `tfsdk:"description"`
+	Labels                 types.Map                                      `tfsdk:"labels"`
+	Annotations            types.Map                                      `tfsdk:"annotations"`
+	LatestVersion          types.String                                   `tfsdk:"latest_version"`
+	AllowlistPolicyContent *BotAllowlistPolicyAllowlistPolicyContentModel `tfsdk:"allowlist_policy_content"`
 }
 
 func (d *BotAllowlistPolicyDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -72,9 +139,67 @@ func (d *BotAllowlistPolicyDataSource) Schema(ctx context.Context, req datasourc
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
-			"allowlist_policy_content": schema.StringAttribute{
+			"allowlist_policy_content": schema.SingleNestedAttribute{
 				MarkdownDescription: "IP Allowlist. Allowlist Policy Content.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"ip_allowlist": schema.ListNestedAttribute{
+						MarkdownDescription: "IP & IP Prefix. Allowlist or permitted items",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"ip_detail": schema.SingleNestedAttribute{
+									MarkdownDescription: "IP Detail. Support the single IP value.",
+									Attributes: map[string]schema.Attribute{
+										"ip_description": schema.StringAttribute{
+											MarkdownDescription: "Description. The description for IP address.",
+											Computed:            true,
+										},
+										"ip_value": schema.StringAttribute{
+											MarkdownDescription: "Value. A single IP address.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"ip_prefix_detail": schema.SingleNestedAttribute{
+									MarkdownDescription: "IP Prefix Detail. Support the IP prefix value.",
+									Attributes: map[string]schema.Attribute{
+										"ip_description": schema.StringAttribute{
+											MarkdownDescription: "Description. The description for IP prefix.",
+											Computed:            true,
+										},
+										"ip_value": schema.StringAttribute{
+											MarkdownDescription: "Value. IP prefix e.g. 192.0.2.0/24.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"ip_range_allowlist": schema.ListNestedAttribute{
+						MarkdownDescription: "IP Range. Allowlist or permitted items",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"end_with": schema.StringAttribute{
+									MarkdownDescription: "End With. IP range end with.",
+									Computed:            true,
+								},
+								"ip_description": schema.StringAttribute{
+									MarkdownDescription: "Description. The description for IP range.",
+									Computed:            true,
+								},
+								"start_with": schema.StringAttribute{
+									MarkdownDescription: "Start With. IP range start with.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
 			},
 			"latest_version": schema.StringAttribute{
 				MarkdownDescription: "Version. Version number or identifier",
@@ -142,15 +267,114 @@ func (d *BotAllowlistPolicyDataSource) Read(ctx context.Context, req datasource.
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["allowlist_policy_content"]; ok && v != nil {
-		data.AllowlistPolicyContent = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.AllowlistPolicyContent = types.StringNull()
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["allowlist_policy_content"].(map[string]interface{}); ok && (isImport || data.AllowlistPolicyContent != nil) {
+		data.AllowlistPolicyContent = &BotAllowlistPolicyAllowlistPolicyContentModel{
+			IPAllowlist: func() types.List {
+				if !isImport && data.AllowlistPolicyContent != nil && (data.AllowlistPolicyContent.IPAllowlist.IsNull() || len(data.AllowlistPolicyContent.IPAllowlist.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModelAttrTypes})
+				}
+				var IPAllowlistExisting []BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModel
+				if !isImport && data.AllowlistPolicyContent != nil && !data.AllowlistPolicyContent.IPAllowlist.IsNull() && !data.AllowlistPolicyContent.IPAllowlist.IsUnknown() {
+					data.AllowlistPolicyContent.IPAllowlist.ElementsAs(ctx, &IPAllowlistExisting, false)
+				}
+				if rawList, ok := blockData["ip_allowlist"].([]interface{}); ok && len(rawList) > 0 {
+					var IPAllowlistResult []BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModel
+					for IPAllowlistIdx, IPAllowlistItem := range rawList {
+						_ = IPAllowlistIdx
+						if IPAllowlistItemMap, ok := IPAllowlistItem.(map[string]interface{}); ok {
+							IPAllowlistResult = append(IPAllowlistResult, BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModel{
+								IPDetail: func() *BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModel {
+									if IPDetailData, ok := IPAllowlistItemMap["ip_detail"].(map[string]interface{}); ok {
+										return &BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPDetailModel{
+											IPDescription: func() types.String {
+												if v, ok := IPDetailData["ip_description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											IPValue: func() types.String {
+												if v, ok := IPDetailData["ip_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPPrefixDetail: func() *BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModel {
+									if IPPrefixDetailData, ok := IPAllowlistItemMap["ip_prefix_detail"].(map[string]interface{}); ok {
+										return &BotAllowlistPolicyAllowlistPolicyContentIPAllowlistIPPrefixDetailModel{
+											IPDescription: func() types.String {
+												if v, ok := IPPrefixDetailData["ip_description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											IPValue: func() types.String {
+												if v, ok := IPPrefixDetailData["ip_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModelAttrTypes}, IPAllowlistResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPAllowlistModelAttrTypes})
+			}(),
+			IPRangeAllowlist: func() types.List {
+				if !isImport && data.AllowlistPolicyContent != nil && (data.AllowlistPolicyContent.IPRangeAllowlist.IsNull() || len(data.AllowlistPolicyContent.IPRangeAllowlist.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModelAttrTypes})
+				}
+				var IPRangeAllowlistExisting []BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModel
+				if !isImport && data.AllowlistPolicyContent != nil && !data.AllowlistPolicyContent.IPRangeAllowlist.IsNull() && !data.AllowlistPolicyContent.IPRangeAllowlist.IsUnknown() {
+					data.AllowlistPolicyContent.IPRangeAllowlist.ElementsAs(ctx, &IPRangeAllowlistExisting, false)
+				}
+				if rawList, ok := blockData["ip_range_allowlist"].([]interface{}); ok && len(rawList) > 0 {
+					var IPRangeAllowlistResult []BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModel
+					for IPRangeAllowlistIdx, IPRangeAllowlistItem := range rawList {
+						_ = IPRangeAllowlistIdx
+						if IPRangeAllowlistItemMap, ok := IPRangeAllowlistItem.(map[string]interface{}); ok {
+							IPRangeAllowlistResult = append(IPRangeAllowlistResult, BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModel{
+								EndWith: func() types.String {
+									if v, ok := IPRangeAllowlistItemMap["end_with"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								IPDescription: func() types.String {
+									if v, ok := IPRangeAllowlistItemMap["ip_description"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								StartWith: func() types.String {
+									if v, ok := IPRangeAllowlistItemMap["start_with"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModelAttrTypes}, IPRangeAllowlistResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BotAllowlistPolicyAllowlistPolicyContentIPRangeAllowlistModelAttrTypes})
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["latest_version"]; ok && v != nil {
-		data.LatestVersion = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["latest_version"].(string); ok && v != "" {
+		data.LatestVersion = types.StringValue(v)
 	} else {
 		data.LatestVersion = types.StringNull()
 	}

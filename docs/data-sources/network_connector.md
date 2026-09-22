@@ -62,9 +62,106 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the NetworkConnector
 
+<a id="disable-forward-proxy"></a>&#x2022; [`disable_forward_proxy`](#disable-forward-proxy) - Optional Object<br>Configuration parameter for disable forward proxy
+
+<a id="enable-forward-proxy"></a>&#x2022; [`enable_forward_proxy`](#enable-forward-proxy) - Optional String<br>Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending
+the
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="sli-to-global-dr"></a>&#x2022; [`sli_to_global_dr`](#sli-to-global-dr) - Optional String<br>Global network reference for direct connection
+
+<a id="sli-to-slo-snat"></a>&#x2022; [`sli_to_slo_snat`](#sli-to-slo-snat) - Optional String<br>Configuration parameter for SLI to slo snat
+
+<a id="slo-to-global-dr"></a>&#x2022; [`slo_to_global_dr`](#slo-to-global-dr) - Optional String<br>Global network reference for direct connection
+
+<a id="connection-timeout"></a>&#x2022; [`connection_timeout`](#connection-timeout) - Optional Number  Defaults to `2000`  Specified in milliseconds<br>The timeout for new network connections to upstream server.  The (2 seconds)
+
+<a id="max-connect-attempts"></a>&#x2022; [`max_connect_attempts`](#max-connect-attempts) - Optional Number  Defaults to `1`<br>Specifies the allowed number of retries on connect failure to upstream server
+
+<a id="no-interception"></a>&#x2022; [`no_interception`](#no-interception) - Optional Object<br>Configuration parameter for no interception
+
+<a id="tls-intercept"></a>&#x2022; [`tls_intercept`](#tls-intercept) - Optional String<br>Configuration to enable TLS interception
+
+<a id="white-listed-ports"></a>&#x2022; [`white_listed_ports`](#white-listed-ports) - Optional List<br>Traffic to these destination TCP ports is not subjected to protocol parsing Example 'tmate' server port
+
+<a id="white-listed-prefixes"></a>&#x2022; [`white_listed_prefixes`](#white-listed-prefixes) - Optional List<br>Traffic to these destination IP prefixes is not subjected to protocol parsing Example 'tmate' server IP
+
+<a id="custom-certificate"></a>&#x2022; [`custom_certificate`](#custom-certificate) - Optional String<br>Configuration parameter for custom certificate
+
+<a id="enable-for-all-domains"></a>&#x2022; [`enable_for_all_domains`](#enable-for-all-domains) - Optional Object<br>Configuration parameter for enable for all domains
+
+<a id="policy"></a>&#x2022; [`policy`](#policy) - Optional String<br>Policy to enable or disable TLS interception
+
+<a id="trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#trusted-ca-url) - Optional String<br>Custom Root CA Certificate for validating upstream server certificate
+
+<a id="volterra-certificate"></a>&#x2022; [`volterra_certificate`](#volterra-certificate) - Optional Object<br>Configuration parameter for volterra certificate
+
+<a id="volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#volterra-trusted-ca) - Optional Object<br>Configuration parameter for volterra trusted CA
+
+<a id="certificate-url"></a>&#x2022; [`certificate_url`](#certificate-url) - Optional String<br>TLS certificate. Certificate or certificate chain in PEM format including the PEM headers
+
+<a id="custom-hash-algorithms"></a>&#x2022; [`custom_hash_algorithms`](#custom-hash-algorithms) - Optional String<br>Specifies the hash algorithms to be used
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Description for the certificate
+
+<a id="disable-ocsp-stapling"></a>&#x2022; [`disable_ocsp_stapling`](#disable-ocsp-stapling) - Optional Object<br>Configuration parameter for disable OCSP stapling
+
+<a id="private-key"></a>&#x2022; [`private_key`](#private-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="use-system-defaults"></a>&#x2022; [`use_system_defaults`](#use-system-defaults) - Optional Object<br>Configuration parameter for use system defaults
+
+<a id="hash-algorithms"></a>&#x2022; [`hash_algorithms`](#hash-algorithms) - Optional List  Defaults to `INVALID_HASH_ALGORITHM`<br>Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`<br>[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="interception-rules"></a>&#x2022; [`interception_rules`](#interception-rules) - Optional List<br>List of ordered rules to enable or disable for TLS interception
+
+<a id="disable-interception"></a>&#x2022; [`disable_interception`](#disable-interception) - Optional Object<br>Configuration parameter for disable interception
+
+<a id="domain-match"></a>&#x2022; [`domain_match`](#domain-match) - Optional String<br>Configuration parameter for domain match
+
+<a id="enable-interception"></a>&#x2022; [`enable_interception`](#enable-interception) - Optional Object<br>Configuration parameter for enable interception
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="global-vn"></a>&#x2022; [`global_vn`](#global-vn) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="default-gw-snat"></a>&#x2022; [`default_gw_snat`](#default-gw-snat) - Optional String<br>Configuration parameter for default gw snat
+
+<a id="interface-ip"></a>&#x2022; [`interface_ip`](#interface-ip) - Optional String<br>Enable this option
+
+<a id="global-vn"></a>&#x2022; [`global_vn`](#global-vn) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

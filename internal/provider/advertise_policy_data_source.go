@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,20 @@ type AdvertisePolicyDataSource struct {
 }
 
 type AdvertisePolicyDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID            types.String                       `tfsdk:"id"`
+	Name          types.String                       `tfsdk:"name"`
+	Namespace     types.String                       `tfsdk:"namespace"`
+	Description   types.String                       `tfsdk:"description"`
+	Labels        types.Map                          `tfsdk:"labels"`
+	Annotations   types.Map                          `tfsdk:"annotations"`
+	Address       types.String                       `tfsdk:"address"`
+	Port          types.Int64                        `tfsdk:"port"`
+	PortRanges    types.String                       `tfsdk:"port_ranges"`
+	Protocol      types.String                       `tfsdk:"protocol"`
+	SkipXffAppend types.Bool                         `tfsdk:"skip_xff_append"`
+	PublicIP      types.List                         `tfsdk:"public_ip"`
+	TLSParameters *AdvertisePolicyTLSParametersModel `tfsdk:"tls_parameters"`
+	Where         *AdvertisePolicyWhereModel         `tfsdk:"where"`
 }
 
 func (d *AdvertisePolicyDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +79,365 @@ func (d *AdvertisePolicyDataSource) Schema(ctx context.Context, req datasource.S
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"public_ip": schema.ListNestedAttribute{
+				MarkdownDescription: "Optional. Public VIP to advertise This field is mutually exclusive with where and address fields.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"tls_parameters": schema.SingleNestedAttribute{
+				MarkdownDescription: "TLS configuration for downstream connections.",
+				Attributes: map[string]schema.Attribute{
+					"client_certificate_optional": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"client_certificate_required": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"common_params": schema.SingleNestedAttribute{
+						MarkdownDescription: "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
+						Attributes: map[string]schema.Attribute{
+							"cipher_suites": schema.ListAttribute{
+								MarkdownDescription: "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256..",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+							"maximum_protocol_version": schema.StringAttribute{
+								MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
+								Computed:            true,
+							},
+							"minimum_protocol_version": schema.StringAttribute{
+								MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
+								Computed:            true,
+							},
+							"tls_certificates": schema.ListNestedAttribute{
+								MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"certificate_url": schema.StringAttribute{
+											MarkdownDescription: "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
+											Computed:            true,
+										},
+										"custom_hash_algorithms": schema.SingleNestedAttribute{
+											MarkdownDescription: "Specifies the hash algorithms to be used.",
+											Attributes: map[string]schema.Attribute{
+												"hash_algorithms": schema.ListAttribute{
+													MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"description_spec": schema.StringAttribute{
+											MarkdownDescription: "Description. Description for the certificate.",
+											Computed:            true,
+										},
+										"disable_ocsp_stapling": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"private_key": schema.SingleNestedAttribute{
+											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Attributes: map[string]schema.Attribute{
+												"blindfold_secret_info": schema.SingleNestedAttribute{
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Attributes: map[string]schema.Attribute{
+														"decryption_provider": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+															Computed:            true,
+														},
+														"location": schema.StringAttribute{
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+															Computed:            true,
+															Sensitive:           true,
+														},
+														"store_provider": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+															Computed:            true,
+														},
+													},
+													Computed: true,
+												},
+												"clear_secret_info": schema.SingleNestedAttribute{
+													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Attributes: map[string]schema.Attribute{
+														"provider_ref": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+															Computed:            true,
+														},
+														"url": schema.StringAttribute{
+															MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+															Computed:            true,
+															Sensitive:           true,
+														},
+													},
+													Computed: true,
+												},
+											},
+											Computed: true,
+										},
+										"use_system_defaults": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for use system defaults.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+								},
+								Computed: true,
+							},
+							"validation_params": schema.SingleNestedAttribute{
+								MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+								Attributes: map[string]schema.Attribute{
+									"skip_hostname_verification": schema.BoolAttribute{
+										MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
+										Computed:            true,
+									},
+									"trusted_ca": schema.SingleNestedAttribute{
+										MarkdownDescription: "Root CA Certificate Reference. Reference to Root CA Certificate.",
+										Attributes: map[string]schema.Attribute{
+											"trusted_ca_list": schema.ListNestedAttribute{
+												MarkdownDescription: "Root CA Certificate Reference. Reference to Root CA Certificate.",
+												NestedObject: schema.NestedAttributeObject{
+													Attributes: map[string]schema.Attribute{
+														"kind": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+															Computed:            true,
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+															Computed:            true,
+														},
+														"namespace": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+															Computed:            true,
+														},
+														"tenant": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+															Computed:            true,
+														},
+														"uid": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+															Computed:            true,
+														},
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+									"trusted_ca_url": schema.StringAttribute{
+										MarkdownDescription: "Exclusive with [trusted_ca] Inline Root CA Certificate.",
+										Computed:            true,
+									},
+									"verify_subject_alt_names": schema.ListAttribute{
+										MarkdownDescription: "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
+										Computed:            true,
+										ElementType:         types.StringType,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"no_client_certificate": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"xfcc_header_elements": schema.ListAttribute{
+						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are defined, the header will not be added. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"where": schema.SingleNestedAttribute{
+				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
+				Attributes: map[string]schema.Attribute{
+					"site": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
+						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"network_type": schema.StringAttribute{
+								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
+								Computed:            true,
+							},
+							"ref": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. A site direct reference.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"virtual_network": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specifies a direct reference to a network configuration object.",
+						Attributes: map[string]schema.Attribute{
+							"ref": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. A virtual network direct reference.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"virtual_site": schema.SingleNestedAttribute{
+						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
+						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"network_type": schema.StringAttribute{
+								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
+								Computed:            true,
+							},
+							"ref": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. A virtual_site direct reference.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"address": schema.StringAttribute{
+				MarkdownDescription: "Optional. VIP to advertise. This VIP can be either V4/V6 address You can not specify this if where contains a site or virtual site of type REGIONAL_EDGE or public network If not specified and 'where' is specified with site or virtual site option, inside_vip or outside_vip specified in the site..",
+				Computed:            true,
+			},
+			"port": schema.Int64Attribute{
+				MarkdownDescription: "[OneOf: port, port_ranges] Exclusive with [port_ranges] Port to advertise.",
+				Computed:            true,
+			},
+			"port_ranges": schema.StringAttribute{
+				MarkdownDescription: "Exclusive with [port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
+				Computed:            true,
+			},
+			"protocol": schema.StringAttribute{
+				MarkdownDescription: "[Enum: TCP|UDP] Protocol. Protocol to advertise. Possible values are `TCP`, `UDP`.",
+				Computed:            true,
+			},
+			"skip_xff_append": schema.BoolAttribute{
+				MarkdownDescription: "If set, the loadbalancer will not append the remote address to the x-forwarded-for HTTP header.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +461,8 @@ func (d *AdvertisePolicyDataSource) Read(ctx context.Context, req datasource.Rea
 		return
 	}
 
-	resource, err := d.client.GetAdvertisePolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAdvertisePolicy(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AdvertisePolicy: %s", err))
 		return
@@ -101,7 +470,11 @@ func (d *AdvertisePolicyDataSource) Read(ctx context.Context, req datasource.Rea
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +507,609 @@ func (d *AdvertisePolicyDataSource) Read(ctx context.Context, req datasource.Rea
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.PublicIP.IsNull() || len(data.PublicIP.Elements()) == 0) {
+		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {
+		var PublicIPList []AdvertisePolicyPublicIPModel
+		var existingPublicIPItems []AdvertisePolicyPublicIPModel
+		if !data.PublicIP.IsNull() && !data.PublicIP.IsUnknown() {
+			data.PublicIP.ElementsAs(ctx, &existingPublicIPItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				PublicIPList = append(PublicIPList, AdvertisePolicyPublicIPModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes}, PublicIPList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.PublicIP = listVal
+		}
+	} else {
+		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
+		data.TLSParameters = &AdvertisePolicyTLSParametersModel{
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
+					return data.TLSParameters.ClientCertificateOptional
+				}
+				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
+					return data.TLSParameters.ClientCertificateRequired
+				}
+				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
+				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
+					return &AdvertisePolicyTLSParametersCommonParamsModel{
+						CipherSuites: func() types.List {
+							if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						MaximumProtocolVersion: func() types.String {
+							if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						MinimumProtocolVersion: func() types.String {
+							if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TLSCertificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && (data.TLSParameters.CommonParams.TLSCertificates.IsNull() || len(data.TLSParameters.CommonParams.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
+								data.TLSParameters.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
+							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
+												}
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											PrivateKey: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
+												}
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+						}(),
+						ValidationParams: func() *AdvertisePolicyTLSParametersCommonParamsValidationParamsModel {
+							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+								return &AdvertisePolicyTLSParametersCommonParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.NoClientCertificate.IsUnknown() {
+					return data.TLSParameters.NoClientCertificate
+				}
+				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			XfccHeaderElements: func() types.List {
+				if v, ok := blockData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &AdvertisePolicyWhereModel{
+			Site: func() *AdvertisePolicyWhereSiteModel {
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereSiteModel{
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
+								return data.Where.Site.DisableInternetVIP
+							}
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
+								return data.Where.Site.EnableInternetVIP
+							}
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []AdvertisePolicyWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereSiteRefModel
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *AdvertisePolicyWhereVirtualNetworkModel {
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []AdvertisePolicyWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereVirtualNetworkRefModel
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &AdvertisePolicyWhereVirtualSiteModel{
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []AdvertisePolicyWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []AdvertisePolicyWhereVirtualSiteRefModel
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, AdvertisePolicyWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
+		data.Address = types.StringValue(v)
+	} else {
+		data.Address = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["port"].(float64); ok {
+		data.Port = types.Int64Value(int64(v))
+	} else {
+		data.Port = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["port_ranges"].(string); ok && v != "" {
+		data.PortRanges = types.StringValue(v)
+	} else {
+		data.PortRanges = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["protocol"].(string); ok && v != "" {
+		data.Protocol = types.StringValue(v)
+	} else {
+		data.Protocol = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["skip_xff_append"].(bool); ok {
+		data.SkipXffAppend = types.BoolValue(v)
+	} else {
+		data.SkipXffAppend = types.BoolNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

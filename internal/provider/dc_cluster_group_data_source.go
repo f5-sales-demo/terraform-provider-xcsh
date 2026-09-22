@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,13 @@ type DcClusterGroupDataSource struct {
 }
 
 type DcClusterGroupDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID          types.String             `tfsdk:"id"`
+	Name        types.String             `tfsdk:"name"`
+	Namespace   types.String             `tfsdk:"namespace"`
+	Description types.String             `tfsdk:"description"`
+	Labels      types.Map                `tfsdk:"labels"`
+	Annotations types.Map                `tfsdk:"annotations"`
+	Type        *DcClusterGroupTypeModel `tfsdk:"type"`
 }
 
 func (d *DcClusterGroupDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +56,8 @@ func (d *DcClusterGroupDataSource) Schema(ctx context.Context, req datasource.Sc
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the DcClusterGroup exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the DcClusterGroup.",
@@ -69,6 +72,22 @@ func (d *DcClusterGroupDataSource) Schema(ctx context.Context, req datasource.Sc
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"type": schema.SingleNestedAttribute{
+				MarkdownDescription: "DC Cluster Group Mesh Type. Details of DC Cluster Group Mesh Type.",
+				Attributes: map[string]schema.Attribute{
+					"control_and_data_plane_mesh": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"data_plane_mesh": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
 			},
 		},
 	}
@@ -93,7 +112,11 @@ func (d *DcClusterGroupDataSource) Read(ctx context.Context, req datasource.Read
 		return
 	}
 
-	resource, err := d.client.GetDcClusterGroup(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetDcClusterGroup(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DcClusterGroup: %s", err))
 		return
@@ -101,7 +124,11 @@ func (d *DcClusterGroupDataSource) Read(ctx context.Context, req datasource.Read
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +161,30 @@ func (d *DcClusterGroupDataSource) Read(ctx context.Context, req datasource.Read
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["type"].(map[string]interface{}); ok && (isImport || data.Type != nil) {
+		data.Type = &DcClusterGroupTypeModel{
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.Type != nil && !data.Type.ControlAndDataPlaneMesh.IsUnknown() {
+					return data.Type.ControlAndDataPlaneMesh
+				}
+				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.Type != nil && !data.Type.DataPlaneMesh.IsUnknown() {
+					return data.Type.DataPlaneMesh
+				}
+				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

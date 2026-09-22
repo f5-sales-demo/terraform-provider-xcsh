@@ -73,13 +73,149 @@ spec: {}
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="allow-all"></a>&#x2022; [`allow_all`](#allow-all) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="allowed-destinations"></a>&#x2022; [`allowed_destinations`](#allowed-destinations) - Optional String<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes
+
+<a id="allowed-sources"></a>&#x2022; [`allowed_sources`](#allowed-sources) - Optional String<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="denied-destinations"></a>&#x2022; [`denied_destinations`](#denied-destinations) - Optional String<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes
+
+<a id="denied-sources"></a>&#x2022; [`denied_sources`](#denied-sources) - Optional String<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes
+
+<a id="deny-all"></a>&#x2022; [`deny_all`](#deny-all) - Optional Object<br>Enable this option
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the EnhancedFirewallPolicy
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="rule-list"></a>&#x2022; [`rule_list`](#rule-list) - Optional String<br>Custom Enhanced Firewall Policy Rules. Custom Enhanced Firewall Policy Rules
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
+
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>Ordered List of Enhanced Firewall Policy Rules
+
+<a id="advanced-action"></a>&#x2022; [`advanced_action`](#advanced-action) - Optional String<br>Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction
+
+<a id="all-destinations"></a>&#x2022; [`all_destinations`](#all-destinations) - Optional Object<br>Configuration parameter for all destinations
+
+<a id="all-sli-vips"></a>&#x2022; [`all_sli_vips`](#all-sli-vips) - Optional Object<br>Enable this option
+
+<a id="all-slo-vips"></a>&#x2022; [`all_slo_vips`](#all-slo-vips) - Optional Object<br>Enable this option
+
+<a id="all-sources"></a>&#x2022; [`all_sources`](#all-sources) - Optional Object<br>Configuration parameter for all sources
+
+<a id="all-tcp-traffic"></a>&#x2022; [`all_tcp_traffic`](#all-tcp-traffic) - Optional Object<br>Configuration parameter for all TCP traffic
+
+<a id="all-traffic"></a>&#x2022; [`all_traffic`](#all-traffic) - Optional Object<br>Configuration parameter for all traffic
+
+<a id="all-udp-traffic"></a>&#x2022; [`all_udp_traffic`](#all-udp-traffic) - Optional Object<br>Configuration parameter for all UDP traffic
+
+<a id="allow"></a>&#x2022; [`allow`](#allow) - Optional Object<br>Enable this option
+
+<a id="applications"></a>&#x2022; [`applications`](#applications) - Optional String<br>Configuration parameter for applications
+
+<a id="deny"></a>&#x2022; [`deny`](#deny) - Optional Object<br>Enable this option
+
+<a id="destination-aws-vpc-ids"></a>&#x2022; [`destination_aws_vpc_ids`](#destination-aws-vpc-ids) - Optional String<br>Configuration parameter for destination AWS VPC ids
+
+<a id="destination-ip-prefix-set"></a>&#x2022; [`destination_ip_prefix_set`](#destination-ip-prefix-set) - Optional String<br>List of references to ip_prefix_set objects
+
+<a id="destination-label-selector"></a>&#x2022; [`destination_label_selector`](#destination-label-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="destination-prefix-list"></a>&#x2022; [`destination_prefix_list`](#destination-prefix-list) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="insert-service"></a>&#x2022; [`insert_service`](#insert-service) - Optional String<br>Action to forward traffic to external service
+
+<a id="inside-destinations"></a>&#x2022; [`inside_destinations`](#inside-destinations) - Optional Object<br>Configuration parameter for inside destinations
+
+<a id="inside-sources"></a>&#x2022; [`inside_sources`](#inside-sources) - Optional Object<br>Configuration parameter for inside sources
+
+<a id="label-matcher"></a>&#x2022; [`label_matcher`](#label-matcher) - Optional String<br>Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="outside-destinations"></a>&#x2022; [`outside_destinations`](#outside-destinations) - Optional Object<br>Configuration parameter for outside destinations
+
+<a id="outside-sources"></a>&#x2022; [`outside_sources`](#outside-sources) - Optional Object<br>Configuration parameter for outside sources
+
+<a id="protocol-port-range"></a>&#x2022; [`protocol_port_range`](#protocol-port-range) - Optional String<br>Protocol and Port. Protocol and Port ranges
+
+<a id="source-aws-vpc-ids"></a>&#x2022; [`source_aws_vpc_ids`](#source-aws-vpc-ids) - Optional String<br>Configuration parameter for source AWS VPC ids
+
+<a id="source-ip-prefix-set"></a>&#x2022; [`source_ip_prefix_set`](#source-ip-prefix-set) - Optional String<br>List of references to ip_prefix_set objects
+
+<a id="source-label-selector"></a>&#x2022; [`source_label_selector`](#source-label-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="source-prefix-list"></a>&#x2022; [`source_prefix_list`](#source-prefix-list) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="action"></a>&#x2022; [`action`](#action) - Optional String  Defaults to `NOLOG`<br>Possible values are `NOLOG`, `LOG`<br>[Enum: NOLOG|LOG] Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-
+
+<a id="applications"></a>&#x2022; [`applications`](#applications) - Optional List  Defaults to `APPLICATION_HTTP`<br>Possible values are `APPLICATION_HTTP`, `APPLICATION_HTTPS`, `APPLICATION_SNMP`, `APPLICATION_DNS`<br>[Enum: APPLICATION_HTTP|APPLICATION_HTTPS|APPLICATION_SNMP|APPLICATION_DNS] Application Protocols. Application protocols like HTTP, SNMP
+
+<a id="vpc-id"></a>&#x2022; [`vpc_id`](#vpc-id) - Optional List<br>AWS VPC List. List of VPC Identifiers in AWS
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="prefixes"></a>&#x2022; [`prefixes`](#prefixes) - Optional List<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="nfv-service"></a>&#x2022; [`nfv_service`](#nfv-service) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="keys"></a>&#x2022; [`keys`](#keys) - Optional List<br>The list of label key names that have to match
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="port-ranges"></a>&#x2022; [`port_ranges`](#port-ranges) - Optional List<br>List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192
+
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String<br>Possible values are `ALL`, `TCP`, `UDP`, `ICMP`<br>[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
+
+<a id="vpc-id"></a>&#x2022; [`vpc_id`](#vpc-id) - Optional List<br>AWS VPC List. List of VPC Identifiers in AWS
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="prefixes"></a>&#x2022; [`prefixes`](#prefixes) - Optional List<br>List of IPv4 prefixes that represent an endpoint
 
 ---
 

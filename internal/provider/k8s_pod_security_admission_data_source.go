@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,13 @@ type K8SPodSecurityAdmissionDataSource struct {
 }
 
 type K8SPodSecurityAdmissionDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                        types.String `tfsdk:"id"`
+	Name                      types.String `tfsdk:"name"`
+	Namespace                 types.String `tfsdk:"namespace"`
+	Description               types.String `tfsdk:"description"`
+	Labels                    types.Map    `tfsdk:"labels"`
+	Annotations               types.Map    `tfsdk:"annotations"`
+	PodSecurityAdmissionSpecs types.List   `tfsdk:"pod_security_admission_specs"`
 }
 
 func (d *K8SPodSecurityAdmissionDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +56,8 @@ func (d *K8SPodSecurityAdmissionDataSource) Schema(ctx context.Context, req data
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the K8SPodSecurityAdmission exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the K8SPodSecurityAdmission.",
@@ -69,6 +72,44 @@ func (d *K8SPodSecurityAdmissionDataSource) Schema(ctx context.Context, req data
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"pod_security_admission_specs": schema.ListNestedAttribute{
+				MarkdownDescription: "K8s Pod Security Admission. Uniform Resource Identifier",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"audit": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"baseline": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"enforce": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"privileged": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"restricted": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"warn": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+					},
+				},
+				Computed: true,
 			},
 		},
 	}
@@ -93,7 +134,11 @@ func (d *K8SPodSecurityAdmissionDataSource) Read(ctx context.Context, req dataso
 		return
 	}
 
-	resource, err := d.client.GetK8SPodSecurityAdmission(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetK8SPodSecurityAdmission(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read K8SPodSecurityAdmission: %s", err))
 		return
@@ -101,7 +146,11 @@ func (d *K8SPodSecurityAdmissionDataSource) Read(ctx context.Context, req dataso
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +183,85 @@ func (d *K8SPodSecurityAdmissionDataSource) Read(ctx context.Context, req dataso
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.PodSecurityAdmissionSpecs.IsNull() || len(data.PodSecurityAdmissionSpecs.Elements()) == 0) {
+		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["pod_security_admission_specs"].([]interface{}); ok && len(listData) > 0 {
+		var PodSecurityAdmissionSpecsList []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
+		var existingPodSecurityAdmissionSpecsItems []K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
+		if !data.PodSecurityAdmissionSpecs.IsNull() && !data.PodSecurityAdmissionSpecs.IsUnknown() {
+			data.PodSecurityAdmissionSpecs.ElementsAs(ctx, &existingPodSecurityAdmissionSpecsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
+					Audit: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Audit.IsUnknown() {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Audit
+						}
+						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					Baseline: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Baseline.IsUnknown() {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Baseline
+						}
+						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					Enforce: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Enforce.IsUnknown() {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Enforce
+						}
+						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					Privileged: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Privileged.IsUnknown() {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Privileged
+						}
+						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					Restricted: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Restricted.IsUnknown() {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Restricted
+						}
+						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					Warn: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Warn.IsUnknown() {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Warn
+						}
+						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes}, PodSecurityAdmissionSpecsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.PodSecurityAdmissionSpecs = listVal
+		}
+	} else {
+		data.PodSecurityAdmissionSpecs = types.ListNull(types.ObjectType{AttrTypes: K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

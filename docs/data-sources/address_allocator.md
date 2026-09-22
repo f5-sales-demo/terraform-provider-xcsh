@@ -56,6 +56,10 @@ output "address_allocator_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="address-allocation-scheme"></a>&#x2022; [`address_allocation_scheme`](#address-allocation-scheme) - Optional String<br>Decides the scheme to be used to allocate addresses from the configured address pool
+
+<a id="address-pool"></a>&#x2022; [`address_pool`](#address-pool) - Optional List<br>Address pool from which the allocator carves out subnets or addresses to its clients
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the AddressAllocator
@@ -63,6 +67,17 @@ In addition to all arguments above, the following attributes are exported:
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="mode"></a>&#x2022; [`mode`](#mode) - Optional String  Defaults to `LOCAL`<br>Possible values are `LOCAL`, `GLOBAL_PER_SITE_NODE`<br>[Enum: LOCAL|GLOBAL_PER_SITE_NODE] Mode of the address allocator Address allocator is for VERs within the local cluster or site Allocation is per site and then per node
+
+<a id="allocation-unit"></a>&#x2022; [`allocation_unit`](#allocation-unit) - Optional Number<br>Prefix length indicating the size of each allocated subnet. For example, if this is specified as 30, subnets of /30 will be allocated from the given address pool
+
+<a id="local-interface-address-offset"></a>&#x2022; [`local_interface_address_offset`](#local-interface-address-offset) - Optional Number<br>Used to derive address for the local interface from the allocated subnet. If Local Interface Address Type is set to 'Offset from beginning of Subnet', this offset value is added to the allocated subnet and used as the local interface address. For example, if
+the allocated subnet is 192.0.2.0/24
+
+<a id="local-interface-address-type"></a>&#x2022; [`local_interface_address_type`](#local-interface-address-type) - Optional String  Defaults to `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`<br>Possible values are `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN`, `LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END`, `LOCAL_INTERFACE_ADDRESS_FROM_PREFIX`<br>[Enum:
+LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN|LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_END|LOCAL_INTERFACE_ADDRESS_FROM_PREFIX] Dictates how local interface address is derived from the allocated subnet Use Nth address of the allocated subnet as the local interface address, N being the Local Interface Address Offset. For example, if the allocated subnet is 192.0.2.0/24, Local Interface Address
+Offset is set to 2 and Local
 
 ---
 

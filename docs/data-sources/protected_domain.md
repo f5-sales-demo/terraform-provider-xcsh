@@ -64,6 +64,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="protected-domain"></a>&#x2022; [`protected_domain`](#protected-domain) - Optional String<br>For Client-Side Defense to work on the web pages where you injected the JS, you need to enter the root domain below
+
 ---
 
 ## Common Types

@@ -28,12 +28,16 @@ type PolicerDataSource struct {
 }
 
 type PolicerDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                       types.String `tfsdk:"id"`
+	Name                     types.String `tfsdk:"name"`
+	Namespace                types.String `tfsdk:"namespace"`
+	Description              types.String `tfsdk:"description"`
+	Labels                   types.Map    `tfsdk:"labels"`
+	Annotations              types.Map    `tfsdk:"annotations"`
+	BurstSize                types.Int64  `tfsdk:"burst_size"`
+	CommittedInformationRate types.Int64  `tfsdk:"committed_information_rate"`
+	PolicerMode              types.String `tfsdk:"policer_mode"`
+	PolicerType              types.String `tfsdk:"policer_type"`
 }
 
 func (d *PolicerDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +74,22 @@ func (d *PolicerDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"burst_size": schema.Int64Attribute{
+				MarkdownDescription: "The maximum size permitted for bursts of data. E.g. 10000 pps burst.",
+				Computed:            true,
+			},
+			"committed_information_rate": schema.Int64Attribute{
+				MarkdownDescription: "The committed information rate is the guaranteed packets rate for traffic arriving or departing under normal conditions. E.g. 10000 pps.",
+				Computed:            true,
+			},
+			"policer_mode": schema.StringAttribute{
+				MarkdownDescription: "[Enum: POLICER_MODE_NOT_SHARED|POLICER_MODE_SHARED] - POLICER_MODE_NOT_SHARED: Not Shared A separate policer instance is created for each reference to the policer - POLICER_MODE_SHARED: Shared A common policer instance is used for for all references to the policer. Possible values are `POLICER_MODE_NOT_SHARED`, `POLICER_MODE_SHARED`. Defaults to `POLICER_MODE_NOT_SHARED`. Server applies default when omitted.",
+				Computed:            true,
+			},
+			"policer_type": schema.StringAttribute{
+				MarkdownDescription: "[Enum: POLICER_SINGLE_RATE_TWO_COLOR] Specifies the type of Policer Basic Single-Rate Two-Color Policer. The only possible value is `POLICER_SINGLE_RATE_TWO_COLOR`. Defaults to `POLICER_SINGLE_RATE_TWO_COLOR`. Server applies default when omitted.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +113,8 @@ func (d *PolicerDataSource) Read(ctx context.Context, req datasource.ReadRequest
 		return
 	}
 
-	resource, err := d.client.GetPolicer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetPolicer(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Policer: %s", err))
 		return
@@ -101,7 +122,11 @@ func (d *PolicerDataSource) Read(ctx context.Context, req datasource.ReadRequest
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +159,27 @@ func (d *PolicerDataSource) Read(ctx context.Context, req datasource.ReadRequest
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["burst_size"].(float64); ok {
+		data.BurstSize = types.Int64Value(int64(v))
+	} else {
+		data.BurstSize = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["committed_information_rate"].(float64); ok {
+		data.CommittedInformationRate = types.Int64Value(int64(v))
+	} else {
+		data.CommittedInformationRate = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["policer_mode"].(string); ok && v != "" {
+		data.PolicerMode = types.StringValue(v)
+	} else {
+		data.PolicerMode = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["policer_type"].(string); ok && v != "" {
+		data.PolicerType = types.StringValue(v)
+	} else {
+		data.PolicerType = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,6 +28,28 @@ type ServicePolicySetDataSource struct {
 	client *client.Client
 }
 
+// ServicePolicySetEmptyModel represents empty nested blocks
+type ServicePolicySetEmptyModel struct {
+}
+
+// ServicePolicySetPoliciesModel represents policies block
+type ServicePolicySetPoliciesModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ServicePolicySetPoliciesModelAttrTypes defines the attribute types for ServicePolicySetPoliciesModel
+var ServicePolicySetPoliciesModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
 type ServicePolicySetDataSourceModel struct {
 	ID          types.String `tfsdk:"id"`
 	Name        types.String `tfsdk:"name"`
@@ -34,7 +57,7 @@ type ServicePolicySetDataSourceModel struct {
 	Description types.String `tfsdk:"description"`
 	Labels      types.Map    `tfsdk:"labels"`
 	Annotations types.Map    `tfsdk:"annotations"`
-	Policies    types.String `tfsdk:"policies"`
+	Policies    types.List   `tfsdk:"policies"`
 }
 
 func (d *ServicePolicySetDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -71,9 +94,33 @@ func (d *ServicePolicySetDataSource) Schema(ctx context.Context, req datasource.
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
-			"policies": schema.StringAttribute{
+			"policies": schema.ListNestedAttribute{
 				MarkdownDescription: "Ordered list of references to service_policy objects.",
-				Computed:            true,
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
 			},
 		},
 	}
@@ -137,12 +184,60 @@ func (d *ServicePolicySetDataSource) Read(ctx context.Context, req datasource.Re
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["policies"]; ok && v != nil {
-		data.Policies = types.StringValue(fmt.Sprintf("%v", v))
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.Policies.IsNull() || len(data.Policies.Elements()) == 0) {
+		data.Policies = types.ListNull(types.ObjectType{AttrTypes: ServicePolicySetPoliciesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["policies"].([]interface{}); ok && len(listData) > 0 {
+		var PoliciesList []ServicePolicySetPoliciesModel
+		var existingPoliciesItems []ServicePolicySetPoliciesModel
+		if !data.Policies.IsNull() && !data.Policies.IsUnknown() {
+			data.Policies.ElementsAs(ctx, &existingPoliciesItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				PoliciesList = append(PoliciesList, ServicePolicySetPoliciesModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicySetPoliciesModelAttrTypes}, PoliciesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Policies = listVal
+		}
 	} else {
-		data.Policies = types.StringNull()
+		data.Policies = types.ListNull(types.ObjectType{AttrTypes: ServicePolicySetPoliciesModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

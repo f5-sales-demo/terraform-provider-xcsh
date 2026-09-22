@@ -133,7 +133,5 @@ func (d *ShapeBotDefenseInstanceDataSource) Read(ctx context.Context, req dataso
 		data.Annotations = types.MapNull(types.StringType)
 	}
 
-	// Map spec fields from API response
-
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }

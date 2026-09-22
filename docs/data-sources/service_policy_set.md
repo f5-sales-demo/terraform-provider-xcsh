@@ -62,7 +62,23 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
 
-<a id="policies"></a>&#x2022; [`policies`](#policies) - Optional String<br>Ordered list of references to service_policy objects
+<a id="policies"></a>&#x2022; [`policies`](#policies) - Optional List<br>Ordered list of references to service_policy objects
+
+---
+
+#### Policies
+
+A [`policies`](#policies) block supports the following:
+
+<a id="nestedatt--policies-kind"></a>&#x2022; [`kind`](#nestedatt--policies-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--policies-name"></a>&#x2022; [`name`](#nestedatt--policies-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--policies-namespace"></a>&#x2022; [`namespace`](#nestedatt--policies-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--policies-tenant"></a>&#x2022; [`tenant`](#nestedatt--policies-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--policies-uid"></a>&#x2022; [`uid`](#nestedatt--policies-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 ---
 

@@ -70,6 +70,28 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="waf-spec"></a>&#x2022; [`waf_spec`](#waf-spec) - Optional String<br>Configuration for waf_spec
 
+<a id="disabled"></a>&#x2022; [`disabled`](#disabled) - Optional Object<br>Enable this option
+
+<a id="enabled"></a>&#x2022; [`enabled`](#enabled) - Optional Object<br>Enable this option
+
+<a id="blocking-waf-mode"></a>&#x2022; [`blocking_waf_mode`](#blocking-waf-mode) - Optional Object<br>Enable this option
+
+<a id="distributed-cloud-policy-management"></a>&#x2022; [`distributed_cloud_policy_management`](#distributed-cloud-policy-management) - Optional Object<br>Configuration parameter for distributed cloud policy management
+
+<a id="monitoring-waf-mode"></a>&#x2022; [`monitoring_waf_mode`](#monitoring-waf-mode) - Optional Object<br>Configuration parameter for monitoring WAF mode
+
+<a id="nginx-policy-management"></a>&#x2022; [`nginx_policy_management`](#nginx-policy-management) - Optional Object<br>Configuration parameter for nginx policy management
+
+<a id="none-waf-mode"></a>&#x2022; [`none_waf_mode`](#none-waf-mode) - Optional Object<br>Configuration parameter for none WAF mode
+
+<a id="policy-file-name"></a>&#x2022; [`policy_file_name`](#policy-file-name) - Optional String<br>WAF Policy filename. Policy filename for WAF
+
+<a id="policy-name"></a>&#x2022; [`policy_name`](#policy-name) - Optional String<br>WAF Policy Name. Policy name configured for WAF
+
+<a id="security-log-enabled"></a>&#x2022; [`security_log_enabled`](#security-log-enabled) - Optional Bool<br>Specifies if security logging is enabled
+
+<a id="security-log-file-names"></a>&#x2022; [`security_log_file_names`](#security-log-file-names) - Optional List<br>Specifies the list of security log files specification
+
 ---
 
 ## Common Types

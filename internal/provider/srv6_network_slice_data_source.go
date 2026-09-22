@@ -28,12 +28,16 @@ type Srv6NetworkSliceDataSource struct {
 }
 
 type Srv6NetworkSliceDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                          types.String `tfsdk:"id"`
+	Name                        types.String `tfsdk:"name"`
+	Namespace                   types.String `tfsdk:"namespace"`
+	Description                 types.String `tfsdk:"description"`
+	Labels                      types.Map    `tfsdk:"labels"`
+	Annotations                 types.Map    `tfsdk:"annotations"`
+	SidPrefixes                 types.List   `tfsdk:"sid_prefixes"`
+	ConnectToAccessNetworks     types.Bool   `tfsdk:"connect_to_access_networks"`
+	ConnectToEnterpriseNetworks types.Bool   `tfsdk:"connect_to_enterprise_networks"`
+	ConnectToInternet           types.Bool   `tfsdk:"connect_to_internet"`
 }
 
 func (d *Srv6NetworkSliceDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +58,8 @@ func (d *Srv6NetworkSliceDataSource) Schema(ctx context.Context, req datasource.
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the Srv6NetworkSlice exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the Srv6NetworkSlice.",
@@ -69,6 +74,23 @@ func (d *Srv6NetworkSliceDataSource) Schema(ctx context.Context, req datasource.
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"sid_prefixes": schema.ListAttribute{
+				MarkdownDescription: "SID Locator from the prefix is allocated automatically for each node in each site.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"connect_to_access_networks": schema.BoolAttribute{
+				MarkdownDescription: "Connect all SRv6 Virtual Networks in this slice to their corresponding access networks by importing route targets specified in the virtual network.",
+				Computed:            true,
+			},
+			"connect_to_enterprise_networks": schema.BoolAttribute{
+				MarkdownDescription: "Connect all SRv6 Virtual Networks in this slice to their corresponding enterprise networks by importing route targets specified in the virtual network.",
+				Computed:            true,
+			},
+			"connect_to_internet": schema.BoolAttribute{
+				MarkdownDescription: "Connect all SRv6 Virtual Networks in this slice to the Internet by importing route targets specified in the virtual network.",
+				Computed:            true,
 			},
 		},
 	}
@@ -93,7 +115,11 @@ func (d *Srv6NetworkSliceDataSource) Read(ctx context.Context, req datasource.Re
 		return
 	}
 
-	resource, err := d.client.GetSrv6NetworkSlice(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetSrv6NetworkSlice(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Srv6NetworkSlice: %s", err))
 		return
@@ -101,7 +127,11 @@ func (d *Srv6NetworkSliceDataSource) Read(ctx context.Context, req datasource.Re
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +164,38 @@ func (d *Srv6NetworkSliceDataSource) Read(ctx context.Context, req datasource.Re
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["sid_prefixes"].([]interface{}); ok {
+		sid_prefixesList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				sid_prefixesList = append(sid_prefixesList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, sid_prefixesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.SidPrefixes = listVal
+		}
+	} else if isImport || data.SidPrefixes.IsUnknown() {
+		data.SidPrefixes = types.ListNull(types.StringType)
+	}
+	if v, ok := apiResource.Spec["connect_to_access_networks"].(bool); ok {
+		data.ConnectToAccessNetworks = types.BoolValue(v)
+	} else {
+		data.ConnectToAccessNetworks = types.BoolNull()
+	}
+	if v, ok := apiResource.Spec["connect_to_enterprise_networks"].(bool); ok {
+		data.ConnectToEnterpriseNetworks = types.BoolValue(v)
+	} else {
+		data.ConnectToEnterpriseNetworks = types.BoolNull()
+	}
+	if v, ok := apiResource.Spec["connect_to_internet"].(bool); ok {
+		data.ConnectToInternet = types.BoolValue(v)
+	} else {
+		data.ConnectToInternet = types.BoolNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

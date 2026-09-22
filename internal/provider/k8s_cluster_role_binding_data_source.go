@@ -28,12 +28,14 @@ type K8SClusterRoleBindingDataSource struct {
 }
 
 type K8SClusterRoleBindingDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID             types.String                              `tfsdk:"id"`
+	Name           types.String                              `tfsdk:"name"`
+	Namespace      types.String                              `tfsdk:"namespace"`
+	Description    types.String                              `tfsdk:"description"`
+	Labels         types.Map                                 `tfsdk:"labels"`
+	Annotations    types.Map                                 `tfsdk:"annotations"`
+	Subjects       types.List                                `tfsdk:"subjects"`
+	K8SClusterRole *K8SClusterRoleBindingK8SClusterRoleModel `tfsdk:"k8s_cluster_role"`
 }
 
 func (d *K8SClusterRoleBindingDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,54 @@ func (d *K8SClusterRoleBindingDataSource) Schema(ctx context.Context, req dataso
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"subjects": schema.ListNestedAttribute{
+				MarkdownDescription: "List of subjects (user, group or service account) to which this role is bound.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"group": schema.StringAttribute{
+							MarkdownDescription: "Exclusive with [service_account user] Group ID of the user group.",
+							Computed:            true,
+						},
+						"service_account": schema.SingleNestedAttribute{
+							MarkdownDescription: "ServiceAccountType.",
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "Name. Name of the service account.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "Namespace. Namespace of the service account.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"user": schema.StringAttribute{
+							MarkdownDescription: "Exclusive with [group service_account] User ID of the user.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"k8s_cluster_role": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+						Computed:            true,
+					},
+					"tenant": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +143,8 @@ func (d *K8SClusterRoleBindingDataSource) Read(ctx context.Context, req datasour
 		return
 	}
 
-	resource, err := d.client.GetK8SClusterRoleBinding(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetK8SClusterRoleBinding(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read K8SClusterRoleBinding: %s", err))
 		return
@@ -101,7 +152,11 @@ func (d *K8SClusterRoleBindingDataSource) Read(ctx context.Context, req datasour
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +189,84 @@ func (d *K8SClusterRoleBindingDataSource) Read(ctx context.Context, req datasour
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.Subjects.IsNull() || len(data.Subjects.Elements()) == 0) {
+		data.Subjects = types.ListNull(types.ObjectType{AttrTypes: K8SClusterRoleBindingSubjectsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["subjects"].([]interface{}); ok && len(listData) > 0 {
+		var SubjectsList []K8SClusterRoleBindingSubjectsModel
+		var existingSubjectsItems []K8SClusterRoleBindingSubjectsModel
+		if !data.Subjects.IsNull() && !data.Subjects.IsUnknown() {
+			data.Subjects.ElementsAs(ctx, &existingSubjectsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				SubjectsList = append(SubjectsList, K8SClusterRoleBindingSubjectsModel{
+					Group: func() types.String {
+						if v, ok := itemMap["group"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					ServiceAccount: func() *K8SClusterRoleBindingSubjectsServiceAccountModel {
+						if ServiceAccountData, ok := itemMap["service_account"].(map[string]interface{}); ok {
+							return &K8SClusterRoleBindingSubjectsServiceAccountModel{
+								Name: func() types.String {
+									if v, ok := ServiceAccountData["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := ServiceAccountData["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					User: func() types.String {
+						if v, ok := itemMap["user"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SClusterRoleBindingSubjectsModelAttrTypes}, SubjectsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Subjects = listVal
+		}
+	} else {
+		data.Subjects = types.ListNull(types.ObjectType{AttrTypes: K8SClusterRoleBindingSubjectsModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["k8s_cluster_role"].(map[string]interface{}); ok && (isImport || data.K8SClusterRole != nil) {
+		data.K8SClusterRole = &K8SClusterRoleBindingK8SClusterRoleModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Tenant: func() types.String {
+				if v, ok := blockData["tenant"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

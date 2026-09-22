@@ -77,11 +77,35 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="api-inventory-exclusion-list"></a>&#x2022; [`api_inventory_exclusion_list`](#api-inventory-exclusion-list) - Optional List  Defaults to `[]`<br>List of API Endpoints excluded from the API Inventory.  Server applies default when omitted
+
+<a id="api-inventory-inclusion-list"></a>&#x2022; [`api_inventory_inclusion_list`](#api-inventory-inclusion-list) - Optional List  Defaults to `[]`<br>List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added to the API Inventory using this list.  Server applies default when omitted
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the APIDefinition
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="mixed-schema-origin"></a>&#x2022; [`mixed_schema_origin`](#mixed-schema-origin) - Optional Object<br>Configuration parameter for mixed schema origin
+
+<a id="non-api-endpoints"></a>&#x2022; [`non_api_endpoints`](#non-api-endpoints) - Optional List  Defaults to `[]`<br>API Discovery Exclusion List. List of Non-API Endpoints.  Server applies default when omitted
+
+<a id="strict-schema-origin"></a>&#x2022; [`strict_schema_origin`](#strict-schema-origin) - Optional Object  Defaults to `map[]`<br>Configuration parameter for strict schema origin.  Server applies default when omitted
+
+<a id="swagger-specs"></a>&#x2022; [`swagger_specs`](#swagger-specs) - Optional List  Defaults to `[]`<br>URLs of versioned OpenAPI files uploaded through Web App & API Protection > Files > Swagger Files. The 512-byte item limit is a URL-length limit; inline string:/// OpenAPI content is rejected and does not create an API-definition object.  Server applies default when omitted
+
+<a id="method"></a>&#x2022; [`method`](#method) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String  Specified in OpenAPI, including parameters<br>Endpoint path, as  The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
+
+<a id="method"></a>&#x2022; [`method`](#method) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String  Specified in OpenAPI, including parameters<br>Endpoint path, as  The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
+
+<a id="method"></a>&#x2022; [`method`](#method) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String  Specified in OpenAPI, including parameters<br>Endpoint path, as  The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
 
 ---
 

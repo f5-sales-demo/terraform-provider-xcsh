@@ -56,6 +56,8 @@ output "usb_policy_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="allowed-devices"></a>&#x2022; [`allowed_devices`](#allowed-devices) - Optional List<br>Allowed USB devices. List of allowed USB devices
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the UsbPolicy
@@ -63,6 +65,18 @@ In addition to all arguments above, the following attributes are exported:
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="b-device-class"></a>&#x2022; [`b_device_class`](#b-device-class) - Optional String<br>Class. The class of this device
+
+<a id="b-device-protocol"></a>&#x2022; [`b_device_protocol`](#b-device-protocol) - Optional String<br>The protocol (within the subclass) of this device
+
+<a id="b-device-sub-class"></a>&#x2022; [`b_device_sub_class`](#b-device-sub-class) - Optional String<br>The subclass (within the class) of this device
+
+<a id="i-serial"></a>&#x2022; [`i_serial`](#i-serial) - Optional String<br>Index of Serial Number String Descriptor
+
+<a id="id-product"></a>&#x2022; [`id_product`](#id-product) - Optional String<br>Product ID (Assigned by Manufacturer) in hex
+
+<a id="id-vendor"></a>&#x2022; [`id_vendor`](#id-vendor) - Optional String<br>Vendor ID. Vendor ID (Assigned by USB Org) in hex
 
 ---
 

@@ -28,12 +28,16 @@ type TenantConfigurationDataSource struct {
 }
 
 type TenantConfigurationDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                    types.String                                   `tfsdk:"id"`
+	Name                  types.String                                   `tfsdk:"name"`
+	Namespace             types.String                                   `tfsdk:"namespace"`
+	Description           types.String                                   `tfsdk:"description"`
+	Labels                types.Map                                      `tfsdk:"labels"`
+	Annotations           types.Map                                      `tfsdk:"annotations"`
+	BruteForceDetection   *TenantConfigurationBruteForceDetectionModel   `tfsdk:"brute_force_detection"`
+	PasswordPolicy        *TenantConfigurationPasswordPolicyModel        `tfsdk:"password_policy"`
+	TenantDetails         *TenantConfigurationTenantDetailsModel         `tfsdk:"tenant_details"`
+	UserSessionExpiration *TenantConfigurationUserSessionExpirationModel `tfsdk:"user_session_expiration"`
 }
 
 func (d *TenantConfigurationDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +74,122 @@ func (d *TenantConfigurationDataSource) Schema(ctx context.Context, req datasour
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"brute_force_detection": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for brute force detection.",
+				Attributes: map[string]schema.Attribute{
+					"max_login_failures": schema.Int64Attribute{
+						MarkdownDescription: "How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"password_policy": schema.SingleNestedAttribute{
+				MarkdownDescription: "Policy configuration for this feature.",
+				Attributes: map[string]schema.Attribute{
+					"digits": schema.Int64Attribute{
+						MarkdownDescription: "The number of digits required to be in the password string.",
+						Computed:            true,
+					},
+					"expire_password": schema.Int64Attribute{
+						MarkdownDescription: "The number of days for which the password is valid. After the number of days has expired, the user is required to change their password.",
+						Computed:            true,
+					},
+					"lowercase_characters": schema.Int64Attribute{
+						MarkdownDescription: "The number of lower case letters required to be in the password string.",
+						Computed:            true,
+					},
+					"minimum_length": schema.Int64Attribute{
+						MarkdownDescription: "Minimum Length. Minimum length of password.",
+						Computed:            true,
+					},
+					"not_recently_used": schema.Int64Attribute{
+						MarkdownDescription: "Policy is used to restrict user from using previously used passwords. Number that's set determines number of last passwords which user cannot use as new password.",
+						Computed:            true,
+					},
+					"not_username": schema.BoolAttribute{
+						MarkdownDescription: "When set, the password is not allowed to be the same as the username.",
+						Computed:            true,
+					},
+					"special_characters": schema.Int64Attribute{
+						MarkdownDescription: "The number of special characters like '?!#%$' required to be in the password string.",
+						Computed:            true,
+					},
+					"uppercase_characters": schema.Int64Attribute{
+						MarkdownDescription: "The number of upper case letters required to be in the password string.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"tenant_details": schema.SingleNestedAttribute{
+				MarkdownDescription: "BasicConfiguration.",
+				Attributes: map[string]schema.Attribute{
+					"display_name": schema.StringAttribute{
+						MarkdownDescription: "Changes the tenant name displayed during login without affecting your company’s domain name.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"user_session_expiration": schema.SingleNestedAttribute{
+				MarkdownDescription: "Defines all session-related expiration for user sessions within a tenant's environment. Relationship between session_expiry and cookie_expiry: - session_expiry defines the 'absolute maximum duration' of a session and enforces RE-authentication after this time. - cookie_expiry defines the..",
+				Attributes: map[string]schema.Attribute{
+					"absolute_timeout": schema.SingleNestedAttribute{
+						MarkdownDescription: "Represents the session expiration duration.",
+						Attributes: map[string]schema.Attribute{
+							"hours": schema.SingleNestedAttribute{
+								MarkdownDescription: "Represents the session duration in hours.",
+								Attributes: map[string]schema.Attribute{
+									"duration": schema.Int64Attribute{
+										MarkdownDescription: "Duration. Configuration parameter for duration",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"minutes": schema.SingleNestedAttribute{
+								MarkdownDescription: "Represents the session duration in minutes.",
+								Attributes: map[string]schema.Attribute{
+									"duration": schema.Int64Attribute{
+										MarkdownDescription: "Duration. Configuration parameter for duration",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"idle_timeout": schema.SingleNestedAttribute{
+						MarkdownDescription: "Represents the cookie expiration duration.",
+						Attributes: map[string]schema.Attribute{
+							"hours": schema.SingleNestedAttribute{
+								MarkdownDescription: "Represents the cookie duration in hours.",
+								Attributes: map[string]schema.Attribute{
+									"duration": schema.Int64Attribute{
+										MarkdownDescription: "Duration. Configuration parameter for duration",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"minutes": schema.SingleNestedAttribute{
+								MarkdownDescription: "Represents the cookie duration in minutes.",
+								Attributes: map[string]schema.Attribute{
+									"duration": schema.Int64Attribute{
+										MarkdownDescription: "Duration. Configuration parameter for duration",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +213,8 @@ func (d *TenantConfigurationDataSource) Read(ctx context.Context, req datasource
 		return
 	}
 
-	resource, err := d.client.GetTenantConfiguration(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetTenantConfiguration(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read TenantConfiguration: %s", err))
 		return
@@ -101,7 +222,11 @@ func (d *TenantConfigurationDataSource) Read(ctx context.Context, req datasource
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +259,150 @@ func (d *TenantConfigurationDataSource) Read(ctx context.Context, req datasource
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["brute_force_detection"].(map[string]interface{}); ok && (isImport || data.BruteForceDetection != nil) {
+		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
+			MaxLoginFailures: func() types.Int64 {
+				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["password_policy"].(map[string]interface{}); ok && (isImport || data.PasswordPolicy != nil) {
+		data.PasswordPolicy = &TenantConfigurationPasswordPolicyModel{
+			Digits: func() types.Int64 {
+				if v, ok := blockData["digits"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			ExpirePassword: func() types.Int64 {
+				if v, ok := blockData["expire_password"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			LowercaseCharacters: func() types.Int64 {
+				if v, ok := blockData["lowercase_characters"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			MinimumLength: func() types.Int64 {
+				if v, ok := blockData["minimum_length"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			NotRecentlyUsed: func() types.Int64 {
+				if v, ok := blockData["not_recently_used"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			NotUsername: func() types.Bool {
+				if v, ok := blockData["not_username"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
+			SpecialCharacters: func() types.Int64 {
+				if v, ok := blockData["special_characters"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			UppercaseCharacters: func() types.Int64 {
+				if v, ok := blockData["uppercase_characters"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["tenant_details"].(map[string]interface{}); ok && (isImport || data.TenantDetails != nil) {
+		data.TenantDetails = &TenantConfigurationTenantDetailsModel{
+			DisplayName: func() types.String {
+				if v, ok := blockData["display_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["user_session_expiration"].(map[string]interface{}); ok && (isImport || data.UserSessionExpiration != nil) {
+		data.UserSessionExpiration = &TenantConfigurationUserSessionExpirationModel{
+			AbsoluteTimeout: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel {
+				if AbsoluteTimeoutData, ok := blockData["absolute_timeout"].(map[string]interface{}); ok {
+					return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutModel{
+						Hours: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel {
+							if HoursData, ok := AbsoluteTimeoutData["hours"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutHoursModel{
+									Duration: func() types.Int64 {
+										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Minutes: func() *TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel {
+							if MinutesData, ok := AbsoluteTimeoutData["minutes"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationAbsoluteTimeoutMinutesModel{
+									Duration: func() types.Int64 {
+										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			IdleTimeout: func() *TenantConfigurationUserSessionExpirationIdleTimeoutModel {
+				if IdleTimeoutData, ok := blockData["idle_timeout"].(map[string]interface{}); ok {
+					return &TenantConfigurationUserSessionExpirationIdleTimeoutModel{
+						Hours: func() *TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel {
+							if HoursData, ok := IdleTimeoutData["hours"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationIdleTimeoutHoursModel{
+									Duration: func() types.Int64 {
+										if v, ok := HoursData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Minutes: func() *TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel {
+							if MinutesData, ok := IdleTimeoutData["minutes"].(map[string]interface{}); ok {
+								return &TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModel{
+									Duration: func() types.Int64 {
+										if v, ok := MinutesData["duration"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

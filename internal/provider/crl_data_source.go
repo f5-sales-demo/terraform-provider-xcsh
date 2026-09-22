@@ -28,12 +28,17 @@ type CRLDataSource struct {
 }
 
 type CRLDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID              types.String        `tfsdk:"id"`
+	Name            types.String        `tfsdk:"name"`
+	Namespace       types.String        `tfsdk:"namespace"`
+	Description     types.String        `tfsdk:"description"`
+	Labels          types.Map           `tfsdk:"labels"`
+	Annotations     types.Map           `tfsdk:"annotations"`
+	RefreshInterval types.Int64         `tfsdk:"refresh_interval"`
+	ServerAddress   types.String        `tfsdk:"server_address"`
+	ServerPort      types.Int64         `tfsdk:"server_port"`
+	Timeout         types.Int64         `tfsdk:"timeout"`
+	HTTPAccess      *CRLHTTPAccessModel `tfsdk:"http_access"`
 }
 
 func (d *CRLDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +75,32 @@ func (d *CRLDataSource) Schema(ctx context.Context, req datasource.SchemaRequest
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"refresh_interval": schema.Int64Attribute{
+				MarkdownDescription: "CRL Refresh interval. CRL refresh interval, in hours.",
+				Computed:            true,
+			},
+			"server_address": schema.StringAttribute{
+				MarkdownDescription: "CRL Server address. CRL server address or hostname.",
+				Computed:            true,
+			},
+			"server_port": schema.Int64Attribute{
+				MarkdownDescription: "CRL Server Port. Set CRL Server port number.",
+				Computed:            true,
+			},
+			"timeout": schema.Int64Attribute{
+				MarkdownDescription: "CRL download timeout. CRL download wait time, in seconds.",
+				Computed:            true,
+			},
+			"http_access": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for http access.",
+				Attributes: map[string]schema.Attribute{
+					"path": schema.StringAttribute{
+						MarkdownDescription: "CRL File path. CRL file location.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +124,8 @@ func (d *CRLDataSource) Read(ctx context.Context, req datasource.ReadRequest, re
 		return
 	}
 
-	resource, err := d.client.GetCRL(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetCRL(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CRL: %s", err))
 		return
@@ -101,7 +133,11 @@ func (d *CRLDataSource) Read(ctx context.Context, req datasource.ReadRequest, re
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +170,38 @@ func (d *CRLDataSource) Read(ctx context.Context, req datasource.ReadRequest, re
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["refresh_interval"].(float64); ok {
+		data.RefreshInterval = types.Int64Value(int64(v))
+	} else {
+		data.RefreshInterval = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["server_address"].(string); ok && v != "" {
+		data.ServerAddress = types.StringValue(v)
+	} else {
+		data.ServerAddress = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["server_port"].(float64); ok {
+		data.ServerPort = types.Int64Value(int64(v))
+	} else {
+		data.ServerPort = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["timeout"].(float64); ok {
+		data.Timeout = types.Int64Value(int64(v))
+	} else {
+		data.Timeout = types.Int64Null()
+	}
+	if blockData, ok := apiResource.Spec["http_access"].(map[string]interface{}); ok && (isImport || data.HTTPAccess != nil) {
+		data.HTTPAccess = &CRLHTTPAccessModel{
+			Path: func() types.String {
+				if v, ok := blockData["path"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

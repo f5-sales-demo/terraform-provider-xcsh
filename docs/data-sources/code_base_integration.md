@@ -58,11 +58,157 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="code-base-integration"></a>&#x2022; [`code_base_integration`](#code-base-integration) - Optional String<br>Choose your codebase (e.g. GitHub, GitLab, Bitbucket, Azure) and provide credentials and connection details
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the CodeBaseIntegration
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="azure-repos"></a>&#x2022; [`azure_repos`](#azure-repos) - Optional String<br>Configuration parameter for Azure repos
+
+<a id="bitbucket"></a>&#x2022; [`bitbucket`](#bitbucket) - Optional String<br>Bitbucket Cloud Integration
+
+<a id="bitbucket-server"></a>&#x2022; [`bitbucket_server`](#bitbucket-server) - Optional String<br>Configuration parameter for Bitbucket server
+
+<a id="github"></a>&#x2022; [`github`](#github) - Optional String<br>GitHub Integration
+
+<a id="github-enterprise"></a>&#x2022; [`github_enterprise`](#github-enterprise) - Optional String<br>Configuration parameter for GitHub enterprise
+
+<a id="gitlab"></a>&#x2022; [`gitlab`](#gitlab) - Optional String<br>GitLab Cloud Integration
+
+<a id="gitlab-enterprise"></a>&#x2022; [`gitlab_enterprise`](#gitlab-enterprise) - Optional String<br>Configuration parameter for GitLab enterprise
+
+<a id="access-token"></a>&#x2022; [`access_token`](#access-token) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="passwd"></a>&#x2022; [`passwd`](#passwd) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="username"></a>&#x2022; [`username`](#username) - Optional String<br>Bitbucket Username. Human-readable name for the resource
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="passwd"></a>&#x2022; [`passwd`](#passwd) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>Bitbucket Server URL. URL or URI reference
+
+<a id="username"></a>&#x2022; [`username`](#username) - Optional String<br>Bitbucket Server Username. Human-readable name for the resource
+
+<a id="verify-ssl"></a>&#x2022; [`verify_ssl`](#verify-ssl) - Optional Bool<br>Verify SSL. Configuration parameter for verify SSL
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="access-token"></a>&#x2022; [`access_token`](#access-token) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="username"></a>&#x2022; [`username`](#username) - Optional String<br>GitHub Username. Human-readable name for the resource
+
+<a id="verify-ssl"></a>&#x2022; [`verify_ssl`](#verify-ssl) - Optional Bool<br>GitHub Verify SSL. Configuration parameter for verify SSL
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="access-token"></a>&#x2022; [`access_token`](#access-token) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="hostname"></a>&#x2022; [`hostname`](#hostname) - Optional String<br>GitHub Hostname. Human-readable name for the resource
+
+<a id="username"></a>&#x2022; [`username`](#username) - Optional String<br>GitHub Username. Human-readable name for the resource
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="access-token"></a>&#x2022; [`access_token`](#access-token) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="access-token"></a>&#x2022; [`access_token`](#access-token) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>GitLab URL. URL or URI reference
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 ---
 

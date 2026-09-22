@@ -84,11 +84,45 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="certificate-chain"></a>&#x2022; [`certificate_chain`](#certificate-chain) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="certificate-url"></a>&#x2022; [`certificate_url`](#certificate-url) - Optional String<br>Certificate. Certificate or certificate chain in PEM format including the PEM headers
+
+<a id="custom-hash-algorithms"></a>&#x2022; [`custom_hash_algorithms`](#custom-hash-algorithms) - Optional String<br>Specifies the hash algorithms to be used
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Certificate
+
+<a id="disable-ocsp-stapling"></a>&#x2022; [`disable_ocsp_stapling`](#disable-ocsp-stapling) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="private-key"></a>&#x2022; [`private_key`](#private-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="use-system-defaults"></a>&#x2022; [`use_system_defaults`](#use-system-defaults) - Optional Object<br>Configuration parameter for use system defaults
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="hash-algorithms"></a>&#x2022; [`hash_algorithms`](#hash-algorithms) - Optional List  Defaults to `INVALID_HASH_ALGORITHM`<br>Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`<br>[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 ---
 

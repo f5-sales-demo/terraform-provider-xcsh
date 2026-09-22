@@ -50,7 +50,7 @@ output "protocol_policer_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the ProtocolPolicer
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the ProtocolPolicer exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the ProtocolPolicer exists
 
 ### Attributes Reference
 
@@ -63,6 +63,34 @@ In addition to all arguments above, the following attributes are exported:
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="protocol-policer"></a>&#x2022; [`protocol_policer`](#protocol-policer) - Optional List<br>List of L4 protocol match condition and associated traffic rate limits
+
+<a id="policer"></a>&#x2022; [`policer`](#policer) - Optional List<br>Reference to policer object to apply traffic rate limits
+
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String<br>Protocol and protocol specific flags to be matched in packet
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="dns"></a>&#x2022; [`dns`](#dns) - Optional Object<br>Match all DNS packets including UDP and TCP
+
+<a id="icmp"></a>&#x2022; [`icmp`](#icmp) - Optional String<br>ICMP Packet Type. ICMP message type to match in packet
+
+<a id="tcp"></a>&#x2022; [`tcp`](#tcp) - Optional String<br>Specification of TCP flag to be matched in a TCP packet
+
+<a id="udp"></a>&#x2022; [`udp`](#udp) - Optional Object<br>UDP Packets. Match all UDP packets
+
+<a id="type"></a>&#x2022; [`type`](#type) - Optional List  Defaults to `ECHO_REPLY`<br>Possible values are `ECHO_REPLY`, `ECHO_REQUEST`, `ALL_ICMP_MSG`<br>[Enum: ECHO_REPLY|ECHO_REQUEST|ALL_ICMP_MSG] ICMP message type to be matched in packet
+
+<a id="flags"></a>&#x2022; [`flags`](#flags) - Optional List  Defaults to `FIN`<br>Possible values are `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ALL_TCP_FLAGS`, `KEEPALIVE`<br>[Enum: FIN|SYN|RST|PSH|ACK|URG|ALL_TCP_FLAGS|KEEPALIVE] TCP flags. TCP flag to be matched in a TCP packet
 
 ---
 

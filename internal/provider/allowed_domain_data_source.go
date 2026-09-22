@@ -28,12 +28,13 @@ type AllowedDomainDataSource struct {
 }
 
 type AllowedDomainDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID            types.String `tfsdk:"id"`
+	Name          types.String `tfsdk:"name"`
+	Namespace     types.String `tfsdk:"namespace"`
+	Description   types.String `tfsdk:"description"`
+	Labels        types.Map    `tfsdk:"labels"`
+	Annotations   types.Map    `tfsdk:"annotations"`
+	AllowedDomain types.String `tfsdk:"allowed_domain"`
 }
 
 func (d *AllowedDomainDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,10 @@ func (d *AllowedDomainDataSource) Schema(ctx context.Context, req datasource.Sch
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"allowed_domain": schema.StringAttribute{
+				MarkdownDescription: "Enter root domain or domain to be entered to allow list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +98,8 @@ func (d *AllowedDomainDataSource) Read(ctx context.Context, req datasource.ReadR
 		return
 	}
 
-	resource, err := d.client.GetAllowedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAllowedDomain(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AllowedDomain: %s", err))
 		return
@@ -101,7 +107,11 @@ func (d *AllowedDomainDataSource) Read(ctx context.Context, req datasource.ReadR
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +144,12 @@ func (d *AllowedDomainDataSource) Read(ctx context.Context, req datasource.ReadR
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["allowed_domain"].(string); ok && v != "" {
+		data.AllowedDomain = types.StringValue(v)
+	} else {
+		data.AllowedDomain = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

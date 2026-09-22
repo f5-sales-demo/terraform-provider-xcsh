@@ -28,12 +28,13 @@ type MitigatedDomainDataSource struct {
 }
 
 type MitigatedDomainDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID              types.String `tfsdk:"id"`
+	Name            types.String `tfsdk:"name"`
+	Namespace       types.String `tfsdk:"namespace"`
+	Description     types.String `tfsdk:"description"`
+	Labels          types.Map    `tfsdk:"labels"`
+	Annotations     types.Map    `tfsdk:"annotations"`
+	MitigatedDomain types.String `tfsdk:"mitigated_domain"`
 }
 
 func (d *MitigatedDomainDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,10 @@ func (d *MitigatedDomainDataSource) Schema(ctx context.Context, req datasource.S
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"mitigated_domain": schema.StringAttribute{
+				MarkdownDescription: "Enter root domain or domain to be entered to mitigated list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +98,8 @@ func (d *MitigatedDomainDataSource) Read(ctx context.Context, req datasource.Rea
 		return
 	}
 
-	resource, err := d.client.GetMitigatedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetMitigatedDomain(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read MitigatedDomain: %s", err))
 		return
@@ -101,7 +107,11 @@ func (d *MitigatedDomainDataSource) Read(ctx context.Context, req datasource.Rea
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +144,12 @@ func (d *MitigatedDomainDataSource) Read(ctx context.Context, req datasource.Rea
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["mitigated_domain"].(string); ok && v != "" {
+		data.MitigatedDomain = types.StringValue(v)
+	} else {
+		data.MitigatedDomain = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

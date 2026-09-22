@@ -31,7 +31,7 @@ jobs:
       - name: Verify immutable Go security toolchain
         run: |
           go version
-          test "$(go env GOVERSION)" = go1.25.12
+          test "$(go env GOVERSION)" = go1.25.13
           set -o pipefail
           go version -m "$(command -v govulncheck)" \
             | tee /dev/stderr \

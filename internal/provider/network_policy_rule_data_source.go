@@ -28,12 +28,20 @@ type NetworkPolicyRuleDataSource struct {
 }
 
 type NetworkPolicyRuleDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID             types.String                          `tfsdk:"id"`
+	Name           types.String                          `tfsdk:"name"`
+	Namespace      types.String                          `tfsdk:"namespace"`
+	Description    types.String                          `tfsdk:"description"`
+	Labels         types.Map                             `tfsdk:"labels"`
+	Annotations    types.Map                             `tfsdk:"annotations"`
+	Ports          types.List                            `tfsdk:"ports"`
+	Action         types.String                          `tfsdk:"action"`
+	Protocol       types.String                          `tfsdk:"protocol"`
+	AdvancedAction *NetworkPolicyRuleAdvancedActionModel `tfsdk:"advanced_action"`
+	IPPrefixSet    *NetworkPolicyRuleIPPrefixSetModel    `tfsdk:"ip_prefix_set"`
+	LabelMatcher   *NetworkPolicyRuleLabelMatcherModel   `tfsdk:"label_matcher"`
+	Prefix         *NetworkPolicyRulePrefixModel         `tfsdk:"prefix"`
+	PrefixSelector *NetworkPolicyRulePrefixSelectorModel `tfsdk:"prefix_selector"`
 }
 
 func (d *NetworkPolicyRuleDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +78,96 @@ func (d *NetworkPolicyRuleDataSource) Schema(ctx context.Context, req datasource
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"advanced_action": schema.SingleNestedAttribute{
+				MarkdownDescription: "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
+				Attributes: map[string]schema.Attribute{
+					"action": schema.StringAttribute{
+						MarkdownDescription: "[Enum: NOLOG|LOG] Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-. Possible values are `NOLOG`, `LOG`. Defaults to `NOLOG`.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"ip_prefix_set": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: ip_prefix_set, prefix, prefix_selector] List of references to ip_prefix_set objects.",
+				Attributes: map[string]schema.Attribute{
+					"ref": schema.ListNestedAttribute{
+						MarkdownDescription: "List of references to ip_prefix_set objects.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"label_matcher": schema.SingleNestedAttribute{
+				MarkdownDescription: "Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
+				Attributes: map[string]schema.Attribute{
+					"keys": schema.ListAttribute{
+						MarkdownDescription: "The list of label key names that have to match.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"ports": schema.ListAttribute{
+				MarkdownDescription: "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"prefix": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+				Attributes: map[string]schema.Attribute{
+					"prefix": schema.ListAttribute{
+						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"prefix_selector": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				Attributes: map[string]schema.Attribute{
+					"expressions": schema.ListAttribute{
+						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"action": schema.StringAttribute{
+				MarkdownDescription: "[Enum: DENY|ALLOW] Network policy rule action configures the action to be taken on rule match Apply deny action on rule match Apply allow action on rule match. Possible values are `DENY`, `ALLOW`. Defaults to `DENY`.",
+				Computed:            true,
+			},
+			"protocol": schema.StringAttribute{
+				MarkdownDescription: "[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp. Possible values are `ALL`, `TCP`, `UDP`, `ICMP`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +191,8 @@ func (d *NetworkPolicyRuleDataSource) Read(ctx context.Context, req datasource.R
 		return
 	}
 
-	resource, err := d.client.GetNetworkPolicyRule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetNetworkPolicyRule(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NetworkPolicyRule: %s", err))
 		return
@@ -101,7 +200,11 @@ func (d *NetworkPolicyRuleDataSource) Read(ctx context.Context, req datasource.R
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +237,153 @@ func (d *NetworkPolicyRuleDataSource) Read(ctx context.Context, req datasource.R
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["advanced_action"].(map[string]interface{}); ok && (isImport || data.AdvancedAction != nil) {
+		data.AdvancedAction = &NetworkPolicyRuleAdvancedActionModel{
+			Action: func() types.String {
+				if v, ok := blockData["action"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["ip_prefix_set"].(map[string]interface{}); ok && (isImport || data.IPPrefixSet != nil) {
+		data.IPPrefixSet = &NetworkPolicyRuleIPPrefixSetModel{
+			Ref: func() types.List {
+				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
+				}
+				var RefExisting []NetworkPolicyRuleIPPrefixSetRefModel
+				if !isImport && data.IPPrefixSet != nil && !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+					data.IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+				}
+				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
+					var RefResult []NetworkPolicyRuleIPPrefixSetRefModel
+					for RefIdx, RefItem := range rawList {
+						_ = RefIdx
+						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+							RefResult = append(RefResult, NetworkPolicyRuleIPPrefixSetRefModel{
+								Kind: func() types.String {
+									if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := RefItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes}, RefResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: NetworkPolicyRuleIPPrefixSetRefModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["label_matcher"].(map[string]interface{}); ok && (isImport || data.LabelMatcher != nil) {
+		data.LabelMatcher = &NetworkPolicyRuleLabelMatcherModel{
+			Keys: func() types.List {
+				if v, ok := blockData["keys"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["ports"].([]interface{}); ok {
+		portsList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				portsList = append(portsList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, portsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Ports = listVal
+		}
+	} else if isImport || data.Ports.IsUnknown() {
+		data.Ports = types.ListNull(types.StringType)
+	}
+	if blockData, ok := apiResource.Spec["prefix"].(map[string]interface{}); ok && (isImport || data.Prefix != nil) {
+		data.Prefix = &NetworkPolicyRulePrefixModel{
+			Prefix: func() types.List {
+				if v, ok := blockData["prefix"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["prefix_selector"].(map[string]interface{}); ok && (isImport || data.PrefixSelector != nil) {
+		data.PrefixSelector = &NetworkPolicyRulePrefixSelectorModel{
+			Expressions: func() types.List {
+				if v, ok := blockData["expressions"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["action"].(string); ok && v != "" {
+		data.Action = types.StringValue(v)
+	} else {
+		data.Action = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["protocol"].(string); ok && v != "" {
+		data.Protocol = types.StringValue(v)
+	} else {
+		data.Protocol = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

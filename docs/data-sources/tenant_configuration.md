@@ -58,11 +58,60 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="brute-force-detection"></a>&#x2022; [`brute_force_detection`](#brute-force-detection) - Optional String<br>Configuration parameter for brute force detection
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the TenantConfiguration
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="password-policy"></a>&#x2022; [`password_policy`](#password-policy) - Optional String<br>Policy configuration for this feature
+
+<a id="tenant-details"></a>&#x2022; [`tenant_details`](#tenant-details) - Optional String<br>BasicConfiguration
+
+<a id="user-session-expiration"></a>&#x2022; [`user_session_expiration`](#user-session-expiration) - Optional String<br>Defines all session-related expiration for user sessions within a tenant's environment. Relationship between session_expiry and cookie_expiry: - session_expiry defines the 'absolute maximum duration' of a session and enforces RE-authentication after this time. - cookie_expiry
+defines the
+
+<a id="max-login-failures"></a>&#x2022; [`max_login_failures`](#max-login-failures) - Optional Number<br>How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes
+
+<a id="digits"></a>&#x2022; [`digits`](#digits) - Optional Number<br>The number of digits required to be in the password string
+
+<a id="expire-password"></a>&#x2022; [`expire_password`](#expire-password) - Optional Number<br>The number of days for which the password is valid. After the number of days has expired, the user is required to change their password
+
+<a id="lowercase-characters"></a>&#x2022; [`lowercase_characters`](#lowercase-characters) - Optional Number<br>The number of lower case letters required to be in the password string
+
+<a id="minimum-length"></a>&#x2022; [`minimum_length`](#minimum-length) - Optional Number<br>Minimum Length. Minimum length of password
+
+<a id="not-recently-used"></a>&#x2022; [`not_recently_used`](#not-recently-used) - Optional Number<br>Policy is used to restrict user from using previously used passwords. Number that's set determines number of last passwords which user cannot use as new password
+
+<a id="not-username"></a>&#x2022; [`not_username`](#not-username) - Optional Bool<br>When set, the password is not allowed to be the same as the username
+
+<a id="special-characters"></a>&#x2022; [`special_characters`](#special-characters) - Optional Number<br>The number of special characters like '?!#%$' required to be in the password string
+
+<a id="uppercase-characters"></a>&#x2022; [`uppercase_characters`](#uppercase-characters) - Optional Number<br>The number of upper case letters required to be in the password string
+
+<a id="display-name"></a>&#x2022; [`display_name`](#display-name) - Optional String<br>Changes the tenant name displayed during login without affecting your company’s domain name
+
+<a id="absolute-timeout"></a>&#x2022; [`absolute_timeout`](#absolute-timeout) - Optional String<br>Represents the session expiration duration
+
+<a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Optional String<br>Represents the cookie expiration duration
+
+<a id="hours"></a>&#x2022; [`hours`](#hours) - Optional String<br>Represents the session duration in hours
+
+<a id="minutes"></a>&#x2022; [`minutes`](#minutes) - Optional String<br>Represents the session duration in minutes
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+<a id="hours"></a>&#x2022; [`hours`](#hours) - Optional String<br>Represents the cookie duration in hours
+
+<a id="minutes"></a>&#x2022; [`minutes`](#minutes) - Optional String<br>Represents the cookie duration in minutes
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
 
 ---
 

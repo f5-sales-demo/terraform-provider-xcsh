@@ -60,9 +60,152 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Endpoint
 
+<a id="dns-name"></a>&#x2022; [`dns_name`](#dns-name) - Optional String<br>Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name
+
+<a id="dns-name-advanced"></a>&#x2022; [`dns_name_advanced`](#dns-name-advanced) - Optional String<br>Specifies name and TTL used for DNS resolution
+
+<a id="health-check-port"></a>&#x2022; [`health_check_port`](#health-check-port) - Optional Number<br>By default the health check port of an endpoint is the same as the endpoint’s port. This option provides an alternative health check port. Setting this with a non-zero value allows an endpoint to have different health check port
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>Endpoint is reachable at the given IPv4/IPv6 address
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Endpoint service is available on this port
+
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String<br>Possible values are `TCP`, `UDP`<br>[Enum: TCP|UDP] Protocol. Endpoint protocol. Default is TCP. Both TCP and UDP protocols are supported
+
+<a id="service-info"></a>&#x2022; [`service_info`](#service-info) - Optional String<br>Specifies whether endpoint service is discovered by name or labels
+
+<a id="snat-pool"></a>&#x2022; [`snat_pool`](#snat-pool) - Optional String<br>SNAT Pool. SNAT Pool configuration
+
+<a id="where"></a>&#x2022; [`where`](#where) - Optional String<br>NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules \* Direct reference to virtual_network object \* Site local network when referring to site object \* All site local
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name
+
+<a id="refresh-interval"></a>&#x2022; [`refresh_interval`](#refresh-interval) - Optional Number<br>Interval for DNS refresh in seconds
+
+<a id="discovery-type"></a>&#x2022; [`discovery_type`](#discovery-type) - Optional String  Defaults to `INVALID_DISCOVERY`<br>Possible values are `INVALID_DISCOVERY`, `K8S`, `CONSUL`, `CLASSIC_BIGIP`, `THIRD_PARTY`, `NGINX_ONE`<br>[Enum: INVALID_DISCOVERY|K8S|CONSUL|CLASSIC_BIGIP|THIRD_PARTY|NGINX_ONE] Specifies the type of discovery Invalid Discovery mechanism Discover from Kubernetes cluster
+Discover from Consul service Discover from Classic BIG-IP Clusters Discover for Third Party Application Discover from NGINX One
+
+<a id="service-name"></a>&#x2022; [`service_name`](#service-name) - Optional String<br>Name of the service to discover with an optional namespace and cluster identifier. The format is service_name.namespace_name:cluster_identifier for K8S and service_name:cluster_identifier for Consul Endpoint will be discovered in all discovery objects where the
+
+<a id="service-selector"></a>&#x2022; [`service_selector`](#service-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="no-snat-pool"></a>&#x2022; [`no_snat_pool`](#no-snat-pool) - Optional Object<br>Configuration parameter for no snat pool
+
+<a id="snat-pool"></a>&#x2022; [`snat_pool`](#snat-pool) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="prefixes"></a>&#x2022; [`prefixes`](#prefixes) - Optional List<br>List of IPv4 prefixes that represent an endpoint
+
+---
+
+#### Where
+
+A [`where`](#where) block supports the following:
+
+<a id="nestedatt--where-site"></a>&#x2022; [`site`](#nestedatt--where-site) - Optional String<br>Specifies a direct reference to a site configuration object
+
+<a id="nestedatt--where-virtual-network"></a>&#x2022; [`virtual_network`](#nestedatt--where-virtual-network) - Optional String<br>Specifies a direct reference to a network configuration object
+
+<a id="nestedatt--where-virtual-site"></a>&#x2022; [`virtual_site`](#nestedatt--where-virtual-site) - Optional String<br>Virtual Site. A reference to virtual_site object
+
+#### Where Site
+
+A [`site`](#where-site) block (within [`where`](#where)) supports the following:
+
+<a id="vip-00497f"></a>&#x2022; [`disable_internet_vip`](#vip-00497f) - Optional Object<br>Enable this option
+
+<a id="vip-71adbb"></a>&#x2022; [`enable_internet_vip`](#vip-71adbb) - Optional Object<br>Enable this option
+
+<a id="nestedatt--where--site-network-type"></a>&#x2022; [`network_type`](#nestedatt--where--site-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`,
+`VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
+VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
+Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
+
+<a id="nestedatt--where--site-ref"></a>&#x2022; [`ref`](#nestedatt--where--site-ref) - Optional List<br>Reference. A site direct reference
+
+#### Where Site Disable internet VIP
+
+A [`disable_internet_vip`](#where-site-disable-internet-vip) block (within [`where.site`](#where-site)) supports the following:
+
+#### Where Site Enable internet VIP
+
+An [`enable_internet_vip`](#where-site-enable-internet-vip) block (within [`where.site`](#where-site)) supports the following:
+
+#### Where Site Ref
+
+A [`ref`](#where-site-ref) block (within [`where.site`](#where-site)) supports the following:
+
+<a id="nestedatt--where--site--ref-kind"></a>&#x2022; [`kind`](#nestedatt--where--site--ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--where--site--ref-name"></a>&#x2022; [`name`](#nestedatt--where--site--ref-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--where--site--ref-namespace"></a>&#x2022; [`namespace`](#nestedatt--where--site--ref-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--where--site--ref-tenant"></a>&#x2022; [`tenant`](#nestedatt--where--site--ref-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--where--site--ref-uid"></a>&#x2022; [`uid`](#nestedatt--where--site--ref-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Where Virtual Network
+
+A [`virtual_network`](#where-virtual-network) block (within [`where`](#where)) supports the following:
+
+<a id="nestedatt--where--site--ref-ref"></a>&#x2022; [`ref`](#nestedatt--where--site--ref-ref) - Optional List<br>Reference. A virtual network direct reference
+
+#### Where Virtual Network Ref
+
+A [`ref`](#where-virtual-network-ref) block (within [`where.virtual_network`](#where-virtual-network)) supports the following:
+
+<a id="nestedatt--where--site--ref-kind"></a>&#x2022; [`kind`](#nestedatt--where--site--ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--where--site--ref-name"></a>&#x2022; [`name`](#nestedatt--where--site--ref-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--where--site--ref-namespace"></a>&#x2022; [`namespace`](#nestedatt--where--site--ref-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--where--site--ref-tenant"></a>&#x2022; [`tenant`](#nestedatt--where--site--ref-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--where--site--ref-uid"></a>&#x2022; [`uid`](#nestedatt--where--site--ref-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Where Virtual Site
+
+A [`virtual_site`](#where-virtual-site) block (within [`where`](#where)) supports the following:
+
+<a id="vip-1278be"></a>&#x2022; [`disable_internet_vip`](#vip-1278be) - Optional Object<br>Enable this option
+
+<a id="vip-a28dfc"></a>&#x2022; [`enable_internet_vip`](#vip-a28dfc) - Optional Object<br>Enable this option
+
+<a id="type-34df6e"></a>&#x2022; [`network_type`](#type-34df6e) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+`VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
+VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
+Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
+
+<a id="nestedatt--where--site--ref-ref"></a>&#x2022; [`ref`](#nestedatt--where--site--ref-ref) - Optional List<br>Reference. A virtual_site direct reference
+
+#### Where Virtual Site Disable internet VIP
+
+A [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
+
+#### Where Virtual Site Enable internet VIP
+
+An [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
+
+#### Where Virtual Site Ref
+
+A [`ref`](#where-virtual-site-ref) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
+
+<a id="nestedatt--where--site--ref-kind"></a>&#x2022; [`kind`](#nestedatt--where--site--ref-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--where--site--ref-name"></a>&#x2022; [`name`](#nestedatt--where--site--ref-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--where--site--ref-namespace"></a>&#x2022; [`namespace`](#nestedatt--where--site--ref-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--where--site--ref-tenant"></a>&#x2022; [`tenant`](#nestedatt--where--site--ref-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--where--site--ref-uid"></a>&#x2022; [`uid`](#nestedatt--where--site--ref-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 ---
 

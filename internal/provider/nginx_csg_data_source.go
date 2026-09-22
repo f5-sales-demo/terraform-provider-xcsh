@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,17 +28,59 @@ type NginxCsgDataSource struct {
 	client *client.Client
 }
 
+// NginxCsgEmptyModel represents empty nested blocks
+type NginxCsgEmptyModel struct {
+}
+
+// NginxCsgAPIDiscoverySpecModel represents api_discovery_spec block
+type NginxCsgAPIDiscoverySpecModel struct {
+	Disabled types.Object `tfsdk:"disabled"`
+	Enabled  types.Object `tfsdk:"enabled"`
+}
+
+// NginxCsgAPIDiscoverySpecModelAttrTypes defines the attribute types for NginxCsgAPIDiscoverySpecModel
+var NginxCsgAPIDiscoverySpecModelAttrTypes = map[string]attr.Type{
+	"disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// NginxCsgWAFSpecModel represents waf_spec block
+type NginxCsgWAFSpecModel struct {
+	BlockingWAFMode                  types.Object `tfsdk:"blocking_waf_mode"`
+	DistributedCloudPolicyManagement types.Object `tfsdk:"distributed_cloud_policy_management"`
+	MonitoringWAFMode                types.Object `tfsdk:"monitoring_waf_mode"`
+	NginxPolicyManagement            types.Object `tfsdk:"nginx_policy_management"`
+	NoneWAFMode                      types.Object `tfsdk:"none_waf_mode"`
+	PolicyFileName                   types.String `tfsdk:"policy_file_name"`
+	PolicyName                       types.String `tfsdk:"policy_name"`
+	SecurityLogEnabled               types.Bool   `tfsdk:"security_log_enabled"`
+	SecurityLogFileNames             types.List   `tfsdk:"security_log_file_names"`
+}
+
+// NginxCsgWAFSpecModelAttrTypes defines the attribute types for NginxCsgWAFSpecModel
+var NginxCsgWAFSpecModelAttrTypes = map[string]attr.Type{
+	"blocking_waf_mode":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"distributed_cloud_policy_management": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"monitoring_waf_mode":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"nginx_policy_management":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"none_waf_mode":                       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"policy_file_name":                    types.StringType,
+	"policy_name":                         types.StringType,
+	"security_log_enabled":                types.BoolType,
+	"security_log_file_names":             types.ListType{ElemType: types.StringType},
+}
+
 type NginxCsgDataSourceModel struct {
-	ID               types.String `tfsdk:"id"`
-	Name             types.String `tfsdk:"name"`
-	Namespace        types.String `tfsdk:"namespace"`
-	Description      types.String `tfsdk:"description"`
-	Labels           types.Map    `tfsdk:"labels"`
-	Annotations      types.Map    `tfsdk:"annotations"`
-	APIDiscoverySpec types.String `tfsdk:"api_discovery_spec"`
-	CsgName          types.String `tfsdk:"csg_name"`
-	ObjectID         types.String `tfsdk:"object_id"`
-	WAFSpec          types.String `tfsdk:"waf_spec"`
+	ID               types.String                   `tfsdk:"id"`
+	Name             types.String                   `tfsdk:"name"`
+	Namespace        types.String                   `tfsdk:"namespace"`
+	Description      types.String                   `tfsdk:"description"`
+	Labels           types.Map                      `tfsdk:"labels"`
+	Annotations      types.Map                      `tfsdk:"annotations"`
+	CsgName          types.String                   `tfsdk:"csg_name"`
+	ObjectID         types.String                   `tfsdk:"object_id"`
+	APIDiscoverySpec *NginxCsgAPIDiscoverySpecModel `tfsdk:"api_discovery_spec"`
+	WAFSpec          *NginxCsgWAFSpecModel          `tfsdk:"waf_spec"`
 }
 
 func (d *NginxCsgDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -74,9 +117,21 @@ func (d *NginxCsgDataSource) Schema(ctx context.Context, req datasource.SchemaRe
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
-			"api_discovery_spec": schema.StringAttribute{
+			"api_discovery_spec": schema.SingleNestedAttribute{
 				MarkdownDescription: "Configuration for api_discovery_spec.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"disabled": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enabled": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
 			},
 			"csg_name": schema.StringAttribute{
 				MarkdownDescription: "CSGName. Name for CSG in NGINX One.",
@@ -86,9 +141,53 @@ func (d *NginxCsgDataSource) Schema(ctx context.Context, req datasource.SchemaRe
 				MarkdownDescription: "Identifier for config sync group in NGINX One.",
 				Computed:            true,
 			},
-			"waf_spec": schema.StringAttribute{
+			"waf_spec": schema.SingleNestedAttribute{
 				MarkdownDescription: "Configuration for waf_spec.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"blocking_waf_mode": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"distributed_cloud_policy_management": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for distributed cloud policy management.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"monitoring_waf_mode": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for monitoring waf mode.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"nginx_policy_management": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for nginx policy management.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"none_waf_mode": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for none waf mode.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"policy_file_name": schema.StringAttribute{
+						MarkdownDescription: "WAF Policy File Name. Policy file name for WAF.",
+						Computed:            true,
+					},
+					"policy_name": schema.StringAttribute{
+						MarkdownDescription: "WAF Policy Name. Policy name configured for WAF.",
+						Computed:            true,
+					},
+					"security_log_enabled": schema.BoolAttribute{
+						MarkdownDescription: "Specifies if security logging is enabled.",
+						Computed:            true,
+					},
+					"security_log_file_names": schema.ListAttribute{
+						MarkdownDescription: "Specifies the list of security log files specification.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
 			},
 		},
 	}
@@ -152,27 +251,120 @@ func (d *NginxCsgDataSource) Read(ctx context.Context, req datasource.ReadReques
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["api_discovery_spec"]; ok && v != nil {
-		data.APIDiscoverySpec = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.APIDiscoverySpec = types.StringNull()
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["api_discovery_spec"].(map[string]interface{}); ok && (isImport || data.APIDiscoverySpec != nil) {
+		data.APIDiscoverySpec = &NginxCsgAPIDiscoverySpecModel{
+			Disabled: func() types.Object {
+				if !isImport && data.APIDiscoverySpec != nil && !data.APIDiscoverySpec.Disabled.IsUnknown() {
+					return data.APIDiscoverySpec.Disabled
+				}
+				if _, ok := blockData["disabled"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Enabled: func() types.Object {
+				if !isImport && data.APIDiscoverySpec != nil && !data.APIDiscoverySpec.Enabled.IsUnknown() {
+					return data.APIDiscoverySpec.Enabled
+				}
+				if _, ok := blockData["enabled"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["csg_name"]; ok && v != nil {
-		data.CsgName = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["csg_name"].(string); ok && v != "" {
+		data.CsgName = types.StringValue(v)
 	} else {
 		data.CsgName = types.StringNull()
 	}
-	if v, ok := resource.Spec["object_id"]; ok && v != nil {
-		data.ObjectID = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["object_id"].(string); ok && v != "" {
+		data.ObjectID = types.StringValue(v)
 	} else {
 		data.ObjectID = types.StringNull()
 	}
-	if v, ok := resource.Spec["waf_spec"]; ok && v != nil {
-		data.WAFSpec = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.WAFSpec = types.StringNull()
+	if blockData, ok := apiResource.Spec["waf_spec"].(map[string]interface{}); ok && (isImport || data.WAFSpec != nil) {
+		data.WAFSpec = &NginxCsgWAFSpecModel{
+			BlockingWAFMode: func() types.Object {
+				if !isImport && data.WAFSpec != nil && !data.WAFSpec.BlockingWAFMode.IsUnknown() {
+					return data.WAFSpec.BlockingWAFMode
+				}
+				if _, ok := blockData["blocking_waf_mode"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DistributedCloudPolicyManagement: func() types.Object {
+				if !isImport && data.WAFSpec != nil && !data.WAFSpec.DistributedCloudPolicyManagement.IsUnknown() {
+					return data.WAFSpec.DistributedCloudPolicyManagement
+				}
+				if _, ok := blockData["distributed_cloud_policy_management"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			MonitoringWAFMode: func() types.Object {
+				if !isImport && data.WAFSpec != nil && !data.WAFSpec.MonitoringWAFMode.IsUnknown() {
+					return data.WAFSpec.MonitoringWAFMode
+				}
+				if _, ok := blockData["monitoring_waf_mode"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			NginxPolicyManagement: func() types.Object {
+				if !isImport && data.WAFSpec != nil && !data.WAFSpec.NginxPolicyManagement.IsUnknown() {
+					return data.WAFSpec.NginxPolicyManagement
+				}
+				if _, ok := blockData["nginx_policy_management"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			NoneWAFMode: func() types.Object {
+				if !isImport && data.WAFSpec != nil && !data.WAFSpec.NoneWAFMode.IsUnknown() {
+					return data.WAFSpec.NoneWAFMode
+				}
+				if _, ok := blockData["none_waf_mode"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			PolicyFileName: func() types.String {
+				if v, ok := blockData["policy_file_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			PolicyName: func() types.String {
+				if v, ok := blockData["policy_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			SecurityLogEnabled: func() types.Bool {
+				if v, ok := blockData["security_log_enabled"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
+			SecurityLogFileNames: func() types.List {
+				if v, ok := blockData["security_log_file_names"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

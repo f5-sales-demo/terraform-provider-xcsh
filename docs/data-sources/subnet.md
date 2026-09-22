@@ -58,11 +58,45 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="connect-to-layer2"></a>&#x2022; [`connect_to_layer2`](#connect-to-layer2) - Optional String<br>Configuration parameter for connect to layer2
+
+<a id="connect-to-slo"></a>&#x2022; [`connect_to_slo`](#connect-to-slo) - Optional Object<br>Configuration parameter for connect to slo
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Subnet
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="isolated-nw"></a>&#x2022; [`isolated_nw`](#isolated-nw) - Optional Object<br>Configuration parameter for isolated nw
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="site-subnet-params"></a>&#x2022; [`site_subnet_params`](#site-subnet-params) - Optional List<br>Site Subnet Parameters. Configure subnet parameters per site
+
+<a id="layer2-intf-ref"></a>&#x2022; [`layer2_intf_ref`](#layer2-intf-ref) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="dhcp"></a>&#x2022; [`dhcp`](#dhcp) - Optional Object<br>Enable this option
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="static-ip"></a>&#x2022; [`static_ip`](#static-ip) - Optional Object<br>Enable this option
+
+<a id="subnet-dhcp-server-params"></a>&#x2022; [`subnet_dhcp_server_params`](#subnet-dhcp-server-params) - Optional String<br>Subnet DHCP parameters will be a subset of network_interface.dhcpserverparameterstype as all features in network_interface.dhcpserverparameterstype may not be supported in a subnet
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="dhcp-networks"></a>&#x2022; [`dhcp_networks`](#dhcp-networks) - Optional List<br>List of networks from which DHCP server can allocate IP addresses
+
+<a id="network-prefix"></a>&#x2022; [`network_prefix`](#network-prefix) - Optional String<br>Network prefix for subnet
 
 ---
 

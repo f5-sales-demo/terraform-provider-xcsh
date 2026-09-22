@@ -64,6 +64,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#trusted-ca-url) - Optional String<br>Trusted CA certificates for validating certificates
+
 ---
 
 ## Common Types

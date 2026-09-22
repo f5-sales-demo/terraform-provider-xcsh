@@ -1764,12 +1764,12 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 				if step.Uses != pinnedSetupGo {
 					t.Errorf("acceptance job %s setup-go action = %q, want %q", jobName, step.Uses, pinnedSetupGo)
 				}
-				if got, _ := step.With["go-version"].(string); got != "1.25.12" {
-					t.Errorf("acceptance job %s Go version = %q, want 1.25.12", jobName, got)
+				if got, _ := step.With["go-version"].(string); got != "1.25.13" {
+					t.Errorf("acceptance job %s Go version = %q, want 1.25.13", jobName, got)
 				}
 			}
 			if step.Name == "Verify immutable Go toolchain" &&
-				strings.Contains(step.Run, `test "$(go env GOVERSION)" = go1.25.12`) {
+				strings.Contains(step.Run, `test "$(go env GOVERSION)" = go1.25.13`) {
 				verifiedImageGo[jobName] = true
 			}
 		}
@@ -1792,7 +1792,7 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 	}
 	for _, jobName := range []string{"mock-tests", "real-api-tests", "cleanup", "compare-results"} {
 		if !verifiedImageGo[jobName] {
-			t.Errorf("acceptance job %s does not verify the pinned Go 1.25.12 toolchain", jobName)
+			t.Errorf("acceptance job %s does not verify the pinned Go 1.25.13 toolchain", jobName)
 		}
 	}
 	for _, line := range strings.Split(workflowText, "\n") {

@@ -58,11 +58,69 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="api-token"></a>&#x2022; [`api_token`](#api-token) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Cminstance
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="password"></a>&#x2022; [`password`](#password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Port of the Central Manager instance to connect to
+
+<a id="username"></a>&#x2022; [`username`](#username) - Optional String<br>Username for the Central Manager instance
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+---
+
+#### IP
+
+An [`ip`](#ip) block supports the following:
+
+<a id="nestedatt--ip-addr"></a>&#x2022; [`addr`](#nestedatt--ip-addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+#### Password
+
+A [`password`](#password) block supports the following:
+
+<a id="info-3f262c"></a>&#x2022; [`blindfold_secret_info`](#info-3f262c) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="nestedatt--password-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#nestedatt--password-clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Password Blindfold Secret Info
+
+A [`blindfold_secret_info`](#password-blindfold-secret-info) block (within [`password`](#password)) supports the following:
+
+<a id="nestedatt--password-decryption-provider"></a>&#x2022; [`decryption_provider`](#nestedatt--password-decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="nestedatt--password-location"></a>&#x2022; [`location`](#nestedatt--password-location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="nestedatt--password-store-provider"></a>&#x2022; [`store_provider`](#nestedatt--password-store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+#### Password Clear Secret Info
+
+A [`clear_secret_info`](#password-clear-secret-info) block (within [`password`](#password)) supports the following:
+
+<a id="nestedatt--password-provider-ref"></a>&#x2022; [`provider_ref`](#nestedatt--password-provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="nestedatt--password-url"></a>&#x2022; [`url`](#nestedatt--password-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 ---
 

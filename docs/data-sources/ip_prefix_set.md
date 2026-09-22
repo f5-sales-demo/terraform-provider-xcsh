@@ -62,7 +62,13 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ipv4-prefixes"></a>&#x2022; [`ipv4_prefixes`](#ipv4-prefixes) - Optional List  Defaults to `[{"description":"","ipv4_prefix":"10.0.0.0/8"}]`<br>IPv4 Prefixes. List of IPv4 prefixes with description
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human-readable description text
+
+<a id="ipv4-prefix"></a>&#x2022; [`ipv4_prefix`](#ipv4-prefix) - Optional String<br>IPv4 Prefix. IP address configuration
 
 ---
 

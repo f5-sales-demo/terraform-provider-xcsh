@@ -28,12 +28,15 @@ type DNSComplianceChecksDataSource struct {
 }
 
 type DNSComplianceChecksDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                               types.String `tfsdk:"id"`
+	Name                             types.String `tfsdk:"name"`
+	Namespace                        types.String `tfsdk:"namespace"`
+	Description                      types.String `tfsdk:"description"`
+	Labels                           types.Map    `tfsdk:"labels"`
+	Annotations                      types.Map    `tfsdk:"annotations"`
+	DomainDenylist                   types.List   `tfsdk:"domain_denylist"`
+	DisallowedQueryTypeList          types.List   `tfsdk:"disallowed_query_type_list"`
+	DisallowedResourceRecordTypeList types.List   `tfsdk:"disallowed_resource_record_type_list"`
 }
 
 func (d *DNSComplianceChecksDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +73,21 @@ func (d *DNSComplianceChecksDataSource) Schema(ctx context.Context, req datasour
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"domain_denylist": schema.ListAttribute{
+				MarkdownDescription: "List of domains to be denied by configuration object.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"disallowed_query_type_list": schema.ListAttribute{
+				MarkdownDescription: "[Enum: QUERY|IQUERY|STATUS|NOTIFY|UPDATE] Disallowed Query Type Values. Disallowed Query Type Values. Possible values are `QUERY`, `IQUERY`, `STATUS`, `NOTIFY`, `UPDATE`. Defaults to `QUERY`.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"disallowed_resource_record_type_list": schema.ListAttribute{
+				MarkdownDescription: "[Enum: T|A|NS|MD|MF|CNAME|SOA|MB|MG|MR|NULL|WKS|PTR|HINFO|MINFO|MX|TXT|RP|AFSDB|X25|ISDN|RT|NSAP|NSAP_PTR|SIG|KEY|PX|GPOS|AAAA|LOC|NXT|EID|NIMLOC|SRV|ATMA|NAPTR|KX|CERT|A6|DNAME|SINK|OPT|APL|DS|SSHFP|IPSECKEY|RRSIG|NSEC|DNSKEY|DHCID|NSEC3|NSEC3PARAM|TLSA|SMIMEA|HIP|NINFO|RKEY|TALINK|CDS|CDNSKEY|OPENPGPKEY|CSYNC|SPF|UINFO|UID|GID|UNSPEC|NID|L32|L64|LP|EUI48|EUI64|TKEY|TSIG|IXFR|AXFR|MAILB|MAILA|URI|CAA|TA|DLV] Disallowed Resource Record Types. Disallowed Resource Record Type List. Possible values are `T`, `A`, `NS`, `MD`, `MF`, `CNAME`, `SOA`, `MB`, `MG`, `MR`, `NULL`, `WKS`, `PTR`, `HINFO`, `MINFO`, `MX`, `TXT`, `RP`, `AFSDB`, `X25`, `ISDN`, `RT`, `NSAP`, `NSAP_PTR`, `SIG`, `KEY`, `PX`, `GPOS`, `AAAA`, `LOC`, `NXT`, `EID`, `NIMLOC`, `SRV`, `ATMA`, `NAPTR`, `KX`, `CERT`, `A6`, `DNAME`, `SINK`, `OPT`, `APL`, `DS`, `SSHFP`, `IPSECKEY`, `RRSIG`, `NSEC`, `DNSKEY`, `DHCID`, `NSEC3`, `NSEC3PARAM`, `TLSA`, `SMIMEA`, `HIP`, `NINFO`, `RKEY`, `TALINK`, `CDS`, `CDNSKEY`, `OPENPGPKEY`, `CSYNC`, `SPF`, `UINFO`, `UID`, `GID`, `UNSPEC`, `NID`, `L32`, `L64`, `LP`, `EUI48`, `EUI64`, `TKEY`, `TSIG`, `IXFR`, `AXFR`, `MAILB`, `MAILA`, `URI`, `CAA`, `TA`, `DLV`. Defaults to `T`.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
 		},
 	}
 }
@@ -93,7 +111,8 @@ func (d *DNSComplianceChecksDataSource) Read(ctx context.Context, req datasource
 		return
 	}
 
-	resource, err := d.client.GetDNSComplianceChecks(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetDNSComplianceChecks(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSComplianceChecks: %s", err))
 		return
@@ -101,7 +120,11 @@ func (d *DNSComplianceChecksDataSource) Read(ctx context.Context, req datasource
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +157,53 @@ func (d *DNSComplianceChecksDataSource) Read(ctx context.Context, req datasource
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["domain_denylist"].([]interface{}); ok {
+		domain_denylistList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				domain_denylistList = append(domain_denylistList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, domain_denylistList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.DomainDenylist = listVal
+		}
+	} else if isImport || data.DomainDenylist.IsUnknown() {
+		data.DomainDenylist = types.ListNull(types.StringType)
+	}
+	if v, ok := apiResource.Spec["disallowed_query_type_list"].([]interface{}); ok {
+		disallowed_query_type_listList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				disallowed_query_type_listList = append(disallowed_query_type_listList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, disallowed_query_type_listList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.DisallowedQueryTypeList = listVal
+		}
+	} else if isImport || data.DisallowedQueryTypeList.IsUnknown() {
+		data.DisallowedQueryTypeList = types.ListNull(types.StringType)
+	}
+	if v, ok := apiResource.Spec["disallowed_resource_record_type_list"].([]interface{}); ok {
+		disallowed_resource_record_type_listList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				disallowed_resource_record_type_listList = append(disallowed_resource_record_type_listList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, disallowed_resource_record_type_listList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.DisallowedResourceRecordTypeList = listVal
+		}
+	} else if isImport || data.DisallowedResourceRecordTypeList.IsUnknown() {
+		data.DisallowedResourceRecordTypeList = types.ListNull(types.StringType)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

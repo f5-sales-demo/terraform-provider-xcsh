@@ -79,7 +79,7 @@ An [`allowed_devices`](#allowed-devices) block supports the following:
 
 <a id="allowed-devices-b-device-protocol"></a>&#x2022; [`b_device_protocol`](#allowed-devices-b-device-protocol) - Optional String<br>The protocol (within the subclass) of this device
 
-<a id="allowed-devices-b-device-subclass"></a>&#x2022; [`b_device_sub_class`](#allowed-devices-b-device-subclass) - Optional String<br>The subclass (within the class) of this device
+<a id="allowed-devices-b-device-sub-class"></a>&#x2022; [`b_device_sub_class`](#allowed-devices-b-device-sub-class) - Optional String<br>The subclass (within the class) of this device
 
 <a id="allowed-devices-i-serial"></a>&#x2022; [`i_serial`](#allowed-devices-i-serial) - Optional String<br>Index of Serial Number String Descriptor
 

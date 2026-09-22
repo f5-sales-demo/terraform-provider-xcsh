@@ -50,7 +50,7 @@ output "dns_lb_health_check_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the DNSLBHealthCheck
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the DNSLBHealthCheck exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the DNSLBHealthCheck exists
 
 ### Attributes Reference
 
@@ -60,9 +60,69 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the DNSLBHealthCheck
 
+<a id="http-health-check"></a>&#x2022; [`http_health_check`](#http-health-check) - Optional String<br>Configuration parameter for HTTP health check
+
+<a id="https-health-check"></a>&#x2022; [`https_health_check`](#https-health-check) - Optional String<br>Configuration parameter for HTTPS health check
+
+<a id="icmp-health-check"></a>&#x2022; [`icmp_health_check`](#icmp-health-check) - Optional Object<br>Configuration parameter for ICMP health check
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="tcp-health-check"></a>&#x2022; [`tcp_health_check`](#tcp-health-check) - Optional String<br>Configuration parameter for TCP health check
+
+<a id="tcp-hex-health-check"></a>&#x2022; [`tcp_hex_health_check`](#tcp-hex-health-check) - Optional String<br>Configuration parameter for TCP hex health check
+
+<a id="udp-health-check"></a>&#x2022; [`udp_health_check`](#udp-health-check) - Optional String<br>Configuration parameter for UDP health check
+
+<a id="disable-virtual-host"></a>&#x2022; [`disable_virtual_host`](#disable-virtual-host) - Optional Object<br>Enable this option
+
+<a id="health-check-port"></a>&#x2022; [`health_check_port`](#health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
+
+<a id="health-check-secondary-port"></a>&#x2022; [`health_check_secondary_port`](#health-check-secondary-port) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
+
+<a id="receive"></a>&#x2022; [`receive`](#receive) - Optional String<br>Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax
+
+<a id="send"></a>&#x2022; [`send`](#send) - Optional String<br>Send String. HTTP payload to send to the target
+
+<a id="virtual-host"></a>&#x2022; [`virtual_host`](#virtual-host) - Optional String<br>Name of the virtual host to use for SNI
+
+<a id="disable-virtual-host"></a>&#x2022; [`disable_virtual_host`](#disable-virtual-host) - Optional Object<br>Enable this option
+
+<a id="health-check-port"></a>&#x2022; [`health_check_port`](#health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
+
+<a id="health-check-secondary-port"></a>&#x2022; [`health_check_secondary_port`](#health-check-secondary-port) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
+
+<a id="receive"></a>&#x2022; [`receive`](#receive) - Optional String<br>Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax
+
+<a id="send"></a>&#x2022; [`send`](#send) - Optional String<br>Send String. HTTP payload to send to the target
+
+<a id="virtual-host"></a>&#x2022; [`virtual_host`](#virtual-host) - Optional String<br>Name of the virtual host to use for SNI
+
+<a id="health-check-port"></a>&#x2022; [`health_check_port`](#health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
+
+<a id="health-check-secondary-port"></a>&#x2022; [`health_check_secondary_port`](#health-check-secondary-port) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
+
+<a id="receive"></a>&#x2022; [`receive`](#receive) - Optional String<br>Regular expression used to match against the response to the monitor's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax
+
+<a id="send"></a>&#x2022; [`send`](#send) - Optional String<br>Send this string to target (default empty. When send and receive are both empty, monitor just tests 3WHS)
+
+<a id="health-check-port"></a>&#x2022; [`health_check_port`](#health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
+
+<a id="health-check-secondary-port"></a>&#x2022; [`health_check_secondary_port`](#health-check-secondary-port) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
+
+<a id="receive"></a>&#x2022; [`receive`](#receive) - Optional String<br>Hex encoded raw bytes expected in the response
+
+<a id="send"></a>&#x2022; [`send`](#send) - Optional String<br>Hex encoded raw bytes sent in the request. Empty payloads imply a connect-only health check
+
+<a id="health-check-port"></a>&#x2022; [`health_check_port`](#health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
+
+<a id="health-check-secondary-port"></a>&#x2022; [`health_check_secondary_port`](#health-check-secondary-port) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
+
+<a id="receive"></a>&#x2022; [`receive`](#receive) - Optional String<br>UDP response to be matched. It can be a regex
+
+<a id="send"></a>&#x2022; [`send`](#send) - Optional String<br>Send String. UDP payload
 
 ---
 

@@ -64,6 +64,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="mitigated-domain"></a>&#x2022; [`mitigated_domain`](#mitigated-domain) - Optional String<br>Enter root domain or domain to be entered to mitigated list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry
+
 ---
 
 ## Common Types

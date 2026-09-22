@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,35 @@ type ClusterDataSource struct {
 }
 
 type ClusterDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                          types.String                           `tfsdk:"id"`
+	Name                        types.String                           `tfsdk:"name"`
+	Namespace                   types.String                           `tfsdk:"namespace"`
+	Description                 types.String                           `tfsdk:"description"`
+	Labels                      types.Map                              `tfsdk:"labels"`
+	Annotations                 types.Map                              `tfsdk:"annotations"`
+	AutoHTTPConfig              types.Object                           `tfsdk:"auto_http_config"`
+	DisableProxyProtocol        types.Object                           `tfsdk:"disable_proxy_protocol"`
+	NoPanicThreshold            types.Object                           `tfsdk:"no_panic_threshold"`
+	NoRequestLimitPerConnection types.Object                           `tfsdk:"no_request_limit_per_connection"`
+	ProxyProtocolV1             types.Object                           `tfsdk:"proxy_protocol_v1"`
+	ProxyProtocolV2             types.Object                           `tfsdk:"proxy_protocol_v2"`
+	ConnectionTimeout           types.Int64                            `tfsdk:"connection_timeout"`
+	EndpointSelection           types.String                           `tfsdk:"endpoint_selection"`
+	FallbackPolicy              types.String                           `tfsdk:"fallback_policy"`
+	HTTPIdleTimeout             types.Int64                            `tfsdk:"http_idle_timeout"`
+	LoadBalancerAlgorithm       types.String                           `tfsdk:"loadbalancer_algorithm"`
+	MaxRequestsPerConnection    types.Int64                            `tfsdk:"max_requests_per_connection"`
+	PanicThreshold              types.Int64                            `tfsdk:"panic_threshold"`
+	CircuitBreaker              *ClusterCircuitBreakerModel            `tfsdk:"circuit_breaker"`
+	DefaultSubset               *ClusterEmptyModel                     `tfsdk:"default_subset"`
+	EndpointSubsets             types.List                             `tfsdk:"endpoint_subsets"`
+	Endpoints                   types.List                             `tfsdk:"endpoints"`
+	HealthChecks                types.List                             `tfsdk:"health_checks"`
+	Http1Config                 *ClusterHttp1ConfigModel               `tfsdk:"http1_config"`
+	Http2Options                *ClusterHttp2OptionsModel              `tfsdk:"http2_options"`
+	OutlierDetection            *ClusterOutlierDetectionModel          `tfsdk:"outlier_detection"`
+	TLSParameters               *ClusterTLSParametersModel             `tfsdk:"tls_parameters"`
+	UpstreamConnPoolReuseType   *ClusterUpstreamConnPoolReuseTypeModel `tfsdk:"upstream_conn_pool_reuse_type"`
 }
 
 func (d *ClusterDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +94,526 @@ func (d *ClusterDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"auto_http_config": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: auto_http_config, http1_config, http2_options] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"circuit_breaker": schema.SingleNestedAttribute{
+				MarkdownDescription: "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
+				Attributes: map[string]schema.Attribute{
+					"connection_limit": schema.Int64Attribute{
+						MarkdownDescription: "The maximum number of connections that loadbalancer will establish to all hosts in an upstream cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single connection to each host. Remove endpoint out of load balancing decision, if number of connections..",
+						Computed:            true,
+					},
+					"max_requests": schema.Int64Attribute{
+						MarkdownDescription: "The maximum number of requests that can be outstanding to all hosts in a cluster at any given time. In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the maximum connections (connection_limit). Remove endpoint out of load balancing decision, if requests..",
+						Computed:            true,
+					},
+					"pending_requests": schema.Int64Attribute{
+						MarkdownDescription: "The maximum number of requests that will be queued while waiting for a ready connection pool connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes into play as the initial connection is created, as requests will be multiplexed immediately..",
+						Computed:            true,
+					},
+					"priority": schema.StringAttribute{
+						MarkdownDescription: "[Enum: DEFAULT|HIGH] Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based on selected priority. Possible values are `DEFAULT`, `HIGH`. Defaults to `DEFAULT`.",
+						Computed:            true,
+					},
+					"retries": schema.Int64Attribute{
+						MarkdownDescription: "The maximum number of retries that can be outstanding to all hosts in a cluster at any given time. Remove endpoint out of load balancing decision, if retries for request exceed this count.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"default_subset": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists.",
+				Attributes:          map[string]schema.Attribute{},
+				Computed:            true,
+			},
+			"disable_proxy_protocol": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_proxy_protocol, proxy_protocol_v1, proxy_protocol_v2; Default: disable_proxy_protocol] Configuration parameter for disable proxy protocol.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"endpoint_subsets": schema.ListNestedAttribute{
+				MarkdownDescription: "Configure endpoint groups based on metadata labels for traffic routing. Supports weighted distribution and session affinity across labeled endpoints.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"keys": schema.ListAttribute{
+							MarkdownDescription: "List of keys that define a cluster subset class.",
+							Computed:            true,
+							ElementType:         types.StringType,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"endpoints": schema.ListNestedAttribute{
+				MarkdownDescription: "List of endpoints for this cluster.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"health_checks": schema.ListNestedAttribute{
+				MarkdownDescription: "Health check configuration for backend monitoring.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"http1_config": schema.SingleNestedAttribute{
+				MarkdownDescription: "HTTP/1.1 Protocol OPTIONS for upstream connections.",
+				Attributes: map[string]schema.Attribute{
+					"header_transformation": schema.SingleNestedAttribute{
+						MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+						Attributes: map[string]schema.Attribute{
+							"default_header_transformation": schema.ObjectAttribute{
+								MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"preserve_case_header_transformation": schema.ObjectAttribute{
+								MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"proper_case_header_transformation": schema.ObjectAttribute{
+								MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"http2_options": schema.SingleNestedAttribute{
+				MarkdownDescription: "Http2 Protocol OPTIONS for upstream connections.",
+				Attributes: map[string]schema.Attribute{
+					"enabled": schema.BoolAttribute{
+						MarkdownDescription: "Enable/disable HTTP2 Protocol for upstream connections.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"no_panic_threshold": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_panic_threshold, panic_threshold; Default: no_panic_threshold] Configuration parameter for no panic threshold.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_request_limit_per_connection": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no request limit per connection.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"outlier_detection": schema.SingleNestedAttribute{
+				MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.",
+				Attributes: map[string]schema.Attribute{
+					"base_ejection_time": schema.Int64Attribute{
+						MarkdownDescription: "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail.",
+						Computed:            true,
+					},
+					"consecutive_5xx": schema.Int64Attribute{
+						MarkdownDescription: "If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to return one on the upstream’s behalf(reset, connection failure, etc.) consecutive_5xx indicates the..",
+						Computed:            true,
+					},
+					"consecutive_gateway_failure": schema.Int64Attribute{
+						MarkdownDescription: "If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status code), it will be ejected. Note that this includes events that would cause the HTTP router to return one of these status codes on the upstream’s behalf (reset, connection failure, etc.)..",
+						Computed:            true,
+					},
+					"interval": schema.Int64Attribute{
+						MarkdownDescription: "The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service. Defaults to `10000ms`.",
+						Computed:            true,
+					},
+					"max_ejection_percent": schema.Int64Attribute{
+						MarkdownDescription: "The maximum % of an upstream cluster that can be ejected due to outlier detection.  but will eject at least one host regardless of the value. Defaults to `10%`.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"proxy_protocol_v1": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for proxy protocol v1.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"proxy_protocol_v2": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for proxy protocol v2.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"tls_parameters": schema.SingleNestedAttribute{
+				MarkdownDescription: "TLS configuration for upstream connections.",
+				Attributes: map[string]schema.Attribute{
+					"cert_params": schema.SingleNestedAttribute{
+						MarkdownDescription: "Certificate Parameters for authentication, TLS ciphers, and trust store.",
+						Attributes: map[string]schema.Attribute{
+							"certificates": schema.ListNestedAttribute{
+								MarkdownDescription: "Client TLS Certificate required for mTLS authentication.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"cipher_suites": schema.ListAttribute{
+								MarkdownDescription: "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256..",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+							"maximum_protocol_version": schema.StringAttribute{
+								MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
+								Computed:            true,
+							},
+							"minimum_protocol_version": schema.StringAttribute{
+								MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
+								Computed:            true,
+							},
+							"validation_params": schema.SingleNestedAttribute{
+								MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+								Attributes: map[string]schema.Attribute{
+									"skip_hostname_verification": schema.BoolAttribute{
+										MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
+										Computed:            true,
+									},
+									"trusted_ca": schema.SingleNestedAttribute{
+										MarkdownDescription: "Root CA Certificate Reference. Reference to Root CA Certificate.",
+										Attributes: map[string]schema.Attribute{
+											"trusted_ca_list": schema.ListNestedAttribute{
+												MarkdownDescription: "Root CA Certificate Reference. Reference to Root CA Certificate.",
+												NestedObject: schema.NestedAttributeObject{
+													Attributes: map[string]schema.Attribute{
+														"kind": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+															Computed:            true,
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+															Computed:            true,
+														},
+														"namespace": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+															Computed:            true,
+														},
+														"tenant": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+															Computed:            true,
+														},
+														"uid": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+															Computed:            true,
+														},
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+									"trusted_ca_url": schema.StringAttribute{
+										MarkdownDescription: "Exclusive with [trusted_ca] Inline Root CA Certificate.",
+										Computed:            true,
+									},
+									"verify_subject_alt_names": schema.ListAttribute{
+										MarkdownDescription: "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
+										Computed:            true,
+										ElementType:         types.StringType,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"common_params": schema.SingleNestedAttribute{
+						MarkdownDescription: "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
+						Attributes: map[string]schema.Attribute{
+							"cipher_suites": schema.ListAttribute{
+								MarkdownDescription: "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256..",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+							"maximum_protocol_version": schema.StringAttribute{
+								MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
+								Computed:            true,
+							},
+							"minimum_protocol_version": schema.StringAttribute{
+								MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
+								Computed:            true,
+							},
+							"tls_certificates": schema.ListNestedAttribute{
+								MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"certificate_url": schema.StringAttribute{
+											MarkdownDescription: "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
+											Computed:            true,
+										},
+										"custom_hash_algorithms": schema.SingleNestedAttribute{
+											MarkdownDescription: "Specifies the hash algorithms to be used.",
+											Attributes: map[string]schema.Attribute{
+												"hash_algorithms": schema.ListAttribute{
+													MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"description_spec": schema.StringAttribute{
+											MarkdownDescription: "Description. Description for the certificate.",
+											Computed:            true,
+										},
+										"disable_ocsp_stapling": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"private_key": schema.SingleNestedAttribute{
+											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Attributes: map[string]schema.Attribute{
+												"blindfold_secret_info": schema.SingleNestedAttribute{
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Attributes: map[string]schema.Attribute{
+														"decryption_provider": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+															Computed:            true,
+														},
+														"location": schema.StringAttribute{
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+															Computed:            true,
+															Sensitive:           true,
+														},
+														"store_provider": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+															Computed:            true,
+														},
+													},
+													Computed: true,
+												},
+												"clear_secret_info": schema.SingleNestedAttribute{
+													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Attributes: map[string]schema.Attribute{
+														"provider_ref": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+															Computed:            true,
+														},
+														"url": schema.StringAttribute{
+															MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+															Computed:            true,
+															Sensitive:           true,
+														},
+													},
+													Computed: true,
+												},
+											},
+											Computed: true,
+										},
+										"use_system_defaults": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for use system defaults.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+								},
+								Computed: true,
+							},
+							"validation_params": schema.SingleNestedAttribute{
+								MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+								Attributes: map[string]schema.Attribute{
+									"skip_hostname_verification": schema.BoolAttribute{
+										MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
+										Computed:            true,
+									},
+									"trusted_ca": schema.SingleNestedAttribute{
+										MarkdownDescription: "Root CA Certificate Reference. Reference to Root CA Certificate.",
+										Attributes: map[string]schema.Attribute{
+											"trusted_ca_list": schema.ListNestedAttribute{
+												MarkdownDescription: "Root CA Certificate Reference. Reference to Root CA Certificate.",
+												NestedObject: schema.NestedAttributeObject{
+													Attributes: map[string]schema.Attribute{
+														"kind": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+															Computed:            true,
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+															Computed:            true,
+														},
+														"namespace": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+															Computed:            true,
+														},
+														"tenant": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+															Computed:            true,
+														},
+														"uid": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+															Computed:            true,
+														},
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+									"trusted_ca_url": schema.StringAttribute{
+										MarkdownDescription: "Exclusive with [trusted_ca] Inline Root CA Certificate.",
+										Computed:            true,
+									},
+									"verify_subject_alt_names": schema.ListAttribute{
+										MarkdownDescription: "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
+										Computed:            true,
+										ElementType:         types.StringType,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"default_session_key_caching": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default session key caching.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_session_key_caching": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable session key caching.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_sni": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable sni.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"max_session_keys": schema.Int64Attribute{
+						MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
+						Computed:            true,
+					},
+					"sni": schema.StringAttribute{
+						MarkdownDescription: "Exclusive with [disable_sni use_host_header_as_sni] SNI value to be used.",
+						Computed:            true,
+					},
+					"use_host_header_as_sni": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"upstream_conn_pool_reuse_type": schema.SingleNestedAttribute{
+				MarkdownDescription: "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
+				Attributes: map[string]schema.Attribute{
+					"disable_conn_pool_reuse": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable conn pool reuse.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_conn_pool_reuse": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for enable conn pool reuse.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"connection_timeout": schema.Int64Attribute{
+				MarkdownDescription: "The timeout for new network connections to endpoints in the cluster. This is specified in milliseconds. The  seconds. Defaults to `2`.",
+				Computed:            true,
+			},
+			"endpoint_selection": schema.StringAttribute{
+				MarkdownDescription: "[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider only local endpoints for load balancing Enable this policy to load balance ONLY among locally discovered endpoints Prefer the local endpoints for.. Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`. Defaults to `DISTRIBUTED`.",
+				Computed:            true,
+			},
+			"fallback_policy": schema.StringAttribute{
+				MarkdownDescription: "[Enum: NO_FALLBACK|ANY_ENDPOINT|DEFAULT_SUBSET] Enumeration for SubsetFallbackPolicy if subset match is not found. The request fails as if the cluster had no endpoint matching the subset policy Any cluster endpoint may be selected if the cluster had no endpoint matching the subset policy Load balancing is done over endpoints matching.. Possible values are `NO_FALLBACK`, `ANY_ENDPOINT`, `DEFAULT_SUBSET`. Defaults to `NO_FALLBACK`.",
+				Computed:            true,
+			},
+			"http_idle_timeout": schema.Int64Attribute{
+				MarkdownDescription: "The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.",
+				Computed:            true,
+			},
+			"loadbalancer_algorithm": schema.StringAttribute{
+				MarkdownDescription: "[Enum: ROUND_ROBIN|LEAST_REQUEST|RING_HASH|RANDOM|LB_OVERRIDE] Different load balancing algorithms supported When a connection to a endpoint in an upstream cluster is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in.. Possible values are `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `LB_OVERRIDE`. Defaults to `ROUND_ROBIN`.",
+				Computed:            true,
+			},
+			"max_requests_per_connection": schema.Int64Attribute{
+				MarkdownDescription: "[OneOf: max_requests_per_connection, no_request_limit_per_connection; Default: no_request_limit_per_connection] Exclusive with [no_request_limit_per_connection] Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection.",
+				Computed:            true,
+			},
+			"panic_threshold": schema.Int64Attribute{
+				MarkdownDescription: "Exclusive with [no_panic_threshold] Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for loadbalancing ignoring its health status.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +637,8 @@ func (d *ClusterDataSource) Read(ctx context.Context, req datasource.ReadRequest
 		return
 	}
 
-	resource, err := d.client.GetCluster(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetCluster(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Cluster: %s", err))
 		return
@@ -101,7 +646,11 @@ func (d *ClusterDataSource) Read(ctx context.Context, req datasource.ReadRequest
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +683,847 @@ func (d *ClusterDataSource) Read(ctx context.Context, req datasource.ReadRequest
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && !data.AutoHTTPConfig.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok {
+		data.AutoHTTPConfig = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AutoHTTPConfig = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
+		data.CircuitBreaker = &ClusterCircuitBreakerModel{
+			ConnectionLimit: func() types.Int64 {
+				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			MaxRequests: func() types.Int64 {
+				if v, ok := blockData["max_requests"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			PendingRequests: func() types.Int64 {
+				if v, ok := blockData["pending_requests"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Priority: func() types.String {
+				if v, ok := blockData["priority"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Retries: func() types.Int64 {
+				if v, ok := blockData["retries"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if _, ok := apiResource.Spec["default_subset"].(map[string]interface{}); ok && isImport && data.DefaultSubset == nil {
+		data.DefaultSubset = &ClusterEmptyModel{}
+	}
+	if !isImport && !data.DisableProxyProtocol.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok {
+		data.DisableProxyProtocol = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableProxyProtocol = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && (data.EndpointSubsets.IsNull() || len(data.EndpointSubsets.Elements()) == 0) {
+		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["endpoint_subsets"].([]interface{}); ok && len(listData) > 0 {
+		var EndpointSubsetsList []ClusterEndpointSubsetsModel
+		var existingEndpointSubsetsItems []ClusterEndpointSubsetsModel
+		if !data.EndpointSubsets.IsNull() && !data.EndpointSubsets.IsUnknown() {
+			data.EndpointSubsets.ElementsAs(ctx, &existingEndpointSubsetsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				EndpointSubsetsList = append(EndpointSubsetsList, ClusterEndpointSubsetsModel{
+					Keys: func() types.List {
+						if v, ok := itemMap["keys"].([]interface{}); ok && len(v) > 0 {
+							var items []string
+							for _, item := range v {
+								if s, ok := item.(string); ok {
+									items = append(items, s)
+								}
+							}
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return listVal
+						}
+						return types.ListNull(types.StringType)
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes}, EndpointSubsetsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.EndpointSubsets = listVal
+		}
+	} else {
+		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
+	}
+	if !isImport && (data.Endpoints.IsNull() || len(data.Endpoints.Elements()) == 0) {
+		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["endpoints"].([]interface{}); ok && len(listData) > 0 {
+		var EndpointsList []ClusterEndpointsModel
+		var existingEndpointsItems []ClusterEndpointsModel
+		if !data.Endpoints.IsNull() && !data.Endpoints.IsUnknown() {
+			data.Endpoints.ElementsAs(ctx, &existingEndpointsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				EndpointsList = append(EndpointsList, ClusterEndpointsModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes}, EndpointsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Endpoints = listVal
+		}
+	} else {
+		data.Endpoints = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointsModelAttrTypes})
+	}
+	if !isImport && (data.HealthChecks.IsNull() || len(data.HealthChecks.Elements()) == 0) {
+		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["health_checks"].([]interface{}); ok && len(listData) > 0 {
+		var HealthChecksList []ClusterHealthChecksModel
+		var existingHealthChecksItems []ClusterHealthChecksModel
+		if !data.HealthChecks.IsNull() && !data.HealthChecks.IsUnknown() {
+			data.HealthChecks.ElementsAs(ctx, &existingHealthChecksItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				HealthChecksList = append(HealthChecksList, ClusterHealthChecksModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes}, HealthChecksList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.HealthChecks = listVal
+		}
+	} else {
+		data.HealthChecks = types.ListNull(types.ObjectType{AttrTypes: ClusterHealthChecksModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["http1_config"].(map[string]interface{}); ok && (isImport || data.Http1Config != nil) {
+		data.Http1Config = &ClusterHttp1ConfigModel{
+			HeaderTransformation: func() *ClusterHttp1ConfigHeaderTransformationModel {
+				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
+					return &ClusterHttp1ConfigHeaderTransformationModel{
+						DefaultHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
+								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
+							}
+							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						PreserveCaseHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
+								return data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
+							}
+							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						ProperCaseHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
+								return data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
+							}
+							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["http2_options"].(map[string]interface{}); ok && (isImport || data.Http2Options != nil) {
+		data.Http2Options = &ClusterHttp2OptionsModel{
+			Enabled: func() types.Bool {
+				if v, ok := blockData["enabled"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
+		}
+	}
+	if !isImport && !data.NoPanicThreshold.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok {
+		data.NoPanicThreshold = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoPanicThreshold = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.NoRequestLimitPerConnection.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok {
+		data.NoRequestLimitPerConnection = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoRequestLimitPerConnection = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
+		data.OutlierDetection = &ClusterOutlierDetectionModel{
+			BaseEjectionTime: func() types.Int64 {
+				if v, ok := blockData["base_ejection_time"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Consecutive5xx: func() types.Int64 {
+				if v, ok := blockData["consecutive_5xx"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			ConsecutiveGatewayFailure: func() types.Int64 {
+				if v, ok := blockData["consecutive_gateway_failure"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Interval: func() types.Int64 {
+				if v, ok := blockData["interval"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			MaxEjectionPercent: func() types.Int64 {
+				if v, ok := blockData["max_ejection_percent"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if !isImport && !data.ProxyProtocolV1.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok {
+		data.ProxyProtocolV1 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ProxyProtocolV1 = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.ProxyProtocolV2.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok {
+		data.ProxyProtocolV2 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ProxyProtocolV2 = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
+		data.TLSParameters = &ClusterTLSParametersModel{
+			CertParams: func() *ClusterTLSParametersCertParamsModel {
+				if CertParamsData, ok := blockData["cert_params"].(map[string]interface{}); ok {
+					return &ClusterTLSParametersCertParamsModel{
+						Certificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && (data.TLSParameters.CertParams.Certificates.IsNull() || len(data.TLSParameters.CertParams.Certificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes})
+							}
+							var CertificatesExisting []ClusterTLSParametersCertParamsCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.Certificates.IsNull() && !data.TLSParameters.CertParams.Certificates.IsUnknown() {
+								data.TLSParameters.CertParams.Certificates.ElementsAs(ctx, &CertificatesExisting, false)
+							}
+							if rawList, ok := CertParamsData["certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var CertificatesResult []ClusterTLSParametersCertParamsCertificatesModel
+								for CertificatesIdx, CertificatesItem := range rawList {
+									_ = CertificatesIdx
+									if CertificatesItemMap, ok := CertificatesItem.(map[string]interface{}); ok {
+										CertificatesResult = append(CertificatesResult, ClusterTLSParametersCertParamsCertificatesModel{
+											Kind: func() types.String {
+												if v, ok := CertificatesItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := CertificatesItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := CertificatesItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := CertificatesItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := CertificatesItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes}, CertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes})
+						}(),
+						CipherSuites: func() types.List {
+							if v, ok := CertParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						MaximumProtocolVersion: func() types.String {
+							if v, ok := CertParamsData["maximum_protocol_version"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						MinimumProtocolVersion: func() types.String {
+							if v, ok := CertParamsData["minimum_protocol_version"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						ValidationParams: func() *ClusterTLSParametersCertParamsValidationParamsModel {
+							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCertParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *ClusterTLSParametersCertParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			CommonParams: func() *ClusterTLSParametersCommonParamsModel {
+				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
+					return &ClusterTLSParametersCommonParamsModel{
+						CipherSuites: func() types.List {
+							if v, ok := CommonParamsData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						MaximumProtocolVersion: func() types.String {
+							if v, ok := CommonParamsData["maximum_protocol_version"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						MinimumProtocolVersion: func() types.String {
+							if v, ok := CommonParamsData["minimum_protocol_version"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TLSCertificates: func() types.List {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && (data.TLSParameters.CommonParams.TLSCertificates.IsNull() || len(data.TLSParameters.CommonParams.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []ClusterTLSParametersCommonParamsTLSCertificatesModel
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
+								data.TLSParameters.CommonParams.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
+							if rawList, ok := CommonParamsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []ClusterTLSParametersCommonParamsTLSCertificatesModel
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, ClusterTLSParametersCommonParamsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
+												}
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											PrivateKey: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
+												}
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesModelAttrTypes})
+						}(),
+						ValidationParams: func() *ClusterTLSParametersCommonParamsValidationParamsModel {
+							if ValidationParamsData, ok := CommonParamsData["validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCommonParamsValidationParamsModel{
+									SkipHostnameVerification: func() types.Bool {
+										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+											return types.BoolValue(v)
+										}
+										return types.BoolNull()
+									}(),
+									TrustedCA: func() *ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCommonParamsValidationParamsTrustedCAModel{
+												TrustedCAList: func() types.List {
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													}
+													var TrustedCAListExisting []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CommonParams != nil && data.TLSParameters.CommonParams.ValidationParams != nil && data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													}
+													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
+														var TrustedCAListResult []ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
+														for TrustedCAListIdx, TrustedCAListItem := range rawList {
+															_ = TrustedCAListIdx
+															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel{
+																	Kind: func() types.String {
+																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := TrustedCAListItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := TrustedCAListItemMap["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := TrustedCAListItemMap["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Uid: func() types.String {
+																		if v, ok := TrustedCAListItemMap["uid"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+									TrustedCAURL: func() types.String {
+										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									VerifySubjectAltNames: func() types.List {
+										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultSessionKeyCaching: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DefaultSessionKeyCaching.IsUnknown() {
+					return data.TLSParameters.DefaultSessionKeyCaching
+				}
+				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableSessionKeyCaching: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DisableSessionKeyCaching.IsUnknown() {
+					return data.TLSParameters.DisableSessionKeyCaching
+				}
+				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableSni: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DisableSni.IsUnknown() {
+					return data.TLSParameters.DisableSni
+				}
+				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			MaxSessionKeys: func() types.Int64 {
+				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Sni: func() types.String {
+				if v, ok := blockData["sni"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			UseHostHeaderAsSni: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.UseHostHeaderAsSni.IsUnknown() {
+					return data.TLSParameters.UseHostHeaderAsSni
+				}
+				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
+		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{
+			DisableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
+					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
+				}
+				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
+					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
+				}
+				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["connection_timeout"].(float64); ok {
+		data.ConnectionTimeout = types.Int64Value(int64(v))
+	} else {
+		data.ConnectionTimeout = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["endpoint_selection"].(string); ok && v != "" {
+		data.EndpointSelection = types.StringValue(v)
+	} else {
+		data.EndpointSelection = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["fallback_policy"].(string); ok && v != "" {
+		data.FallbackPolicy = types.StringValue(v)
+	} else {
+		data.FallbackPolicy = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["http_idle_timeout"].(float64); ok {
+		data.HTTPIdleTimeout = types.Int64Value(int64(v))
+	} else {
+		data.HTTPIdleTimeout = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["loadbalancer_algorithm"].(string); ok && v != "" {
+		data.LoadBalancerAlgorithm = types.StringValue(v)
+	} else {
+		data.LoadBalancerAlgorithm = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["max_requests_per_connection"].(float64); ok {
+		data.MaxRequestsPerConnection = types.Int64Value(int64(v))
+	} else {
+		data.MaxRequestsPerConnection = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["panic_threshold"].(float64); ok {
+		data.PanicThreshold = types.Int64Value(int64(v))
+	} else {
+		data.PanicThreshold = types.Int64Null()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

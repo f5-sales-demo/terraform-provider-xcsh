@@ -50,7 +50,7 @@ output "token_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Token
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Token exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the Token exists
 
 ### Attributes Reference
 
@@ -58,11 +58,17 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="content"></a>&#x2022; [`content`](#content) - Optional String<br>Server-issued JWT registration credential
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Token
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="site-name"></a>&#x2022; [`site_name`](#site-name) - Optional String<br>Secure Mesh Site v2 name bound into a JWT token
+
+<a id="type"></a>&#x2022; [`type`](#type) - Optional Number<br>Possible values are `0`, `1`<br>[Enum: 0|1] Token type, where 0 is NORMAL and 1 is JWT
 
 <a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Effective sensitive CE registration credential. NORMAL tokens use `system_metadata.uid`; JWT tokens use `spec.content`. This value is stored in plain text in the Terraform state file; ensure your state file is properly secured
 

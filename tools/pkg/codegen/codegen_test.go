@@ -1627,6 +1627,169 @@ func TestGenerateTokenUsesSiteBoundJWTCredentialContract(t *testing.T) {
 	}
 }
 
+func TestGenerateCompanionDataSourceExposesTypedReadableSpec(t *testing.T) {
+	t.Parallel()
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "dns_zone",
+		TitleCase:          "DNSZone",
+		Description:        "DNS zone.",
+		APIPathItem:        "/api/config/dns/namespaces/%s/dns_zones/%s",
+		HasNamespaceInPath: true,
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", Optional: true, Computed: true, StringDefault: "system"},
+			{Name: "primary", GoName: "Primary", TfsdkTag: "primary", JsonName: "primary", IsSpecField: true, IsBlock: true, NestedBlockType: "single", Optional: true, NestedAttributes: []openapi.TerraformAttribute{
+				{Name: "allow_http_lb_managed_records", GoName: "AllowHTTPLBManagedRecords", TfsdkTag: "allow_http_lb_managed_records", JsonName: "allow_http_lb_managed_records", Type: "bool", Optional: true},
+				{Name: "readable_secret", GoName: "ReadableSecret", TfsdkTag: "readable_secret", JsonName: "readable_secret", Type: "string", Computed: true, Sensitive: true},
+			}},
+			{Name: "secondary", GoName: "Secondary", TfsdkTag: "secondary", JsonName: "secondary", IsSpecField: true, IsBlock: true, NestedBlockType: "single", Optional: true, NestedAttributes: []openapi.TerraformAttribute{
+				{Name: "primary_server", GoName: "PrimaryServer", TfsdkTag: "primary_server", JsonName: "primary_server", Type: "string", Optional: true},
+			}},
+		},
+	}
+
+	dir := t.TempDir()
+	if err := GenerateDataSource(tmpl, dir); err != nil {
+		t.Fatalf("GenerateDataSource: %v", err)
+	}
+	generated, err := os.ReadFile(filepath.Join(dir, "dns_zone_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	source := string(generated)
+	for _, want := range []string{
+		`*DNSZonePrimaryModel`,
+		`*DNSZoneSecondaryModel`,
+		`tfsdk:"primary"`,
+		`tfsdk:"secondary"`,
+		`"primary": schema.SingleNestedAttribute{`,
+		`"secondary": schema.SingleNestedAttribute{`,
+		`"allow_http_lb_managed_records": schema.BoolAttribute{`,
+		`"readable_secret": schema.StringAttribute{`,
+		`Sensitive:           true`,
+		`namespace = "system"`,
+		`if v, ok := blockData["allow_http_lb_managed_records"].(bool); ok {`,
+		`return types.BoolValue(v)`,
+		`return types.BoolNull()`,
+	} {
+		if !strings.Contains(source, want) {
+			t.Errorf("generated DNS-zone data source is missing %q:\n%s", want, source)
+		}
+	}
+	if strings.Contains(source, `"primary": schema.SingleNestedBlock{`) {
+		t.Fatal("computed DNS-zone output must be an attribute, not a configuration block")
+	}
+}
+
+func TestGenerateCompanionDataSourceOmitsKnownWriteOnlySpec(t *testing.T) {
+	t.Parallel()
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "securemesh_site_v2",
+		TitleCase:          "SecuremeshSiteV2",
+		Description:        "Secure Mesh Site v2.",
+		HasNamespaceInPath: true,
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", Required: true},
+			{Name: "software_settings", GoName: "SoftwareSettings", TfsdkTag: "software_settings", JsonName: "software_settings", IsSpecField: true, IsBlock: true, NestedBlockType: "single", Optional: true, Sensitive: true},
+		},
+	}
+
+	dir := t.TempDir()
+	if err := GenerateDataSource(tmpl, dir); err != nil {
+		t.Fatalf("GenerateDataSource: %v", err)
+	}
+	generated, err := os.ReadFile(filepath.Join(dir, "securemesh_site_v2_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(generated), "software_settings") {
+		t.Fatal("known write-only software_settings leaked into the data-source schema or state")
+	}
+}
+
+func TestGenerateCompanionDataSourceIsResponseAuthoritative(t *testing.T) {
+	t.Parallel()
+	attrs := []openapi.TerraformAttribute{{
+		Name: "primary", GoName: "Primary", TfsdkTag: "primary", JsonName: "primary",
+		IsSpecField: true, IsBlock: true, NestedBlockType: "single", Computed: true,
+		NestedAttributes: []openapi.TerraformAttribute{{
+			Name: "rr_set_group", GoName: "RRSetGroup", TfsdkTag: "rr_set_group", JsonName: "rr_set_group",
+			IsBlock: true, NestedBlockType: "list", Computed: true,
+			NestedAttributes: []openapi.TerraformAttribute{
+				{Name: "metadata", GoName: "Metadata", TfsdkTag: "metadata", JsonName: "metadata", Type: "string", Computed: true},
+			},
+		}},
+	}}
+
+	got, err := RenderDataSourceSpecUnmarshalCode("DNSZone", attrs, "\t")
+	if err != nil {
+		t.Fatalf("RenderDataSourceSpecUnmarshalCode: %v", err)
+	}
+	if strings.Contains(got, "filterSystemManagedRrSetGroups") {
+		t.Fatalf("data-source decoder filtered a server-readable list:\n%s", got)
+	}
+	if !strings.Contains(got, "[]DNSZonePrimaryRrSetGroupModel") {
+		t.Fatalf("data-source decoder lost its resource model prefix:\n%s", got)
+	}
+
+	suppressed := []openapi.TerraformAttribute{{
+		Name: "disable_waf", GoName: "DisableWAF", TfsdkTag: "disable_waf", JsonName: "disable_waf",
+		Type: "object", EmptyObjectMarker: true, Computed: true, IsSpecField: true,
+	}}
+	got, err = RenderDataSourceSpecUnmarshalCode("HTTPLoadBalancer", suppressed, "\t")
+	if err != nil {
+		t.Fatalf("RenderDataSourceSpecUnmarshalCode suppressed marker: %v", err)
+	}
+	if strings.Contains(got, `apiResource.Spec["disable_waf"].(map[string]interface{}); ok && !isImport`) {
+		t.Fatalf("data-source decoder applied resource import suppression:\n%s", got)
+	}
+}
+
+func TestGenerateReadOnlyDataSourceExposesTypedReadableSpec(t *testing.T) {
+	t.Parallel()
+	tmpl := &openapi.ResourceTemplate{
+		Name: "typed_read_only", TitleCase: "TypedReadOnly", Description: "Typed read-only probe.",
+		APIPathItem: "/api/config/namespaces/%s/typed/%s", HasNamespaceInPath: true,
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "enabled", GoName: "Enabled", TfsdkTag: "enabled", JsonName: "enabled", Type: "bool", Computed: true, IsSpecField: true},
+			{Name: "readable_secret", GoName: "ReadableSecret", TfsdkTag: "readable_secret", JsonName: "readable_secret", Type: "string", Computed: true, Sensitive: true, IsSpecField: true},
+			{Name: "write_only_secret", GoName: "WriteOnlySecret", TfsdkTag: "write_only_secret", JsonName: "write_only_secret", Type: "string", Computed: true, Sensitive: true, WriteOnly: true, IsSpecField: true},
+			{Name: "status", GoName: "Status", TfsdkTag: "status", JsonName: "status", IsBlock: true, NestedBlockType: "single", Computed: true, IsSpecField: true, NestedAttributes: []openapi.TerraformAttribute{
+				{Name: "code", GoName: "Code", TfsdkTag: "code", JsonName: "code", Type: "int64", Computed: true},
+			}},
+		},
+	}
+
+	dir := t.TempDir()
+	if err := GenerateReadOnlyDataSource(tmpl, dir); err != nil {
+		t.Fatalf("GenerateReadOnlyDataSource: %v", err)
+	}
+	generated, err := os.ReadFile(filepath.Join(dir, "typed_read_only_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	source := string(generated)
+	for _, want := range []string{
+		`Enabled        types.Bool`,
+		`*TypedReadOnlyStatusModel`,
+		`"enabled": schema.BoolAttribute{`,
+		`"status": schema.SingleNestedAttribute{`,
+		`"code": schema.Int64Attribute{`,
+		`"readable_secret": schema.StringAttribute{`,
+		`Sensitive:           true`,
+		`if v, ok := apiResource.Spec["enabled"].(bool); ok`,
+		`if v, ok := blockData["code"].(float64); ok &&`,
+	} {
+		if !strings.Contains(source, want) {
+			t.Errorf("generated read-only data source is missing %q:\n%s", want, source)
+		}
+	}
+	if strings.Contains(source, "write_only_secret") {
+		t.Fatal("read-only data source exposed a write-only field")
+	}
+}
+
 // TestActionResourceApprove verifies the action-resource codegen: Create issues
 // the action POST to the singular path with state=APPROVED, Read does a lenient
 // GET on the pluralized sibling path with 404 -> remove-from-state, Delete is a

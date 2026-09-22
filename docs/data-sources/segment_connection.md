@@ -56,13 +56,57 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
-<a id="connections"></a>&#x2022; [`connections`](#connections) - Optional String<br>Configure a Segment Connector to allow network traffic between Segments
+<a id="connections"></a>&#x2022; [`connections`](#connections) - Optional List<br>Configure a Segment Connector to allow network traffic between Segments
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
+
+---
+
+#### Connections
+
+A [`connections`](#connections) block supports the following:
+
+<a id="segments-d02ab4"></a>&#x2022; [`destination_segments`](#segments-d02ab4) - Optional List<br>Configuration parameter for destination segments
+
+<a id="nestedatt--connections-direct"></a>&#x2022; [`direct`](#nestedatt--connections-direct) - Optional String<br>Enable this option
+
+<a id="nestedatt--connections-source-segments"></a>&#x2022; [`source_segments`](#nestedatt--connections-source-segments) - Optional List<br>Configuration parameter for source segments
+
+#### Connections Destination Segments
+
+A [`destination_segments`](#connections-destination-segments) block (within [`connections`](#connections)) supports the following:
+
+<a id="nestedatt--connections-kind"></a>&#x2022; [`kind`](#nestedatt--connections-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--connections-name"></a>&#x2022; [`name`](#nestedatt--connections-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--connections-namespace"></a>&#x2022; [`namespace`](#nestedatt--connections-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--connections-tenant"></a>&#x2022; [`tenant`](#nestedatt--connections-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--connections-uid"></a>&#x2022; [`uid`](#nestedatt--connections-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Connections Direct
+
+A [`direct`](#connections-direct) block (within [`connections`](#connections)) supports the following:
+
+#### Connections Source Segments
+
+A [`source_segments`](#connections-source-segments) block (within [`connections`](#connections)) supports the following:
+
+<a id="nestedatt--connections--direct-kind"></a>&#x2022; [`kind`](#nestedatt--connections--direct-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--connections--direct-name"></a>&#x2022; [`name`](#nestedatt--connections--direct-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-1b59ce"></a>&#x2022; [`namespace`](#namespace-1b59ce) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--connections--direct-tenant"></a>&#x2022; [`tenant`](#nestedatt--connections--direct-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--connections--direct-uid"></a>&#x2022; [`uid`](#nestedatt--connections--direct-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 ---
 

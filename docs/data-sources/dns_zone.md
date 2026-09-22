@@ -33,6 +33,19 @@ data "xcsh_dns_zone" "example" {
   namespace = "system"
 }
 
+# Fail closed when this stack depends on an externally owned zone.
+resource "terraform_data" "require_managed_records" {
+  lifecycle {
+    precondition {
+      condition = try(
+        data.xcsh_dns_zone.example.primary.allow_http_lb_managed_records,
+        false
+      )
+      error_message = "The selected DNS zone must enable HTTP LB managed records."
+    }
+  }
+}
+
 output "dns_zone_id" {
   value = data.xcsh_dns_zone.example.id
 }
@@ -50,7 +63,7 @@ output "dns_zone_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the DNSZone
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the DNSZone exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the DNSZone exists
 
 ### Attributes Reference
 
@@ -63,6 +76,628 @@ In addition to all arguments above, the following attributes are exported:
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="primary"></a>&#x2022; [`primary`](#primary) - Optional String<br>PrimaryDNSCreateSpecType
+
+<a id="secondary"></a>&#x2022; [`secondary`](#secondary) - Optional String<br>SecondaryDNSCreateSpecType
+
+---
+
+#### Primary
+
+A [`primary`](#primary) block supports the following:
+
+<a id="records-4c04ca"></a>&#x2022; [`allow_http_lb_managed_records`](#records-4c04ca) - Optional Bool<br>Option to allow user-created HTTP, TCP, and CDN load balancer related resource records to be automatically managed in a protected RRset
+
+<a id="nestedatt--primary-default-rr-set-group"></a>&#x2022; [`default_rr_set_group`](#nestedatt--primary-default-rr-set-group) - Optional List<br>Add and manage DNS resource record sets part of Default set group
+
+<a id="parameters-d65f3c"></a>&#x2022; [`default_soa_parameters`](#parameters-d65f3c) - Optional Object<br>Configuration parameter for default soa parameters
+
+<a id="nestedatt--primary-dnssec-mode"></a>&#x2022; [`dnssec_mode`](#nestedatt--primary-dnssec-mode) - Optional String<br>Disable
+
+<a id="nestedatt--primary-rr-set-group"></a>&#x2022; [`rr_set_group`](#nestedatt--primary-rr-set-group) - Optional List<br>Create and manage set groups, and resource record sets within them, x-VES-I/O-managed set is managed by F5
+
+<a id="nestedatt--primary-soa-parameters"></a>&#x2022; [`soa_parameters`](#nestedatt--primary-soa-parameters) - Optional String<br>Configuration parameter for soa parameters
+
+#### Primary Default Rr Set Group
+
+A [`default_rr_set_group`](#primary-default-rr-set-group) block (within [`primary`](#primary)) supports the following:
+
+<a id="nestedatt--primary-a-record"></a>&#x2022; [`a_record`](#nestedatt--primary-a-record) - Optional String<br>DNSAResourceRecord. A Records
+
+<a id="nestedatt--primary-aaaa-record"></a>&#x2022; [`aaaa_record`](#nestedatt--primary-aaaa-record) - Optional String<br>Configuration parameter for aaaa record
+
+<a id="nestedatt--primary-afsdb-record"></a>&#x2022; [`afsdb_record`](#nestedatt--primary-afsdb-record) - Optional String<br>Configuration parameter for afsdb record
+
+<a id="nestedatt--primary-alias-record"></a>&#x2022; [`alias_record`](#nestedatt--primary-alias-record) - Optional String<br>Configuration parameter for alias record
+
+<a id="nestedatt--primary-caa-record"></a>&#x2022; [`caa_record`](#nestedatt--primary-caa-record) - Optional String<br>DNSCAAResourceRecord
+
+<a id="nestedatt--primary-cds-record"></a>&#x2022; [`cds_record`](#nestedatt--primary-cds-record) - Optional String<br>DNS CDS Record. DNS CDS Record
+
+<a id="nestedatt--primary-cert-record"></a>&#x2022; [`cert_record`](#nestedatt--primary-cert-record) - Optional String<br>Configuration parameter for cert record
+
+<a id="nestedatt--primary-cname-record"></a>&#x2022; [`cname_record`](#nestedatt--primary-cname-record) - Optional String<br>DNSCNAMEResourceRecord
+
+<a id="nestedatt--primary-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--primary-description-spec) - Optional String<br>Comment. Human-readable description text
+
+<a id="nestedatt--primary-ds-record"></a>&#x2022; [`ds_record`](#nestedatt--primary-ds-record) - Optional String<br>DNS DS Record. DNS DS Record
+
+<a id="nestedatt--primary-eui48-record"></a>&#x2022; [`eui48_record`](#nestedatt--primary-eui48-record) - Optional String<br>Configuration parameter for eui48 record
+
+<a id="nestedatt--primary-eui64-record"></a>&#x2022; [`eui64_record`](#nestedatt--primary-eui64-record) - Optional String<br>Configuration parameter for eui64 record
+
+<a id="nestedatt--primary-lb-record"></a>&#x2022; [`lb_record`](#nestedatt--primary-lb-record) - Optional String<br>DNS Load Balancer Record. DNS Load Balancer Record
+
+<a id="nestedatt--primary-loc-record"></a>&#x2022; [`loc_record`](#nestedatt--primary-loc-record) - Optional String<br>DNS LOC Record. DNS LOC Record
+
+<a id="nestedatt--primary-mx-record"></a>&#x2022; [`mx_record`](#nestedatt--primary-mx-record) - Optional String<br>DNSMXResourceRecord
+
+<a id="nestedatt--primary-naptr-record"></a>&#x2022; [`naptr_record`](#nestedatt--primary-naptr-record) - Optional String<br>Configuration parameter for naptr record
+
+<a id="nestedatt--primary-ns-record"></a>&#x2022; [`ns_record`](#nestedatt--primary-ns-record) - Optional String<br>DNSNSResourceRecord
+
+<a id="nestedatt--primary-ptr-record"></a>&#x2022; [`ptr_record`](#nestedatt--primary-ptr-record) - Optional String<br>DNSPTRResourceRecord
+
+<a id="nestedatt--primary-srv-record"></a>&#x2022; [`srv_record`](#nestedatt--primary-srv-record) - Optional String<br>DNSSRVResourceRecord
+
+<a id="nestedatt--primary-sshfp-record"></a>&#x2022; [`sshfp_record`](#nestedatt--primary-sshfp-record) - Optional String<br>Configuration parameter for sshfp record
+
+<a id="nestedatt--primary-tlsa-record"></a>&#x2022; [`tlsa_record`](#nestedatt--primary-tlsa-record) - Optional String<br>Configuration parameter for tlsa record
+
+<a id="nestedatt--primary-ttl"></a>&#x2022; [`ttl`](#nestedatt--primary-ttl) - Optional Number<br>Time to live. Time-to-live duration in seconds
+
+<a id="nestedatt--primary-txt-record"></a>&#x2022; [`txt_record`](#nestedatt--primary-txt-record) - Optional String<br>DNSTXTResourceRecord
+
+#### Primary Default Rr Set Group A Record
+
+An [`a_record`](#primary-default-rr-set-group-a-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.242
+
+#### Primary Default Rr Set Group Aaaa Record
+
+An [`aaaa_record`](#primary-default-rr-set-group-aaaa-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>AAAA Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>IPv6 Addresses. A valid IPv6 address, for example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+
+#### Primary Default Rr Set Group Afsdb Record
+
+An [`afsdb_record`](#primary-default-rr-set-group-afsdb-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>AFSDB Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>AFSDB Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Afsdb Record Values
+
+<a id="deep-7224a6"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Alias Record
+
+An [`alias_record`](#primary-default-rr-set-group-alias-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-value"></a>&#x2022; [`value`](#nestedatt--primary-value) - Optional String<br>Domain. A valid domain name, for example: example.com
+
+#### Primary Default Rr Set Group Caa Record
+
+A [`caa_record`](#primary-default-rr-set-group-caa-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>CAA Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>CAA Record Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Caa Record Values
+
+<a id="deep-31a8bf"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Cds Record
+
+A [`cds_record`](#primary-default-rr-set-group-cds-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>CDS Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>DS Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Cds Record Values
+
+<a id="deep-6b61a3"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Cds Record Values Sha1 Digest
+
+<a id="deep-336942"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Default Rr Set Group Cds Record Values Sha256 Digest
+
+<a id="deep-2d3a7f"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Default Rr Set Group Cds Record Values Sha384 Digest
+
+<a id="deep-107b34"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Default Rr Set Group Cert Record
+
+A [`cert_record`](#primary-default-rr-set-group-cert-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>CERT Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>CERT Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Cert Record Values
+
+<a id="deep-4cedd5"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Cname Record
+
+A [`cname_record`](#primary-default-rr-set-group-cname-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>CName Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-value"></a>&#x2022; [`value`](#nestedatt--primary-value) - Optional String<br>Domain. Configuration parameter for value
+
+#### Primary Default Rr Set Group Ds Record
+
+A [`ds_record`](#primary-default-rr-set-group-ds-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>DS Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>DS Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Ds Record Values
+
+<a id="deep-235ea7"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Ds Record Values Sha1 Digest
+
+<a id="deep-093891"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Default Rr Set Group Ds Record Values Sha256 Digest
+
+<a id="deep-b950dc"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Default Rr Set Group Ds Record Values Sha384 Digest
+
+<a id="deep-6d3795"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Default Rr Set Group Eui48 Record
+
+An [`eui48_record`](#primary-default-rr-set-group-eui48-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>EUI48 Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-value"></a>&#x2022; [`value`](#nestedatt--primary-value) - Optional String<br>EUI48 Identifier. A valid eui48 identifier, for example: 01-23-45-67-89-ab
+
+#### Primary Default Rr Set Group Eui64 Record
+
+An [`eui64_record`](#primary-default-rr-set-group-eui64-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>EUI64 Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-value"></a>&#x2022; [`value`](#nestedatt--primary-value) - Optional String<br>EUI64 Identifier. A valid EUI64 identifier, for example: 01-23-45-67-89-ab-cd-ef
+
+#### Primary Default Rr Set Group LB Record
+
+A [`lb_record`](#primary-default-rr-set-group-lb-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>Load Balancer record name (except for SRV DNS Load balancer record) should be a simple record name and not a subdomain of a subdomain
+
+<a id="nestedatt--primary-value"></a>&#x2022; [`value`](#nestedatt--primary-value) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+#### Primary Default Rr Set Group LB Record Value
+
+<a id="deep-b51e9f"></a>Deeply nested **Value** block collapsed for readability.
+
+#### Primary Default Rr Set Group Loc Record
+
+A [`loc_record`](#primary-default-rr-set-group-loc-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>LOC Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>LOC Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Loc Record Values
+
+<a id="deep-6917cb"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Mx Record
+
+A [`mx_record`](#primary-default-rr-set-group-mx-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>MX Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>MX Record Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Mx Record Values
+
+<a id="deep-877222"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Naptr Record
+
+A [`naptr_record`](#primary-default-rr-set-group-naptr-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>NAPTR Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>NAPTR Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Naptr Record Values
+
+<a id="deep-26168f"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Ns Record
+
+A [`ns_record`](#primary-default-rr-set-group-ns-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>NS Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>Name Servers. Configuration parameter for values
+
+#### Primary Default Rr Set Group Ptr Record
+
+A [`ptr_record`](#primary-default-rr-set-group-ptr-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>PTR Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>Domain Name. Configuration parameter for values
+
+#### Primary Default Rr Set Group Srv Record
+
+A [`srv_record`](#primary-default-rr-set-group-srv-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>SRV Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>SRV Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Srv Record Values
+
+<a id="deep-6da59a"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Sshfp Record
+
+A [`sshfp_record`](#primary-default-rr-set-group-sshfp-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>SSHFP Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>SSHFP Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Sshfp Record Values
+
+<a id="deep-240021"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Sshfp Record Values Sha1 Fingerprint
+
+<a id="deep-080f3e"></a>Deeply nested **Fingerprint** block collapsed for readability.
+
+#### Primary Default Rr Set Group Sshfp Record Values Sha256 Fingerprint
+
+<a id="deep-95a797"></a>Deeply nested **Fingerprint** block collapsed for readability.
+
+#### Primary Default Rr Set Group Tlsa Record
+
+A [`tlsa_record`](#primary-default-rr-set-group-tlsa-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>TLSA Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>TLSA Value. Configuration parameter for values
+
+#### Primary Default Rr Set Group Tlsa Record Values
+
+<a id="deep-1962b2"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Default Rr Set Group Txt Record
+
+A [`txt_record`](#primary-default-rr-set-group-txt-record) block (within [`primary.default_rr_set_group`](#primary-default-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>TXT Record name, please provide only the specific subdomain or record name without the base domain
+
+<a id="nestedatt--primary-values"></a>&#x2022; [`values`](#nestedatt--primary-values) - Optional List<br>Text. Configuration parameter for values
+
+#### Primary Default Soa Parameters
+
+A [`default_soa_parameters`](#primary-default-soa-parameters) block (within [`primary`](#primary)) supports the following:
+
+#### Primary Dnssec Mode
+
+A [`dnssec_mode`](#primary-dnssec-mode) block (within [`primary`](#primary)) supports the following:
+
+<a id="nestedatt--primary-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--primary-disable-spec) - Optional Object<br>Enable this option
+
+<a id="nestedatt--primary-enable"></a>&#x2022; [`enable`](#nestedatt--primary-enable) - Optional Object<br>Enable. DNSSEC enable
+
+#### Primary Dnssec Mode Disable Spec
+
+A [`disable_spec`](#primary-dnssec-mode-disable-spec) block (within [`primary.dnssec_mode`](#primary-dnssec-mode)) supports the following:
+
+#### Primary Dnssec Mode Enable
+
+An [`enable`](#primary-dnssec-mode-enable) block (within [`primary.dnssec_mode`](#primary-dnssec-mode)) supports the following:
+
+#### Primary Rr Set Group
+
+A [`rr_set_group`](#primary-rr-set-group) block (within [`primary`](#primary)) supports the following:
+
+<a id="nestedatt--primary-metadata"></a>&#x2022; [`metadata`](#nestedatt--primary-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user
+during create
+
+<a id="nestedatt--primary-rr-set"></a>&#x2022; [`rr_set`](#nestedatt--primary-rr-set) - Optional List<br>Resource Record Sets. Collection of DNS resource record sets
+
+#### Primary Rr Set Group Metadata
+
+A [`metadata`](#primary-rr-set-group-metadata) block (within [`primary.rr_set_group`](#primary-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--primary-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--primary-name"></a>&#x2022; [`name`](#nestedatt--primary-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Primary Rr Set Group Rr Set
+
+A [`rr_set`](#primary-rr-set-group-rr-set) block (within [`primary.rr_set_group`](#primary-rr-set-group)) supports the following:
+
+<a id="nestedatt--primary-a-record"></a>&#x2022; [`a_record`](#nestedatt--primary-a-record) - Optional String<br>DNSAResourceRecord. A Records
+
+<a id="nestedatt--primary-aaaa-record"></a>&#x2022; [`aaaa_record`](#nestedatt--primary-aaaa-record) - Optional String<br>Configuration parameter for aaaa record
+
+<a id="nestedatt--primary-afsdb-record"></a>&#x2022; [`afsdb_record`](#nestedatt--primary-afsdb-record) - Optional String<br>Configuration parameter for afsdb record
+
+<a id="nestedatt--primary-alias-record"></a>&#x2022; [`alias_record`](#nestedatt--primary-alias-record) - Optional String<br>Configuration parameter for alias record
+
+<a id="nestedatt--primary-caa-record"></a>&#x2022; [`caa_record`](#nestedatt--primary-caa-record) - Optional String<br>DNSCAAResourceRecord
+
+<a id="nestedatt--primary-cds-record"></a>&#x2022; [`cds_record`](#nestedatt--primary-cds-record) - Optional String<br>DNS CDS Record. DNS CDS Record
+
+<a id="nestedatt--primary-cert-record"></a>&#x2022; [`cert_record`](#nestedatt--primary-cert-record) - Optional String<br>Configuration parameter for cert record
+
+<a id="nestedatt--primary-cname-record"></a>&#x2022; [`cname_record`](#nestedatt--primary-cname-record) - Optional String<br>DNSCNAMEResourceRecord
+
+<a id="nestedatt--primary-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--primary-description-spec) - Optional String<br>Comment. Human-readable description text
+
+<a id="nestedatt--primary-ds-record"></a>&#x2022; [`ds_record`](#nestedatt--primary-ds-record) - Optional String<br>DNS DS Record. DNS DS Record
+
+<a id="nestedatt--primary-eui48-record"></a>&#x2022; [`eui48_record`](#nestedatt--primary-eui48-record) - Optional String<br>Configuration parameter for eui48 record
+
+<a id="nestedatt--primary-eui64-record"></a>&#x2022; [`eui64_record`](#nestedatt--primary-eui64-record) - Optional String<br>Configuration parameter for eui64 record
+
+<a id="nestedatt--primary-lb-record"></a>&#x2022; [`lb_record`](#nestedatt--primary-lb-record) - Optional String<br>DNS Load Balancer Record. DNS Load Balancer Record
+
+<a id="nestedatt--primary-loc-record"></a>&#x2022; [`loc_record`](#nestedatt--primary-loc-record) - Optional String<br>DNS LOC Record. DNS LOC Record
+
+<a id="nestedatt--primary-mx-record"></a>&#x2022; [`mx_record`](#nestedatt--primary-mx-record) - Optional String<br>DNSMXResourceRecord
+
+<a id="nestedatt--primary-naptr-record"></a>&#x2022; [`naptr_record`](#nestedatt--primary-naptr-record) - Optional String<br>Configuration parameter for naptr record
+
+<a id="nestedatt--primary-ns-record"></a>&#x2022; [`ns_record`](#nestedatt--primary-ns-record) - Optional String<br>DNSNSResourceRecord
+
+<a id="nestedatt--primary-ptr-record"></a>&#x2022; [`ptr_record`](#nestedatt--primary-ptr-record) - Optional String<br>DNSPTRResourceRecord
+
+<a id="nestedatt--primary-srv-record"></a>&#x2022; [`srv_record`](#nestedatt--primary-srv-record) - Optional String<br>DNSSRVResourceRecord
+
+<a id="nestedatt--primary-sshfp-record"></a>&#x2022; [`sshfp_record`](#nestedatt--primary-sshfp-record) - Optional String<br>Configuration parameter for sshfp record
+
+<a id="nestedatt--primary-tlsa-record"></a>&#x2022; [`tlsa_record`](#nestedatt--primary-tlsa-record) - Optional String<br>Configuration parameter for tlsa record
+
+<a id="nestedatt--primary-ttl"></a>&#x2022; [`ttl`](#nestedatt--primary-ttl) - Optional Number<br>Time to live. Time-to-live duration in seconds
+
+<a id="nestedatt--primary-txt-record"></a>&#x2022; [`txt_record`](#nestedatt--primary-txt-record) - Optional String<br>DNSTXTResourceRecord
+
+#### Primary Rr Set Group Rr Set A Record
+
+<a id="deep-533e88"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Aaaa Record
+
+<a id="deep-42bc39"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Afsdb Record
+
+<a id="deep-477f8d"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Afsdb Record Values
+
+<a id="deep-7e2a54"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Alias Record
+
+<a id="deep-482a6d"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Caa Record
+
+<a id="deep-66ae76"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Caa Record Values
+
+<a id="deep-c100ec"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Cds Record
+
+<a id="deep-89f1fe"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Cds Record Values
+
+<a id="deep-ca260e"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Cds Record Values Sha1 Digest
+
+<a id="deep-8ef0c5"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Cds Record Values Sha256 Digest
+
+<a id="deep-affe0f"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Cds Record Values Sha384 Digest
+
+<a id="deep-023fe9"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Cert Record
+
+<a id="deep-91c89f"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Cert Record Values
+
+<a id="deep-d23a7c"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Cname Record
+
+<a id="deep-ebf6fd"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Ds Record
+
+<a id="deep-56b2e6"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Ds Record Values
+
+<a id="deep-cc2512"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Ds Record Values Sha1 Digest
+
+<a id="deep-58123e"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Ds Record Values Sha256 Digest
+
+<a id="deep-551194"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Ds Record Values Sha384 Digest
+
+<a id="deep-7a7126"></a>Deeply nested **Digest** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Eui48 Record
+
+<a id="deep-407753"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Eui64 Record
+
+<a id="deep-b94961"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set LB Record
+
+<a id="deep-6258c5"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set LB Record Value
+
+<a id="deep-96233f"></a>Deeply nested **Value** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Loc Record
+
+<a id="deep-fdb347"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Loc Record Values
+
+<a id="deep-706e2d"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Mx Record
+
+<a id="deep-7baabe"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Mx Record Values
+
+<a id="deep-cc2223"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Naptr Record
+
+<a id="deep-4722da"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Naptr Record Values
+
+<a id="deep-978399"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Ns Record
+
+<a id="deep-d1e54f"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Ptr Record
+
+<a id="deep-22ef4c"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Srv Record
+
+<a id="deep-fd89f4"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Srv Record Values
+
+<a id="deep-468bb2"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Sshfp Record
+
+<a id="deep-902aa9"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Sshfp Record Values
+
+<a id="deep-8adb01"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Sshfp Record Values Sha1 Fingerprint
+
+<a id="deep-2e2d00"></a>Deeply nested **Fingerprint** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Sshfp Record Values Sha256 Fingerprint
+
+<a id="deep-af6d05"></a>Deeply nested **Fingerprint** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Tlsa Record
+
+<a id="deep-5be176"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Tlsa Record Values
+
+<a id="deep-a25b62"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Primary Rr Set Group Rr Set Txt Record
+
+<a id="deep-6399bb"></a>Deeply nested **Record** block collapsed for readability.
+
+#### Primary Soa Parameters
+
+A [`soa_parameters`](#primary-soa-parameters) block (within [`primary`](#primary)) supports the following:
+
+<a id="nestedatt--primary-expire"></a>&#x2022; [`expire`](#nestedatt--primary-expire) - Optional Number<br>Expire value indicates when secondary nameservers should stop answering request for this zone if primary does not respond
+
+<a id="nestedatt--primary-negative-ttl"></a>&#x2022; [`negative_ttl`](#nestedatt--primary-negative-ttl) - Optional Number<br>Negative TTL value indicates how long to cache non-existent resource record for this zone
+
+<a id="nestedatt--primary-refresh"></a>&#x2022; [`refresh`](#nestedatt--primary-refresh) - Optional Number<br>Refresh value indicates when secondary nameservers should query for the SOA record to detect zone changes
+
+<a id="nestedatt--primary-retry"></a>&#x2022; [`retry`](#nestedatt--primary-retry) - Optional Number<br>Retry value indicates when secondary nameservers should retry to request the serial number if primary does not respond
+
+<a id="nestedatt--primary-ttl"></a>&#x2022; [`ttl`](#nestedatt--primary-ttl) - Optional Number<br>TTL. SOA record time to live (in seconds)
+
+#### Secondary
+
+A [`secondary`](#secondary) block supports the following:
+
+<a id="nestedatt--secondary-primary-servers"></a>&#x2022; [`primary_servers`](#nestedatt--secondary-primary-servers) - Optional List<br>Configuration parameter for primary servers
+
+<a id="nestedatt--secondary-tsig-key-algorithm"></a>&#x2022; [`tsig_key_algorithm`](#nestedatt--secondary-tsig-key-algorithm) - Optional String  Defaults to `UNDEFINED`<br>Possible values are `HMAC_MD5`, `UNDEFINED`, `HMAC_SHA1`, `HMAC_SHA224`, `HMAC_SHA256`, `HMAC_SHA384`, `HMAC_SHA512`<br>[Enum: HMAC_MD5|UNDEFINED|HMAC_SHA1|HMAC_SHA224|HMAC_SHA256|HMAC_SHA384|HMAC_SHA512] TSIG key value must be
+compatible with the specified algorithm - UNDEFINED: UNDEFINED - HMAC_MD5: HMAC_MD5 - HMAC_SHA1: HMAC_SHA1 - HMAC_SHA224: HMAC_SHA224 - HMAC_SHA256: HMAC_SHA256 - HMAC_SHA384: HMAC_SHA384 - HMAC_SHA512: HMAC_SHA512
+
+<a id="nestedatt--secondary-tsig-key-name"></a>&#x2022; [`tsig_key_name`](#nestedatt--secondary-tsig-key-name) - Optional String<br>TSIG key name as used in TSIG protocol extension
+
+<a id="nestedatt--secondary-tsig-key-value"></a>&#x2022; [`tsig_key_value`](#nestedatt--secondary-tsig-key-value) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+#### Secondary Tsig Key Value
+
+A [`tsig_key_value`](#secondary-tsig-key-value) block (within [`secondary`](#secondary)) supports the following:
+
+<a id="info-599cee"></a>&#x2022; [`blindfold_secret_info`](#info-599cee) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="nestedatt--secondary-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#nestedatt--secondary-clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Secondary Tsig Key Value Blindfold Secret Info
+
+A [`blindfold_secret_info`](#secondary-tsig-key-value-blindfold-secret-info) block (within [`secondary.tsig_key_value`](#secondary-tsig-key-value)) supports the following:
+
+<a id="provider-b53215"></a>&#x2022; [`decryption_provider`](#provider-b53215) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="nestedatt--secondary-location"></a>&#x2022; [`location`](#nestedatt--secondary-location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="nestedatt--secondary-store-provider"></a>&#x2022; [`store_provider`](#nestedatt--secondary-store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+#### Secondary Tsig Key Value Clear Secret Info
+
+A [`clear_secret_info`](#secondary-tsig-key-value-clear-secret-info) block (within [`secondary.tsig_key_value`](#secondary-tsig-key-value)) supports the following:
+
+<a id="nestedatt--secondary-provider-ref"></a>&#x2022; [`provider_ref`](#nestedatt--secondary-provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="nestedatt--secondary-url"></a>&#x2022; [`url`](#nestedatt--secondary-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 ---
 

@@ -56,13 +56,109 @@ output "fast_acl_rule_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="action"></a>&#x2022; [`action`](#action) - Optional String<br>FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the FastACLRule
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ip-prefix-set"></a>&#x2022; [`ip_prefix_set`](#ip-prefix-set) - Optional String<br>List of references to ip_prefix_set objects
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional List<br>Source Ports. L4 port numbers to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes
+
+---
+
+#### Action
+
+An [`action`](#action) block supports the following:
+
+<a id="nestedatt--action-policer-action"></a>&#x2022; [`policer_action`](#nestedatt--action-policer-action) - Optional String<br>Policer Reference. Reference to policer object
+
+<a id="action-e2d8a6"></a>&#x2022; [`protocol_policer_action`](#action-e2d8a6) - Optional String<br>Protocol Policer Reference. Reference to policer object
+
+<a id="nestedatt--action-simple-action"></a>&#x2022; [`simple_action`](#nestedatt--action-simple-action) - Optional String  Defaults to `DENY`<br>Possible values are `DENY`, `ALLOW`<br>[Enum: DENY|ALLOW] FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic
+
+#### Action Policer Action
+
+A [`policer_action`](#action-policer-action) block (within [`action`](#action)) supports the following:
+
+<a id="nestedatt--action-ref"></a>&#x2022; [`ref`](#nestedatt--action-ref) - Optional List<br>Reference. A policer direct reference
+
+#### Action Policer Action Ref
+
+A [`ref`](#action-policer-action-ref) block (within [`action.policer_action`](#action-policer-action)) supports the following:
+
+<a id="nestedatt--action-kind"></a>&#x2022; [`kind`](#nestedatt--action-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--action-name"></a>&#x2022; [`name`](#nestedatt--action-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--action-namespace"></a>&#x2022; [`namespace`](#nestedatt--action-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--action-tenant"></a>&#x2022; [`tenant`](#nestedatt--action-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--action-uid"></a>&#x2022; [`uid`](#nestedatt--action-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Action Protocol Policer Action
+
+A [`protocol_policer_action`](#action-protocol-policer-action) block (within [`action`](#action)) supports the following:
+
+<a id="nestedatt--action-ref"></a>&#x2022; [`ref`](#nestedatt--action-ref) - Optional List<br>Protocol policer Reference. Reference to protocol policer object
+
+#### Action Protocol Policer Action Ref
+
+A [`ref`](#action-protocol-policer-action-ref) block (within [`action.protocol_policer_action`](#action-protocol-policer-action)) supports the following:
+
+<a id="nestedatt--action-kind"></a>&#x2022; [`kind`](#nestedatt--action-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--action-name"></a>&#x2022; [`name`](#nestedatt--action-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--action-namespace"></a>&#x2022; [`namespace`](#nestedatt--action-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--action-tenant"></a>&#x2022; [`tenant`](#nestedatt--action-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--action-uid"></a>&#x2022; [`uid`](#nestedatt--action-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### IP Prefix Set
+
+An [`ip_prefix_set`](#ip-prefix-set) block supports the following:
+
+<a id="nestedatt--action-ref"></a>&#x2022; [`ref`](#nestedatt--action-ref) - Optional List<br>List of references to ip_prefix_set objects
+
+#### IP Prefix Set Ref
+
+A [`ref`](#ip-prefix-set-ref) block (within [`ip_prefix_set`](#ip-prefix-set)) supports the following:
+
+<a id="nestedatt--action-kind"></a>&#x2022; [`kind`](#nestedatt--action-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--action-name"></a>&#x2022; [`name`](#nestedatt--action-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--action-namespace"></a>&#x2022; [`namespace`](#nestedatt--action-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--action-tenant"></a>&#x2022; [`tenant`](#nestedatt--action-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--action-uid"></a>&#x2022; [`uid`](#nestedatt--action-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Port
+
+A [`port`](#port) block supports the following:
+
+<a id="nestedatt--port-all"></a>&#x2022; [`all`](#nestedatt--port-all) - Optional Object<br>Enable this option
+
+<a id="nestedatt--port-dns"></a>&#x2022; [`dns`](#nestedatt--port-dns) - Optional Object<br>Enable this option
+
+<a id="nestedatt--port-user-defined"></a>&#x2022; [`user_defined`](#nestedatt--port-user-defined) - Optional Number<br>Matches the user defined port
+
+#### Prefix
+
+A [`prefix`](#prefix) block supports the following:
+
+<a id="nestedatt--prefix-prefix"></a>&#x2022; [`prefix`](#nestedatt--prefix-prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
 
 ---
 

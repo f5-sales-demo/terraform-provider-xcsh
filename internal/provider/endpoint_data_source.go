@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,21 @@ type EndpointDataSource struct {
 }
 
 type EndpointDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID              types.String                  `tfsdk:"id"`
+	Name            types.String                  `tfsdk:"name"`
+	Namespace       types.String                  `tfsdk:"namespace"`
+	Description     types.String                  `tfsdk:"description"`
+	Labels          types.Map                     `tfsdk:"labels"`
+	Annotations     types.Map                     `tfsdk:"annotations"`
+	DNSName         types.String                  `tfsdk:"dns_name"`
+	HealthCheckPort types.Int64                   `tfsdk:"health_check_port"`
+	IP              types.String                  `tfsdk:"ip"`
+	Port            types.Int64                   `tfsdk:"port"`
+	Protocol        types.String                  `tfsdk:"protocol"`
+	DNSNameAdvanced *EndpointDNSNameAdvancedModel `tfsdk:"dns_name_advanced"`
+	ServiceInfo     *EndpointServiceInfoModel     `tfsdk:"service_info"`
+	SnatPool        *EndpointSnatPoolModel        `tfsdk:"snat_pool"`
+	Where           *EndpointWhereModel           `tfsdk:"where"`
 }
 
 func (d *EndpointDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +80,223 @@ func (d *EndpointDataSource) Schema(ctx context.Context, req datasource.SchemaRe
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"dns_name_advanced": schema.SingleNestedAttribute{
+				MarkdownDescription: "Specifies name and TTL used for DNS resolution.",
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
+						Computed:            true,
+					},
+					"refresh_interval": schema.Int64Attribute{
+						MarkdownDescription: "Exclusive with [] Interval for DNS refresh in seconds.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"service_info": schema.SingleNestedAttribute{
+				MarkdownDescription: "Specifies whether endpoint service is discovered by name or labels.",
+				Attributes: map[string]schema.Attribute{
+					"discovery_type": schema.StringAttribute{
+						MarkdownDescription: "[Enum: INVALID_DISCOVERY|K8S|CONSUL|CLASSIC_BIGIP|THIRD_PARTY|NGINX_ONE] Specifies the type of discovery Invalid Discovery mechanism Discover from Kubernetes cluster Discover from Consul service Discover from Classic BIG-IP Clusters Discover for Third Party Application Discover from NGINX One. Possible values are `INVALID_DISCOVERY`, `K8S`, `CONSUL`, `CLASSIC_BIGIP`, `THIRD_PARTY`, `NGINX_ONE`. Defaults to `INVALID_DISCOVERY`.",
+						Computed:            true,
+					},
+					"service_name": schema.StringAttribute{
+						MarkdownDescription: "Exclusive with [service_selector] Name of the service to discover with an optional namespace and cluster identifier. The format is service_name.namespace_name:cluster_identifier for K8s and service_name:cluster_identifier for Consul Endpoint will be discovered in all discovery objects where the..",
+						Computed:            true,
+					},
+					"service_selector": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+						Attributes: map[string]schema.Attribute{
+							"expressions": schema.ListAttribute{
+								MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"snat_pool": schema.SingleNestedAttribute{
+				MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+				Attributes: map[string]schema.Attribute{
+					"no_snat_pool": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no snat pool.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"snat_pool": schema.SingleNestedAttribute{
+						MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"prefixes": schema.ListAttribute{
+								MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"where": schema.SingleNestedAttribute{
+				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
+				Attributes: map[string]schema.Attribute{
+					"site": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
+						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"network_type": schema.StringAttribute{
+								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
+								Computed:            true,
+							},
+							"ref": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. A site direct reference.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"virtual_network": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specifies a direct reference to a network configuration object.",
+						Attributes: map[string]schema.Attribute{
+							"ref": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. A virtual network direct reference.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"virtual_site": schema.SingleNestedAttribute{
+						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
+						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"network_type": schema.StringAttribute{
+								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
+								Computed:            true,
+							},
+							"ref": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. A virtual_site direct reference.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"dns_name": schema.StringAttribute{
+				MarkdownDescription: "[OneOf: dns_name, dns_name_advanced, ip, service_info] Exclusive with [dns_name_advanced IP service_info] Endpoint's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
+				Computed:            true,
+			},
+			"health_check_port": schema.Int64Attribute{
+				MarkdownDescription: "By default the health check port of an endpoint is the same as the endpoint’s port. This option provides an alternative health check port. Setting this with a non-zero value allows an endpoint to have different health check port.",
+				Computed:            true,
+			},
+			"ip": schema.StringAttribute{
+				MarkdownDescription: "Exclusive with [dns_name dns_name_advanced service_info] Endpoint is reachable at the given IPv4/IPv6 address.",
+				Computed:            true,
+			},
+			"port": schema.Int64Attribute{
+				MarkdownDescription: "Endpoint service is available on this port.",
+				Computed:            true,
+			},
+			"protocol": schema.StringAttribute{
+				MarkdownDescription: "[Enum: TCP|UDP] Protocol. Endpoint protocol. Default is TCP. Both TCP and UDP protocols are supported. Possible values are `TCP`, `UDP`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +320,8 @@ func (d *EndpointDataSource) Read(ctx context.Context, req datasource.ReadReques
 		return
 	}
 
-	resource, err := d.client.GetEndpoint(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetEndpoint(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Endpoint: %s", err))
 		return
@@ -101,7 +329,11 @@ func (d *EndpointDataSource) Read(ctx context.Context, req datasource.ReadReques
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +366,349 @@ func (d *EndpointDataSource) Read(ctx context.Context, req datasource.ReadReques
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["dns_name_advanced"].(map[string]interface{}); ok && (isImport || data.DNSNameAdvanced != nil) {
+		data.DNSNameAdvanced = &EndpointDNSNameAdvancedModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			RefreshInterval: func() types.Int64 {
+				if v, ok := blockData["refresh_interval"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["service_info"].(map[string]interface{}); ok && (isImport || data.ServiceInfo != nil) {
+		data.ServiceInfo = &EndpointServiceInfoModel{
+			DiscoveryType: func() types.String {
+				if v, ok := blockData["discovery_type"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			ServiceName: func() types.String {
+				if v, ok := blockData["service_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			ServiceSelector: func() *EndpointServiceInfoServiceSelectorModel {
+				if ServiceSelectorData, ok := blockData["service_selector"].(map[string]interface{}); ok {
+					return &EndpointServiceInfoServiceSelectorModel{
+						Expressions: func() types.List {
+							if v, ok := ServiceSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && (isImport || data.SnatPool != nil) {
+		data.SnatPool = &EndpointSnatPoolModel{
+			NoSnatPool: func() types.Object {
+				if !isImport && data.SnatPool != nil && !data.SnatPool.NoSnatPool.IsUnknown() {
+					return data.SnatPool.NoSnatPool
+				}
+				if _, ok := blockData["no_snat_pool"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			SnatPool: func() *EndpointSnatPoolSnatPoolModel {
+				if SnatPoolData, ok := blockData["snat_pool"].(map[string]interface{}); ok {
+					return &EndpointSnatPoolSnatPoolModel{
+						Prefixes: func() types.List {
+							if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
+		data.Where = &EndpointWhereModel{
+			Site: func() *EndpointWhereSiteModel {
+				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
+					return &EndpointWhereSiteModel{
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
+								return data.Where.Site.DisableInternetVIP
+							}
+							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
+								return data.Where.Site.EnableInternetVIP
+							}
+							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := SiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.Site != nil && (data.Where.Site.Ref.IsNull() || len(data.Where.Site.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereSiteRefModel
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
+								data.Where.Site.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
+							if rawList, ok := SiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereSiteRefModel
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualNetwork: func() *EndpointWhereVirtualNetworkModel {
+				if VirtualNetworkData, ok := blockData["virtual_network"].(map[string]interface{}); ok {
+					return &EndpointWhereVirtualNetworkModel{
+						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && (data.Where.VirtualNetwork.Ref.IsNull() || len(data.Where.VirtualNetwork.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereVirtualNetworkRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualNetwork != nil && !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
+								data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
+							if rawList, ok := VirtualNetworkData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereVirtualNetworkRefModel
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereVirtualNetworkRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualNetworkRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualSite: func() *EndpointWhereVirtualSiteModel {
+				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
+					return &EndpointWhereVirtualSiteModel{
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
+								return data.Where.VirtualSite.DisableInternetVIP
+							}
+							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
+								return data.Where.VirtualSite.EnableInternetVIP
+							}
+							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						NetworkType: func() types.String {
+							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Ref: func() types.List {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && (data.Where.VirtualSite.Ref.IsNull() || len(data.Where.VirtualSite.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes})
+							}
+							var RefExisting []EndpointWhereVirtualSiteRefModel
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
+								data.Where.VirtualSite.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
+							if rawList, ok := VirtualSiteData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []EndpointWhereVirtualSiteRefModel
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, EndpointWhereVirtualSiteRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["dns_name"].(string); ok && v != "" {
+		data.DNSName = types.StringValue(v)
+	} else {
+		data.DNSName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["health_check_port"].(float64); ok {
+		data.HealthCheckPort = types.Int64Value(int64(v))
+	} else {
+		data.HealthCheckPort = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["ip"].(string); ok && v != "" {
+		data.IP = types.StringValue(v)
+	} else {
+		data.IP = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["port"].(float64); ok {
+		data.Port = types.Int64Value(int64(v))
+	} else {
+		data.Port = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["protocol"].(string); ok && v != "" {
+		data.Protocol = types.StringValue(v)
+	} else {
+		data.Protocol = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

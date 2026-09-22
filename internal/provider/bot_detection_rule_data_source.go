@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,6 +28,66 @@ type BotDetectionRuleDataSource struct {
 	client *client.Client
 }
 
+// BotDetectionRuleEmptyModel represents empty nested blocks
+type BotDetectionRuleEmptyModel struct {
+}
+
+// BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModel represents bot_detection_rule_configs_per_bot_infras block
+type BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModel struct {
+	BotInfraID             types.String                                                                    `tfsdk:"bot_infra_id"`
+	BotInfraName           types.String                                                                    `tfsdk:"bot_infra_name"`
+	BotInfrastructureType  types.String                                                                    `tfsdk:"bot_infrastructure_type"`
+	EnvironmentType        types.String                                                                    `tfsdk:"environment_type"`
+	BotDetectionRuleConfig *BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModel `tfsdk:"bot_detection_rule_config"`
+	K8SClusterRuleConfig   *BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModel   `tfsdk:"k8s_cluster_rule_config"`
+	RegionRuleConfig       *BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModel       `tfsdk:"region_rule_config"`
+}
+
+// BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModelAttrTypes defines the attribute types for BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModel
+var BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModelAttrTypes = map[string]attr.Type{
+	"bot_infra_id":              types.StringType,
+	"bot_infra_name":            types.StringType,
+	"bot_infrastructure_type":   types.StringType,
+	"environment_type":          types.StringType,
+	"bot_detection_rule_config": types.ObjectType{AttrTypes: BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModelAttrTypes},
+	"k8s_cluster_rule_config":   types.ObjectType{AttrTypes: BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModelAttrTypes},
+	"region_rule_config":        types.ObjectType{AttrTypes: BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModelAttrTypes},
+}
+
+// BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModel represents bot_detection_rule_config block
+type BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModel struct {
+	Mitigation types.Bool `tfsdk:"mitigation"`
+}
+
+// BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModelAttrTypes defines the attribute types for BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModel
+var BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModelAttrTypes = map[string]attr.Type{
+	"mitigation": types.BoolType,
+}
+
+// BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModel represents k8s_cluster_rule_config block
+type BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModel struct {
+	InUsedK8SClusterRuleConfig *BotDetectionRuleEmptyModel `tfsdk:"in_used_k8s_cluster_rule_config"`
+	SyncStatusPerK8SCluster    *BotDetectionRuleEmptyModel `tfsdk:"sync_status_per_k8s_cluster"`
+	TargetK8SClusterRuleConfig *BotDetectionRuleEmptyModel `tfsdk:"target_k8s_cluster_rule_config"`
+}
+
+// BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModelAttrTypes defines the attribute types for BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModel
+var BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModelAttrTypes = map[string]attr.Type{
+	"in_used_k8s_cluster_rule_config": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"sync_status_per_k8s_cluster":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"target_k8s_cluster_rule_config":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModel represents region_rule_config block
+type BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModel struct {
+	RegionConfig *BotDetectionRuleEmptyModel `tfsdk:"region_config"`
+}
+
+// BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModelAttrTypes defines the attribute types for BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModel
+var BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModelAttrTypes = map[string]attr.Type{
+	"region_config": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
 type BotDetectionRuleDataSourceModel struct {
 	ID                                  types.String `tfsdk:"id"`
 	Name                                types.String `tfsdk:"name"`
@@ -34,16 +95,16 @@ type BotDetectionRuleDataSourceModel struct {
 	Description                         types.String `tfsdk:"description"`
 	Labels                              types.Map    `tfsdk:"labels"`
 	Annotations                         types.Map    `tfsdk:"annotations"`
-	BotDetectionRuleConfigsPerBotInfras types.String `tfsdk:"bot_detection_rule_configs_per_bot_infras"`
-	Classification                      types.String `tfsdk:"classification"`
-	ClusterGroups                       types.String `tfsdk:"cluster_groups"`
+	Classification                      types.List   `tfsdk:"classification"`
+	ClusterGroups                       types.List   `tfsdk:"cluster_groups"`
 	CreatedAt                           types.String `tfsdk:"created_at"`
 	LastModifiedAt                      types.String `tfsdk:"last_modified_at"`
 	LastModifiedBy                      types.String `tfsdk:"last_modified_by"`
 	RuleName                            types.String `tfsdk:"rule_name"`
 	RuleType                            types.String `tfsdk:"rule_type"`
 	TrafficType                         types.String `tfsdk:"traffic_type"`
-	Version                             types.String `tfsdk:"version"`
+	Version                             types.Int64  `tfsdk:"version"`
+	BotDetectionRuleConfigsPerBotInfras types.List   `tfsdk:"bot_detection_rule_configs_per_bot_infras"`
 }
 
 func (d *BotDetectionRuleDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -80,17 +141,81 @@ func (d *BotDetectionRuleDataSource) Schema(ctx context.Context, req datasource.
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
-			"bot_detection_rule_configs_per_bot_infras": schema.StringAttribute{
+			"bot_detection_rule_configs_per_bot_infras": schema.ListNestedAttribute{
 				MarkdownDescription: "Rule configurations per Bot-Infras. Rule or policy definition",
-				Computed:            true,
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"bot_detection_rule_config": schema.SingleNestedAttribute{
+							MarkdownDescription: "Rule configuration. Rule configuration.",
+							Attributes: map[string]schema.Attribute{
+								"mitigation": schema.BoolAttribute{
+									MarkdownDescription: "Mitigation. Mitigation - true(ON) / false(OFF)",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"bot_infra_id": schema.StringAttribute{
+							MarkdownDescription: "Bot Infrastructure ID as per SAPI's database.",
+							Computed:            true,
+						},
+						"bot_infra_name": schema.StringAttribute{
+							MarkdownDescription: "Name of the bot infrastructure as per SAPI's database.",
+							Computed:            true,
+						},
+						"bot_infrastructure_type": schema.StringAttribute{
+							MarkdownDescription: "[Enum: BOT_INFRA_TYPE_UNKNOWN|BOT_INFRA_TYPE_CLOUD_HOSTED|BOT_INFRA_TYPE_HOSTED|BOT_INFRA_TYPE_ON_PREM|BOT_INFRA_TYPE_K8S_CLUSTER] Type of the Bot Infrastructure - BOT_INFRA_TYPE_UNKNOWN: Unknown - BOT_INFRA_TYPE_CLOUD_HOSTED: F5 Cloud Hosted - BOT_INFRA_TYPE_HOSTED: F5 Hosted - BOT_INFRA_TYPE_ON_PREM: F5 On Premises - BOT_INFRA_TYPE_K8S_CLUSTER: Kubernetes Cluster. Possible values are `BOT_INFRA_TYPE_UNKNOWN`, `BOT_INFRA_TYPE_CLOUD_HOSTED`, `BOT_INFRA_TYPE_HOSTED`, `BOT_INFRA_TYPE_ON_PREM`, `BOT_INFRA_TYPE_K8S_CLUSTER`. Defaults to `BOT_INFRA_TYPE_UNKNOWN`.",
+							Computed:            true,
+						},
+						"environment_type": schema.StringAttribute{
+							MarkdownDescription: "[Enum: PRODUCTION|TESTING] Identifies the environment as either Production or Testing. Production environments have two infrastructure regions in an Active-Active configuration where traffic is routed equally between the two regions. Test environments have a single infrastructure region. Possible values are `PRODUCTION`, `TESTING`. Defaults to `PRODUCTION`.",
+							Computed:            true,
+						},
+						"k8s_cluster_rule_config": schema.SingleNestedAttribute{
+							MarkdownDescription: "Kubernetes Cluster Rule Config. Kubernetes cluster rule config.",
+							Attributes: map[string]schema.Attribute{
+								"in_used_k8s_cluster_rule_config": schema.SingleNestedAttribute{
+									MarkdownDescription: "In-Used Kubernetes Cluster Rule Config. Cluster or grouping configuration",
+									Attributes:          map[string]schema.Attribute{},
+									Computed:            true,
+								},
+								"sync_status_per_k8s_cluster": schema.SingleNestedAttribute{
+									MarkdownDescription: "Sync Status. Cluster or grouping configuration",
+									Attributes:          map[string]schema.Attribute{},
+									Computed:            true,
+								},
+								"target_k8s_cluster_rule_config": schema.SingleNestedAttribute{
+									MarkdownDescription: "Target Kubernetes Cluster Rule Config. Cluster or grouping configuration",
+									Attributes:          map[string]schema.Attribute{},
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"region_rule_config": schema.SingleNestedAttribute{
+							MarkdownDescription: "Rule Config Per Region. Rule config per region.",
+							Attributes: map[string]schema.Attribute{
+								"region_config": schema.SingleNestedAttribute{
+									MarkdownDescription: "Rule Config Per Region. Configuration settings and parameters",
+									Attributes:          map[string]schema.Attribute{},
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+					},
+				},
+				Computed: true,
 			},
-			"classification": schema.StringAttribute{
+			"classification": schema.ListAttribute{
 				MarkdownDescription: "Classification. Classification or category data",
 				Computed:            true,
+				ElementType:         types.StringType,
 			},
-			"cluster_groups": schema.StringAttribute{
+			"cluster_groups": schema.ListAttribute{
 				MarkdownDescription: "Cluster Groups. Cluster or grouping configuration",
 				Computed:            true,
+				ElementType:         types.StringType,
 			},
 			"created_at": schema.StringAttribute{
 				MarkdownDescription: "Created At. Created at as per SAPI's database.",
@@ -116,7 +241,7 @@ func (d *BotDetectionRuleDataSource) Schema(ctx context.Context, req datasource.
 				MarkdownDescription: "[Enum: WEB|MOBILE] The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic from native mobile apps with the Bot Defense SDK are routed.. Possible values are `WEB`, `MOBILE`. Defaults to `WEB`.",
 				Computed:            true,
 			},
-			"version": schema.StringAttribute{
+			"version": schema.Int64Attribute{
 				MarkdownDescription: "Version. Version number or identifier",
 				Computed:            true,
 			},
@@ -182,57 +307,182 @@ func (d *BotDetectionRuleDataSource) Read(ctx context.Context, req datasource.Re
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["bot_detection_rule_configs_per_bot_infras"]; ok && v != nil {
-		data.BotDetectionRuleConfigsPerBotInfras = types.StringValue(fmt.Sprintf("%v", v))
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.BotDetectionRuleConfigsPerBotInfras.IsNull() || len(data.BotDetectionRuleConfigsPerBotInfras.Elements()) == 0) {
+		data.BotDetectionRuleConfigsPerBotInfras = types.ListNull(types.ObjectType{AttrTypes: BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["bot_detection_rule_configs_per_bot_infras"].([]interface{}); ok && len(listData) > 0 {
+		var BotDetectionRuleConfigsPerBotInfrasList []BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModel
+		var existingBotDetectionRuleConfigsPerBotInfrasItems []BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModel
+		if !data.BotDetectionRuleConfigsPerBotInfras.IsNull() && !data.BotDetectionRuleConfigsPerBotInfras.IsUnknown() {
+			data.BotDetectionRuleConfigsPerBotInfras.ElementsAs(ctx, &existingBotDetectionRuleConfigsPerBotInfrasItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				BotDetectionRuleConfigsPerBotInfrasList = append(BotDetectionRuleConfigsPerBotInfrasList, BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModel{
+					BotDetectionRuleConfig: func() *BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModel {
+						if BotDetectionRuleConfigData, ok := itemMap["bot_detection_rule_config"].(map[string]interface{}); ok {
+							return &BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasBotDetectionRuleConfigModel{
+								Mitigation: func() types.Bool {
+									if v, ok := BotDetectionRuleConfigData["mitigation"].(bool); ok {
+										return types.BoolValue(v)
+									}
+									return types.BoolNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					BotInfraID: func() types.String {
+						if v, ok := itemMap["bot_infra_id"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					BotInfraName: func() types.String {
+						if v, ok := itemMap["bot_infra_name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					BotInfrastructureType: func() types.String {
+						if v, ok := itemMap["bot_infrastructure_type"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					EnvironmentType: func() types.String {
+						if v, ok := itemMap["environment_type"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					K8SClusterRuleConfig: func() *BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModel {
+						if K8SClusterRuleConfigData, ok := itemMap["k8s_cluster_rule_config"].(map[string]interface{}); ok {
+							return &BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasK8SClusterRuleConfigModel{
+								InUsedK8SClusterRuleConfig: func() *BotDetectionRuleEmptyModel {
+									if !isImport && len(existingBotDetectionRuleConfigsPerBotInfrasItems) > listIdx && existingBotDetectionRuleConfigsPerBotInfrasItems[listIdx].K8SClusterRuleConfig != nil {
+										return existingBotDetectionRuleConfigsPerBotInfrasItems[listIdx].K8SClusterRuleConfig.InUsedK8SClusterRuleConfig
+									}
+									if _, ok := K8SClusterRuleConfigData["in_used_k8s_cluster_rule_config"].(map[string]interface{}); ok {
+										return &BotDetectionRuleEmptyModel{}
+									}
+									return nil
+								}(),
+								SyncStatusPerK8SCluster: func() *BotDetectionRuleEmptyModel {
+									if !isImport && len(existingBotDetectionRuleConfigsPerBotInfrasItems) > listIdx && existingBotDetectionRuleConfigsPerBotInfrasItems[listIdx].K8SClusterRuleConfig != nil {
+										return existingBotDetectionRuleConfigsPerBotInfrasItems[listIdx].K8SClusterRuleConfig.SyncStatusPerK8SCluster
+									}
+									if _, ok := K8SClusterRuleConfigData["sync_status_per_k8s_cluster"].(map[string]interface{}); ok {
+										return &BotDetectionRuleEmptyModel{}
+									}
+									return nil
+								}(),
+								TargetK8SClusterRuleConfig: func() *BotDetectionRuleEmptyModel {
+									if !isImport && len(existingBotDetectionRuleConfigsPerBotInfrasItems) > listIdx && existingBotDetectionRuleConfigsPerBotInfrasItems[listIdx].K8SClusterRuleConfig != nil {
+										return existingBotDetectionRuleConfigsPerBotInfrasItems[listIdx].K8SClusterRuleConfig.TargetK8SClusterRuleConfig
+									}
+									if _, ok := K8SClusterRuleConfigData["target_k8s_cluster_rule_config"].(map[string]interface{}); ok {
+										return &BotDetectionRuleEmptyModel{}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					RegionRuleConfig: func() *BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModel {
+						if RegionRuleConfigData, ok := itemMap["region_rule_config"].(map[string]interface{}); ok {
+							return &BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasRegionRuleConfigModel{
+								RegionConfig: func() *BotDetectionRuleEmptyModel {
+									if !isImport && len(existingBotDetectionRuleConfigsPerBotInfrasItems) > listIdx && existingBotDetectionRuleConfigsPerBotInfrasItems[listIdx].RegionRuleConfig != nil {
+										return existingBotDetectionRuleConfigsPerBotInfrasItems[listIdx].RegionRuleConfig.RegionConfig
+									}
+									if _, ok := RegionRuleConfigData["region_config"].(map[string]interface{}); ok {
+										return &BotDetectionRuleEmptyModel{}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModelAttrTypes}, BotDetectionRuleConfigsPerBotInfrasList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.BotDetectionRuleConfigsPerBotInfras = listVal
+		}
 	} else {
-		data.BotDetectionRuleConfigsPerBotInfras = types.StringNull()
+		data.BotDetectionRuleConfigsPerBotInfras = types.ListNull(types.ObjectType{AttrTypes: BotDetectionRuleBotDetectionRuleConfigsPerBotInfrasModelAttrTypes})
 	}
-	if v, ok := resource.Spec["classification"]; ok && v != nil {
-		data.Classification = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.Classification = types.StringNull()
+	if v, ok := apiResource.Spec["classification"].([]interface{}); ok {
+		classificationList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				classificationList = append(classificationList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, classificationList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Classification = listVal
+		}
+	} else if isImport || data.Classification.IsUnknown() {
+		data.Classification = types.ListNull(types.StringType)
 	}
-	if v, ok := resource.Spec["cluster_groups"]; ok && v != nil {
-		data.ClusterGroups = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.ClusterGroups = types.StringNull()
+	if v, ok := apiResource.Spec["cluster_groups"].([]interface{}); ok {
+		cluster_groupsList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				cluster_groupsList = append(cluster_groupsList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, cluster_groupsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.ClusterGroups = listVal
+		}
+	} else if isImport || data.ClusterGroups.IsUnknown() {
+		data.ClusterGroups = types.ListNull(types.StringType)
 	}
-	if v, ok := resource.Spec["created_at"]; ok && v != nil {
-		data.CreatedAt = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["created_at"].(string); ok && v != "" {
+		data.CreatedAt = types.StringValue(v)
 	} else {
 		data.CreatedAt = types.StringNull()
 	}
-	if v, ok := resource.Spec["last_modified_at"]; ok && v != nil {
-		data.LastModifiedAt = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["last_modified_at"].(string); ok && v != "" {
+		data.LastModifiedAt = types.StringValue(v)
 	} else {
 		data.LastModifiedAt = types.StringNull()
 	}
-	if v, ok := resource.Spec["last_modified_by"]; ok && v != nil {
-		data.LastModifiedBy = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["last_modified_by"].(string); ok && v != "" {
+		data.LastModifiedBy = types.StringValue(v)
 	} else {
 		data.LastModifiedBy = types.StringNull()
 	}
-	if v, ok := resource.Spec["rule_name"]; ok && v != nil {
-		data.RuleName = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["rule_name"].(string); ok && v != "" {
+		data.RuleName = types.StringValue(v)
 	} else {
 		data.RuleName = types.StringNull()
 	}
-	if v, ok := resource.Spec["rule_type"]; ok && v != nil {
-		data.RuleType = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["rule_type"].(string); ok && v != "" {
+		data.RuleType = types.StringValue(v)
 	} else {
 		data.RuleType = types.StringNull()
 	}
-	if v, ok := resource.Spec["traffic_type"]; ok && v != nil {
-		data.TrafficType = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["traffic_type"].(string); ok && v != "" {
+		data.TrafficType = types.StringValue(v)
 	} else {
 		data.TrafficType = types.StringNull()
 	}
-	if v, ok := resource.Spec["version"]; ok && v != nil {
-		data.Version = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["version"].(float64); ok {
+		data.Version = types.Int64Value(int64(v))
 	} else {
-		data.Version = types.StringNull()
+		data.Version = types.Int64Null()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

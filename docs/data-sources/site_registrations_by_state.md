@@ -366,7 +366,7 @@ An [`usb`](#items-get-spec-infra-hw-info-usb) block (within [`items.get_spec.inf
 
 <a id="protocol-8c04c9"></a>&#x2022; [`b_device_protocol`](#protocol-8c04c9) - Optional String<br>The protocol (within the subclass) of this device
 
-<a id="subclass-6748fa"></a>&#x2022; [`b_device_sub_class`](#subclass-6748fa) - Optional String<br>The subclass (within the class) of this device
+<a id="class-dba1ef"></a>&#x2022; [`b_device_sub_class`](#class-dba1ef) - Optional String<br>The subclass (within the class) of this device
 
 <a id="size-4abcb2"></a>&#x2022; [`b_max_packet_size`](#size-4abcb2) - Optional Number<br>Max packet size. Maximum size of the control transfer
 

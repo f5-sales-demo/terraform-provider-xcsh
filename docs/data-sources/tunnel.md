@@ -64,6 +64,128 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="local-ip"></a>&#x2022; [`local_ip`](#local-ip) - Optional String<br>Defines the OPTIONS to select local IP address and virtual network for tunnel object OPTIONS available are - 1. Local Interface - Network Interface from which IP address and network will be selected 2. IP Address - IP address and network can be configured explicitly
+
+<a id="params"></a>&#x2022; [`params`](#params) - Optional String<br>Tunnel configuration parameters for supported encapsulation 1. IPsec is supported with PSK for which PSK can be configured
+
+<a id="remote-ip"></a>&#x2022; [`remote_ip`](#remote-ip) - Optional String<br>Defines the OPTIONS to select remote IP address for tunnel object OPTIONS available are - 1. IP Address - Specifies the remote IP to which tunnel has to be connected 2. Remote endpoint - Is a map of IP address on per ver node basis
+
+<a id="tunnel-type"></a>&#x2022; [`tunnel_type`](#tunnel-type) - Optional String  Defaults to `IPSEC_PSK`<br>Possible values are `IPSEC_PSK`, `GRE`<br>[Enum: IPSEC_PSK|GRE] Supported tunnel types are IPsec IPsec tunnel type with PSK GRE tunnel type
+
+<a id="intf"></a>&#x2022; [`intf`](#intf) - Optional String<br>Provides the local interface to pick up source IP and network for transporting encapsulated packet
+
+<a id="ip-address"></a>&#x2022; [`ip_address`](#ip-address) - Optional String<br>Provides the configuration to pick up source IP and network for transporting encapsulated packet
+
+<a id="local-intf"></a>&#x2022; [`local_intf`](#local-intf) - Optional List<br>Local interface to be used for filling in source information of IP and network for transport
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="auto"></a>&#x2022; [`auto`](#auto) - Optional Object<br>Enable this option
+
+<a id="ip-address"></a>&#x2022; [`ip_address`](#ip-address) - Optional String<br>IP Address used to specify an IPv4 or IPv6 address
+
+<a id="virtual-network-type"></a>&#x2022; [`virtual_network_type`](#virtual-network-type) - Optional String<br>Different types of virtual networks understood by the system
+
+<a id="ipv4"></a>&#x2022; [`ipv4`](#ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+
+<a id="ipv6"></a>&#x2022; [`ipv6`](#ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+<a id="addr"></a>&#x2022; [`addr`](#addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+<a id="addr"></a>&#x2022; [`addr`](#addr) - Optional String<br>IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
+
+<a id="public"></a>&#x2022; [`public`](#public) - Optional Object<br>Enable this option
+
+<a id="site-local"></a>&#x2022; [`site_local`](#site-local) - Optional Object<br>Enable this option
+
+<a id="site-local-inside"></a>&#x2022; [`site_local_inside`](#site-local-inside) - Optional Object<br>Enable this option
+
+---
+
+#### Params
+
+A [`params`](#params) block supports the following:
+
+<a id="nestedatt--params-ipsec"></a>&#x2022; [`ipsec`](#nestedatt--params-ipsec) - Optional String<br>Configuration for IPsec encapsulation are: 1. PSK - pre shared key to be used by IKE
+
+#### Params Ipsec
+
+An [`ipsec`](#params-ipsec) block (within [`params`](#params)) supports the following:
+
+<a id="nestedatt--params--ipsec-ipsec-psk"></a>&#x2022; [`ipsec_psk`](#nestedatt--params--ipsec-ipsec-psk) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+#### Params Ipsec Ipsec Psk
+
+An [`ipsec_psk`](#params-ipsec-ipsec-psk) block (within [`params.ipsec`](#params-ipsec)) supports the following:
+
+<a id="info-b7a395"></a>&#x2022; [`blindfold_secret_info`](#info-b7a395) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-1df038"></a>&#x2022; [`clear_secret_info`](#info-1df038) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Params Ipsec Ipsec Psk Blindfold Secret Info
+
+A [`blindfold_secret_info`](#params-ipsec-ipsec-psk-blindfold-secret-info) block (within [`params.ipsec.ipsec_psk`](#params-ipsec-ipsec-psk)) supports the following:
+
+<a id="provider-9c04cf"></a>&#x2022; [`decryption_provider`](#provider-9c04cf) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="nestedatt--params--ipsec-location"></a>&#x2022; [`location`](#nestedatt--params--ipsec-location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="nestedatt--params--ipsec-store-provider"></a>&#x2022; [`store_provider`](#nestedatt--params--ipsec-store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+#### Params Ipsec Ipsec Psk Clear Secret Info
+
+A [`clear_secret_info`](#params-ipsec-ipsec-psk-clear-secret-info) block (within [`params.ipsec.ipsec_psk`](#params-ipsec-ipsec-psk)) supports the following:
+
+<a id="nestedatt--params--ipsec-provider-ref"></a>&#x2022; [`provider_ref`](#nestedatt--params--ipsec-provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="nestedatt--params--ipsec-url"></a>&#x2022; [`url`](#nestedatt--params--ipsec-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+#### Remote IP
+
+A [`remote_ip`](#remote-ip) block supports the following:
+
+<a id="nestedatt--params--ipsec-endpoints"></a>&#x2022; [`endpoints`](#nestedatt--params--ipsec-endpoints) - Optional String<br>Provides a map of ver node name to remote node attributes Ver node should use these attributes to configure as remote tunnel
+
+<a id="nestedatt--params--ipsec-ip"></a>&#x2022; [`ip`](#nestedatt--params--ipsec-ip) - Optional String<br>IP Address used to specify an IPv4 or IPv6 address
+
+#### Remote IP Endpoints
+
+An [`endpoints`](#remote-ip-endpoints) block (within [`remote_ip`](#remote-ip)) supports the following:
+
+<a id="nestedatt--params--ipsec-endpoints"></a>&#x2022; [`endpoints`](#nestedatt--params--ipsec-endpoints) - Optional String<br>Map of remote attributes to which tunnel will be established on per site node basis Every node can have a different attributes and IP address to connect to Key is ver node name and value is Remote node attributes
+
+#### Remote IP Endpoints Endpoints
+
+An [`endpoints`](#remote-ip-endpoints-endpoints) block (within [`remote_ip.endpoints`](#remote-ip-endpoints)) supports the following:
+
+#### Remote IP IP
+
+An [`ip`](#remote-ip-ip) block (within [`remote_ip`](#remote-ip)) supports the following:
+
+<a id="nestedatt--params--ipsec-ipv4"></a>&#x2022; [`ipv4`](#nestedatt--params--ipsec-ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+
+<a id="nestedatt--params--ipsec-ipv6"></a>&#x2022; [`ipv6`](#nestedatt--params--ipsec-ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+#### Remote IP IP IPv4
+
+An [`ipv4`](#remote-ip-ip-ipv4) block (within [`remote_ip.ip`](#remote-ip-ip)) supports the following:
+
+<a id="nestedatt--params--ipsec-addr"></a>&#x2022; [`addr`](#nestedatt--params--ipsec-addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+#### Remote IP IP IPv6
+
+An [`ipv6`](#remote-ip-ip-ipv6) block (within [`remote_ip.ip`](#remote-ip-ip)) supports the following:
+
+<a id="nestedatt--params--ipsec-addr"></a>&#x2022; [`addr`](#nestedatt--params--ipsec-addr) - Optional String<br>IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
+
 ---
 
 ## Common Types

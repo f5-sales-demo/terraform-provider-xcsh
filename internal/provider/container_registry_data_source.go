@@ -28,12 +28,16 @@ type ContainerRegistryDataSource struct {
 }
 
 type ContainerRegistryDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID          types.String                    `tfsdk:"id"`
+	Name        types.String                    `tfsdk:"name"`
+	Namespace   types.String                    `tfsdk:"namespace"`
+	Description types.String                    `tfsdk:"description"`
+	Labels      types.Map                       `tfsdk:"labels"`
+	Annotations types.Map                       `tfsdk:"annotations"`
+	Registry    types.String                    `tfsdk:"registry"`
+	UserName    types.String                    `tfsdk:"user_name"`
+	Email       types.String                    `tfsdk:"email"`
+	Password    *ContainerRegistryPasswordModel `tfsdk:"password"`
 }
 
 func (d *ContainerRegistryDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +74,58 @@ func (d *ContainerRegistryDataSource) Schema(ctx context.Context, req datasource
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"registry": schema.StringAttribute{
+				MarkdownDescription: "Fully qualified name of the registry login server.",
+				Computed:            true,
+			},
+			"user_name": schema.StringAttribute{
+				MarkdownDescription: "User Name. Username used to access the registry.",
+				Computed:            true,
+			},
+			"password": schema.SingleNestedAttribute{
+				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+				Attributes: map[string]schema.Attribute{
+					"blindfold_secret_info": schema.SingleNestedAttribute{
+						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+						Attributes: map[string]schema.Attribute{
+							"decryption_provider": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+								Computed:            true,
+							},
+							"location": schema.StringAttribute{
+								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+								Computed:            true,
+								Sensitive:           true,
+							},
+							"store_provider": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"clear_secret_info": schema.SingleNestedAttribute{
+						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+						Attributes: map[string]schema.Attribute{
+							"provider_ref": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+								Computed:            true,
+							},
+							"url": schema.StringAttribute{
+								MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+								Computed:            true,
+								Sensitive:           true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"email": schema.StringAttribute{
+				MarkdownDescription: "Email. Email used for the registry.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +149,8 @@ func (d *ContainerRegistryDataSource) Read(ctx context.Context, req datasource.R
 		return
 	}
 
-	resource, err := d.client.GetContainerRegistry(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetContainerRegistry(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ContainerRegistry: %s", err))
 		return
@@ -101,7 +158,11 @@ func (d *ContainerRegistryDataSource) Read(ctx context.Context, req datasource.R
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +195,71 @@ func (d *ContainerRegistryDataSource) Read(ctx context.Context, req datasource.R
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["registry"].(string); ok && v != "" {
+		data.Registry = types.StringValue(v)
+	} else {
+		data.Registry = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["user_name"].(string); ok && v != "" {
+		data.UserName = types.StringValue(v)
+	} else {
+		data.UserName = types.StringNull()
+	}
+	if blockData, ok := apiResource.Spec["password"].(map[string]interface{}); ok && (isImport || data.Password != nil) {
+		data.Password = &ContainerRegistryPasswordModel{
+			BlindfoldSecretInfo: func() *ContainerRegistryPasswordBlindfoldSecretInfoModel {
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &ContainerRegistryPasswordBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *ContainerRegistryPasswordClearSecretInfoModel {
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &ContainerRegistryPasswordClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["email"].(string); ok && v != "" {
+		data.Email = types.StringValue(v)
+	} else {
+		data.Email = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -34,6 +35,8 @@ type SegmentDataSourceModel struct {
 	Description types.String `tfsdk:"description"`
 	Labels      types.Map    `tfsdk:"labels"`
 	Annotations types.Map    `tfsdk:"annotations"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 func (d *SegmentDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +57,8 @@ func (d *SegmentDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the Segment exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the Segment.",
@@ -69,6 +73,16 @@ func (d *SegmentDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"disable_spec": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable, enable] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"enable": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 		},
 	}
@@ -93,7 +107,11 @@ func (d *SegmentDataSource) Read(ctx context.Context, req datasource.ReadRequest
 		return
 	}
 
-	resource, err := d.client.GetSegment(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetSegment(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Segment: %s", err))
 		return
@@ -101,7 +119,11 @@ func (d *SegmentDataSource) Read(ctx context.Context, req datasource.ReadRequest
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +156,22 @@ func (d *SegmentDataSource) Read(ctx context.Context, req datasource.ReadRequest
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && !data.DisableSpec.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok {
+		data.DisableSpec = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableSpec = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.Enable.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok {
+		data.Enable = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Enable = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

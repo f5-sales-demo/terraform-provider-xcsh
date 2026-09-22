@@ -58,11 +58,32 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="business-logic-markup-setting"></a>&#x2022; [`business_logic_markup_setting`](#business-logic-markup-setting) - Optional String<br>Settings specifying how API Discovery will be performed
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the AppType
+
+<a id="features"></a>&#x2022; [`features`](#features) - Optional List<br>Features. List of various AI/ML features enabled
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="disable-spec"></a>&#x2022; [`disable_spec`](#disable-spec) - Optional Object<br>Enable this option
+
+<a id="discovered-api-settings"></a>&#x2022; [`discovered_api_settings`](#discovered-api-settings) - Optional String<br>Discovered API Settings. Configure Discovered API Settings
+
+<a id="enable"></a>&#x2022; [`enable`](#enable) - Optional Object<br>Enable this option
+
+<a id="apis-c08bec"></a>&#x2022; [`purge_duration_for_inactive_discovered_apis`](#apis-c08bec) - Optional Number<br>Inactive discovered API will be deleted after configured duration
+
+---
+
+#### Features
+
+A [`features`](#features) block supports the following:
+
+<a id="nestedatt--features-type"></a>&#x2022; [`type`](#nestedatt--features-type) - Optional String  Defaults to `BUSINESS_LOGIC_MARKUP`<br>Possible values are `BUSINESS_LOGIC_MARKUP`, `TIMESERIES_ANOMALY_DETECTION`, `PER_REQ_ANOMALY_DETECTION`, `USER_BEHAVIOR_ANALYSIS`<br>[Enum: BUSINESS_LOGIC_MARKUP|TIMESERIES_ANOMALY_DETECTION|PER_REQ_ANOMALY_DETECTION|USER_BEHAVIOR_ANALYSIS] Enumeration for
+AI/ML features supported API Discovery enables generation of model for various API interactions between services of App type. Enable analysis of timeseries for various metric collected like requests, errors, latency etc. Enable anomaly detection per API request, i.e
 
 ---
 

@@ -58,6 +58,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="certificate-url"></a>&#x2022; [`certificate_url`](#certificate-url) - Optional String<br>Certificate chain is the list of intermediate certificates in PEM format including the PEM headers
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the CertificateChain
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource

@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,6 +28,28 @@ type PublicIPDataSource struct {
 	client *client.Client
 }
 
+// PublicIPEmptyModel represents empty nested blocks
+type PublicIPEmptyModel struct {
+}
+
+// PublicIPVirtualSitesModel represents virtual_sites block
+type PublicIPVirtualSitesModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// PublicIPVirtualSitesModelAttrTypes defines the attribute types for PublicIPVirtualSitesModel
+var PublicIPVirtualSitesModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
 type PublicIPDataSourceModel struct {
 	ID           types.String `tfsdk:"id"`
 	Name         types.String `tfsdk:"name"`
@@ -35,7 +58,7 @@ type PublicIPDataSourceModel struct {
 	Labels       types.Map    `tfsdk:"labels"`
 	Annotations  types.Map    `tfsdk:"annotations"`
 	IP           types.String `tfsdk:"ip"`
-	VirtualSites types.String `tfsdk:"virtual_sites"`
+	VirtualSites types.List   `tfsdk:"virtual_sites"`
 }
 
 func (d *PublicIPDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -76,9 +99,33 @@ func (d *PublicIPDataSource) Schema(ctx context.Context, req datasource.SchemaRe
 				MarkdownDescription: "IP address. IP address for this object.",
 				Computed:            true,
 			},
-			"virtual_sites": schema.StringAttribute{
+			"virtual_sites": schema.ListNestedAttribute{
 				MarkdownDescription: "Reference to virtual_site where this pubic IP will be available.",
-				Computed:            true,
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
 			},
 		},
 	}
@@ -142,17 +189,65 @@ func (d *PublicIPDataSource) Read(ctx context.Context, req datasource.ReadReques
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["ip"]; ok && v != nil {
-		data.IP = types.StringValue(fmt.Sprintf("%v", v))
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["ip"].(string); ok && v != "" {
+		data.IP = types.StringValue(v)
 	} else {
 		data.IP = types.StringNull()
 	}
-	if v, ok := resource.Spec["virtual_sites"]; ok && v != nil {
-		data.VirtualSites = types.StringValue(fmt.Sprintf("%v", v))
+	if !isImport && (data.VirtualSites.IsNull() || len(data.VirtualSites.Elements()) == 0) {
+		data.VirtualSites = types.ListNull(types.ObjectType{AttrTypes: PublicIPVirtualSitesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["virtual_sites"].([]interface{}); ok && len(listData) > 0 {
+		var VirtualSitesList []PublicIPVirtualSitesModel
+		var existingVirtualSitesItems []PublicIPVirtualSitesModel
+		if !data.VirtualSites.IsNull() && !data.VirtualSites.IsUnknown() {
+			data.VirtualSites.ElementsAs(ctx, &existingVirtualSitesItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				VirtualSitesList = append(VirtualSitesList, PublicIPVirtualSitesModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: PublicIPVirtualSitesModelAttrTypes}, VirtualSitesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.VirtualSites = listVal
+		}
 	} else {
-		data.VirtualSites = types.StringNull()
+		data.VirtualSites = types.ListNull(types.ObjectType{AttrTypes: PublicIPVirtualSitesModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

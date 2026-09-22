@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,25 @@ type OriginPoolDataSource struct {
 }
 
 type OriginPoolDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                        types.String                              `tfsdk:"id"`
+	Name                      types.String                              `tfsdk:"name"`
+	Namespace                 types.String                              `tfsdk:"namespace"`
+	Description               types.String                              `tfsdk:"description"`
+	Labels                    types.Map                                 `tfsdk:"labels"`
+	Annotations               types.Map                                 `tfsdk:"annotations"`
+	AutomaticPort             types.Object                              `tfsdk:"automatic_port"`
+	LBPort                    types.Object                              `tfsdk:"lb_port"`
+	EndpointSelection         types.String                              `tfsdk:"endpoint_selection"`
+	HealthCheckPort           types.Int64                               `tfsdk:"health_check_port"`
+	LoadBalancerAlgorithm     types.String                              `tfsdk:"loadbalancer_algorithm"`
+	NoTLS                     types.Object                              `tfsdk:"no_tls"`
+	Port                      types.Int64                               `tfsdk:"port"`
+	SameAsEndpointPort        types.Object                              `tfsdk:"same_as_endpoint_port"`
+	OriginServers             types.List                                `tfsdk:"origin_servers"`
+	AdvancedOptions           *OriginPoolAdvancedOptionsModel           `tfsdk:"advanced_options"`
+	UpstreamConnPoolReuseType *OriginPoolUpstreamConnPoolReuseTypeModel `tfsdk:"upstream_conn_pool_reuse_type"`
+	UseTLS                    *OriginPoolUseTLSModel                    `tfsdk:"use_tls"`
+	Healthcheck               types.List                                `tfsdk:"healthcheck"`
 }
 
 func (d *OriginPoolDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +84,1019 @@ func (d *OriginPoolDataSource) Schema(ctx context.Context, req datasource.Schema
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"origin_servers": schema.ListNestedAttribute{
+				MarkdownDescription: "Origin Servers. List of origin servers in this pool.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"cbip_service": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with Classic BIG-IP Service (Virtual Server).",
+							Attributes: map[string]schema.Attribute{
+								"service_name": schema.StringAttribute{
+									MarkdownDescription: "Name of the discovered Classic BIG-IP virtual server to be used as origin.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"consul_service": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with HashiCorp Consul service name and site information.",
+							Attributes: map[string]schema.Attribute{
+								"inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside network.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside network.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"service_name": schema.StringAttribute{
+									MarkdownDescription: "Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID.",
+									Computed:            true,
+								},
+								"site_locator": schema.SingleNestedAttribute{
+									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+									Attributes: map[string]schema.Attribute{
+										"site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"virtual_site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"snat_pool": schema.SingleNestedAttribute{
+									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+									Attributes: map[string]schema.Attribute{
+										"no_snat_pool": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for no snat pool.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"snat_pool": schema.SingleNestedAttribute{
+											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+											Attributes: map[string]schema.Attribute{
+												"prefixes": schema.ListAttribute{
+													MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+						"custom_endpoint_object": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with a reference to endpoint object.",
+							Attributes: map[string]schema.Attribute{
+								"endpoint": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Attributes: map[string]schema.Attribute{
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+						"k8s_service": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with K8s service name and site information.",
+							Attributes: map[string]schema.Attribute{
+								"inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside network.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside network.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"protocol": schema.StringAttribute{
+									MarkdownDescription: "[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP. Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`. Defaults to `PROTOCOL_TCP`.",
+									Computed:            true,
+								},
+								"service_name": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [] K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod', then you will enter..",
+									Computed:            true,
+								},
+								"site_locator": schema.SingleNestedAttribute{
+									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+									Attributes: map[string]schema.Attribute{
+										"site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"virtual_site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"snat_pool": schema.SingleNestedAttribute{
+									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+									Attributes: map[string]schema.Attribute{
+										"no_snat_pool": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for no snat pool.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"snat_pool": schema.SingleNestedAttribute{
+											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+											Attributes: map[string]schema.Attribute{
+												"prefixes": schema.ListAttribute{
+													MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"vk8s_networks": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for vk8s networks.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
+							Computed: true,
+						},
+						"labels": schema.MapAttribute{
+							MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
+							Computed:            true,
+							ElementType:         types.StringType,
+						},
+						"private_ip": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with private or public IP address and site information.",
+							Attributes: map[string]schema.Attribute{
+								"inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside network.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"ip": schema.StringAttribute{
+									MarkdownDescription: "IP. Exclusive with [] Private IPv4 address.",
+									Computed:            true,
+								},
+								"outside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside network.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"segment": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Attributes: map[string]schema.Attribute{
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"site_locator": schema.SingleNestedAttribute{
+									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+									Attributes: map[string]schema.Attribute{
+										"site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"virtual_site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"snat_pool": schema.SingleNestedAttribute{
+									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+									Attributes: map[string]schema.Attribute{
+										"no_snat_pool": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for no snat pool.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"snat_pool": schema.SingleNestedAttribute{
+											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+											Attributes: map[string]schema.Attribute{
+												"prefixes": schema.ListAttribute{
+													MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+						"private_name": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with private or public DNS name and site information.",
+							Attributes: map[string]schema.Attribute{
+								"dns_name": schema.StringAttribute{
+									MarkdownDescription: "DNS Name. DNS Name",
+									Computed:            true,
+								},
+								"inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside network.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside network.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"refresh_interval": schema.Int64Attribute{
+									MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
+									Computed:            true,
+								},
+								"segment": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Attributes: map[string]schema.Attribute{
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"site_locator": schema.SingleNestedAttribute{
+									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+									Attributes: map[string]schema.Attribute{
+										"site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"virtual_site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"snat_pool": schema.SingleNestedAttribute{
+									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+									Attributes: map[string]schema.Attribute{
+										"no_snat_pool": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for no snat pool.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"snat_pool": schema.SingleNestedAttribute{
+											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+											Attributes: map[string]schema.Attribute{
+												"prefixes": schema.ListAttribute{
+													MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+						"public_ip": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with public IP address.",
+							Attributes: map[string]schema.Attribute{
+								"ip": schema.StringAttribute{
+									MarkdownDescription: "Public IPv4. Exclusive with [] Public IPv4 address.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"public_name": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with public DNS name.",
+							Attributes: map[string]schema.Attribute{
+								"dns_name": schema.StringAttribute{
+									MarkdownDescription: "DNS Name. DNS Name",
+									Computed:            true,
+								},
+								"refresh_interval": schema.Int64Attribute{
+									MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"vn_private_ip": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with IP on Virtual Network.",
+							Attributes: map[string]schema.Attribute{
+								"ip": schema.StringAttribute{
+									MarkdownDescription: "IPv4. Exclusive with [] IPv4 address.",
+									Computed:            true,
+								},
+								"virtual_network": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Attributes: map[string]schema.Attribute{
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+						"vn_private_name": schema.SingleNestedAttribute{
+							MarkdownDescription: "Specify origin server with DNS name on Virtual Network.",
+							Attributes: map[string]schema.Attribute{
+								"dns_name": schema.StringAttribute{
+									MarkdownDescription: "DNS Name. DNS Name",
+									Computed:            true,
+								},
+								"private_network": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Attributes: map[string]schema.Attribute{
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"advanced_options": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configure Advanced OPTIONS for origin pool.",
+				Attributes: map[string]schema.Attribute{
+					"auto_http_config": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"circuit_breaker": schema.SingleNestedAttribute{
+						MarkdownDescription: "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
+						Attributes: map[string]schema.Attribute{
+							"connection_limit": schema.Int64Attribute{
+								MarkdownDescription: "The maximum number of connections that loadbalancer will establish to all hosts in an upstream cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single connection to each host. Remove endpoint out of load balancing decision, if number of connections..",
+								Computed:            true,
+							},
+							"max_requests": schema.Int64Attribute{
+								MarkdownDescription: "The maximum number of requests that can be outstanding to all hosts in a cluster at any given time. In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the maximum connections (connection_limit). Remove endpoint out of load balancing decision, if requests..",
+								Computed:            true,
+							},
+							"pending_requests": schema.Int64Attribute{
+								MarkdownDescription: "The maximum number of requests that will be queued while waiting for a ready connection pool connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes into play as the initial connection is created, as requests will be multiplexed immediately..",
+								Computed:            true,
+							},
+							"priority": schema.StringAttribute{
+								MarkdownDescription: "[Enum: DEFAULT|HIGH] Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based on selected priority. Possible values are `DEFAULT`, `HIGH`. Defaults to `DEFAULT`.",
+								Computed:            true,
+							},
+							"retries": schema.Int64Attribute{
+								MarkdownDescription: "The maximum number of retries that can be outstanding to all hosts in a cluster at any given time. Remove endpoint out of load balancing decision, if retries for request exceed this count.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"connection_timeout": schema.Int64Attribute{
+						MarkdownDescription: "The timeout for new network connections to endpoints in the cluster. This is specified in milliseconds. The default value is 2 seconds. Server applies default when omitted. Recommended: `2000`.",
+						Computed:            true,
+					},
+					"default_circuit_breaker": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default circuit breaker. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_circuit_breaker": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable circuit breaker.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_lb_source_ip_persistence": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_outlier_detection": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable outlier detection. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_proxy_protocol": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable proxy protocol.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_subsets": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable subsets. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_lb_source_ip_persistence": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_subsets": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configure subset OPTIONS for origin pool.",
+						Attributes: map[string]schema.Attribute{
+							"any_endpoint": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"default_subset": schema.SingleNestedAttribute{
+								MarkdownDescription: "Configuration parameter for default subset.",
+								Attributes: map[string]schema.Attribute{
+									"default_subset": schema.SingleNestedAttribute{
+										MarkdownDescription: "List of key-value pairs that define default subset. Which gets used when route specifies no metadata or no subset matching the metadata exists.",
+										Attributes:          map[string]schema.Attribute{},
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"endpoint_subsets": schema.ListNestedAttribute{
+								MarkdownDescription: "List of subset class. Subsets class is defined using list of keys. Every unique combination of values of these keys form a subset within the class.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"keys": schema.ListAttribute{
+											MarkdownDescription: "List of keys that define a cluster subset class.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"fail_request": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for fail request.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"http1_config": schema.SingleNestedAttribute{
+						MarkdownDescription: "HTTP/1.1 Protocol OPTIONS for upstream connections.",
+						Attributes: map[string]schema.Attribute{
+							"header_transformation": schema.SingleNestedAttribute{
+								MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+								Attributes: map[string]schema.Attribute{
+									"default_header_transformation": schema.ObjectAttribute{
+										MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"preserve_case_header_transformation": schema.ObjectAttribute{
+										MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"proper_case_header_transformation": schema.ObjectAttribute{
+										MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"http2_options": schema.SingleNestedAttribute{
+						MarkdownDescription: "Http2 Protocol OPTIONS for upstream connections.",
+						Attributes: map[string]schema.Attribute{
+							"enabled": schema.BoolAttribute{
+								MarkdownDescription: "Enable/disable HTTP2 Protocol for upstream connections.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"http_idle_timeout": schema.Int64Attribute{
+						MarkdownDescription: "The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed. Server applies default when omitted. Recommended: `300000`.",
+						Computed:            true,
+					},
+					"max_requests_per_connection": schema.Int64Attribute{
+						MarkdownDescription: "Exclusive with [no_request_limit_per_connection] Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection.",
+						Computed:            true,
+					},
+					"no_panic_threshold": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no panic threshold. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_request_limit_per_connection": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no request limit per connection. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"outlier_detection": schema.SingleNestedAttribute{
+						MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.",
+						Attributes: map[string]schema.Attribute{
+							"base_ejection_time": schema.Int64Attribute{
+								MarkdownDescription: "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail.",
+								Computed:            true,
+							},
+							"consecutive_5xx": schema.Int64Attribute{
+								MarkdownDescription: "If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to return one on the upstream’s behalf(reset, connection failure, etc.) consecutive_5xx indicates the..",
+								Computed:            true,
+							},
+							"consecutive_gateway_failure": schema.Int64Attribute{
+								MarkdownDescription: "If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status code), it will be ejected. Note that this includes events that would cause the HTTP router to return one of these status codes on the upstream’s behalf (reset, connection failure, etc.)..",
+								Computed:            true,
+							},
+							"interval": schema.Int64Attribute{
+								MarkdownDescription: "The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service. Defaults to `10000ms`.",
+								Computed:            true,
+							},
+							"max_ejection_percent": schema.Int64Attribute{
+								MarkdownDescription: "The maximum % of an upstream cluster that can be ejected due to outlier detection.  but will eject at least one host regardless of the value. Defaults to `10%`.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"panic_threshold": schema.Int64Attribute{
+						MarkdownDescription: "Exclusive with [no_panic_threshold] Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status.",
+						Computed:            true,
+					},
+					"proxy_protocol_v1": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for proxy protocol v1.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"proxy_protocol_v2": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for proxy protocol v2.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"automatic_port": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: automatic_port, lb_port, port] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"lb_port": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"upstream_conn_pool_reuse_type": schema.SingleNestedAttribute{
+				MarkdownDescription: "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
+				Attributes: map[string]schema.Attribute{
+					"disable_conn_pool_reuse": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable conn pool reuse.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_conn_pool_reuse": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for enable conn pool reuse.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"use_tls": schema.SingleNestedAttribute{
+				MarkdownDescription: "TLS Parameters for Origin Servers. Upstream TLS Parameters.",
+				Attributes: map[string]schema.Attribute{
+					"default_session_key_caching": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default session key caching. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_session_key_caching": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable session key caching.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_sni": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable sni.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"max_session_keys": schema.Int64Attribute{
+						MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
+						Computed:            true,
+					},
+					"no_mtls": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"skip_server_verification": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sni": schema.StringAttribute{
+						MarkdownDescription: "Exclusive with [disable_sni use_host_header_as_sni] SNI value to be used.",
+						Computed:            true,
+					},
+					"tls_config": schema.SingleNestedAttribute{
+						MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+						Attributes: map[string]schema.Attribute{
+							"custom_security": schema.SingleNestedAttribute{
+								MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
+								Attributes: map[string]schema.Attribute{
+									"cipher_suites": schema.ListAttribute{
+										MarkdownDescription: "The TLS listener will only support the specified cipher list.",
+										Computed:            true,
+										ElementType:         types.StringType,
+									},
+									"max_version": schema.StringAttribute{
+										MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
+										Computed:            true,
+									},
+									"min_version": schema.StringAttribute{
+										MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"default_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"low_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"medium_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"use_host_header_as_sni": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"use_mtls": schema.SingleNestedAttribute{
+						MarkdownDescription: "MTLS Certificate. MTLS Client Certificate.",
+						Attributes: map[string]schema.Attribute{
+							"tls_certificates": schema.ListNestedAttribute{
+								MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"certificate_url": schema.StringAttribute{
+											MarkdownDescription: "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
+											Computed:            true,
+										},
+										"custom_hash_algorithms": schema.SingleNestedAttribute{
+											MarkdownDescription: "Specifies the hash algorithms to be used.",
+											Attributes: map[string]schema.Attribute{
+												"hash_algorithms": schema.ListAttribute{
+													MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"description_spec": schema.StringAttribute{
+											MarkdownDescription: "Description. Description for the certificate.",
+											Computed:            true,
+										},
+										"disable_ocsp_stapling": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"private_key": schema.SingleNestedAttribute{
+											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Attributes: map[string]schema.Attribute{
+												"blindfold_secret_info": schema.SingleNestedAttribute{
+													MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+													Attributes: map[string]schema.Attribute{
+														"decryption_provider": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+															Computed:            true,
+														},
+														"location": schema.StringAttribute{
+															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+															Computed:            true,
+															Sensitive:           true,
+														},
+														"store_provider": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+															Computed:            true,
+														},
+													},
+													Computed: true,
+												},
+												"clear_secret_info": schema.SingleNestedAttribute{
+													MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+													Attributes: map[string]schema.Attribute{
+														"provider_ref": schema.StringAttribute{
+															MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+															Computed:            true,
+														},
+														"url": schema.StringAttribute{
+															MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+															Computed:            true,
+															Sensitive:           true,
+														},
+													},
+													Computed: true,
+												},
+											},
+											Computed: true,
+										},
+										"use_system_defaults": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for use system defaults.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"use_mtls_obj": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"use_server_verification": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for use server verification.",
+						Attributes: map[string]schema.Attribute{
+							"trusted_ca": schema.SingleNestedAttribute{
+								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Attributes: map[string]schema.Attribute{
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Computed:            true,
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Computed:            true,
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"trusted_ca_url": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Origin Pool for verification of server's certificate.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"volterra_trusted_ca": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for volterra trusted ca. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"endpoint_selection": schema.StringAttribute{
+				MarkdownDescription: "[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider only local endpoints for load balancing Enable this policy to load balance ONLY among locally discovered endpoints Prefer the local endpoints for.. Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`. Defaults to `DISTRIBUTED`. Server applies default when omitted.",
+				Computed:            true,
+			},
+			"health_check_port": schema.Int64Attribute{
+				MarkdownDescription: "[OneOf: health_check_port, same_as_endpoint_port] Exclusive with [same_as_endpoint_port] Port used for performing health check.",
+				Computed:            true,
+			},
+			"healthcheck": schema.ListNestedAttribute{
+				MarkdownDescription: "Reference to healthcheck configuration objects. Defaults to `[]`. Server applies default when omitted.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"loadbalancer_algorithm": schema.StringAttribute{
+				MarkdownDescription: "[Enum: ROUND_ROBIN|LEAST_REQUEST|RING_HASH|RANDOM|LB_OVERRIDE] Different load balancing algorithms supported When a connection to a endpoint in an upstream cluster is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in.. Possible values are `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `LB_OVERRIDE`. Defaults to `ROUND_ROBIN`. Server applies default when omitted.",
+				Computed:            true,
+			},
+			"no_tls": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_tls, use_tls; Default: no_tls] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"port": schema.Int64Attribute{
+				MarkdownDescription: "Exclusive with [automatic_port lb_port] Endpoint service is available on this port. Recommended: `443`.",
+				Computed:            true,
+			},
+			"same_as_endpoint_port": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 		},
 	}
 }
@@ -93,7 +1120,8 @@ func (d *OriginPoolDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		return
 	}
 
-	resource, err := d.client.GetOriginPool(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetOriginPool(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read OriginPool: %s", err))
 		return
@@ -101,7 +1129,11 @@ func (d *OriginPoolDataSource) Read(ctx context.Context, req datasource.ReadRequ
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +1166,1553 @@ func (d *OriginPoolDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.OriginServers.IsNull() || len(data.OriginServers.Elements()) == 0) {
+		data.OriginServers = types.ListNull(types.ObjectType{AttrTypes: OriginPoolOriginServersModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["origin_servers"].([]interface{}); ok && len(listData) > 0 {
+		var OriginServersList []OriginPoolOriginServersModel
+		var existingOriginServersItems []OriginPoolOriginServersModel
+		if !data.OriginServers.IsNull() && !data.OriginServers.IsUnknown() {
+			data.OriginServers.ElementsAs(ctx, &existingOriginServersItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				OriginServersList = append(OriginServersList, OriginPoolOriginServersModel{
+					CbipService: func() *OriginPoolOriginServersCbipServiceModel {
+						if CbipServiceData, ok := itemMap["cbip_service"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersCbipServiceModel{
+								ServiceName: func() types.String {
+									if v, ok := CbipServiceData["service_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					ConsulService: func() *OriginPoolOriginServersConsulServiceModel {
+						if ConsulServiceData, ok := itemMap["consul_service"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersConsulServiceModel{
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && !existingOriginServersItems[listIdx].ConsulService.InsideNetwork.IsUnknown() {
+										return existingOriginServersItems[listIdx].ConsulService.InsideNetwork
+									}
+									if _, ok := ConsulServiceData["inside_network"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && !existingOriginServersItems[listIdx].ConsulService.OutsideNetwork.IsUnknown() {
+										return existingOriginServersItems[listIdx].ConsulService.OutsideNetwork
+									}
+									if _, ok := ConsulServiceData["outside_network"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								ServiceName: func() types.String {
+									if v, ok := ConsulServiceData["service_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								SiteLocator: func() *OriginPoolOriginServersConsulServiceSiteLocatorModel {
+									if SiteLocatorData, ok := ConsulServiceData["site_locator"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersConsulServiceSiteLocatorModel{
+											Site: func() *OriginPoolOriginServersConsulServiceSiteLocatorSiteModel {
+												if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersConsulServiceSiteLocatorSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *OriginPoolOriginServersConsulServiceSiteLocatorVirtualSiteModel {
+												if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersConsulServiceSiteLocatorVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SnatPool: func() *OriginPoolOriginServersConsulServiceSnatPoolModel {
+									if SnatPoolData, ok := ConsulServiceData["snat_pool"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersConsulServiceSnatPoolModel{
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil && !existingOriginServersItems[listIdx].ConsulService.SnatPool.NoSnatPool.IsUnknown() {
+													return existingOriginServersItems[listIdx].ConsulService.SnatPool.NoSnatPool
+												}
+												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											SnatPool: func() *OriginPoolOriginServersConsulServiceSnatPoolSnatPoolModel {
+												if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersConsulServiceSnatPoolSnatPoolModel{
+														Prefixes: func() types.List {
+															if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					CustomEndpointObject: func() *OriginPoolOriginServersCustomEndpointObjectModel {
+						if CustomEndpointObjectData, ok := itemMap["custom_endpoint_object"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersCustomEndpointObjectModel{
+								Endpoint: func() *OriginPoolOriginServersCustomEndpointObjectEndpointModel {
+									if EndpointData, ok := CustomEndpointObjectData["endpoint"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersCustomEndpointObjectEndpointModel{
+											Name: func() types.String {
+												if v, ok := EndpointData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := EndpointData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := EndpointData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					K8SService: func() *OriginPoolOriginServersK8SServiceModel {
+						if K8SServiceData, ok := itemMap["k8s_service"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersK8SServiceModel{
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.InsideNetwork.IsUnknown() {
+										return existingOriginServersItems[listIdx].K8SService.InsideNetwork
+									}
+									if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.OutsideNetwork.IsUnknown() {
+										return existingOriginServersItems[listIdx].K8SService.OutsideNetwork
+									}
+									if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Protocol: func() types.String {
+									if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								ServiceName: func() types.String {
+									if v, ok := K8SServiceData["service_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								SiteLocator: func() *OriginPoolOriginServersK8SServiceSiteLocatorModel {
+									if SiteLocatorData, ok := K8SServiceData["site_locator"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersK8SServiceSiteLocatorModel{
+											Site: func() *OriginPoolOriginServersK8SServiceSiteLocatorSiteModel {
+												if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersK8SServiceSiteLocatorSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *OriginPoolOriginServersK8SServiceSiteLocatorVirtualSiteModel {
+												if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersK8SServiceSiteLocatorVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SnatPool: func() *OriginPoolOriginServersK8SServiceSnatPoolModel {
+									if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersK8SServiceSnatPoolModel{
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil && !existingOriginServersItems[listIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
+													return existingOriginServersItems[listIdx].K8SService.SnatPool.NoSnatPool
+												}
+												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											SnatPool: func() *OriginPoolOriginServersK8SServiceSnatPoolSnatPoolModel {
+												if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersK8SServiceSnatPoolSnatPoolModel{
+														Prefixes: func() types.List {
+															if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Vk8sNetworks: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.Vk8sNetworks.IsUnknown() {
+										return existingOriginServersItems[listIdx].K8SService.Vk8sNetworks
+									}
+									if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+							}
+						}
+						return nil
+					}(),
+					Labels: UnmarshalStringMapForRead(ctx, itemMap["labels"], func() types.Map {
+						if len(existingOriginServersItems) > listIdx {
+							return existingOriginServersItems[listIdx].Labels
+						}
+						return types.MapNull(types.StringType)
+					}(), "labels", isImport, &resp.Diagnostics),
+					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
+						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersPrivateIPModel{
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && !existingOriginServersItems[listIdx].PrivateIP.InsideNetwork.IsUnknown() {
+										return existingOriginServersItems[listIdx].PrivateIP.InsideNetwork
+									}
+									if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								IP: func() types.String {
+									if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && !existingOriginServersItems[listIdx].PrivateIP.OutsideNetwork.IsUnknown() {
+										return existingOriginServersItems[listIdx].PrivateIP.OutsideNetwork
+									}
+									if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Segment: func() *OriginPoolOriginServersPrivateIPSegmentModel {
+									if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersPrivateIPSegmentModel{
+											Name: func() types.String {
+												if v, ok := SegmentData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := SegmentData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := SegmentData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SiteLocator: func() *OriginPoolOriginServersPrivateIPSiteLocatorModel {
+									if SiteLocatorData, ok := PrivateIPData["site_locator"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersPrivateIPSiteLocatorModel{
+											Site: func() *OriginPoolOriginServersPrivateIPSiteLocatorSiteModel {
+												if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersPrivateIPSiteLocatorSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *OriginPoolOriginServersPrivateIPSiteLocatorVirtualSiteModel {
+												if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersPrivateIPSiteLocatorVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SnatPool: func() *OriginPoolOriginServersPrivateIPSnatPoolModel {
+									if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersPrivateIPSnatPoolModel{
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil && !existingOriginServersItems[listIdx].PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
+													return existingOriginServersItems[listIdx].PrivateIP.SnatPool.NoSnatPool
+												}
+												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											SnatPool: func() *OriginPoolOriginServersPrivateIPSnatPoolSnatPoolModel {
+												if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersPrivateIPSnatPoolSnatPoolModel{
+														Prefixes: func() types.List {
+															if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					PrivateName: func() *OriginPoolOriginServersPrivateNameModel {
+						if PrivateNameData, ok := itemMap["private_name"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersPrivateNameModel{
+								DNSName: func() types.String {
+									if v, ok := PrivateNameData["dns_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.InsideNetwork.IsUnknown() {
+										return existingOriginServersItems[listIdx].PrivateName.InsideNetwork
+									}
+									if _, ok := PrivateNameData["inside_network"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.OutsideNetwork.IsUnknown() {
+										return existingOriginServersItems[listIdx].PrivateName.OutsideNetwork
+									}
+									if _, ok := PrivateNameData["outside_network"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								RefreshInterval: func() types.Int64 {
+									if v, ok := PrivateNameData["refresh_interval"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Segment: func() *OriginPoolOriginServersPrivateNameSegmentModel {
+									if SegmentData, ok := PrivateNameData["segment"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersPrivateNameSegmentModel{
+											Name: func() types.String {
+												if v, ok := SegmentData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := SegmentData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := SegmentData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SiteLocator: func() *OriginPoolOriginServersPrivateNameSiteLocatorModel {
+									if SiteLocatorData, ok := PrivateNameData["site_locator"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersPrivateNameSiteLocatorModel{
+											Site: func() *OriginPoolOriginServersPrivateNameSiteLocatorSiteModel {
+												if SiteData, ok := SiteLocatorData["site"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersPrivateNameSiteLocatorSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *OriginPoolOriginServersPrivateNameSiteLocatorVirtualSiteModel {
+												if VirtualSiteData, ok := SiteLocatorData["virtual_site"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersPrivateNameSiteLocatorVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SnatPool: func() *OriginPoolOriginServersPrivateNameSnatPoolModel {
+									if SnatPoolData, ok := PrivateNameData["snat_pool"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersPrivateNameSnatPoolModel{
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil && !existingOriginServersItems[listIdx].PrivateName.SnatPool.NoSnatPool.IsUnknown() {
+													return existingOriginServersItems[listIdx].PrivateName.SnatPool.NoSnatPool
+												}
+												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											SnatPool: func() *OriginPoolOriginServersPrivateNameSnatPoolSnatPoolModel {
+												if SnatPoolData, ok := SnatPoolData["snat_pool"].(map[string]interface{}); ok {
+													return &OriginPoolOriginServersPrivateNameSnatPoolSnatPoolModel{
+														Prefixes: func() types.List {
+															if v, ok := SnatPoolData["prefixes"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					PublicIP: func() *OriginPoolOriginServersPublicIPModel {
+						if PublicIPData, ok := itemMap["public_ip"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersPublicIPModel{
+								IP: func() types.String {
+									if v, ok := PublicIPData["ip"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					PublicName: func() *OriginPoolOriginServersPublicNameModel {
+						if PublicNameData, ok := itemMap["public_name"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersPublicNameModel{
+								DNSName: func() types.String {
+									if v, ok := PublicNameData["dns_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								RefreshInterval: func() types.Int64 {
+									if v, ok := PublicNameData["refresh_interval"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					VnPrivateIP: func() *OriginPoolOriginServersVnPrivateIPModel {
+						if VnPrivateIPData, ok := itemMap["vn_private_ip"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersVnPrivateIPModel{
+								IP: func() types.String {
+									if v, ok := VnPrivateIPData["ip"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								VirtualNetwork: func() *OriginPoolOriginServersVnPrivateIPVirtualNetworkModel {
+									if VirtualNetworkData, ok := VnPrivateIPData["virtual_network"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersVnPrivateIPVirtualNetworkModel{
+											Name: func() types.String {
+												if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					VnPrivateName: func() *OriginPoolOriginServersVnPrivateNameModel {
+						if VnPrivateNameData, ok := itemMap["vn_private_name"].(map[string]interface{}); ok {
+							return &OriginPoolOriginServersVnPrivateNameModel{
+								DNSName: func() types.String {
+									if v, ok := VnPrivateNameData["dns_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								PrivateNetwork: func() *OriginPoolOriginServersVnPrivateNamePrivateNetworkModel {
+									if PrivateNetworkData, ok := VnPrivateNameData["private_network"].(map[string]interface{}); ok {
+										return &OriginPoolOriginServersVnPrivateNamePrivateNetworkModel{
+											Name: func() types.String {
+												if v, ok := PrivateNetworkData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := PrivateNetworkData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := PrivateNetworkData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolOriginServersModelAttrTypes}, OriginServersList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.OriginServers = listVal
+		}
+	} else {
+		data.OriginServers = types.ListNull(types.ObjectType{AttrTypes: OriginPoolOriginServersModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["advanced_options"].(map[string]interface{}); ok && (isImport || data.AdvancedOptions != nil) {
+		data.AdvancedOptions = &OriginPoolAdvancedOptionsModel{
+			AutoHTTPConfig: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.AutoHTTPConfig.IsUnknown() {
+					return data.AdvancedOptions.AutoHTTPConfig
+				}
+				if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			CircuitBreaker: func() *OriginPoolAdvancedOptionsCircuitBreakerModel {
+				if CircuitBreakerData, ok := blockData["circuit_breaker"].(map[string]interface{}); ok {
+					return &OriginPoolAdvancedOptionsCircuitBreakerModel{
+						ConnectionLimit: func() types.Int64 {
+							if v, ok := CircuitBreakerData["connection_limit"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxRequests: func() types.Int64 {
+							if v, ok := CircuitBreakerData["max_requests"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						PendingRequests: func() types.Int64 {
+							if v, ok := CircuitBreakerData["pending_requests"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						Priority: func() types.String {
+							if v, ok := CircuitBreakerData["priority"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Retries: func() types.Int64 {
+							if v, ok := CircuitBreakerData["retries"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ConnectionTimeout: func() types.Int64 {
+				if v, ok := blockData["connection_timeout"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			DefaultCircuitBreaker: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DefaultCircuitBreaker.IsUnknown() {
+					return data.AdvancedOptions.DefaultCircuitBreaker
+				}
+				if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableCircuitBreaker: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableCircuitBreaker.IsUnknown() {
+					return data.AdvancedOptions.DisableCircuitBreaker
+				}
+				if _, ok := blockData["disable_circuit_breaker"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableLBSourceIPPersistence: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableLBSourceIPPersistence.IsUnknown() {
+					return data.AdvancedOptions.DisableLBSourceIPPersistence
+				}
+				if _, ok := blockData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableOutlierDetection: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableOutlierDetection.IsUnknown() {
+					return data.AdvancedOptions.DisableOutlierDetection
+				}
+				if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableProxyProtocol: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableProxyProtocol.IsUnknown() {
+					return data.AdvancedOptions.DisableProxyProtocol
+				}
+				if _, ok := blockData["disable_proxy_protocol"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableSubsets: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableSubsets.IsUnknown() {
+					return data.AdvancedOptions.DisableSubsets
+				}
+				if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableLBSourceIPPersistence: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.EnableLBSourceIPPersistence.IsUnknown() {
+					return data.AdvancedOptions.EnableLBSourceIPPersistence
+				}
+				if _, ok := blockData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableSubsets: func() *OriginPoolAdvancedOptionsEnableSubsetsModel {
+				if EnableSubsetsData, ok := blockData["enable_subsets"].(map[string]interface{}); ok {
+					return &OriginPoolAdvancedOptionsEnableSubsetsModel{
+						AnyEndpoint: func() types.Object {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.AnyEndpoint.IsUnknown() {
+								return data.AdvancedOptions.EnableSubsets.AnyEndpoint
+							}
+							if _, ok := EnableSubsetsData["any_endpoint"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						DefaultSubset: func() *OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel {
+							if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
+								return &OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
+									DefaultSubset: func() *OriginPoolEmptyModel {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
+											return data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
+										}
+										if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+											return &OriginPoolEmptyModel{}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						EndpointSubsets: func() types.List {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && (data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsNull() || len(data.AdvancedOptions.EnableSubsets.EndpointSubsets.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes})
+							}
+							var EndpointSubsetsExisting []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsNull() && !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsUnknown() {
+								data.AdvancedOptions.EnableSubsets.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsExisting, false)
+							}
+							if rawList, ok := EnableSubsetsData["endpoint_subsets"].([]interface{}); ok && len(rawList) > 0 {
+								var EndpointSubsetsResult []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
+								for EndpointSubsetsIdx, EndpointSubsetsItem := range rawList {
+									_ = EndpointSubsetsIdx
+									if EndpointSubsetsItemMap, ok := EndpointSubsetsItem.(map[string]interface{}); ok {
+										EndpointSubsetsResult = append(EndpointSubsetsResult, OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel{
+											Keys: func() types.List {
+												if v, ok := EndpointSubsetsItemMap["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes}, EndpointSubsetsResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes})
+						}(),
+						FailRequest: func() types.Object {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.FailRequest.IsUnknown() {
+								return data.AdvancedOptions.EnableSubsets.FailRequest
+							}
+							if _, ok := EnableSubsetsData["fail_request"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Http1Config: func() *OriginPoolAdvancedOptionsHttp1ConfigModel {
+				if Http1ConfigData, ok := blockData["http1_config"].(map[string]interface{}); ok {
+					return &OriginPoolAdvancedOptionsHttp1ConfigModel{
+						HeaderTransformation: func() *OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel {
+							if HeaderTransformationData, ok := Http1ConfigData["header_transformation"].(map[string]interface{}); ok {
+								return &OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel{
+									DefaultHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
+											return data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation
+										}
+										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									PreserveCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
+											return data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
+										}
+										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									ProperCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
+											return data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
+										}
+										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Http2Options: func() *OriginPoolAdvancedOptionsHttp2OptionsModel {
+				if Http2OptionsData, ok := blockData["http2_options"].(map[string]interface{}); ok {
+					return &OriginPoolAdvancedOptionsHttp2OptionsModel{
+						Enabled: func() types.Bool {
+							if v, ok := Http2OptionsData["enabled"].(bool); ok {
+								return types.BoolValue(v)
+							}
+							return types.BoolNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			HTTPIdleTimeout: func() types.Int64 {
+				if v, ok := blockData["http_idle_timeout"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			MaxRequestsPerConnection: func() types.Int64 {
+				if v, ok := blockData["max_requests_per_connection"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			NoPanicThreshold: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.NoPanicThreshold.IsUnknown() {
+					return data.AdvancedOptions.NoPanicThreshold
+				}
+				if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			NoRequestLimitPerConnection: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.NoRequestLimitPerConnection.IsUnknown() {
+					return data.AdvancedOptions.NoRequestLimitPerConnection
+				}
+				if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			OutlierDetection: func() *OriginPoolAdvancedOptionsOutlierDetectionModel {
+				if OutlierDetectionData, ok := blockData["outlier_detection"].(map[string]interface{}); ok {
+					return &OriginPoolAdvancedOptionsOutlierDetectionModel{
+						BaseEjectionTime: func() types.Int64 {
+							if v, ok := OutlierDetectionData["base_ejection_time"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						Consecutive5xx: func() types.Int64 {
+							if v, ok := OutlierDetectionData["consecutive_5xx"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						ConsecutiveGatewayFailure: func() types.Int64 {
+							if v, ok := OutlierDetectionData["consecutive_gateway_failure"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						Interval: func() types.Int64 {
+							if v, ok := OutlierDetectionData["interval"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEjectionPercent: func() types.Int64 {
+							if v, ok := OutlierDetectionData["max_ejection_percent"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PanicThreshold: func() types.Int64 {
+				if v, ok := blockData["panic_threshold"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			ProxyProtocolV1: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ProxyProtocolV1.IsUnknown() {
+					return data.AdvancedOptions.ProxyProtocolV1
+				}
+				if _, ok := blockData["proxy_protocol_v1"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			ProxyProtocolV2: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ProxyProtocolV2.IsUnknown() {
+					return data.AdvancedOptions.ProxyProtocolV2
+				}
+				if _, ok := blockData["proxy_protocol_v2"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if !isImport && !data.AutomaticPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["automatic_port"].(map[string]interface{}); ok {
+		data.AutomaticPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AutomaticPort = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.LBPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["lb_port"].(map[string]interface{}); ok {
+		data.LBPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LBPort = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
+		data.UpstreamConnPoolReuseType = &OriginPoolUpstreamConnPoolReuseTypeModel{
+			DisableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
+					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
+				}
+				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
+					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
+				}
+				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["use_tls"].(map[string]interface{}); ok && (isImport || data.UseTLS != nil) {
+		data.UseTLS = &OriginPoolUseTLSModel{
+			DefaultSessionKeyCaching: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DefaultSessionKeyCaching.IsUnknown() {
+					return data.UseTLS.DefaultSessionKeyCaching
+				}
+				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableSessionKeyCaching: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DisableSessionKeyCaching.IsUnknown() {
+					return data.UseTLS.DisableSessionKeyCaching
+				}
+				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableSni: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DisableSni.IsUnknown() {
+					return data.UseTLS.DisableSni
+				}
+				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			MaxSessionKeys: func() types.Int64 {
+				if v, ok := blockData["max_session_keys"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			NoMtls: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.NoMtls.IsUnknown() {
+					return data.UseTLS.NoMtls
+				}
+				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			SkipServerVerification: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.SkipServerVerification.IsUnknown() {
+					return data.UseTLS.SkipServerVerification
+				}
+				if _, ok := blockData["skip_server_verification"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Sni: func() types.String {
+				if v, ok := blockData["sni"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			TLSConfig: func() *OriginPoolUseTLSTLSConfigModel {
+				if TLSConfigData, ok := blockData["tls_config"].(map[string]interface{}); ok {
+					return &OriginPoolUseTLSTLSConfigModel{
+						CustomSecurity: func() *OriginPoolUseTLSTLSConfigCustomSecurityModel {
+							if CustomSecurityData, ok := TLSConfigData["custom_security"].(map[string]interface{}); ok {
+								return &OriginPoolUseTLSTLSConfigCustomSecurityModel{
+									CipherSuites: func() types.List {
+										if v, ok := CustomSecurityData["cipher_suites"].([]interface{}); ok && len(v) > 0 {
+											var items []string
+											for _, item := range v {
+												if s, ok := item.(string); ok {
+													items = append(items, s)
+												}
+											}
+											listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+											resp.Diagnostics.Append(diags...)
+											return listVal
+										}
+										return types.ListNull(types.StringType)
+									}(),
+									MaxVersion: func() types.String {
+										if v, ok := CustomSecurityData["max_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MinVersion: func() types.String {
+										if v, ok := CustomSecurityData["min_version"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						DefaultSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.DefaultSecurity.IsUnknown() {
+								return data.UseTLS.TLSConfig.DefaultSecurity
+							}
+							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						LowSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.LowSecurity.IsUnknown() {
+								return data.UseTLS.TLSConfig.LowSecurity
+							}
+							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MediumSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.MediumSecurity.IsUnknown() {
+								return data.UseTLS.TLSConfig.MediumSecurity
+							}
+							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UseHostHeaderAsSni: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.UseHostHeaderAsSni.IsUnknown() {
+					return data.UseTLS.UseHostHeaderAsSni
+				}
+				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			UseMtls: func() *OriginPoolUseTLSUseMtlsModel {
+				if UseMtlsData, ok := blockData["use_mtls"].(map[string]interface{}); ok {
+					return &OriginPoolUseTLSUseMtlsModel{
+						TLSCertificates: func() types.List {
+							if !isImport && data.UseTLS != nil && data.UseTLS.UseMtls != nil && (data.UseTLS.UseMtls.TLSCertificates.IsNull() || len(data.UseTLS.UseMtls.TLSCertificates.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
+							}
+							var TLSCertificatesExisting []OriginPoolUseTLSUseMtlsTLSCertificatesModel
+							if !isImport && data.UseTLS != nil && data.UseTLS.UseMtls != nil && !data.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
+								data.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesExisting, false)
+							}
+							if rawList, ok := UseMtlsData["tls_certificates"].([]interface{}); ok && len(rawList) > 0 {
+								var TLSCertificatesResult []OriginPoolUseTLSUseMtlsTLSCertificatesModel
+								for TLSCertificatesIdx, TLSCertificatesItem := range rawList {
+									_ = TLSCertificatesIdx
+									if TLSCertificatesItemMap, ok := TLSCertificatesItem.(map[string]interface{}); ok {
+										TLSCertificatesResult = append(TLSCertificatesResult, OriginPoolUseTLSUseMtlsTLSCertificatesModel{
+											CertificateURL: func() types.String {
+												if v, ok := TLSCertificatesItemMap["certificate_url"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											CustomHashAlgorithms: func() *OriginPoolUseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsModel {
+												if CustomHashAlgorithmsData, ok := TLSCertificatesItemMap["custom_hash_algorithms"].(map[string]interface{}); ok {
+													return &OriginPoolUseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsModel{
+														HashAlgorithms: func() types.List {
+															if v, ok := CustomHashAlgorithmsData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											DescriptionSpec: func() types.String {
+												if v, ok := TLSCertificatesItemMap["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
+												}
+												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											PrivateKey: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel {
+												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
+													return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
+														BlindfoldSecretInfo: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
+															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+																return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
+																	DecryptionProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Location: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	StoreProvider: func() types.String {
+																		if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														ClearSecretInfo: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
+															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
+																return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
+																	Provider: func() types.String {
+																		if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	URL: func() types.String {
+																		if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
+												}
+												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes}, TLSCertificatesResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UseMtlsObj: func() *OriginPoolUseTLSUseMtlsObjModel {
+				if UseMtlsObjData, ok := blockData["use_mtls_obj"].(map[string]interface{}); ok {
+					return &OriginPoolUseTLSUseMtlsObjModel{
+						Name: func() types.String {
+							if v, ok := UseMtlsObjData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := UseMtlsObjData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := UseMtlsObjData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UseServerVerification: func() *OriginPoolUseTLSUseServerVerificationModel {
+				if UseServerVerificationData, ok := blockData["use_server_verification"].(map[string]interface{}); ok {
+					return &OriginPoolUseTLSUseServerVerificationModel{
+						TrustedCA: func() *OriginPoolUseTLSUseServerVerificationTrustedCAModel {
+							if TrustedCAData, ok := UseServerVerificationData["trusted_ca"].(map[string]interface{}); ok {
+								return &OriginPoolUseTLSUseServerVerificationTrustedCAModel{
+									Name: func() types.String {
+										if v, ok := TrustedCAData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := TrustedCAData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := TrustedCAData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseServerVerificationData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VolterraTrustedCA: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.VolterraTrustedCA.IsUnknown() {
+					return data.UseTLS.VolterraTrustedCA
+				}
+				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["endpoint_selection"].(string); ok && v != "" {
+		data.EndpointSelection = types.StringValue(v)
+	} else {
+		data.EndpointSelection = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["health_check_port"].(float64); ok {
+		data.HealthCheckPort = types.Int64Value(int64(v))
+	} else {
+		data.HealthCheckPort = types.Int64Null()
+	}
+	if !isImport && (data.Healthcheck.IsNull() || len(data.Healthcheck.Elements()) == 0) {
+		data.Healthcheck = types.ListNull(types.ObjectType{AttrTypes: OriginPoolHealthcheckModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["healthcheck"].([]interface{}); ok && len(listData) > 0 {
+		var HealthcheckList []OriginPoolHealthcheckModel
+		var existingHealthcheckItems []OriginPoolHealthcheckModel
+		if !data.Healthcheck.IsNull() && !data.Healthcheck.IsUnknown() {
+			data.Healthcheck.ElementsAs(ctx, &existingHealthcheckItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				HealthcheckList = append(HealthcheckList, OriginPoolHealthcheckModel{
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: OriginPoolHealthcheckModelAttrTypes}, HealthcheckList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Healthcheck = listVal
+		}
+	} else {
+		data.Healthcheck = types.ListNull(types.ObjectType{AttrTypes: OriginPoolHealthcheckModelAttrTypes})
+	}
+	if v, ok := apiResource.Spec["loadbalancer_algorithm"].(string); ok && v != "" {
+		data.LoadBalancerAlgorithm = types.StringValue(v)
+	} else {
+		data.LoadBalancerAlgorithm = types.StringNull()
+	}
+	if !isImport && !data.NoTLS.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_tls"].(map[string]interface{}); ok {
+		data.NoTLS = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoTLS = types.ObjectNull(map[string]attr.Type{})
+	}
+	if v, ok := apiResource.Spec["port"].(float64); ok {
+		data.Port = types.Int64Value(int64(v))
+	} else {
+		data.Port = types.Int64Null()
+	}
+	if !isImport && !data.SameAsEndpointPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["same_as_endpoint_port"].(map[string]interface{}); ok {
+		data.SameAsEndpointPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SameAsEndpointPort = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

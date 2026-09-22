@@ -67,19 +67,65 @@ spec: {}
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the NetworkFirewall
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the NetworkFirewall exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the NetworkFirewall exists
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="active-enhanced-firewall-policies"></a>&#x2022; [`active_enhanced_firewall_policies`](#active-enhanced-firewall-policies) - Optional String<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion
+
+<a id="active-fast-acls"></a>&#x2022; [`active_fast_acls`](#active-fast-acls) - Optional String<br>Configuration parameter for active fast acls
+
+<a id="active-forward-proxy-policies"></a>&#x2022; [`active_forward_proxy_policies`](#active-forward-proxy-policies) - Optional String<br>Ordered List of Forward Proxy Policies active
+
+<a id="active-network-policies"></a>&#x2022; [`active_network_policies`](#active-network-policies) - Optional String<br>Configuration parameter for active network policies
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the NetworkFirewall
 
+<a id="disable-fast-acl"></a>&#x2022; [`disable_fast_acl`](#disable-fast-acl) - Optional Object  Defaults to `map[]`<br>Configuration parameter for disable fast ACL.  Server applies default when omitted
+
+<a id="disable-forward-proxy-policy"></a>&#x2022; [`disable_forward_proxy_policy`](#disable-forward-proxy-policy) - Optional Object  Defaults to `map[]`<br>Policy configuration for this feature.  Server applies default when omitted
+
+<a id="disable-network-policy"></a>&#x2022; [`disable_network_policy`](#disable-network-policy) - Optional Object  Defaults to `map[]`<br>Policy configuration for this feature.  Server applies default when omitted
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="enhanced-firewall-policies"></a>&#x2022; [`enhanced_firewall_policies`](#enhanced-firewall-policies) - Optional List<br>Ordered List of Enhanced Firewall Policies active
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="fast-acls"></a>&#x2022; [`fast_acls`](#fast-acls) - Optional List<br>Ordered List of Fast ACL(s) active for this network firewall
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="forward-proxy-policies"></a>&#x2022; [`forward_proxy_policies`](#forward-proxy-policies) - Optional List<br>Ordered List of Forward Proxy Policies active
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="network-policies"></a>&#x2022; [`network_policies`](#network-policies) - Optional List<br>Ordered List of Firewall Policies active for this network firewall
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

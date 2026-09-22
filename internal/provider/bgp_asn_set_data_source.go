@@ -34,6 +34,7 @@ type BGPAsnSetDataSourceModel struct {
 	Description types.String `tfsdk:"description"`
 	Labels      types.Map    `tfsdk:"labels"`
 	Annotations types.Map    `tfsdk:"annotations"`
+	AsNumbers   types.List   `tfsdk:"as_numbers"`
 }
 
 func (d *BGPAsnSetDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,11 @@ func (d *BGPAsnSetDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"as_numbers": schema.ListAttribute{
+				MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create whitelists or blacklists for use in network policy or service policy.",
+				Computed:            true,
+				ElementType:         types.Int64Type,
+			},
 		},
 	}
 }
@@ -93,7 +99,8 @@ func (d *BGPAsnSetDataSource) Read(ctx context.Context, req datasource.ReadReque
 		return
 	}
 
-	resource, err := d.client.GetBGPAsnSet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetBGPAsnSet(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read BGPAsnSet: %s", err))
 		return
@@ -101,7 +108,11 @@ func (d *BGPAsnSetDataSource) Read(ctx context.Context, req datasource.ReadReque
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +145,23 @@ func (d *BGPAsnSetDataSource) Read(ctx context.Context, req datasource.ReadReque
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["as_numbers"].([]interface{}); ok {
+		as_numbersList := make([]int64, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(float64); ok {
+				as_numbersList = append(as_numbersList, int64(s))
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.Int64Type, as_numbersList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.AsNumbers = listVal
+		}
+	} else if isImport || data.AsNumbers.IsUnknown() {
+		data.AsNumbers = types.ListNull(types.Int64Type)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

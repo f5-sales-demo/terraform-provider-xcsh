@@ -62,7 +62,37 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="k8s-cluster-role"></a>&#x2022; [`k8s_cluster_role`](#k8s-cluster-role) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="subjects"></a>&#x2022; [`subjects`](#subjects) - Optional List<br>List of subjects (user, group or service account) to which this role is bound
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+---
+
+#### Subjects
+
+A [`subjects`](#subjects) block supports the following:
+
+<a id="nestedatt--subjects-group"></a>&#x2022; [`group`](#nestedatt--subjects-group) - Optional String<br>Group ID of the user group
+
+<a id="nestedatt--subjects-service-account"></a>&#x2022; [`service_account`](#nestedatt--subjects-service-account) - Optional String<br>ServiceAccountType
+
+<a id="nestedatt--subjects-user"></a>&#x2022; [`user`](#nestedatt--subjects-user) - Optional String<br>User ID of the user
+
+#### Subjects Service Account
+
+A [`service_account`](#subjects-service-account) block (within [`subjects`](#subjects)) supports the following:
+
+<a id="nestedatt--subjects-name"></a>&#x2022; [`name`](#nestedatt--subjects-name) - Optional String<br>Name. Name of the service account
+
+<a id="nestedatt--subjects-namespace"></a>&#x2022; [`namespace`](#nestedatt--subjects-namespace) - Optional String<br>Namespace. Namespace of the service account
 
 ---
 

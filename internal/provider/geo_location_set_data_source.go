@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,14 @@ type GeoLocationSetDataSource struct {
 }
 
 type GeoLocationSetDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                        types.String                                  `tfsdk:"id"`
+	Name                      types.String                                  `tfsdk:"name"`
+	Namespace                 types.String                                  `tfsdk:"namespace"`
+	Description               types.String                                  `tfsdk:"description"`
+	Labels                    types.Map                                     `tfsdk:"labels"`
+	Annotations               types.Map                                     `tfsdk:"annotations"`
+	Global                    types.Object                                  `tfsdk:"global"`
+	CustomGeoLocationSelector *GeoLocationSetCustomGeoLocationSelectorModel `tfsdk:"custom_geo_location_selector"`
 }
 
 func (d *GeoLocationSetDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +57,8 @@ func (d *GeoLocationSetDataSource) Schema(ctx context.Context, req datasource.Sc
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the GeoLocationSet exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the GeoLocationSet.",
@@ -69,6 +73,22 @@ func (d *GeoLocationSetDataSource) Schema(ctx context.Context, req datasource.Sc
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"custom_geo_location_selector": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: custom_geo_location_selector, global] Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				Attributes: map[string]schema.Attribute{
+					"expressions": schema.ListAttribute{
+						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"global": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 		},
 	}
@@ -93,7 +113,11 @@ func (d *GeoLocationSetDataSource) Read(ctx context.Context, req datasource.Read
 		return
 	}
 
-	resource, err := d.client.GetGeoLocationSet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetGeoLocationSet(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read GeoLocationSet: %s", err))
 		return
@@ -101,7 +125,11 @@ func (d *GeoLocationSetDataSource) Read(ctx context.Context, req datasource.Read
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +162,33 @@ func (d *GeoLocationSetDataSource) Read(ctx context.Context, req datasource.Read
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["custom_geo_location_selector"].(map[string]interface{}); ok && (isImport || data.CustomGeoLocationSelector != nil) {
+		data.CustomGeoLocationSelector = &GeoLocationSetCustomGeoLocationSelectorModel{
+			Expressions: func() types.List {
+				if v, ok := blockData["expressions"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if !isImport && !data.Global.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global"].(map[string]interface{}); ok {
+		data.Global = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Global = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

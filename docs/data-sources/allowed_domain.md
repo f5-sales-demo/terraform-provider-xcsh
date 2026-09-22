@@ -56,6 +56,8 @@ output "allowed_domain_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="allowed-domain"></a>&#x2022; [`allowed_domain`](#allowed-domain) - Optional String<br>Enter root domain or domain to be entered to allow list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the AllowedDomain

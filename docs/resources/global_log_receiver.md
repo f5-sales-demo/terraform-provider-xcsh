@@ -89,8 +89,8 @@ spec:
 
 -> **One of the following:**
 &#x2022; <a id="aws-cloud-watch-receiver"></a>[`aws_cloud_watch_receiver`](#aws-cloud-watch-receiver) - Optional Block<br>AWS Cloudwatch Logs Configuration for Global Log Receiver<br>See [AWS Cloud Watch Receiver](#aws-cloud-watch-receiver) below for details.
-<br><br>&#x2022; <a id="Azure-event-hubs-receiver"></a>[`azure_event_hubs_receiver`](#Azure-event-hubs-receiver) - Optional Block<br>Azure Event Hubs Configuration for Global Log Receiver<br>See [Azure Event Hubs Receiver](#Azure-event-hubs-receiver) below for details.
-<br><br>&#x2022; <a id="Azure-receiver"></a>[`azure_receiver`](#Azure-receiver) - Optional Block<br>Azure Blob Configuration for Global Log Receiver<br>See [Azure Receiver](#Azure-receiver) below for details.
+<br><br>&#x2022; <a id="azure-event-hubs-receiver"></a>[`azure_event_hubs_receiver`](#azure-event-hubs-receiver) - Optional Block<br>Azure Event Hubs Configuration for Global Log Receiver<br>See [Azure Event Hubs Receiver](#azure-event-hubs-receiver) below for details.
+<br><br>&#x2022; <a id="azure-receiver"></a>[`azure_receiver`](#azure-receiver) - Optional Block<br>Azure Blob Configuration for Global Log Receiver<br>See [Azure Receiver](#azure-receiver) below for details.
 <br><br>&#x2022; <a id="datadog-receiver"></a>[`datadog_receiver`](#datadog-receiver) - Optional Block<br>Datadog Configuration. Configuration for Datadog endpoint<br>See [Datadog Receiver](#datadog-receiver) below for details.
 <br><br>&#x2022; <a id="gcp-bucket-receiver"></a>[`gcp_bucket_receiver`](#gcp-bucket-receiver) - Optional Block<br>GCP Bucket Configuration for Global Log Receiver<br>See [GCP Bucket Receiver](#gcp-bucket-receiver) below for details.
 <br><br>&#x2022; <a id="http-receiver"></a>[`http_receiver`](#http-receiver) - Optional Block<br>Configuration parameter for HTTP receiver
@@ -195,21 +195,21 @@ A [`compression_none`](#none-640cb2) block (within [`aws_cloud_watch_receiver.co
 
 #### Azure Event Hubs Receiver
 
-An [`azure_event_hubs_receiver`](#Azure-event-hubs-receiver) block supports the following:
+An [`azure_event_hubs_receiver`](#azure-event-hubs-receiver) block supports the following:
 
-<a id="string-23ec59"></a>&#x2022; [`connection_string`](#string-23ec59) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Connection String](#string-23ec59) below.
+<a id="string-b729f9"></a>&#x2022; [`connection_string`](#string-b729f9) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Connection String](#string-b729f9) below.
 
-<a id="Azure-event-hubs-receiver-instance"></a>&#x2022; [`instance`](#Azure-event-hubs-receiver-instance) - Optional String<br>Event Hubs Instance name into which logs should be stored
+<a id="azure-event-hubs-receiver-instance"></a>&#x2022; [`instance`](#azure-event-hubs-receiver-instance) - Optional String<br>Event Hubs Instance name into which logs should be stored
 
-<a id="Azure-event-hubs-receiver-namespace"></a>&#x2022; [`namespace`](#Azure-event-hubs-receiver-namespace) - Optional String<br>Event Hubs Namespace is namespace with instance into which logs should be stored
+<a id="azure-event-hubs-receiver-namespace"></a>&#x2022; [`namespace`](#azure-event-hubs-receiver-namespace) - Optional String<br>Event Hubs Namespace is namespace with instance into which logs should be stored
 
 #### Azure Event Hubs Receiver Connection String
 
-A [`connection_string`](#string-23ec59) block (within [`azure_event_hubs_receiver`](#Azure-event-hubs-receiver)) supports the following:
+A [`connection_string`](#string-b729f9) block (within [`azure_event_hubs_receiver`](#azure-event-hubs-receiver)) supports the following:
 
-<a id="info-af317d"></a>&#x2022; [`blindfold_secret_info`](#info-af317d) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-af317d) below.
+<a id="info-0b01ca"></a>&#x2022; [`blindfold_secret_info`](#info-0b01ca) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-0b01ca) below.
 
-<a id="info-217a5e"></a>&#x2022; [`clear_secret_info`](#info-217a5e) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-217a5e) below.
+<a id="info-a586ad"></a>&#x2022; [`clear_secret_info`](#info-a586ad) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-a586ad) below.
 
 #### Azure Event Hubs Receiver Connection String Blindfold Secret Info
 
@@ -221,111 +221,111 @@ A [`connection_string`](#string-23ec59) block (within [`azure_event_hubs_receive
 
 #### Azure Receiver
 
-An [`azure_receiver`](#Azure-receiver) block supports the following:
+An [`azure_receiver`](#azure-receiver) block supports the following:
 
-<a id="Azure-receiver-batch"></a>&#x2022; [`batch`](#Azure-receiver-batch) - Optional Block<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint<br>See [Batch](#Azure-receiver-batch) below.
+<a id="azure-receiver-batch"></a>&#x2022; [`batch`](#azure-receiver-batch) - Optional Block<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint<br>See [Batch](#azure-receiver-batch) below.
 
-<a id="Azure-receiver-compression"></a>&#x2022; [`compression`](#Azure-receiver-compression) - Optional Block<br>Configuration parameter for compression<br>See [Compression](#Azure-receiver-compression) below.
+<a id="azure-receiver-compression"></a>&#x2022; [`compression`](#azure-receiver-compression) - Optional Block<br>Configuration parameter for compression<br>See [Compression](#azure-receiver-compression) below.
 
-<a id="Azure-receiver-connection-string"></a>&#x2022; [`connection_string`](#Azure-receiver-connection-string) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Connection String](#Azure-receiver-connection-string) below.
+<a id="azure-receiver-connection-string"></a>&#x2022; [`connection_string`](#azure-receiver-connection-string) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Connection String](#azure-receiver-connection-string) below.
 
-<a id="Azure-receiver-container-name"></a>&#x2022; [`container_name`](#Azure-receiver-container-name) - Optional String<br>Container Name is the name of the container into which logs should be stored
+<a id="azure-receiver-container-name"></a>&#x2022; [`container_name`](#azure-receiver-container-name) - Optional String<br>Container Name is the name of the container into which logs should be stored
 
-<a id="Azure-receiver-filename-options"></a>&#x2022; [`filename_options`](#Azure-receiver-filename-options) - Optional Block<br>Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file<br>See [Filename Options](#Azure-receiver-filename-options) below.
+<a id="azure-receiver-filename-options"></a>&#x2022; [`filename_options`](#azure-receiver-filename-options) - Optional Block<br>Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file<br>See [Filename Options](#azure-receiver-filename-options) below.
 
 #### Azure Receiver Batch
 
-A [`batch`](#Azure-receiver-batch) block (within [`azure_receiver`](#Azure-receiver)) supports the following:
+A [`batch`](#azure-receiver-batch) block (within [`azure_receiver`](#azure-receiver)) supports the following:
 
-<a id="Azure-receiver-batch-max-bytes"></a>&#x2022; [`max_bytes`](#Azure-receiver-batch-max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+<a id="azure-receiver-batch-max-bytes"></a>&#x2022; [`max_bytes`](#azure-receiver-batch-max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
 
-<a id="Azure-receiver-batch-max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#Azure-receiver-batch-max-bytes-disabled) - Optional Object<br>Enable this option
+<a id="azure-receiver-batch-max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#azure-receiver-batch-max-bytes-disabled) - Optional Object<br>Enable this option
 
-<a id="Azure-receiver-batch-max-events"></a>&#x2022; [`max_events`](#Azure-receiver-batch-max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+<a id="azure-receiver-batch-max-events"></a>&#x2022; [`max_events`](#azure-receiver-batch-max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
 
-<a id="disabled-420198"></a>&#x2022; [`max_events_disabled`](#disabled-420198) - Optional Object<br>Enable this option
+<a id="disabled-754236"></a>&#x2022; [`max_events_disabled`](#disabled-754236) - Optional Object<br>Enable this option
 
-<a id="Azure-receiver-batch-timeout-seconds"></a>&#x2022; [`timeout_seconds`](#Azure-receiver-batch-timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+<a id="azure-receiver-batch-timeout-seconds"></a>&#x2022; [`timeout_seconds`](#azure-receiver-batch-timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
 
-<a id="default-cc7444"></a>&#x2022; [`timeout_seconds_default`](#default-cc7444) - Optional Object<br>Enable this option
+<a id="default-19a14b"></a>&#x2022; [`timeout_seconds_default`](#default-19a14b) - Optional Object<br>Enable this option
 
 #### Azure Receiver Batch Max Bytes Disabled
 
-A [`max_bytes_disabled`](#Azure-receiver-batch-max-bytes-disabled) block (within [`azure_receiver.batch`](#Azure-receiver-batch)) supports the following:
+A [`max_bytes_disabled`](#azure-receiver-batch-max-bytes-disabled) block (within [`azure_receiver.batch`](#azure-receiver-batch)) supports the following:
 
 #### Azure Receiver Batch Max Events Disabled
 
-A [`max_events_disabled`](#disabled-420198) block (within [`azure_receiver.batch`](#Azure-receiver-batch)) supports the following:
+A [`max_events_disabled`](#disabled-754236) block (within [`azure_receiver.batch`](#azure-receiver-batch)) supports the following:
 
 #### Azure Receiver Batch Timeout Seconds Default
 
-A [`timeout_seconds_default`](#default-cc7444) block (within [`azure_receiver.batch`](#Azure-receiver-batch)) supports the following:
+A [`timeout_seconds_default`](#default-19a14b) block (within [`azure_receiver.batch`](#azure-receiver-batch)) supports the following:
 
 #### Azure Receiver Compression
 
-A [`compression`](#Azure-receiver-compression) block (within [`azure_receiver`](#Azure-receiver)) supports the following:
+A [`compression`](#azure-receiver-compression) block (within [`azure_receiver`](#azure-receiver)) supports the following:
 
-<a id="default-2dbcb8"></a>&#x2022; [`compression_default`](#default-2dbcb8) - Optional Object<br>Configuration parameter for compression default
+<a id="default-02273a"></a>&#x2022; [`compression_default`](#default-02273a) - Optional Object<br>Configuration parameter for compression default
 
-<a id="gzip-7eb0fc"></a>&#x2022; [`compression_gzip`](#gzip-7eb0fc) - Optional Object<br>Enable this option
+<a id="gzip-156cfe"></a>&#x2022; [`compression_gzip`](#gzip-156cfe) - Optional Object<br>Enable this option
 
-<a id="none-f81cd5"></a>&#x2022; [`compression_none`](#none-f81cd5) - Optional Object<br>Configuration parameter for compression none
+<a id="none-aaef5b"></a>&#x2022; [`compression_none`](#none-aaef5b) - Optional Object<br>Configuration parameter for compression none
 
 #### Azure Receiver Compression Compression Default
 
-A [`compression_default`](#default-2dbcb8) block (within [`azure_receiver.compression`](#Azure-receiver-compression)) supports the following:
+A [`compression_default`](#default-02273a) block (within [`azure_receiver.compression`](#azure-receiver-compression)) supports the following:
 
 #### Azure Receiver Compression Compression Gzip
 
-A [`compression_gzip`](#gzip-7eb0fc) block (within [`azure_receiver.compression`](#Azure-receiver-compression)) supports the following:
+A [`compression_gzip`](#gzip-156cfe) block (within [`azure_receiver.compression`](#azure-receiver-compression)) supports the following:
 
 #### Azure Receiver Compression Compression None
 
-A [`compression_none`](#none-f81cd5) block (within [`azure_receiver.compression`](#Azure-receiver-compression)) supports the following:
+A [`compression_none`](#none-aaef5b) block (within [`azure_receiver.compression`](#azure-receiver-compression)) supports the following:
 
 #### Azure Receiver Connection String
 
-A [`connection_string`](#Azure-receiver-connection-string) block (within [`azure_receiver`](#Azure-receiver)) supports the following:
+A [`connection_string`](#azure-receiver-connection-string) block (within [`azure_receiver`](#azure-receiver)) supports the following:
 
-<a id="info-96e601"></a>&#x2022; [`blindfold_secret_info`](#info-96e601) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-96e601) below.
+<a id="info-e8810f"></a>&#x2022; [`blindfold_secret_info`](#info-e8810f) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-e8810f) below.
 
-<a id="info-ae9cfa"></a>&#x2022; [`clear_secret_info`](#info-ae9cfa) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-ae9cfa) below.
+<a id="info-e37fa5"></a>&#x2022; [`clear_secret_info`](#info-e37fa5) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-e37fa5) below.
 
 #### Azure Receiver Connection String Blindfold Secret Info
 
-A [`blindfold_secret_info`](#info-96e601) block (within [`azure_receiver.connection_string`](#Azure-receiver-connection-string)) supports the following:
+A [`blindfold_secret_info`](#info-e8810f) block (within [`azure_receiver.connection_string`](#azure-receiver-connection-string)) supports the following:
 
-<a id="provider-a0e06b"></a>&#x2022; [`decryption_provider`](#provider-a0e06b) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+<a id="provider-89bfbb"></a>&#x2022; [`decryption_provider`](#provider-89bfbb) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
 
-<a id="location-a3e900"></a>&#x2022; [`location`](#location-a3e900) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+<a id="location-15db90"></a>&#x2022; [`location`](#location-15db90) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
 
-<a id="provider-1e2d28"></a>&#x2022; [`store_provider`](#provider-1e2d28) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+<a id="provider-b18b33"></a>&#x2022; [`store_provider`](#provider-b18b33) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
 #### Azure Receiver Connection String Clear Secret Info
 
-A [`clear_secret_info`](#info-ae9cfa) block (within [`azure_receiver.connection_string`](#Azure-receiver-connection-string)) supports the following:
+A [`clear_secret_info`](#info-e37fa5) block (within [`azure_receiver.connection_string`](#azure-receiver-connection-string)) supports the following:
 
-<a id="ref-3e6724"></a>&#x2022; [`provider_ref`](#ref-3e6724) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+<a id="ref-29f26d"></a>&#x2022; [`provider_ref`](#ref-29f26d) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-071557"></a>&#x2022; [`url`](#url-071557) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="url-06a3b0"></a>&#x2022; [`url`](#url-06a3b0) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### Azure Receiver Filename Options
 
-A [`filename_options`](#Azure-receiver-filename-options) block (within [`azure_receiver`](#Azure-receiver)) supports the following:
+A [`filename_options`](#azure-receiver-filename-options) block (within [`azure_receiver`](#azure-receiver)) supports the following:
 
-<a id="folder-653094"></a>&#x2022; [`custom_folder`](#folder-653094) - Optional String<br>Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match
+<a id="folder-153221"></a>&#x2022; [`custom_folder`](#folder-153221) - Optional String<br>Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match
 
-<a id="folder-c2eee8"></a>&#x2022; [`log_type_folder`](#folder-c2eee8) - Optional Object<br>Configuration parameter for log type folder
+<a id="folder-1cd085"></a>&#x2022; [`log_type_folder`](#folder-1cd085) - Optional Object<br>Configuration parameter for log type folder
 
-<a id="folder-1f821c"></a>&#x2022; [`no_folder`](#folder-1f821c) - Optional Object<br>Enable this option
+<a id="folder-569968"></a>&#x2022; [`no_folder`](#folder-569968) - Optional Object<br>Enable this option
 
 #### Azure Receiver Filename Options Log Type Folder
 
-A [`log_type_folder`](#folder-c2eee8) block (within [`azure_receiver.filename_options`](#Azure-receiver-filename-options)) supports the following:
+A [`log_type_folder`](#folder-1cd085) block (within [`azure_receiver.filename_options`](#azure-receiver-filename-options)) supports the following:
 
 #### Azure Receiver Filename Options No Folder
 
-A [`no_folder`](#folder-1f821c) block (within [`azure_receiver.filename_options`](#Azure-receiver-filename-options)) supports the following:
+A [`no_folder`](#folder-569968) block (within [`azure_receiver.filename_options`](#azure-receiver-filename-options)) supports the following:
 
 #### Datadog Receiver
 

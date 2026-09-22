@@ -321,13 +321,13 @@ func TestProviderRegenerationVerificationIsMemoryBounded(t *testing.T) {
 func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
 	expectedImageJobs := map[string][]string{
-		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.12`},
-		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.12`},
-		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.12`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
-		"ci.yml/validate-mock-fixtures":       {`test "$(go env GOVERSION)" = go1.25.12`},
-		"discover-defaults.yml/discover":      {`test "$(go env GOVERSION)" = go1.25.12`},
-		"on-merge.yml/create-regeneration-pr": {`test "$(go env GOVERSION)" = go1.25.12`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
-		"security-audit.yml/govulncheck":      {`test "$(go env GOVERSION)" = go1.25.12`, "mod golang.org/x/vuln v1.6.0"},
+		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.13`},
+		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.13`},
+		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"ci.yml/validate-mock-fixtures":       {`test "$(go env GOVERSION)" = go1.25.13`},
+		"discover-defaults.yml/discover":      {`test "$(go env GOVERSION)" = go1.25.13`},
+		"on-merge.yml/create-regeneration-pr": {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"security-audit.yml/govulncheck":      {`test "$(go env GOVERSION)" = go1.25.13`, "mod golang.org/x/vuln v1.6.0"},
 	}
 	entries, err := filepath.Glob(filepath.Join(workflowDir, "*.y*ml"))
 	if err != nil {
@@ -386,7 +386,7 @@ func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 		"acc-tests.yml": {
 			"runs-on: ubuntu-latest",
 			"actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
-			"go-version: '1.25.12'",
+			"go-version: '1.25.13'",
 		},
 		"_build-test.yml": {
 			"runs-on: ubuntu-latest",
@@ -440,7 +440,7 @@ func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
 		if !reflect.DeepEqual(runsOn, canonicalGitHubHostedRunsOn) {
 			t.Errorf("%s runs-on = %v, want %v", jobID, runsOn, canonicalGitHubHostedRunsOn)
 		}
-		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.12", true)
+		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.13", true)
 	}
 
 	for _, jobID := range []string{"real-api-tests", "cleanup"} {
@@ -448,7 +448,7 @@ func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
 		if !ok {
 			t.Fatalf("missing acceptance job %s", jobID)
 		}
-		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.12", false)
+		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.13", false)
 	}
 }
 

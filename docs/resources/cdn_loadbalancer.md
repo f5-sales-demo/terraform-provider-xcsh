@@ -1092,7 +1092,7 @@ A [`policy`](#bot-defense-policy) block (within [`bot_defense`](#bot-defense)) s
 
 <a id="bot-defense-policy-disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#bot-defense-policy-disable-mobile-sdk) - Optional Object<br>Enable this option
 
-<a id="bot-defense-policy-JavaScript-mode"></a>&#x2022; [`javascript_mode`](#bot-defense-policy-JavaScript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense
+<a id="bot-defense-policy-javascript-mode"></a>&#x2022; [`javascript_mode`](#bot-defense-policy-javascript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense
 JavaScript for telemetry collection is requested asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
 
 <a id="bot-defense-policy-js-download-path"></a>&#x2022; [`js_download_path`](#bot-defense-policy-js-download-path) - Optional String<br>Customize Bot Defense Client JavaScript path. If not specified, default
@@ -1119,7 +1119,7 @@ A [`disable_mobile_sdk`](#bot-defense-policy-disable-mobile-sdk) block (within [
 
 A [`js_insert_all_pages`](#bot-defense-policy-js-insert-all-pages) block (within [`bot_defense.policy`](#bot-defense-policy)) supports the following:
 
-<a id="location-0d5121"></a>&#x2022; [`javascript_location`](#location-0d5121) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-3a398d"></a>&#x2022; [`javascript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Policy Js Insert All Pages Except
 
@@ -1181,7 +1181,7 @@ A [`rules`](#rules-15d983) block (within [`bot_defense.policy.js_insertion_rules
 
 <a id="domain-834b0f"></a>&#x2022; [`domain`](#domain-834b0f) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-834b0f) below.
 
-<a id="location-5b3be0"></a>&#x2022; [`javascript_location`](#location-5b3be0) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-16277f"></a>&#x2022; [`javascript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-e15703"></a>&#x2022; [`metadata`](#metadata-e15703) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-e15703) below.
@@ -1720,17 +1720,17 @@ A [`disabled`](#csrf-policy-disabled) block (within [`csrf_policy`](#csrf-policy
 
 A [`custom_cache_rule`](#custom-cache-rule) block supports the following:
 
-<a id="custom-cache-rule-CDN-cache-rules"></a>&#x2022; [`cdn_cache_rules`](#custom-cache-rule-CDN-cache-rules) - Optional Block<br>Reference to CDN Cache Rule configuration object<br>See [CDN Cache Rules](#custom-cache-rule-CDN-cache-rules) below.
+<a id="custom-cache-rule-cdn-cache-rules"></a>&#x2022; [`cdn_cache_rules`](#custom-cache-rule-cdn-cache-rules) - Optional Block<br>Reference to CDN Cache Rule configuration object<br>See [CDN Cache Rules](#custom-cache-rule-cdn-cache-rules) below.
 
 #### Custom Cache Rule CDN Cache Rules
 
-A [`cdn_cache_rules`](#custom-cache-rule-CDN-cache-rules) block (within [`custom_cache_rule`](#custom-cache-rule)) supports the following:
+A [`cdn_cache_rules`](#custom-cache-rule-cdn-cache-rules) block (within [`custom_cache_rule`](#custom-cache-rule)) supports the following:
 
-<a id="custom-cache-rule-CDN-cache-rules-name"></a>&#x2022; [`name`](#custom-cache-rule-CDN-cache-rules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+<a id="custom-cache-rule-cdn-cache-rules-name"></a>&#x2022; [`name`](#custom-cache-rule-cdn-cache-rules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
-<a id="namespace-eb15a4"></a>&#x2022; [`namespace`](#namespace-eb15a4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+<a id="namespace-953951"></a>&#x2022; [`namespace`](#namespace-953951) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
-<a id="tenant-73f18c"></a>&#x2022; [`tenant`](#tenant-73f18c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+<a id="tenant-f1c5ea"></a>&#x2022; [`tenant`](#tenant-f1c5ea) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### Data Guard Rules
 
@@ -2920,7 +2920,7 @@ below.
 
 <a id="challenge-e0353b"></a>&#x2022; [`enable_captcha_challenge`](#challenge-e0353b) - Optional Object<br>Configuration parameter for enable captcha challenge
 
-<a id="challenge-6e968e"></a>&#x2022; [`enable_javascript_challenge`](#challenge-6e968e) - Optional Object<br>Enable this option
+<a id="challenge-3644c3"></a>&#x2022; [`enable_javascript_challenge`](#challenge-3644c3) - Optional Object<br>Enable this option
 
 <a id="timestamp-6d26e1"></a>&#x2022; [`expiration_timestamp`](#timestamp-6d26e1) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
 

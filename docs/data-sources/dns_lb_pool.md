@@ -50,19 +50,126 @@ output "dns_lb_pool_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the DNSLBPool
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the DNSLBPool exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the DNSLBPool exists
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="a-pool"></a>&#x2022; [`a_pool`](#a-pool) - Optional String<br>Pool for A Record
+
+<a id="aaaa-pool"></a>&#x2022; [`aaaa_pool`](#aaaa-pool) - Optional String<br>Pool for AAAA Record
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="cname-pool"></a>&#x2022; [`cname_pool`](#cname-pool) - Optional String<br>Pool for CNAME Record
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the DNSLBPool
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="load-balancing-mode"></a>&#x2022; [`load_balancing_mode`](#load-balancing-mode) - Optional String  Defaults to `ROUND_ROBIN`<br>Possible values are `ROUND_ROBIN`, `RATIO_MEMBER`, `STATIC_PERSIST`, `PRIORITY`<br>[Enum: ROUND_ROBIN|RATIO_MEMBER|STATIC_PERSIST|PRIORITY] - ROUND_ROBIN: Round-Robin Round Robin will ensure random equal distribution of requests among all pool members in a pool. -
+RATIO_MEMBER: Ratio-Member Ratio-Member performs load balancing of requests across the pool members based on the ratio assigned to each pool member - STATIC_PERSIST
+
+<a id="mx-pool"></a>&#x2022; [`mx_pool`](#mx-pool) - Optional String<br>Pool for MX Record
+
+<a id="srv-pool"></a>&#x2022; [`srv_pool`](#srv-pool) - Optional String<br>Pool for SRV Record
+
+<a id="ttl"></a>&#x2022; [`ttl`](#ttl) - Optional Number<br>Custom TTL in seconds (default 30) for responses from this pool
+
+<a id="use-rrset-ttl"></a>&#x2022; [`use_rrset_ttl`](#use-rrset-ttl) - Optional Object<br>Configuration parameter for use rrset TTL
+
+<a id="disable-health-check"></a>&#x2022; [`disable_health_check`](#disable-health-check) - Optional Object<br>Configuration parameter for disable health check
+
+<a id="health-check"></a>&#x2022; [`health_check`](#health-check) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="max-answers"></a>&#x2022; [`max_answers`](#max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
+
+<a id="members"></a>&#x2022; [`members`](#members) - Optional List<br>Pool Members. Configuration parameter for members
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="disable-spec"></a>&#x2022; [`disable_spec`](#disable-spec) - Optional Bool<br>Value of true will disable the pool-member
+
+<a id="ip-endpoint"></a>&#x2022; [`ip_endpoint`](#ip-endpoint) - Optional String<br>Public IP. Public IP address
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name. Pool member name
+
+<a id="priority"></a>&#x2022; [`priority`](#priority) - Optional Number<br>Used if the pool’s load balancing mode is set to Priority
+
+<a id="ratio"></a>&#x2022; [`ratio`](#ratio) - Optional Number<br>Used if the pool’s load balancing mode is set to Ratio-Member
+
+<a id="max-answers"></a>&#x2022; [`max_answers`](#max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
+
+<a id="members"></a>&#x2022; [`members`](#members) - Optional List<br>Pool Members. Configuration parameter for members
+
+<a id="disable-spec"></a>&#x2022; [`disable_spec`](#disable-spec) - Optional Bool<br>Value of true will disable the pool-member
+
+<a id="ip-endpoint"></a>&#x2022; [`ip_endpoint`](#ip-endpoint) - Optional String<br>Public IP. Public IP address
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name. Pool member name
+
+<a id="priority"></a>&#x2022; [`priority`](#priority) - Optional Number<br>Used if the pool’s load balancing mode is set to Priority
+
+<a id="ratio"></a>&#x2022; [`ratio`](#ratio) - Optional Number<br>Used if the pool’s load balancing mode is set to Ratio-Member
+
+<a id="disable-health-check"></a>&#x2022; [`disable_health_check`](#disable-health-check) - Optional Object<br>Configuration parameter for disable health check
+
+<a id="health-check"></a>&#x2022; [`health_check`](#health-check) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="members"></a>&#x2022; [`members`](#members) - Optional List<br>Pool Members. Configuration parameter for members
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Specifies the fully qualified domain name
+
+<a id="final-translation"></a>&#x2022; [`final_translation`](#final-translation) - Optional Bool<br>If this flag is true, the CNAME record will not be translated further
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name. Pool member name
+
+<a id="priority"></a>&#x2022; [`priority`](#priority) - Optional Number<br>Used if the pool’s load balancing mode is set to Priority. Determines the order in which traffic is routed to pool members. The lower the number, the higher the priority, making those members active while higher-numbered members act as backups
+
+<a id="ratio"></a>&#x2022; [`ratio`](#ratio) - Optional Number<br>Used if the pool’s load balancing mode is set to Ratio-Member
+
+<a id="max-answers"></a>&#x2022; [`max_answers`](#max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
+
+<a id="members"></a>&#x2022; [`members`](#members) - Optional List<br>Pool Members. Configuration parameter for members
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name. Pool member name
+
+<a id="priority"></a>&#x2022; [`priority`](#priority) - Optional Number<br>MX Record Priority. MX Record priority
+
+<a id="ratio"></a>&#x2022; [`ratio`](#ratio) - Optional Number<br>Load Balancing Ratio. Load Balancing Ratio
+
+<a id="max-answers"></a>&#x2022; [`max_answers`](#max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
+
+<a id="members"></a>&#x2022; [`members`](#members) - Optional List<br>Pool Members. Configuration parameter for members
+
+<a id="final-translation"></a>&#x2022; [`final_translation`](#final-translation) - Optional Bool<br>If this flag is true, the SRV record will not be translated further
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name. Pool member name
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Port. Port on which the service can be found
+
+<a id="priority"></a>&#x2022; [`priority`](#priority) - Optional Number<br>Priority of the target. A lower number indicates a higher preference
+
+<a id="ratio"></a>&#x2022; [`ratio`](#ratio) - Optional Number<br>Load Balancing Ratio. Configuration parameter for ratio
+
+<a id="target"></a>&#x2022; [`target`](#target) - Optional String<br>Domain name of the machine providing the service
+
+<a id="weight"></a>&#x2022; [`weight`](#weight) - Optional Number<br>Weight of the target. A higher number indicates a higher preference
 
 ---
 

@@ -68,9 +68,9 @@ access
 <a id="ce-site-mode"></a>&#x2022; [`ce_site_mode`](#ce-site-mode) - Optional String  Defaults to `CE_SITE_MODE_INGRESS_EGRESS_GW`<br>Possible values are `CE_SITE_MODE_INGRESS_EGRESS_GW`, `CE_SITE_MODE_INGRESS_GW`, `CE_SITE_MODE_EGRESS_GW`, `CE_SITE_MODE_DC_CLOUD_GW`, `CE_SITE_MODE_CPE`<br>[Enum:
 CE_SITE_MODE_INGRESS_EGRESS_GW|CE_SITE_MODE_INGRESS_GW|CE_SITE_MODE_EGRESS_GW|CE_SITE_MODE_DC_CLOUD_GW|CE_SITE_MODE_CPE] If Site is CE, it can be in following modes Ingress Egress Gateway CE Ingress Gateway CE Egress Gateway CE DC Cloud Gateway CE CPE CE
 
-<a id="connected-re"></a>&#x2022; [`connected_re`](#connected-re) - Optional String<br>Following fields are only for customer edge sites List of REs to which to which this CE initiates IPsec/SSL connection to
+<a id="connected-re"></a>&#x2022; [`connected_re`](#connected-re) - Optional List<br>Following fields are only for customer edge sites List of REs to which to which this CE initiates IPsec/SSL connection to
 
-<a id="connected-re-for-config"></a>&#x2022; [`connected_re_for_config`](#connected-re-for-config) - Optional String<br>Valid only for CE site object List of REs which can send config to this CE site
+<a id="connected-re-for-config"></a>&#x2022; [`connected_re_for_config`](#connected-re-for-config) - Optional List<br>Valid only for CE site object List of REs which can send config to this CE site
 
 <a id="coordinates"></a>&#x2022; [`coordinates`](#coordinates) - Optional String<br>Coordinates of the site which provides the site physical location
 
@@ -78,9 +78,9 @@ CE_SITE_MODE_INGRESS_EGRESS_GW|CE_SITE_MODE_INGRESS_GW|CE_SITE_MODE_EGRESS_GW|CE
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 
-<a id="desired-pool-count"></a>&#x2022; [`desired_pool_count`](#desired-pool-count) - Optional String<br>Desired pool count represent desired number of worker(non master) nodes for manual scaling of public cloud(AWS, GCP, Azure) sites. The desired count must be less than or equal to the maximum size of the scaling group for a given public cloud. One may also have to increase maximum scaling group
+<a id="desired-pool-count"></a>&#x2022; [`desired_pool_count`](#desired-pool-count) - Optional Number<br>Desired pool count represent desired number of worker(non master) nodes for manual scaling of public cloud(AWS, GCP, Azure) sites. The desired count must be less than or equal to the maximum size of the scaling group for a given public cloud. One may also have to increase maximum scaling group
 
-<a id="global-access-k8s-enabled"></a>&#x2022; [`global_access_k8s_enabled`](#global-access-k8s-enabled) - Optional String<br>Enable or disable functionality flag
+<a id="global-access-k8s-enabled"></a>&#x2022; [`global_access_k8s_enabled`](#global-access-k8s-enabled) - Optional Bool<br>Enable or disable functionality flag
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
 
@@ -88,19 +88,19 @@ CE_SITE_MODE_INGRESS_EGRESS_GW|CE_SITE_MODE_INGRESS_GW|CE_SITE_MODE_EGRESS_GW|CE
 
 <a id="inside-vip"></a>&#x2022; [`inside_vip`](#inside-vip) - Optional String<br>Optional Virtual IP to be used as automatic VIP for site local inside network. See documentation for 'VIP' in advertise policy to see when Inside VIP is used. When configured, this is used as VIP (depending on advertise policy configuration)
 
-<a id="ipsec-ssl-nodes-fqdn"></a>&#x2022; [`ipsec_ssl_nodes_fqdn`](#ipsec-ssl-nodes-fqdn) - Optional String<br>FQDN resolves to responders node IP, if there are multiple nodes at site the resolution will give a list of all/some individual node IP. Multiple FQDN for same site is also allowed
+<a id="ipsec-ssl-nodes-fqdn"></a>&#x2022; [`ipsec_ssl_nodes_fqdn`](#ipsec-ssl-nodes-fqdn) - Optional List<br>FQDN resolves to responders node IP, if there are multiple nodes at site the resolution will give a list of all/some individual node IP. Multiple FQDN for same site is also allowed
 
 <a id="kubernetes-upgrade-drain"></a>&#x2022; [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) - Optional String<br>Specify how worker nodes within a site will be upgraded
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
 
-<a id="local-access-k8s-enabled"></a>&#x2022; [`local_access_k8s_enabled`](#local-access-k8s-enabled) - Optional String<br>Enable or disable functionality flag
+<a id="local-access-k8s-enabled"></a>&#x2022; [`local_access_k8s_enabled`](#local-access-k8s-enabled) - Optional Bool<br>Enable or disable functionality flag
 
-<a id="local-k8s-access-enabled"></a>&#x2022; [`local_k8s_access_enabled`](#local-k8s-access-enabled) - Optional String<br>Lets user know if this site has local K8S cluster enabled via fleet configuration
+<a id="local-k8s-access-enabled"></a>&#x2022; [`local_k8s_access_enabled`](#local-k8s-access-enabled) - Optional Bool<br>Lets user know if this site has local K8S cluster enabled via fleet configuration
 
-<a id="main-nodes"></a>&#x2022; [`main_nodes`](#main-nodes) - Optional String<br>Connectivity information of main/master nodes to create a full mesh of Phobos services across all CEs in a site-mesh-group or dc-cluster-group
+<a id="main-nodes"></a>&#x2022; [`main_nodes`](#main-nodes) - Optional List<br>Connectivity information of main/master nodes to create a full mesh of Phobos services across all CEs in a site-mesh-group or dc-cluster-group
 
-<a id="multus-enabled"></a>&#x2022; [`multus_enabled`](#multus-enabled) - Optional String<br>Indicates that Multus cni is enabled on the site
+<a id="multus-enabled"></a>&#x2022; [`multus_enabled`](#multus-enabled) - Optional Bool<br>Indicates that Multus cni is enabled on the site
 
 <a id="operating-system-version"></a>&#x2022; [`operating_system_version`](#operating-system-version) - Optional String<br>Desired Operating System version for this site
 
@@ -131,21 +131,186 @@ Different types of virtual networks understood by the system Virtual-network of 
 
 <a id="site-type"></a>&#x2022; [`site_type`](#site-type) - Optional String<br>Possible values are `INVALID`, `REGIONAL_EDGE`, `CUSTOMER_EDGE`, `NGINX_ONE`<br>[Enum: INVALID|REGIONAL_EDGE|CUSTOMER_EDGE|NGINX_ONE] Site Type which can either RE or CE Invalid type of site Regional Edge site Customer Edge site
 
-<a id="tunnel-dead-timeout"></a>&#x2022; [`tunnel_dead_timeout`](#tunnel-dead-timeout) - Optional String<br>Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used
+<a id="tunnel-dead-timeout"></a>&#x2022; [`tunnel_dead_timeout`](#tunnel-dead-timeout) - Optional Number<br>Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used
 
 <a id="tunnel-type"></a>&#x2022; [`tunnel_type`](#tunnel-type) - Optional String  Defaults to `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`<br>Possible values are `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`, `SITE_TO_SITE_TUNNEL_IPSEC`, `SITE_TO_SITE_TUNNEL_SSL`<br>[Enum: SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL|SITE_TO_SITE_TUNNEL_IPSEC|SITE_TO_SITE_TUNNEL_SSL] Tunnel encapsulation to be used between sites Tunnel can
 operate in both IPsec and SSL, with IPsec being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL
 
-<a id="vip-params-per-az"></a>&#x2022; [`vip_params_per_az`](#vip-params-per-az) - Optional String<br>Optional Publish VIP Parameters Per AZ for public cloud sites. See documentation for 'VIP' in advertise policy to see when Inside VIP or Outside VIP is used. When configured, the VIP(s) defined will be used to publish to external systems like K8S, Consul
+<a id="vip-params-per-az"></a>&#x2022; [`vip_params_per_az`](#vip-params-per-az) - Optional List<br>Optional Publish VIP Parameters Per AZ for public cloud sites. See documentation for 'VIP' in advertise policy to see when Inside VIP or Outside VIP is used. When configured, the VIP(s) defined will be used to publish to external systems like K8S, Consul
 
 <a id="vip-vrrp-mode"></a>&#x2022; [`vip_vrrp_mode`](#vip-vrrp-mode) - Optional String  Defaults to `VIP_VRRP_INVALID`<br>Possible values are `VIP_VRRP_INVALID`, `VIP_VRRP_ENABLE`, `VIP_VRRP_DISABLE`<br>[Enum: VIP_VRRP_INVALID|VIP_VRRP_ENABLE|VIP_VRRP_DISABLE] VRRP advertisement mode for VIP Invalid VRRP mode
 
-<a id="vm-enabled"></a>&#x2022; [`vm_enabled`](#vm-enabled) - Optional String<br>Indicates that virtual machine support is enabled on the site
+<a id="vm-enabled"></a>&#x2022; [`vm_enabled`](#vm-enabled) - Optional Bool<br>Indicates that virtual machine support is enabled on the site
 
 <a id="volterra-software-override"></a>&#x2022; [`volterra_software_override`](#volterra-software-override) - Optional String  Defaults to `SITE_SOFTWARE_OVERRIDE_SITE`<br>Possible values are `SITE_SOFTWARE_OVERRIDE_SITE`, `SITE_SOFTWARE_OVERRIDE_NEWER`, `SITE_SOFTWARE_OVERRIDE_FLEET`<br>[Enum: SITE_SOFTWARE_OVERRIDE_SITE|SITE_SOFTWARE_OVERRIDE_NEWER|SITE_SOFTWARE_OVERRIDE_FLEET] Decide which
 software version takes effect in case of conflict between site and fleet Software version in site will take precedence. Between site and fleet newer software version will take precedence. Software version in fleet will take precedence
 
 <a id="volterra-software-version"></a>&#x2022; [`volterra_software_version`](#volterra-software-version) - Optional String<br>Desired F5XC software version for this site, a string matching released set of software components
+
+<a id="admin-password"></a>&#x2022; [`admin_password`](#admin-password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="ssh-key"></a>&#x2022; [`ssh_key`](#ssh-key) - Optional String<br>Provided Public SSH key can be used for accessing nodes of the site. When provided, customers can SSH to the nodes of this Customer Edge site using admin as the user
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+---
+
+#### Coordinates
+
+A [`coordinates`](#coordinates) block supports the following:
+
+<a id="nestedatt--coordinates-latitude"></a>&#x2022; [`latitude`](#nestedatt--coordinates-latitude) - Optional Number<br>Latitude. Latitude of the site location
+
+<a id="nestedatt--coordinates-longitude"></a>&#x2022; [`longitude`](#nestedatt--coordinates-longitude) - Optional Number<br>Longitude. Longitude of site location
+
+#### Default Underlay Network
+
+A [`default_underlay_network`](#default-underlay-network) block supports the following:
+
+<a id="inside-fac332"></a>&#x2022; [`site_local_inside`](#inside-fac332) - Optional Object<br>Enable this option
+
+<a id="outside-62f41d"></a>&#x2022; [`site_local_outside`](#outside-62f41d) - Optional Object<br>Enable this option
+
+#### Default Underlay Network Site Local Inside
+
+A [`site_local_inside`](#default-underlay-network-site-local-inside) block (within [`default_underlay_network`](#default-underlay-network)) supports the following:
+
+#### Default Underlay Network Site Local Outside
+
+A [`site_local_outside`](#default-underlay-network-site-local-outside) block (within [`default_underlay_network`](#default-underlay-network)) supports the following:
+
+#### Kubernetes Upgrade Drain
+
+A [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) block supports the following:
+
+<a id="drain-f4e533"></a>&#x2022; [`disable_upgrade_drain`](#drain-f4e533) - Optional Object<br>Configuration parameter for disable upgrade drain
+
+<a id="drain-8b729a"></a>&#x2022; [`enable_upgrade_drain`](#drain-8b729a) - Optional String<br>Specify batch upgrade settings for worker nodes within a site
+
+#### Kubernetes Upgrade Drain Disable Upgrade Drain
+
+A [`disable_upgrade_drain`](#kubernetes-upgrade-drain-disable-upgrade-drain) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain
+
+An [`enable_upgrade_drain`](#kubernetes-upgrade-drain-enable-upgrade-drain) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
+
+<a id="mode-9e6465"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-9e6465) - Optional Object<br>Configuration parameter for disable vega upgrade mode
+
+<a id="count-74c459"></a>&#x2022; [`drain_max_unavailable_node_count`](#count-74c459) - Optional Number<br>Node Batch Size Count
+
+<a id="percentage-acfd68"></a>&#x2022; [`drain_max_unavailable_node_percentage`](#percentage-acfd68) - Optional Number<br>Maximum percentage of nodes unavailable during upgrade draining
+
+<a id="timeout-6767a4"></a>&#x2022; [`drain_node_timeout`](#timeout-6767a4) - Optional Number<br>Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
+
+<a id="mode-9fe695"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9fe695) - Optional Object<br>Configuration parameter for enable vega upgrade mode
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Disable Vega Upgrade Mode
+
+<a id="deep-6040f2"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Enable Vega Upgrade Mode
+
+<a id="deep-ea033c"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Main Nodes
+
+A [`main_nodes`](#main-nodes) block supports the following:
+
+<a id="nestedatt--coordinates-name"></a>&#x2022; [`name`](#nestedatt--coordinates-name) - Optional String<br>Name of the master/main node on the site
+
+<a id="nestedatt--coordinates-sli-address"></a>&#x2022; [`sli_address`](#nestedatt--coordinates-sli-address) - Optional String<br>Site Local Inside IP addresses. Site Local Inside IP address
+
+<a id="nestedatt--coordinates-slo-address"></a>&#x2022; [`slo_address`](#nestedatt--coordinates-slo-address) - Optional String<br>Site Local Outside IP addresses. Site Local Outside IP address
+
+#### Private Connectivity
+
+A [`private_connectivity`](#private-connectivity) block supports the following:
+
+<a id="nestedatt--coordinates-cloud-link"></a>&#x2022; [`cloud_link`](#nestedatt--coordinates-cloud-link) - Optional String<br>Information related to cloud link used by the site
+
+<a id="name-548749"></a>&#x2022; [`private_network_name`](#name-548749) - Optional String<br>ADN Network Name for private access connectivity to F5XC ADN
+
+#### Private Connectivity Cloud Link
+
+A [`cloud_link`](#private-connectivity-cloud-link) block (within [`private_connectivity`](#private-connectivity)) supports the following:
+
+<a id="nestedatt--coordinates-name"></a>&#x2022; [`name`](#nestedatt--coordinates-name) - Optional String<br>Name of the the CloudLink used with this site
+
+<a id="nestedatt--coordinates-state"></a>&#x2022; [`state`](#nestedatt--coordinates-state) - Optional String  Defaults to `UP`<br>Possible values are `UP`, `DOWN`, `DEGRADED`, `NOT_APPLICABLE`<br>[Enum: UP|DOWN|DEGRADED|NOT_APPLICABLE] State of the CloudLink connections - UP: Up CloudLink and their corresponding Direct Connect connections are up and healthy - DOWN: Down CloudLink and their
+corresponding Direct Connect connections are down - DEGRADED: Degraded Some of Direct Connect connections with the CloudLink are down
+
+#### RE Select
+
+A [`re_select`](#re-select) block supports the following:
+
+<a id="nestedatt--coordinates-geo-proximity"></a>&#x2022; [`geo_proximity`](#nestedatt--coordinates-geo-proximity) - Optional Object<br>Configuration parameter for geo proximity
+
+<a id="geography-dd7e88"></a>&#x2022; [`specific_geography`](#geography-dd7e88) - Optional String<br>Geographic selection for the site's Regional Edge connections
+
+<a id="nestedatt--coordinates-specific-re"></a>&#x2022; [`specific_re`](#nestedatt--coordinates-specific-re) - Optional String<br>Select specific REs. This is useful when a site needs to deterministically connect to a set of REs. A site will always be connected to 2 REs
+
+#### RE Select Geo Proximity
+
+A [`geo_proximity`](#re-select-geo-proximity) block (within [`re_select`](#re-select)) supports the following:
+
+#### RE Select Specific RE
+
+A [`specific_re`](#re-select-specific-re) block (within [`re_select`](#re-select)) supports the following:
+
+<a id="nestedatt--coordinates-backup-re"></a>&#x2022; [`backup_re`](#nestedatt--coordinates-backup-re) - Optional String<br>Select backup RE for this site, cannot be the same as Primary RE
+
+<a id="nestedatt--coordinates-primary-re"></a>&#x2022; [`primary_re`](#nestedatt--coordinates-primary-re) - Optional String<br>Primary RE Geography. Select primary RE for this site
+
+#### VIP Params Per Az
+
+A [`vip_params_per_az`](#vip-params-per-az) block supports the following:
+
+<a id="nestedatt--coordinates-az-name"></a>&#x2022; [`az_name`](#nestedatt--coordinates-az-name) - Optional String<br>AZ Name. Name of the Availability zone
+
+<a id="nestedatt--coordinates-inside-vip"></a>&#x2022; [`inside_vip`](#nestedatt--coordinates-inside-vip) - Optional List<br>Inside VIP(s). List of Inside VIPs for an AZ
+
+<a id="nestedatt--coordinates-inside-vip-cname"></a>&#x2022; [`inside_vip_cname`](#nestedatt--coordinates-inside-vip-cname) - Optional String<br>CNAME value for the inside VIP, These are usually public cloud generated CNAME
+
+<a id="nestedatt--coordinates-inside-vip-v6"></a>&#x2022; [`inside_vip_v6`](#nestedatt--coordinates-inside-vip-v6) - Optional List<br>Optional list of Inside IPv6 VIPs for an AZ
+
+<a id="nestedatt--coordinates-outside-vip"></a>&#x2022; [`outside_vip`](#nestedatt--coordinates-outside-vip) - Optional List<br>Outside VIP(s). List of Outside VIPs for an AZ
+
+<a id="cname-641770"></a>&#x2022; [`outside_vip_cname`](#cname-641770) - Optional String<br>CNAME value for the outside VIP These are usually public cloud generated CNAME
+
+<a id="nestedatt--coordinates-outside-vip-v6"></a>&#x2022; [`outside_vip_v6`](#nestedatt--coordinates-outside-vip-v6) - Optional List<br>Optional list of Outside IPv6 VIPs for an AZ
 
 ---
 

@@ -66,6 +66,28 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="latest-version"></a>&#x2022; [`latest_version`](#latest-version) - Optional String<br>Version. Version number or identifier
 
+<a id="ip-allowlist"></a>&#x2022; [`ip_allowlist`](#ip-allowlist) - Optional List<br>IP & IP Prefix. Allowlist or permitted items
+
+<a id="ip-range-allowlist"></a>&#x2022; [`ip_range_allowlist`](#ip-range-allowlist) - Optional List<br>IP Range. Allowlist or permitted items
+
+<a id="ip-detail"></a>&#x2022; [`ip_detail`](#ip-detail) - Optional String<br>IP Detail. Support the single IP value
+
+<a id="ip-prefix-detail"></a>&#x2022; [`ip_prefix_detail`](#ip-prefix-detail) - Optional String<br>IP Prefix Detail. Support the IP prefix value
+
+<a id="ip-description"></a>&#x2022; [`ip_description`](#ip-description) - Optional String<br>Description. The description for IP address
+
+<a id="ip-value"></a>&#x2022; [`ip_value`](#ip-value) - Optional String<br>Value. A single IP address
+
+<a id="ip-description"></a>&#x2022; [`ip_description`](#ip-description) - Optional String<br>Description. The description for IP prefix
+
+<a id="ip-value"></a>&#x2022; [`ip_value`](#ip-value) - Optional String<br>Value. IP prefix e.g. 192.0.2.0/24
+
+<a id="end-with"></a>&#x2022; [`end_with`](#end-with) - Optional String<br>End With. IP range end with
+
+<a id="ip-description"></a>&#x2022; [`ip_description`](#ip-description) - Optional String<br>Description. The description for IP range
+
+<a id="start-with"></a>&#x2022; [`start_with`](#start-with) - Optional String<br>Start With. IP range start with
+
 ---
 
 ## Common Types

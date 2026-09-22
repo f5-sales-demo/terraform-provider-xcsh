@@ -58,6 +58,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="as-numbers"></a>&#x2022; [`as_numbers`](#as-numbers) - Optional List<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create whitelists or blacklists for use in network policy or service policy
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the BGPAsnSet
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource

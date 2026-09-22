@@ -34,6 +34,8 @@ type CloudElasticIPDataSourceModel struct {
 	Description types.String `tfsdk:"description"`
 	Labels      types.Map    `tfsdk:"labels"`
 	Annotations types.Map    `tfsdk:"annotations"`
+	Count       types.Int64  `tfsdk:"item_count"`
+	SiteRef     types.List   `tfsdk:"site_ref"`
 }
 
 func (d *CloudElasticIPDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,38 @@ func (d *CloudElasticIPDataSource) Schema(ctx context.Context, req datasource.Sc
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"item_count": schema.Int64Attribute{
+				MarkdownDescription: "Number of Elastic Ips / Public Ips associated with this object per Node.",
+				Computed:            true,
+			},
+			"site_ref": schema.ListNestedAttribute{
+				MarkdownDescription: "Site to which this cloud elastic IP object is attached.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +127,8 @@ func (d *CloudElasticIPDataSource) Read(ctx context.Context, req datasource.Read
 		return
 	}
 
-	resource, err := d.client.GetCloudElasticIP(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetCloudElasticIP(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CloudElasticIP: %s", err))
 		return
@@ -101,7 +136,11 @@ func (d *CloudElasticIPDataSource) Read(ctx context.Context, req datasource.Read
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +173,66 @@ func (d *CloudElasticIPDataSource) Read(ctx context.Context, req datasource.Read
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["count"].(float64); ok {
+		data.Count = types.Int64Value(int64(v))
+	} else {
+		data.Count = types.Int64Null()
+	}
+	if !isImport && (data.SiteRef.IsNull() || len(data.SiteRef.Elements()) == 0) {
+		data.SiteRef = types.ListNull(types.ObjectType{AttrTypes: CloudElasticIPSiteRefModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["site_ref"].([]interface{}); ok && len(listData) > 0 {
+		var SiteRefList []CloudElasticIPSiteRefModel
+		var existingSiteRefItems []CloudElasticIPSiteRefModel
+		if !data.SiteRef.IsNull() && !data.SiteRef.IsUnknown() {
+			data.SiteRef.ElementsAs(ctx, &existingSiteRefItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				SiteRefList = append(SiteRefList, CloudElasticIPSiteRefModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: CloudElasticIPSiteRefModelAttrTypes}, SiteRefList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.SiteRef = listVal
+		}
+	} else {
+		data.SiteRef = types.ListNull(types.ObjectType{AttrTypes: CloudElasticIPSiteRefModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

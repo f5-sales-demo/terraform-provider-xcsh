@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,14 @@ type AppTypeDataSource struct {
 }
 
 type AppTypeDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                         types.String                            `tfsdk:"id"`
+	Name                       types.String                            `tfsdk:"name"`
+	Namespace                  types.String                            `tfsdk:"namespace"`
+	Description                types.String                            `tfsdk:"description"`
+	Labels                     types.Map                               `tfsdk:"labels"`
+	Annotations                types.Map                               `tfsdk:"annotations"`
+	BusinessLogicMarkupSetting *AppTypeBusinessLogicMarkupSettingModel `tfsdk:"business_logic_markup_setting"`
+	Features                   types.List                              `tfsdk:"features"`
 }
 
 func (d *AppTypeDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +73,44 @@ func (d *AppTypeDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"business_logic_markup_setting": schema.SingleNestedAttribute{
+				MarkdownDescription: "Settings specifying how API Discovery will be performed.",
+				Attributes: map[string]schema.Attribute{
+					"disable_spec": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"discovered_api_settings": schema.SingleNestedAttribute{
+						MarkdownDescription: "Discovered API Settings. Configure Discovered API Settings.",
+						Attributes: map[string]schema.Attribute{
+							"purge_duration_for_inactive_discovered_apis": schema.Int64Attribute{
+								MarkdownDescription: "Inactive discovered API will be deleted after configured duration.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"enable": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"features": schema.ListNestedAttribute{
+				MarkdownDescription: "Features. List of various AI/ML features enabled.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"type": schema.StringAttribute{
+							MarkdownDescription: "[Enum: BUSINESS_LOGIC_MARKUP|TIMESERIES_ANOMALY_DETECTION|PER_REQ_ANOMALY_DETECTION|USER_BEHAVIOR_ANALYSIS] Enumeration for AI/ML features supported API Discovery enables generation of model for various API interactions between services of App type. Enable analysis of timeseries for various metric collected like requests, errors, latency etc. Enable anomaly detection per API request, i.e. Possible values are `BUSINESS_LOGIC_MARKUP`, `TIMESERIES_ANOMALY_DETECTION`, `PER_REQ_ANOMALY_DETECTION`, `USER_BEHAVIOR_ANALYSIS`. Defaults to `BUSINESS_LOGIC_MARKUP`.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +134,8 @@ func (d *AppTypeDataSource) Read(ctx context.Context, req datasource.ReadRequest
 		return
 	}
 
-	resource, err := d.client.GetAppType(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAppType(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AppType: %s", err))
 		return
@@ -101,7 +143,11 @@ func (d *AppTypeDataSource) Read(ctx context.Context, req datasource.ReadRequest
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +180,72 @@ func (d *AppTypeDataSource) Read(ctx context.Context, req datasource.ReadRequest
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && (isImport || data.BusinessLogicMarkupSetting != nil) {
+		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{
+			DisableSpec: func() types.Object {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && !data.BusinessLogicMarkupSetting.DisableSpec.IsUnknown() {
+					return data.BusinessLogicMarkupSetting.DisableSpec
+				}
+				if _, ok := blockData["disable"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DiscoveredAPISettings: func() *AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel {
+				if DiscoveredAPISettingsData, ok := blockData["discovered_api_settings"].(map[string]interface{}); ok {
+					return &AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel{
+						PurgeDurationForInactiveDiscoveredApis: func() types.Int64 {
+							if v, ok := DiscoveredAPISettingsData["purge_duration_for_inactive_discovered_apis"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Enable: func() types.Object {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && !data.BusinessLogicMarkupSetting.Enable.IsUnknown() {
+					return data.BusinessLogicMarkupSetting.Enable
+				}
+				if _, ok := blockData["enable"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if !isImport && (data.Features.IsNull() || len(data.Features.Elements()) == 0) {
+		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["features"].([]interface{}); ok && len(listData) > 0 {
+		var FeaturesList []AppTypeFeaturesModel
+		var existingFeaturesItems []AppTypeFeaturesModel
+		if !data.Features.IsNull() && !data.Features.IsUnknown() {
+			data.Features.ElementsAs(ctx, &existingFeaturesItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				FeaturesList = append(FeaturesList, AppTypeFeaturesModel{
+					Type: func() types.String {
+						if v, ok := itemMap["type"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes}, FeaturesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Features = listVal
+		}
+	} else {
+		data.Features = types.ListNull(types.ObjectType{AttrTypes: AppTypeFeaturesModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

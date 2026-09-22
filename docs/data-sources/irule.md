@@ -60,7 +60,11 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Irule
 
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description for iRule. Specify Description for iRule
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
+
+<a id="irule"></a>&#x2022; [`irule`](#irule) - Optional String<br>Www.internal.example.f5.com')} DNS::drop} irule content
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 

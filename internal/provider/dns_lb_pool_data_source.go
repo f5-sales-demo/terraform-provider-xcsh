@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,20 @@ type DNSLBPoolDataSource struct {
 }
 
 type DNSLBPoolDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                types.String             `tfsdk:"id"`
+	Name              types.String             `tfsdk:"name"`
+	Namespace         types.String             `tfsdk:"namespace"`
+	Description       types.String             `tfsdk:"description"`
+	Labels            types.Map                `tfsdk:"labels"`
+	Annotations       types.Map                `tfsdk:"annotations"`
+	UseRrsetTTL       types.Object             `tfsdk:"use_rrset_ttl"`
+	LoadBalancingMode types.String             `tfsdk:"load_balancing_mode"`
+	TTL               types.Int64              `tfsdk:"ttl"`
+	APool             *DNSLBPoolAPoolModel     `tfsdk:"a_pool"`
+	AaaaPool          *DNSLBPoolAaaaPoolModel  `tfsdk:"aaaa_pool"`
+	CnamePool         *DNSLBPoolCnamePoolModel `tfsdk:"cname_pool"`
+	MxPool            *DNSLBPoolMxPoolModel    `tfsdk:"mx_pool"`
+	SrvPool           *DNSLBPoolSrvPoolModel   `tfsdk:"srv_pool"`
 }
 
 func (d *DNSLBPoolDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +63,8 @@ func (d *DNSLBPoolDataSource) Schema(ctx context.Context, req datasource.SchemaR
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the DNSLBPool exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the DNSLBPool.",
@@ -69,6 +79,255 @@ func (d *DNSLBPoolDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"a_pool": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: a_pool, aaaa_pool, cname_pool, mx_pool, srv_pool] Pool for A Record.",
+				Attributes: map[string]schema.Attribute{
+					"disable_health_check": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable health check.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"health_check": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"max_answers": schema.Int64Attribute{
+						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
+						Computed:            true,
+					},
+					"members": schema.ListNestedAttribute{
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"disable_spec": schema.BoolAttribute{
+									MarkdownDescription: "Value of true will disable the pool-member.",
+									Computed:            true,
+								},
+								"ip_endpoint": schema.StringAttribute{
+									MarkdownDescription: "Public IP. Public IP address.",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "Name. Pool member name.",
+									Computed:            true,
+								},
+								"priority": schema.Int64Attribute{
+									MarkdownDescription: "Used if the pool’s load balancing mode is set to Priority.",
+									Computed:            true,
+								},
+								"ratio": schema.Int64Attribute{
+									MarkdownDescription: "Used if the pool’s load balancing mode is set to Ratio-Member.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"aaaa_pool": schema.SingleNestedAttribute{
+				MarkdownDescription: "Pool for AAAA Record.",
+				Attributes: map[string]schema.Attribute{
+					"max_answers": schema.Int64Attribute{
+						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
+						Computed:            true,
+					},
+					"members": schema.ListNestedAttribute{
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"disable_spec": schema.BoolAttribute{
+									MarkdownDescription: "Value of true will disable the pool-member.",
+									Computed:            true,
+								},
+								"ip_endpoint": schema.StringAttribute{
+									MarkdownDescription: "Public IP. Public IP address.",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "Name. Pool member name.",
+									Computed:            true,
+								},
+								"priority": schema.Int64Attribute{
+									MarkdownDescription: "Used if the pool’s load balancing mode is set to Priority.",
+									Computed:            true,
+								},
+								"ratio": schema.Int64Attribute{
+									MarkdownDescription: "Used if the pool’s load balancing mode is set to Ratio-Member.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"cname_pool": schema.SingleNestedAttribute{
+				MarkdownDescription: "Pool for CNAME Record.",
+				Attributes: map[string]schema.Attribute{
+					"disable_health_check": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable health check.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"health_check": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"members": schema.ListNestedAttribute{
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"domain": schema.StringAttribute{
+									MarkdownDescription: "Specifies the fully qualified domain name.",
+									Computed:            true,
+								},
+								"final_translation": schema.BoolAttribute{
+									MarkdownDescription: "If this flag is true, the CNAME record will not be translated further.",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "Name. Pool member name.",
+									Computed:            true,
+								},
+								"priority": schema.Int64Attribute{
+									MarkdownDescription: "Used if the pool’s load balancing mode is set to Priority. Determines the order in which traffic is routed to pool members. The lower the number, the higher the priority, making those members active while higher-numbered members act as backups.",
+									Computed:            true,
+								},
+								"ratio": schema.Int64Attribute{
+									MarkdownDescription: "Used if the pool’s load balancing mode is set to Ratio-Member.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"mx_pool": schema.SingleNestedAttribute{
+				MarkdownDescription: "Pool for MX Record.",
+				Attributes: map[string]schema.Attribute{
+					"max_answers": schema.Int64Attribute{
+						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
+						Computed:            true,
+					},
+					"members": schema.ListNestedAttribute{
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"domain": schema.StringAttribute{
+									MarkdownDescription: "Domain name for routing and identification.",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "Name. Pool member name.",
+									Computed:            true,
+								},
+								"priority": schema.Int64Attribute{
+									MarkdownDescription: "MX Record Priority. MX Record priority.",
+									Computed:            true,
+								},
+								"ratio": schema.Int64Attribute{
+									MarkdownDescription: "Load Balancing Ratio. Load Balancing Ratio.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"srv_pool": schema.SingleNestedAttribute{
+				MarkdownDescription: "Pool for SRV Record.",
+				Attributes: map[string]schema.Attribute{
+					"max_answers": schema.Int64Attribute{
+						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
+						Computed:            true,
+					},
+					"members": schema.ListNestedAttribute{
+						MarkdownDescription: "Pool Members. Configuration parameter for members",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"final_translation": schema.BoolAttribute{
+									MarkdownDescription: "If this flag is true, the SRV record will not be translated further.",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "Name. Pool member name.",
+									Computed:            true,
+								},
+								"port": schema.Int64Attribute{
+									MarkdownDescription: "Port. Port on which the service can be found.",
+									Computed:            true,
+								},
+								"priority": schema.Int64Attribute{
+									MarkdownDescription: "Priority of the target. A lower number indicates a higher preference.",
+									Computed:            true,
+								},
+								"ratio": schema.Int64Attribute{
+									MarkdownDescription: "Load Balancing Ratio. Configuration parameter for ratio",
+									Computed:            true,
+								},
+								"target": schema.StringAttribute{
+									MarkdownDescription: "Domain name of the machine providing the service.",
+									Computed:            true,
+								},
+								"weight": schema.Int64Attribute{
+									MarkdownDescription: "Weight of the target. A higher number indicates a higher preference.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"use_rrset_ttl": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for use rrset ttl.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"load_balancing_mode": schema.StringAttribute{
+				MarkdownDescription: "[Enum: ROUND_ROBIN|RATIO_MEMBER|STATIC_PERSIST|PRIORITY] - ROUND_ROBIN: Round-Robin Round Robin will ensure random equal distribution of requests among all pool members in a pool. - RATIO_MEMBER: Ratio-Member Ratio-Member performs load balancing of requests across the pool members based on the ratio assigned to each pool member - STATIC_PERSIST.. Possible values are `ROUND_ROBIN`, `RATIO_MEMBER`, `STATIC_PERSIST`, `PRIORITY`. Defaults to `ROUND_ROBIN`.",
+				Computed:            true,
+			},
+			"ttl": schema.Int64Attribute{
+				MarkdownDescription: "[OneOf: ttl, use_rrset_ttl] Exclusive with [use_rrset_ttl] Custom TTL in seconds (default 30) for responses from this pool.",
+				Computed:            true,
 			},
 		},
 	}
@@ -93,7 +352,11 @@ func (d *DNSLBPoolDataSource) Read(ctx context.Context, req datasource.ReadReque
 		return
 	}
 
-	resource, err := d.client.GetDNSLBPool(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetDNSLBPool(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSLBPool: %s", err))
 		return
@@ -101,7 +364,11 @@ func (d *DNSLBPoolDataSource) Read(ctx context.Context, req datasource.ReadReque
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +401,403 @@ func (d *DNSLBPoolDataSource) Read(ctx context.Context, req datasource.ReadReque
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["a_pool"].(map[string]interface{}); ok && (isImport || data.APool != nil) {
+		data.APool = &DNSLBPoolAPoolModel{
+			DisableHealthCheck: func() types.Object {
+				if !isImport && data.APool != nil && !data.APool.DisableHealthCheck.IsUnknown() {
+					return data.APool.DisableHealthCheck
+				}
+				if _, ok := blockData["disable_health_check"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			HealthCheck: func() *DNSLBPoolAPoolHealthCheckModel {
+				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
+					return &DNSLBPoolAPoolHealthCheckModel{
+						Name: func() types.String {
+							if v, ok := HealthCheckData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HealthCheckData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HealthCheckData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			MaxAnswers: func() types.Int64 {
+				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Members: func() types.List {
+				if !isImport && data.APool != nil && (data.APool.Members.IsNull() || len(data.APool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
+				}
+				var MembersExisting []DNSLBPoolAPoolMembersModel
+				if !isImport && data.APool != nil && !data.APool.Members.IsNull() && !data.APool.Members.IsUnknown() {
+					data.APool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
+				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
+					var MembersResult []DNSLBPoolAPoolMembersModel
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
+						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
+							MembersResult = append(MembersResult, DNSLBPoolAPoolMembersModel{
+								DisableSpec: func() types.Bool {
+									if v, ok := MembersItemMap["disable"].(bool); ok {
+										return types.BoolValue(v)
+									}
+									return types.BoolNull()
+								}(),
+								IPEndpoint: func() types.String {
+									if v, ok := MembersItemMap["ip_endpoint"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := MembersItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Priority: func() types.Int64 {
+									if v, ok := MembersItemMap["priority"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Ratio: func() types.Int64 {
+									if v, ok := MembersItemMap["ratio"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["aaaa_pool"].(map[string]interface{}); ok && (isImport || data.AaaaPool != nil) {
+		data.AaaaPool = &DNSLBPoolAaaaPoolModel{
+			MaxAnswers: func() types.Int64 {
+				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Members: func() types.List {
+				if !isImport && data.AaaaPool != nil && (data.AaaaPool.Members.IsNull() || len(data.AaaaPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
+				}
+				var MembersExisting []DNSLBPoolAaaaPoolMembersModel
+				if !isImport && data.AaaaPool != nil && !data.AaaaPool.Members.IsNull() && !data.AaaaPool.Members.IsUnknown() {
+					data.AaaaPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
+				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
+					var MembersResult []DNSLBPoolAaaaPoolMembersModel
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
+						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
+							MembersResult = append(MembersResult, DNSLBPoolAaaaPoolMembersModel{
+								DisableSpec: func() types.Bool {
+									if v, ok := MembersItemMap["disable"].(bool); ok {
+										return types.BoolValue(v)
+									}
+									return types.BoolNull()
+								}(),
+								IPEndpoint: func() types.String {
+									if v, ok := MembersItemMap["ip_endpoint"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := MembersItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Priority: func() types.Int64 {
+									if v, ok := MembersItemMap["priority"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Ratio: func() types.Int64 {
+									if v, ok := MembersItemMap["ratio"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolAaaaPoolMembersModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["cname_pool"].(map[string]interface{}); ok && (isImport || data.CnamePool != nil) {
+		data.CnamePool = &DNSLBPoolCnamePoolModel{
+			DisableHealthCheck: func() types.Object {
+				if !isImport && data.CnamePool != nil && !data.CnamePool.DisableHealthCheck.IsUnknown() {
+					return data.CnamePool.DisableHealthCheck
+				}
+				if _, ok := blockData["disable_health_check"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			HealthCheck: func() *DNSLBPoolCnamePoolHealthCheckModel {
+				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
+					return &DNSLBPoolCnamePoolHealthCheckModel{
+						Name: func() types.String {
+							if v, ok := HealthCheckData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HealthCheckData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HealthCheckData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Members: func() types.List {
+				if !isImport && data.CnamePool != nil && (data.CnamePool.Members.IsNull() || len(data.CnamePool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
+				}
+				var MembersExisting []DNSLBPoolCnamePoolMembersModel
+				if !isImport && data.CnamePool != nil && !data.CnamePool.Members.IsNull() && !data.CnamePool.Members.IsUnknown() {
+					data.CnamePool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
+				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
+					var MembersResult []DNSLBPoolCnamePoolMembersModel
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
+						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
+							MembersResult = append(MembersResult, DNSLBPoolCnamePoolMembersModel{
+								Domain: func() types.String {
+									if v, ok := MembersItemMap["domain"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								FinalTranslation: func() types.Bool {
+									if v, ok := MembersItemMap["final_translation"].(bool); ok {
+										return types.BoolValue(v)
+									}
+									return types.BoolNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := MembersItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Priority: func() types.Int64 {
+									if v, ok := MembersItemMap["priority"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Ratio: func() types.Int64 {
+									if v, ok := MembersItemMap["ratio"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes}, MembersResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolCnamePoolMembersModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["mx_pool"].(map[string]interface{}); ok && (isImport || data.MxPool != nil) {
+		data.MxPool = &DNSLBPoolMxPoolModel{
+			MaxAnswers: func() types.Int64 {
+				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Members: func() types.List {
+				if !isImport && data.MxPool != nil && (data.MxPool.Members.IsNull() || len(data.MxPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
+				}
+				var MembersExisting []DNSLBPoolMxPoolMembersModel
+				if !isImport && data.MxPool != nil && !data.MxPool.Members.IsNull() && !data.MxPool.Members.IsUnknown() {
+					data.MxPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
+				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
+					var MembersResult []DNSLBPoolMxPoolMembersModel
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
+						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
+							MembersResult = append(MembersResult, DNSLBPoolMxPoolMembersModel{
+								Domain: func() types.String {
+									if v, ok := MembersItemMap["domain"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := MembersItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Priority: func() types.Int64 {
+									if v, ok := MembersItemMap["priority"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Ratio: func() types.Int64 {
+									if v, ok := MembersItemMap["ratio"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolMxPoolMembersModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["srv_pool"].(map[string]interface{}); ok && (isImport || data.SrvPool != nil) {
+		data.SrvPool = &DNSLBPoolSrvPoolModel{
+			MaxAnswers: func() types.Int64 {
+				if v, ok := blockData["max_answers"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Members: func() types.List {
+				if !isImport && data.SrvPool != nil && (data.SrvPool.Members.IsNull() || len(data.SrvPool.Members.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
+				}
+				var MembersExisting []DNSLBPoolSrvPoolMembersModel
+				if !isImport && data.SrvPool != nil && !data.SrvPool.Members.IsNull() && !data.SrvPool.Members.IsUnknown() {
+					data.SrvPool.Members.ElementsAs(ctx, &MembersExisting, false)
+				}
+				if rawList, ok := blockData["members"].([]interface{}); ok && len(rawList) > 0 {
+					var MembersResult []DNSLBPoolSrvPoolMembersModel
+					for MembersIdx, MembersItem := range rawList {
+						_ = MembersIdx
+						if MembersItemMap, ok := MembersItem.(map[string]interface{}); ok {
+							MembersResult = append(MembersResult, DNSLBPoolSrvPoolMembersModel{
+								FinalTranslation: func() types.Bool {
+									if v, ok := MembersItemMap["final_translation"].(bool); ok {
+										return types.BoolValue(v)
+									}
+									return types.BoolNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := MembersItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Port: func() types.Int64 {
+									if v, ok := MembersItemMap["port"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Priority: func() types.Int64 {
+									if v, ok := MembersItemMap["priority"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Ratio: func() types.Int64 {
+									if v, ok := MembersItemMap["ratio"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Target: func() types.String {
+									if v, ok := MembersItemMap["target"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Weight: func() types.Int64 {
+									if v, ok := MembersItemMap["weight"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes}, MembersResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLBPoolSrvPoolMembersModelAttrTypes})
+			}(),
+		}
+	}
+	if !isImport && !data.UseRrsetTTL.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_rrset_ttl"].(map[string]interface{}); ok {
+		data.UseRrsetTTL = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseRrsetTTL = types.ObjectNull(map[string]attr.Type{})
+	}
+	if v, ok := apiResource.Spec["load_balancing_mode"].(string); ok && v != "" {
+		data.LoadBalancingMode = types.StringValue(v)
+	} else {
+		data.LoadBalancingMode = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["ttl"].(float64); ok {
+		data.TTL = types.Int64Value(int64(v))
+	} else {
+		data.TTL = types.Int64Null()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

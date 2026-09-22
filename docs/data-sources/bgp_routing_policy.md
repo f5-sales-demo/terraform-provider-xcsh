@@ -64,6 +64,86 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>BGP Routing policy is composed of one or more rules. Note that the order of rules is critical as rules are applied top to bottom
+
+---
+
+#### Rules
+
+A [`rules`](#rules) block supports the following:
+
+<a id="nestedatt--rules-action"></a>&#x2022; [`action`](#nestedatt--rules-action) - Optional String<br>Action to be enforced if the BGP route matches the rule
+
+<a id="nestedatt--rules-match"></a>&#x2022; [`match`](#nestedatt--rules-match) - Optional String<br>Predicates which have to match information in route for action to be applied
+
+#### Rules Action
+
+An [`action`](#rules-action) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules--action-allow"></a>&#x2022; [`allow`](#nestedatt--rules--action-allow) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules--action-as-path"></a>&#x2022; [`as_path`](#nestedatt--rules--action-as-path) - Optional String<br>AS-Path Prepending is generally used to influence incoming traffic
+
+<a id="nestedatt--rules--action-community"></a>&#x2022; [`community`](#nestedatt--rules--action-community) - Optional String<br>BGP Community list. List of BGP communities
+
+<a id="nestedatt--rules--action-deny"></a>&#x2022; [`deny`](#nestedatt--rules--action-deny) - Optional Object<br>Enable this option
+
+<a id="preference-5fb01c"></a>&#x2022; [`local_preference`](#preference-5fb01c) - Optional Number<br>BGP Local Preference is generally used to influence outgoing traffic
+
+<a id="nestedatt--rules--action-metric"></a>&#x2022; [`metric`](#nestedatt--rules--action-metric) - Optional Number<br>The Multi-Exit Discriminator metric to indicate the preferred path to AS
+
+#### Rules Action Community
+
+A [`community`](#rules-action-community) block (within [`rules.action`](#rules-action)) supports the following:
+
+<a id="community-25a456"></a>&#x2022; [`community`](#community-25a456) - Optional List<br>Unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value
+
+#### Rules Match
+
+A [`match`](#rules-match) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules--match-as-path"></a>&#x2022; [`as_path`](#nestedatt--rules--match-as-path) - Optional String<br>AS path can also be a regex, which will be matched against route information
+
+<a id="nestedatt--rules--match-community"></a>&#x2022; [`community`](#nestedatt--rules--match-community) - Optional String<br>BGP Community list. List of BGP communities
+
+<a id="nestedatt--rules--match-ip-prefixes"></a>&#x2022; [`ip_prefixes`](#nestedatt--rules--match-ip-prefixes) - Optional String<br>List of IP prefix and prefix length range match condition
+
+#### Rules Match Community
+
+A [`community`](#rules-match-community) block (within [`rules.match`](#rules-match)) supports the following:
+
+<a id="community-e27a74"></a>&#x2022; [`community`](#community-e27a74) - Optional List<br>Unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value
+
+#### Rules Match IP Prefixes
+
+An [`ip_prefixes`](#rules-match-ip-prefixes) block (within [`rules.match`](#rules-match)) supports the following:
+
+<a id="prefixes-addb72"></a>&#x2022; [`prefixes`](#prefixes-addb72) - Optional List<br>Prefix list. List of IP prefix
+
+#### Rules Match IP Prefixes Prefixes
+
+A [`prefixes`](#rules-match-ip-prefixes-prefixes) block (within [`rules.match.ip_prefixes`](#rules-match-ip-prefixes)) supports the following:
+
+<a id="than-93a2a1"></a>&#x2022; [`equal_or_longer_than`](#than-93a2a1) - Optional Object<br>Configuration parameter for equal or longer than
+
+<a id="match-3705a8"></a>&#x2022; [`exact_match`](#match-3705a8) - Optional Object<br>Configuration parameter for exact match
+
+<a id="prefixes-deeb6f"></a>&#x2022; [`ip_prefixes`](#prefixes-deeb6f) - Optional String<br>IP Prefix. IP prefix to match on BGP route
+
+<a id="than-16ab6d"></a>&#x2022; [`longer_than`](#than-16ab6d) - Optional Object<br>Configuration parameter for longer than
+
+#### Rules Match IP Prefixes Prefixes Equal Or Longer Than
+
+<a id="deep-612dd6"></a>Deeply nested **Than** block collapsed for readability.
+
+#### Rules Match IP Prefixes Prefixes Exact Match
+
+An [`exact_match`](#rules-match-ip-prefixes-prefixes-exact-match) block (within [`rules.match.ip_prefixes.prefixes`](#rules-match-ip-prefixes-prefixes)) supports the following:
+
+#### Rules Match IP Prefixes Prefixes Longer Than
+
+A [`longer_than`](#rules-match-ip-prefixes-prefixes-longer-than) block (within [`rules.match.ip_prefixes.prefixes`](#rules-match-ip-prefixes-prefixes)) supports the following:
+
 ---
 
 ## Common Types

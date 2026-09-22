@@ -64,6 +64,161 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="notification-parameters"></a>&#x2022; [`notification_parameters`](#notification-parameters) - Optional String  Defaults to `null`<br>Set of notification parameters to decide how and when the alert notifications should be sent to the receivers
+
+<a id="receivers"></a>&#x2022; [`receivers`](#receivers) - Optional List<br>List of Alert Receivers where the alerts will be sent
+
+<a id="routes"></a>&#x2022; [`routes`](#routes) - Optional List<br>Set of routes to match the incoming alert. The routes are evaluated in the specified order and terminates on the first match
+
+<a id="custom"></a>&#x2022; [`custom`](#custom) - Optional String<br>Specify list of custom labels to group/aggregate the alerts
+
+<a id="default"></a>&#x2022; [`default`](#default) - Optional Object<br>Enable this option
+
+<a id="group-interval"></a>&#x2022; [`group_interval`](#group-interval) - Optional String<br>Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval
+
+<a id="group-wait"></a>&#x2022; [`group_wait`](#group-wait) - Optional String<br>Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to '30s'
+
+<a id="individual"></a>&#x2022; [`individual`](#individual) - Optional Object<br>Enable this option
+
+<a id="repeat-interval"></a>&#x2022; [`repeat_interval`](#repeat-interval) - Optional String<br>Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to '4h'
+
+<a id="ves-io-group"></a>&#x2022; [`ves_io_group`](#ves-io-group) - Optional Object<br>Configuration parameter for ves io group
+
+<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional List<br>Name of labels to group/aggregate the alerts
+
+---
+
+#### Receivers
+
+A [`receivers`](#receivers) block supports the following:
+
+<a id="nestedatt--receivers-kind"></a>&#x2022; [`kind`](#nestedatt--receivers-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--receivers-name"></a>&#x2022; [`name`](#nestedatt--receivers-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--receivers-namespace"></a>&#x2022; [`namespace`](#nestedatt--receivers-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--receivers-tenant"></a>&#x2022; [`tenant`](#nestedatt--receivers-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--receivers-uid"></a>&#x2022; [`uid`](#nestedatt--receivers-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Routes
+
+A [`routes`](#routes) block supports the following:
+
+<a id="nestedatt--routes-alertname"></a>&#x2022; [`alertname`](#nestedatt--routes-alertname) - Optional String  Defaults to `SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN`<br>Possible values are `SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN`, `SITE_PHYSICAL_INTERFACE_DOWN`, `TUNNELS_TO_CUSTOMER_SITE_DOWN`, `SERVICE_SERVER_ERROR`, `SERVICE_CLIENT_ERROR`, `SERVICE_HEALTH_LOW`, `SERVICE_UNAVAILABLE`,
+`SERVICE_SERVER_ERROR_PER_SOURCE_SITE`, `SERVICE_CLIENT_ERROR_PER_SOURCE_SITE`, `SERVICE_ENDPOINT_HEALTHCHECK_FAILURE`, `SYNTHETIC_MONITOR_HEALTH_CRITICAL`, `MALICIOUS_USER_DETECTED`, `WAF_TOO_MANY_ATTACKS`, `API_SECURITY_TOO_MANY_ATTACKS`, `SERVICE_POLICY_TOO_MANY_ATTACKS`, `WAF_TOO_MANY_MALICIOUS_BOTS`, `BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS`, `THREAT_CAMPAIGN`,
+`VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN`, `VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ`, `TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE`, `TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING`, `TLS_AUTOMATIC_CERTIFICATE_EXPIRED`, `TLS_CUSTOM_CERTIFICATE_EXPIRING`, `TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON`, `TLS_CUSTOM_CERTIFICATE_EXPIRED`, `L7DDOS`, `DNS_ZONE_IGNORED_DUPLICATE_RECORD`,
+`API_SECURITY_UNUSED_API_DETECTED`, `API_SECURITY_SHADOW_API_DETECTED`, `API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED`, `API_SECURITY_RISK_SCORE_HIGH_DETECTED`, `ROUTED_DDOS_ALERT_NOTIFICATION`, `ROUTED_DDOS_MITIGATION_NOTIFICATION`, `ROUTED_DDOS_TUNNEL_STATUS_UPDATE_NOTIFICATION`<br>[Enum:
+SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN|SITE_PHYSICAL_INTERFACE_DOWN|TUNNELS_TO_CUSTOMER_SITE_DOWN|SERVICE_SERVER_ERROR|SERVICE_CLIENT_ERROR|SERVICE_HEALTH_LOW|SERVICE_UNAVAILABLE|SERVICE_SERVER_ERROR_PER_SOURCE_SITE|SERVICE_CLIENT_ERROR_PER_SOURCE_SITE|SERVICE_ENDPOINT_HEALTHCHECK_FAILURE|SYNTHETIC_MONITOR_HEALTH_CRITICAL|MALICIOUS_USER_DETECTED|WAF_TOO_MANY_ATTACKS|API_SECURITY_TOO_MANY_ATTACKS|SERVICE_POLICY_TOO_MANY_ATTACKS|WAF_TOO_MANY_MALICIOUS_BOTS|BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS|THREAT_CAMPAIGN|VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN|VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ|TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE|TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING|TLS_AUTOMATIC_CERTIFICATE_EXPIRED|TLS_CUSTOM_CERTIFICATE_EXPIRING|TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON|TLS_CUSTOM_CERTIFICATE_EXPIRED|L7DDOS|DNS_ZONE_IGNORED_DUPLICATE_RECORD|API_SECURITY_UNUSED_API_DETECTED|API_SECURITY_SHADOW_API_DETECTED|API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED|API_SECURITY_RISK_SCORE_HIGH_DETECTED|ROUTED_DDOS_ALERT_NOTIFICATION|ROUTED_DDOS_MITIGATION_NOTIFICATION|ROUTED_DDOS_TUNNEL_STATUS_UPDATE_NOTIFICATION]
+List of Alert Names Customer tunnel interface down Physical Interface down Tunnel Interfaces to Customer Site Down Virtual Host server error Virtual Host client error Service Health Low Service Unavailable Virtual Host server error Virtual Host client error Endpoint Healthcheck failure Synthetic
+
+<a id="nestedatt--routes-alertname-regex"></a>&#x2022; [`alertname_regex`](#nestedatt--routes-alertname-regex) - Optional String<br>Regular Expression match for the alertname
+
+<a id="nestedatt--routes-any"></a>&#x2022; [`any`](#nestedatt--routes-any) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes-custom"></a>&#x2022; [`custom`](#nestedatt--routes-custom) - Optional String<br>Set of matchers an alert has to fulfill to match the route
+
+<a id="nestedatt--routes-dont-send"></a>&#x2022; [`dont_send`](#nestedatt--routes-dont-send) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes-group"></a>&#x2022; [`group`](#nestedatt--routes-group) - Optional String<br>Select one or more known group names to match the incoming alert
+
+<a id="parameters-2e235b"></a>&#x2022; [`notification_parameters`](#parameters-2e235b) - Optional String<br>Set of notification parameters to decide how and when the alert notifications should be sent to the receivers
+
+<a id="nestedatt--routes-send"></a>&#x2022; [`send`](#nestedatt--routes-send) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes-severity"></a>&#x2022; [`severity`](#nestedatt--routes-severity) - Optional String<br>Select one or more severity levels to match the incoming alert
+
+#### Routes Custom
+
+A [`custom`](#routes-custom) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--custom-alertlabel"></a>&#x2022; [`alertlabel`](#nestedatt--routes--custom-alertlabel) - Optional String<br>AlertLabel to configure the alert policy rule
+
+<a id="nestedatt--routes--custom-alertname"></a>&#x2022; [`alertname`](#nestedatt--routes--custom-alertname) - Optional String<br>Label Matcher
+
+<a id="nestedatt--routes--custom-group"></a>&#x2022; [`group`](#nestedatt--routes--custom-group) - Optional String<br>Label Matcher
+
+<a id="nestedatt--routes--custom-severity"></a>&#x2022; [`severity`](#nestedatt--routes--custom-severity) - Optional String<br>Label Matcher
+
+#### Routes Custom Alertname
+
+An [`alertname`](#routes-custom-alertname) block (within [`routes.custom`](#routes-custom)) supports the following:
+
+<a id="match-dcfd5e"></a>&#x2022; [`exact_match`](#match-dcfd5e) - Optional String<br>Equality match value for the label
+
+<a id="match-e9f616"></a>&#x2022; [`regex_match`](#match-e9f616) - Optional String<br>Regular expression match value for the label
+
+#### Routes Custom Group
+
+A [`group`](#routes-custom-group) block (within [`routes.custom`](#routes-custom)) supports the following:
+
+<a id="match-2011f7"></a>&#x2022; [`exact_match`](#match-2011f7) - Optional String<br>Equality match value for the label
+
+<a id="match-80757f"></a>&#x2022; [`regex_match`](#match-80757f) - Optional String<br>Regular expression match value for the label
+
+#### Routes Custom Severity
+
+A [`severity`](#routes-custom-severity) block (within [`routes.custom`](#routes-custom)) supports the following:
+
+<a id="match-452da3"></a>&#x2022; [`exact_match`](#match-452da3) - Optional String<br>Equality match value for the label
+
+<a id="match-ae9428"></a>&#x2022; [`regex_match`](#match-ae9428) - Optional String<br>Regular expression match value for the label
+
+#### Routes Dont Send
+
+A [`dont_send`](#routes-dont-send) block (within [`routes`](#routes)) supports the following:
+
+#### Routes Group
+
+A [`group`](#routes-group) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--group-groups"></a>&#x2022; [`groups`](#nestedatt--routes--group-groups) - Optional List  Defaults to `INFRASTRUCTURE`<br>Possible values are `INFRASTRUCTURE`, `IAAS_CAAS`, `VIRTUAL_HOST`, `VOLT_SHARE`, `UAM`, `SECURITY`, `TIMESERIES_ANOMALY`, `SHAPE_SECURITY`, `SECURITY_CSD`, `CDN`, `SYNTHETIC_MONITORS`, `TLS`, `SECURITY_BOT_DEFENSE`, `CLOUD_LINK`, `DNS`,
+`ROUTED_DDOS`<br>[Enum: INFRASTRUCTURE|IAAS_CAAS|VIRTUAL_HOST|VOLT_SHARE|UAM|SECURITY|TIMESERIES_ANOMALY|SHAPE_SECURITY|SECURITY_CSD|CDN|SYNTHETIC_MONITORS|TLS|SECURITY_BOT_DEFENSE|CLOUD_LINK|DNS|ROUTED_DDOS] Groups. Name of groups to match the alert
+
+#### Routes Notification Parameters
+
+A [`notification_parameters`](#routes-notification-parameters) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--group-custom"></a>&#x2022; [`custom`](#nestedatt--routes--group-custom) - Optional String<br>Specify list of custom labels to group/aggregate the alerts
+
+<a id="nestedatt--routes--group-default"></a>&#x2022; [`default`](#nestedatt--routes--group-default) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes--group-group-interval"></a>&#x2022; [`group_interval`](#nestedatt--routes--group-group-interval) - Optional String<br>Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days
+If not specified, group_interval
+
+<a id="nestedatt--routes--group-group-wait"></a>&#x2022; [`group_wait`](#nestedatt--routes--group-group-wait) - Optional String<br>Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to '30s'
+
+<a id="nestedatt--routes--group-individual"></a>&#x2022; [`individual`](#nestedatt--routes--group-individual) - Optional Object<br>Enable this option
+
+<a id="interval-917c0f"></a>&#x2022; [`repeat_interval`](#interval-917c0f) - Optional String<br>Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to '4h'
+
+<a id="nestedatt--routes--group-ves-io-group"></a>&#x2022; [`ves_io_group`](#nestedatt--routes--group-ves-io-group) - Optional Object<br>Configuration parameter for ves io group
+
+#### Routes Notification Parameters Custom
+
+A [`custom`](#routes-notification-parameters-custom) block (within [`routes.notification_parameters`](#routes-notification-parameters)) supports the following:
+
+<a id="nestedatt--routes--group-labels"></a>&#x2022; [`labels`](#nestedatt--routes--group-labels) - Optional List<br>Name of labels to group/aggregate the alerts
+
+#### Routes Notification Parameters Default
+
+A [`default`](#routes-notification-parameters-default) block (within [`routes.notification_parameters`](#routes-notification-parameters)) supports the following:
+
+#### Routes Notification Parameters Individual
+
+An [`individual`](#routes-notification-parameters-individual) block (within [`routes.notification_parameters`](#routes-notification-parameters)) supports the following:
+
+#### Routes Notification Parameters Ves Io Group
+
+A [`ves_io_group`](#routes-notification-parameters-ves-io-group) block (within [`routes.notification_parameters`](#routes-notification-parameters)) supports the following:
+
+#### Routes Severity
+
+A [`severity`](#routes-severity) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--severity-severities"></a>&#x2022; [`severities`](#nestedatt--routes--severity-severities) - Optional List  Defaults to `MINOR`<br>Possible values are `MINOR`, `MAJOR`, `CRITICAL`<br>[Enum: MINOR|MAJOR|CRITICAL] Severities. List of severity levels
+
 ---
 
 ## Common Types

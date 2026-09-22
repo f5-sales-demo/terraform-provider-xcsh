@@ -81,13 +81,33 @@ spec:
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="action"></a>&#x2022; [`action`](#action) - Optional String  Defaults to `ALLOW`<br>Possible values are `ALLOW`, `DENY`, `DROP`<br>[Enum: ALLOW|DENY|DROP] Action after inspection - ALLOW: Allow Allow traffic - DENY: Deny Throw RST error for TCP and ICMP error for UDP - DROP: DROP Silently drop traffic.   Server applies default when omitted
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the ProtocolInspection
 
+<a id="enable-disable-compliance-checks"></a>&#x2022; [`enable_disable_compliance_checks`](#enable-disable-compliance-checks) - Optional String<br>Enable Disable Compliance Checks Choice
+
+<a id="enable-disable-signatures"></a>&#x2022; [`enable_disable_signatures`](#enable-disable-signatures) - Optional String<br>Configuration parameter for enable disable signatures
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="disable-compliance-checks"></a>&#x2022; [`disable_compliance_checks`](#disable-compliance-checks) - Optional Object<br>Configuration parameter for disable compliance checks
+
+<a id="enable-compliance-checks"></a>&#x2022; [`enable_compliance_checks`](#enable-compliance-checks) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="disable-signature"></a>&#x2022; [`disable_signature`](#disable-signature) - Optional Object<br>Configuration parameter for disable signature
+
+<a id="enable-signature"></a>&#x2022; [`enable_signature`](#enable-signature) - Optional Object<br>Configuration parameter for enable signature
 
 ---
 

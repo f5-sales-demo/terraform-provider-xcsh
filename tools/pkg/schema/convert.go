@@ -356,6 +356,7 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		MaxLength:             schema.XOriginalMaxLength,
 		Immutable:             schema.XFieldMutability == "immutable" || schema.XFieldMutability == "create-only",
 		Sensitive:             schema.XF5XCSensitive,
+		WriteOnly:             schema.XFieldMutability == "write-only",
 	}
 
 	// Apply x-f5xc-constraints when confidence/determinism thresholds are met

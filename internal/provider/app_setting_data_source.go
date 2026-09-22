@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,13 @@ type AppSettingDataSource struct {
 }
 
 type AppSettingDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID              types.String `tfsdk:"id"`
+	Name            types.String `tfsdk:"name"`
+	Namespace       types.String `tfsdk:"namespace"`
+	Description     types.String `tfsdk:"description"`
+	Labels          types.Map    `tfsdk:"labels"`
+	Annotations     types.Map    `tfsdk:"annotations"`
+	AppTypeSettings types.List   `tfsdk:"app_type_settings"`
 }
 
 func (d *AppSettingDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,228 @@ func (d *AppSettingDataSource) Schema(ctx context.Context, req datasource.Schema
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"app_type_settings": schema.ListNestedAttribute{
+				MarkdownDescription: "List of settings to enable for each AppType, given instance of AppType Exist in this Namespace.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"app_type_ref": schema.ListNestedAttribute{
+							MarkdownDescription: "The AppType of App instance in current Namespace. Associating an AppType reference, will enable analysis on this instance's generated data.",
+							NestedObject: schema.NestedAttributeObject{
+								Attributes: map[string]schema.Attribute{
+									"kind": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+										Computed:            true,
+									},
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Computed:            true,
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Computed:            true,
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+									},
+									"uid": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+										Computed:            true,
+									},
+								},
+							},
+							Computed: true,
+						},
+						"business_logic_markup_setting": schema.SingleNestedAttribute{
+							MarkdownDescription: "Settings specifying how API Discovery will be performed.",
+							Attributes: map[string]schema.Attribute{
+								"disable_spec": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"enable": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
+							Computed: true,
+						},
+						"timeseries_analyses_setting": schema.SingleNestedAttribute{
+							MarkdownDescription: "Configuration parameter for timeseries analyses setting.",
+							Attributes: map[string]schema.Attribute{
+								"metric_selectors": schema.ListNestedAttribute{
+									MarkdownDescription: "Define the metric selection criteria, i.e. The metrics source and the actual metrics that should be included in the detection logic.",
+									NestedObject: schema.NestedAttributeObject{
+										Attributes: map[string]schema.Attribute{
+											"metric": schema.ListAttribute{
+												MarkdownDescription: "[Enum: NO_METRICS|REQUEST_RATE|ERROR_RATE|LATENCY|THROUGHPUT] Choose one or more metrics to be included in the detection logic. Possible values are `NO_METRICS`, `REQUEST_RATE`, `ERROR_RATE`, `LATENCY`, `THROUGHPUT`. Defaults to `NO_METRICS`.",
+												Computed:            true,
+												ElementType:         types.StringType,
+											},
+											"metrics_source": schema.StringAttribute{
+												MarkdownDescription: "[Enum: NONE|NODES|EDGES|VIRTUAL_HOSTS] Supported sources from which Metrics can be analyzed All edges in the service mesh graph. Metrics are analyzed separately between all source and destination service combinations. Possible values are `NONE`, `NODES`, `EDGES`, `VIRTUAL_HOSTS`.",
+												Computed:            true,
+											},
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+						"user_behavior_analysis_setting": schema.SingleNestedAttribute{
+							MarkdownDescription: "Configuration for user behavior analysis.",
+							Attributes: map[string]schema.Attribute{
+								"disable_detection": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for disable detection.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"disable_learning": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for disable learning.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"enable_detection": schema.SingleNestedAttribute{
+									MarkdownDescription: "Various factors about user activity are monitored and analysed to determine malicious users. These settings allow tuning those factors used by the system to detect malicious users.",
+									Attributes: map[string]schema.Attribute{
+										"bola_detection_automatic": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for bola detection automatic.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"cooling_off_period": schema.Int64Attribute{
+											MarkdownDescription: "Exclusive with [] Malicious user detection assigns a threat level to each user based on their activity. Once a threat level is assigned, the system continues tracking activity from this user and if no further malicious activity is seen, it gradually reduces the threat assessment to lower levels..",
+											Computed:            true,
+										},
+										"exclude_bola_detection": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for exclude bola detection.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"exclude_bot_defense_activity": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for exclude bot defense activity.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"exclude_failed_login_activity": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for exclude failed login activity.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"exclude_forbidden_activity": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for exclude forbidden activity.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"exclude_ip_reputation": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"exclude_non_existent_url_activity": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"exclude_rate_limit": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for exclude rate limit.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"exclude_waf_activity": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for exclude waf activity.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"include_bot_defense_activity": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for include bot defense activity.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"include_failed_login_activity": schema.SingleNestedAttribute{
+											MarkdownDescription: "When enabled, the system monitors persistent failed login attempts from a user. A failed login is detected if a request results in a response code of 401. These settings specify how to use failed login activity to determine suspicious behavior.",
+											Attributes: map[string]schema.Attribute{
+												"login_failures_threshold": schema.Int64Attribute{
+													MarkdownDescription: "The number of failed logins beyond which the system will flag this user as malicious.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"include_forbidden_activity": schema.SingleNestedAttribute{
+											MarkdownDescription: "When L7 policy rules are set up to disallow certain types of requests, the system monitors persistent attempts from a user to send requests which result in policy denies. These settings specify how to use disallowed request activity from a user to determine suspicious behavior.",
+											Attributes: map[string]schema.Attribute{
+												"forbidden_requests_threshold": schema.Int64Attribute{
+													MarkdownDescription: "The number of forbidden requests beyond which the system will flag this user as malicious.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"include_ip_reputation": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"include_non_existent_url_activity_automatic": schema.SingleNestedAttribute{
+											MarkdownDescription: "Non-existent URL Automatic Activity Settings.",
+											Attributes: map[string]schema.Attribute{
+												"high": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"low": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"medium": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Computed: true,
+										},
+										"include_non_existent_url_activity_custom": schema.SingleNestedAttribute{
+											MarkdownDescription: "Non-existent URL Custom Activity Setting.",
+											Attributes: map[string]schema.Attribute{
+												"nonexistent_requests_threshold": schema.Int64Attribute{
+													MarkdownDescription: "The percentage of non-existent requests beyond which the system will flag this user as malicious.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"include_rate_limit": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for include rate limit.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"include_waf_activity": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for include waf activity.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+									Computed: true,
+								},
+								"enable_learning": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for enable learning.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
+							Computed: true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +317,8 @@ func (d *AppSettingDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		return
 	}
 
-	resource, err := d.client.GetAppSetting(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAppSetting(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AppSetting: %s", err))
 		return
@@ -101,7 +326,11 @@ func (d *AppSettingDataSource) Read(ctx context.Context, req datasource.ReadRequ
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +363,394 @@ func (d *AppSettingDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.AppTypeSettings.IsNull() || len(data.AppTypeSettings.Elements()) == 0) {
+		data.AppTypeSettings = types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["app_type_settings"].([]interface{}); ok && len(listData) > 0 {
+		var AppTypeSettingsList []AppSettingAppTypeSettingsModel
+		var existingAppTypeSettingsItems []AppSettingAppTypeSettingsModel
+		if !data.AppTypeSettings.IsNull() && !data.AppTypeSettings.IsUnknown() {
+			data.AppTypeSettings.ElementsAs(ctx, &existingAppTypeSettingsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				AppTypeSettingsList = append(AppTypeSettingsList, AppSettingAppTypeSettingsModel{
+					AppTypeRef: func() types.List {
+						if !isImport && len(existingAppTypeSettingsItems) > listIdx && (existingAppTypeSettingsItems[listIdx].AppTypeRef.IsNull() || len(existingAppTypeSettingsItems[listIdx].AppTypeRef.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsAppTypeRefModelAttrTypes})
+						}
+						var AppTypeRefExisting []AppSettingAppTypeSettingsAppTypeRefModel
+						if !isImport && len(existingAppTypeSettingsItems) > listIdx && !existingAppTypeSettingsItems[listIdx].AppTypeRef.IsNull() && !existingAppTypeSettingsItems[listIdx].AppTypeRef.IsUnknown() {
+							existingAppTypeSettingsItems[listIdx].AppTypeRef.ElementsAs(ctx, &AppTypeRefExisting, false)
+						}
+						if rawList, ok := itemMap["app_type_ref"].([]interface{}); ok && len(rawList) > 0 {
+							var AppTypeRefResult []AppSettingAppTypeSettingsAppTypeRefModel
+							for AppTypeRefIdx, AppTypeRefItem := range rawList {
+								_ = AppTypeRefIdx
+								if AppTypeRefItemMap, ok := AppTypeRefItem.(map[string]interface{}); ok {
+									AppTypeRefResult = append(AppTypeRefResult, AppSettingAppTypeSettingsAppTypeRefModel{
+										Kind: func() types.String {
+											if v, ok := AppTypeRefItemMap["kind"].(string); ok && v != "" {
+												return types.StringValue(v)
+											}
+											return types.StringNull()
+										}(),
+										Name: func() types.String {
+											if v, ok := AppTypeRefItemMap["name"].(string); ok && v != "" {
+												return types.StringValue(v)
+											}
+											return types.StringNull()
+										}(),
+										Namespace: func() types.String {
+											if v, ok := AppTypeRefItemMap["namespace"].(string); ok && v != "" {
+												return types.StringValue(v)
+											}
+											return types.StringNull()
+										}(),
+										Tenant: func() types.String {
+											if v, ok := AppTypeRefItemMap["tenant"].(string); ok && v != "" {
+												return types.StringValue(v)
+											}
+											return types.StringNull()
+										}(),
+										Uid: func() types.String {
+											if v, ok := AppTypeRefItemMap["uid"].(string); ok && v != "" {
+												return types.StringValue(v)
+											}
+											return types.StringNull()
+										}(),
+									})
+								}
+							}
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppSettingAppTypeSettingsAppTypeRefModelAttrTypes}, AppTypeRefResult)
+							return listVal
+						}
+						return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsAppTypeRefModelAttrTypes})
+					}(),
+					BusinessLogicMarkupSetting: func() *AppSettingAppTypeSettingsBusinessLogicMarkupSettingModel {
+						if BusinessLogicMarkupSettingData, ok := itemMap["business_logic_markup_setting"].(map[string]interface{}); ok {
+							return &AppSettingAppTypeSettingsBusinessLogicMarkupSettingModel{
+								DisableSpec: func() types.Object {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting != nil && !existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.DisableSpec.IsUnknown() {
+										return existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.DisableSpec
+									}
+									if _, ok := BusinessLogicMarkupSettingData["disable"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Enable: func() types.Object {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting != nil && !existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.Enable.IsUnknown() {
+										return existingAppTypeSettingsItems[listIdx].BusinessLogicMarkupSetting.Enable
+									}
+									if _, ok := BusinessLogicMarkupSettingData["enable"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+							}
+						}
+						return nil
+					}(),
+					TimeseriesAnalysesSetting: func() *AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel {
+						if TimeseriesAnalysesSettingData, ok := itemMap["timeseries_analyses_setting"].(map[string]interface{}); ok {
+							return &AppSettingAppTypeSettingsTimeseriesAnalysesSettingModel{
+								MetricSelectors: func() types.List {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting != nil && (existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsNull() || len(existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes})
+									}
+									var MetricSelectorsExisting []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting != nil && !existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsNull() && !existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.IsUnknown() {
+										existingAppTypeSettingsItems[listIdx].TimeseriesAnalysesSetting.MetricSelectors.ElementsAs(ctx, &MetricSelectorsExisting, false)
+									}
+									if rawList, ok := TimeseriesAnalysesSettingData["metric_selectors"].([]interface{}); ok && len(rawList) > 0 {
+										var MetricSelectorsResult []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
+										for MetricSelectorsIdx, MetricSelectorsItem := range rawList {
+											_ = MetricSelectorsIdx
+											if MetricSelectorsItemMap, ok := MetricSelectorsItem.(map[string]interface{}); ok {
+												MetricSelectorsResult = append(MetricSelectorsResult, AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel{
+													Metric: func() types.List {
+														if v, ok := MetricSelectorsItemMap["metric"].([]interface{}); ok && len(v) > 0 {
+															var items []string
+															for _, item := range v {
+																if s, ok := item.(string); ok {
+																	items = append(items, s)
+																}
+															}
+															listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+															resp.Diagnostics.Append(diags...)
+															return listVal
+														}
+														return types.ListNull(types.StringType)
+													}(),
+													MetricsSource: func() types.String {
+														if v, ok := MetricSelectorsItemMap["metrics_source"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes}, MetricSelectorsResult)
+										return listVal
+									}
+									return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModelAttrTypes})
+								}(),
+							}
+						}
+						return nil
+					}(),
+					UserBehaviorAnalysisSetting: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingModel {
+						if UserBehaviorAnalysisSettingData, ok := itemMap["user_behavior_analysis_setting"].(map[string]interface{}); ok {
+							return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingModel{
+								DisableDetection: func() types.Object {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableDetection.IsUnknown() {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableDetection
+									}
+									if _, ok := UserBehaviorAnalysisSettingData["disable_detection"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								DisableLearning: func() types.Object {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableLearning.IsUnknown() {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.DisableLearning
+									}
+									if _, ok := UserBehaviorAnalysisSettingData["disable_learning"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								EnableDetection: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionModel {
+									if EnableDetectionData, ok := UserBehaviorAnalysisSettingData["enable_detection"].(map[string]interface{}); ok {
+										return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionModel{
+											BolaDetectionAutomatic: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.BolaDetectionAutomatic.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.BolaDetectionAutomatic
+												}
+												if _, ok := EnableDetectionData["bola_detection_automatic"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											CoolingOffPeriod: func() types.Int64 {
+												if v, ok := EnableDetectionData["cooling_off_period"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											ExcludeBolaDetection: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBolaDetection.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBolaDetection
+												}
+												if _, ok := EnableDetectionData["exclude_bola_detection"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											ExcludeBotDefenseActivity: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBotDefenseActivity.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeBotDefenseActivity
+												}
+												if _, ok := EnableDetectionData["exclude_bot_defense_activity"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											ExcludeFailedLoginActivity: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeFailedLoginActivity.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeFailedLoginActivity
+												}
+												if _, ok := EnableDetectionData["exclude_failed_login_activity"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											ExcludeForbiddenActivity: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeForbiddenActivity.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeForbiddenActivity
+												}
+												if _, ok := EnableDetectionData["exclude_forbidden_activity"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											ExcludeIPReputation: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeIPReputation.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeIPReputation
+												}
+												if _, ok := EnableDetectionData["exclude_ip_reputation"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											ExcludeNonExistentURLActivity: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeNonExistentURLActivity.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeNonExistentURLActivity
+												}
+												if _, ok := EnableDetectionData["exclude_non_existent_url_activity"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											ExcludeRateLimit: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeRateLimit.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeRateLimit
+												}
+												if _, ok := EnableDetectionData["exclude_rate_limit"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											ExcludeWAFActivity: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeWAFActivity.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.ExcludeWAFActivity
+												}
+												if _, ok := EnableDetectionData["exclude_waf_activity"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											IncludeBotDefenseActivity: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeBotDefenseActivity.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeBotDefenseActivity
+												}
+												if _, ok := EnableDetectionData["include_bot_defense_activity"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											IncludeFailedLoginActivity: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityModel {
+												if IncludeFailedLoginActivityData, ok := EnableDetectionData["include_failed_login_activity"].(map[string]interface{}); ok {
+													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityModel{
+														LoginFailuresThreshold: func() types.Int64 {
+															if v, ok := IncludeFailedLoginActivityData["login_failures_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IncludeForbiddenActivity: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityModel {
+												if IncludeForbiddenActivityData, ok := EnableDetectionData["include_forbidden_activity"].(map[string]interface{}); ok {
+													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityModel{
+														ForbiddenRequestsThreshold: func() types.Int64 {
+															if v, ok := IncludeForbiddenActivityData["forbidden_requests_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IncludeIPReputation: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeIPReputation.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeIPReputation
+												}
+												if _, ok := EnableDetectionData["include_ip_reputation"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											IncludeNonExistentURLActivityAutomatic: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticModel {
+												if IncludeNonExistentURLActivityAutomaticData, ok := EnableDetectionData["include_non_existent_url_activity_automatic"].(map[string]interface{}); ok {
+													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticModel{
+														High: func() types.Object {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.High.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.High
+															}
+															if _, ok := IncludeNonExistentURLActivityAutomaticData["high"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Low: func() types.Object {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Low.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Low
+															}
+															if _, ok := IncludeNonExistentURLActivityAutomaticData["low"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Medium: func() types.Object {
+															if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Medium.IsUnknown() {
+																return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Medium
+															}
+															if _, ok := IncludeNonExistentURLActivityAutomaticData["medium"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IncludeNonExistentURLActivityCustom: func() *AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomModel {
+												if IncludeNonExistentURLActivityCustomData, ok := EnableDetectionData["include_non_existent_url_activity_custom"].(map[string]interface{}); ok {
+													return &AppSettingAppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomModel{
+														NonexistentRequestsThreshold: func() types.Int64 {
+															if v, ok := IncludeNonExistentURLActivityCustomData["nonexistent_requests_threshold"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IncludeRateLimit: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeRateLimit.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeRateLimit
+												}
+												if _, ok := EnableDetectionData["include_rate_limit"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											IncludeWAFActivity: func() types.Object {
+												if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeWAFActivity.IsUnknown() {
+													return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableDetection.IncludeWAFActivity
+												}
+												if _, ok := EnableDetectionData["include_waf_activity"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								EnableLearning: func() types.Object {
+									if !isImport && len(existingAppTypeSettingsItems) > listIdx && existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting != nil && !existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableLearning.IsUnknown() {
+										return existingAppTypeSettingsItems[listIdx].UserBehaviorAnalysisSetting.EnableLearning
+									}
+									if _, ok := UserBehaviorAnalysisSettingData["enable_learning"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+							}
+						}
+						return nil
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppSettingAppTypeSettingsModelAttrTypes}, AppTypeSettingsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.AppTypeSettings = listVal
+		}
+	} else {
+		data.AppTypeSettings = types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

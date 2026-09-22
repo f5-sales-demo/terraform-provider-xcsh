@@ -56,13 +56,938 @@ output "virtual_host_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="add-location"></a>&#x2022; [`add_location`](#add-location) - Optional Bool<br>Add Location. X-example: true Appends header x-F5 Distributed Cloud-location = `<RE-site-name>` in responses. This configuration is ignored on CE sites
+
+<a id="advertise-policies"></a>&#x2022; [`advertise_policies`](#advertise-policies) - Optional List<br>Advertise Policy allows you to define networks or sites where you want a VIP for this virtual host to be advertised. Each Policy rule can have different parameters, like TLS configuration, ports, optionally IP address to be used for VIP. If advertise policy is not specified then no VIP is
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="append-server-name"></a>&#x2022; [`append_server_name`](#append-server-name) - Optional String<br>Specifies the value to be used for Server header if it is not already present. If Server Header is already present it is not overwritten. It is just passed
+
+<a id="authentication"></a>&#x2022; [`authentication`](#authentication) - Optional String<br>Authentication related information. This allows to configure the URL to redirect after the authentication Authentication Object Reference, configuration of cookie params etc
+
+<a id="buffer-policy"></a>&#x2022; [`buffer_policy`](#buffer-policy) - Optional String<br>Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config
+
+<a id="captcha-challenge"></a>&#x2022; [`captcha_challenge`](#captcha-challenge) - Optional String<br>Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect
+
+<a id="coalescing-options"></a>&#x2022; [`coalescing_options`](#coalescing-options) - Optional String<br>TLS connection coalescing configuration (not compatible with mTLS)
+
+<a id="compression-params"></a>&#x2022; [`compression_params`](#compression-params) - Optional String<br>Enables loadbalancer to compress dispatched data from an upstream service upon client request. The content is compressed and then sent to the client with the appropriate headers if either response and request allow. Only GZIP compression is supported
+
+<a id="connection-idle-timeout"></a>&#x2022; [`connection_idle_timeout`](#connection-idle-timeout) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+
+<a id="cors-policy"></a>&#x2022; [`cors_policy`](#cors-policy) - Optional String<br>Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5
+
+<a id="csrf-policy"></a>&#x2022; [`csrf_policy`](#csrf-policy) - Optional String<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent
+
+<a id="custom-errors"></a>&#x2022; [`custom_errors`](#custom-errors) - Optional Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
+
+<a id="default-header"></a>&#x2022; [`default_header`](#default-header) - Optional Object<br>Configuration parameter for default header
+
+<a id="default-loadbalancer"></a>&#x2022; [`default_loadbalancer`](#default-loadbalancer) - Optional Object<br>Configuration parameter for default loadbalancer
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the VirtualHost
 
+<a id="disable-default-error-pages"></a>&#x2022; [`disable_default_error_pages`](#disable-default-error-pages) - Optional Bool<br>Option to specify whether to disable using default F5XC error pages
+
+<a id="disable-dns-resolve"></a>&#x2022; [`disable_dns_resolve`](#disable-dns-resolve) - Optional Bool  Specified in the virtual host When the virtual host is configured as Dynamive Resolve Proxy (DRP), disable DNS resolution for domains configured<br>Disable DNS resolution for domains  This configuration is suitable for HTTP CONNECT proxy
+
+<a id="disable-path-normalize"></a>&#x2022; [`disable_path_normalize`](#disable-path-normalize) - Optional Object<br>Enable this option
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>List of domain names matched to this virtual host for routing incoming requests. Supports wildcard patterns like \*.example.com for subdomain matching
+
+<a id="dynamic-reverse-proxy"></a>&#x2022; [`dynamic_reverse_proxy`](#dynamic-reverse-proxy) - Optional String<br>In this mode of proxy, virtual host will resolve the destination endpoint dynamically. The dynamic resolution is done using a predefined field in the request. This predefined field depends on the ProxyType configured on the Virtual Host
+
+<a id="enable-path-normalize"></a>&#x2022; [`enable_path_normalize`](#enable-path-normalize) - Optional Object<br>Enable this option
+
+<a id="http-protocol-options"></a>&#x2022; [`http_protocol_options`](#http-protocol-options) - Optional String<br>HTTP protocol configuration OPTIONS for downstream connections
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Optional Number<br>Idle timeout is the amount of time that the loadbalancer will allow a stream to exist with no upstream or downstream activity. Idle timeout and Proxy Type: HTTP_PROXY, HTTPS_PROXY: Idle timer is started when the first byte is received on the connection. Each time an encode/decode event for
+
+<a id="js-challenge"></a>&#x2022; [`js_challenge`](#js-challenge) - Optional String<br>Enables loadbalancer to perform client browser compatibility test by redirecting to a page with JavaScript. With this feature enabled, only clients that are capable of executing JavaScript(mostly browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="max-request-header-size"></a>&#x2022; [`max_request_header_size`](#max-request-header-size) - Optional Number<br>The maximum request header size in KiB for incoming connections. If un-configured, the default max request headers allowed is 60 KiB. Requests that exceed this limit will receive a 431 response
+
+<a id="max-requests-per-connection"></a>&#x2022; [`max_requests_per_connection`](#max-requests-per-connection) - Optional Number<br>Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection
+
+<a id="no-authentication"></a>&#x2022; [`no_authentication`](#no-authentication) - Optional Object<br>Configuration parameter for no authentication
+
+<a id="no-challenge"></a>&#x2022; [`no_challenge`](#no-challenge) - Optional Object<br>Configuration parameter for no challenge
+
+<a id="no-request-limit-per-connection"></a>&#x2022; [`no_request_limit_per_connection`](#no-request-limit-per-connection) - Optional Object<br>Configuration parameter for no request limit per connection
+
+<a id="non-default-loadbalancer"></a>&#x2022; [`non_default_loadbalancer`](#non-default-loadbalancer) - Optional Object<br>Configuration parameter for non default loadbalancer
+
+<a id="pass-through"></a>&#x2022; [`pass_through`](#pass-through) - Optional Object<br>Configuration parameter for pass through
+
+<a id="proxy"></a>&#x2022; [`proxy`](#proxy) - Optional String<br>Possible values are `UDP_PROXY`, `SMA_PROXY`, `DNS_PROXY`, `ZTNA_PROXY`, `UZTNA_PROXY`, `TMM_HTTP_PROXY`, `TMM_HTTPS_PROXY`, `TMM_TCP_PROXY`, `TMM_UDP_PROXY`, `TMM_QUIC_PROXY`<br>[Enum: UDP_PROXY|SMA_PROXY|DNS_PROXY|ZTNA_PROXY|UZTNA_PROXY|TMM_HTTP_PROXY|TMM_HTTPS_PROXY|TMM_TCP_PROXY|TMM_UDP_PROXY|TMM_QUIC_PROXY] ProxyType tells the
+type of proxy to install for the virtual host. Only the following combination of VirtualHosts within same AdvertisePolicy is permitted (None of them should have '*' in domains when used with other VirtualHosts in same AdvertisePolicy) 1. Multiple TCP_PROXY_WITH_SNI and
+
+<a id="rate-limiter-allowed-prefixes"></a>&#x2022; [`rate_limiter_allowed_prefixes`](#rate-limiter-allowed-prefixes) - Optional List<br>References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting
+
+<a id="request-cookies-to-add"></a>&#x2022; [`request_cookies_to_add`](#request-cookies-to-add) - Optional List<br>Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied
+
+<a id="request-cookies-to-remove"></a>&#x2022; [`request_cookies_to_remove`](#request-cookies-to-remove) - Optional List<br>List of keys of Cookies to be removed from the HTTP request being sent towards upstream
+
+<a id="request-headers-to-add"></a>&#x2022; [`request_headers_to_add`](#request-headers-to-add) - Optional List<br>Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied
+
+<a id="request-headers-to-remove"></a>&#x2022; [`request_headers_to_remove`](#request-headers-to-remove) - Optional List<br>List of keys of Headers to be removed from the HTTP request being sent towards upstream
+
+<a id="response-cookies-to-add"></a>&#x2022; [`response_cookies_to_add`](#response-cookies-to-add) - Optional List<br>Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied
+
+<a id="response-cookies-to-remove"></a>&#x2022; [`response_cookies_to_remove`](#response-cookies-to-remove) - Optional List<br>List of name of Cookies to be removed from the HTTP response being sent towards downstream. Entire set-cookie header will be removed
+
+<a id="response-headers-to-add"></a>&#x2022; [`response_headers_to_add`](#response-headers-to-add) - Optional List<br>Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied
+
+<a id="response-headers-to-remove"></a>&#x2022; [`response_headers_to_remove`](#response-headers-to-remove) - Optional List<br>List of keys of Headers to be removed from the HTTP response being sent towards downstream
+
+<a id="retry-policy"></a>&#x2022; [`retry_policy`](#retry-policy) - Optional String<br>Retry policy configuration for route destination
+
+<a id="routes"></a>&#x2022; [`routes`](#routes) - Optional List<br>HTTP routing rules that match incoming requests based on path, headers, or query parameters and forward them to appropriate backend origin pools
+
+<a id="sensitive-data-policy"></a>&#x2022; [`sensitive_data_policy`](#sensitive-data-policy) - Optional List<br>Policy configuration for this feature
+
+<a id="server-name"></a>&#x2022; [`server_name`](#server-name) - Optional String<br>Specifies the value to be used for Server header inserted in responses. This will overwrite existing values if any for Server Header
+
+<a id="slow-ddos-mitigation"></a>&#x2022; [`slow_ddos_mitigation`](#slow-ddos-mitigation) - Optional String<br>'Slow and low' attacks tie up server resources, leaving none available for servicing requests from actual users
+
+<a id="tls-cert-params"></a>&#x2022; [`tls_cert_params`](#tls-cert-params) - Optional String<br>Certificate Parameters for authentication, TLS ciphers, and trust store
+
+<a id="tls-parameters"></a>&#x2022; [`tls_parameters`](#tls-parameters) - Optional String<br>TLS configuration for downstream connections
+
+<a id="user-identification"></a>&#x2022; [`user_identification`](#user-identification) - Optional List<br>Reference to user_identification object. The rules in the user_identification object are evaluated to determine the user identifier to be rate limited
+
+<a id="waf-type"></a>&#x2022; [`waf_type`](#waf-type) - Optional String<br>WAF instance will be pointing to an app_firewall object
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+---
+
+#### Authentication
+
+An [`authentication`](#authentication) block supports the following:
+
+<a id="nestedatt--authentication-auth-config"></a>&#x2022; [`auth_config`](#nestedatt--authentication-auth-config) - Optional List<br>Reference to Authentication Config Object
+
+<a id="nestedatt--authentication-cookie-params"></a>&#x2022; [`cookie_params`](#nestedatt--authentication-cookie-params) - Optional String<br>Specifies different cookie related config parameters for authentication
+
+<a id="dynamic-301f7e"></a>&#x2022; [`redirect_dynamic`](#dynamic-301f7e) - Optional Object<br>Configuration parameter for redirect dynamic
+
+<a id="nestedatt--authentication-redirect-url"></a>&#x2022; [`redirect_url`](#nestedatt--authentication-redirect-url) - Optional String<br>user can provide a URL for e.g `HTTPS://abc.xyz.com` where user gets redirected. This URL configured here must match with the redirect URL configured with the OIDC provider
+
+<a id="config-194728"></a>&#x2022; [`use_auth_object_config`](#config-194728) - Optional Object<br>Enable this option
+
+#### Authentication Auth Config
+
+An [`auth_config`](#authentication-auth-config) block (within [`authentication`](#authentication)) supports the following:
+
+<a id="nestedatt--authentication-kind"></a>&#x2022; [`kind`](#nestedatt--authentication-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--authentication-name"></a>&#x2022; [`name`](#nestedatt--authentication-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--authentication-namespace"></a>&#x2022; [`namespace`](#nestedatt--authentication-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--authentication-tenant"></a>&#x2022; [`tenant`](#nestedatt--authentication-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--authentication-uid"></a>&#x2022; [`uid`](#nestedatt--authentication-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Authentication Cookie Params
+
+A [`cookie_params`](#authentication-cookie-params) block (within [`authentication`](#authentication)) supports the following:
+
+<a id="nestedatt--authentication-auth-hmac"></a>&#x2022; [`auth_hmac`](#nestedatt--authentication-auth-hmac) - Optional String<br>HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid
+
+<a id="nestedatt--authentication-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#nestedatt--authentication-cookie-expiry) - Optional Number<br>Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client-side after which client will not be setting the cookie as part of the request
+
+<a id="interval-e5e3c6"></a>&#x2022; [`cookie_refresh_interval`](#interval-e5e3c6) - Optional Number<br>Specifies in seconds refresh interval for session cookie. This is used to keep the active user active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to expire falls behind this interval, RE-issue a cookie with new expiry and with the same original session
+
+<a id="nestedatt--authentication-kms-key-hmac"></a>&#x2022; [`kms_key_hmac`](#nestedatt--authentication-kms-key-hmac) - Optional Object<br>Configuration parameter for kms key HMAC
+
+<a id="expiry-1b4580"></a>&#x2022; [`session_expiry`](#expiry-1b4580) - Optional Number<br>Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours)
+
+#### Authentication Cookie Params Auth HMAC
+
+An [`auth_hmac`](#authentication-cookie-params-auth-hmac) block (within [`authentication.cookie_params`](#authentication-cookie-params)) supports the following:
+
+<a id="nestedatt--authentication-prim-key"></a>&#x2022; [`prim_key`](#nestedatt--authentication-prim-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="expiry-56d317"></a>&#x2022; [`prim_key_expiry`](#expiry-56d317) - Optional String<br>HMAC Primary Key Expiry. Primary HMAC Key Expiry time
+
+<a id="nestedatt--authentication-sec-key"></a>&#x2022; [`sec_key`](#nestedatt--authentication-sec-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="expiry-6d1fc0"></a>&#x2022; [`sec_key_expiry`](#expiry-6d1fc0) - Optional String<br>HMAC Secondary Key Expiry. Secondary HMAC Key Expiry time
+
+#### Authentication Cookie Params Auth HMAC Prim Key
+
+A [`prim_key`](#authentication-cookie-params-auth-hmac-prim-key) block (within [`authentication.cookie_params.auth_hmac`](#authentication-cookie-params-auth-hmac)) supports the following:
+
+<a id="info-cc1ff7"></a>&#x2022; [`blindfold_secret_info`](#info-cc1ff7) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-a17d6c"></a>&#x2022; [`clear_secret_info`](#info-a17d6c) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Authentication Cookie Params Auth HMAC Prim Key Blindfold Secret Info
+
+<a id="deep-b713e4"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Authentication Cookie Params Auth HMAC Prim Key Clear Secret Info
+
+<a id="deep-1ef372"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Authentication Cookie Params Auth HMAC Sec Key
+
+A [`sec_key`](#authentication-cookie-params-auth-hmac-sec-key) block (within [`authentication.cookie_params.auth_hmac`](#authentication-cookie-params-auth-hmac)) supports the following:
+
+<a id="info-cc1ff7"></a>&#x2022; [`blindfold_secret_info`](#info-cc1ff7) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-a17d6c"></a>&#x2022; [`clear_secret_info`](#info-a17d6c) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Authentication Cookie Params Auth HMAC Sec Key Blindfold Secret Info
+
+<a id="deep-9385f0"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Authentication Cookie Params Auth HMAC Sec Key Clear Secret Info
+
+<a id="deep-cfac36"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Authentication Cookie Params Kms Key HMAC
+
+A [`kms_key_hmac`](#authentication-cookie-params-kms-key-hmac) block (within [`authentication.cookie_params`](#authentication-cookie-params)) supports the following:
+
+#### Authentication Redirect Dynamic
+
+A [`redirect_dynamic`](#authentication-redirect-dynamic) block (within [`authentication`](#authentication)) supports the following:
+
+#### Authentication Use Auth Object Config
+
+An [`use_auth_object_config`](#authentication-use-auth-object-config) block (within [`authentication`](#authentication)) supports the following:
+
+#### Buffer Policy
+
+A [`buffer_policy`](#buffer-policy) block supports the following:
+
+<a id="nestedatt--authentication-disabled"></a>&#x2022; [`disabled`](#nestedatt--authentication-disabled) - Optional Bool<br>Disable buffering for a particular route. This is useful when virtual-host has buffering, but we need to disable it on a specific route. The value of this field is ignored for virtual-host
+
+<a id="bytes-45e106"></a>&#x2022; [`max_request_bytes`](#bytes-45e106) - Optional Number<br>The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response
+
+#### Captcha Challenge
+
+A [`captcha_challenge`](#captcha-challenge) block supports the following:
+
+<a id="nestedatt--authentication-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#nestedatt--authentication-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="nestedatt--authentication-custom-page"></a>&#x2022; [`custom_page`](#nestedatt--authentication-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+#### Coalescing Options
+
+A [`coalescing_options`](#coalescing-options) block supports the following:
+
+<a id="coalescing-56a314"></a>&#x2022; [`default_coalescing`](#coalescing-56a314) - Optional Object<br>Configuration parameter for default coalescing
+
+<a id="coalescing-5129a9"></a>&#x2022; [`strict_coalescing`](#coalescing-5129a9) - Optional Object<br>Configuration parameter for strict coalescing
+
+#### Coalescing Options Default Coalescing
+
+A [`default_coalescing`](#coalescing-options-default-coalescing) block (within [`coalescing_options`](#coalescing-options)) supports the following:
+
+#### Coalescing Options Strict Coalescing
+
+A [`strict_coalescing`](#coalescing-options-strict-coalescing) block (within [`coalescing_options`](#coalescing-options)) supports the following:
+
+#### Compression Params
+
+A [`compression_params`](#compression-params) block supports the following:
+
+<a id="length-3131bc"></a>&#x2022; [`content_length`](#length-3131bc) - Optional Number  Defaults to `30`<br>Minimum response length, in bytes, which will trigger compression. The
+
+<a id="nestedatt--authentication-content-type"></a>&#x2022; [`content_type`](#nestedatt--authentication-content-type) - Optional List<br>Set of strings that allows specifying which mime-types yield compression When this field is not defined, compression will be applied to the following mime-types: 'application/JavaScript' 'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS'
+'text/HTML' 'text/plain' 'text/XML'
+
+<a id="header-bc8526"></a>&#x2022; [`disable_on_etag_header`](#header-bc8526) - Optional Bool<br>If true, disables compression when the response contains an etag header. When it is false, weak etags will be preserved and the ones that require strong validation will be removed
+
+<a id="header-a4c916"></a>&#x2022; [`remove_accept_encoding_header`](#header-a4c916) - Optional Bool<br>If true, removes accept-encoding from the request headers before dispatching it to the upstream so that responses do not GET compressed before reaching the filter
+
+#### CORS Policy
+
+A [`cors_policy`](#cors-policy) block supports the following:
+
+<a id="credentials-94c1ff"></a>&#x2022; [`allow_credentials`](#credentials-94c1ff) - Optional Bool<br>Specifies whether the resource allows credentials
+
+<a id="nestedatt--authentication-allow-headers"></a>&#x2022; [`allow_headers`](#nestedatt--authentication-allow-headers) - Optional String<br>Specifies the content for the access-control-allow-headers header
+
+<a id="nestedatt--authentication-allow-methods"></a>&#x2022; [`allow_methods`](#nestedatt--authentication-allow-methods) - Optional String<br>Specifies the content for the access-control-allow-methods header
+
+<a id="nestedatt--authentication-allow-origin"></a>&#x2022; [`allow_origin`](#nestedatt--authentication-allow-origin) - Optional List<br>Specifies the origins that will be allowed to do CORS requests. An origin is allowed if either allow_origin or allow_origin_regex match
+
+<a id="regex-82683f"></a>&#x2022; [`allow_origin_regex`](#regex-82683f) - Optional List<br>Specifies regex patterns that match allowed origins. An origin is allowed if either allow_origin or allow_origin_regex match
+
+<a id="nestedatt--authentication-disabled"></a>&#x2022; [`disabled`](#nestedatt--authentication-disabled) - Optional Bool<br>Disable the CorsPolicy for a particular route. This is useful when virtual-host has CorsPolicy, but we need to disable it on a specific route. The value of this field is ignored for virtual-host
+
+<a id="headers-2ce65e"></a>&#x2022; [`expose_headers`](#headers-2ce65e) - Optional String<br>Specifies the content for the access-control-expose-headers header
+
+<a id="nestedatt--authentication-maximum-age"></a>&#x2022; [`maximum_age`](#nestedatt--authentication-maximum-age) - Optional Number<br>Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours)
+
+#### CSRF Policy
+
+A [`csrf_policy`](#csrf-policy) block supports the following:
+
+<a id="domains-5217cd"></a>&#x2022; [`all_load_balancer_domains`](#domains-5217cd) - Optional Object<br>Configuration parameter for all load balancer domains
+
+<a id="list-1c951a"></a>&#x2022; [`custom_domain_list`](#list-1c951a) - Optional String<br>List of domain names used for Host header matching
+
+<a id="nestedatt--authentication-disabled"></a>&#x2022; [`disabled`](#nestedatt--authentication-disabled) - Optional Object<br>Enable this option
+
+#### CSRF Policy All Load Balancer Domains
+
+An [`all_load_balancer_domains`](#csrf-policy-all-load-balancer-domains) block (within [`csrf_policy`](#csrf-policy)) supports the following:
+
+#### CSRF Policy Custom Domain List
+
+A [`custom_domain_list`](#csrf-policy-custom-domain-list) block (within [`csrf_policy`](#csrf-policy)) supports the following:
+
+<a id="nestedatt--authentication-domains"></a>&#x2022; [`domains`](#nestedatt--authentication-domains) - Optional List<br>List of domain names that will be matched to loadbalancer. These domains are not used for SNI match. Wildcard names are supported in the suffix or prefix form
+
+#### CSRF Policy Disabled
+
+A [`disabled`](#csrf-policy-disabled) block (within [`csrf_policy`](#csrf-policy)) supports the following:
+
+#### Default Header
+
+A [`default_header`](#default-header) block supports the following:
+
+#### Default Loadbalancer
+
+A [`default_loadbalancer`](#default-loadbalancer) block supports the following:
+
+#### Disable Path Normalize
+
+A [`disable_path_normalize`](#disable-path-normalize) block supports the following:
+
+#### Dynamic Reverse Proxy
+
+A [`dynamic_reverse_proxy`](#dynamic-reverse-proxy) block supports the following:
+
+<a id="timeout-29d7f8"></a>&#x2022; [`connection_timeout`](#timeout-29d7f8) - Optional Number  Defaults to `2000`  Specified in milliseconds<br>The timeout for new network connections to upstream server.  The (2 seconds)
+
+<a id="network-84ec61"></a>&#x2022; [`resolution_network`](#network-84ec61) - Optional List<br>Reference to virtual network where the endpoint is resolved. Reference is valid only when the network type is VIRTUAL_NETWORK_PER_SITE or VIRTUAL_NETWORK_GLOBAL. It is ignored for all other network types
+
+<a id="type-5ba1a6"></a>&#x2022; [`resolution_network_type`](#type-5ba1a6) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+`VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
+VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
+Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
+
+<a id="dynamically-640cba"></a>&#x2022; [`resolve_endpoint_dynamically`](#dynamically-640cba) - Optional Bool<br>X-example : true In this mode of proxy, virtual host will resolve the destination endpoint dynamically. The dynamic resolution is done using a predefined field in the request. This predefined field depends on the ProxyType configured on the Virtual Host
+
+#### Dynamic Reverse Proxy Resolution Network
+
+A [`resolution_network`](#dynamic-reverse-proxy-resolution-network) block (within [`dynamic_reverse_proxy`](#dynamic-reverse-proxy)) supports the following:
+
+<a id="nestedatt--authentication-kind"></a>&#x2022; [`kind`](#nestedatt--authentication-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--authentication-name"></a>&#x2022; [`name`](#nestedatt--authentication-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--authentication-namespace"></a>&#x2022; [`namespace`](#nestedatt--authentication-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--authentication-tenant"></a>&#x2022; [`tenant`](#nestedatt--authentication-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--authentication-uid"></a>&#x2022; [`uid`](#nestedatt--authentication-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Enable Path Normalize
+
+An [`enable_path_normalize`](#enable-path-normalize) block supports the following:
+
+#### HTTP Protocol Options
+
+A [`http_protocol_options`](#http-protocol-options) block supports the following:
+
+<a id="only-5b0003"></a>&#x2022; [`http_protocol_enable_v1_only`](#only-5b0003) - Optional String<br>HTTP/1.1 Protocol OPTIONS for downstream connections
+
+<a id="v1-v2-d41aa4"></a>&#x2022; [`http_protocol_enable_v1_v2`](#v1-v2-d41aa4) - Optional Object<br>Configuration parameter for HTTP protocol enable v1 v2
+
+<a id="only-42d252"></a>&#x2022; [`http_protocol_enable_v2_only`](#only-42d252) - Optional Object<br>Configuration parameter for HTTP protocol enable v2 only
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 Only
+
+<a id="deep-d896a4"></a>Deeply nested **Only** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation
+
+<a id="deep-e44357"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Default Header Transformation
+
+<a id="deep-2d3d63"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Preserve Case Header Transformation
+
+<a id="deep-4879ee"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Proper Case Header Transformation
+
+<a id="deep-9d049f"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 V2
+
+<a id="deep-f57521"></a>Deeply nested **V2** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V2 Only
+
+<a id="deep-89d1e2"></a>Deeply nested **Only** block collapsed for readability.
+
+#### Js Challenge
+
+A [`js_challenge`](#js-challenge) block supports the following:
+
+<a id="nestedatt--authentication-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#nestedatt--authentication-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="nestedatt--authentication-custom-page"></a>&#x2022; [`custom_page`](#nestedatt--authentication-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+<a id="delay-b642f5"></a>&#x2022; [`js_script_delay`](#delay-b642f5) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
+
+#### No Authentication
+
+A [`no_authentication`](#no-authentication) block supports the following:
+
+#### No Challenge
+
+A [`no_challenge`](#no-challenge) block supports the following:
+
+#### No Request Limit Per Connection
+
+A [`no_request_limit_per_connection`](#no-request-limit-per-connection) block supports the following:
+
+#### Non Default Loadbalancer
+
+A [`non_default_loadbalancer`](#non-default-loadbalancer) block supports the following:
+
+#### Pass Through
+
+A [`pass_through`](#pass-through) block supports the following:
+
+#### Rate Limiter Allowed Prefixes
+
+A [`rate_limiter_allowed_prefixes`](#rate-limiter-allowed-prefixes) block supports the following:
+
+<a id="nestedatt--authentication-kind"></a>&#x2022; [`kind`](#nestedatt--authentication-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--authentication-name"></a>&#x2022; [`name`](#nestedatt--authentication-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--authentication-namespace"></a>&#x2022; [`namespace`](#nestedatt--authentication-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--authentication-tenant"></a>&#x2022; [`tenant`](#nestedatt--authentication-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--authentication-uid"></a>&#x2022; [`uid`](#nestedatt--authentication-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Request Cookies To Add
+
+A [`request_cookies_to_add`](#request-cookies-to-add) block supports the following:
+
+<a id="nestedatt--authentication-name"></a>&#x2022; [`name`](#nestedatt--authentication-name) - Optional String<br>Name. Name of the cookie in Cookie header
+
+<a id="nestedatt--authentication-overwrite"></a>&#x2022; [`overwrite`](#nestedatt--authentication-overwrite) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
+
+<a id="nestedatt--authentication-secret-value"></a>&#x2022; [`secret_value`](#nestedatt--authentication-secret-value) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--authentication-value"></a>&#x2022; [`value`](#nestedatt--authentication-value) - Optional String<br>Value of the Cookie header
+
+#### Request Cookies To Add Secret Value
+
+A [`secret_value`](#request-cookies-to-add-secret-value) block (within [`request_cookies_to_add`](#request-cookies-to-add)) supports the following:
+
+<a id="info-cc1ff7"></a>&#x2022; [`blindfold_secret_info`](#info-cc1ff7) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-a17d6c"></a>&#x2022; [`clear_secret_info`](#info-a17d6c) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Request Cookies To Add Secret Value Blindfold Secret Info
+
+<a id="deep-1a3967"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Request Cookies To Add Secret Value Clear Secret Info
+
+<a id="deep-fdee34"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Request Headers To Add
+
+A [`request_headers_to_add`](#request-headers-to-add) block supports the following:
+
+<a id="nestedatt--authentication-append"></a>&#x2022; [`append`](#nestedatt--authentication-append) - Optional Bool  Defaults to `do`<br>Should the value be appended? If true, the value is appended to existing values. not append
+
+<a id="nestedatt--authentication-name"></a>&#x2022; [`name`](#nestedatt--authentication-name) - Optional String<br>Name. Name of the HTTP header
+
+<a id="nestedatt--authentication-secret-value"></a>&#x2022; [`secret_value`](#nestedatt--authentication-secret-value) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--authentication-value"></a>&#x2022; [`value`](#nestedatt--authentication-value) - Optional String<br>Value of the HTTP header
+
+#### Request Headers To Add Secret Value
+
+A [`secret_value`](#request-headers-to-add-secret-value) block (within [`request_headers_to_add`](#request-headers-to-add)) supports the following:
+
+<a id="info-cc1ff7"></a>&#x2022; [`blindfold_secret_info`](#info-cc1ff7) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-a17d6c"></a>&#x2022; [`clear_secret_info`](#info-a17d6c) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Request Headers To Add Secret Value Blindfold Secret Info
+
+<a id="deep-c5e129"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Request Headers To Add Secret Value Clear Secret Info
+
+<a id="deep-1c0a8c"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Response Cookies To Add
+
+A [`response_cookies_to_add`](#response-cookies-to-add) block supports the following:
+
+<a id="nestedatt--authentication-add-domain"></a>&#x2022; [`add_domain`](#nestedatt--authentication-add-domain) - Optional String<br>Add domain attribute
+
+<a id="nestedatt--authentication-add-expiry"></a>&#x2022; [`add_expiry`](#nestedatt--authentication-add-expiry) - Optional String<br>Add expiry attribute
+
+<a id="nestedatt--authentication-add-httponly"></a>&#x2022; [`add_httponly`](#nestedatt--authentication-add-httponly) - Optional Object<br>Configuration parameter for add httponly
+
+<a id="partitioned-5a0d80"></a>&#x2022; [`add_partitioned`](#partitioned-5a0d80) - Optional Object<br>Configuration parameter for add partitioned
+
+<a id="nestedatt--authentication-add-path"></a>&#x2022; [`add_path`](#nestedatt--authentication-add-path) - Optional String<br>Add path attribute
+
+<a id="nestedatt--authentication-add-secure"></a>&#x2022; [`add_secure`](#nestedatt--authentication-add-secure) - Optional Object<br>Enable this option
+
+<a id="nestedatt--authentication-ignore-domain"></a>&#x2022; [`ignore_domain`](#nestedatt--authentication-ignore-domain) - Optional Object<br>Configuration parameter for ignore domain
+
+<a id="nestedatt--authentication-ignore-expiry"></a>&#x2022; [`ignore_expiry`](#nestedatt--authentication-ignore-expiry) - Optional Object<br>Configuration parameter for ignore expiry
+
+<a id="httponly-c15bc0"></a>&#x2022; [`ignore_httponly`](#httponly-c15bc0) - Optional Object<br>Configuration parameter for ignore httponly
+
+<a id="age-c4b40c"></a>&#x2022; [`ignore_max_age`](#age-c4b40c) - Optional Object<br>Configuration parameter for ignore max age
+
+<a id="partitioned-0ae464"></a>&#x2022; [`ignore_partitioned`](#partitioned-0ae464) - Optional Object<br>Configuration parameter for ignore partitioned
+
+<a id="nestedatt--authentication-ignore-path"></a>&#x2022; [`ignore_path`](#nestedatt--authentication-ignore-path) - Optional Object<br>Enable this option
+
+<a id="samesite-81e034"></a>&#x2022; [`ignore_samesite`](#samesite-81e034) - Optional Object<br>Enable this option
+
+<a id="nestedatt--authentication-ignore-secure"></a>&#x2022; [`ignore_secure`](#nestedatt--authentication-ignore-secure) - Optional Object<br>Enable this option
+
+<a id="nestedatt--authentication-ignore-value"></a>&#x2022; [`ignore_value`](#nestedatt--authentication-ignore-value) - Optional Object<br>Configuration parameter for ignore value
+
+<a id="nestedatt--authentication-max-age-value"></a>&#x2022; [`max_age_value`](#nestedatt--authentication-max-age-value) - Optional Number<br>Add max age attribute
+
+<a id="nestedatt--authentication-name"></a>&#x2022; [`name`](#nestedatt--authentication-name) - Optional String<br>Name. Name of the cookie in Cookie header
+
+<a id="nestedatt--authentication-overwrite"></a>&#x2022; [`overwrite`](#nestedatt--authentication-overwrite) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
+
+<a id="nestedatt--authentication-samesite-lax"></a>&#x2022; [`samesite_lax`](#nestedatt--authentication-samesite-lax) - Optional Object<br>Enable this option
+
+<a id="nestedatt--authentication-samesite-none"></a>&#x2022; [`samesite_none`](#nestedatt--authentication-samesite-none) - Optional Object<br>Enable this option
+
+<a id="strict-65aa62"></a>&#x2022; [`samesite_strict`](#strict-65aa62) - Optional Object<br>Enable this option
+
+<a id="nestedatt--authentication-secret-value"></a>&#x2022; [`secret_value`](#nestedatt--authentication-secret-value) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--authentication-value"></a>&#x2022; [`value`](#nestedatt--authentication-value) - Optional String<br>Value of the Cookie header
+
+#### Response Cookies To Add Add Httponly
+
+An [`add_httponly`](#response-cookies-to-add-add-httponly) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Add Partitioned
+
+An [`add_partitioned`](#response-cookies-to-add-add-partitioned) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Add Secure
+
+An [`add_secure`](#response-cookies-to-add-add-secure) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Domain
+
+An [`ignore_domain`](#response-cookies-to-add-ignore-domain) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Expiry
+
+An [`ignore_expiry`](#response-cookies-to-add-ignore-expiry) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Httponly
+
+An [`ignore_httponly`](#response-cookies-to-add-ignore-httponly) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Max Age
+
+An [`ignore_max_age`](#response-cookies-to-add-ignore-max-age) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Partitioned
+
+An [`ignore_partitioned`](#response-cookies-to-add-ignore-partitioned) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Path
+
+An [`ignore_path`](#response-cookies-to-add-ignore-path) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Samesite
+
+An [`ignore_samesite`](#response-cookies-to-add-ignore-samesite) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Secure
+
+An [`ignore_secure`](#response-cookies-to-add-ignore-secure) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Value
+
+An [`ignore_value`](#response-cookies-to-add-ignore-value) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Samesite Lax
+
+A [`samesite_lax`](#response-cookies-to-add-samesite-lax) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Samesite None
+
+A [`samesite_none`](#response-cookies-to-add-samesite-none) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Samesite Strict
+
+A [`samesite_strict`](#response-cookies-to-add-samesite-strict) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Secret Value
+
+A [`secret_value`](#response-cookies-to-add-secret-value) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+<a id="info-cc1ff7"></a>&#x2022; [`blindfold_secret_info`](#info-cc1ff7) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-a17d6c"></a>&#x2022; [`clear_secret_info`](#info-a17d6c) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Response Cookies To Add Secret Value Blindfold Secret Info
+
+<a id="deep-1bea87"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Response Cookies To Add Secret Value Clear Secret Info
+
+<a id="deep-76591c"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Response Headers To Add
+
+A [`response_headers_to_add`](#response-headers-to-add) block supports the following:
+
+<a id="nestedatt--authentication-append"></a>&#x2022; [`append`](#nestedatt--authentication-append) - Optional Bool  Defaults to `do`<br>Should the value be appended? If true, the value is appended to existing values. not append
+
+<a id="nestedatt--authentication-name"></a>&#x2022; [`name`](#nestedatt--authentication-name) - Optional String<br>Name. Name of the HTTP header
+
+<a id="nestedatt--authentication-secret-value"></a>&#x2022; [`secret_value`](#nestedatt--authentication-secret-value) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--authentication-value"></a>&#x2022; [`value`](#nestedatt--authentication-value) - Optional String<br>Value of the HTTP header
+
+#### Response Headers To Add Secret Value
+
+A [`secret_value`](#response-headers-to-add-secret-value) block (within [`response_headers_to_add`](#response-headers-to-add)) supports the following:
+
+<a id="info-cc1ff7"></a>&#x2022; [`blindfold_secret_info`](#info-cc1ff7) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-a17d6c"></a>&#x2022; [`clear_secret_info`](#info-a17d6c) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Response Headers To Add Secret Value Blindfold Secret Info
+
+<a id="deep-7e46c8"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Response Headers To Add Secret Value Clear Secret Info
+
+<a id="deep-f3df47"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Retry Policy
+
+A [`retry_policy`](#retry-policy) block supports the following:
+
+<a id="nestedatt--authentication-back-off"></a>&#x2022; [`back_off`](#nestedatt--authentication-back-off) - Optional String<br>Specifies parameters that control retry back off
+
+<a id="nestedatt--authentication-num-retries"></a>&#x2022; [`num_retries`](#nestedatt--authentication-num-retries) - Optional Number  Defaults to `1`<br>Specifies the allowed number of retries. Retries can be done any number of times. An exponential back-off algorithm is used between each retry
+
+<a id="timeout-cec5cc"></a>&#x2022; [`per_try_timeout`](#timeout-cec5cc) - Optional Number<br>Specifies a non-zero timeout per retry attempt. In milliseconds
+
+<a id="codes-628bd7"></a>&#x2022; [`retriable_status_codes`](#codes-628bd7) - Optional List<br>HTTP status codes that should trigger a retry in addition to those specified by retry_on
+
+<a id="condition-661e21"></a>&#x2022; [`retry_condition`](#condition-661e21) - Optional List<br>Specifies the conditions under which retry takes place. Retries can be on different types of condition depending on application requirements. For example, network failure, all 5xx response codes, idempotent 4xx response codes, etc The possible values are '5xx' : Retry will be done if the
+
+#### Retry Policy Back Off
+
+A [`back_off`](#retry-policy-back-off) block (within [`retry_policy`](#retry-policy)) supports the following:
+
+<a id="nestedatt--authentication-base-interval"></a>&#x2022; [`base_interval`](#nestedatt--authentication-base-interval) - Optional Number<br>Specifies the base interval between retries in milliseconds
+
+<a id="nestedatt--authentication-max-interval"></a>&#x2022; [`max_interval`](#nestedatt--authentication-max-interval) - Optional Number  Defaults to `10`<br>Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must be greater than or equal to the base_interval if set. The times the base_interval
+
+#### Routes
+
+A [`routes`](#routes) block supports the following:
+
+<a id="nestedatt--routes-kind"></a>&#x2022; [`kind`](#nestedatt--routes-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--routes-name"></a>&#x2022; [`name`](#nestedatt--routes-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--routes-namespace"></a>&#x2022; [`namespace`](#nestedatt--routes-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--routes-uid"></a>&#x2022; [`uid`](#nestedatt--routes-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Sensitive Data Policy
+
+A [`sensitive_data_policy`](#sensitive-data-policy) block supports the following:
+
+<a id="nestedatt--routes-kind"></a>&#x2022; [`kind`](#nestedatt--routes-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--routes-name"></a>&#x2022; [`name`](#nestedatt--routes-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--routes-namespace"></a>&#x2022; [`namespace`](#nestedatt--routes-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--routes-uid"></a>&#x2022; [`uid`](#nestedatt--routes-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Slow DDOS Mitigation
+
+A [`slow_ddos_mitigation`](#slow-ddos-mitigation) block supports the following:
+
+<a id="timeout-4665a8"></a>&#x2022; [`disable_request_timeout`](#timeout-4665a8) - Optional Object<br>Configuration parameter for disable request timeout
+
+<a id="timeout-6a83aa"></a>&#x2022; [`request_headers_timeout`](#timeout-6a83aa) - Optional Number  Defaults to `10000`<br>The amount of time the client has to send only the headers on the request stream before the stream is cancelled. The milliseconds. This setting provides protection against Slowloris attacks
+
+<a id="nestedatt--routes-request-timeout"></a>&#x2022; [`request_timeout`](#nestedatt--routes-request-timeout) - Optional Number
+
+#### Slow DDOS Mitigation Disable Request Timeout
+
+A [`disable_request_timeout`](#slow-ddos-mitigation-disable-request-timeout) block (within [`slow_ddos_mitigation`](#slow-ddos-mitigation)) supports the following:
+
+#### TLS Cert Params
+
+A [`tls_cert_params`](#tls-cert-params) block supports the following:
+
+<a id="nestedatt--routes-certificates"></a>&#x2022; [`certificates`](#nestedatt--routes-certificates) - Optional List<br>Certificates. Set of certificates
+
+<a id="nestedatt--routes-cipher-suites"></a>&#x2022; [`cipher_suites`](#nestedatt--routes-cipher-suites) - Optional List<br>The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+<a id="optional-297870"></a>&#x2022; [`client_certificate_optional`](#optional-297870) - Optional Object<br>Enable this option
+
+<a id="required-27c6b5"></a>&#x2022; [`client_certificate_required`](#required-27c6b5) - Optional Object<br>Enable this option
+
+<a id="version-ff7425"></a>&#x2022; [`maximum_protocol_version`](#version-ff7425) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
+
+<a id="version-92974d"></a>&#x2022; [`minimum_protocol_version`](#version-92974d) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
+
+<a id="nestedatt--routes-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#nestedatt--routes-no-client-certificate) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes-validation-params"></a>&#x2022; [`validation_params`](#nestedatt--routes-validation-params) - Optional String<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification
+
+<a id="nestedatt--routes-xfcc-header-elements"></a>&#x2022; [`xfcc_header_elements`](#nestedatt--routes-xfcc-header-elements) - Optional List  Defaults to `XFCC_NONE`<br>Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`<br>[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an
+mTLS enabled connections. If none are defined, the header will not be added
+
+#### TLS Cert Params Certificates
+
+A [`certificates`](#tls-cert-params-certificates) block (within [`tls_cert_params`](#tls-cert-params)) supports the following:
+
+<a id="nestedatt--routes-kind"></a>&#x2022; [`kind`](#nestedatt--routes-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--routes-name"></a>&#x2022; [`name`](#nestedatt--routes-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--routes-namespace"></a>&#x2022; [`namespace`](#nestedatt--routes-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--routes-uid"></a>&#x2022; [`uid`](#nestedatt--routes-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### TLS Cert Params Client Certificate Optional
+
+A [`client_certificate_optional`](#tls-cert-params-client-certificate-optional) block (within [`tls_cert_params`](#tls-cert-params)) supports the following:
+
+#### TLS Cert Params Client Certificate Required
+
+A [`client_certificate_required`](#tls-cert-params-client-certificate-required) block (within [`tls_cert_params`](#tls-cert-params)) supports the following:
+
+#### TLS Cert Params No Client Certificate
+
+A [`no_client_certificate`](#tls-cert-params-no-client-certificate) block (within [`tls_cert_params`](#tls-cert-params)) supports the following:
+
+#### TLS Cert Params Validation Params
+
+A [`validation_params`](#tls-cert-params-validation-params) block (within [`tls_cert_params`](#tls-cert-params)) supports the following:
+
+<a id="verification-c2d362"></a>&#x2022; [`skip_hostname_verification`](#verification-c2d362) - Optional Bool<br>When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname
+
+<a id="nestedatt--routes-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--routes-trusted-ca) - Optional String<br>Root CA Certificate Reference. Reference to Root CA Certificate
+
+<a id="nestedatt--routes-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#nestedatt--routes-trusted-ca-url) - Optional String<br>Inline Root CA Certificate
+
+<a id="names-035872"></a>&#x2022; [`verify_subject_alt_names`](#names-035872) - Optional List<br>List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate
+
+#### TLS Cert Params Validation Params Trusted CA
+
+A [`trusted_ca`](#tls-cert-params-validation-params-trusted-ca) block (within [`tls_cert_params.validation_params`](#tls-cert-params-validation-params)) supports the following:
+
+<a id="nestedatt--routes-trusted-ca-list"></a>&#x2022; [`trusted_ca_list`](#nestedatt--routes-trusted-ca-list) - Optional List<br>Root CA Certificate Reference. Reference to Root CA Certificate
+
+#### TLS Cert Params Validation Params Trusted CA Trusted CA List
+
+<a id="deep-e1476c"></a>Deeply nested **List** block collapsed for readability.
+
+#### TLS Parameters
+
+A [`tls_parameters`](#tls-parameters) block supports the following:
+
+<a id="optional-297870"></a>&#x2022; [`client_certificate_optional`](#optional-297870) - Optional Object<br>Enable this option
+
+<a id="required-27c6b5"></a>&#x2022; [`client_certificate_required`](#required-27c6b5) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes-common-params"></a>&#x2022; [`common_params`](#nestedatt--routes-common-params) - Optional String<br>Information of different aspects for TLS authentication related to ciphers, certificates and trust store
+
+<a id="nestedatt--routes-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#nestedatt--routes-no-client-certificate) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes-xfcc-header-elements"></a>&#x2022; [`xfcc_header_elements`](#nestedatt--routes-xfcc-header-elements) - Optional List  Defaults to `XFCC_NONE`<br>Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`<br>[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an
+mTLS enabled connections. If none are defined, the header will not be added
+
+#### TLS Parameters Client Certificate Optional
+
+A [`client_certificate_optional`](#tls-parameters-client-certificate-optional) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Client Certificate Required
+
+A [`client_certificate_required`](#tls-parameters-client-certificate-required) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Common Params
+
+A [`common_params`](#tls-parameters-common-params) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+<a id="nestedatt--routes-cipher-suites"></a>&#x2022; [`cipher_suites`](#nestedatt--routes-cipher-suites) - Optional List<br>The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+<a id="version-ff7425"></a>&#x2022; [`maximum_protocol_version`](#version-ff7425) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
+
+<a id="version-92974d"></a>&#x2022; [`minimum_protocol_version`](#version-92974d) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
+
+<a id="nestedatt--routes-tls-certificates"></a>&#x2022; [`tls_certificates`](#nestedatt--routes-tls-certificates) - Optional List<br>TLS Certificates. Set of TLS certificates
+
+<a id="nestedatt--routes-validation-params"></a>&#x2022; [`validation_params`](#nestedatt--routes-validation-params) - Optional String<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification
+
+#### TLS Parameters Common Params TLS Certificates
+
+A [`tls_certificates`](#tls-parameters-common-params-tls-certificates) block (within [`tls_parameters.common_params`](#tls-parameters-common-params)) supports the following:
+
+<a id="nestedatt--routes-certificate-url"></a>&#x2022; [`certificate_url`](#nestedatt--routes-certificate-url) - Optional String<br>TLS certificate. Certificate or certificate chain in PEM format including the PEM headers
+
+<a id="algorithms-dea68c"></a>&#x2022; [`custom_hash_algorithms`](#algorithms-dea68c) - Optional String<br>Specifies the hash algorithms to be used
+
+<a id="nestedatt--routes-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--routes-description-spec) - Optional String<br>Description. Description for the certificate
+
+<a id="nestedatt--routes-disable-ocsp-stapling"></a>&#x2022; [`disable_ocsp_stapling`](#nestedatt--routes-disable-ocsp-stapling) - Optional Object<br>Configuration parameter for disable OCSP stapling
+
+<a id="nestedatt--routes-private-key"></a>&#x2022; [`private_key`](#nestedatt--routes-private-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--routes-use-system-defaults"></a>&#x2022; [`use_system_defaults`](#nestedatt--routes-use-system-defaults) - Optional Object<br>Configuration parameter for use system defaults
+
+#### TLS Parameters Common Params TLS Certificates Custom Hash Algorithms
+
+<a id="deep-2bb8e0"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Disable OCSP Stapling
+
+<a id="deep-4477da"></a>Deeply nested **Stapling** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Private Key
+
+<a id="deep-9d0eb1"></a>Deeply nested **Key** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Private Key Blindfold Secret Info
+
+<a id="deep-188353"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Private Key Clear Secret Info
+
+<a id="deep-fbf9ed"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Use System Defaults
+
+<a id="deep-82b16e"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### TLS Parameters Common Params Validation Params
+
+A [`validation_params`](#tls-parameters-common-params-validation-params) block (within [`tls_parameters.common_params`](#tls-parameters-common-params)) supports the following:
+
+<a id="verification-c2d362"></a>&#x2022; [`skip_hostname_verification`](#verification-c2d362) - Optional Bool<br>When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname
+
+<a id="nestedatt--routes-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--routes-trusted-ca) - Optional String<br>Root CA Certificate Reference. Reference to Root CA Certificate
+
+<a id="nestedatt--routes-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#nestedatt--routes-trusted-ca-url) - Optional String<br>Inline Root CA Certificate
+
+<a id="names-035872"></a>&#x2022; [`verify_subject_alt_names`](#names-035872) - Optional List<br>List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate
+
+#### TLS Parameters Common Params Validation Params Trusted CA
+
+<a id="deep-79bc8f"></a>Deeply nested **CA** block collapsed for readability.
+
+#### TLS Parameters Common Params Validation Params Trusted CA Trusted CA List
+
+<a id="deep-7e09ed"></a>Deeply nested **List** block collapsed for readability.
+
+#### TLS Parameters No Client Certificate
+
+A [`no_client_certificate`](#tls-parameters-no-client-certificate) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### User Identification
+
+An [`user_identification`](#user-identification) block supports the following:
+
+<a id="nestedatt--routes-kind"></a>&#x2022; [`kind`](#nestedatt--routes-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--routes-name"></a>&#x2022; [`name`](#nestedatt--routes-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--routes-namespace"></a>&#x2022; [`namespace`](#nestedatt--routes-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--routes-uid"></a>&#x2022; [`uid`](#nestedatt--routes-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### WAF Type
+
+A [`waf_type`](#waf-type) block supports the following:
+
+<a id="nestedatt--routes-app-firewall"></a>&#x2022; [`app_firewall`](#nestedatt--routes-app-firewall) - Optional String<br>List of references to the app_firewall configuration objects
+
+<a id="nestedatt--routes-disable-waf"></a>&#x2022; [`disable_waf`](#nestedatt--routes-disable-waf) - Optional Object<br>Configuration parameter for disable WAF
+
+<a id="nestedatt--routes-inherit-waf"></a>&#x2022; [`inherit_waf`](#nestedatt--routes-inherit-waf) - Optional Object<br>Configuration parameter for inherit WAF
+
+#### WAF Type App Firewall
+
+An [`app_firewall`](#waf-type-app-firewall) block (within [`waf_type`](#waf-type)) supports the following:
+
+<a id="nestedatt--routes-app-firewall"></a>&#x2022; [`app_firewall`](#nestedatt--routes-app-firewall) - Optional List<br>References to an Application Firewall configuration object
+
+#### WAF Type App Firewall App Firewall
+
+An [`app_firewall`](#waf-type-app-firewall-app-firewall) block (within [`waf_type.app_firewall`](#waf-type-app-firewall)) supports the following:
+
+<a id="nestedatt--routes-kind"></a>&#x2022; [`kind`](#nestedatt--routes-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--routes-name"></a>&#x2022; [`name`](#nestedatt--routes-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--routes-namespace"></a>&#x2022; [`namespace`](#nestedatt--routes-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--routes-uid"></a>&#x2022; [`uid`](#nestedatt--routes-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### WAF Type Disable WAF
+
+A [`disable_waf`](#waf-type-disable-waf) block (within [`waf_type`](#waf-type)) supports the following:
+
+#### WAF Type Inherit WAF
+
+An [`inherit_waf`](#waf-type-inherit-waf) block (within [`waf_type`](#waf-type)) supports the following:
 
 ---
 

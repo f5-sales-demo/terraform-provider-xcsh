@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,21 @@ type ServicePolicyDataSource struct {
 }
 
 type ServicePolicyDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                types.String                         `tfsdk:"id"`
+	Name              types.String                         `tfsdk:"name"`
+	Namespace         types.String                         `tfsdk:"namespace"`
+	Description       types.String                         `tfsdk:"description"`
+	Labels            types.Map                            `tfsdk:"labels"`
+	Annotations       types.Map                            `tfsdk:"annotations"`
+	AllowAllRequests  types.Object                         `tfsdk:"allow_all_requests"`
+	DenyAllRequests   types.Object                         `tfsdk:"deny_all_requests"`
+	AnyServer         types.Object                         `tfsdk:"any_server"`
+	ServerName        types.String                         `tfsdk:"server_name"`
+	AllowList         *ServicePolicyAllowListModel         `tfsdk:"allow_list"`
+	DenyList          *ServicePolicyDenyListModel          `tfsdk:"deny_list"`
+	RuleList          *ServicePolicyRuleListModel          `tfsdk:"rule_list"`
+	ServerNameMatcher *ServicePolicyServerNameMatcherModel `tfsdk:"server_name_matcher"`
+	ServerSelector    *ServicePolicyServerSelectorModel    `tfsdk:"server_selector"`
 }
 
 func (d *ServicePolicyDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +80,1196 @@ func (d *ServicePolicyDataSource) Schema(ctx context.Context, req datasource.Sch
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"allow_all_requests": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: allow_all_requests, allow_list, deny_all_requests, deny_list, rule_list] Configuration parameter for allow all requests.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"allow_list": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of sources. A request belongs to this list if it satisfies any of the match criteria.",
+				Attributes: map[string]schema.Attribute{
+					"asn_list": schema.SingleNestedAttribute{
+						MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+						Attributes: map[string]schema.Attribute{
+							"as_numbers": schema.ListAttribute{
+								MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+								Computed:            true,
+								ElementType:         types.Int64Type,
+							},
+						},
+						Computed: true,
+					},
+					"asn_set": schema.ListNestedAttribute{
+						MarkdownDescription: "Addresses that belong to the ASNs in the given bgp_asn_set The ASN is obtained by performing a lookup for the source IPv4 Address in a GeoIP DB.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"country_list": schema.ListAttribute{
+						MarkdownDescription: "[Enum: COUNTRY_NONE|COUNTRY_AD|COUNTRY_AE|COUNTRY_AF|COUNTRY_AG|COUNTRY_AI|COUNTRY_AL|COUNTRY_AM|COUNTRY_AN|COUNTRY_AO|COUNTRY_AQ|COUNTRY_AR|COUNTRY_AS|COUNTRY_AT|COUNTRY_AU|COUNTRY_AW|COUNTRY_AX|COUNTRY_AZ|COUNTRY_BA|COUNTRY_BB|COUNTRY_BD|COUNTRY_BE|COUNTRY_BF|COUNTRY_BG|COUNTRY_BH|COUNTRY_BI|COUNTRY_BJ|COUNTRY_BL|COUNTRY_BM|COUNTRY_BN|COUNTRY_BO|COUNTRY_BQ|COUNTRY_BR|COUNTRY_BS|COUNTRY_BT|COUNTRY_BV|COUNTRY_BW|COUNTRY_BY|COUNTRY_BZ|COUNTRY_CA|COUNTRY_CC|COUNTRY_CD|COUNTRY_CF|COUNTRY_CG|COUNTRY_CH|COUNTRY_CI|COUNTRY_CK|COUNTRY_CL|COUNTRY_CM|COUNTRY_CN|COUNTRY_CO|COUNTRY_CR|COUNTRY_CS|COUNTRY_CU|COUNTRY_CV|COUNTRY_CW|COUNTRY_CX|COUNTRY_CY|COUNTRY_CZ|COUNTRY_DE|COUNTRY_DJ|COUNTRY_DK|COUNTRY_DM|COUNTRY_DO|COUNTRY_DZ|COUNTRY_EC|COUNTRY_EE|COUNTRY_EG|COUNTRY_EH|COUNTRY_ER|COUNTRY_ES|COUNTRY_ET|COUNTRY_FI|COUNTRY_FJ|COUNTRY_FK|COUNTRY_FM|COUNTRY_FO|COUNTRY_FR|COUNTRY_GA|COUNTRY_GB|COUNTRY_GD|COUNTRY_GE|COUNTRY_GF|COUNTRY_GG|COUNTRY_GH|COUNTRY_GI|COUNTRY_GL|COUNTRY_GM|COUNTRY_GN|COUNTRY_GP|COUNTRY_GQ|COUNTRY_GR|COUNTRY_GS|COUNTRY_GT|COUNTRY_GU|COUNTRY_GW|COUNTRY_GY|COUNTRY_HK|COUNTRY_HM|COUNTRY_HN|COUNTRY_HR|COUNTRY_HT|COUNTRY_HU|COUNTRY_ID|COUNTRY_IE|COUNTRY_IL|COUNTRY_IM|COUNTRY_IN|COUNTRY_IO|COUNTRY_IQ|COUNTRY_IR|COUNTRY_IS|COUNTRY_IT|COUNTRY_JE|COUNTRY_JM|COUNTRY_JO|COUNTRY_JP|COUNTRY_KE|COUNTRY_KG|COUNTRY_KH|COUNTRY_KI|COUNTRY_KM|COUNTRY_KN|COUNTRY_KP|COUNTRY_KR|COUNTRY_KW|COUNTRY_KY|COUNTRY_KZ|COUNTRY_LA|COUNTRY_LB|COUNTRY_LC|COUNTRY_LI|COUNTRY_LK|COUNTRY_LR|COUNTRY_LS|COUNTRY_LT|COUNTRY_LU|COUNTRY_LV|COUNTRY_LY|COUNTRY_MA|COUNTRY_MC|COUNTRY_MD|COUNTRY_ME|COUNTRY_MF|COUNTRY_MG|COUNTRY_MH|COUNTRY_MK|COUNTRY_ML|COUNTRY_MM|COUNTRY_MN|COUNTRY_MO|COUNTRY_MP|COUNTRY_MQ|COUNTRY_MR|COUNTRY_MS|COUNTRY_MT|COUNTRY_MU|COUNTRY_MV|COUNTRY_MW|COUNTRY_MX|COUNTRY_MY|COUNTRY_MZ|COUNTRY_NA|COUNTRY_NC|COUNTRY_NE|COUNTRY_NF|COUNTRY_NG|COUNTRY_NI|COUNTRY_NL|COUNTRY_NO|COUNTRY_NP|COUNTRY_NR|COUNTRY_NU|COUNTRY_NZ|COUNTRY_OM|COUNTRY_PA|COUNTRY_PE|COUNTRY_PF|COUNTRY_PG|COUNTRY_PH|COUNTRY_PK|COUNTRY_PL|COUNTRY_PM|COUNTRY_PN|COUNTRY_PR|COUNTRY_PS|COUNTRY_PT|COUNTRY_PW|COUNTRY_PY|COUNTRY_QA|COUNTRY_RE|COUNTRY_RO|COUNTRY_RS|COUNTRY_RU|COUNTRY_RW|COUNTRY_SA|COUNTRY_SB|COUNTRY_SC|COUNTRY_SD|COUNTRY_SE|COUNTRY_SG|COUNTRY_SH|COUNTRY_SI|COUNTRY_SJ|COUNTRY_SK|COUNTRY_SL|COUNTRY_SM|COUNTRY_SN|COUNTRY_SO|COUNTRY_SR|COUNTRY_SS|COUNTRY_ST|COUNTRY_SV|COUNTRY_SX|COUNTRY_SY|COUNTRY_SZ|COUNTRY_TC|COUNTRY_TD|COUNTRY_TF|COUNTRY_TG|COUNTRY_TH|COUNTRY_TJ|COUNTRY_TK|COUNTRY_TL|COUNTRY_TM|COUNTRY_TN|COUNTRY_TO|COUNTRY_TR|COUNTRY_TT|COUNTRY_TV|COUNTRY_TW|COUNTRY_TZ|COUNTRY_UA|COUNTRY_UG|COUNTRY_UM|COUNTRY_US|COUNTRY_UY|COUNTRY_UZ|COUNTRY_VA|COUNTRY_VC|COUNTRY_VE|COUNTRY_VG|COUNTRY_VI|COUNTRY_VN|COUNTRY_VU|COUNTRY_WF|COUNTRY_WS|COUNTRY_XK|COUNTRY_XT|COUNTRY_YE|COUNTRY_YT|COUNTRY_ZA|COUNTRY_ZM|COUNTRY_ZW] Addresses that belong to one of the countries in the given list The country is obtained by performing a lookup for the source IPv4 Address in a GeoIP DB. Possible values are `COUNTRY_NONE`, `COUNTRY_AD`, `COUNTRY_AE`, `COUNTRY_AF`, `COUNTRY_AG`, `COUNTRY_AI`, `COUNTRY_AL`, `COUNTRY_AM`, `COUNTRY_AN`, `COUNTRY_AO`, `COUNTRY_AQ`, `COUNTRY_AR`, `COUNTRY_AS`, `COUNTRY_AT`, `COUNTRY_AU`, `COUNTRY_AW`, `COUNTRY_AX`, `COUNTRY_AZ`, `COUNTRY_BA`, `COUNTRY_BB`, `COUNTRY_BD`, `COUNTRY_BE`, `COUNTRY_BF`, `COUNTRY_BG`, `COUNTRY_BH`, `COUNTRY_BI`, `COUNTRY_BJ`, `COUNTRY_BL`, `COUNTRY_BM`, `COUNTRY_BN`, `COUNTRY_BO`, `COUNTRY_BQ`, `COUNTRY_BR`, `COUNTRY_BS`, `COUNTRY_BT`, `COUNTRY_BV`, `COUNTRY_BW`, `COUNTRY_BY`, `COUNTRY_BZ`, `COUNTRY_CA`, `COUNTRY_CC`, `COUNTRY_CD`, `COUNTRY_CF`, `COUNTRY_CG`, `COUNTRY_CH`, `COUNTRY_CI`, `COUNTRY_CK`, `COUNTRY_CL`, `COUNTRY_CM`, `COUNTRY_CN`, `COUNTRY_CO`, `COUNTRY_CR`, `COUNTRY_CS`, `COUNTRY_CU`, `COUNTRY_CV`, `COUNTRY_CW`, `COUNTRY_CX`, `COUNTRY_CY`, `COUNTRY_CZ`, `COUNTRY_DE`, `COUNTRY_DJ`, `COUNTRY_DK`, `COUNTRY_DM`, `COUNTRY_DO`, `COUNTRY_DZ`, `COUNTRY_EC`, `COUNTRY_EE`, `COUNTRY_EG`, `COUNTRY_EH`, `COUNTRY_ER`, `COUNTRY_ES`, `COUNTRY_ET`, `COUNTRY_FI`, `COUNTRY_FJ`, `COUNTRY_FK`, `COUNTRY_FM`, `COUNTRY_FO`, `COUNTRY_FR`, `COUNTRY_GA`, `COUNTRY_GB`, `COUNTRY_GD`, `COUNTRY_GE`, `COUNTRY_GF`, `COUNTRY_GG`, `COUNTRY_GH`, `COUNTRY_GI`, `COUNTRY_GL`, `COUNTRY_GM`, `COUNTRY_GN`, `COUNTRY_GP`, `COUNTRY_GQ`, `COUNTRY_GR`, `COUNTRY_GS`, `COUNTRY_GT`, `COUNTRY_GU`, `COUNTRY_GW`, `COUNTRY_GY`, `COUNTRY_HK`, `COUNTRY_HM`, `COUNTRY_HN`, `COUNTRY_HR`, `COUNTRY_HT`, `COUNTRY_HU`, `COUNTRY_ID`, `COUNTRY_IE`, `COUNTRY_IL`, `COUNTRY_IM`, `COUNTRY_IN`, `COUNTRY_IO`, `COUNTRY_IQ`, `COUNTRY_IR`, `COUNTRY_IS`, `COUNTRY_IT`, `COUNTRY_JE`, `COUNTRY_JM`, `COUNTRY_JO`, `COUNTRY_JP`, `COUNTRY_KE`, `COUNTRY_KG`, `COUNTRY_KH`, `COUNTRY_KI`, `COUNTRY_KM`, `COUNTRY_KN`, `COUNTRY_KP`, `COUNTRY_KR`, `COUNTRY_KW`, `COUNTRY_KY`, `COUNTRY_KZ`, `COUNTRY_LA`, `COUNTRY_LB`, `COUNTRY_LC`, `COUNTRY_LI`, `COUNTRY_LK`, `COUNTRY_LR`, `COUNTRY_LS`, `COUNTRY_LT`, `COUNTRY_LU`, `COUNTRY_LV`, `COUNTRY_LY`, `COUNTRY_MA`, `COUNTRY_MC`, `COUNTRY_MD`, `COUNTRY_ME`, `COUNTRY_MF`, `COUNTRY_MG`, `COUNTRY_MH`, `COUNTRY_MK`, `COUNTRY_ML`, `COUNTRY_MM`, `COUNTRY_MN`, `COUNTRY_MO`, `COUNTRY_MP`, `COUNTRY_MQ`, `COUNTRY_MR`, `COUNTRY_MS`, `COUNTRY_MT`, `COUNTRY_MU`, `COUNTRY_MV`, `COUNTRY_MW`, `COUNTRY_MX`, `COUNTRY_MY`, `COUNTRY_MZ`, `COUNTRY_NA`, `COUNTRY_NC`, `COUNTRY_NE`, `COUNTRY_NF`, `COUNTRY_NG`, `COUNTRY_NI`, `COUNTRY_NL`, `COUNTRY_NO`, `COUNTRY_NP`, `COUNTRY_NR`, `COUNTRY_NU`, `COUNTRY_NZ`, `COUNTRY_OM`, `COUNTRY_PA`, `COUNTRY_PE`, `COUNTRY_PF`, `COUNTRY_PG`, `COUNTRY_PH`, `COUNTRY_PK`, `COUNTRY_PL`, `COUNTRY_PM`, `COUNTRY_PN`, `COUNTRY_PR`, `COUNTRY_PS`, `COUNTRY_PT`, `COUNTRY_PW`, `COUNTRY_PY`, `COUNTRY_QA`, `COUNTRY_RE`, `COUNTRY_RO`, `COUNTRY_RS`, `COUNTRY_RU`, `COUNTRY_RW`, `COUNTRY_SA`, `COUNTRY_SB`, `COUNTRY_SC`, `COUNTRY_SD`, `COUNTRY_SE`, `COUNTRY_SG`, `COUNTRY_SH`, `COUNTRY_SI`, `COUNTRY_SJ`, `COUNTRY_SK`, `COUNTRY_SL`, `COUNTRY_SM`, `COUNTRY_SN`, `COUNTRY_SO`, `COUNTRY_SR`, `COUNTRY_SS`, `COUNTRY_ST`, `COUNTRY_SV`, `COUNTRY_SX`, `COUNTRY_SY`, `COUNTRY_SZ`, `COUNTRY_TC`, `COUNTRY_TD`, `COUNTRY_TF`, `COUNTRY_TG`, `COUNTRY_TH`, `COUNTRY_TJ`, `COUNTRY_TK`, `COUNTRY_TL`, `COUNTRY_TM`, `COUNTRY_TN`, `COUNTRY_TO`, `COUNTRY_TR`, `COUNTRY_TT`, `COUNTRY_TV`, `COUNTRY_TW`, `COUNTRY_TZ`, `COUNTRY_UA`, `COUNTRY_UG`, `COUNTRY_UM`, `COUNTRY_US`, `COUNTRY_UY`, `COUNTRY_UZ`, `COUNTRY_VA`, `COUNTRY_VC`, `COUNTRY_VE`, `COUNTRY_VG`, `COUNTRY_VI`, `COUNTRY_VN`, `COUNTRY_VU`, `COUNTRY_WF`, `COUNTRY_WS`, `COUNTRY_XK`, `COUNTRY_XT`, `COUNTRY_YE`, `COUNTRY_YT`, `COUNTRY_ZA`, `COUNTRY_ZM`, `COUNTRY_ZW`. Defaults to `COUNTRY_NONE`.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"default_action_allow": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_action_deny": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_action_next_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"ip_prefix_set": schema.ListNestedAttribute{
+						MarkdownDescription: "Addresses that are covered by the prefixes in the given ip_prefix_set.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"prefix_list": schema.SingleNestedAttribute{
+						MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"prefixes": schema.ListAttribute{
+								MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+						},
+						Computed: true,
+					},
+					"tls_fingerprint_classes": schema.ListAttribute{
+						MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"tls_fingerprint_values": schema.ListAttribute{
+						MarkdownDescription: "List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"deny_all_requests": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for deny all requests.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"deny_list": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of sources. A request belongs to this list if it satisfies any of the match criteria.",
+				Attributes: map[string]schema.Attribute{
+					"asn_list": schema.SingleNestedAttribute{
+						MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+						Attributes: map[string]schema.Attribute{
+							"as_numbers": schema.ListAttribute{
+								MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+								Computed:            true,
+								ElementType:         types.Int64Type,
+							},
+						},
+						Computed: true,
+					},
+					"asn_set": schema.ListNestedAttribute{
+						MarkdownDescription: "Addresses that belong to the ASNs in the given bgp_asn_set The ASN is obtained by performing a lookup for the source IPv4 Address in a GeoIP DB.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"country_list": schema.ListAttribute{
+						MarkdownDescription: "[Enum: COUNTRY_NONE|COUNTRY_AD|COUNTRY_AE|COUNTRY_AF|COUNTRY_AG|COUNTRY_AI|COUNTRY_AL|COUNTRY_AM|COUNTRY_AN|COUNTRY_AO|COUNTRY_AQ|COUNTRY_AR|COUNTRY_AS|COUNTRY_AT|COUNTRY_AU|COUNTRY_AW|COUNTRY_AX|COUNTRY_AZ|COUNTRY_BA|COUNTRY_BB|COUNTRY_BD|COUNTRY_BE|COUNTRY_BF|COUNTRY_BG|COUNTRY_BH|COUNTRY_BI|COUNTRY_BJ|COUNTRY_BL|COUNTRY_BM|COUNTRY_BN|COUNTRY_BO|COUNTRY_BQ|COUNTRY_BR|COUNTRY_BS|COUNTRY_BT|COUNTRY_BV|COUNTRY_BW|COUNTRY_BY|COUNTRY_BZ|COUNTRY_CA|COUNTRY_CC|COUNTRY_CD|COUNTRY_CF|COUNTRY_CG|COUNTRY_CH|COUNTRY_CI|COUNTRY_CK|COUNTRY_CL|COUNTRY_CM|COUNTRY_CN|COUNTRY_CO|COUNTRY_CR|COUNTRY_CS|COUNTRY_CU|COUNTRY_CV|COUNTRY_CW|COUNTRY_CX|COUNTRY_CY|COUNTRY_CZ|COUNTRY_DE|COUNTRY_DJ|COUNTRY_DK|COUNTRY_DM|COUNTRY_DO|COUNTRY_DZ|COUNTRY_EC|COUNTRY_EE|COUNTRY_EG|COUNTRY_EH|COUNTRY_ER|COUNTRY_ES|COUNTRY_ET|COUNTRY_FI|COUNTRY_FJ|COUNTRY_FK|COUNTRY_FM|COUNTRY_FO|COUNTRY_FR|COUNTRY_GA|COUNTRY_GB|COUNTRY_GD|COUNTRY_GE|COUNTRY_GF|COUNTRY_GG|COUNTRY_GH|COUNTRY_GI|COUNTRY_GL|COUNTRY_GM|COUNTRY_GN|COUNTRY_GP|COUNTRY_GQ|COUNTRY_GR|COUNTRY_GS|COUNTRY_GT|COUNTRY_GU|COUNTRY_GW|COUNTRY_GY|COUNTRY_HK|COUNTRY_HM|COUNTRY_HN|COUNTRY_HR|COUNTRY_HT|COUNTRY_HU|COUNTRY_ID|COUNTRY_IE|COUNTRY_IL|COUNTRY_IM|COUNTRY_IN|COUNTRY_IO|COUNTRY_IQ|COUNTRY_IR|COUNTRY_IS|COUNTRY_IT|COUNTRY_JE|COUNTRY_JM|COUNTRY_JO|COUNTRY_JP|COUNTRY_KE|COUNTRY_KG|COUNTRY_KH|COUNTRY_KI|COUNTRY_KM|COUNTRY_KN|COUNTRY_KP|COUNTRY_KR|COUNTRY_KW|COUNTRY_KY|COUNTRY_KZ|COUNTRY_LA|COUNTRY_LB|COUNTRY_LC|COUNTRY_LI|COUNTRY_LK|COUNTRY_LR|COUNTRY_LS|COUNTRY_LT|COUNTRY_LU|COUNTRY_LV|COUNTRY_LY|COUNTRY_MA|COUNTRY_MC|COUNTRY_MD|COUNTRY_ME|COUNTRY_MF|COUNTRY_MG|COUNTRY_MH|COUNTRY_MK|COUNTRY_ML|COUNTRY_MM|COUNTRY_MN|COUNTRY_MO|COUNTRY_MP|COUNTRY_MQ|COUNTRY_MR|COUNTRY_MS|COUNTRY_MT|COUNTRY_MU|COUNTRY_MV|COUNTRY_MW|COUNTRY_MX|COUNTRY_MY|COUNTRY_MZ|COUNTRY_NA|COUNTRY_NC|COUNTRY_NE|COUNTRY_NF|COUNTRY_NG|COUNTRY_NI|COUNTRY_NL|COUNTRY_NO|COUNTRY_NP|COUNTRY_NR|COUNTRY_NU|COUNTRY_NZ|COUNTRY_OM|COUNTRY_PA|COUNTRY_PE|COUNTRY_PF|COUNTRY_PG|COUNTRY_PH|COUNTRY_PK|COUNTRY_PL|COUNTRY_PM|COUNTRY_PN|COUNTRY_PR|COUNTRY_PS|COUNTRY_PT|COUNTRY_PW|COUNTRY_PY|COUNTRY_QA|COUNTRY_RE|COUNTRY_RO|COUNTRY_RS|COUNTRY_RU|COUNTRY_RW|COUNTRY_SA|COUNTRY_SB|COUNTRY_SC|COUNTRY_SD|COUNTRY_SE|COUNTRY_SG|COUNTRY_SH|COUNTRY_SI|COUNTRY_SJ|COUNTRY_SK|COUNTRY_SL|COUNTRY_SM|COUNTRY_SN|COUNTRY_SO|COUNTRY_SR|COUNTRY_SS|COUNTRY_ST|COUNTRY_SV|COUNTRY_SX|COUNTRY_SY|COUNTRY_SZ|COUNTRY_TC|COUNTRY_TD|COUNTRY_TF|COUNTRY_TG|COUNTRY_TH|COUNTRY_TJ|COUNTRY_TK|COUNTRY_TL|COUNTRY_TM|COUNTRY_TN|COUNTRY_TO|COUNTRY_TR|COUNTRY_TT|COUNTRY_TV|COUNTRY_TW|COUNTRY_TZ|COUNTRY_UA|COUNTRY_UG|COUNTRY_UM|COUNTRY_US|COUNTRY_UY|COUNTRY_UZ|COUNTRY_VA|COUNTRY_VC|COUNTRY_VE|COUNTRY_VG|COUNTRY_VI|COUNTRY_VN|COUNTRY_VU|COUNTRY_WF|COUNTRY_WS|COUNTRY_XK|COUNTRY_XT|COUNTRY_YE|COUNTRY_YT|COUNTRY_ZA|COUNTRY_ZM|COUNTRY_ZW] Addresses that belong to one of the countries in the given list The country is obtained by performing a lookup for the source IPv4 Address in a GeoIP DB. Possible values are `COUNTRY_NONE`, `COUNTRY_AD`, `COUNTRY_AE`, `COUNTRY_AF`, `COUNTRY_AG`, `COUNTRY_AI`, `COUNTRY_AL`, `COUNTRY_AM`, `COUNTRY_AN`, `COUNTRY_AO`, `COUNTRY_AQ`, `COUNTRY_AR`, `COUNTRY_AS`, `COUNTRY_AT`, `COUNTRY_AU`, `COUNTRY_AW`, `COUNTRY_AX`, `COUNTRY_AZ`, `COUNTRY_BA`, `COUNTRY_BB`, `COUNTRY_BD`, `COUNTRY_BE`, `COUNTRY_BF`, `COUNTRY_BG`, `COUNTRY_BH`, `COUNTRY_BI`, `COUNTRY_BJ`, `COUNTRY_BL`, `COUNTRY_BM`, `COUNTRY_BN`, `COUNTRY_BO`, `COUNTRY_BQ`, `COUNTRY_BR`, `COUNTRY_BS`, `COUNTRY_BT`, `COUNTRY_BV`, `COUNTRY_BW`, `COUNTRY_BY`, `COUNTRY_BZ`, `COUNTRY_CA`, `COUNTRY_CC`, `COUNTRY_CD`, `COUNTRY_CF`, `COUNTRY_CG`, `COUNTRY_CH`, `COUNTRY_CI`, `COUNTRY_CK`, `COUNTRY_CL`, `COUNTRY_CM`, `COUNTRY_CN`, `COUNTRY_CO`, `COUNTRY_CR`, `COUNTRY_CS`, `COUNTRY_CU`, `COUNTRY_CV`, `COUNTRY_CW`, `COUNTRY_CX`, `COUNTRY_CY`, `COUNTRY_CZ`, `COUNTRY_DE`, `COUNTRY_DJ`, `COUNTRY_DK`, `COUNTRY_DM`, `COUNTRY_DO`, `COUNTRY_DZ`, `COUNTRY_EC`, `COUNTRY_EE`, `COUNTRY_EG`, `COUNTRY_EH`, `COUNTRY_ER`, `COUNTRY_ES`, `COUNTRY_ET`, `COUNTRY_FI`, `COUNTRY_FJ`, `COUNTRY_FK`, `COUNTRY_FM`, `COUNTRY_FO`, `COUNTRY_FR`, `COUNTRY_GA`, `COUNTRY_GB`, `COUNTRY_GD`, `COUNTRY_GE`, `COUNTRY_GF`, `COUNTRY_GG`, `COUNTRY_GH`, `COUNTRY_GI`, `COUNTRY_GL`, `COUNTRY_GM`, `COUNTRY_GN`, `COUNTRY_GP`, `COUNTRY_GQ`, `COUNTRY_GR`, `COUNTRY_GS`, `COUNTRY_GT`, `COUNTRY_GU`, `COUNTRY_GW`, `COUNTRY_GY`, `COUNTRY_HK`, `COUNTRY_HM`, `COUNTRY_HN`, `COUNTRY_HR`, `COUNTRY_HT`, `COUNTRY_HU`, `COUNTRY_ID`, `COUNTRY_IE`, `COUNTRY_IL`, `COUNTRY_IM`, `COUNTRY_IN`, `COUNTRY_IO`, `COUNTRY_IQ`, `COUNTRY_IR`, `COUNTRY_IS`, `COUNTRY_IT`, `COUNTRY_JE`, `COUNTRY_JM`, `COUNTRY_JO`, `COUNTRY_JP`, `COUNTRY_KE`, `COUNTRY_KG`, `COUNTRY_KH`, `COUNTRY_KI`, `COUNTRY_KM`, `COUNTRY_KN`, `COUNTRY_KP`, `COUNTRY_KR`, `COUNTRY_KW`, `COUNTRY_KY`, `COUNTRY_KZ`, `COUNTRY_LA`, `COUNTRY_LB`, `COUNTRY_LC`, `COUNTRY_LI`, `COUNTRY_LK`, `COUNTRY_LR`, `COUNTRY_LS`, `COUNTRY_LT`, `COUNTRY_LU`, `COUNTRY_LV`, `COUNTRY_LY`, `COUNTRY_MA`, `COUNTRY_MC`, `COUNTRY_MD`, `COUNTRY_ME`, `COUNTRY_MF`, `COUNTRY_MG`, `COUNTRY_MH`, `COUNTRY_MK`, `COUNTRY_ML`, `COUNTRY_MM`, `COUNTRY_MN`, `COUNTRY_MO`, `COUNTRY_MP`, `COUNTRY_MQ`, `COUNTRY_MR`, `COUNTRY_MS`, `COUNTRY_MT`, `COUNTRY_MU`, `COUNTRY_MV`, `COUNTRY_MW`, `COUNTRY_MX`, `COUNTRY_MY`, `COUNTRY_MZ`, `COUNTRY_NA`, `COUNTRY_NC`, `COUNTRY_NE`, `COUNTRY_NF`, `COUNTRY_NG`, `COUNTRY_NI`, `COUNTRY_NL`, `COUNTRY_NO`, `COUNTRY_NP`, `COUNTRY_NR`, `COUNTRY_NU`, `COUNTRY_NZ`, `COUNTRY_OM`, `COUNTRY_PA`, `COUNTRY_PE`, `COUNTRY_PF`, `COUNTRY_PG`, `COUNTRY_PH`, `COUNTRY_PK`, `COUNTRY_PL`, `COUNTRY_PM`, `COUNTRY_PN`, `COUNTRY_PR`, `COUNTRY_PS`, `COUNTRY_PT`, `COUNTRY_PW`, `COUNTRY_PY`, `COUNTRY_QA`, `COUNTRY_RE`, `COUNTRY_RO`, `COUNTRY_RS`, `COUNTRY_RU`, `COUNTRY_RW`, `COUNTRY_SA`, `COUNTRY_SB`, `COUNTRY_SC`, `COUNTRY_SD`, `COUNTRY_SE`, `COUNTRY_SG`, `COUNTRY_SH`, `COUNTRY_SI`, `COUNTRY_SJ`, `COUNTRY_SK`, `COUNTRY_SL`, `COUNTRY_SM`, `COUNTRY_SN`, `COUNTRY_SO`, `COUNTRY_SR`, `COUNTRY_SS`, `COUNTRY_ST`, `COUNTRY_SV`, `COUNTRY_SX`, `COUNTRY_SY`, `COUNTRY_SZ`, `COUNTRY_TC`, `COUNTRY_TD`, `COUNTRY_TF`, `COUNTRY_TG`, `COUNTRY_TH`, `COUNTRY_TJ`, `COUNTRY_TK`, `COUNTRY_TL`, `COUNTRY_TM`, `COUNTRY_TN`, `COUNTRY_TO`, `COUNTRY_TR`, `COUNTRY_TT`, `COUNTRY_TV`, `COUNTRY_TW`, `COUNTRY_TZ`, `COUNTRY_UA`, `COUNTRY_UG`, `COUNTRY_UM`, `COUNTRY_US`, `COUNTRY_UY`, `COUNTRY_UZ`, `COUNTRY_VA`, `COUNTRY_VC`, `COUNTRY_VE`, `COUNTRY_VG`, `COUNTRY_VI`, `COUNTRY_VN`, `COUNTRY_VU`, `COUNTRY_WF`, `COUNTRY_WS`, `COUNTRY_XK`, `COUNTRY_XT`, `COUNTRY_YE`, `COUNTRY_YT`, `COUNTRY_ZA`, `COUNTRY_ZM`, `COUNTRY_ZW`. Defaults to `COUNTRY_NONE`.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"default_action_allow": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_action_deny": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_action_next_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"ip_prefix_set": schema.ListNestedAttribute{
+						MarkdownDescription: "Addresses that are covered by the prefixes in the given ip_prefix_set.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"prefix_list": schema.SingleNestedAttribute{
+						MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"prefixes": schema.ListAttribute{
+								MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+								Computed:            true,
+								ElementType:         types.StringType,
+							},
+						},
+						Computed: true,
+					},
+					"tls_fingerprint_classes": schema.ListAttribute{
+						MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"tls_fingerprint_values": schema.ListAttribute{
+						MarkdownDescription: "List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"rule_list": schema.SingleNestedAttribute{
+				MarkdownDescription: "Ordered service-policy rules for non-geographic predicates and actions. Do not use country_list for a geo-only rule here: the platform adds match-all any_ip and any_asn selectors on readback, so the rule can match all traffic. Use deny_list or allow_list with country_list for geographic source..",
+				Attributes: map[string]schema.Attribute{
+					"rules": schema.ListNestedAttribute{
+						MarkdownDescription: "Define the list of rules (with an order) that should be evaluated by this service policy. Rules are evaluated from top to bottom in the list.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"metadata": schema.SingleNestedAttribute{
+									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Attributes: map[string]schema.Attribute{
+										"description_spec": schema.StringAttribute{
+											MarkdownDescription: "Description. Human readable description.",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"spec": schema.SingleNestedAttribute{
+									MarkdownDescription: "Shape of service_policy_rule in the storage backend.",
+									Attributes: map[string]schema.Attribute{
+										"action": schema.StringAttribute{
+											MarkdownDescription: "[Enum: DENY|ALLOW|NEXT_POLICY] The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of the request is terminated and an appropriate message/code returned to.. Possible values are `DENY`, `ALLOW`, `NEXT_POLICY`. Defaults to `DENY`.",
+											Computed:            true,
+										},
+										"any_asn": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"any_client": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"any_ip": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"api_group_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Matcher specifies a list of values for matching an input string. The match is considered successful if the input value is present in the list. The result of the match is inverted if invert_matcher is true.",
+											Attributes: map[string]schema.Attribute{
+												"invert_matcher": schema.BoolAttribute{
+													MarkdownDescription: "Invert String Matcher. Invert the match result.",
+													Computed:            true,
+												},
+												"match": schema.ListAttribute{
+													MarkdownDescription: "List of exact values to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"arg_matchers": schema.ListNestedAttribute{
+											MarkdownDescription: "List of predicates for all POST args that need to be matched. The criteria for matching each arg are described in individual instances of ArgMatcherType. The actual arg values are extracted from the request API as a list of strings for each arg selector name.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"invert_matcher": schema.BoolAttribute{
+														MarkdownDescription: "Invert Matcher. Invert Match of the expression defined.",
+														Computed:            true,
+													},
+													"item": schema.SingleNestedAttribute{
+														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+														Attributes: map[string]schema.Attribute{
+															"exact_values": schema.ListAttribute{
+																MarkdownDescription: "List of exact values to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"regex_values": schema.ListAttribute{
+																MarkdownDescription: "List of regular expressions to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"transformers": schema.ListAttribute{
+																MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Computed: true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "Case-sensitive JSON path in the HTTP request body.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+										"asn_list": schema.SingleNestedAttribute{
+											MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+											Attributes: map[string]schema.Attribute{
+												"as_numbers": schema.ListAttribute{
+													MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+													Computed:            true,
+													ElementType:         types.Int64Type,
+												},
+											},
+											Computed: true,
+										},
+										"asn_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Match any AS number contained in the list of bgp_asn_sets.",
+											Attributes: map[string]schema.Attribute{
+												"asn_sets": schema.ListNestedAttribute{
+													MarkdownDescription: "List of references to bgp_asn_set objects.",
+													NestedObject: schema.NestedAttributeObject{
+														Attributes: map[string]schema.Attribute{
+															"kind": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+																Computed:            true,
+															},
+															"name": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+																Computed:            true,
+															},
+															"namespace": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+																Computed:            true,
+															},
+															"tenant": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+																Computed:            true,
+															},
+															"uid": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+																Computed:            true,
+															},
+														},
+													},
+													Computed: true,
+												},
+											},
+											Computed: true,
+										},
+										"body_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+											Attributes: map[string]schema.Attribute{
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "List of exact values to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"regex_values": schema.ListAttribute{
+													MarkdownDescription: "List of regular expressions to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"transformers": schema.ListAttribute{
+													MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"bot_action": schema.SingleNestedAttribute{
+											MarkdownDescription: "Modify Bot protection behavior for a matching request. The modification could be to entirely skip Bot processing.",
+											Attributes: map[string]schema.Attribute{
+												"bot_skip_processing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"none": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Computed: true,
+										},
+										"client_name": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [any_client client_name_matcher client_selector ip_threat_category_list] The expected name of the client invoking the request API. The predicate evaluates to true if any of the actual names is the same as the expected client name.",
+											Computed:            true,
+										},
+										"client_name_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+											Attributes: map[string]schema.Attribute{
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "List of exact values to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"regex_values": schema.ListAttribute{
+													MarkdownDescription: "List of regular expressions to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"transformers": schema.ListAttribute{
+													MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"client_selector": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+											Attributes: map[string]schema.Attribute{
+												"expressions": schema.ListAttribute{
+													MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"cookie_matchers": schema.ListNestedAttribute{
+											MarkdownDescription: "List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"invert_matcher": schema.BoolAttribute{
+														MarkdownDescription: "Invert Matcher. Invert Match of the expression defined.",
+														Computed:            true,
+													},
+													"item": schema.SingleNestedAttribute{
+														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+														Attributes: map[string]schema.Attribute{
+															"exact_values": schema.ListAttribute{
+																MarkdownDescription: "List of exact values to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"regex_values": schema.ListAttribute{
+																MarkdownDescription: "List of regular expressions to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"transformers": schema.ListAttribute{
+																MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Computed: true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "Cookie Name. A case-sensitive cookie name.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+										"domain_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+											Attributes: map[string]schema.Attribute{
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "List of exact values to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"regex_values": schema.ListAttribute{
+													MarkdownDescription: "List of regular expressions to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"transformers": schema.ListAttribute{
+													MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"expiration_timestamp": schema.StringAttribute{
+											MarkdownDescription: "Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore.",
+											Computed:            true,
+										},
+										"headers": schema.ListNestedAttribute{
+											MarkdownDescription: "List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"invert_matcher": schema.BoolAttribute{
+														MarkdownDescription: "Invert Header Matcher. Invert the match result.",
+														Computed:            true,
+													},
+													"item": schema.SingleNestedAttribute{
+														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+														Attributes: map[string]schema.Attribute{
+															"exact_values": schema.ListAttribute{
+																MarkdownDescription: "List of exact values to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"regex_values": schema.ListAttribute{
+																MarkdownDescription: "List of regular expressions to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"transformers": schema.ListAttribute{
+																MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Computed: true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+										"http_method": schema.SingleNestedAttribute{
+											MarkdownDescription: "HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true.",
+											Attributes: map[string]schema.Attribute{
+												"invert_matcher": schema.BoolAttribute{
+													MarkdownDescription: "Invert Method Matcher. Invert the match result.",
+													Computed:            true,
+												},
+												"methods": schema.ListAttribute{
+													MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] List of methods values to match against. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"ip_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
+											Attributes: map[string]schema.Attribute{
+												"invert_matcher": schema.BoolAttribute{
+													MarkdownDescription: "Invert IP Matcher. Invert the match result.",
+													Computed:            true,
+												},
+												"prefix_sets": schema.ListNestedAttribute{
+													MarkdownDescription: "List of references to ip_prefix_set objects.",
+													NestedObject: schema.NestedAttributeObject{
+														Attributes: map[string]schema.Attribute{
+															"kind": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+																Computed:            true,
+															},
+															"name": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+																Computed:            true,
+															},
+															"namespace": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+																Computed:            true,
+															},
+															"tenant": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+																Computed:            true,
+															},
+															"uid": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+																Computed:            true,
+															},
+														},
+													},
+													Computed: true,
+												},
+											},
+											Computed: true,
+										},
+										"ip_prefix_list": schema.SingleNestedAttribute{
+											MarkdownDescription: "List of IP Prefix strings to match against.",
+											Attributes: map[string]schema.Attribute{
+												"invert_match": schema.BoolAttribute{
+													MarkdownDescription: "Invert Match Result. Invert the match result.",
+													Computed:            true,
+												},
+												"ip_prefixes": schema.ListAttribute{
+													MarkdownDescription: "IPv4 Prefix List. List of IPv4 prefix strings.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"ip_threat_category_list": schema.SingleNestedAttribute{
+											MarkdownDescription: "IP Threat Category List Type. List of IP threat categories.",
+											Attributes: map[string]schema.Attribute{
+												"ip_threat_categories": schema.ListAttribute{
+													MarkdownDescription: "[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to auto-generate equivalent label selection expressions. Possible values are `SPAM_SOURCES`, `WINDOWS_EXPLOITS`, `WEB_ATTACKS`, `BOTNETS`, `SCANNERS`, `REPUTATION`, `PHISHING`, `PROXY`, `MOBILE_THREATS`, `TOR_PROXY`, `DENIAL_OF_SERVICE`, `NETWORK`. Defaults to `SPAM_SOURCES`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"ja4_tls_fingerprint": schema.SingleNestedAttribute{
+											MarkdownDescription: "Extended version of JA3 that includes additional fields for more comprehensive fingerprinting of SSL/TLS clients and potentially has a different structure and length.",
+											Attributes: map[string]schema.Attribute{
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "List of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"jwt_claims": schema.ListNestedAttribute{
+											MarkdownDescription: "List of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"invert_matcher": schema.BoolAttribute{
+														MarkdownDescription: "Invert Matcher. Invert the match result.",
+														Computed:            true,
+													},
+													"item": schema.SingleNestedAttribute{
+														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+														Attributes: map[string]schema.Attribute{
+															"exact_values": schema.ListAttribute{
+																MarkdownDescription: "List of exact values to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"regex_values": schema.ListAttribute{
+																MarkdownDescription: "List of regular expressions to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"transformers": schema.ListAttribute{
+																MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Computed: true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "JWT Claim Name. JWT claim name.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+										"label_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
+											Attributes: map[string]schema.Attribute{
+												"keys": schema.ListAttribute{
+													MarkdownDescription: "The list of label key names that have to match.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"log_rule_evaluation": schema.BoolAttribute{
+											MarkdownDescription: "Log the rule match details along with the request and continue to evaluate rules in the sequence.",
+											Computed:            true,
+										},
+										"mum_action": schema.SingleNestedAttribute{
+											MarkdownDescription: "Modify behavior for a matching request. The modification could be to entirely skip processing.",
+											Attributes: map[string]schema.Attribute{
+												"default": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"skip_processing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Computed: true,
+										},
+										"path": schema.SingleNestedAttribute{
+											MarkdownDescription: "Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
+											Attributes: map[string]schema.Attribute{
+												"encoded_path_matcher": schema.BoolAttribute{
+													MarkdownDescription: "Match against the encoded, escaped path.",
+													Computed:            true,
+												},
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "List of exact path values to match the input HTTP path against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"invert_matcher": schema.BoolAttribute{
+													MarkdownDescription: "Invert Path Matcher. Invert the match result.",
+													Computed:            true,
+												},
+												"prefix_values": schema.ListAttribute{
+													MarkdownDescription: "List of path prefix values to match the input HTTP path against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"regex_values": schema.ListAttribute{
+													MarkdownDescription: "List of regular expressions to match the input HTTP path against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"suffix_values": schema.ListAttribute{
+													MarkdownDescription: "List of path suffix values to match the input HTTP path against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"transformers": schema.ListAttribute{
+													MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"port_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true. Server applies default when omitted.",
+											Attributes: map[string]schema.Attribute{
+												"invert_matcher": schema.BoolAttribute{
+													MarkdownDescription: "Invert Port Matcher. Invert the match result.",
+													Computed:            true,
+												},
+												"ports": schema.ListAttribute{
+													MarkdownDescription: "List of strings, each of which is a single port value or a tuple of start and end port values separated by '-'. The start and end values are considered to be part of the range.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"query_params": schema.ListNestedAttribute{
+											MarkdownDescription: "List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query..",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Computed:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"invert_matcher": schema.BoolAttribute{
+														MarkdownDescription: "Invert Query Parameter Matcher. Invert the match result.",
+														Computed:            true,
+													},
+													"item": schema.SingleNestedAttribute{
+														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+														Attributes: map[string]schema.Attribute{
+															"exact_values": schema.ListAttribute{
+																MarkdownDescription: "List of exact values to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"regex_values": schema.ListAttribute{
+																MarkdownDescription: "List of regular expressions to match the input against.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+															"transformers": schema.ListAttribute{
+																MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+																Computed:            true,
+																ElementType:         types.StringType,
+															},
+														},
+														Computed: true,
+													},
+													"key": schema.StringAttribute{
+														MarkdownDescription: "Case-sensitive HTTP query parameter name.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+										"request_constraints": schema.SingleNestedAttribute{
+											MarkdownDescription: "Configuration parameter for request constraints.",
+											Attributes: map[string]schema.Attribute{
+												"max_cookie_count_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Match on the Count for all Cookies that exceed this value. Exclusive with [max_cookie_count_none]",
+													Computed:            true,
+												},
+												"max_cookie_count_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max cookie count none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_cookie_key_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Exclusive with [max_cookie_key_size_none].",
+													Computed:            true,
+												},
+												"max_cookie_key_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max cookie key size none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_cookie_value_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Exclusive with [max_cookie_value_size_none].",
+													Computed:            true,
+												},
+												"max_cookie_value_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max cookie value size none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_header_count_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Match on the Count for all Headers that exceed this value. Exclusive with [max_header_count_none]",
+													Computed:            true,
+												},
+												"max_header_count_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max header count none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_header_key_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Exclusive with [max_header_key_size_none].",
+													Computed:            true,
+												},
+												"max_header_key_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max header key size none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_header_value_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Exclusive with [max_header_value_size_none].",
+													Computed:            true,
+												},
+												"max_header_value_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max header value size none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_parameter_count_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Exclusive with [max_parameter_count_none].",
+													Computed:            true,
+												},
+												"max_parameter_count_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max parameter count none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_parameter_name_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Exclusive with [max_parameter_name_size_none].",
+													Computed:            true,
+												},
+												"max_parameter_name_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_parameter_value_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Exclusive with [max_parameter_value_size_none].",
+													Computed:            true,
+												},
+												"max_parameter_value_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max parameter value size none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_query_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Match on the URL Query Size that exceed this value. Exclusive with [max_query_size_none]",
+													Computed:            true,
+												},
+												"max_query_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max query size none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_request_line_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Exclusive with [max_request_line_size_none].",
+													Computed:            true,
+												},
+												"max_request_line_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max request line size none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_request_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Match on the Request Size that exceed this value. Exclusive with [max_request_size_none]",
+													Computed:            true,
+												},
+												"max_request_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max request size none.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"max_url_size_exceeds": schema.Int64Attribute{
+													MarkdownDescription: "Match on the URL Size that exceed this value. Exclusive with [max_url_size_none]",
+													Computed:            true,
+												},
+												"max_url_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Computed: true,
+										},
+										"segment_policy": schema.SingleNestedAttribute{
+											MarkdownDescription: "Configure source and destination segment for policy.",
+											Attributes: map[string]schema.Attribute{
+												"dst_any": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"dst_segments": schema.SingleNestedAttribute{
+													MarkdownDescription: "Configuration parameter for dst segments.",
+													Attributes: map[string]schema.Attribute{
+														"segments": schema.ListNestedAttribute{
+															MarkdownDescription: "Segments. Select list of segments.",
+															NestedObject: schema.NestedAttributeObject{
+																Attributes: map[string]schema.Attribute{
+																	"name": schema.StringAttribute{
+																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+																		Computed:            true,
+																	},
+																	"namespace": schema.StringAttribute{
+																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+																		Computed:            true,
+																	},
+																	"tenant": schema.StringAttribute{
+																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+																		Computed:            true,
+																	},
+																},
+															},
+															Computed: true,
+														},
+													},
+													Computed: true,
+												},
+												"intra_segment": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for intra segment.",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"src_any": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"src_segments": schema.SingleNestedAttribute{
+													MarkdownDescription: "Configuration parameter for src segments.",
+													Attributes: map[string]schema.Attribute{
+														"segments": schema.ListNestedAttribute{
+															MarkdownDescription: "Segments. Select list of segments.",
+															NestedObject: schema.NestedAttributeObject{
+																Attributes: map[string]schema.Attribute{
+																	"name": schema.StringAttribute{
+																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+																		Computed:            true,
+																	},
+																	"namespace": schema.StringAttribute{
+																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+																		Computed:            true,
+																	},
+																	"tenant": schema.StringAttribute{
+																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+																		Computed:            true,
+																	},
+																},
+															},
+															Computed: true,
+														},
+													},
+													Computed: true,
+												},
+											},
+											Computed: true,
+										},
+										"tls_fingerprint_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied..",
+											Attributes: map[string]schema.Attribute{
+												"classes": schema.ListAttribute{
+													MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"excluded_values": schema.ListAttribute{
+													MarkdownDescription: "List of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"user_identity_matcher": schema.SingleNestedAttribute{
+											MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+											Attributes: map[string]schema.Attribute{
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "List of exact values to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+												"regex_values": schema.ListAttribute{
+													MarkdownDescription: "List of regular expressions to match the input against.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"waf_action": schema.SingleNestedAttribute{
+											MarkdownDescription: "Modify App Firewall behavior for a matching request. The modification could either be to entirely skip firewall processing or to customize the firewall rules to be applied as defined by App Firewall Rule Control settings.",
+											Attributes: map[string]schema.Attribute{
+												"app_firewall_detection_control": schema.SingleNestedAttribute{
+													MarkdownDescription: "Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria.",
+													Attributes: map[string]schema.Attribute{
+														"exclude_attack_type_contexts": schema.ListNestedAttribute{
+															MarkdownDescription: "Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected.",
+															NestedObject: schema.NestedAttributeObject{
+																Attributes: map[string]schema.Attribute{
+																	"context": schema.StringAttribute{
+																		MarkdownDescription: "[Enum: CONTEXT_ANY|CONTEXT_BODY|CONTEXT_REQUEST|CONTEXT_RESPONSE|CONTEXT_PARAMETER|CONTEXT_HEADER|CONTEXT_COOKIE|CONTEXT_URL|CONTEXT_URI] The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE.. Possible values are `CONTEXT_ANY`, `CONTEXT_BODY`, `CONTEXT_REQUEST`, `CONTEXT_RESPONSE`, `CONTEXT_PARAMETER`, `CONTEXT_HEADER`, `CONTEXT_COOKIE`, `CONTEXT_URL`, `CONTEXT_URI`. Defaults to `CONTEXT_ANY`.",
+																		Computed:            true,
+																	},
+																	"context_name": schema.StringAttribute{
+																		MarkdownDescription: "Parameter, cookie, or header name selected by context. For a parameter-scoped WAF exception, set context to CONTEXT_PARAMETER and name only the intended parameter.",
+																		Computed:            true,
+																	},
+																	"exclude_attack_type": schema.StringAttribute{
+																		MarkdownDescription: "[Enum: ATTACK_TYPE_NONE|ATTACK_TYPE_NON_BROWSER_CLIENT|ATTACK_TYPE_OTHER_APPLICATION_ATTACKS|ATTACK_TYPE_TROJAN_BACKDOOR_SPYWARE|ATTACK_TYPE_DETECTION_EVASION|ATTACK_TYPE_VULNERABILITY_SCAN|ATTACK_TYPE_ABUSE_OF_FUNCTIONALITY|ATTACK_TYPE_AUTHENTICATION_AUTHORIZATION_ATTACKS|ATTACK_TYPE_BUFFER_OVERFLOW|ATTACK_TYPE_PREDICTABLE_RESOURCE_LOCATION|ATTACK_TYPE_INFORMATION_LEAKAGE|ATTACK_TYPE_DIRECTORY_INDEXING|ATTACK_TYPE_PATH_TRAVERSAL|ATTACK_TYPE_XPATH_INJECTION|ATTACK_TYPE_LDAP_INJECTION|ATTACK_TYPE_SERVER_SIDE_CODE_INJECTION|ATTACK_TYPE_COMMAND_EXECUTION|ATTACK_TYPE_SQL_INJECTION|ATTACK_TYPE_CROSS_SITE_SCRIPTING|ATTACK_TYPE_DENIAL_OF_SERVICE|ATTACK_TYPE_HTTP_PARSER_ATTACK|ATTACK_TYPE_SESSION_HIJACKING|ATTACK_TYPE_HTTP_RESPONSE_SPLITTING|ATTACK_TYPE_FORCEFUL_BROWSING|ATTACK_TYPE_REMOTE_FILE_INCLUDE|ATTACK_TYPE_MALICIOUS_FILE_UPLOAD|ATTACK_TYPE_GRAPHQL_PARSER_ATTACK] List of all Attack Types ATTACK_TYPE_NONE ATTACK_TYPE_NON_BROWSER_CLIENT ATTACK_TYPE_OTHER_APPLICATION_ATTACKS ATTACK_TYPE_TROJAN_BACKDOOR_SPYWARE ATTACK_TYPE_DETECTION_EVASION ATTACK_TYPE_VULNERABILITY_SCAN ATTACK_TYPE_ABUSE_OF_FUNCTIONALITY ATTACK_TYPE_AUTHENTICATION_AUTHORIZATION_ATTACKS.. Possible values are `ATTACK_TYPE_NONE`, `ATTACK_TYPE_NON_BROWSER_CLIENT`, `ATTACK_TYPE_OTHER_APPLICATION_ATTACKS`, `ATTACK_TYPE_TROJAN_BACKDOOR_SPYWARE`, `ATTACK_TYPE_DETECTION_EVASION`, `ATTACK_TYPE_VULNERABILITY_SCAN`, `ATTACK_TYPE_ABUSE_OF_FUNCTIONALITY`, `ATTACK_TYPE_AUTHENTICATION_AUTHORIZATION_ATTACKS`, `ATTACK_TYPE_BUFFER_OVERFLOW`, `ATTACK_TYPE_PREDICTABLE_RESOURCE_LOCATION`, `ATTACK_TYPE_INFORMATION_LEAKAGE`, `ATTACK_TYPE_DIRECTORY_INDEXING`, `ATTACK_TYPE_PATH_TRAVERSAL`, `ATTACK_TYPE_XPATH_INJECTION`, `ATTACK_TYPE_LDAP_INJECTION`, `ATTACK_TYPE_SERVER_SIDE_CODE_INJECTION`, `ATTACK_TYPE_COMMAND_EXECUTION`, `ATTACK_TYPE_SQL_INJECTION`, `ATTACK_TYPE_CROSS_SITE_SCRIPTING`, `ATTACK_TYPE_DENIAL_OF_SERVICE`, `ATTACK_TYPE_HTTP_PARSER_ATTACK`, `ATTACK_TYPE_SESSION_HIJACKING`, `ATTACK_TYPE_HTTP_RESPONSE_SPLITTING`, `ATTACK_TYPE_FORCEFUL_BROWSING`, `ATTACK_TYPE_REMOTE_FILE_INCLUDE`, `ATTACK_TYPE_MALICIOUS_FILE_UPLOAD`, `ATTACK_TYPE_GRAPHQL_PARSER_ATTACK`. Defaults to `ATTACK_TYPE_NONE`.",
+																		Computed:            true,
+																	},
+																},
+															},
+															Computed: true,
+														},
+														"exclude_bot_name_contexts": schema.ListNestedAttribute{
+															MarkdownDescription: "Bot Names to be excluded for the defined match criteria.",
+															NestedObject: schema.NestedAttributeObject{
+																Attributes: map[string]schema.Attribute{
+																	"bot_name": schema.StringAttribute{
+																		MarkdownDescription: "Bot Name. Human-readable name for the resource",
+																		Computed:            true,
+																	},
+																},
+															},
+															Computed: true,
+														},
+														"exclude_signature_contexts": schema.ListNestedAttribute{
+															MarkdownDescription: "Signature IDs to be excluded for the defined match criteria.",
+															NestedObject: schema.NestedAttributeObject{
+																Attributes: map[string]schema.Attribute{
+																	"context": schema.StringAttribute{
+																		MarkdownDescription: "[Enum: CONTEXT_ANY|CONTEXT_BODY|CONTEXT_REQUEST|CONTEXT_RESPONSE|CONTEXT_PARAMETER|CONTEXT_HEADER|CONTEXT_COOKIE|CONTEXT_URL|CONTEXT_URI] The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE.. Possible values are `CONTEXT_ANY`, `CONTEXT_BODY`, `CONTEXT_REQUEST`, `CONTEXT_RESPONSE`, `CONTEXT_PARAMETER`, `CONTEXT_HEADER`, `CONTEXT_COOKIE`, `CONTEXT_URL`, `CONTEXT_URI`. Defaults to `CONTEXT_ANY`.",
+																		Computed:            true,
+																	},
+																	"context_name": schema.StringAttribute{
+																		MarkdownDescription: "Relevant only for contexts: Header, Cookie and Parameter. Name of the Context that the WAF Exclusion Rules will check. Wildcard matching can be used by prefixing or suffixing the context name with an wildcard asterisk (*).",
+																		Computed:            true,
+																	},
+																	"signature_id": schema.Int64Attribute{
+																		MarkdownDescription: "The allowed values for signature ID are 0 and in the range of 200000001-299999999. 0 implies that all signatures will be excluded for the specified context.",
+																		Computed:            true,
+																	},
+																},
+															},
+															Computed: true,
+														},
+														"exclude_violation_contexts": schema.ListNestedAttribute{
+															MarkdownDescription: "Violations to be excluded for the defined match criteria.",
+															NestedObject: schema.NestedAttributeObject{
+																Attributes: map[string]schema.Attribute{
+																	"context": schema.StringAttribute{
+																		MarkdownDescription: "[Enum: CONTEXT_ANY|CONTEXT_BODY|CONTEXT_REQUEST|CONTEXT_RESPONSE|CONTEXT_PARAMETER|CONTEXT_HEADER|CONTEXT_COOKIE|CONTEXT_URL|CONTEXT_URI] The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE.. Possible values are `CONTEXT_ANY`, `CONTEXT_BODY`, `CONTEXT_REQUEST`, `CONTEXT_RESPONSE`, `CONTEXT_PARAMETER`, `CONTEXT_HEADER`, `CONTEXT_COOKIE`, `CONTEXT_URL`, `CONTEXT_URI`. Defaults to `CONTEXT_ANY`.",
+																		Computed:            true,
+																	},
+																	"context_name": schema.StringAttribute{
+																		MarkdownDescription: "Relevant only for contexts: Header, Cookie and Parameter. Name of the Context that the WAF Exclusion Rules will check. Wildcard matching can be used by prefixing or suffixing the context name with an wildcard asterisk (*).",
+																		Computed:            true,
+																	},
+																	"exclude_violation": schema.StringAttribute{
+																		MarkdownDescription: "[Enum: VIOL_NONE|VIOL_FILETYPE|VIOL_METHOD|VIOL_MANDATORY_HEADER|VIOL_HTTP_RESPONSE_STATUS|VIOL_REQUEST_MAX_LENGTH|VIOL_FILE_UPLOAD|VIOL_FILE_UPLOAD_IN_BODY|VIOL_XML_MALFORMED|VIOL_JSON_MALFORMED|VIOL_ASM_COOKIE_MODIFIED|VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS|VIOL_HTTP_PROTOCOL_BAD_HOST_HEADER_VALUE|VIOL_HTTP_PROTOCOL_UNPARSABLE_REQUEST_CONTENT|VIOL_HTTP_PROTOCOL_NULL_IN_REQUEST|VIOL_HTTP_PROTOCOL_BAD_HTTP_VERSION|VIOL_HTTP_PROTOCOL_SEVERAL_CONTENT_LENGTH_HEADERS|VIOL_EVASION_DIRECTORY_TRAVERSALS|VIOL_MALFORMED_REQUEST|VIOL_EVASION_MULTIPLE_DECODING|VIOL_DATA_GUARD|VIOL_EVASION_APACHE_WHITESPACE|VIOL_COOKIE_MODIFIED|VIOL_EVASION_IIS_UNICODE_CODEPOINTS|VIOL_EVASION_IIS_BACKSLASHES|VIOL_EVASION_PERCENT_U_DECODING|VIOL_EVASION_BARE_BYTE_DECODING|VIOL_EVASION_BAD_UNESCAPE|VIOL_HTTP_PROTOCOL_BODY_IN_GET_OR_HEAD_REQUEST|VIOL_ENCODING|VIOL_COOKIE_MALFORMED|VIOL_GRAPHQL_FORMAT|VIOL_GRAPHQL_MALFORMED|VIOL_GRAPHQL_INTROSPECTION_QUERY] List of all supported Violation Types VIOL_NONE VIOL_FILETYPE VIOL_METHOD VIOL_MANDATORY_HEADER VIOL_HTTP_RESPONSE_STATUS VIOL_REQUEST_MAX_LENGTH VIOL_FILE_UPLOAD VIOL_FILE_UPLOAD_IN_BODY VIOL_XML_MALFORMED VIOL_JSON_MALFORMED VIOL_ASM_COOKIE_MODIFIED VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS.. Possible values are `VIOL_NONE`, `VIOL_FILETYPE`, `VIOL_METHOD`, `VIOL_MANDATORY_HEADER`, `VIOL_HTTP_RESPONSE_STATUS`, `VIOL_REQUEST_MAX_LENGTH`, `VIOL_FILE_UPLOAD`, `VIOL_FILE_UPLOAD_IN_BODY`, `VIOL_XML_MALFORMED`, `VIOL_JSON_MALFORMED`, `VIOL_ASM_COOKIE_MODIFIED`, `VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS`, `VIOL_HTTP_PROTOCOL_BAD_HOST_HEADER_VALUE`, `VIOL_HTTP_PROTOCOL_UNPARSABLE_REQUEST_CONTENT`, `VIOL_HTTP_PROTOCOL_NULL_IN_REQUEST`, `VIOL_HTTP_PROTOCOL_BAD_HTTP_VERSION`, `VIOL_HTTP_PROTOCOL_SEVERAL_CONTENT_LENGTH_HEADERS`, `VIOL_EVASION_DIRECTORY_TRAVERSALS`, `VIOL_MALFORMED_REQUEST`, `VIOL_EVASION_MULTIPLE_DECODING`, `VIOL_DATA_GUARD`, `VIOL_EVASION_APACHE_WHITESPACE`, `VIOL_COOKIE_MODIFIED`, `VIOL_EVASION_IIS_UNICODE_CODEPOINTS`, `VIOL_EVASION_IIS_BACKSLASHES`, `VIOL_EVASION_PERCENT_U_DECODING`, `VIOL_EVASION_BARE_BYTE_DECODING`, `VIOL_EVASION_BAD_UNESCAPE`, `VIOL_HTTP_PROTOCOL_BODY_IN_GET_OR_HEAD_REQUEST`, `VIOL_ENCODING`, `VIOL_COOKIE_MALFORMED`, `VIOL_GRAPHQL_FORMAT`, `VIOL_GRAPHQL_MALFORMED`, `VIOL_GRAPHQL_INTROSPECTION_QUERY`. Defaults to `VIOL_NONE`.",
+																		Computed:            true,
+																	},
+																},
+															},
+															Computed: true,
+														},
+													},
+													Computed: true,
+												},
+												"none": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"waf_skip_processing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Computed:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"server_name_matcher": schema.SingleNestedAttribute{
+				MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+				Attributes: map[string]schema.Attribute{
+					"exact_values": schema.ListAttribute{
+						MarkdownDescription: "List of exact values to match the input against.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"regex_values": schema.ListAttribute{
+						MarkdownDescription: "List of regular expressions to match the input against.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"server_selector": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				Attributes: map[string]schema.Attribute{
+					"expressions": schema.ListAttribute{
+						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"any_server": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: any_server, server_name, server_name_matcher, server_selector] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"server_name": schema.StringAttribute{
+				MarkdownDescription: "Exclusive with [any_server server_name_matcher server_selector] The expected name of the server to which the request API is directed. The actual names for the server are extracted from the HTTP Host header and the name of the virtual_host to which the request is directed. If the request is..",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +1293,8 @@ func (d *ServicePolicyDataSource) Read(ctx context.Context, req datasource.ReadR
 		return
 	}
 
-	resource, err := d.client.GetServicePolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetServicePolicy(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ServicePolicy: %s", err))
 		return
@@ -101,7 +1302,11 @@ func (d *ServicePolicyDataSource) Read(ctx context.Context, req datasource.ReadR
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +1339,2299 @@ func (d *ServicePolicyDataSource) Read(ctx context.Context, req datasource.ReadR
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && !data.AllowAllRequests.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_requests"].(map[string]interface{}); ok {
+		data.AllowAllRequests = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllRequests = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["allow_list"].(map[string]interface{}); ok && (isImport || data.AllowList != nil) {
+		data.AllowList = &ServicePolicyAllowListModel{
+			AsnList: func() *ServicePolicyAllowListAsnListModel {
+				if AsnListData, ok := blockData["asn_list"].(map[string]interface{}); ok {
+					return &ServicePolicyAllowListAsnListModel{
+						AsNumbers: func() types.List {
+							if v, ok := AsnListData["as_numbers"].([]interface{}); ok && len(v) > 0 {
+								var items []int64
+								for _, item := range v {
+									if s, ok := item.(float64); ok {
+										items = append(items, int64(s))
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.Int64Type)
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AsnSet: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.AsnSet.IsNull() || len(data.AllowList.AsnSet.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListAsnSetModelAttrTypes})
+				}
+				var AsnSetExisting []ServicePolicyAllowListAsnSetModel
+				if !isImport && data.AllowList != nil && !data.AllowList.AsnSet.IsNull() && !data.AllowList.AsnSet.IsUnknown() {
+					data.AllowList.AsnSet.ElementsAs(ctx, &AsnSetExisting, false)
+				}
+				if rawList, ok := blockData["asn_set"].([]interface{}); ok && len(rawList) > 0 {
+					var AsnSetResult []ServicePolicyAllowListAsnSetModel
+					for AsnSetIdx, AsnSetItem := range rawList {
+						_ = AsnSetIdx
+						if AsnSetItemMap, ok := AsnSetItem.(map[string]interface{}); ok {
+							AsnSetResult = append(AsnSetResult, ServicePolicyAllowListAsnSetModel{
+								Name: func() types.String {
+									if v, ok := AsnSetItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := AsnSetItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := AsnSetItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyAllowListAsnSetModelAttrTypes}, AsnSetResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListAsnSetModelAttrTypes})
+			}(),
+			CountryList: func() types.List {
+				if v, ok := blockData["country_list"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionAllow.IsUnknown() {
+					return data.AllowList.DefaultActionAllow
+				}
+				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionDeny.IsUnknown() {
+					return data.AllowList.DefaultActionDeny
+				}
+				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
+					return data.AllowList.DefaultActionNextPolicy
+				}
+				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			IPPrefixSet: func() types.List {
+				if !isImport && data.AllowList != nil && (data.AllowList.IPPrefixSet.IsNull() || len(data.AllowList.IPPrefixSet.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListIPPrefixSetModelAttrTypes})
+				}
+				var IPPrefixSetExisting []ServicePolicyAllowListIPPrefixSetModel
+				if !isImport && data.AllowList != nil && !data.AllowList.IPPrefixSet.IsNull() && !data.AllowList.IPPrefixSet.IsUnknown() {
+					data.AllowList.IPPrefixSet.ElementsAs(ctx, &IPPrefixSetExisting, false)
+				}
+				if rawList, ok := blockData["ip_prefix_set"].([]interface{}); ok && len(rawList) > 0 {
+					var IPPrefixSetResult []ServicePolicyAllowListIPPrefixSetModel
+					for IPPrefixSetIdx, IPPrefixSetItem := range rawList {
+						_ = IPPrefixSetIdx
+						if IPPrefixSetItemMap, ok := IPPrefixSetItem.(map[string]interface{}); ok {
+							IPPrefixSetResult = append(IPPrefixSetResult, ServicePolicyAllowListIPPrefixSetModel{
+								Name: func() types.String {
+									if v, ok := IPPrefixSetItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := IPPrefixSetItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := IPPrefixSetItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyAllowListIPPrefixSetModelAttrTypes}, IPPrefixSetResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyAllowListIPPrefixSetModelAttrTypes})
+			}(),
+			PrefixList: func() *ServicePolicyAllowListPrefixListModel {
+				if PrefixListData, ok := blockData["prefix_list"].(map[string]interface{}); ok {
+					return &ServicePolicyAllowListPrefixListModel{
+						Prefixes: func() types.List {
+							if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+			TLSFingerprintClasses: func() types.List {
+				if v, ok := blockData["tls_fingerprint_classes"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			TLSFingerprintValues: func() types.List {
+				if v, ok := blockData["tls_fingerprint_values"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if !isImport && !data.DenyAllRequests.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all_requests"].(map[string]interface{}); ok {
+		data.DenyAllRequests = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAllRequests = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["deny_list"].(map[string]interface{}); ok && (isImport || data.DenyList != nil) {
+		data.DenyList = &ServicePolicyDenyListModel{
+			AsnList: func() *ServicePolicyDenyListAsnListModel {
+				if AsnListData, ok := blockData["asn_list"].(map[string]interface{}); ok {
+					return &ServicePolicyDenyListAsnListModel{
+						AsNumbers: func() types.List {
+							if v, ok := AsnListData["as_numbers"].([]interface{}); ok && len(v) > 0 {
+								var items []int64
+								for _, item := range v {
+									if s, ok := item.(float64); ok {
+										items = append(items, int64(s))
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.Int64Type)
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AsnSet: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.AsnSet.IsNull() || len(data.DenyList.AsnSet.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListAsnSetModelAttrTypes})
+				}
+				var AsnSetExisting []ServicePolicyDenyListAsnSetModel
+				if !isImport && data.DenyList != nil && !data.DenyList.AsnSet.IsNull() && !data.DenyList.AsnSet.IsUnknown() {
+					data.DenyList.AsnSet.ElementsAs(ctx, &AsnSetExisting, false)
+				}
+				if rawList, ok := blockData["asn_set"].([]interface{}); ok && len(rawList) > 0 {
+					var AsnSetResult []ServicePolicyDenyListAsnSetModel
+					for AsnSetIdx, AsnSetItem := range rawList {
+						_ = AsnSetIdx
+						if AsnSetItemMap, ok := AsnSetItem.(map[string]interface{}); ok {
+							AsnSetResult = append(AsnSetResult, ServicePolicyDenyListAsnSetModel{
+								Name: func() types.String {
+									if v, ok := AsnSetItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := AsnSetItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := AsnSetItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyDenyListAsnSetModelAttrTypes}, AsnSetResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListAsnSetModelAttrTypes})
+			}(),
+			CountryList: func() types.List {
+				if v, ok := blockData["country_list"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionAllow.IsUnknown() {
+					return data.DenyList.DefaultActionAllow
+				}
+				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionDeny.IsUnknown() {
+					return data.DenyList.DefaultActionDeny
+				}
+				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
+					return data.DenyList.DefaultActionNextPolicy
+				}
+				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			IPPrefixSet: func() types.List {
+				if !isImport && data.DenyList != nil && (data.DenyList.IPPrefixSet.IsNull() || len(data.DenyList.IPPrefixSet.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListIPPrefixSetModelAttrTypes})
+				}
+				var IPPrefixSetExisting []ServicePolicyDenyListIPPrefixSetModel
+				if !isImport && data.DenyList != nil && !data.DenyList.IPPrefixSet.IsNull() && !data.DenyList.IPPrefixSet.IsUnknown() {
+					data.DenyList.IPPrefixSet.ElementsAs(ctx, &IPPrefixSetExisting, false)
+				}
+				if rawList, ok := blockData["ip_prefix_set"].([]interface{}); ok && len(rawList) > 0 {
+					var IPPrefixSetResult []ServicePolicyDenyListIPPrefixSetModel
+					for IPPrefixSetIdx, IPPrefixSetItem := range rawList {
+						_ = IPPrefixSetIdx
+						if IPPrefixSetItemMap, ok := IPPrefixSetItem.(map[string]interface{}); ok {
+							IPPrefixSetResult = append(IPPrefixSetResult, ServicePolicyDenyListIPPrefixSetModel{
+								Name: func() types.String {
+									if v, ok := IPPrefixSetItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := IPPrefixSetItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := IPPrefixSetItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyDenyListIPPrefixSetModelAttrTypes}, IPPrefixSetResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyDenyListIPPrefixSetModelAttrTypes})
+			}(),
+			PrefixList: func() *ServicePolicyDenyListPrefixListModel {
+				if PrefixListData, ok := blockData["prefix_list"].(map[string]interface{}); ok {
+					return &ServicePolicyDenyListPrefixListModel{
+						Prefixes: func() types.List {
+							if v, ok := PrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+								resp.Diagnostics.Append(diags...)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+					}
+				}
+				return nil
+			}(),
+			TLSFingerprintClasses: func() types.List {
+				if v, ok := blockData["tls_fingerprint_classes"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			TLSFingerprintValues: func() types.List {
+				if v, ok := blockData["tls_fingerprint_values"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
+		data.RuleList = &ServicePolicyRuleListModel{
+			Rules: func() types.List {
+				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesModelAttrTypes})
+				}
+				var RulesExisting []ServicePolicyRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []ServicePolicyRuleListRulesModel
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, ServicePolicyRuleListRulesModel{
+								Metadata: func() *ServicePolicyRuleListRulesMetadataModel {
+									if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
+										return &ServicePolicyRuleListRulesMetadataModel{
+											DescriptionSpec: func() types.String {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Spec: func() *ServicePolicyRuleListRulesSpecModel {
+									if SpecData, ok := RulesItemMap["spec"].(map[string]interface{}); ok {
+										return &ServicePolicyRuleListRulesSpecModel{
+											Action: func() types.String {
+												if v, ok := SpecData["action"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											AnyAsn: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyAsn.IsUnknown() {
+													return RulesExisting[RulesIdx].Spec.AnyAsn
+												}
+												if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											AnyClient: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyClient.IsUnknown() {
+													return RulesExisting[RulesIdx].Spec.AnyClient
+												}
+												if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											AnyIP: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyIP.IsUnknown() {
+													return RulesExisting[RulesIdx].Spec.AnyIP
+												}
+												if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											APIGroupMatcher: func() *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel {
+												if APIGroupMatcherData, ok := SpecData["api_group_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecAPIGroupMatcherModel{
+														InvertMatcher: func() types.Bool {
+															if v, ok := APIGroupMatcherData["invert_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Match: func() types.List {
+															if v, ok := APIGroupMatcherData["match"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ArgMatchers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.ArgMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
+												}
+												var ArgMatchersExisting []ServicePolicyRuleListRulesSpecArgMatchersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.ArgMatchers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.ArgMatchers.ElementsAs(ctx, &ArgMatchersExisting, false)
+												}
+												if rawList, ok := SpecData["arg_matchers"].([]interface{}); ok && len(rawList) > 0 {
+													var ArgMatchersResult []ServicePolicyRuleListRulesSpecArgMatchersModel
+													for ArgMatchersIdx, ArgMatchersItem := range rawList {
+														_ = ArgMatchersIdx
+														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
+															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && !ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent.IsUnknown() {
+																		return ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent
+																	}
+																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																CheckPresent: func() types.Object {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && !ArgMatchersExisting[ArgMatchersIdx].CheckPresent.IsUnknown() {
+																		return ArgMatchersExisting[ArgMatchersIdx].CheckPresent
+																	}
+																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																InvertMatcher: func() types.Bool {
+																	if v, ok := ArgMatchersItemMap["invert_matcher"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																Item: func() *ServicePolicyRuleListRulesSpecArgMatchersItemModel {
+																	if ItemData, ok := ArgMatchersItemMap["item"].(map[string]interface{}); ok {
+																		return &ServicePolicyRuleListRulesSpecArgMatchersItemModel{
+																			ExactValues: func() types.List {
+																				if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			RegexValues: func() types.List {
+																				if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			Transformers: func() types.List {
+																				if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																Name: func() types.String {
+																	if v, ok := ArgMatchersItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes}, ArgMatchersResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes})
+											}(),
+											AsnList: func() *ServicePolicyRuleListRulesSpecAsnListModel {
+												if AsnListData, ok := SpecData["asn_list"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecAsnListModel{
+														AsNumbers: func() types.List {
+															if v, ok := AsnListData["as_numbers"].([]interface{}); ok && len(v) > 0 {
+																var items []int64
+																for _, item := range v {
+																	if s, ok := item.(float64); ok {
+																		items = append(items, int64(s))
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.Int64Type)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											AsnMatcher: func() *ServicePolicyRuleListRulesSpecAsnMatcherModel {
+												if AsnMatcherData, ok := SpecData["asn_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecAsnMatcherModel{
+														AsnSets: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && (RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+															}
+															var AsnSetsExisting []ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.AsnMatcher != nil && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+															}
+															if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
+																var AsnSetsResult []ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel
+																for AsnSetsIdx, AsnSetsItem := range rawList {
+																	_ = AsnSetsIdx
+																	if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
+																		AsnSetsResult = append(AsnSetsResult, ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModel{
+																			Kind: func() types.String {
+																				if v, ok := AsnSetsItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := AsnSetsItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := AsnSetsItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := AsnSetsItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := AsnSetsItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes}, AsnSetsResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecAsnMatcherAsnSetsModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											BodyMatcher: func() *ServicePolicyRuleListRulesSpecBodyMatcherModel {
+												if BodyMatcherData, ok := SpecData["body_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecBodyMatcherModel{
+														ExactValues: func() types.List {
+															if v, ok := BodyMatcherData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														RegexValues: func() types.List {
+															if v, ok := BodyMatcherData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														Transformers: func() types.List {
+															if v, ok := BodyMatcherData["transformers"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											BotAction: func() *ServicePolicyRuleListRulesSpecBotActionModel {
+												if BotActionData, ok := SpecData["bot_action"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecBotActionModel{
+														BotSkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil && !RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing
+															}
+															if _, ok := BotActionData["bot_skip_processing"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														None: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil && !RulesExisting[RulesIdx].Spec.BotAction.None.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.BotAction.None
+															}
+															if _, ok := BotActionData["none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ClientName: func() types.String {
+												if v, ok := SpecData["client_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											ClientNameMatcher: func() *ServicePolicyRuleListRulesSpecClientNameMatcherModel {
+												if ClientNameMatcherData, ok := SpecData["client_name_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecClientNameMatcherModel{
+														ExactValues: func() types.List {
+															if v, ok := ClientNameMatcherData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														RegexValues: func() types.List {
+															if v, ok := ClientNameMatcherData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														Transformers: func() types.List {
+															if v, ok := ClientNameMatcherData["transformers"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ClientSelector: func() *ServicePolicyRuleListRulesSpecClientSelectorModel {
+												if ClientSelectorData, ok := SpecData["client_selector"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecClientSelectorModel{
+														Expressions: func() types.List {
+															if v, ok := ClientSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											CookieMatchers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() || len(RulesExisting[RulesIdx].Spec.CookieMatchers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
+												}
+												var CookieMatchersExisting []ServicePolicyRuleListRulesSpecCookieMatchersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsNull() && !RulesExisting[RulesIdx].Spec.CookieMatchers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.CookieMatchers.ElementsAs(ctx, &CookieMatchersExisting, false)
+												}
+												if rawList, ok := SpecData["cookie_matchers"].([]interface{}); ok && len(rawList) > 0 {
+													var CookieMatchersResult []ServicePolicyRuleListRulesSpecCookieMatchersModel
+													for CookieMatchersIdx, CookieMatchersItem := range rawList {
+														_ = CookieMatchersIdx
+														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
+															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && !CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent.IsUnknown() {
+																		return CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent
+																	}
+																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																CheckPresent: func() types.Object {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && !CookieMatchersExisting[CookieMatchersIdx].CheckPresent.IsUnknown() {
+																		return CookieMatchersExisting[CookieMatchersIdx].CheckPresent
+																	}
+																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																InvertMatcher: func() types.Bool {
+																	if v, ok := CookieMatchersItemMap["invert_matcher"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																Item: func() *ServicePolicyRuleListRulesSpecCookieMatchersItemModel {
+																	if ItemData, ok := CookieMatchersItemMap["item"].(map[string]interface{}); ok {
+																		return &ServicePolicyRuleListRulesSpecCookieMatchersItemModel{
+																			ExactValues: func() types.List {
+																				if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			RegexValues: func() types.List {
+																				if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			Transformers: func() types.List {
+																				if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																Name: func() types.String {
+																	if v, ok := CookieMatchersItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes}, CookieMatchersResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes})
+											}(),
+											DomainMatcher: func() *ServicePolicyRuleListRulesSpecDomainMatcherModel {
+												if DomainMatcherData, ok := SpecData["domain_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecDomainMatcherModel{
+														ExactValues: func() types.List {
+															if v, ok := DomainMatcherData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														RegexValues: func() types.List {
+															if v, ok := DomainMatcherData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														Transformers: func() types.List {
+															if v, ok := DomainMatcherData["transformers"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ExpirationTimestamp: func() types.String {
+												if v, ok := SpecData["expiration_timestamp"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Headers: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.Headers.IsNull() || len(RulesExisting[RulesIdx].Spec.Headers.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
+												}
+												var HeadersExisting []ServicePolicyRuleListRulesSpecHeadersModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.Headers.IsNull() && !RulesExisting[RulesIdx].Spec.Headers.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.Headers.ElementsAs(ctx, &HeadersExisting, false)
+												}
+												if rawList, ok := SpecData["headers"].([]interface{}); ok && len(rawList) > 0 {
+													var HeadersResult []ServicePolicyRuleListRulesSpecHeadersModel
+													for HeadersIdx, HeadersItem := range rawList {
+														_ = HeadersIdx
+														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
+																		return HeadersExisting[HeadersIdx].CheckNotPresent
+																	}
+																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																CheckPresent: func() types.Object {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
+																		return HeadersExisting[HeadersIdx].CheckPresent
+																	}
+																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																InvertMatcher: func() types.Bool {
+																	if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																Item: func() *ServicePolicyRuleListRulesSpecHeadersItemModel {
+																	if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
+																		return &ServicePolicyRuleListRulesSpecHeadersItemModel{
+																			ExactValues: func() types.List {
+																				if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			RegexValues: func() types.List {
+																				if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			Transformers: func() types.List {
+																				if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																Name: func() types.String {
+																	if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes}, HeadersResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersModelAttrTypes})
+											}(),
+											HTTPMethod: func() *ServicePolicyRuleListRulesSpecHTTPMethodModel {
+												if HTTPMethodData, ok := SpecData["http_method"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecHTTPMethodModel{
+														InvertMatcher: func() types.Bool {
+															if v, ok := HTTPMethodData["invert_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Methods: func() types.List {
+															if v, ok := HTTPMethodData["methods"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IPMatcher: func() *ServicePolicyRuleListRulesSpecIPMatcherModel {
+												if IPMatcherData, ok := SpecData["ip_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecIPMatcherModel{
+														InvertMatcher: func() types.Bool {
+															if v, ok := IPMatcherData["invert_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														PrefixSets: func() types.List {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && (RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+															}
+															var PrefixSetsExisting []ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.IPMatcher != nil && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsNull() && !RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.IsUnknown() {
+																RulesExisting[RulesIdx].Spec.IPMatcher.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+															}
+															if rawList, ok := IPMatcherData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
+																var PrefixSetsResult []ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel
+																for PrefixSetsIdx, PrefixSetsItem := range rawList {
+																	_ = PrefixSetsIdx
+																	if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
+																		PrefixSetsResult = append(PrefixSetsResult, ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModel{
+																			Kind: func() types.String {
+																				if v, ok := PrefixSetsItemMap["kind"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Name: func() types.String {
+																				if v, ok := PrefixSetsItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := PrefixSetsItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := PrefixSetsItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Uid: func() types.String {
+																				if v, ok := PrefixSetsItemMap["uid"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes}, PrefixSetsResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecIPMatcherPrefixSetsModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IPPrefixList: func() *ServicePolicyRuleListRulesSpecIPPrefixListModel {
+												if IPPrefixListData, ok := SpecData["ip_prefix_list"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecIPPrefixListModel{
+														InvertMatch: func() types.Bool {
+															if v, ok := IPPrefixListData["invert_match"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														IPPrefixes: func() types.List {
+															if v, ok := IPPrefixListData["ip_prefixes"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IPThreatCategoryList: func() *ServicePolicyRuleListRulesSpecIPThreatCategoryListModel {
+												if IPThreatCategoryListData, ok := SpecData["ip_threat_category_list"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecIPThreatCategoryListModel{
+														IPThreatCategories: func() types.List {
+															if v, ok := IPThreatCategoryListData["ip_threat_categories"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Ja4TLSFingerprint: func() *ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel {
+												if Ja4TLSFingerprintData, ok := SpecData["ja4_tls_fingerprint"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecJa4TLSFingerprintModel{
+														ExactValues: func() types.List {
+															if v, ok := Ja4TLSFingerprintData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											JWTClaims: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.JWTClaims.IsNull() || len(RulesExisting[RulesIdx].Spec.JWTClaims.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
+												}
+												var JWTClaimsExisting []ServicePolicyRuleListRulesSpecJWTClaimsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.JWTClaims.IsNull() && !RulesExisting[RulesIdx].Spec.JWTClaims.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.JWTClaims.ElementsAs(ctx, &JWTClaimsExisting, false)
+												}
+												if rawList, ok := SpecData["jwt_claims"].([]interface{}); ok && len(rawList) > 0 {
+													var JWTClaimsResult []ServicePolicyRuleListRulesSpecJWTClaimsModel
+													for JWTClaimsIdx, JWTClaimsItem := range rawList {
+														_ = JWTClaimsIdx
+														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
+															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && !JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent.IsUnknown() {
+																		return JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent
+																	}
+																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																CheckPresent: func() types.Object {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && !JWTClaimsExisting[JWTClaimsIdx].CheckPresent.IsUnknown() {
+																		return JWTClaimsExisting[JWTClaimsIdx].CheckPresent
+																	}
+																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																InvertMatcher: func() types.Bool {
+																	if v, ok := JWTClaimsItemMap["invert_matcher"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																Item: func() *ServicePolicyRuleListRulesSpecJWTClaimsItemModel {
+																	if ItemData, ok := JWTClaimsItemMap["item"].(map[string]interface{}); ok {
+																		return &ServicePolicyRuleListRulesSpecJWTClaimsItemModel{
+																			ExactValues: func() types.List {
+																				if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			RegexValues: func() types.List {
+																				if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			Transformers: func() types.List {
+																				if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																Name: func() types.String {
+																	if v, ok := JWTClaimsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes}, JWTClaimsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes})
+											}(),
+											LabelMatcher: func() *ServicePolicyRuleListRulesSpecLabelMatcherModel {
+												if LabelMatcherData, ok := SpecData["label_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecLabelMatcherModel{
+														Keys: func() types.List {
+															if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											LogRuleEvaluation: func() types.Bool {
+												if v, ok := SpecData["log_rule_evaluation"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											MumAction: func() *ServicePolicyRuleListRulesSpecMumActionModel {
+												if MumActionData, ok := SpecData["mum_action"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecMumActionModel{
+														Default: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil && !RulesExisting[RulesIdx].Spec.MumAction.Default.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.MumAction.Default
+															}
+															if _, ok := MumActionData["default"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														SkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil && !RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing
+															}
+															if _, ok := MumActionData["skip_processing"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Path: func() *ServicePolicyRuleListRulesSpecPathModel {
+												if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecPathModel{
+														EncodedPathMatcher: func() types.Bool {
+															if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														ExactValues: func() types.List {
+															if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														InvertMatcher: func() types.Bool {
+															if v, ok := PathData["invert_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														PrefixValues: func() types.List {
+															if v, ok := PathData["prefix_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														RegexValues: func() types.List {
+															if v, ok := PathData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														SuffixValues: func() types.List {
+															if v, ok := PathData["suffix_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														Transformers: func() types.List {
+															if v, ok := PathData["transformers"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											PortMatcher: func() *ServicePolicyRuleListRulesSpecPortMatcherModel {
+												if PortMatcherData, ok := SpecData["port_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecPortMatcherModel{
+														InvertMatcher: func() types.Bool {
+															if v, ok := PortMatcherData["invert_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
+														Ports: func() types.List {
+															if v, ok := PortMatcherData["ports"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											QueryParams: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && (RulesExisting[RulesIdx].Spec.QueryParams.IsNull() || len(RulesExisting[RulesIdx].Spec.QueryParams.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
+												}
+												var QueryParamsExisting []ServicePolicyRuleListRulesSpecQueryParamsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.QueryParams.IsNull() && !RulesExisting[RulesIdx].Spec.QueryParams.IsUnknown() {
+													RulesExisting[RulesIdx].Spec.QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+												}
+												if rawList, ok := SpecData["query_params"].([]interface{}); ok && len(rawList) > 0 {
+													var QueryParamsResult []ServicePolicyRuleListRulesSpecQueryParamsModel
+													for QueryParamsIdx, QueryParamsItem := range rawList {
+														_ = QueryParamsIdx
+														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
+															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && !QueryParamsExisting[QueryParamsIdx].CheckNotPresent.IsUnknown() {
+																		return QueryParamsExisting[QueryParamsIdx].CheckNotPresent
+																	}
+																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																CheckPresent: func() types.Object {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && !QueryParamsExisting[QueryParamsIdx].CheckPresent.IsUnknown() {
+																		return QueryParamsExisting[QueryParamsIdx].CheckPresent
+																	}
+																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																	}
+																	return types.ObjectNull(map[string]attr.Type{})
+																}(),
+																InvertMatcher: func() types.Bool {
+																	if v, ok := QueryParamsItemMap["invert_matcher"].(bool); ok {
+																		return types.BoolValue(v)
+																	}
+																	return types.BoolNull()
+																}(),
+																Item: func() *ServicePolicyRuleListRulesSpecQueryParamsItemModel {
+																	if ItemData, ok := QueryParamsItemMap["item"].(map[string]interface{}); ok {
+																		return &ServicePolicyRuleListRulesSpecQueryParamsItemModel{
+																			ExactValues: func() types.List {
+																				if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			RegexValues: func() types.List {
+																				if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																			Transformers: func() types.List {
+																				if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																					var items []string
+																					for _, item := range v {
+																						if s, ok := item.(string); ok {
+																							items = append(items, s)
+																						}
+																					}
+																					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																					resp.Diagnostics.Append(diags...)
+																					return listVal
+																				}
+																				return types.ListNull(types.StringType)
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																Key: func() types.String {
+																	if v, ok := QueryParamsItemMap["key"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes}, QueryParamsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes})
+											}(),
+											RequestConstraints: func() *ServicePolicyRuleListRulesSpecRequestConstraintsModel {
+												if RequestConstraintsData, ok := SpecData["request_constraints"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecRequestConstraintsModel{
+														MaxCookieCountExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_cookie_count_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxCookieCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone
+															}
+															if _, ok := RequestConstraintsData["max_cookie_count_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxCookieKeySizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_cookie_key_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxCookieKeySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone
+															}
+															if _, ok := RequestConstraintsData["max_cookie_key_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxCookieValueSizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_cookie_value_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxCookieValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone
+															}
+															if _, ok := RequestConstraintsData["max_cookie_value_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxHeaderCountExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_header_count_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxHeaderCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone
+															}
+															if _, ok := RequestConstraintsData["max_header_count_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxHeaderKeySizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_header_key_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxHeaderKeySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone
+															}
+															if _, ok := RequestConstraintsData["max_header_key_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxHeaderValueSizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_header_value_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxHeaderValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone
+															}
+															if _, ok := RequestConstraintsData["max_header_value_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxParameterCountExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_parameter_count_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxParameterCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone
+															}
+															if _, ok := RequestConstraintsData["max_parameter_count_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxParameterNameSizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_parameter_name_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxParameterNameSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone
+															}
+															if _, ok := RequestConstraintsData["max_parameter_name_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxParameterValueSizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_parameter_value_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxParameterValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone
+															}
+															if _, ok := RequestConstraintsData["max_parameter_value_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxQuerySizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_query_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxQuerySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone
+															}
+															if _, ok := RequestConstraintsData["max_query_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxRequestLineSizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_request_line_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxRequestLineSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone
+															}
+															if _, ok := RequestConstraintsData["max_request_line_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxRequestSizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_request_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxRequestSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone
+															}
+															if _, ok := RequestConstraintsData["max_request_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														MaxURLSizeExceeds: func() types.Int64 {
+															if v, ok := RequestConstraintsData["max_url_size_exceeds"].(float64); ok && v != 0 {
+																return types.Int64Value(int64(v))
+															}
+															return types.Int64Null()
+														}(),
+														MaxURLSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone
+															}
+															if _, ok := RequestConstraintsData["max_url_size_none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											SegmentPolicy: func() *ServicePolicyRuleListRulesSpecSegmentPolicyModel {
+												if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecSegmentPolicyModel{
+														DstAny: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny
+															}
+															if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														DstSegments: func() *ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel {
+															if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
+																return &ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel{
+																	Segments: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments != nil && (RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() || len(RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+																		}
+																		var SegmentsExisting []ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+																		}
+																		if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
+																			var SegmentsResult []ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+																			for SegmentsIdx, SegmentsItem := range rawList {
+																				_ = SegmentsIdx
+																				if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
+																					SegmentsResult = append(SegmentsResult, ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModel{
+																						Name: func() types.String {
+																							if v, ok := SegmentsItemMap["name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Namespace: func() types.String {
+																							if v, ok := SegmentsItemMap["namespace"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Tenant: func() types.String {
+																							if v, ok := SegmentsItemMap["tenant"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes}, SegmentsResult)
+																			return listVal
+																		}
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														IntraSegment: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment
+															}
+															if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														SrcAny: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny
+															}
+															if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														SrcSegments: func() *ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel {
+															if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
+																return &ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel{
+																	Segments: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments != nil && (RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() || len(RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+																		}
+																		var SegmentsExisting []ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+																		}
+																		if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
+																			var SegmentsResult []ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+																			for SegmentsIdx, SegmentsItem := range rawList {
+																				_ = SegmentsIdx
+																				if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
+																					SegmentsResult = append(SegmentsResult, ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModel{
+																						Name: func() types.String {
+																							if v, ok := SegmentsItemMap["name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Namespace: func() types.String {
+																							if v, ok := SegmentsItemMap["namespace"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						Tenant: func() types.String {
+																							if v, ok := SegmentsItemMap["tenant"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes}, SegmentsResult)
+																			return listVal
+																		}
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											TLSFingerprintMatcher: func() *ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel {
+												if TLSFingerprintMatcherData, ok := SpecData["tls_fingerprint_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecTLSFingerprintMatcherModel{
+														Classes: func() types.List {
+															if v, ok := TLSFingerprintMatcherData["classes"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														ExactValues: func() types.List {
+															if v, ok := TLSFingerprintMatcherData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														ExcludedValues: func() types.List {
+															if v, ok := TLSFingerprintMatcherData["excluded_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											UserIdentityMatcher: func() *ServicePolicyRuleListRulesSpecUserIdentityMatcherModel {
+												if UserIdentityMatcherData, ok := SpecData["user_identity_matcher"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecUserIdentityMatcherModel{
+														ExactValues: func() types.List {
+															if v, ok := UserIdentityMatcherData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+														RegexValues: func() types.List {
+															if v, ok := UserIdentityMatcherData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											WAFAction: func() *ServicePolicyRuleListRulesSpecWAFActionModel {
+												if WAFActionData, ok := SpecData["waf_action"].(map[string]interface{}); ok {
+													return &ServicePolicyRuleListRulesSpecWAFActionModel{
+														AppFirewallDetectionControl: func() *ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel {
+															if AppFirewallDetectionControlData, ok := WAFActionData["app_firewall_detection_control"].(map[string]interface{}); ok {
+																return &ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel{
+																	ExcludeAttackTypeContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+																		}
+																		var ExcludeAttackTypeContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeAttackTypeContexts.ElementsAs(ctx, &ExcludeAttackTypeContextsExisting, false)
+																		}
+																		if rawList, ok := AppFirewallDetectionControlData["exclude_attack_type_contexts"].([]interface{}); ok && len(rawList) > 0 {
+																			var ExcludeAttackTypeContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel
+																			for ExcludeAttackTypeContextsIdx, ExcludeAttackTypeContextsItem := range rawList {
+																				_ = ExcludeAttackTypeContextsIdx
+																				if ExcludeAttackTypeContextsItemMap, ok := ExcludeAttackTypeContextsItem.(map[string]interface{}); ok {
+																					ExcludeAttackTypeContextsResult = append(ExcludeAttackTypeContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModel{
+																						Context: func() types.String {
+																							if v, ok := ExcludeAttackTypeContextsItemMap["context"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						ContextName: func() types.String {
+																							if v, ok := ExcludeAttackTypeContextsItemMap["context_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						ExcludeAttackType: func() types.String {
+																							if v, ok := ExcludeAttackTypeContextsItemMap["exclude_attack_type"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes}, ExcludeAttackTypeContextsResult)
+																			return listVal
+																		}
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeAttackTypeContextsModelAttrTypes})
+																	}(),
+																	ExcludeBotNameContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+																		}
+																		var ExcludeBotNameContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeBotNameContexts.ElementsAs(ctx, &ExcludeBotNameContextsExisting, false)
+																		}
+																		if rawList, ok := AppFirewallDetectionControlData["exclude_bot_name_contexts"].([]interface{}); ok && len(rawList) > 0 {
+																			var ExcludeBotNameContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel
+																			for ExcludeBotNameContextsIdx, ExcludeBotNameContextsItem := range rawList {
+																				_ = ExcludeBotNameContextsIdx
+																				if ExcludeBotNameContextsItemMap, ok := ExcludeBotNameContextsItem.(map[string]interface{}); ok {
+																					ExcludeBotNameContextsResult = append(ExcludeBotNameContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModel{
+																						BotName: func() types.String {
+																							if v, ok := ExcludeBotNameContextsItemMap["bot_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes}, ExcludeBotNameContextsResult)
+																			return listVal
+																		}
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeBotNameContextsModelAttrTypes})
+																	}(),
+																	ExcludeSignatureContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+																		}
+																		var ExcludeSignatureContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeSignatureContexts.ElementsAs(ctx, &ExcludeSignatureContextsExisting, false)
+																		}
+																		if rawList, ok := AppFirewallDetectionControlData["exclude_signature_contexts"].([]interface{}); ok && len(rawList) > 0 {
+																			var ExcludeSignatureContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel
+																			for ExcludeSignatureContextsIdx, ExcludeSignatureContextsItem := range rawList {
+																				_ = ExcludeSignatureContextsIdx
+																				if ExcludeSignatureContextsItemMap, ok := ExcludeSignatureContextsItem.(map[string]interface{}); ok {
+																					ExcludeSignatureContextsResult = append(ExcludeSignatureContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModel{
+																						Context: func() types.String {
+																							if v, ok := ExcludeSignatureContextsItemMap["context"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						ContextName: func() types.String {
+																							if v, ok := ExcludeSignatureContextsItemMap["context_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						SignatureID: func() types.Int64 {
+																							if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																					})
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes}, ExcludeSignatureContextsResult)
+																			return listVal
+																		}
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeSignatureContextsModelAttrTypes})
+																	}(),
+																	ExcludeViolationContexts: func() types.List {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && (RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() || len(RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+																		}
+																		var ExcludeViolationContextsExisting []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl != nil && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsNull() && !RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.IsUnknown() {
+																			RulesExisting[RulesIdx].Spec.WAFAction.AppFirewallDetectionControl.ExcludeViolationContexts.ElementsAs(ctx, &ExcludeViolationContextsExisting, false)
+																		}
+																		if rawList, ok := AppFirewallDetectionControlData["exclude_violation_contexts"].([]interface{}); ok && len(rawList) > 0 {
+																			var ExcludeViolationContextsResult []ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel
+																			for ExcludeViolationContextsIdx, ExcludeViolationContextsItem := range rawList {
+																				_ = ExcludeViolationContextsIdx
+																				if ExcludeViolationContextsItemMap, ok := ExcludeViolationContextsItem.(map[string]interface{}); ok {
+																					ExcludeViolationContextsResult = append(ExcludeViolationContextsResult, ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModel{
+																						Context: func() types.String {
+																							if v, ok := ExcludeViolationContextsItemMap["context"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						ContextName: func() types.String {
+																							if v, ok := ExcludeViolationContextsItemMap["context_name"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																						ExcludeViolation: func() types.String {
+																							if v, ok := ExcludeViolationContextsItemMap["exclude_violation"].(string); ok && v != "" {
+																								return types.StringValue(v)
+																							}
+																							return types.StringNull()
+																						}(),
+																					})
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes}, ExcludeViolationContextsResult)
+																			return listVal
+																		}
+																		return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlExcludeViolationContextsModelAttrTypes})
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														None: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && !RulesExisting[RulesIdx].Spec.WAFAction.None.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.WAFAction.None
+															}
+															if _, ok := WAFActionData["none"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														WAFSkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && !RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing
+															}
+															if _, ok := WAFActionData["waf_skip_processing"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ServicePolicyRuleListRulesModelAttrTypes}, RulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleListRulesModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["server_name_matcher"].(map[string]interface{}); ok && (isImport || data.ServerNameMatcher != nil) {
+		data.ServerNameMatcher = &ServicePolicyServerNameMatcherModel{
+			ExactValues: func() types.List {
+				if v, ok := blockData["exact_values"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			RegexValues: func() types.List {
+				if v, ok := blockData["regex_values"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["server_selector"].(map[string]interface{}); ok && (isImport || data.ServerSelector != nil) {
+		data.ServerSelector = &ServicePolicyServerSelectorModel{
+			Expressions: func() types.List {
+				if v, ok := blockData["expressions"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if !isImport && !data.AnyServer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok {
+		data.AnyServer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyServer = types.ObjectNull(map[string]attr.Type{})
+	}
+	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
+		data.ServerName = types.StringValue(v)
+	} else {
+		data.ServerName = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

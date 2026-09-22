@@ -86,6 +86,76 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>Ordered list of rules that are evaluated sequentially against the input fields extracted from an API request in order to determine a user identifier. Evaluation of the rules is terminated once a user identifier has been extracted
+
+---
+
+#### Rules
+
+A [`rules`](#rules) block supports the following:
+
+<a id="nestedatt--rules-client-asn"></a>&#x2022; [`client_asn`](#nestedatt--rules-client-asn) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-client-city"></a>&#x2022; [`client_city`](#nestedatt--rules-client-city) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-client-country"></a>&#x2022; [`client_country`](#nestedatt--rules-client-country) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-client-ip"></a>&#x2022; [`client_ip`](#nestedatt--rules-client-ip) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-client-region"></a>&#x2022; [`client_region`](#nestedatt--rules-client-region) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-cookie-name"></a>&#x2022; [`cookie_name`](#nestedatt--rules-cookie-name) - Optional String<br>Use the HTTP cookie value for the given name as user
+
+<a id="nestedatt--rules-http-header-name"></a>&#x2022; [`http_header_name`](#nestedatt--rules-http-header-name) - Optional String<br>Use the HTTP header value for the given name as user
+
+<a id="name-ad59cd"></a>&#x2022; [`ip_and_http_header_name`](#name-ad59cd) - Optional String<br>Name of HTTP header from which the value should be extracted
+
+<a id="fingerprint-eb4567"></a>&#x2022; [`ip_and_ja4_tls_fingerprint`](#fingerprint-eb4567) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-ip-and-tls-fingerprint"></a>&#x2022; [`ip_and_tls_fingerprint`](#nestedatt--rules-ip-and-tls-fingerprint) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-ja4-tls-fingerprint"></a>&#x2022; [`ja4_tls_fingerprint`](#nestedatt--rules-ja4-tls-fingerprint) - Optional Object<br>Configuration parameter for ja4 TLS fingerprint
+
+<a id="nestedatt--rules-jwt-claim-name"></a>&#x2022; [`jwt_claim_name`](#nestedatt--rules-jwt-claim-name) - Optional String<br>Use the JWT claim value as user identifier
+
+<a id="nestedatt--rules-none"></a>&#x2022; [`none`](#nestedatt--rules-none) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-query-param-key"></a>&#x2022; [`query_param_key`](#nestedatt--rules-query-param-key) - Optional String<br>Use the query parameter value for the given key as user
+
+<a id="nestedatt--rules-tls-fingerprint"></a>&#x2022; [`tls_fingerprint`](#nestedatt--rules-tls-fingerprint) - Optional Object<br>Configuration parameter for TLS fingerprint
+
+#### Rules Client Asn
+
+A [`client_asn`](#rules-client-asn) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Client City
+
+A [`client_city`](#rules-client-city) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Client Country
+
+A [`client_country`](#rules-client-country) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Client IP
+
+A [`client_ip`](#rules-client-ip) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Client Region
+
+A [`client_region`](#rules-client-region) block (within [`rules`](#rules)) supports the following:
+
+#### Rules IP And Ja4 TLS Fingerprint
+
+An [`ip_and_ja4_tls_fingerprint`](#rules-ip-and-ja4-tls-fingerprint) block (within [`rules`](#rules)) supports the following:
+
+#### Rules IP And TLS Fingerprint
+
+An [`ip_and_tls_fingerprint`](#rules-ip-and-tls-fingerprint) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Ja4 TLS Fingerprint
+
+A [`ja4_tls_fingerprint`](#rules-ja4-tls-fingerprint) block (within [`rules`](#rules)) supports the following:
+
 ---
 
 ## Common Types

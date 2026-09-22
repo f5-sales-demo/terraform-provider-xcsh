@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,16 @@ type SubnetDataSource struct {
 }
 
 type SubnetDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID               types.String                `tfsdk:"id"`
+	Name             types.String                `tfsdk:"name"`
+	Namespace        types.String                `tfsdk:"namespace"`
+	Description      types.String                `tfsdk:"description"`
+	Labels           types.Map                   `tfsdk:"labels"`
+	Annotations      types.Map                   `tfsdk:"annotations"`
+	ConnectToSlo     types.Object                `tfsdk:"connect_to_slo"`
+	IsolatedNw       types.Object                `tfsdk:"isolated_nw"`
+	SiteSubnetParams types.List                  `tfsdk:"site_subnet_params"`
+	ConnectToLayer2  *SubnetConnectToLayer2Model `tfsdk:"connect_to_layer2"`
 }
 
 func (d *SubnetDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +75,94 @@ func (d *SubnetDataSource) Schema(ctx context.Context, req datasource.SchemaRequ
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"site_subnet_params": schema.ListNestedAttribute{
+				MarkdownDescription: "Site Subnet Parameters. Configure subnet parameters per site.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"dhcp": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"site": schema.SingleNestedAttribute{
+							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"static_ip": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"subnet_dhcp_server_params": schema.SingleNestedAttribute{
+							MarkdownDescription: "Subnet DHCP parameters will be a subset of network_interface.dhcpserverparameterstype as all features in network_interface.dhcpserverparameterstype may not be supported in a subnet.",
+							Attributes: map[string]schema.Attribute{
+								"dhcp_networks": schema.ListNestedAttribute{
+									MarkdownDescription: "List of networks from which DHCP server can allocate IP addresses.",
+									NestedObject: schema.NestedAttributeObject{
+										Attributes: map[string]schema.Attribute{
+											"network_prefix": schema.StringAttribute{
+												MarkdownDescription: "Exclusive with [] Network prefix for subnet.",
+												Computed:            true,
+											},
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"connect_to_layer2": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: connect_to_layer2, connect_to_slo, isolated_nw] Configuration parameter for connect to layer2.",
+				Attributes: map[string]schema.Attribute{
+					"layer2_intf_ref": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"connect_to_slo": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for connect to slo.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"isolated_nw": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for isolated nw.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 		},
 	}
 }
@@ -93,7 +186,8 @@ func (d *SubnetDataSource) Read(ctx context.Context, req datasource.ReadRequest,
 		return
 	}
 
-	resource, err := d.client.GetSubnet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetSubnet(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Subnet: %s", err))
 		return
@@ -101,7 +195,11 @@ func (d *SubnetDataSource) Read(ctx context.Context, req datasource.ReadRequest,
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +232,152 @@ func (d *SubnetDataSource) Read(ctx context.Context, req datasource.ReadRequest,
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.SiteSubnetParams.IsNull() || len(data.SiteSubnetParams.Elements()) == 0) {
+		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["site_subnet_params"].([]interface{}); ok && len(listData) > 0 {
+		var SiteSubnetParamsList []SubnetSiteSubnetParamsModel
+		var existingSiteSubnetParamsItems []SubnetSiteSubnetParamsModel
+		if !data.SiteSubnetParams.IsNull() && !data.SiteSubnetParams.IsUnknown() {
+			data.SiteSubnetParams.ElementsAs(ctx, &existingSiteSubnetParamsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
+					DHCP: func() types.Object {
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && !existingSiteSubnetParamsItems[listIdx].DHCP.IsUnknown() {
+							return existingSiteSubnetParamsItems[listIdx].DHCP
+						}
+						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					Site: func() *SubnetSiteSubnetParamsSiteModel {
+						if SiteData, ok := itemMap["site"].(map[string]interface{}); ok {
+							return &SubnetSiteSubnetParamsSiteModel{
+								Name: func() types.String {
+									if v, ok := SiteData["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := SiteData["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := SiteData["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					StaticIP: func() types.Object {
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && !existingSiteSubnetParamsItems[listIdx].StaticIP.IsUnknown() {
+							return existingSiteSubnetParamsItems[listIdx].StaticIP
+						}
+						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					SubnetDHCPServerParams: func() *SubnetSiteSubnetParamsSubnetDHCPServerParamsModel {
+						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
+							return &SubnetSiteSubnetParamsSubnetDHCPServerParamsModel{
+								DHCPNetworks: func() types.List {
+									if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams != nil && (existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsNull() || len(existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.Elements()) == 0) {
+										return types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModelAttrTypes})
+									}
+									var DHCPNetworksExisting []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
+									if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams != nil && !existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsNull() && !existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.IsUnknown() {
+										existingSiteSubnetParamsItems[listIdx].SubnetDHCPServerParams.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksExisting, false)
+									}
+									if rawList, ok := SubnetDHCPServerParamsData["dhcp_networks"].([]interface{}); ok && len(rawList) > 0 {
+										var DHCPNetworksResult []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
+										for DHCPNetworksIdx, DHCPNetworksItem := range rawList {
+											_ = DHCPNetworksIdx
+											if DHCPNetworksItemMap, ok := DHCPNetworksItem.(map[string]interface{}); ok {
+												DHCPNetworksResult = append(DHCPNetworksResult, SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel{
+													NetworkPrefix: func() types.String {
+														if v, ok := DHCPNetworksItemMap["network_prefix"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												})
+											}
+										}
+										listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModelAttrTypes}, DHCPNetworksResult)
+										return listVal
+									}
+									return types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModelAttrTypes})
+								}(),
+							}
+						}
+						return nil
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes}, SiteSubnetParamsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.SiteSubnetParams = listVal
+		}
+	} else {
+		data.SiteSubnetParams = types.ListNull(types.ObjectType{AttrTypes: SubnetSiteSubnetParamsModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["connect_to_layer2"].(map[string]interface{}); ok && (isImport || data.ConnectToLayer2 != nil) {
+		data.ConnectToLayer2 = &SubnetConnectToLayer2Model{
+			Layer2IntfRef: func() *SubnetConnectToLayer2Layer2IntfRefModel {
+				if Layer2IntfRefData, ok := blockData["layer2_intf_ref"].(map[string]interface{}); ok {
+					return &SubnetConnectToLayer2Layer2IntfRefModel{
+						Name: func() types.String {
+							if v, ok := Layer2IntfRefData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := Layer2IntfRefData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := Layer2IntfRefData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if !isImport && !data.ConnectToSlo.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok {
+		data.ConnectToSlo = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ConnectToSlo = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.IsolatedNw.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok {
+		data.IsolatedNw = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.IsolatedNw = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

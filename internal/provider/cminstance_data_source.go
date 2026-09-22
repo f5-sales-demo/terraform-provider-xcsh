@@ -28,12 +28,17 @@ type CminstanceDataSource struct {
 }
 
 type CminstanceDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID          types.String             `tfsdk:"id"`
+	Name        types.String             `tfsdk:"name"`
+	Namespace   types.String             `tfsdk:"namespace"`
+	Description types.String             `tfsdk:"description"`
+	Labels      types.Map                `tfsdk:"labels"`
+	Annotations types.Map                `tfsdk:"annotations"`
+	Port        types.Int64              `tfsdk:"port"`
+	Username    types.String             `tfsdk:"username"`
+	APIToken    *CminstanceAPITokenModel `tfsdk:"api_token"`
+	IP          *CminstanceIPModel       `tfsdk:"ip"`
+	Password    *CminstancePasswordModel `tfsdk:"password"`
 }
 
 func (d *CminstanceDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +75,104 @@ func (d *CminstanceDataSource) Schema(ctx context.Context, req datasource.Schema
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"port": schema.Int64Attribute{
+				MarkdownDescription: "Port of the Central Manager instance to connect to.",
+				Computed:            true,
+			},
+			"username": schema.StringAttribute{
+				MarkdownDescription: "Username for the Central Manager instance.",
+				Computed:            true,
+			},
+			"api_token": schema.SingleNestedAttribute{
+				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+				Attributes: map[string]schema.Attribute{
+					"blindfold_secret_info": schema.SingleNestedAttribute{
+						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+						Attributes: map[string]schema.Attribute{
+							"decryption_provider": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+								Computed:            true,
+							},
+							"location": schema.StringAttribute{
+								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+								Computed:            true,
+								Sensitive:           true,
+							},
+							"store_provider": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"clear_secret_info": schema.SingleNestedAttribute{
+						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+						Attributes: map[string]schema.Attribute{
+							"provider_ref": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+								Computed:            true,
+							},
+							"url": schema.StringAttribute{
+								MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+								Computed:            true,
+								Sensitive:           true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"ip": schema.SingleNestedAttribute{
+				MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+				Attributes: map[string]schema.Attribute{
+					"addr": schema.StringAttribute{
+						MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"password": schema.SingleNestedAttribute{
+				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+				Attributes: map[string]schema.Attribute{
+					"blindfold_secret_info": schema.SingleNestedAttribute{
+						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+						Attributes: map[string]schema.Attribute{
+							"decryption_provider": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+								Computed:            true,
+							},
+							"location": schema.StringAttribute{
+								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+								Computed:            true,
+								Sensitive:           true,
+							},
+							"store_provider": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"clear_secret_info": schema.SingleNestedAttribute{
+						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+						Attributes: map[string]schema.Attribute{
+							"provider_ref": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+								Computed:            true,
+							},
+							"url": schema.StringAttribute{
+								MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+								Computed:            true,
+								Sensitive:           true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +196,8 @@ func (d *CminstanceDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		return
 	}
 
-	resource, err := d.client.GetCminstance(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetCminstance(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Cminstance: %s", err))
 		return
@@ -101,7 +205,11 @@ func (d *CminstanceDataSource) Read(ctx context.Context, req datasource.ReadRequ
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +242,124 @@ func (d *CminstanceDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["port"].(float64); ok {
+		data.Port = types.Int64Value(int64(v))
+	} else {
+		data.Port = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["username"].(string); ok && v != "" {
+		data.Username = types.StringValue(v)
+	} else {
+		data.Username = types.StringNull()
+	}
+	if blockData, ok := apiResource.Spec["api_token"].(map[string]interface{}); ok && (isImport || data.APIToken != nil) {
+		data.APIToken = &CminstanceAPITokenModel{
+			BlindfoldSecretInfo: func() *CminstanceAPITokenBlindfoldSecretInfoModel {
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &CminstanceAPITokenBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *CminstanceAPITokenClearSecretInfoModel {
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &CminstanceAPITokenClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["ip"].(map[string]interface{}); ok && (isImport || data.IP != nil) {
+		data.IP = &CminstanceIPModel{
+			Addr: func() types.String {
+				if v, ok := blockData["addr"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["password"].(map[string]interface{}); ok && (isImport || data.Password != nil) {
+		data.Password = &CminstancePasswordModel{
+			BlindfoldSecretInfo: func() *CminstancePasswordBlindfoldSecretInfoModel {
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &CminstancePasswordBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *CminstancePasswordClearSecretInfoModel {
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &CminstancePasswordClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
