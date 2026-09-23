@@ -31,8 +31,12 @@ const registrationsBySiteOneItem = `{
         "token": "0d2c8f4a-0000-0000-0000-000000000000",
         "infra": {
           "provider": "AZURE",
+          "provider_ref": "KVM",
           "hostname": "f5-xc-ce-vm-01",
-          "instance_id": "/subscriptions/example/resourceGroups/demo/providers/Microsoft.Compute/virtualMachines/f5-xc-ce-vm-01"
+          "instance_id": "/subscriptions/example/resourceGroups/demo/providers/Microsoft.Compute/virtualMachines/f5-xc-ce-vm-01",
+          "hw_info": {
+            "network": [{"name":"ens3","mac_address":"52:54:00:10:00:11"}]
+          }
         },
         "passport": {
           "cluster_name": "ar-bgp-eastus01",
@@ -98,6 +102,12 @@ func TestListRegistrationsBySite_OneItem(t *testing.T) {
 	}
 	if item.GetSpec.Infra.Provider != "AZURE" {
 		t.Errorf("GetSpec.Infra.Provider = %q, want %q", item.GetSpec.Infra.Provider, "AZURE")
+	}
+	if item.GetSpec.Infra.ProviderRef != "KVM" {
+		t.Errorf("GetSpec.Infra.ProviderRef = %q, want %q", item.GetSpec.Infra.ProviderRef, "KVM")
+	}
+	if len(item.GetSpec.Infra.HWInfo.Network) != 1 || item.GetSpec.Infra.HWInfo.Network[0].Name != "ens3" || item.GetSpec.Infra.HWInfo.Network[0].MACAddress != "52:54:00:10:00:11" {
+		t.Errorf("GetSpec.Infra.HWInfo.Network = %#v, want one exact interface", item.GetSpec.Infra.HWInfo.Network)
 	}
 	if item.GetSpec.Infra.InstanceID != "/subscriptions/example/resourceGroups/demo/providers/Microsoft.Compute/virtualMachines/f5-xc-ce-vm-01" {
 		t.Errorf("GetSpec.Infra.InstanceID = %q, want the live infrastructure identity", item.GetSpec.Infra.InstanceID)

@@ -174,6 +174,7 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 	return []SMSv2DataSourceTemplate{
 		{Name: "smsv2_contract", Kind: "contract"},
 		{Name: "smsv2_aws_runtime", Kind: "runtime"},
+		{Name: "smsv2_kvm_runtime", Kind: "kvm_runtime"},
 		{Name: "site_bgp_status", Kind: "convergence"},
 		{Name: "site_upgrade_status", Kind: "upgrade"},
 		{Name: "site_image", Kind: "kvm_image"},

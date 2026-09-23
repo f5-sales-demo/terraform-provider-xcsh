@@ -40,6 +40,7 @@ MANUALLY_MAINTAINED_FILES=(
   "internal/provider/site_bgp_status_data_source.go"
   "internal/provider/site_upgrade_status_data_source.go"
   "internal/provider/smsv2_aws_runtime_data_source.go"
+  "internal/provider/smsv2_kvm_runtime_data_source.go"
   "internal/provider/smsv2_contract_data_source.go"
   "examples/data-sources/addon_service/data-source.tf"
   "examples/data-sources/addon_service_activation_status/data-source.tf"
@@ -47,6 +48,7 @@ MANUALLY_MAINTAINED_FILES=(
   "examples/data-sources/xcsh_site_upgrade_status/data-source.tf"
   "examples/data-sources/site_registration/data-source.tf"
   "examples/data-sources/xcsh_smsv2_aws_runtime/data-source.tf"
+  "examples/data-sources/xcsh_smsv2_kvm_runtime/data-source.tf"
   "examples/data-sources/xcsh_smsv2_contract/data-source.tf"
   # MkDocs documentation site index files (navigation, not provider docs)
   "docs/resources/index.md"
