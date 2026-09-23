@@ -78,6 +78,33 @@ func TestSelectSMSv2KVMRuntimeInterfaceAcceptsLongOwnedSLIName(t *testing.T) {
 	}
 }
 
+func TestSelectSMSv2KVMRuntimeInterfaceIgnoresUnrelatedInterfaces(t *testing.T) {
+	site, registrations, interfaces := kvmRuntimeInterfaceFixture()
+	target := kvmRuntimeInterfaceTargetFixture()
+	target.Name, target.Hostname, target.Device = "", "", ""
+	wanted := interfaces["items"].([]interface{})[0].(map[string]interface{})
+
+	otherSite := deepCopySMSv2Map(wanted)
+	otherSite["name"] = "other-site-ens4-0"
+	otherSite["owner_view"].(map[string]interface{})["name"] = "other-site"
+	otherSite["owner_view"].(map[string]interface{})["uid"] = "other-site-uid"
+
+	slo := deepCopySMSv2Map(wanted)
+	slo["name"] = "same-site-slo-ens4-0"
+	ethernet := slo["get_spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})
+	delete(ethernet, "site_local_inside_network")
+	ethernet["site_local_network"] = map[string]interface{}{}
+
+	interfaces["items"] = []interface{}{otherSite, slo, wanted}
+	got, err := selectSMSv2KVMRuntimeInterface(site, registrations, interfaces, target)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got.Name != longKVMRuntimeInterfaceName {
+		t.Fatalf("selected runtime interface %q", got.Name)
+	}
+}
+
 func TestSelectSMSv2KVMRuntimeInterfaceRejectsIdentityAndOwnershipDrift(t *testing.T) {
 	for name, mutate := range map[string]func(client.SMSv2Observation, *client.RegistrationListResponse, client.SMSv2Observation, *smsv2KVMRuntimeInterfaceTarget){
 		"malformed name": func(_ client.SMSv2Observation, _ *client.RegistrationListResponse, _ client.SMSv2Observation, target *smsv2KVMRuntimeInterfaceTarget) {
@@ -197,6 +224,7 @@ type kvmRuntimeInterfaceAPIFixture struct {
 	t             *testing.T
 	mu            sync.Mutex
 	object        map[string]interface{}
+	missing       bool
 	methods       []string
 	lastPut       map[string]interface{}
 	putCount      int
@@ -245,8 +273,16 @@ func (f *kvmRuntimeInterfaceAPIFixture) handler(w http.ResponseWriter, request *
 	case request.Method == http.MethodGet && request.URL.Path == "/api/register/namespaces/system/registrations_by_site/mcn-ce-ha-smsv2-current-kvm":
 		_ = json.NewEncoder(w).Encode(f.registrations)
 	case request.Method == http.MethodGet && request.URL.Path == "/api/config/namespaces/system/network_interfaces":
+		if f.missing {
+			_ = json.NewEncoder(w).Encode(map[string]interface{}{"items": []interface{}{}})
+			return
+		}
 		_ = json.NewEncoder(w).Encode(map[string]interface{}{"items": []interface{}{f.listObject()}})
 	case request.Method == http.MethodGet && request.URL.Path == "/api/config/namespaces/system/network_interfaces/"+longKVMRuntimeInterfaceName:
+		if f.missing {
+			http.NotFound(w, request)
+			return
+		}
 		_ = json.NewEncoder(w).Encode(f.object)
 	case request.Method == http.MethodPut && request.URL.Path == "/api/config/namespaces/system/network_interfaces/"+longKVMRuntimeInterfaceName:
 		var body map[string]interface{}
@@ -378,5 +414,32 @@ func TestSMSv2KVMRuntimeInterfaceDestroyRefusesOwnershipDrift(t *testing.T) {
 	defer api.mu.Unlock()
 	if api.putCount != 0 || api.postCount != 0 || api.deleteCount != 0 {
 		t.Fatalf("ownership failure mutated the API: PUT=%d POST=%d DELETE=%d", api.putCount, api.postCount, api.deleteCount)
+	}
+}
+
+func TestSMSv2KVMRuntimeInterfaceDestroyAcceptsAlreadyAbsentChild(t *testing.T) {
+	api := newKVMRuntimeInterfaceAPIFixture(t)
+	api.missing = true
+	server := httptest.NewServer(http.HandlerFunc(api.handler))
+	defer server.Close()
+	providerResource := &Smsv2KVMRuntimeInterfaceResource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
+	ctx := context.Background()
+	schemaResponse := &frameworkresource.SchemaResponse{}
+	providerResource.Schema(ctx, frameworkresource.SchemaRequest{}, schemaResponse)
+	model := kvmRuntimeInterfaceModel()
+	model.ID = types.StringValue("system/" + longKVMRuntimeInterfaceName)
+	model.ResourceVersion = types.StringValue("rv-7")
+	model.OwnerUID = types.StringValue("site-uid-current")
+	model.Configured = types.BoolValue(true)
+	state := tfsdk.State{Schema: schemaResponse.Schema, Raw: responseOperationRaw(t, model, schemaResponse.Schema.Type())}
+	response := &frameworkresource.DeleteResponse{}
+	providerResource.Delete(ctx, frameworkresource.DeleteRequest{State: state}, response)
+	if response.Diagnostics.HasError() {
+		t.Fatalf("Delete diagnostics: %v", response.Diagnostics)
+	}
+	api.mu.Lock()
+	defer api.mu.Unlock()
+	if api.putCount != 0 || api.postCount != 0 || api.deleteCount != 0 {
+		t.Fatalf("absent destroy mutated the API: PUT=%d POST=%d DELETE=%d", api.putCount, api.postCount, api.deleteCount)
 	}
 }
