@@ -65,3 +65,65 @@ func TestGenerateSMSv2ContractConstantsIsDeterministic(t *testing.T) {
 		}
 	}
 }
+
+func TestGenerateSMSv2ContractConstantsAllowsIndependentAPIReleaseVersion(t *testing.T) {
+	t.Parallel()
+	contract := strings.NewReplacer(
+		`"aws":{
+	"availability":"evidence_backed"`, `"aws":{
+	"availability":"schema_only"`,
+		`"aws_ce_create":"available","aws_node_configuration":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","aws_node_configuration":"unavailable","runtime_status":"unavailable","site_upgrade":"unavailable","tgw_connect":"unavailable"`,
+		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","aws_node_configuration","runtime_status","site_upgrade","tgw_connect"]`,
+		`"availability":"available","complete":true`, `"availability":"unavailable","complete":false`,
+	).Replace(syntheticSMSv2V7Contract)
+
+	tests := []struct {
+		name     string
+		manifest string
+		wantErr  bool
+	}{
+		{
+			name:     "v7 contract in v8 API release",
+			manifest: `{"contract_id":"f5xc-smsv2-api/v1","contract_version":"7.0.0","release":{"tag":"v8.0.0","commit":"64ef458aad9d4f149b180214ee7cc7954e40112d"}}`,
+		},
+		{
+			name:     "mismatched contract ID",
+			manifest: `{"contract_id":"f5xc-ce-automation/v3","contract_version":"7.0.0","release":{"tag":"v8.0.0","commit":"64ef458aad9d4f149b180214ee7cc7954e40112d"}}`,
+			wantErr:  true,
+		},
+		{
+			name:     "mismatched contract version",
+			manifest: `{"contract_id":"f5xc-smsv2-api/v1","contract_version":"8.0.0","release":{"tag":"v8.0.0","commit":"64ef458aad9d4f149b180214ee7cc7954e40112d"}}`,
+			wantErr:  true,
+		},
+		{
+			name:     "malformed release tag",
+			manifest: `{"contract_id":"f5xc-smsv2-api/v1","contract_version":"7.0.0","release":{"tag":"v8.0.0-rc1","commit":"64ef458aad9d4f149b180214ee7cc7954e40112d"}}`,
+			wantErr:  true,
+		},
+		{
+			name:     "malformed commit",
+			manifest: `{"contract_id":"f5xc-smsv2-api/v1","contract_version":"7.0.0","release":{"tag":"v8.0.0","commit":"64EF458AAD9D4F149B180214EE7CC7954E40112D"}}`,
+			wantErr:  true,
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			specDir, outputDir := t.TempDir(), t.TempDir()
+			if err := os.WriteFile(filepath.Join(specDir, "smsv2-contract.json"), []byte(contract), 0o600); err != nil {
+				t.Fatal(err)
+			}
+			if err := os.WriteFile(filepath.Join(specDir, "smsv2-contract-manifest.json"), []byte(test.manifest), 0o600); err != nil {
+				t.Fatal(err)
+			}
+			_, err := GenerateSMSv2ContractConstants(specDir, outputDir)
+			if test.wantErr && err == nil {
+				t.Fatal("expected manifest identity error")
+			}
+			if !test.wantErr && err != nil {
+				t.Fatalf("independently versioned API release was rejected: %v", err)
+			}
+		})
+	}
+}
