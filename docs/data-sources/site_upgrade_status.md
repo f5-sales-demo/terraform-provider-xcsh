@@ -29,8 +29,7 @@ terraform {
 }
 
 data "xcsh_site_upgrade_status" "site" {
-  namespace = "system"
-  site      = "example-smsv2-site"
+  site = "example-smsv2-site"
 
   expected_software_version = "crt-20260201-0179"
   expected_os_version       = "9.2026.17"
@@ -49,10 +48,6 @@ output "upgrade_converged" {
 ## Argument Reference
 
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
-
-### Metadata Argument Reference
-
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String
 
 ### Spec Argument Reference
 

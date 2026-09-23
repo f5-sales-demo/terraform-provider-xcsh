@@ -4,14 +4,5 @@ AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
 
 ## Resources
 
-- [aws_tgw_site](_llms-txt/resources/aws_tgw_site.txt) : Deploying F5 sites connected via AWS Transit Gateway
-- [aws_vpc_site](_llms-txt/resources/aws_vpc_site.txt) : Deploying F5 sites within AWS VPC environments
-- [azure_vnet_site](_llms-txt/resources/azure_vnet_site.txt) : Deploying F5 sites within Azure Virtual Network environments
-- [fleet](_llms-txt/resources/fleet.txt) : Fleet will create a fleet object in 'system' namespace of the user
-- [gcp_vpc_site](_llms-txt/resources/gcp_vpc_site.txt) : Deploying F5 sites within Google Cloud VPC environments
-- [registration](_llms-txt/resources/registration.txt) : Vpm creates registration using this message, never used by users. configuration
-- [securemesh_site](_llms-txt/resources/securemesh_site.txt) : Deploying secure mesh edge sites with distributed security
 - [securemesh_site_v2](_llms-txt/resources/securemesh_site_v2.txt) : Deploying secure mesh edge sites with security and networking controls
-- [site_mesh_group](_llms-txt/resources/site_mesh_group.txt) : Site Mesh Group in system namespace of user
 - [virtual_site](_llms-txt/resources/virtual_site.txt) : Virtual site object in given namespace
-- [voltstack_site](_llms-txt/resources/voltstack_site.txt) : Deploying App Stack edge computing sites

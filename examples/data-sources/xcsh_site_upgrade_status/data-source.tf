@@ -13,8 +13,7 @@ terraform {
 }
 
 data "xcsh_site_upgrade_status" "site" {
-  namespace = "system"
-  site      = "example-smsv2-site"
+  site = "example-smsv2-site"
 
   expected_software_version = "crt-20260201-0179"
   expected_os_version       = "9.2026.17"

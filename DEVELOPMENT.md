@@ -37,8 +37,6 @@ cp terraform-provider-xcsh ~/.terraform.d/plugins/registry.terraform.io/f5-sales
 - `main.go` — Provider entry point with version injection via GoReleaser
 - `internal/provider/` — Terraform resource and data source implementations
 - `internal/client/` — F5 Distributed Cloud API HTTP client and data type definitions
-- `internal/functions/` — Provider-defined functions
-- `internal/blindfold/` — F5 Distributed Cloud Secret Management client encryption library
 - `tools/` — Code generation and documentation transformation utilities
 - `docs/` — Generated provider documentation for the Terraform Registry
 - `examples/` — Terraform example configurations
@@ -79,8 +77,6 @@ The `tools/` directory contains utilities for scaffolding resources from OpenAPI
 | --- | --- | --- |
 | `docs/resources/*.md` | `tfplugindocs` + `transform-docs.go` | `on-merge.yml` |
 | `docs/data-sources/*.md` | `tfplugindocs` + `transform-docs.go` | `on-merge.yml` |
-| `docs/functions/*.md` | `tfplugindocs` | `on-merge.yml` |
-| `docs/guides/*.md` | `tfplugindocs` (from `templates/guides/`) | `on-merge.yml` |
 | `examples/resources/*/*.tf` | `generate-examples.go` | `on-merge.yml` |
 | `examples/data-sources/*/*.tf` | `generate-examples.go` | `on-merge.yml` |
 | `internal/provider/*_resource.go` | `generate-all-schemas.go` | `on-merge.yml` |
@@ -94,13 +90,7 @@ The following files reside in generated directories but are maintained manually:
 
 | File | Purpose |
 | --- | --- |
-| `internal/provider/functions_registration.go` | Registers provider-defined functions |
-| `internal/provider/addon_service_data_source.go` | Data source for addon service details |
-| `internal/provider/addon_service_activation_status_data_source.go` | Data source for addon activation status |
-| `templates/functions.md.tmpl` | Template for function documentation |
-| `templates/guides/*.md` | Guide source documents |
-| `examples/functions/*/function.tf` | Function example configurations |
-| `examples/guides/*/` | Guide example Terraform modules |
+| `smsv2-release-surface.json` | Exact public resources, data sources, actions, and functions |
 
 ## Workflow Architecture
 
@@ -116,49 +106,6 @@ flowchart TD
 ```
 
 Reusable workflows (`_build-test.yml`, `_generate-docs.yml`, `_generate-provider.yml`, `_tag-release.yml`) are invoked by the `on-merge.yml` orchestrator.
-
-## Provider-Defined Functions
-
-### The `blindfold` Function
-
-Encrypts base64-encoded plaintext using F5 Distributed Cloud Secret Management:
-
-```hcl
-provider::xcsh::blindfold(plaintext, policy_name, namespace)
-```
-
-### The `blindfold_file` Function
-
-Reads a file and encrypts its contents:
-
-```hcl
-provider::xcsh::blindfold_file(path, policy_name, namespace)
-```
-
-Requirements: Terraform >= 1.8.0, valid provider authentication, and an existing SecretPolicy.
-
-### Adding New Functions
-
-1. Implement function logic in `internal/functions/`
-2. Register the function in `internal/provider/functions_registration.go`
-3. Add example configurations in `examples/functions/<name>/function.tf`
-4. Write unit and functional tests
-5. Update preservation lists in `tools/generate-all-schemas.go`
-
-## Guides
-
-Guide source files reside in `templates/guides/` with accompanying examples in `examples/guides/`. CI automation renders guides to `docs/guides/` using `tfplugindocs`.
-
-All guides require YAML frontmatter:
-
-```yaml
----
-page_title: "Guide: Title Here"
-subcategory: "Guides"
-description: |-
-  Brief description.
----
-```
 
 ## API Specifications
 

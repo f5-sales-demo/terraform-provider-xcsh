@@ -41,5 +41,5 @@ action "xcsh_site_upgrade_os" "example" {
 
 ### Required
 
-- `site` (String)
 - `os_version` (String)
+- `site` (String)

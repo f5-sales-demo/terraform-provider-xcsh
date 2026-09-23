@@ -8,17 +8,41 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework/action"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
+	"github.com/hashicorp/terraform-plugin-framework/function"
+	frameworkprovider "github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/releasesurface"
 )
 
 func TestSMSv2ReleaseSurfaceIsExact(t *testing.T) {
 	p := &XCSHProvider{}
+	surface, err := releasesurface.Load("../../smsv2-release-surface.json")
+	if err != nil {
+		t.Fatalf("load release surface: %v", err)
+	}
 	resources := resourceNames(t, p.Resources(context.Background()))
 	dataSources := dataSourceNames(t, p.DataSources(context.Background()))
 	actions := actionNames(t, p.Actions(context.Background()))
-	assertSurfaceNames(t, resources, []string{"xcsh_bgp", "xcsh_dns_zone", "xcsh_external_connector", "xcsh_http_loadbalancer", "xcsh_origin_pool", "xcsh_registration_approval", "xcsh_securemesh_site_v2", "xcsh_token", "xcsh_virtual_site"})
-	assertSurfaceNames(t, dataSources, []string{"xcsh_dns_zone", "xcsh_namespace", "xcsh_site_bgp_status", "xcsh_site_cloud_init", "xcsh_site_image", "xcsh_site_registration", "xcsh_site_registrations_by_site", "xcsh_site_upgrade_status", "xcsh_smsv2_aws_runtime", "xcsh_smsv2_contract", "xcsh_smsv2_kvm_runtime"})
-	assertSurfaceNames(t, actions, []string{"xcsh_site_upgrade_os", "xcsh_site_upgrade_sw"})
+	assertSurfaceNames(t, resources, prefixed(surface.Resources))
+	assertSurfaceNames(t, dataSources, prefixed(surface.DataSources))
+	assertSurfaceNames(t, actions, prefixed(surface.Actions))
+
+	var functions []func() function.Function
+	if withFunctions, ok := any(p).(frameworkprovider.ProviderWithFunctions); ok {
+		functions = withFunctions.Functions(context.Background())
+	}
+	if len(functions) != len(surface.Functions) {
+		t.Fatalf("registered functions = %d, release surface requires %d", len(functions), len(surface.Functions))
+	}
+}
+
+func prefixed(names []string) []string {
+	result := make([]string, len(names))
+	for index, name := range names {
+		result[index] = "xcsh_" + name
+	}
+	return result
 }
 
 func resourceNames(t *testing.T, constructors []func() resource.Resource) []string {

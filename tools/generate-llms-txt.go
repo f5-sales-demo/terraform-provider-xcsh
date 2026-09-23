@@ -985,33 +985,6 @@ func generateL0(config *LLMsConfig, categories []CategoryInfo) error {
 	sb.WriteString("- Boolean attributes: use `= true` / `= false`\n")
 	sb.WriteString("- Fields marked \"Server applies default when omitted\" can be safely omitted\n\n")
 
-	// Guides
-	sb.WriteString("## Guides\n\n")
-	guides := []struct{ name, desc string }{
-		{"addon-activation", "Activate and manage F5 Distributed Cloud addon services"},
-		{"advanced-http-loadbalancer", "Deploy HTTP load balancers with WAF, bot defense, and security controls"},
-		{"authentication", "Configure API token, P12 certificate, and PEM certificate authentication"},
-		{"blindfold", "Encrypt secrets locally with public key encryption"},
-		{"http-loadbalancer", "Deploy HTTP load balancers with origin pools and health checks"},
-		{"httpbin-minimal", "Deploy a minimal HTTP load balancer with httpbin backend"},
-	}
-	for _, g := range guides {
-		sb.WriteString(fmt.Sprintf("- [%s](guides/%s) : %s\n", g.name, g.name, g.desc))
-	}
-	sb.WriteString("\n")
-
-	// Functions
-	sb.WriteString("## Functions\n\n")
-	functions := []struct{ name, desc string }{
-		{"blindfold()", "Encrypt secrets using local public key encryption"},
-		{"blindfold_file()", "Encrypt file contents directly"},
-	}
-	for _, f := range functions {
-		fname := strings.TrimSuffix(f.name, "()")
-		sb.WriteString(fmt.Sprintf("- [%s](functions/%s) : %s\n", f.name, fname, f.desc))
-	}
-	sb.WriteString("\n")
-
 	// Resource Categories
 	sb.WriteString("## Resource Categories\n\n")
 	for _, cat := range categories {

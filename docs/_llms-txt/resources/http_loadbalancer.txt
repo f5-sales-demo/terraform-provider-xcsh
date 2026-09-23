@@ -69,4 +69,3 @@ resource "xcsh_http_loadbalancer" "example" {
 ## Dependencies
 
 Requires: namespace, origin_pool
-Used by: route

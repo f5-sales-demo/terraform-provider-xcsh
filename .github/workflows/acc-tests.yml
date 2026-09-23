@@ -58,6 +58,8 @@ on:
       - 'internal/provider/**'
       - 'internal/client/**'
       - 'internal/acctest/**'
+      # Retain the centrally governed trigger superset while the retired
+      # directories are absent from the SMSv2 provider release surface.
       - 'internal/functions/**'
       - 'internal/blindfold/**'
 
@@ -135,7 +137,7 @@ jobs:
           # Run mock tests and capture output
           # Note: TF_ACC=1 is required for resource.Test() even with mock server
           # XCSH_MOCK_MODE=1 ensures mock server is used instead of real API
-          # Tests include both provider resources AND provider-defined functions
+          # Mock tests cover the exact SMSv2 provider release surface.
           TEST_STATUS=0
           TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
             -p 1 \
@@ -143,7 +145,7 @@ jobs:
             -parallel "$PARALLEL" \
             -timeout "${TIMEOUT}m" \
             -run 'TestMock.*' \
-            ./internal/provider/... ./internal/functions/... \
+            ./internal/provider/... \
             2>&1 | tee test-reports/test-output-mock.json || TEST_STATUS=${PIPESTATUS[0]}
 
           JSON_REPORT_STATUS=0
@@ -293,14 +295,14 @@ jobs:
 
           # Real API tests serialize packages (-p 1) and individual tests
           # (-parallel 1) so tenant mutations never overlap.
-          # Tests include both provider resources AND provider-defined functions
+          # Live tests cover the exact SMSv2 provider release surface.
           TEST_STATUS=0
           go test -json \
             -p 1 \
             -parallel 1 \
             -timeout "${TIMEOUT}m" \
             -run 'TestAcc.*' \
-            ./internal/provider/... ./internal/functions/... \
+            ./internal/provider/... \
             > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
           # Never emit the raw live-tenant stream to logs or artifacts.

@@ -42,4 +42,4 @@ resource "xcsh_origin_pool" "example" {
 ## Dependencies
 
 Requires: namespace, healthcheck
-Used by: http_loadbalancer, tcp_loadbalancer, udp_loadbalancer
+Used by: http_loadbalancer

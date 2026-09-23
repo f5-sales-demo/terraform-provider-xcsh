@@ -15,11 +15,11 @@ func TestGetCategory(t *testing.T) {
 		expected     string
 	}{
 		// Override tests
-		{"crl", "Certificates"},
+		{"crl", "Uncategorized"},
 		{"bgp", "Networking"},
 		{"namespace", "Organization"},
-		{"data_group", "BIG-IP Integration"},
-		{"user_identification", "Security"},
+		{"data_group", "Uncategorized"},
+		{"user_identification", "Uncategorized"},
 
 		// Pattern matching tests
 		{"aws_vpc_site", "Sites"},
@@ -106,7 +106,7 @@ func TestIsSkipped(t *testing.T) {
 		resourceName string
 		expected     bool
 	}{
-		{"blindfold", true},          // SkipGenerate=true
+		{"blindfold", false},         // Functions are not part of the release surface
 		{"http_loadbalancer", false}, // Not in skip list
 		{"origin_pool", false},       // Not in skip list
 		{"aws_vpc_site", false},      // SkipGenerate=false, only SkipAPITest=true
@@ -127,7 +127,7 @@ func TestIsSkippedForAPITest(t *testing.T) {
 		resourceName string
 		expected     bool
 	}{
-		{"blindfold", true},         // SkipAPITest=true
+		{"blindfold", false},        // Functions are not part of the release surface
 		{"aws_vpc_site", true},      // Requires AWS credentials
 		{"azure_vnet_site", true},   // Requires Azure credentials
 		{"gcp_vpc_site", true},      // Requires GCP credentials
@@ -159,7 +159,7 @@ func TestGetSkipReason(t *testing.T) {
 		expectEmpty  bool
 		contains     string // substring to check if not empty
 	}{
-		{"blindfold", false, "provider-defined functions"},
+		{"blindfold", true, ""},
 		{"aws_vpc_site", false, "AWS credentials"},
 		{"cloud_credentials", false, "cloud provider"},
 		{"http_loadbalancer", true, ""},
@@ -204,7 +204,7 @@ func TestIsManuallyMaintained(t *testing.T) {
 		expected bool
 	}{
 		{"provider.go", true},
-		{"functions_registration.go", true},
+		{"functions_registration.go", false},
 		{"http_loadbalancer_resource.go", false},
 		{"namespace_resource.go", false},
 	}

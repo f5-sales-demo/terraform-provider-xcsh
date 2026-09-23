@@ -21,41 +21,14 @@ DEPRECATED — do not use: volterraedge/volterra
 - Boolean attributes: use `= true` / `= false`
 - Fields marked "Server applies default when omitted" can be safely omitted
 
-## Guides
-
-- [addon-activation](guides/addon-activation) : Activate and manage F5 Distributed Cloud addon services
-- [advanced-http-loadbalancer](guides/advanced-http-loadbalancer) : Deploy HTTP load balancers with WAF, bot defense, and security controls
-- [authentication](guides/authentication) : Configure API token, P12 certificate, and PEM certificate authentication
-- [blindfold](guides/blindfold) : Encrypt secrets locally with public key encryption
-- [http-loadbalancer](guides/http-loadbalancer) : Deploy HTTP load balancers with origin pools and health checks
-- [httpbin-minimal](guides/httpbin-minimal) : Deploy a minimal HTTP load balancer with httpbin backend
-
-## Functions
-
-- [blindfold()](functions/blindfold) : Encrypt secrets using local public key encryption
-- [blindfold_file()](functions/blindfold_file) : Encrypt file contents directly
-
 ## Resource Categories
 
-- [Security](_llms-txt/security.txt) (27 resources): WAF, bot defense, rate limiting, firewall policies, and security controls
-- [Networking](_llms-txt/networking.txt) (19 resources): Virtual networks, BGP, cloud connectivity, tunnels, and network interfaces
-- [Load Balancing](_llms-txt/load-balancing.txt) (13 resources): HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
-- [Sites](_llms-txt/sites.txt) (11 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
-- [Kubernetes](_llms-txt/kubernetes.txt) (8 resources): Container registries, workloads, and Kubernetes integrations
-- [Uncategorized](_llms-txt/uncategorized.txt) (7 resources): Resources pending categorization
-- [DNS](_llms-txt/dns.txt) (6 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
-- [API Security](_llms-txt/api-security.txt) (5 resources): API definition, discovery, testing, and security controls for web APIs
-- [Applications](_llms-txt/applications.txt) (4 resources): Application settings, types, discovery, and filtering
-- [Authentication](_llms-txt/authentication.txt) (4 resources): Authentication methods, cloud credentials, and secret management
-- [Certificates](_llms-txt/certificates.txt) (4 resources): TLS certificates, certificate chains, CRLs, and trusted CA lists
-- [Monitoring](_llms-txt/monitoring.txt) (4 resources): Log receivers, alert policies, alert templates, and global logging configuration
-- [VPN](_llms-txt/vpn.txt) (4 resources): VPN and IPSec configuration
-- [BIG-IP Integration](_llms-txt/big-ip-integration.txt) (3 resources): BIG-IP proxy, data groups, and iRules integration
-- [Cloud Resources](_llms-txt/cloud-resources.txt) (3 resources): Cloud elastic IPs, address allocators, and geo-location resources
-- [Organization](_llms-txt/organization.txt) (3 resources): Namespaces, tenant configuration, and organizational settings
-- [Integrations](_llms-txt/integrations.txt) (1 resources): External integrations including code base and ticket tracking
-- [Service Mesh](_llms-txt/service-mesh.txt) (1 resources): Service mesh policies and traffic management
-- [Subscriptions](_llms-txt/subscriptions.txt) (1 resources): Cloud subscription management and metering
+- [Load Balancing](_llms-txt/load-balancing.txt) (2 resources): HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
+- [Networking](_llms-txt/networking.txt) (2 resources): Virtual networks, BGP, cloud connectivity, tunnels, and network interfaces
+- [Sites](_llms-txt/sites.txt) (2 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
+- [Authentication](_llms-txt/authentication.txt) (1 resources): Authentication methods, cloud credentials, and secret management
+- [DNS](_llms-txt/dns.txt) (1 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
+- [Uncategorized](_llms-txt/uncategorized.txt) (1 resources): Resources pending categorization
 
 ## Data Sources
 

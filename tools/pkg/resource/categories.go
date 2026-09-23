@@ -54,37 +54,10 @@ func V2CategoryCount() int {
 // SubcategoryOverrides provides explicit category assignments for resources
 // that don't match any pattern or need a specific override.
 var SubcategoryOverrides = map[string]string{
-	// Explicit overrides for resources that don't match patterns well
-	"crl":                     "Certificates",
-	"bgp":                     "Networking",
-	"proxy":                   "Networking",
-	"tunnel":                  "Networking",
-	"segment":                 "Networking",
-	"subnet":                  "Networking",
-	"fleet":                   "Sites",
-	"cluster":                 "Load Balancing",
-	"endpoint":                "Load Balancing",
-	"route":                   "Load Balancing",
-	"healthcheck":             "Load Balancing",
-	"origin_pool":             "Load Balancing",
-	"virtual_host":            "Load Balancing",
-	"discovery":               "Applications",
-	"filter_set":              "Applications",
-	"policer":                 "Service Mesh",
-	"token":                   "Authentication",
-	"registration":            "Sites",
-	namespaceResourceKey:      "Organization",
-	"data_type":               "Security",
-	"data_group":              "BIG-IP Integration",
-	"irule":                   "BIG-IP Integration",
-	"nginx_service_discovery": "Networking",
-	"site":                    "Sites",
-	"nfv_service":             "Networking",
-	"workload":                "Kubernetes",
-	"workload_flavor":         "Kubernetes",
-	"cminstance":              "Subscriptions",
-	"user_identification":     "Security",
-	"virtual_network":         "Networking",
+	"bgp":                "Networking",
+	"origin_pool":        "Load Balancing",
+	"token":              "Authentication",
+	namespaceResourceKey: "Organization",
 }
 
 // CategoryPattern defines a pattern-to-category mapping.

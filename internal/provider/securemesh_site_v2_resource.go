@@ -5667,6 +5667,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									"location": schema.StringAttribute{
 										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
+										Sensitive:           true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
 										},
@@ -5688,6 +5689,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									"url": schema.StringAttribute{
 										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
 										Optional:            true,
+										Sensitive:           true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 131072),
 										},
@@ -7521,6 +7523,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									"location": schema.StringAttribute{
 										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 										Optional:            true,
+										Sensitive:           true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(4, 131072),
 										},
@@ -7542,6 +7545,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									"url": schema.StringAttribute{
 										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
 										Optional:            true,
+										Sensitive:           true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 131072),
 										},
@@ -12731,11 +12735,13 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							"default_os_version": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
 								Optional:            true,
+								Sensitive:           true,
 								AttributeTypes:      map[string]attr.Type{},
 							},
 							"operating_system_version": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
 								Optional:            true,
+								Sensitive:           true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(20),
 								},
@@ -12749,11 +12755,13 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							"default_sw_version": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
 								Optional:            true,
+								Sensitive:           true,
 								AttributeTypes:      map[string]attr.Type{},
 							},
 							"volterra_software_version": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
 								Optional:            true,
+								Sensitive:           true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(20),
 								},

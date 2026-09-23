@@ -2311,6 +2311,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 														"location": schema.StringAttribute{
 															MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
 															Optional:            true,
+															Sensitive:           true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(4, 131072),
 															},
@@ -2332,6 +2333,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 														"url": schema.StringAttribute{
 															MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
 															Optional:            true,
+															Sensitive:           true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 131072),
 															},

@@ -43,12 +43,12 @@ func TestRetryIdempotentDeleteRetriesOnlyTransientErrors(t *testing.T) {
 	}
 }
 
-func TestAlertPolicyDisappearanceDeleteUsesGeneratedRoute(t *testing.T) {
+func TestBGPDisappearanceDeleteUsesGeneratedRoute(t *testing.T) {
 	t.Parallel()
 	requests := 0
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		requests++
-		if r.Method != http.MethodDelete || r.URL.Path != "/api/config/namespaces/system/alert_policys/fixture" {
+		if r.Method != http.MethodDelete || r.URL.Path != "/api/config/namespaces/system/bgps/fixture" {
 			t.Errorf("delete request = %s %s", r.Method, r.URL.Path)
 		}
 		if r.ContentLength > 0 {
@@ -59,9 +59,9 @@ func TestAlertPolicyDisappearanceDeleteUsesGeneratedRoute(t *testing.T) {
 	defer server.Close()
 
 	c := client.NewClient(server.URL, "fixture-token")
-	deleter := resourceDeleterRegistry["xcsh_alert_policy"]
+	deleter := resourceDeleterRegistry["xcsh_bgp"]
 	if err := deleter(context.Background(), c, "system", "fixture"); err != nil {
-		t.Fatalf("alert-policy external delete: %v", err)
+		t.Fatalf("BGP external delete: %v", err)
 	}
 	if requests != 1 {
 		t.Fatalf("delete requests = %d, want 1", requests)
