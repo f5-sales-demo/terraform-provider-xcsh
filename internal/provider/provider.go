@@ -221,6 +221,7 @@ func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource
 		NewOriginPoolResource,
 		NewRegistrationApprovalResource,
 		NewSecuremeshSiteV2Resource,
+		NewSmsv2KvmRuntimeInterfaceResource,
 		NewTokenResource,
 		NewVirtualSiteResource,
 	}

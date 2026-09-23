@@ -5,3 +5,4 @@ Resources pending categorization
 ## Resources
 
 - [registration_approval](_llms-txt/resources/registration_approval.txt) : Request for admission approval. configuration
+- [smsv2_kvm_runtime_interface](_llms-txt/resources/smsv2_kvm_runtime_interface.txt) : Adopts one existing XC-owned KVM Secure Mesh Site v2 SLI child and manages...

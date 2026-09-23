@@ -608,6 +608,20 @@ func (c *Client) Put(ctx context.Context, path string, data, result interface{})
 	return nil
 }
 
+// PutOnce performs a PUT request without automatic transport or status retry.
+// Use it when the caller must reconcile an ambiguous outcome with an exact GET
+// before deciding whether another write is safe.
+func (c *Client) PutOnce(ctx context.Context, path string, data, result interface{}) error {
+	body, err := c.doRequestWithRetry(ctx, http.MethodPut, path, data, false)
+	if err != nil {
+		return err
+	}
+	if result != nil && len(body) > 0 {
+		return json.Unmarshal(body, result)
+	}
+	return nil
+}
+
 // Delete performs a DELETE request
 func (c *Client) Delete(ctx context.Context, path string) error {
 	_, err := c.doRequest(ctx, http.MethodDelete, path, nil)

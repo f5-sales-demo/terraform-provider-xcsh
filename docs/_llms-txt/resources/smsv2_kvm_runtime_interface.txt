@@ -1,0 +1,25 @@
+# xcsh_smsv2_kvm_runtime_interface
+
+Category: Uncategorized
+Adopts one existing XC-owned KVM Secure Mesh Site v2 SLI child and manages only its DHCP/static IPv4 mode. It never creates or deletes the runtime child
+
+## Required
+
+- expected_mac
+- ipv4_cidr
+- site
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_smsv2_kvm_runtime_interface" "sli" {
+  namespace    = "system"
+  site         = "onprem-example-kvm"
+  expected_mac = "52:54:00:20:00:11"
+  ipv4_cidr    = "10.201.0.11/24"
+}
+```
+
+## Dependencies
+
+Requires: none

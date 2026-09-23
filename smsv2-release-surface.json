@@ -1,6 +1,7 @@
 {
   "resources": [
     "securemesh_site_v2",
+    "smsv2_kvm_runtime_interface",
     "token",
     "registration_approval",
     "external_connector",

@@ -268,6 +268,35 @@ func TestGenerateProviderRegistration_StandaloneDataSources(t *testing.T) {
 	}
 }
 
+func TestGenerateProviderRegistration_StandaloneResources(t *testing.T) {
+	outDir := t.TempDir()
+	GenerateProviderRegistration(nil, outDir)
+	content, err := os.ReadFile(filepath.Join(outDir, "provider.go"))
+	if err != nil {
+		t.Fatalf("provider.go was not created: %v", err)
+	}
+	contentStr := string(content)
+	repoRoot := filepath.Join("..", "..", "..")
+	for _, resourceName := range StandaloneResources {
+		constructor := "New" + naming.ToResourceTypeName(resourceName) + "Resource,"
+		if !contains(contentStr, constructor) {
+			t.Errorf("standalone resource %q: expected %s in provider.go Resources()", resourceName, constructor)
+		}
+		implementationPath := filepath.Join(repoRoot, "internal", "provider", resourceName+"_resource.go")
+		implementation, readErr := os.ReadFile(implementationPath) //nolint:gosec // fixed path derived from the allowlist
+		if readErr != nil {
+			t.Errorf("standalone resource %q: no hand-written implementation at %s: %v", resourceName, implementationPath, readErr)
+			continue
+		}
+		if !contains(string(implementation), "func New"+naming.ToResourceTypeName(resourceName)+"Resource(") {
+			t.Errorf("standalone resource %q constructor does not match generator registration", resourceName)
+		}
+		if contains(string(implementation), "DO NOT EDIT") {
+			t.Errorf("standalone resource %q carries a generated-file header and could be pruned", resourceName)
+		}
+	}
+}
+
 func TestGenerateProviderRegistration_ActionResource(t *testing.T) {
 	outDir := t.TempDir()
 

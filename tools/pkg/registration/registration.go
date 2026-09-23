@@ -24,6 +24,13 @@ import (
 // Note: namespace was removed in v3.0.0 as part of backwards compatibility cleanup
 var CoreResources = []string{}
 
+// StandaloneResources are hand-written resources with deliberately narrower
+// lifecycle semantics than their OpenAPI CRUD object. They are registered by
+// the generator but are not generated from an API schema.
+var StandaloneResources = []string{
+	"smsv2_kvm_runtime_interface",
+}
+
 // StandaloneDataSources are hand-written data sources that have no generated
 // resource companion (so they are not registered via CoreResources or the
 // spec-generation results). They must still be wired into provider.DataSources().
@@ -148,6 +155,11 @@ func GenerateProviderRegistration(results []openapi.GenerationResult, outputDir 
 		resources = append(resources, fmt.Sprintf("\t\tNew%sResource,", titleCase))
 		dataSources = append(dataSources, fmt.Sprintf("\t\tNew%sDataSource,", titleCase))
 		added[core] = true
+	}
+	for _, standalone := range StandaloneResources {
+		titleCase := naming.ToResourceTypeName(standalone)
+		resources = append(resources, fmt.Sprintf("\t\tNew%sResource,", titleCase))
+		added[standalone] = true
 	}
 
 	// Then add resources from spec generation results (avoiding duplicates)

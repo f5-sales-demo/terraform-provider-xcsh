@@ -43,6 +43,13 @@
       "resources": ["securemesh_site_v2", "virtual_site"]
     },
     {
+      "name": "Uncategorized",
+      "slug": "uncategorized",
+      "description": "Resources pending categorization",
+      "resource_count": 2,
+      "resources": ["registration_approval", "smsv2_kvm_runtime_interface"]
+    },
+    {
       "name": "Authentication",
       "slug": "authentication",
       "description": "Authentication methods, cloud credentials, and secret management",
@@ -55,13 +62,6 @@
       "description": "DNS domains, zones, compliance checks, and DNS proxy configuration",
       "resource_count": 1,
       "resources": ["dns_zone"]
-    },
-    {
-      "name": "Uncategorized",
-      "slug": "uncategorized",
-      "description": "Resources pending categorization",
-      "resource_count": 1,
-      "resources": ["registration_approval"]
     }
   ],
   "resources": [
@@ -215,6 +215,33 @@
       "import_syntax": "terraform import xcsh_virtual_site.example namespace/name"
     },
     {
+      "name": "registration_approval",
+      "category": "uncategorized",
+      "description": "Request for admission approval. configuration",
+      "required": ["name", "namespace", "cluster_size"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/registration_approval.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_registration_approval.example namespace/name"
+    },
+    {
+      "name": "smsv2_kvm_runtime_interface",
+      "category": "uncategorized",
+      "description": "Adopts one existing XC-owned KVM Secure Mesh Site v2 SLI child and manages only its DHCP/static IPv4 mode. It never creates or deletes the runtime child",
+      "required": ["expected_mac", "ipv4_cidr", "site"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/smsv2_kvm_runtime_interface.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      }
+    },
+    {
       "name": "token",
       "category": "authentication",
       "description": "New token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration",
@@ -241,20 +268,6 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_dns_zone.example namespace/name"
-    },
-    {
-      "name": "registration_approval",
-      "category": "uncategorized",
-      "description": "Request for admission approval. configuration",
-      "required": ["name", "namespace", "cluster_size"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/registration_approval.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_registration_approval.example namespace/name"
     }
   ]
 }
