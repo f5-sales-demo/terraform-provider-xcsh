@@ -9,12 +9,18 @@ import (
 	"go/format"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 )
 
 //go:embed templates/smsv2_contract_data_source.go.tmpl
 var smsv2ContractDataSourceTemplate []byte
+
+var (
+	smsv2ReleaseTagPattern = regexp.MustCompile(`^v[0-9]+\.[0-9]+\.[0-9]+$`)
+	smsv2CommitPattern     = regexp.MustCompile(`^[0-9a-f]{40}$`)
+)
 
 type smsv2GenerationManifest struct {
 	ContractID      string `json:"contract_id"`
@@ -48,11 +54,9 @@ func GenerateSMSv2ContractConstants(specDir, outputDir string) ([]SMSv2DataSourc
 	if err := json.Unmarshal(manifestJSON, &manifest); err != nil {
 		return nil, fmt.Errorf("decode SMSv2 contract manifest: %w", err)
 	}
-	contractMajor, _, contractFound := strings.Cut(contract.Version, ".")
-	releaseMajor, _, releaseFound := strings.Cut(strings.TrimPrefix(manifest.Release.Tag, "v"), ".")
 	if manifest.ContractID != contract.ContractID || manifest.ContractVersion != contract.Version ||
-		!strings.HasPrefix(manifest.Release.Tag, "v") || !contractFound || !releaseFound ||
-		contractMajor != releaseMajor || len(manifest.Release.Commit) != 40 {
+		!smsv2ReleaseTagPattern.MatchString(manifest.Release.Tag) ||
+		!smsv2CommitPattern.MatchString(manifest.Release.Commit) {
 		return nil, fmt.Errorf("SMSv2 contract manifest identity mismatch")
 	}
 	capabilities := fmt.Sprintf("map[string]string{%q: %q, %q: %q, %q: %q, %q: %q, %q: %q}",
