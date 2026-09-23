@@ -39,6 +39,7 @@ var manuallyMaintained = map[string]bool{
 	"site_upgrade_status":             true,
 	"site_registration":               true,
 	"smsv2_aws_runtime":               true,
+	"smsv2_kvm_runtime":               true,
 	"smsv2_contract":                  true,
 }
 

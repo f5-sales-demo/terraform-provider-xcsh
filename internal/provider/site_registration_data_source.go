@@ -329,7 +329,11 @@ func applyRegistrationMatch(data *SiteRegistrationDataSourceModel, match *client
 	data.State = stringOrNull(match.Object.Status.CurrentState)
 	data.ClusterName = stringOrNull(match.GetSpec.Passport.ClusterName)
 	data.ClusterSize = int64OrNull(match.GetSpec.Passport.ClusterSize)
-	data.ProviderType = stringOrNull(match.GetSpec.Infra.Provider)
+	providerType := match.GetSpec.Infra.ProviderRef
+	if providerType == "" {
+		providerType = match.GetSpec.Infra.Provider
+	}
+	data.ProviderType = stringOrNull(providerType)
 	data.InstanceID = stringOrNull(match.GetSpec.Infra.InstanceID)
 }
 
