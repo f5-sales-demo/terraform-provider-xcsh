@@ -350,6 +350,7 @@ func TestBuildTestWorkflowBoundsCompilerMemory(t *testing.T) {
 	requiredCommands := map[string]string{
 		"Build": "go build -p 1 -v ./...",
 		"Vet":   "go vet -p 1 ./...",
+		"Test":  "go test -timeout=30m -v -race ./internal/... ./tools/...",
 	}
 	for _, step := range workflow.Jobs["build"].Steps {
 		want, ok := requiredCommands[step.Name]

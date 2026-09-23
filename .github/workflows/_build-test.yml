@@ -121,7 +121,11 @@ jobs:
         # clean run.
         env:
           XCSH_SPEC_DIR: ${{ env.SPEC_DIR }}
-        run: scripts/go-retry.sh 2 go test -v -race ./internal/... ./tools/...
+        # The code-generation package includes compile-level regression tests
+        # that rebuild the generated provider tree. Under the bounded compiler
+        # memory settings above, a healthy package can exceed Go's 10-minute
+        # default test timeout on hosted runners.
+        run: scripts/go-retry.sh 2 go test -timeout=30m -v -race ./internal/... ./tools/...
 
       - name: Set result
         id: result
