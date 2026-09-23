@@ -15,8 +15,7 @@ terraform {
 # This action does not reconcile a site's pinned software_settings.
 action "xcsh_site_upgrade_os" "example" {
   config {
-    name      = "example-value"
-    namespace = "example-value"
-    version   = "example-value"
+    site       = "example-value"
+    os_version = "example-value"
   }
 }

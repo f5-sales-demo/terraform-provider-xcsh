@@ -22,10 +22,8 @@ func NewSiteUpgradeOSAction() action.Action { return &SiteUpgradeOSAction{} }
 
 type SiteUpgradeOSAction struct{ client *client.Client }
 type SiteUpgradeOSActionModel struct {
-	Name      types.String `tfsdk:"name"`
-	Namespace types.String `tfsdk:"namespace"`
-	Version   types.String `tfsdk:"version"`
-	Force     types.Bool   `tfsdk:"force"`
+	Site      types.String `tfsdk:"site"`
+	OSVersion types.String `tfsdk:"os_version"`
 }
 
 func (a *SiteUpgradeOSAction) Metadata(ctx context.Context, req action.MetadataRequest, resp *action.MetadataResponse) {
@@ -34,21 +32,13 @@ func (a *SiteUpgradeOSAction) Metadata(ctx context.Context, req action.MetadataR
 func (a *SiteUpgradeOSAction) Schema(ctx context.Context, req action.SchemaRequest, resp *action.SchemaResponse) {
 	resp.Schema = schema.Schema{MarkdownDescription: "Request an in-place site operating-system upgrade.",
 		Attributes: map[string]schema.Attribute{
-			"name": schema.StringAttribute{
-				MarkdownDescription: "Name. Site name.",
+			"site": schema.StringAttribute{
+				MarkdownDescription: "",
 				Required:            true,
 			},
-			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace. Site namespace.",
+			"os_version": schema.StringAttribute{
+				MarkdownDescription: "",
 				Required:            true,
-			},
-			"version": schema.StringAttribute{
-				MarkdownDescription: "Version. Version to upgraded to.",
-				Required:            true,
-			},
-			"force": schema.BoolAttribute{
-				MarkdownDescription: "Force upgrade even when logic checks are PUT in place to not allow software upgrades (i.e. OS upgrade in progress). Defaults to `false`.",
-				Optional:            true,
 			},
 		},
 	}
@@ -70,28 +60,20 @@ func (a *SiteUpgradeOSAction) Invoke(ctx context.Context, req action.InvokeReque
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.Force.IsNull() {
-		data.Force = types.BoolValue(false)
-	}
-	apiPath := "/api/config/namespaces/{namespace}/sites/{name}/upgrade_os"
-	apiPath = strings.ReplaceAll(apiPath, "{name}", url.PathEscape(data.Name.ValueString()))
-	apiPath = strings.ReplaceAll(apiPath, "{namespace}", url.PathEscape(data.Namespace.ValueString()))
+	apiPath := "/api/config/namespaces/system/sites/{site}/upgrade_os"
+	apiPath = strings.ReplaceAll(apiPath, "{site}", url.PathEscape(data.Site.ValueString()))
 	queryValues := url.Values{}
 	if encoded := queryValues.Encode(); encoded != "" {
 		apiPath += "?" + encoded
 	}
 	body := map[string]interface{}{}
-	if !data.Name.IsNull() && !data.Name.IsUnknown() {
-		body["name"] = data.Name.ValueString()
+	body["namespace"] = "system"
+	body["force"] = false
+	if !data.Site.IsNull() && !data.Site.IsUnknown() {
+		body["name"] = data.Site.ValueString()
 	}
-	if !data.Namespace.IsNull() && !data.Namespace.IsUnknown() {
-		body["namespace"] = data.Namespace.ValueString()
-	}
-	if !data.Version.IsNull() && !data.Version.IsUnknown() {
-		body["version"] = data.Version.ValueString()
-	}
-	if !data.Force.IsNull() && !data.Force.IsUnknown() {
-		body["force"] = data.Force.ValueBool()
+	if !data.OSVersion.IsNull() && !data.OSVersion.IsUnknown() {
+		body["version"] = data.OSVersion.ValueString()
 	}
 	if err := a.client.Post(ctx, apiPath, body, nil); err != nil {
 		resp.Diagnostics.AddError("Client Error", "Unable to invoke response operation. Raw API diagnostics are suppressed.")

@@ -36,7 +36,6 @@ func NewSiteUpgradeStatusDataSource() datasource.DataSource {
 
 type SiteUpgradeStatusDataSourceModel struct {
 	ID                         types.String `tfsdk:"id"`
-	Namespace                  types.String `tfsdk:"namespace"`
 	Site                       types.String `tfsdk:"site"`
 	ExpectedSoftwareVersion    types.String `tfsdk:"expected_software_version"`
 	ExpectedOSVersion          types.String `tfsdk:"expected_os_version"`
@@ -90,7 +89,6 @@ func (d *SiteUpgradeStatusDataSource) Schema(_ context.Context, _ datasource.Sch
 		MarkdownDescription: "Observes SMSv2 site upgrade eligibility and waits for explicitly supplied software and operating-system targets to converge.",
 		Attributes: map[string]schema.Attribute{
 			"id":                           schema.StringAttribute{Computed: true},
-			"namespace":                    schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.OneOf("system")}},
 			"site":                         schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
 			"expected_software_version":    schema.StringAttribute{Optional: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
 			"expected_os_version":          schema.StringAttribute{Optional: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
@@ -353,7 +351,7 @@ func (d *SiteUpgradeStatusDataSource) setState(ctx context.Context, data *SiteUp
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	data.ID = types.StringValue(data.Namespace.ValueString() + "/" + data.Site.ValueString())
+	data.ID = types.StringValue("system/" + data.Site.ValueString())
 	data.SiteState = types.StringValue(snapshot.status.SiteState)
 	data.SoftwareInstalledVersion = types.StringValue(snapshot.status.SoftwareInstalledVersion)
 	data.SoftwareAvailableVersion = types.StringValue(snapshot.status.SoftwareAvailableVersion)
@@ -377,7 +375,7 @@ func (d *SiteUpgradeStatusDataSource) Read(ctx context.Context, req datasource.R
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.Namespace.IsUnknown() || data.Site.IsUnknown() || data.ExpectedSoftwareVersion.IsUnknown() ||
+	if data.Site.IsUnknown() || data.ExpectedSoftwareVersion.IsUnknown() ||
 		data.ExpectedOSVersion.IsUnknown() || data.Wait.IsUnknown() || data.TimeoutSeconds.IsUnknown() || data.PollIntervalSeconds.IsUnknown() {
 		if req.ClientCapabilities.DeferralAllowed {
 			resp.Deferred = &datasource.Deferred{Reason: datasource.DeferredReasonDataSourceConfigUnknown}
@@ -405,7 +403,7 @@ func (d *SiteUpgradeStatusDataSource) Read(ctx context.Context, req datasource.R
 	}
 	deadline := d.nowTime().Add(time.Duration(data.TimeoutSeconds.ValueInt64()) * time.Second)
 	for {
-		snapshot, err := d.observe(ctx, data.Namespace.ValueString(), data.Site.ValueString(), expectedSoftware, expectedOS)
+		snapshot, err := d.observe(ctx, "system", data.Site.ValueString(), expectedSoftware, expectedOS)
 		if err == nil && (!data.Wait.ValueBool() || snapshot.converged) {
 			d.setState(ctx, &data, snapshot, resp)
 			return

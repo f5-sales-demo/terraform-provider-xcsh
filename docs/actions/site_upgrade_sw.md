@@ -30,9 +30,8 @@ terraform {
 # This action does not reconcile a site's pinned software_settings.
 action "xcsh_site_upgrade_sw" "example" {
   config {
-    name      = "example-value"
-    namespace = "example-value"
-    version   = "example-value"
+    site             = "example-value"
+    software_version = "example-value"
   }
 }
 ```
@@ -42,10 +41,5 @@ action "xcsh_site_upgrade_sw" "example" {
 
 ### Required
 
-- `name` (String) Name. Site name.
-- `namespace` (String) Namespace. Site namespace.
-- `version` (String) Version. Version to upgraded to.
-
-### Optional
-
-- `force` (Boolean) Force upgrade even when logic checks are PUT in place to not allow software upgrades (i.e. OS upgrade in progress). Defaults to `false`.
+- `site` (String)
+- `software_version` (String)

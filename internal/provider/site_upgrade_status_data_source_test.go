@@ -193,7 +193,7 @@ func TestEvaluateSiteUpgradeTargetsRequiresOnlineForReadiness(t *testing.T) {
 func siteUpgradeReadRequest(t *testing.T, schemaResponse *datasource.SchemaResponse, wait bool, timeout int64) datasource.ReadRequest {
 	t.Helper()
 	model := SiteUpgradeStatusDataSourceModel{
-		ID: types.StringNull(), Namespace: types.StringValue("system"), Site: types.StringValue("lab-site"),
+		ID: types.StringNull(), Site: types.StringValue("lab-site"),
 		ExpectedSoftwareVersion: types.StringValue(targetSoftware), ExpectedOSVersion: types.StringValue(targetOS),
 		Wait: types.BoolValue(wait), TimeoutSeconds: types.Int64Value(timeout), PollIntervalSeconds: types.Int64Value(1),
 		SiteState: types.StringNull(), SoftwareInstalledVersion: types.StringNull(), SoftwareAvailableVersion: types.StringNull(),
