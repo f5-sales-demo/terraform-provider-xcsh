@@ -18,7 +18,6 @@ var defaultNetworkExamplePaths = []string{
 	"internal/mocks/fixtures.go",
 	"internal/provider/origin_pool_resource_test.go",
 	"tools/discover-defaults.go",
-	"tools/generate-datasource-tests.go",
 	"tools/pkg/suppress/diff_test.go",
 }
 
