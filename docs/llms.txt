@@ -26,9 +26,9 @@ DEPRECATED — do not use: volterraedge/volterra
 - [Load Balancing](_llms-txt/load-balancing.txt) (2 resources): HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
 - [Networking](_llms-txt/networking.txt) (2 resources): Virtual networks, BGP, cloud connectivity, tunnels, and network interfaces
 - [Sites](_llms-txt/sites.txt) (2 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
+- [Uncategorized](_llms-txt/uncategorized.txt) (2 resources): Resources pending categorization
 - [Authentication](_llms-txt/authentication.txt) (1 resources): Authentication methods, cloud credentials, and secret management
 - [DNS](_llms-txt/dns.txt) (1 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
-- [Uncategorized](_llms-txt/uncategorized.txt) (1 resources): Resources pending categorization
 
 ## Data Sources
 

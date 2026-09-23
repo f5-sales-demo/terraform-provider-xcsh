@@ -29,6 +29,7 @@ GENERATED_PATTERNS=(
 # These data sources are not auto-generated from OpenAPI specs - they provide
 # utility functionality not available in the F5 specifications
 MANUALLY_MAINTAINED_FILES=(
+  "internal/provider/smsv2_kvm_runtime_interface_resource.go"
   "internal/provider/site_registration_data_source.go"
   "internal/provider/site_bgp_status_data_source.go"
   "internal/provider/site_upgrade_status_data_source.go"
@@ -41,6 +42,7 @@ MANUALLY_MAINTAINED_FILES=(
   "examples/data-sources/xcsh_smsv2_aws_runtime/data-source.tf"
   "examples/data-sources/xcsh_smsv2_kvm_runtime/data-source.tf"
   "examples/data-sources/xcsh_smsv2_contract/data-source.tf"
+  "examples/resources/xcsh_smsv2_kvm_runtime_interface/resource.tf"
   # MkDocs documentation site index files (navigation, not provider docs)
   "docs/resources/index.md"
   "docs/data-sources/index.md"

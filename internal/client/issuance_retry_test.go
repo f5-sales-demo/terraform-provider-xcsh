@@ -95,6 +95,19 @@ func TestPostEOFIsAmbiguousAndNeverRetries(t *testing.T) {
 	}
 }
 
+func TestPutOnceEOFIsAmbiguousAndNeverRetries(t *testing.T) {
+	transport := &issuanceTransport{}
+	c := NewClient("https://example.invalid", "test-token", WithMaxRetries(3), WithRetryWait(time.Millisecond, time.Millisecond))
+	c.HTTPClient.Transport = transport
+	err := c.PutOnce(context.Background(), "/mutation", map[string]string{"mode": "static"}, nil)
+	if err == nil || !errors.Is(err, io.ErrUnexpectedEOF) {
+		t.Fatalf("expected ambiguous EOF, got %v", err)
+	}
+	if transport.calls != 1 {
+		t.Fatalf("PUT replayed before exact-name reconciliation: %d calls", transport.calls)
+	}
+}
+
 func TestPostDoesNotFollowRedirect(t *testing.T) {
 	requests := 0
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

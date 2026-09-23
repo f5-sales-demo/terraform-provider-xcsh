@@ -34,12 +34,13 @@ const providerDir = "internal/provider"
 // scripts/check-no-generated-files.sh. Bespoke examples that use the xcsh_ prefix are retained
 // explicitly in the surface keep set.
 var manuallyMaintained = map[string]bool{
-	"site_bgp_status":     true,
-	"site_upgrade_status": true,
-	"site_registration":   true,
-	"smsv2_aws_runtime":   true,
-	"smsv2_kvm_runtime":   true,
-	"smsv2_contract":      true,
+	"smsv2_kvm_runtime_interface": true,
+	"site_bgp_status":             true,
+	"site_upgrade_status":         true,
+	"site_registration":           true,
+	"smsv2_aws_runtime":           true,
+	"smsv2_kvm_runtime":           true,
+	"smsv2_contract":              true,
 }
 
 var (
@@ -75,10 +76,10 @@ func main() {
 		if !allowedResources[name] {
 			continue
 		}
+		resourceKeep[name] = true
 		if manuallyMaintained[name] {
 			continue
 		}
-		resourceKeep[name] = true
 		rt, err := parseResourceSchema(f, name)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "❌ %s: %v\n", name, err)
