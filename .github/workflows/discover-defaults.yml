@@ -98,7 +98,7 @@ jobs:
       - name: Verify immutable Go toolchain
         run: |
           go version
-          test "$(go env GOVERSION)" = go1.25.12
+          test "$(go env GOVERSION)" = go1.25.13
 
       - name: Verify API credentials
         env:

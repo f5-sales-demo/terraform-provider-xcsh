@@ -15,14 +15,22 @@ import (
 // FixUpstreamTerminology corrects upstream API terminology to pass textlint rules.
 // Spelling corrections are handled by codespell --write-changes in the CI workflow.
 func FixUpstreamTerminology(content string) string {
-	// Protect markdown link URLs from terminology corrections.
-	// Store URLs with placeholders, apply corrections, then restore.
-	urlRegex := regexp.MustCompile(`\]\((https?://[^)]+)\)`)
-	var savedURLs []string
-	content = urlRegex.ReplaceAllStringFunc(content, func(match string) string {
-		idx := len(savedURLs)
-		savedURLs = append(savedURLs, match)
-		return fmt.Sprintf("](##URL_%d##)", idx)
+	// Protect all Markdown link destinations and explicit anchor IDs from prose
+	// corrections. Fragment identifiers are code-like navigation contracts: changing
+	// `#azure` to `#Azure` or `clientside` to `client-side` breaks the generated link.
+	linkDestinationRegex := regexp.MustCompile(`\]\(([^)\n]+)\)`)
+	var savedLinkDestinations []string
+	content = linkDestinationRegex.ReplaceAllStringFunc(content, func(match string) string {
+		idx := len(savedLinkDestinations)
+		savedLinkDestinations = append(savedLinkDestinations, match)
+		return fmt.Sprintf("](##LINK_%d##)", idx)
+	})
+	anchorIDRegex := regexp.MustCompile(`id="[^"\n]+"`)
+	var savedAnchorIDs []string
+	content = anchorIDRegex.ReplaceAllStringFunc(content, func(match string) string {
+		idx := len(savedAnchorIDs)
+		savedAnchorIDs = append(savedAnchorIDs, match)
+		return fmt.Sprintf("id=\"##ANCHOR_%d##\"", idx)
 	})
 
 	// Protect fenced code blocks first — they are code for the same reason inline
@@ -71,6 +79,8 @@ func FixUpstreamTerminology(content string) string {
 	content = strings.NewReplacer(
 		"User Name", "username",
 		"Host Name", "hostname",
+		"File Name", "filename",
+		"file name", "filename",
 		"name space", "namespace",
 		"Javascript", "JavaScript",
 		"javascript", "JavaScript",
@@ -111,6 +121,9 @@ func FixUpstreamTerminology(content string) string {
 	ubuntuRegex := regexp.MustCompile(`\bubuntu\b`)
 	content = ubuntuRegex.ReplaceAllString(content, "Ubuntu")
 
+	linuxRegex := regexp.MustCompile(`\blinux\b`)
+	content = linuxRegex.ReplaceAllString(content, "Linux")
+
 	azureRegex := regexp.MustCompile(`\bazure\b`)
 	content = azureRegex.ReplaceAllString(content, "Azure")
 
@@ -125,7 +138,7 @@ func FixUpstreamTerminology(content string) string {
 	// "EncodingBase64" into "Encodingbase64" (Go regexp has no lookbehind to exclude
 	// it). Preserve the token as authored in the schema.
 
-	// Restore protected code spans, fences and URLs. Spans before fences, mirroring
+	// Restore protected code spans, fences, anchors, and link destinations. Spans before fences, mirroring
 	// the order they were removed in reverse.
 	for i, code := range savedCode {
 		content = strings.Replace(content, fmt.Sprintf("##CODE_%d##", i), code, 1)
@@ -136,8 +149,11 @@ func FixUpstreamTerminology(content string) string {
 	for i, fence := range savedFences {
 		content = strings.Replace(content, fmt.Sprintf("##FENCE_%d##", i), fence, 1)
 	}
-	for i, url := range savedURLs {
-		content = strings.Replace(content, fmt.Sprintf("](##URL_%d##)", i), url, 1)
+	for i, anchorID := range savedAnchorIDs {
+		content = strings.Replace(content, fmt.Sprintf("id=\"##ANCHOR_%d##\"", i), anchorID, 1)
+	}
+	for i, destination := range savedLinkDestinations {
+		content = strings.Replace(content, fmt.Sprintf("](##LINK_%d##)", i), destination, 1)
 	}
 
 	return content

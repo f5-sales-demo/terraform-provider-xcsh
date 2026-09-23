@@ -58,13 +58,2902 @@ output "cdn_loadbalancer_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="active-service-policies"></a>&#x2022; [`active_service_policies`](#active-service-policies) - Optional String<br>Configuration parameter for active service policies
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="api-rate-limit"></a>&#x2022; [`api_rate_limit`](#api-rate-limit) - Optional String<br>APIRateLimit
+
+<a id="api-specification"></a>&#x2022; [`api_specification`](#api-specification) - Optional String<br>Settings for API specification (API definition, OpenAPI validation, etc.)
+
+<a id="app-firewall"></a>&#x2022; [`app_firewall`](#app-firewall) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="blocked-clients"></a>&#x2022; [`blocked_clients`](#blocked-clients) - Optional List<br>Define rules to block IP Prefixes or AS numbers
+
+<a id="bot-defense"></a>&#x2022; [`bot_defense`](#bot-defense) - Optional String<br>Defines various configuration OPTIONS for Bot Defense Policy
+
+<a id="captcha-challenge"></a>&#x2022; [`captcha_challenge`](#captcha-challenge) - Optional String<br>Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will redirect
+
+<a id="client-side-defense"></a>&#x2022; [`client_side_defense`](#client-side-defense) - Optional String<br>Defines various configuration OPTIONS for Client-Side Defense Policy
+
+<a id="cors-policy"></a>&#x2022; [`cors_policy`](#cors-policy) - Optional String<br>Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5
+
+<a id="csrf-policy"></a>&#x2022; [`csrf_policy`](#csrf-policy) - Optional String<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent
+
+<a id="custom-cache-rule"></a>&#x2022; [`custom_cache_rule`](#custom-cache-rule) - Optional String<br>Custom Cache Rules. Caching policies for CDN
+
+<a id="data-guard-rules"></a>&#x2022; [`data_guard_rules`](#data-guard-rules) - Optional List<br>Data Guard prevents responses from exposing sensitive information by masking the data. The system masks credit card numbers and social security numbers leaked from the application from within the HTTP response with a string of asterisks (*)
+
+<a id="ddos-mitigation-rules"></a>&#x2022; [`ddos_mitigation_rules`](#ddos-mitigation-rules) - Optional List<br>Define manual mitigation rules to block L7 DDOS attacks
+
+<a id="default-cache-action"></a>&#x2022; [`default_cache_action`](#default-cache-action) - Optional String<br>Default Cache Behaviour. This defines a Default Cache Action
+
+<a id="default-sensitive-data-policy"></a>&#x2022; [`default_sensitive_data_policy`](#default-sensitive-data-policy) - Optional Object<br>Policy configuration for this feature
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the CDNLoadBalancer
 
+<a id="disable-api-definition"></a>&#x2022; [`disable_api_definition`](#disable-api-definition) - Optional Object<br>Enable this option
+
+<a id="disable-api-discovery"></a>&#x2022; [`disable_api_discovery`](#disable-api-discovery) - Optional Object<br>Enable this option
+
+<a id="disable-client-side-defense"></a>&#x2022; [`disable_client_side_defense`](#disable-client-side-defense) - Optional Object<br>Enable this option
+
+<a id="disable-ip-reputation"></a>&#x2022; [`disable_ip_reputation`](#disable-ip-reputation) - Optional Object<br>Enable this option
+
+<a id="disable-malicious-user-detection"></a>&#x2022; [`disable_malicious_user_detection`](#disable-malicious-user-detection) - Optional Object<br>Configuration parameter for disable malicious user detection
+
+<a id="disable-rate-limit"></a>&#x2022; [`disable_rate_limit`](#disable-rate-limit) - Optional Object<br>Configuration parameter for disable rate limit
+
+<a id="disable-threat-mesh"></a>&#x2022; [`disable_threat_mesh`](#disable-threat-mesh) - Optional Object<br>Enable this option
+
+<a id="disable-waf"></a>&#x2022; [`disable_waf`](#disable-waf) - Optional Object<br>Configuration parameter for disable WAF
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>List of fully qualified domain names. The CDN Distribution will be setup for these FQDN name(s). [This can be a domain or a sub-domain]
+
+<a id="enable-api-discovery"></a>&#x2022; [`enable_api_discovery`](#enable-api-discovery) - Optional String<br>Specifies the settings used for API discovery
+
+<a id="enable-challenge"></a>&#x2022; [`enable_challenge`](#enable-challenge) - Optional String<br>Configure auto mitigation i.e risk based challenges for malicious users
+
+<a id="enable-ip-reputation"></a>&#x2022; [`enable_ip_reputation`](#enable-ip-reputation) - Optional String<br>IP Threat Category List. List of IP threat categories
+
+<a id="enable-malicious-user-detection"></a>&#x2022; [`enable_malicious_user_detection`](#enable-malicious-user-detection) - Optional Object<br>Configuration parameter for enable malicious user detection
+
+<a id="enable-threat-mesh"></a>&#x2022; [`enable_threat_mesh`](#enable-threat-mesh) - Optional Object<br>Enable this option
+
+<a id="graphql-rules"></a>&#x2022; [`graphql_rules`](#graphql-rules) - Optional List<br>GraphQL is a query language and server-side runtime for APIs which provides a complete and understandable description of the data in API. GraphQL gives clients the power to ask for exactly what they need, makes it easier to evolve APIs over time, and enables powerful developer tools. Policy
+
+<a id="http"></a>&#x2022; [`http`](#http) - Optional String<br>HTTP Choice. Choice for selecting HTTP proxy
+
+<a id="https"></a>&#x2022; [`https`](#https) - Optional String<br>Choice for selecting CDN Distribution with bring your own certificates
+
+<a id="https-auto-cert"></a>&#x2022; [`https_auto_cert`](#https-auto-cert) - Optional String<br>Choice for selecting HTTPS CDN distribution with bring your own certificates
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="js-challenge"></a>&#x2022; [`js_challenge`](#js-challenge) - Optional String<br>Enables loadbalancer to perform client browser compatibility test by redirecting to a page with JavaScript. With this feature enabled, only clients that are capable of executing JavaScript(mostly browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do
+
+<a id="jwt-validation"></a>&#x2022; [`jwt_validation`](#jwt-validation) - Optional String<br>JWT Validation stops JWT replay attacks and JWT tampering by cryptographically verifying incoming JWTs before they are passed to your API origin. JWT Validation will also stop requests with expired tokens or tokens that are not yet valid
+
+<a id="l7-ddos-action-block"></a>&#x2022; [`l7_ddos_action_block`](#l7-ddos-action-block) - Optional Object<br>Enable this option
+
+<a id="l7-ddos-action-default"></a>&#x2022; [`l7_ddos_action_default`](#l7-ddos-action-default) - Optional Object<br>Enable this option
+
+<a id="l7-ddos-action-js-challenge"></a>&#x2022; [`l7_ddos_action_js_challenge`](#l7-ddos-action-js-challenge) - Optional String<br>Enables loadbalancer to perform client browser compatibility test by redirecting to a page with JavaScript. With this feature enabled, only clients that are capable of executing JavaScript(mostly browsers) will be allowed to complete the HTTP request. When
+loadbalancer is configured to do
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="no-challenge"></a>&#x2022; [`no_challenge`](#no-challenge) - Optional Object<br>Configuration parameter for no challenge
+
+<a id="no-service-policies"></a>&#x2022; [`no_service_policies`](#no-service-policies) - Optional Object<br>Configuration parameter for no service policies
+
+<a id="origin-pool"></a>&#x2022; [`origin_pool`](#origin-pool) - Optional String<br>Configuration parameter for origin pool
+
+<a id="other-settings"></a>&#x2022; [`other_settings`](#other-settings) - Optional String<br>Configuration parameter for other settings
+
+<a id="policy-based-challenge"></a>&#x2022; [`policy_based_challenge`](#policy-based-challenge) - Optional String<br>Specifies the settings for policy rule based challenge
+
+<a id="protected-cookies"></a>&#x2022; [`protected_cookies`](#protected-cookies) - Optional List<br>Allows setting attributes (SameSite, Secure, and HttpOnly) on cookies in responses. Cookie Tampering Protection prevents attackers from modifying the value of session cookies. For Cookie Tampering Protection, enabling a web app firewall (WAF) is a prerequisite
+
+<a id="rate-limit"></a>&#x2022; [`rate_limit`](#rate-limit) - Optional String<br>RateLimitConfigType
+
+<a id="sensitive-data-policy"></a>&#x2022; [`sensitive_data_policy`](#sensitive-data-policy) - Optional String<br>Policy configuration for this feature
+
+<a id="service-policies-from-namespace"></a>&#x2022; [`service_policies_from_namespace`](#service-policies-from-namespace) - Optional Object<br>Enable this option
+
+<a id="slow-ddos-mitigation"></a>&#x2022; [`slow_ddos_mitigation`](#slow-ddos-mitigation) - Optional String<br>'Slow and low' attacks tie up server resources, leaving none available for servicing requests from actual users
+
+<a id="system-default-timeouts"></a>&#x2022; [`system_default_timeouts`](#system-default-timeouts) - Optional Object<br>Configuration parameter for system default timeouts
+
+<a id="trusted-clients"></a>&#x2022; [`trusted_clients`](#trusted-clients) - Optional List<br>Define rules to skip processing of one or more features such as WAF, Bot Defense etc
+
+<a id="user-id-client-ip"></a>&#x2022; [`user_id_client_ip`](#user-id-client-ip) - Optional Object<br>Enable this option
+
+<a id="user-identification"></a>&#x2022; [`user_identification`](#user-identification) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="waf-exclusion"></a>&#x2022; [`waf_exclusion`](#waf-exclusion) - Optional String<br>Configuration parameter for WAF exclusion
+
+<a id="policies"></a>&#x2022; [`policies`](#policies) - Optional List<br>Service Policies is a sequential engine where policies (and rules within the policy) are evaluated one after the other. It's important to define the correct order (policies evaluated from top to bottom in the list) for service policies, to GET the intended result. For each request, its
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="api-endpoint-rules"></a>&#x2022; [`api_endpoint_rules`](#api-endpoint-rules) - Optional List<br>Ordered endpoint-specific rate-limit rules. Each rule must choose exactly one rate_limiter_choice: inline_rate_limiter or ref_rate_limiter
+
+<a id="bypass-rate-limiting-rules"></a>&#x2022; [`bypass_rate_limiting_rules`](#bypass-rate-limiting-rules) - Optional String<br>Category defines rules per URL or API group. If request matches any of these rules, skip Rate Limiting
+
+<a id="custom-ip-allowed-list"></a>&#x2022; [`custom_ip_allowed_list`](#custom-ip-allowed-list) - Optional String<br>IP Allowed list using existing ip_prefix_set objects
+
+<a id="ip-allowed-list"></a>&#x2022; [`ip_allowed_list`](#ip-allowed-list) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#no-ip-allowed-list) - Optional Object<br>Enable this option
+
+<a id="server-url-rules"></a>&#x2022; [`server_url_rules`](#server-url-rules) - Optional List<br>Ordered domain or base-path rules for path-scoped rate limiting. Each rule must choose exactly one rate_limiter_choice: inline_rate_limiter or ref_rate_limiter
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="api-endpoint-method"></a>&#x2022; [`api_endpoint_method`](#api-endpoint-method) - Optional String<br>HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true
+
+<a id="api-endpoint-path"></a>&#x2022; [`api_endpoint_path`](#api-endpoint-path) - Optional String<br>API Endpoint. The endpoint (path) of the request
+
+<a id="client-matcher"></a>&#x2022; [`client_matcher`](#client-matcher) - Optional String<br>Client Matcher. Client conditions for matching a rule
+
+<a id="inline-rate-limiter"></a>&#x2022; [`inline_rate_limiter`](#inline-rate-limiter) - Optional String<br>Configuration parameter for inline rate limiter
+
+<a id="ref-rate-limiter"></a>&#x2022; [`ref_rate_limiter`](#ref-rate-limiter) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="request-matcher"></a>&#x2022; [`request_matcher`](#request-matcher) - Optional String<br>Configuration parameter for request matcher
+
+<a id="specific-domain"></a>&#x2022; [`specific_domain`](#specific-domain) - Optional String<br>The rule will apply for a specific domain
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Method Matcher. Invert the match result
+
+<a id="methods"></a>&#x2022; [`methods`](#methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> List of methods values to match against
+
+<a id="any-client"></a>&#x2022; [`any_client`](#any-client) - Optional Object<br>Enable this option
+
+<a id="any-ip"></a>&#x2022; [`any_ip`](#any-ip) - Optional Object<br>Enable this option
+
+<a id="asn-list"></a>&#x2022; [`asn_list`](#asn-list) - Optional String<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-matcher"></a>&#x2022; [`asn_matcher`](#asn-matcher) - Optional String<br>Match any AS number contained in the list of bgp_asn_sets
+
+<a id="client-selector"></a>&#x2022; [`client_selector`](#client-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="ip-matcher"></a>&#x2022; [`ip_matcher`](#ip-matcher) - Optional String<br>Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true
+
+<a id="ip-prefix-list"></a>&#x2022; [`ip_prefix_list`](#ip-prefix-list) - Optional String<br>List of IP Prefix strings to match against
+
+<a id="ip-threat-category-list"></a>&#x2022; [`ip_threat_category_list`](#ip-threat-category-list) - Optional String<br>IP Threat Category List Type. List of IP threat categories
+
+<a id="tls-fingerprint-matcher"></a>&#x2022; [`tls_fingerprint_matcher`](#tls-fingerprint-matcher) - Optional String<br>TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive
+criteria are satisfied
+
+<a id="as-numbers"></a>&#x2022; [`as_numbers`](#as-numbers) - Optional List<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-sets"></a>&#x2022; [`asn_sets`](#asn-sets) - Optional List<br>List of references to bgp_asn_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert IP Matcher. Invert the match result
+
+<a id="prefix-sets"></a>&#x2022; [`prefix_sets`](#prefix-sets) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="invert-match"></a>&#x2022; [`invert_match`](#invert-match) - Optional Bool<br>Invert Match Result. Invert the match result
+
+<a id="ip-prefixes"></a>&#x2022; [`ip_prefixes`](#ip-prefixes) - Optional List<br>IPv4 Prefix List. List of IPv4 prefix strings
+
+<a id="ip-threat-categories"></a>&#x2022; [`ip_threat_categories`](#ip-threat-categories) - Optional List  Defaults to `SPAM_SOURCES`<br>See [IP Threat Categories](#common-ip-threat-categories)<br>[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is
+used to auto-generate equivalent label selection expressions
+
+<a id="classes"></a>&#x2022; [`classes`](#classes) - Optional List  Defaults to `TLS_FINGERPRINT_NONE`<br>See [TLS Fingerprints](#common-tls-fingerprints)<br>[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint
+against
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against
+
+<a id="excluded-values"></a>&#x2022; [`excluded_values`](#excluded-values) - Optional List<br>List of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher
+
+<a id="ref-user-id"></a>&#x2022; [`ref_user_id`](#ref-user-id) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="threshold"></a>&#x2022; [`threshold`](#threshold) - Optional Number<br>The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period
+
+<a id="unit"></a>&#x2022; [`unit`](#unit) - Optional String  Defaults to `SECOND`<br>Possible values are `SECOND`, `MINUTE`, `HOUR`<br>[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit
+is days
+
+<a id="use-http-lb-user-id"></a>&#x2022; [`use_http_lb_user_id`](#use-http-lb-user-id) - Optional Object<br>Enable this option
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="cookie-matchers"></a>&#x2022; [`cookie_matchers`](#cookie-matchers) - Optional List<br>List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name
+
+<a id="headers"></a>&#x2022; [`headers`](#headers) - Optional List<br>List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type
+
+<a id="jwt-claims"></a>&#x2022; [`jwt_claims`](#jwt-claims) - Optional List<br>List of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings
+
+<a id="query-params"></a>&#x2022; [`query_params`](#query-params) - Optional List<br>List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Matcher. Invert Match of the expression defined
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Cookie Name. A case-sensitive cookie name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Header Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>JWT Claim Name. JWT claim name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Query Parameter Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="key"></a>&#x2022; [`key`](#key) - Optional String<br>Case-sensitive HTTP query parameter name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="bypass-rate-limiting-rules"></a>&#x2022; [`bypass_rate_limiting_rules`](#bypass-rate-limiting-rules) - Optional List<br>Category defines rules per URL or API group. If request matches any of these rules, skip Rate Limiting
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="any-url"></a>&#x2022; [`any_url`](#any-url) - Optional Object<br>Enable this option
+
+<a id="api-endpoint"></a>&#x2022; [`api_endpoint`](#api-endpoint) - Optional String<br>API Endpoint. This defines API endpoint
+
+<a id="api-groups"></a>&#x2022; [`api_groups`](#api-groups) - Optional String<br>API Groups
+
+<a id="base-path"></a>&#x2022; [`base_path`](#base-path) - Optional String<br>The base path which this validation applies to
+
+<a id="client-matcher"></a>&#x2022; [`client_matcher`](#client-matcher) - Optional String<br>Client Matcher. Client conditions for matching a rule
+
+<a id="request-matcher"></a>&#x2022; [`request_matcher`](#request-matcher) - Optional String<br>Configuration parameter for request matcher
+
+<a id="specific-domain"></a>&#x2022; [`specific_domain`](#specific-domain) - Optional String<br>The rule will apply for a specific domain. For
+
+<a id="methods"></a>&#x2022; [`methods`](#methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Methods. Methods to be matched
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path. Path to be matched
+
+<a id="api-groups"></a>&#x2022; [`api_groups`](#api-groups) - Optional List<br>API Groups. Group or collection configuration
+
+<a id="any-client"></a>&#x2022; [`any_client`](#any-client) - Optional Object<br>Enable this option
+
+<a id="any-ip"></a>&#x2022; [`any_ip`](#any-ip) - Optional Object<br>Enable this option
+
+<a id="asn-list"></a>&#x2022; [`asn_list`](#asn-list) - Optional String<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-matcher"></a>&#x2022; [`asn_matcher`](#asn-matcher) - Optional String<br>Match any AS number contained in the list of bgp_asn_sets
+
+<a id="client-selector"></a>&#x2022; [`client_selector`](#client-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="ip-matcher"></a>&#x2022; [`ip_matcher`](#ip-matcher) - Optional String<br>Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true
+
+<a id="ip-prefix-list"></a>&#x2022; [`ip_prefix_list`](#ip-prefix-list) - Optional String<br>List of IP Prefix strings to match against
+
+<a id="ip-threat-category-list"></a>&#x2022; [`ip_threat_category_list`](#ip-threat-category-list) - Optional String<br>IP Threat Category List Type. List of IP threat categories
+
+<a id="tls-fingerprint-matcher"></a>&#x2022; [`tls_fingerprint_matcher`](#tls-fingerprint-matcher) - Optional String<br>TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive
+criteria are satisfied
+
+<a id="as-numbers"></a>&#x2022; [`as_numbers`](#as-numbers) - Optional List<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-sets"></a>&#x2022; [`asn_sets`](#asn-sets) - Optional List<br>List of references to bgp_asn_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert IP Matcher. Invert the match result
+
+<a id="prefix-sets"></a>&#x2022; [`prefix_sets`](#prefix-sets) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="invert-match"></a>&#x2022; [`invert_match`](#invert-match) - Optional Bool<br>Invert Match Result. Invert the match result
+
+<a id="ip-prefixes"></a>&#x2022; [`ip_prefixes`](#ip-prefixes) - Optional List<br>IPv4 Prefix List. List of IPv4 prefix strings
+
+<a id="ip-threat-categories"></a>&#x2022; [`ip_threat_categories`](#ip-threat-categories) - Optional List  Defaults to `SPAM_SOURCES`<br>See [IP Threat Categories](#common-ip-threat-categories)<br>[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is
+used to auto-generate equivalent label selection expressions
+
+<a id="classes"></a>&#x2022; [`classes`](#classes) - Optional List  Defaults to `TLS_FINGERPRINT_NONE`<br>See [TLS Fingerprints](#common-tls-fingerprints)<br>[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint
+against
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against
+
+<a id="excluded-values"></a>&#x2022; [`excluded_values`](#excluded-values) - Optional List<br>List of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher
+
+<a id="cookie-matchers"></a>&#x2022; [`cookie_matchers`](#cookie-matchers) - Optional List<br>List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name
+
+<a id="headers"></a>&#x2022; [`headers`](#headers) - Optional List<br>List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type
+
+<a id="jwt-claims"></a>&#x2022; [`jwt_claims`](#jwt-claims) - Optional List<br>List of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings
+
+<a id="query-params"></a>&#x2022; [`query_params`](#query-params) - Optional List<br>List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Matcher. Invert Match of the expression defined
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Cookie Name. A case-sensitive cookie name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Header Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>JWT Claim Name. JWT claim name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Query Parameter Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="key"></a>&#x2022; [`key`](#key) - Optional String<br>Case-sensitive HTTP query parameter name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="rate-limiter-allowed-prefixes"></a>&#x2022; [`rate_limiter_allowed_prefixes`](#rate-limiter-allowed-prefixes) - Optional List<br>References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="prefixes"></a>&#x2022; [`prefixes`](#prefixes) - Optional List<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="api-group"></a>&#x2022; [`api_group`](#api-group) - Optional String<br>API groups derived from API Definition swaggers. For example oas-all-operations including all paths and methods from the swaggers, oas-base-URLs covering all requests under base-paths from the swaggers. Custom groups can be created if user tags paths or operations with 'x-F5 Distributed
+
+<a id="base-path"></a>&#x2022; [`base_path`](#base-path) - Optional String<br>Base Path. Prefix of the request path
+
+<a id="client-matcher"></a>&#x2022; [`client_matcher`](#client-matcher) - Optional String<br>Client Matcher. Client conditions for matching a rule
+
+<a id="inline-rate-limiter"></a>&#x2022; [`inline_rate_limiter`](#inline-rate-limiter) - Optional String<br>Inline rate-limiter settings for this domain, base-path, or endpoint rule. Select this field as the required rate_limiter_choice when no stored rate-limiter object is used
+
+<a id="ref-rate-limiter"></a>&#x2022; [`ref_rate_limiter`](#ref-rate-limiter) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="request-matcher"></a>&#x2022; [`request_matcher`](#request-matcher) - Optional String<br>Configuration parameter for request matcher
+
+<a id="specific-domain"></a>&#x2022; [`specific_domain`](#specific-domain) - Optional String<br>The rule will apply for a specific domain
+
+<a id="any-client"></a>&#x2022; [`any_client`](#any-client) - Optional Object<br>Enable this option
+
+<a id="any-ip"></a>&#x2022; [`any_ip`](#any-ip) - Optional Object<br>Enable this option
+
+<a id="asn-list"></a>&#x2022; [`asn_list`](#asn-list) - Optional String<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-matcher"></a>&#x2022; [`asn_matcher`](#asn-matcher) - Optional String<br>Match any AS number contained in the list of bgp_asn_sets
+
+<a id="client-selector"></a>&#x2022; [`client_selector`](#client-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="ip-matcher"></a>&#x2022; [`ip_matcher`](#ip-matcher) - Optional String<br>Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true
+
+<a id="ip-prefix-list"></a>&#x2022; [`ip_prefix_list`](#ip-prefix-list) - Optional String<br>List of IP Prefix strings to match against
+
+<a id="ip-threat-category-list"></a>&#x2022; [`ip_threat_category_list`](#ip-threat-category-list) - Optional String<br>IP Threat Category List Type. List of IP threat categories
+
+<a id="tls-fingerprint-matcher"></a>&#x2022; [`tls_fingerprint_matcher`](#tls-fingerprint-matcher) - Optional String<br>TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive
+criteria are satisfied
+
+<a id="as-numbers"></a>&#x2022; [`as_numbers`](#as-numbers) - Optional List<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-sets"></a>&#x2022; [`asn_sets`](#asn-sets) - Optional List<br>List of references to bgp_asn_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert IP Matcher. Invert the match result
+
+<a id="prefix-sets"></a>&#x2022; [`prefix_sets`](#prefix-sets) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="invert-match"></a>&#x2022; [`invert_match`](#invert-match) - Optional Bool<br>Invert Match Result. Invert the match result
+
+<a id="ip-prefixes"></a>&#x2022; [`ip_prefixes`](#ip-prefixes) - Optional List<br>IPv4 Prefix List. List of IPv4 prefix strings
+
+<a id="ip-threat-categories"></a>&#x2022; [`ip_threat_categories`](#ip-threat-categories) - Optional List  Defaults to `SPAM_SOURCES`<br>See [IP Threat Categories](#common-ip-threat-categories)<br>[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is
+used to auto-generate equivalent label selection expressions
+
+<a id="classes"></a>&#x2022; [`classes`](#classes) - Optional List  Defaults to `TLS_FINGERPRINT_NONE`<br>See [TLS Fingerprints](#common-tls-fingerprints)<br>[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint
+against
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against
+
+<a id="excluded-values"></a>&#x2022; [`excluded_values`](#excluded-values) - Optional List<br>List of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher
+
+<a id="ref-user-id"></a>&#x2022; [`ref_user_id`](#ref-user-id) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="threshold"></a>&#x2022; [`threshold`](#threshold) - Optional Number<br>The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period
+
+<a id="unit"></a>&#x2022; [`unit`](#unit) - Optional String  Defaults to `SECOND`<br>Possible values are `SECOND`, `MINUTE`, `HOUR`<br>[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit
+is days
+
+<a id="use-http-lb-user-id"></a>&#x2022; [`use_http_lb_user_id`](#use-http-lb-user-id) - Optional Object<br>Enable this option
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="cookie-matchers"></a>&#x2022; [`cookie_matchers`](#cookie-matchers) - Optional List<br>List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name
+
+<a id="headers"></a>&#x2022; [`headers`](#headers) - Optional List<br>List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type
+
+<a id="jwt-claims"></a>&#x2022; [`jwt_claims`](#jwt-claims) - Optional List<br>List of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings
+
+<a id="query-params"></a>&#x2022; [`query_params`](#query-params) - Optional List<br>List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Matcher. Invert Match of the expression defined
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Cookie Name. A case-sensitive cookie name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Header Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>JWT Claim Name. JWT claim name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Query Parameter Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="key"></a>&#x2022; [`key`](#key) - Optional String<br>Case-sensitive HTTP query parameter name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="api-definition"></a>&#x2022; [`api_definition`](#api-definition) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="validation-all-spec-endpoints"></a>&#x2022; [`validation_all_spec_endpoints`](#validation-all-spec-endpoints) - Optional String<br>API Inventory. Settings for API Inventory validation
+
+<a id="validation-custom-list"></a>&#x2022; [`validation_custom_list`](#validation-custom-list) - Optional String<br>Define API groups, base paths, or API endpoints and their OpenAPI validation modes. Any other API-endpoint not listed will act according to 'Fall Through Mode'
+
+<a id="validation-disabled"></a>&#x2022; [`validation_disabled`](#validation-disabled) - Optional Object<br>Enable this option
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="fall-through-mode"></a>&#x2022; [`fall_through_mode`](#fall-through-mode) - Optional String<br>Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a. Swagger) or doesn't have a specific rule in custom rules)
+
+<a id="settings"></a>&#x2022; [`settings`](#settings) - Optional String<br>OpenAPI specification validation settings relevant for 'API Inventory' enforcement and for 'Custom list' enforcement
+
+<a id="validation-mode"></a>&#x2022; [`validation_mode`](#validation-mode) - Optional String<br>Validation mode of OpenAPI specification. When a validation mismatch occurs on a request to one of the endpoints listed on the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="fall-through-mode-allow"></a>&#x2022; [`fall_through_mode_allow`](#fall-through-mode-allow) - Optional Object<br>Configuration parameter for fall through mode allow
+
+<a id="fall-through-mode-custom"></a>&#x2022; [`fall_through_mode_custom`](#fall-through-mode-custom) - Optional String<br>Configuration parameter for fall through mode custom
+
+<a id="open-api-validation-rules"></a>&#x2022; [`open_api_validation_rules`](#open-api-validation-rules) - Optional List<br>Custom Fall Through Rule List. Rule or policy definition
+
+<a id="action-block"></a>&#x2022; [`action_block`](#action-block) - Optional Object<br>Enable this option
+
+<a id="action-report"></a>&#x2022; [`action_report`](#action-report) - Optional Object<br>Enable this option
+
+<a id="action-skip"></a>&#x2022; [`action_skip`](#action-skip) - Optional Object<br>Enable this option
+
+<a id="api-endpoint"></a>&#x2022; [`api_endpoint`](#api-endpoint) - Optional String<br>API Endpoint. This defines API endpoint
+
+<a id="api-group"></a>&#x2022; [`api_group`](#api-group) - Optional String<br>The API group which this validation applies to
+
+<a id="base-path"></a>&#x2022; [`base_path`](#base-path) - Optional String<br>The base path which this validation applies to
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="methods"></a>&#x2022; [`methods`](#methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Methods. Methods to be matched
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path. Path to be matched
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="oversized-body-fail-validation"></a>&#x2022; [`oversized_body_fail_validation`](#oversized-body-fail-validation) - Optional Object<br>Enable this option
+
+<a id="oversized-body-skip-validation"></a>&#x2022; [`oversized_body_skip_validation`](#oversized-body-skip-validation) - Optional Object<br>Enable this option
+
+<a id="property-validation-settings-custom"></a>&#x2022; [`property_validation_settings_custom`](#property-validation-settings-custom) - Optional String<br>Configuration parameter for property validation settings custom
+
+<a id="property-validation-settings-default"></a>&#x2022; [`property_validation_settings_default`](#property-validation-settings-default) - Optional Object<br>Configuration parameter for property validation settings default
+
+<a id="query-parameters"></a>&#x2022; [`query_parameters`](#query-parameters) - Optional String<br>Custom settings for query parameters validation
+
+<a id="allow-additional-parameters"></a>&#x2022; [`allow_additional_parameters`](#allow-additional-parameters) - Optional Object<br>Configuration parameter for allow additional parameters
+
+<a id="disallow-additional-parameters"></a>&#x2022; [`disallow_additional_parameters`](#disallow-additional-parameters) - Optional Object<br>Configuration parameter for disallow additional parameters
+
+<a id="response-validation-mode-active"></a>&#x2022; [`response_validation_mode_active`](#response-validation-mode-active) - Optional String<br>Open API Validation Mode Active. Validation mode properties of response
+
+<a id="skip-response-validation"></a>&#x2022; [`skip_response_validation`](#skip-response-validation) - Optional Object<br>Enable this option
+
+<a id="skip-validation"></a>&#x2022; [`skip_validation`](#skip-validation) - Optional Object<br>Enable this option
+
+<a id="validation-mode-active"></a>&#x2022; [`validation_mode_active`](#validation-mode-active) - Optional String<br>Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403
+
+<a id="enforcement-block"></a>&#x2022; [`enforcement_block`](#enforcement-block) - Optional Object<br>Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403
+
+<a id="enforcement-report"></a>&#x2022; [`enforcement_report`](#enforcement-report) - Optional Object<br>Report-only validation: record OpenAPI violations while allowing the request or response to continue
+
+<a id="response-validation-properties"></a>&#x2022; [`response_validation_properties`](#response-validation-properties) - Optional List  Defaults to `PROPERTY_QUERY_PARAMETERS`<br>Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`,
+`PROPERTY_RESPONSE_CODE`<br>[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="enforcement-block"></a>&#x2022; [`enforcement_block`](#enforcement-block) - Optional Object<br>Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403
+
+<a id="enforcement-report"></a>&#x2022; [`enforcement_report`](#enforcement-report) - Optional Object<br>Report-only validation: record OpenAPI violations while allowing the request or response to continue
+
+<a id="request-validation-properties"></a>&#x2022; [`request_validation_properties`](#request-validation-properties) - Optional List  Defaults to `PROPERTY_QUERY_PARAMETERS`<br>Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`,
+`PROPERTY_RESPONSE_CODE`<br>[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="fall-through-mode"></a>&#x2022; [`fall_through_mode`](#fall-through-mode) - Optional String<br>Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a. Swagger) or doesn't have a specific rule in custom rules)
+
+<a id="open-api-validation-rules"></a>&#x2022; [`open_api_validation_rules`](#open-api-validation-rules) - Optional List<br>Validation List. Rule or policy definition
+
+<a id="settings"></a>&#x2022; [`settings`](#settings) - Optional String<br>OpenAPI specification validation settings relevant for 'API Inventory' enforcement and for 'Custom list' enforcement
+
+<a id="fall-through-mode-allow"></a>&#x2022; [`fall_through_mode_allow`](#fall-through-mode-allow) - Optional Object<br>Configuration parameter for fall through mode allow
+
+<a id="fall-through-mode-custom"></a>&#x2022; [`fall_through_mode_custom`](#fall-through-mode-custom) - Optional String<br>Configuration parameter for fall through mode custom
+
+<a id="open-api-validation-rules"></a>&#x2022; [`open_api_validation_rules`](#open-api-validation-rules) - Optional List<br>Custom Fall Through Rule List. Rule or policy definition
+
+<a id="action-block"></a>&#x2022; [`action_block`](#action-block) - Optional Object<br>Enable this option
+
+<a id="action-report"></a>&#x2022; [`action_report`](#action-report) - Optional Object<br>Enable this option
+
+<a id="action-skip"></a>&#x2022; [`action_skip`](#action-skip) - Optional Object<br>Enable this option
+
+<a id="api-endpoint"></a>&#x2022; [`api_endpoint`](#api-endpoint) - Optional String<br>API Endpoint. This defines API endpoint
+
+<a id="api-group"></a>&#x2022; [`api_group`](#api-group) - Optional String<br>The API group which this validation applies to
+
+<a id="base-path"></a>&#x2022; [`base_path`](#base-path) - Optional String<br>The base path which this validation applies to
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="methods"></a>&#x2022; [`methods`](#methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Methods. Methods to be matched
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path. Path to be matched
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="api-endpoint"></a>&#x2022; [`api_endpoint`](#api-endpoint) - Optional String<br>API Endpoint. This defines API endpoint
+
+<a id="api-group"></a>&#x2022; [`api_group`](#api-group) - Optional String<br>The API group which this validation applies to
+
+<a id="base-path"></a>&#x2022; [`base_path`](#base-path) - Optional String<br>The base path which this validation applies to
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="specific-domain"></a>&#x2022; [`specific_domain`](#specific-domain) - Optional String<br>The rule will apply for a specific domain
+
+<a id="validation-mode"></a>&#x2022; [`validation_mode`](#validation-mode) - Optional String<br>Validation mode of OpenAPI specification. When a validation mismatch occurs on a request to one of the endpoints listed on the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="methods"></a>&#x2022; [`methods`](#methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Methods. Methods to be matched
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path. Path to be matched
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="response-validation-mode-active"></a>&#x2022; [`response_validation_mode_active`](#response-validation-mode-active) - Optional String<br>Open API Validation Mode Active. Validation mode properties of response
+
+<a id="skip-response-validation"></a>&#x2022; [`skip_response_validation`](#skip-response-validation) - Optional Object<br>Enable this option
+
+<a id="skip-validation"></a>&#x2022; [`skip_validation`](#skip-validation) - Optional Object<br>Enable this option
+
+<a id="validation-mode-active"></a>&#x2022; [`validation_mode_active`](#validation-mode-active) - Optional String<br>Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403
+
+<a id="enforcement-block"></a>&#x2022; [`enforcement_block`](#enforcement-block) - Optional Object<br>Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403
+
+<a id="enforcement-report"></a>&#x2022; [`enforcement_report`](#enforcement-report) - Optional Object<br>Report-only validation: record OpenAPI violations while allowing the request or response to continue
+
+<a id="response-validation-properties"></a>&#x2022; [`response_validation_properties`](#response-validation-properties) - Optional List  Defaults to `PROPERTY_QUERY_PARAMETERS`<br>Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`,
+`PROPERTY_RESPONSE_CODE`<br>[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="enforcement-block"></a>&#x2022; [`enforcement_block`](#enforcement-block) - Optional Object<br>Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403
+
+<a id="enforcement-report"></a>&#x2022; [`enforcement_report`](#enforcement-report) - Optional Object<br>Report-only validation: record OpenAPI violations while allowing the request or response to continue
+
+<a id="request-validation-properties"></a>&#x2022; [`request_validation_properties`](#request-validation-properties) - Optional List  Defaults to `PROPERTY_QUERY_PARAMETERS`<br>Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`,
+`PROPERTY_RESPONSE_CODE`<br>[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="oversized-body-fail-validation"></a>&#x2022; [`oversized_body_fail_validation`](#oversized-body-fail-validation) - Optional Object<br>Enable this option
+
+<a id="oversized-body-skip-validation"></a>&#x2022; [`oversized_body_skip_validation`](#oversized-body-skip-validation) - Optional Object<br>Enable this option
+
+<a id="property-validation-settings-custom"></a>&#x2022; [`property_validation_settings_custom`](#property-validation-settings-custom) - Optional String<br>Configuration parameter for property validation settings custom
+
+<a id="property-validation-settings-default"></a>&#x2022; [`property_validation_settings_default`](#property-validation-settings-default) - Optional Object<br>Configuration parameter for property validation settings default
+
+<a id="query-parameters"></a>&#x2022; [`query_parameters`](#query-parameters) - Optional String<br>Custom settings for query parameters validation
+
+<a id="allow-additional-parameters"></a>&#x2022; [`allow_additional_parameters`](#allow-additional-parameters) - Optional Object<br>Configuration parameter for allow additional parameters
+
+<a id="disallow-additional-parameters"></a>&#x2022; [`disallow_additional_parameters`](#disallow-additional-parameters) - Optional Object<br>Configuration parameter for disallow additional parameters
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="actions"></a>&#x2022; [`actions`](#actions) - Optional List  Defaults to `SKIP_PROCESSING_WAF`<br>Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`,
+`SKIP_PROCESSING_MALWARE_PROTECTION`<br>[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule
+
+<a id="as-number"></a>&#x2022; [`as_number`](#as-number) - Optional Number<br>RFC 6793 defined 4-byte AS number
+
+<a id="bot-skip-processing"></a>&#x2022; [`bot_skip_processing`](#bot-skip-processing) - Optional Object<br>Enable this option
+
+<a id="expiration-timestamp"></a>&#x2022; [`expiration_timestamp`](#expiration-timestamp) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
+
+<a id="http-header"></a>&#x2022; [`http_header`](#http-header) - Optional String<br>Configuration parameter for HTTP header
+
+<a id="ip-prefix"></a>&#x2022; [`ip_prefix`](#ip-prefix) - Optional String<br>IPv4 prefix string
+
+<a id="ipv6-prefix"></a>&#x2022; [`ipv6_prefix`](#ipv6-prefix) - Optional String<br>IPv6 prefix string
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="skip-processing"></a>&#x2022; [`skip_processing`](#skip-processing) - Optional Object<br>Enable this option
+
+<a id="user-identifier"></a>&#x2022; [`user_identifier`](#user-identifier) - Optional String<br>Identify user based on user identifier. User identifier value needs to be copied from security event
+
+<a id="waf-skip-processing"></a>&#x2022; [`waf_skip_processing`](#waf-skip-processing) - Optional Object<br>Enable this option
+
+<a id="headers"></a>&#x2022; [`headers`](#headers) - Optional List<br>List of HTTP header name and value pairs
+
+<a id="exact"></a>&#x2022; [`exact`](#exact) - Optional String<br>Header value to match exactly
+
+<a id="invert-match"></a>&#x2022; [`invert_match`](#invert-match) - Optional Bool<br>Invert the result of the match to detect missing header or non-matching value
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name. Name of the header
+
+<a id="presence"></a>&#x2022; [`presence`](#presence) - Optional Bool<br>If true, check for presence of header
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regex match of the header value in re2 format
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="disable-cors-support"></a>&#x2022; [`disable_cors_support`](#disable-cors-support) - Optional Object<br>Enable this option
+
+<a id="enable-cors-support"></a>&#x2022; [`enable_cors_support`](#enable-cors-support) - Optional Object<br>Enable this option
+
+<a id="policy"></a>&#x2022; [`policy`](#policy) - Optional String<br>Defines various configuration OPTIONS for Bot Defense policy
+
+<a id="regional-endpoint"></a>&#x2022; [`regional_endpoint`](#regional-endpoint) - Optional String  Defaults to `AUTO`<br>Possible values are `AUTO`, `US`, `EU`, `ASIA`<br>[Enum: AUTO|US|EU|ASIA] Defines a selection for Bot Defense region - AUTO: AUTO Automatic selection based on client IP address - US: US US region - EU: EU European Union region - ASIA: ASIA Asia region
+
+<a id="timeout"></a>&#x2022; [`timeout`](#timeout) - Optional Number<br>The timeout for the inference check, in milliseconds
+
+<a id="disable-js-insert"></a>&#x2022; [`disable_js_insert`](#disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
+
+<a id="disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#disable-mobile-sdk) - Optional Object<br>Enable this option
+
+<a id="javascript-mode"></a>&#x2022; [`javascript_mode`](#javascript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is
+requested asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
+
+<a id="js-download-path"></a>&#x2022; [`js_download_path`](#js-download-path) - Optional String<br>Customize Bot Defense Client JavaScript path. If not specified, default
+
+<a id="js-insert-all-pages"></a>&#x2022; [`js_insert_all_pages`](#js-insert-all-pages) - Optional String<br>Insert Bot Defense JavaScript in all pages
+
+<a id="js-insert-all-pages-except"></a>&#x2022; [`js_insert_all_pages_except`](#js-insert-all-pages-except) - Optional String<br>Insert Bot Defense JavaScript in all pages with the exceptions
+
+<a id="js-insertion-rules"></a>&#x2022; [`js_insertion_rules`](#js-insertion-rules) - Optional String<br>Defines custom JavaScript insertion rules for Bot Defense Policy
+
+<a id="mobile-sdk-config"></a>&#x2022; [`mobile_sdk_config`](#mobile-sdk-config) - Optional String<br>Mobile SDK Configuration. Mobile SDK configuration
+
+<a id="protected-app-endpoints"></a>&#x2022; [`protected_app_endpoints`](#protected-app-endpoints) - Optional List<br>List of protected endpoints. Limit: Approx '128 endpoints per Load Balancer (LB)' upto 4 LBs, '32 endpoints per LB' after 4 LBs
+
+<a id="javascript-location"></a>&#x2022; [`javascript_location`](#javascript-location) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+
+<a id="exclude-list"></a>&#x2022; [`exclude_list`](#exclude-list) - Optional List<br>Optional JavaScript insertions exclude list of domain and path matchers
+
+<a id="javascript-location"></a>&#x2022; [`javascript_location`](#javascript-location) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="exclude-list"></a>&#x2022; [`exclude_list`](#exclude-list) - Optional List<br>Optional JavaScript insertions exclude list of domain and path matchers
+
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>Required list of pages to insert Bot Defense client JavaScript
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="javascript-location"></a>&#x2022; [`javascript_location`](#javascript-location) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="mobile-identifier"></a>&#x2022; [`mobile_identifier`](#mobile-identifier) - Optional String<br>Mobile Traffic Identifier. Mobile traffic identifier type
+
+<a id="headers"></a>&#x2022; [`headers`](#headers) - Optional List<br>Headers that can be used to identify mobile traffic
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="allow-good-bots"></a>&#x2022; [`allow_good_bots`](#allow-good-bots) - Optional Object<br>Configuration parameter for allow good bots
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="flow-label"></a>&#x2022; [`flow_label`](#flow-label) - Optional String<br>Bot Defense Flow Label Category allows to associate traffic with selected category
+
+<a id="headers"></a>&#x2022; [`headers`](#headers) - Optional List<br>List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type
+
+<a id="http-methods"></a>&#x2022; [`http_methods`](#http-methods) - Optional List  Defaults to `METHOD_ANY`<br>Possible values are `METHOD_ANY`, `METHOD_GET`, `METHOD_POST`, `METHOD_PUT`, `METHOD_PATCH`, `METHOD_DELETE`, `METHOD_GET_DOCUMENT`<br>[Enum: METHOD_ANY|METHOD_GET|METHOD_POST|METHOD_PUT|METHOD_PATCH|METHOD_DELETE|METHOD_GET_DOCUMENT] HTTP Methods. List of HTTP methods
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="mitigate-good-bots"></a>&#x2022; [`mitigate_good_bots`](#mitigate-good-bots) - Optional Object<br>Configuration parameter for mitigate good bots
+
+<a id="mitigation"></a>&#x2022; [`mitigation`](#mitigation) - Optional String<br>Modify Bot Defense behavior for a matching request
+
+<a id="mobile"></a>&#x2022; [`mobile`](#mobile) - Optional Object<br>Enable this option
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String  Defaults to `BOTH`<br>Possible values are `BOTH`, `HTTP`, `HTTPS`<br>[Enum: BOTH|HTTP|HTTPS] SchemeType is used to indicate URL scheme. - BOTH: BOTH URL scheme for HTTPS:// or HTTP://. - HTTP: HTTP URL scheme HTTP:// only. - HTTPS: HTTPS URL scheme HTTPS:// only
+
+<a id="query-params"></a>&#x2022; [`query_params`](#query-params) - Optional List<br>List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query
+
+<a id="undefined-flow-label"></a>&#x2022; [`undefined_flow_label`](#undefined-flow-label) - Optional Object<br>Enable this option
+
+<a id="web"></a>&#x2022; [`web`](#web) - Optional Object<br>Enable this option
+
+<a id="web-mobile"></a>&#x2022; [`web_mobile`](#web-mobile) - Optional String<br>Web and Mobile traffic type. Web and Mobile traffic type
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="account-management"></a>&#x2022; [`account_management`](#account-management) - Optional String<br>Bot Defense Flow Label Account Management Category
+
+<a id="authentication"></a>&#x2022; [`authentication`](#authentication) - Optional String<br>Bot Defense Flow Label Authentication Category
+
+<a id="financial-services"></a>&#x2022; [`financial_services`](#financial-services) - Optional String<br>Bot Defense Flow Label Financial Services Category
+
+<a id="flight"></a>&#x2022; [`flight`](#flight) - Optional String<br>Bot Defense Flow Label Flight Category. Bot Defense Flow Label Flight Category
+
+<a id="profile-management"></a>&#x2022; [`profile_management`](#profile-management) - Optional String<br>Bot Defense Flow Label Profile Management Category
+
+<a id="search"></a>&#x2022; [`search`](#search) - Optional String<br>Bot Defense Flow Label Search Category. Bot Defense Flow Label Search Category
+
+<a id="shopping-gift-cards"></a>&#x2022; [`shopping_gift_cards`](#shopping-gift-cards) - Optional String<br>Bot Defense Flow Label Shopping & Gift Cards Category
+
+<a id="create"></a>&#x2022; [`create`](#create) - Optional Object<br>Enable this option
+
+<a id="password-reset"></a>&#x2022; [`password_reset`](#password-reset) - Optional Object<br>Configuration parameter for password reset
+
+<a id="login"></a>&#x2022; [`login`](#login) - Optional String<br>Bot Defense Transaction Result. Bot Defense Transaction Result
+
+<a id="login-mfa"></a>&#x2022; [`login_mfa`](#login-mfa) - Optional Object<br>Enable this option
+
+<a id="login-partner"></a>&#x2022; [`login_partner`](#login-partner) - Optional Object<br>Configuration parameter for login partner
+
+<a id="logout"></a>&#x2022; [`logout`](#logout) - Optional Object<br>Enable this option
+
+<a id="token-refresh"></a>&#x2022; [`token_refresh`](#token-refresh) - Optional Object<br>Configuration parameter for token refresh
+
+<a id="disable-transaction-result"></a>&#x2022; [`disable_transaction_result`](#disable-transaction-result) - Optional Object<br>Enable this option
+
+<a id="transaction-result"></a>&#x2022; [`transaction_result`](#transaction-result) - Optional String<br>Bot Defense Transaction Result Type. Bot Defense Transaction ResultType
+
+<a id="failure-conditions"></a>&#x2022; [`failure_conditions`](#failure-conditions) - Optional List<br>Failure Conditions. Failure Conditions
+
+<a id="success-conditions"></a>&#x2022; [`success_conditions`](#success-conditions) - Optional List<br>Success Conditions. Success Conditions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="status"></a>&#x2022; [`status`](#status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`, `SeeOther`, `NotModified`, `UseProxy`,
+`TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`, `ExpectationFailed`, `MisdirectedRequest`,
+`UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`, `NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="status"></a>&#x2022; [`status`](#status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`, `SeeOther`, `NotModified`, `UseProxy`,
+`TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`, `ExpectationFailed`, `MisdirectedRequest`,
+`UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`, `NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+<a id="apply"></a>&#x2022; [`apply`](#apply) - Optional Object<br>Enable this option
+
+<a id="money-transfer"></a>&#x2022; [`money_transfer`](#money-transfer) - Optional Object<br>Configuration parameter for money transfer
+
+<a id="checkin"></a>&#x2022; [`checkin`](#checkin) - Optional String<br>Enable this option
+
+<a id="create"></a>&#x2022; [`create`](#create) - Optional Object<br>Enable this option
+
+<a id="update"></a>&#x2022; [`update`](#update) - Optional Object<br>Enable this option
+
+<a id="view"></a>&#x2022; [`view`](#view) - Optional Object<br>Enable this option
+
+<a id="flight-search"></a>&#x2022; [`flight_search`](#flight-search) - Optional Object<br>Configuration parameter for flight search
+
+<a id="product-search"></a>&#x2022; [`product_search`](#product-search) - Optional Object<br>Configuration parameter for product search
+
+<a id="reservation-search"></a>&#x2022; [`reservation_search`](#reservation-search) - Optional Object<br>Configuration parameter for reservation search
+
+<a id="room-search"></a>&#x2022; [`room_search`](#room-search) - Optional Object<br>Configuration parameter for room search
+
+<a id="gift-card-make-purchase-with-gift-card"></a>&#x2022; [`gift_card_make_purchase_with_gift_card`](#gift-card-make-purchase-with-gift-card) - Optional Object<br>Configuration parameter for gift card make purchase with gift card
+
+<a id="gift-card-validation"></a>&#x2022; [`gift_card_validation`](#gift-card-validation) - Optional Object<br>Configuration parameter for gift card validation
+
+<a id="shop-add-to-cart"></a>&#x2022; [`shop_add_to_cart`](#shop-add-to-cart) - Optional Object<br>Configuration parameter for shop add to cart
+
+<a id="shop-checkout"></a>&#x2022; [`shop_checkout`](#shop-checkout) - Optional Object<br>Configuration parameter for shop checkout
+
+<a id="shop-choose-seat"></a>&#x2022; [`shop_choose_seat`](#shop-choose-seat) - Optional Object<br>Configuration parameter for shop choose seat
+
+<a id="shop-enter-drawing-submission"></a>&#x2022; [`shop_enter_drawing_submission`](#shop-enter-drawing-submission) - Optional Object<br>Configuration parameter for shop enter drawing submission
+
+<a id="shop-make-payment"></a>&#x2022; [`shop_make_payment`](#shop-make-payment) - Optional Object<br>Configuration parameter for shop make payment
+
+<a id="shop-order"></a>&#x2022; [`shop_order`](#shop-order) - Optional Object<br>Enable this option
+
+<a id="shop-price-inquiry"></a>&#x2022; [`shop_price_inquiry`](#shop-price-inquiry) - Optional Object<br>Configuration parameter for shop price inquiry
+
+<a id="shop-promo-code-validation"></a>&#x2022; [`shop_promo_code_validation`](#shop-promo-code-validation) - Optional Object<br>Configuration parameter for shop promo code validation
+
+<a id="shop-purchase-gift-card"></a>&#x2022; [`shop_purchase_gift_card`](#shop-purchase-gift-card) - Optional Object<br>Configuration parameter for shop purchase gift card
+
+<a id="shop-update-quantity"></a>&#x2022; [`shop_update_quantity`](#shop-update-quantity) - Optional Object<br>Configuration parameter for shop update quantity
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Header Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="block"></a>&#x2022; [`block`](#block) - Optional String<br>Block request and respond with custom content
+
+<a id="flag"></a>&#x2022; [`flag`](#flag) - Optional String<br>Select Flag Bot Mitigation Action. Flag mitigation action
+
+<a id="redirect"></a>&#x2022; [`redirect`](#redirect) - Optional String<br>Redirect bot mitigation. Redirect request to a custom URI
+
+<a id="body"></a>&#x2022; [`body`](#body) - Optional String<br>Custom body message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+<a id="status"></a>&#x2022; [`status`](#status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`, `SeeOther`, `NotModified`, `UseProxy`,
+`TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`, `ExpectationFailed`, `MisdirectedRequest`,
+`UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`, `NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+<a id="append-headers"></a>&#x2022; [`append_headers`](#append-headers) - Optional String<br>Append flag mitigation headers to forwarded request
+
+<a id="no-headers"></a>&#x2022; [`no_headers`](#no-headers) - Optional Object<br>Enable this option
+
+<a id="auto-type-header-name"></a>&#x2022; [`auto_type_header_name`](#auto-type-header-name) - Optional String<br>Automation Type Header Name. A case-insensitive HTTP header name
+
+<a id="inference-header-name"></a>&#x2022; [`inference_header_name`](#inference-header-name) - Optional String<br>Inference Header Name. A case-insensitive HTTP header name
+
+<a id="uri"></a>&#x2022; [`uri`](#uri) - Optional String<br>URI location for redirect may be relative or absolute
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Query Parameter Matcher. Invert the match result
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="key"></a>&#x2022; [`key`](#key) - Optional String<br>Case-sensitive HTTP query parameter name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="mobile-identifier"></a>&#x2022; [`mobile_identifier`](#mobile-identifier) - Optional String  Defaults to `HEADERS`<br>[Enum: HEADERS] Mobile identifier type - HEADERS: Headers Headers. The only possible value is `HEADERS`
+
+<a id="cookie-expiry"></a>&#x2022; [`cookie_expiry`](#cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="custom-page"></a>&#x2022; [`custom_page`](#custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+<a id="policy"></a>&#x2022; [`policy`](#policy) - Optional String<br>Defines various configuration OPTIONS for Client-Side Defense policy
+
+<a id="disable-js-insert"></a>&#x2022; [`disable_js_insert`](#disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
+
+<a id="js-insert-all-pages"></a>&#x2022; [`js_insert_all_pages`](#js-insert-all-pages) - Optional Object<br>Configuration parameter for js insert all pages
+
+<a id="js-insert-all-pages-except"></a>&#x2022; [`js_insert_all_pages_except`](#js-insert-all-pages-except) - Optional String<br>Insert Client-Side Defense JavaScript in all pages with the exceptions
+
+<a id="js-insertion-rules"></a>&#x2022; [`js_insertion_rules`](#js-insertion-rules) - Optional String<br>Defines custom JavaScript insertion rules for Client-Side Defense Policy
+
+<a id="exclude-list"></a>&#x2022; [`exclude_list`](#exclude-list) - Optional List<br>Optional JavaScript insertions exclude list of domain and path matchers
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="exclude-list"></a>&#x2022; [`exclude_list`](#exclude-list) - Optional List<br>Optional JavaScript insertions exclude list of domain and path matchers
+
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>Required list of pages to insert Client-Side Defense client JavaScript
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="allow-credentials"></a>&#x2022; [`allow_credentials`](#allow-credentials) - Optional Bool<br>Specifies whether the resource allows credentials
+
+<a id="allow-headers"></a>&#x2022; [`allow_headers`](#allow-headers) - Optional String<br>Specifies the content for the access-control-allow-headers header
+
+<a id="allow-methods"></a>&#x2022; [`allow_methods`](#allow-methods) - Optional String<br>Specifies the content for the access-control-allow-methods header
+
+<a id="allow-origin"></a>&#x2022; [`allow_origin`](#allow-origin) - Optional List<br>Specifies the origins that will be allowed to do CORS requests. An origin is allowed if either allow_origin or allow_origin_regex match
+
+<a id="allow-origin-regex"></a>&#x2022; [`allow_origin_regex`](#allow-origin-regex) - Optional List<br>Specifies regex patterns that match allowed origins. An origin is allowed if either allow_origin or allow_origin_regex match
+
+<a id="disabled"></a>&#x2022; [`disabled`](#disabled) - Optional Bool<br>Disable the CorsPolicy for a particular route. This is useful when virtual-host has CorsPolicy, but we need to disable it on a specific route. The value of this field is ignored for virtual-host
+
+<a id="expose-headers"></a>&#x2022; [`expose_headers`](#expose-headers) - Optional String<br>Specifies the content for the access-control-expose-headers header
+
+<a id="maximum-age"></a>&#x2022; [`maximum_age`](#maximum-age) - Optional Number<br>Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours)
+
+<a id="all-load-balancer-domains"></a>&#x2022; [`all_load_balancer_domains`](#all-load-balancer-domains) - Optional Object<br>Configuration parameter for all load balancer domains
+
+<a id="custom-domain-list"></a>&#x2022; [`custom_domain_list`](#custom-domain-list) - Optional String<br>List of domain names used for Host header matching
+
+<a id="disabled"></a>&#x2022; [`disabled`](#disabled) - Optional Object<br>Enable this option
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>List of domain names that will be matched to loadbalancer. These domains are not used for SNI match. Wildcard names are supported in the suffix or prefix form
+
+<a id="cdn-cache-rules"></a>&#x2022; [`cdn_cache_rules`](#cdn-cache-rules) - Optional List<br>Reference to CDN Cache Rule configuration object
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="apply-data-guard"></a>&#x2022; [`apply_data_guard`](#apply-data-guard) - Optional Object<br>Enable this option
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="skip-data-guard"></a>&#x2022; [`skip_data_guard`](#skip-data-guard) - Optional Object<br>Enable this option
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="block"></a>&#x2022; [`block`](#block) - Optional String<br>Enable this option
+
+<a id="ddos-client-source"></a>&#x2022; [`ddos_client_source`](#ddos-client-source) - Optional String<br>DDOS Client Source Choice. DDOS Mitigation sources to be blocked
+
+<a id="expiration-timestamp"></a>&#x2022; [`expiration_timestamp`](#expiration-timestamp) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
+
+<a id="ip-prefix-list"></a>&#x2022; [`ip_prefix_list`](#ip-prefix-list) - Optional String<br>List of IP Prefix strings to match against
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="asn-list"></a>&#x2022; [`asn_list`](#asn-list) - Optional String<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="country-list"></a>&#x2022; [`country_list`](#country-list) - Optional List  Defaults to `COUNTRY_NONE`<br>Possible values are `COUNTRY_NONE`, `COUNTRY_AD`, `COUNTRY_AE`, `COUNTRY_AF`, `COUNTRY_AG`, `COUNTRY_AI`, `COUNTRY_AL`, `COUNTRY_AM`, `COUNTRY_AN`, `COUNTRY_AO`, `COUNTRY_AQ`, `COUNTRY_AR`, `COUNTRY_AS`, `COUNTRY_AT`, `COUNTRY_AU`, `COUNTRY_AW`, `COUNTRY_AX`, `COUNTRY_AZ`, `COUNTRY_BA`,
+`COUNTRY_BB`, `COUNTRY_BD`, `COUNTRY_BE`, `COUNTRY_BF`, `COUNTRY_BG`, `COUNTRY_BH`, `COUNTRY_BI`, `COUNTRY_BJ`, `COUNTRY_BL`, `COUNTRY_BM`, `COUNTRY_BN`, `COUNTRY_BO`, `COUNTRY_BQ`, `COUNTRY_BR`, `COUNTRY_BS`, `COUNTRY_BT`, `COUNTRY_BV`, `COUNTRY_BW`, `COUNTRY_BY`, `COUNTRY_BZ`, `COUNTRY_CA`, `COUNTRY_CC`, `COUNTRY_CD`, `COUNTRY_CF`, `COUNTRY_CG`, `COUNTRY_CH`, `COUNTRY_CI`, `COUNTRY_CK`,
+`COUNTRY_CL`, `COUNTRY_CM`, `COUNTRY_CN`, `COUNTRY_CO`, `COUNTRY_CR`, `COUNTRY_CS`, `COUNTRY_CU`, `COUNTRY_CV`, `COUNTRY_CW`, `COUNTRY_CX`, `COUNTRY_CY`, `COUNTRY_CZ`, `COUNTRY_DE`, `COUNTRY_DJ`, `COUNTRY_DK`, `COUNTRY_DM`, `COUNTRY_DO`, `COUNTRY_DZ`, `COUNTRY_EC`, `COUNTRY_EE`, `COUNTRY_EG`, `COUNTRY_EH`, `COUNTRY_ER`, `COUNTRY_ES`, `COUNTRY_ET`, `COUNTRY_FI`, `COUNTRY_FJ`, `COUNTRY_FK`,
+`COUNTRY_FM`, `COUNTRY_FO`, `COUNTRY_FR`, `COUNTRY_GA`, `COUNTRY_GB`, `COUNTRY_GD`, `COUNTRY_GE`, `COUNTRY_GF`, `COUNTRY_GG`, `COUNTRY_GH`, `COUNTRY_GI`, `COUNTRY_GL`, `COUNTRY_GM`, `COUNTRY_GN`, `COUNTRY_GP`, `COUNTRY_GQ`, `COUNTRY_GR`, `COUNTRY_GS`, `COUNTRY_GT`, `COUNTRY_GU`, `COUNTRY_GW`, `COUNTRY_GY`, `COUNTRY_HK`, `COUNTRY_HM`, `COUNTRY_HN`, `COUNTRY_HR`, `COUNTRY_HT`, `COUNTRY_HU`,
+`COUNTRY_ID`, `COUNTRY_IE`, `COUNTRY_IL`, `COUNTRY_IM`, `COUNTRY_IN`, `COUNTRY_IO`, `COUNTRY_IQ`, `COUNTRY_IR`, `COUNTRY_IS`, `COUNTRY_IT`, `COUNTRY_JE`, `COUNTRY_JM`, `COUNTRY_JO`, `COUNTRY_JP`, `COUNTRY_KE`, `COUNTRY_KG`, `COUNTRY_KH`, `COUNTRY_KI`, `COUNTRY_KM`, `COUNTRY_KN`, `COUNTRY_KP`, `COUNTRY_KR`, `COUNTRY_KW`, `COUNTRY_KY`, `COUNTRY_KZ`, `COUNTRY_LA`, `COUNTRY_LB`, `COUNTRY_LC`,
+`COUNTRY_LI`, `COUNTRY_LK`, `COUNTRY_LR`, `COUNTRY_LS`, `COUNTRY_LT`, `COUNTRY_LU`, `COUNTRY_LV`, `COUNTRY_LY`, `COUNTRY_MA`, `COUNTRY_MC`, `COUNTRY_MD`, `COUNTRY_ME`, `COUNTRY_MF`, `COUNTRY_MG`, `COUNTRY_MH`, `COUNTRY_MK`, `COUNTRY_ML`, `COUNTRY_MM`, `COUNTRY_MN`, `COUNTRY_MO`, `COUNTRY_MP`, `COUNTRY_MQ`, `COUNTRY_MR`, `COUNTRY_MS`, `COUNTRY_MT`, `COUNTRY_MU`, `COUNTRY_MV`, `COUNTRY_MW`,
+`COUNTRY_MX`, `COUNTRY_MY`, `COUNTRY_MZ`, `COUNTRY_NA`, `COUNTRY_NC`, `COUNTRY_NE`, `COUNTRY_NF`, `COUNTRY_NG`, `COUNTRY_NI`, `COUNTRY_NL`, `COUNTRY_NO`, `COUNTRY_NP`, `COUNTRY_NR`, `COUNTRY_NU`, `COUNTRY_NZ`, `COUNTRY_OM`, `COUNTRY_PA`, `COUNTRY_PE`, `COUNTRY_PF`, `COUNTRY_PG`, `COUNTRY_PH`, `COUNTRY_PK`, `COUNTRY_PL`, `COUNTRY_PM`, `COUNTRY_PN`, `COUNTRY_PR`, `COUNTRY_PS`, `COUNTRY_PT`,
+`COUNTRY_PW`, `COUNTRY_PY`, `COUNTRY_QA`, `COUNTRY_RE`, `COUNTRY_RO`, `COUNTRY_RS`, `COUNTRY_RU`, `COUNTRY_RW`, `COUNTRY_SA`, `COUNTRY_SB`, `COUNTRY_SC`, `COUNTRY_SD`, `COUNTRY_SE`, `COUNTRY_SG`, `COUNTRY_SH`, `COUNTRY_SI`, `COUNTRY_SJ`, `COUNTRY_SK`, `COUNTRY_SL`, `COUNTRY_SM`, `COUNTRY_SN`, `COUNTRY_SO`, `COUNTRY_SR`, `COUNTRY_SS`, `COUNTRY_ST`, `COUNTRY_SV`, `COUNTRY_SX`, `COUNTRY_SY`,
+`COUNTRY_SZ`, `COUNTRY_TC`, `COUNTRY_TD`, `COUNTRY_TF`, `COUNTRY_TG`, `COUNTRY_TH`, `COUNTRY_TJ`, `COUNTRY_TK`, `COUNTRY_TL`, `COUNTRY_TM`, `COUNTRY_TN`, `COUNTRY_TO`, `COUNTRY_TR`, `COUNTRY_TT`, `COUNTRY_TV`, `COUNTRY_TW`, `COUNTRY_TZ`, `COUNTRY_UA`, `COUNTRY_UG`, `COUNTRY_UM`, `COUNTRY_US`, `COUNTRY_UY`, `COUNTRY_UZ`, `COUNTRY_VA`, `COUNTRY_VC`, `COUNTRY_VE`, `COUNTRY_VG`, `COUNTRY_VI`,
+`COUNTRY_VN`, `COUNTRY_VU`, `COUNTRY_WF`, `COUNTRY_WS`, `COUNTRY_XK`, `COUNTRY_XT`, `COUNTRY_YE`, `COUNTRY_YT`, `COUNTRY_ZA`, `COUNTRY_ZM`, `COUNTRY_ZW`<br>[Enum:
+COUNTRY_NONE|COUNTRY_AD|COUNTRY_AE|COUNTRY_AF|COUNTRY_AG|COUNTRY_AI|COUNTRY_AL|COUNTRY_AM|COUNTRY_AN|COUNTRY_AO|COUNTRY_AQ|COUNTRY_AR|COUNTRY_AS|COUNTRY_AT|COUNTRY_AU|COUNTRY_AW|COUNTRY_AX|COUNTRY_AZ|COUNTRY_BA|COUNTRY_BB|COUNTRY_BD|COUNTRY_BE|COUNTRY_BF|COUNTRY_BG|COUNTRY_BH|COUNTRY_BI|COUNTRY_BJ|COUNTRY_BL|COUNTRY_BM|COUNTRY_BN|COUNTRY_BO|COUNTRY_BQ|COUNTRY_BR|COUNTRY_BS|COUNTRY_BT|COUNTRY_BV|COUNTRY_BW|COUNTRY_BY|COUNTRY_BZ|COUNTRY_CA|COUNTRY_CC|COUNTRY_CD|COUNTRY_CF|COUNTRY_CG|COUNTRY_CH|COUNTRY_CI|COUNTRY_CK|COUNTRY_CL|COUNTRY_CM|COUNTRY_CN|COUNTRY_CO|COUNTRY_CR|COUNTRY_CS|COUNTRY_CU|COUNTRY_CV|COUNTRY_CW|COUNTRY_CX|COUNTRY_CY|COUNTRY_CZ|COUNTRY_DE|COUNTRY_DJ|COUNTRY_DK|COUNTRY_DM|COUNTRY_DO|COUNTRY_DZ|COUNTRY_EC|COUNTRY_EE|COUNTRY_EG|COUNTRY_EH|COUNTRY_ER|COUNTRY_ES|COUNTRY_ET|COUNTRY_FI|COUNTRY_FJ|COUNTRY_FK|COUNTRY_FM|COUNTRY_FO|COUNTRY_FR|COUNTRY_GA|COUNTRY_GB|COUNTRY_GD|COUNTRY_GE|COUNTRY_GF|COUNTRY_GG|COUNTRY_GH|COUNTRY_GI|COUNTRY_GL|COUNTRY_GM|COUNTRY_GN|COUNTRY_GP|COUNTRY_GQ|COUNTRY_GR|COUNTRY_GS|COUNTRY_GT|COUNTRY_GU|COUNTRY_GW|COUNTRY_GY|COUNTRY_HK|COUNTRY_HM|COUNTRY_HN|COUNTRY_HR|COUNTRY_HT|COUNTRY_HU|COUNTRY_ID|COUNTRY_IE|COUNTRY_IL|COUNTRY_IM|COUNTRY_IN|COUNTRY_IO|COUNTRY_IQ|COUNTRY_IR|COUNTRY_IS|COUNTRY_IT|COUNTRY_JE|COUNTRY_JM|COUNTRY_JO|COUNTRY_JP|COUNTRY_KE|COUNTRY_KG|COUNTRY_KH|COUNTRY_KI|COUNTRY_KM|COUNTRY_KN|COUNTRY_KP|COUNTRY_KR|COUNTRY_KW|COUNTRY_KY|COUNTRY_KZ|COUNTRY_LA|COUNTRY_LB|COUNTRY_LC|COUNTRY_LI|COUNTRY_LK|COUNTRY_LR|COUNTRY_LS|COUNTRY_LT|COUNTRY_LU|COUNTRY_LV|COUNTRY_LY|COUNTRY_MA|COUNTRY_MC|COUNTRY_MD|COUNTRY_ME|COUNTRY_MF|COUNTRY_MG|COUNTRY_MH|COUNTRY_MK|COUNTRY_ML|COUNTRY_MM|COUNTRY_MN|COUNTRY_MO|COUNTRY_MP|COUNTRY_MQ|COUNTRY_MR|COUNTRY_MS|COUNTRY_MT|COUNTRY_MU|COUNTRY_MV|COUNTRY_MW|COUNTRY_MX|COUNTRY_MY|COUNTRY_MZ|COUNTRY_NA|COUNTRY_NC|COUNTRY_NE|COUNTRY_NF|COUNTRY_NG|COUNTRY_NI|COUNTRY_NL|COUNTRY_NO|COUNTRY_NP|COUNTRY_NR|COUNTRY_NU|COUNTRY_NZ|COUNTRY_OM|COUNTRY_PA|COUNTRY_PE|COUNTRY_PF|COUNTRY_PG|COUNTRY_PH|COUNTRY_PK|COUNTRY_PL|COUNTRY_PM|COUNTRY_PN|COUNTRY_PR|COUNTRY_PS|COUNTRY_PT|COUNTRY_PW|COUNTRY_PY|COUNTRY_QA|COUNTRY_RE|COUNTRY_RO|COUNTRY_RS|COUNTRY_RU|COUNTRY_RW|COUNTRY_SA|COUNTRY_SB|COUNTRY_SC|COUNTRY_SD|COUNTRY_SE|COUNTRY_SG|COUNTRY_SH|COUNTRY_SI|COUNTRY_SJ|COUNTRY_SK|COUNTRY_SL|COUNTRY_SM|COUNTRY_SN|COUNTRY_SO|COUNTRY_SR|COUNTRY_SS|COUNTRY_ST|COUNTRY_SV|COUNTRY_SX|COUNTRY_SY|COUNTRY_SZ|COUNTRY_TC|COUNTRY_TD|COUNTRY_TF|COUNTRY_TG|COUNTRY_TH|COUNTRY_TJ|COUNTRY_TK|COUNTRY_TL|COUNTRY_TM|COUNTRY_TN|COUNTRY_TO|COUNTRY_TR|COUNTRY_TT|COUNTRY_TV|COUNTRY_TW|COUNTRY_TZ|COUNTRY_UA|COUNTRY_UG|COUNTRY_UM|COUNTRY_US|COUNTRY_UY|COUNTRY_UZ|COUNTRY_VA|COUNTRY_VC|COUNTRY_VE|COUNTRY_VG|COUNTRY_VI|COUNTRY_VN|COUNTRY_VU|COUNTRY_WF|COUNTRY_WS|COUNTRY_XK|COUNTRY_XT|COUNTRY_YE|COUNTRY_YT|COUNTRY_ZA|COUNTRY_ZM|COUNTRY_ZW]
+Sources that are located in one of the countries in the given list
+
+<a id="ja4-tls-fingerprint-matcher"></a>&#x2022; [`ja4_tls_fingerprint_matcher`](#ja4-tls-fingerprint-matcher) - Optional String<br>Extended version of JA3 that includes additional fields for more comprehensive fingerprinting of SSL/TLS clients and potentially has a different structure and length
+
+<a id="tls-fingerprint-matcher"></a>&#x2022; [`tls_fingerprint_matcher`](#tls-fingerprint-matcher) - Optional String<br>TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive
+criteria are satisfied
+
+<a id="as-numbers"></a>&#x2022; [`as_numbers`](#as-numbers) - Optional List<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint against
+
+<a id="classes"></a>&#x2022; [`classes`](#classes) - Optional List  Defaults to `TLS_FINGERPRINT_NONE`<br>See [TLS Fingerprints](#common-tls-fingerprints)<br>[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint
+against
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against
+
+<a id="excluded-values"></a>&#x2022; [`excluded_values`](#excluded-values) - Optional List<br>List of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher
+
+<a id="invert-match"></a>&#x2022; [`invert_match`](#invert-match) - Optional Bool<br>Invert Match Result. Invert the match result
+
+<a id="ip-prefixes"></a>&#x2022; [`ip_prefixes`](#ip-prefixes) - Optional List<br>IPv4 Prefix List. List of IPv4 prefix strings
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="cache-disabled"></a>&#x2022; [`cache_disabled`](#cache-disabled) - Optional Object<br>Enable this option
+
+<a id="cache-ttl-default"></a>&#x2022; [`cache_ttl_default`](#cache-ttl-default) - Optional String<br>Use Cache TTL Provided by Origin, and set a contigency TTL value in case one is not provided
+
+<a id="cache-ttl-override"></a>&#x2022; [`cache_ttl_override`](#cache-ttl-override) - Optional String<br>Always override the Cache TTL provided by Origin
+
+<a id="api-crawler"></a>&#x2022; [`api_crawler`](#api-crawler) - Optional String<br>API Crawling. API Crawler message
+
+<a id="api-discovery-from-code-scan"></a>&#x2022; [`api_discovery_from_code_scan`](#api-discovery-from-code-scan) - Optional String<br>Select codebase and Repositories
+
+<a id="custom-api-auth-discovery"></a>&#x2022; [`custom_api_auth_discovery`](#custom-api-auth-discovery) - Optional String<br>API Discovery Advanced Settings. API Discovery Advanced settings
+
+<a id="default-api-auth-discovery"></a>&#x2022; [`default_api_auth_discovery`](#default-api-auth-discovery) - Optional Object<br>Enable this option
+
+<a id="disable-learn-from-redirect-traffic"></a>&#x2022; [`disable_learn_from_redirect_traffic`](#disable-learn-from-redirect-traffic) - Optional Object<br>Configuration parameter for disable learn from redirect traffic
+
+<a id="discovered-api-settings"></a>&#x2022; [`discovered_api_settings`](#discovered-api-settings) - Optional String<br>Discovered API Settings. Configure Discovered API Settings
+
+<a id="enable-learn-from-redirect-traffic"></a>&#x2022; [`enable_learn_from_redirect_traffic`](#enable-learn-from-redirect-traffic) - Optional Object<br>Configuration parameter for enable learn from redirect traffic
+
+<a id="api-crawler-config"></a>&#x2022; [`api_crawler_config`](#api-crawler-config) - Optional String<br>Crawler Configure
+
+<a id="disable-api-crawler"></a>&#x2022; [`disable_api_crawler`](#disable-api-crawler) - Optional Object<br>Enable this option
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>Enter domains and their credentials to allow authenticated API crawling. You can only include domains you own that are associated with this Load Balancer
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Select the domain to execute API Crawling with given credentials
+
+<a id="simple-login"></a>&#x2022; [`simple_login`](#simple-login) - Optional String<br>Configuration parameter for simple login
+
+<a id="password"></a>&#x2022; [`password`](#password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="user"></a>&#x2022; [`user`](#user) - Optional String<br>Enter the username to assign credentials for the selected domain to crawl
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="code-base-integrations"></a>&#x2022; [`code_base_integrations`](#code-base-integrations) - Optional List<br>Configuration parameter for codebase integrations
+
+<a id="all-repos"></a>&#x2022; [`all_repos`](#all-repos) - Optional Object<br>Enable this option
+
+<a id="code-base-integration"></a>&#x2022; [`code_base_integration`](#code-base-integration) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="selected-repos"></a>&#x2022; [`selected_repos`](#selected-repos) - Optional String<br>Select which API repositories represent the LB applications
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="api-code-repo"></a>&#x2022; [`api_code_repo`](#api-code-repo) - Optional List<br>Code repository which contain API endpoints
+
+<a id="api-discovery-ref"></a>&#x2022; [`api_discovery_ref`](#api-discovery-ref) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="apis-c08bec"></a>&#x2022; [`purge_duration_for_inactive_discovered_apis`](#apis-c08bec) - Optional Number<br>Inactive discovered API will be deleted after configured duration
+
+<a id="captcha-challenge-parameters"></a>&#x2022; [`captcha_challenge_parameters`](#captcha-challenge-parameters) - Optional String<br>Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do
+Captcha Challenge, it will redirect
+
+<a id="default-captcha-challenge-parameters"></a>&#x2022; [`default_captcha_challenge_parameters`](#default-captcha-challenge-parameters) - Optional Object<br>Configuration parameter for default captcha challenge parameters
+
+<a id="default-js-challenge-parameters"></a>&#x2022; [`default_js_challenge_parameters`](#default-js-challenge-parameters) - Optional Object<br>Configuration parameter for default js challenge parameters
+
+<a id="default-mitigation-settings"></a>&#x2022; [`default_mitigation_settings`](#default-mitigation-settings) - Optional Object<br>Enable this option
+
+<a id="js-challenge-parameters"></a>&#x2022; [`js_challenge_parameters`](#js-challenge-parameters) - Optional String<br>Enables loadbalancer to perform client browser compatibility test by redirecting to a page with JavaScript. With this feature enabled, only clients that are capable of executing JavaScript(mostly browsers) will be allowed to complete the HTTP request. When loadbalancer is
+configured to do
+
+<a id="malicious-user-mitigation"></a>&#x2022; [`malicious_user_mitigation`](#malicious-user-mitigation) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="cookie-expiry"></a>&#x2022; [`cookie_expiry`](#cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="custom-page"></a>&#x2022; [`custom_page`](#custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+<a id="cookie-expiry"></a>&#x2022; [`cookie_expiry`](#cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="custom-page"></a>&#x2022; [`custom_page`](#custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+<a id="js-script-delay"></a>&#x2022; [`js_script_delay`](#js-script-delay) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="ip-threat-categories"></a>&#x2022; [`ip_threat_categories`](#ip-threat-categories) - Optional List  Defaults to `SPAM_SOURCES`<br>See [IP Threat Categories](#common-ip-threat-categories)<br>[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] If the source IP matches on atleast one of the enabled IP
+threat categories, the request will be denied
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="exact-path"></a>&#x2022; [`exact_path`](#exact-path) - Optional String  Defaults to `/GraphQL`<br>Specifies the exact path to GraphQL endpoint
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="graphql-settings"></a>&#x2022; [`graphql_settings`](#graphql-settings) - Optional String<br>Configuration parameter for GraphQL settings
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="method-get"></a>&#x2022; [`method_get`](#method-get) - Optional Object<br>Enable this option
+
+<a id="method-post"></a>&#x2022; [`method_post`](#method-post) - Optional Object<br>Configuration parameter for method post
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="disable-introspection"></a>&#x2022; [`disable_introspection`](#disable-introspection) - Optional Object<br>Enable this option
+
+<a id="enable-introspection"></a>&#x2022; [`enable_introspection`](#enable-introspection) - Optional Object<br>Enable this option
+
+<a id="max-batched-queries"></a>&#x2022; [`max_batched_queries`](#max-batched-queries) - Optional Number<br>Specify maximum number of queries in a single batched request
+
+<a id="max-depth"></a>&#x2022; [`max_depth`](#max-depth) - Optional Number<br>Specify maximum depth for the GraphQL query
+
+<a id="max-total-length"></a>&#x2022; [`max_total_length`](#max-total-length) - Optional Number<br>Specify maximum length in bytes for the GraphQL query
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+---
+
+#### HTTP
+
+A [`http`](#http) block supports the following:
+
+<a id="nestedatt--http-dns-volterra-managed"></a>&#x2022; [`dns_volterra_managed`](#nestedatt--http-dns-volterra-managed) - Optional Bool<br>DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal
+
+<a id="nestedatt--http-port"></a>&#x2022; [`port`](#nestedatt--http-port) - Optional Number<br>HTTP port to Listen
+
+<a id="nestedatt--http-port-ranges"></a>&#x2022; [`port_ranges`](#nestedatt--http-port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+#### HTTPS
+
+A [`https`](#https) block supports the following:
+
+<a id="nestedatt--https-add-hsts"></a>&#x2022; [`add_hsts`](#nestedatt--https-add-hsts) - Optional Bool<br>Add HTTP Strict-Transport-Security response header
+
+<a id="nestedatt--https-http-redirect"></a>&#x2022; [`http_redirect`](#nestedatt--https-http-redirect) - Optional Bool<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS
+
+<a id="nestedatt--https-tls-cert-options"></a>&#x2022; [`tls_cert_options`](#nestedatt--https-tls-cert-options) - Optional String<br>Configuration parameter for TLS cert options
+
+#### HTTPS TLS Cert Options
+
+A [`tls_cert_options`](#https-tls-cert-options) block (within [`https`](#https)) supports the following:
+
+<a id="nestedatt--https-tls-cert-params"></a>&#x2022; [`tls_cert_params`](#nestedatt--https-tls-cert-params) - Optional String<br>Configuration parameter for TLS cert params
+
+<a id="nestedatt--https-tls-inline-params"></a>&#x2022; [`tls_inline_params`](#nestedatt--https-tls-inline-params) - Optional String<br>Configuration parameter for TLS inline params
+
+#### HTTPS TLS Cert Options TLS Cert Params
+
+A [`tls_cert_params`](#https-tls-cert-options-tls-cert-params) block (within [`https.tls_cert_options`](#https-tls-cert-options)) supports the following:
+
+<a id="nestedatt--https-certificates"></a>&#x2022; [`certificates`](#nestedatt--https-certificates) - Optional List<br>Select one or more certificates with any domain names
+
+<a id="nestedatt--https-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--https-no-mtls) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--https-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--https-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--https-use-mtls) - Optional String<br>Validation context for downstream client TLS connections
+
+#### HTTPS TLS Cert Options TLS Cert Params Certificates
+
+<a id="deep-5f8c05"></a>Deeply nested **Certificates** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params No mTLS
+
+<a id="deep-c4032a"></a>Deeply nested **mTLS** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params TLS Config
+
+<a id="deep-aa9282"></a>Deeply nested **Config** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params TLS Config Custom Security
+
+<a id="deep-2b4fe8"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params TLS Config Default Security
+
+<a id="deep-a97d80"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params TLS Config Low Security
+
+<a id="deep-a95ed6"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params TLS Config Medium Security
+
+<a id="deep-2316a0"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params Use mTLS
+
+<a id="deep-0ddb80"></a>Deeply nested **mTLS** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params Use mTLS CRL
+
+<a id="deep-4e8956"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params Use mTLS No CRL
+
+<a id="deep-4d035d"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params Use mTLS Trusted CA
+
+<a id="deep-4221b5"></a>Deeply nested **CA** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params Use mTLS Xfcc Disabled
+
+<a id="deep-9070d8"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Cert Params Use mTLS Xfcc Options
+
+<a id="deep-96e88a"></a>Deeply nested **Options** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params
+
+A [`tls_inline_params`](#https-tls-cert-options-tls-inline-params) block (within [`https.tls_cert_options`](#https-tls-cert-options)) supports the following:
+
+<a id="nestedatt--https-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--https-no-mtls) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-tls-certificates"></a>&#x2022; [`tls_certificates`](#nestedatt--https-tls-certificates) - Optional List<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms
+
+<a id="nestedatt--https-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--https-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--https-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--https-use-mtls) - Optional String<br>Validation context for downstream client TLS connections
+
+#### HTTPS TLS Cert Options TLS Inline Params No mTLS
+
+<a id="deep-8aec3b"></a>Deeply nested **mTLS** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Certificates
+
+<a id="deep-910848"></a>Deeply nested **Certificates** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Certificates Custom Hash Algorithms
+
+<a id="deep-5f067d"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Certificates Disable OCSP Stapling
+
+<a id="deep-590011"></a>Deeply nested **Stapling** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Certificates Private Key
+
+<a id="deep-1a10f5"></a>Deeply nested **Key** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Certificates Private Key Blindfold Secret Info
+
+<a id="deep-475fb9"></a>Deeply nested **Info** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Certificates Private Key Clear Secret Info
+
+<a id="deep-088787"></a>Deeply nested **Info** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Certificates Use System Defaults
+
+<a id="deep-1229c9"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Config
+
+<a id="deep-218928"></a>Deeply nested **Config** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Config Custom Security
+
+<a id="deep-0f112d"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Config Default Security
+
+<a id="deep-db42ea"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Config Low Security
+
+<a id="deep-76cfd4"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params TLS Config Medium Security
+
+<a id="deep-0733d4"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params Use mTLS
+
+<a id="deep-328647"></a>Deeply nested **mTLS** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params Use mTLS CRL
+
+<a id="deep-a76fcd"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params Use mTLS No CRL
+
+<a id="deep-5ecc14"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params Use mTLS Trusted CA
+
+<a id="deep-079423"></a>Deeply nested **CA** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params Use mTLS Xfcc Disabled
+
+<a id="deep-178c24"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### HTTPS TLS Cert Options TLS Inline Params Use mTLS Xfcc Options
+
+<a id="deep-5f17b1"></a>Deeply nested **Options** block collapsed for readability.
+
+#### HTTPS Auto Cert
+
+A [`https_auto_cert`](#https-auto-cert) block supports the following:
+
+<a id="nestedatt--https-add-hsts"></a>&#x2022; [`add_hsts`](#nestedatt--https-add-hsts) - Optional Bool<br>Add HTTP Strict-Transport-Security response header
+
+<a id="nestedatt--https-http-redirect"></a>&#x2022; [`http_redirect`](#nestedatt--https-http-redirect) - Optional Bool<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS
+
+<a id="nestedatt--https-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--https-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+#### HTTPS Auto Cert TLS Config
+
+A [`tls_config`](#https-auto-cert-tls-config) block (within [`https_auto_cert`](#https-auto-cert)) supports the following:
+
+<a id="nestedatt--https-tls-11-plus"></a>&#x2022; [`tls_11_plus`](#nestedatt--https-tls-11-plus) - Optional Object<br>Configuration parameter for TLS 11 plus
+
+<a id="nestedatt--https-tls-12-plus"></a>&#x2022; [`tls_12_plus`](#nestedatt--https-tls-12-plus) - Optional Object<br>Configuration parameter for TLS 12 plus
+
+#### HTTPS Auto Cert TLS Config TLS 11 Plus
+
+<a id="deep-f03652"></a>Deeply nested **Plus** block collapsed for readability.
+
+#### HTTPS Auto Cert TLS Config TLS 12 Plus
+
+<a id="deep-a1eb2a"></a>Deeply nested **Plus** block collapsed for readability.
+
+#### Js Challenge
+
+A [`js_challenge`](#js-challenge) block supports the following:
+
+<a id="nestedatt--https-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#nestedatt--https-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="nestedatt--https-custom-page"></a>&#x2022; [`custom_page`](#nestedatt--https-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+<a id="nestedatt--https-js-script-delay"></a>&#x2022; [`js_script_delay`](#nestedatt--https-js-script-delay) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
+
+#### JWT Validation
+
+A [`jwt_validation`](#jwt-validation) block supports the following:
+
+<a id="nestedatt--https-action"></a>&#x2022; [`action`](#nestedatt--https-action) - Optional String<br>Action
+
+<a id="nestedatt--https-authorization-server"></a>&#x2022; [`authorization_server`](#nestedatt--https-authorization-server) - Optional String<br>Reference to Authorization Server object
+
+<a id="nestedatt--https-jwks-config"></a>&#x2022; [`jwks_config`](#nestedatt--https-jwks-config) - Optional String<br>The JSON Web Key Set (JWKS) is a set of keys used to verify JSON Web Token (JWT) issued by the Authorization Server. See RFC 7517 for more details
+
+<a id="nestedatt--https-mandatory-claims"></a>&#x2022; [`mandatory_claims`](#nestedatt--https-mandatory-claims) - Optional String<br>Configurable Validation of mandatory Claims
+
+<a id="nestedatt--https-reserved-claims"></a>&#x2022; [`reserved_claims`](#nestedatt--https-reserved-claims) - Optional String<br>Configurable Validation of reserved Claims
+
+<a id="nestedatt--https-target"></a>&#x2022; [`target`](#nestedatt--https-target) - Optional String<br>Define endpoints for which JWT token validation will be performed
+
+<a id="nestedatt--https-token-location"></a>&#x2022; [`token_location`](#nestedatt--https-token-location) - Optional String<br>Configuration parameter for token location
+
+#### JWT Validation Action
+
+An [`action`](#jwt-validation-action) block (within [`jwt_validation`](#jwt-validation)) supports the following:
+
+<a id="nestedatt--https-block"></a>&#x2022; [`block`](#nestedatt--https-block) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-report"></a>&#x2022; [`report`](#nestedatt--https-report) - Optional Object<br>Enable this option
+
+#### JWT Validation Action Block
+
+A [`block`](#jwt-validation-action-block) block (within [`jwt_validation.action`](#jwt-validation-action)) supports the following:
+
+#### JWT Validation Action Report
+
+A [`report`](#jwt-validation-action-report) block (within [`jwt_validation.action`](#jwt-validation-action)) supports the following:
+
+#### JWT Validation Authorization Server
+
+An [`authorization_server`](#jwt-validation-authorization-server) block (within [`jwt_validation`](#jwt-validation)) supports the following:
+
+<a id="nestedatt--https-authorization-servers"></a>&#x2022; [`authorization_servers`](#nestedatt--https-authorization-servers) - Optional List<br>Authorization Servers are configured separately in the 'Shared Objects' section of the Web App & API Protection workspace and used to fetch JWKS for JWT validation
+
+#### JWT Validation Authorization Server Authorization Servers
+
+An [`authorization_servers`](#jwt-validation-authorization-server-authorization-servers) block (within [`jwt_validation.authorization_server`](#jwt-validation-authorization-server)) supports the following:
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--https-namespace"></a>&#x2022; [`namespace`](#nestedatt--https-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--https-tenant"></a>&#x2022; [`tenant`](#nestedatt--https-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### JWT Validation Jwks Config
+
+A [`jwks_config`](#jwt-validation-jwks-config) block (within [`jwt_validation`](#jwt-validation)) supports the following:
+
+<a id="nestedatt--https-cleartext"></a>&#x2022; [`cleartext`](#nestedatt--https-cleartext) - Optional String<br>The JSON Web Key Set (JWKS) is a set of keys used to verify JSON Web Token (JWT) issued by the Authorization Server. See RFC 7517 for more details
+
+#### JWT Validation Mandatory Claims
+
+A [`mandatory_claims`](#jwt-validation-mandatory-claims) block (within [`jwt_validation`](#jwt-validation)) supports the following:
+
+<a id="nestedatt--https-claim-names"></a>&#x2022; [`claim_names`](#nestedatt--https-claim-names) - Optional List<br>Claim Names. Human-readable name for the resource
+
+#### JWT Validation Reserved Claims
+
+A [`reserved_claims`](#jwt-validation-reserved-claims) block (within [`jwt_validation`](#jwt-validation)) supports the following:
+
+<a id="nestedatt--https-audience"></a>&#x2022; [`audience`](#nestedatt--https-audience) - Optional String<br>Audiences
+
+<a id="nestedatt--https-audience-disable"></a>&#x2022; [`audience_disable`](#nestedatt--https-audience-disable) - Optional Object<br>Configuration parameter for audience disable
+
+<a id="nestedatt--https-issuer"></a>&#x2022; [`issuer`](#nestedatt--https-issuer) - Optional String<br>Exact Match
+
+<a id="nestedatt--https-issuer-disable"></a>&#x2022; [`issuer_disable`](#nestedatt--https-issuer-disable) - Optional Object<br>Configuration parameter for issuer disable
+
+<a id="disable-3271fb"></a>&#x2022; [`validate_period_disable`](#disable-3271fb) - Optional Object<br>Configuration parameter for validate period disable
+
+<a id="nestedatt--https-validate-period-enable"></a>&#x2022; [`validate_period_enable`](#nestedatt--https-validate-period-enable) - Optional Object<br>Configuration parameter for validate period enable
+
+#### JWT Validation Reserved Claims Audience
+
+An [`audience`](#jwt-validation-reserved-claims-audience) block (within [`jwt_validation.reserved_claims`](#jwt-validation-reserved-claims)) supports the following:
+
+<a id="nestedatt--https-audiences"></a>&#x2022; [`audiences`](#nestedatt--https-audiences) - Optional List<br>Values. Configuration parameter for audiences
+
+#### JWT Validation Reserved Claims Audience Disable
+
+An [`audience_disable`](#jwt-validation-reserved-claims-audience-disable) block (within [`jwt_validation.reserved_claims`](#jwt-validation-reserved-claims)) supports the following:
+
+#### JWT Validation Reserved Claims Issuer Disable
+
+An [`issuer_disable`](#jwt-validation-reserved-claims-issuer-disable) block (within [`jwt_validation.reserved_claims`](#jwt-validation-reserved-claims)) supports the following:
+
+#### JWT Validation Reserved Claims Validate Period Disable
+
+A [`validate_period_disable`](#jwt-validation-reserved-claims-validate-period-disable) block (within [`jwt_validation.reserved_claims`](#jwt-validation-reserved-claims)) supports the following:
+
+#### JWT Validation Reserved Claims Validate Period Enable
+
+A [`validate_period_enable`](#jwt-validation-reserved-claims-validate-period-enable) block (within [`jwt_validation.reserved_claims`](#jwt-validation-reserved-claims)) supports the following:
+
+#### JWT Validation Target
+
+A [`target`](#jwt-validation-target) block (within [`jwt_validation`](#jwt-validation)) supports the following:
+
+<a id="nestedatt--https-all-endpoint"></a>&#x2022; [`all_endpoint`](#nestedatt--https-all-endpoint) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-api-groups"></a>&#x2022; [`api_groups`](#nestedatt--https-api-groups) - Optional String<br>API Groups
+
+<a id="nestedatt--https-base-paths"></a>&#x2022; [`base_paths`](#nestedatt--https-base-paths) - Optional String<br>Base Paths
+
+#### JWT Validation Target All Endpoint
+
+An [`all_endpoint`](#jwt-validation-target-all-endpoint) block (within [`jwt_validation.target`](#jwt-validation-target)) supports the following:
+
+#### JWT Validation Target API Groups
+
+An [`api_groups`](#jwt-validation-target-api-groups) block (within [`jwt_validation.target`](#jwt-validation-target)) supports the following:
+
+<a id="nestedatt--https-api-groups"></a>&#x2022; [`api_groups`](#nestedatt--https-api-groups) - Optional List<br>API Groups. Group or collection configuration
+
+#### JWT Validation Target Base Paths
+
+A [`base_paths`](#jwt-validation-target-base-paths) block (within [`jwt_validation.target`](#jwt-validation-target)) supports the following:
+
+<a id="nestedatt--https-base-paths"></a>&#x2022; [`base_paths`](#nestedatt--https-base-paths) - Optional List<br>Prefix Values. File system or URL path
+
+#### JWT Validation Token Location
+
+A [`token_location`](#jwt-validation-token-location) block (within [`jwt_validation`](#jwt-validation)) supports the following:
+
+<a id="nestedatt--https-bearer-token"></a>&#x2022; [`bearer_token`](#nestedatt--https-bearer-token) - Optional String<br>Configuration parameter for bearer token
+
+#### JWT Validation Token Location Bearer Token
+
+A [`bearer_token`](#jwt-validation-token-location-bearer-token) block (within [`jwt_validation.token_location`](#jwt-validation-token-location)) supports the following:
+
+#### L7 DDOS Action Block
+
+A [`l7_ddos_action_block`](#l7-ddos-action-block) block supports the following:
+
+#### L7 DDOS Action Default
+
+A [`l7_ddos_action_default`](#l7-ddos-action-default) block supports the following:
+
+#### L7 DDOS Action Js Challenge
+
+A [`l7_ddos_action_js_challenge`](#l7-ddos-action-js-challenge) block supports the following:
+
+<a id="nestedatt--https-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#nestedatt--https-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="nestedatt--https-custom-page"></a>&#x2022; [`custom_page`](#nestedatt--https-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+<a id="nestedatt--https-js-script-delay"></a>&#x2022; [`js_script_delay`](#nestedatt--https-js-script-delay) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
+
+#### No Challenge
+
+A [`no_challenge`](#no-challenge) block supports the following:
+
+#### No Service Policies
+
+A [`no_service_policies`](#no-service-policies) block supports the following:
+
+#### Origin Pool
+
+An [`origin_pool`](#origin-pool) block supports the following:
+
+<a id="nestedatt--https-more-origin-options"></a>&#x2022; [`more_origin_options`](#nestedatt--https-more-origin-options) - Optional String<br>Configuration parameter for more origin options
+
+<a id="nestedatt--https-no-tls"></a>&#x2022; [`no_tls`](#nestedatt--https-no-tls) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-origin-request-timeout"></a>&#x2022; [`origin_request_timeout`](#nestedatt--https-origin-request-timeout) - Optional String<br>Configures the time after which a request to the origin will time out waiting for a response
+
+<a id="nestedatt--https-origin-servers"></a>&#x2022; [`origin_servers`](#nestedatt--https-origin-servers) - Optional List<br>List Of Origin Servers. List of original servers
+
+<a id="nestedatt--https-public-name"></a>&#x2022; [`public_name`](#nestedatt--https-public-name) - Optional String<br>Specify origin server with public DNS name
+
+<a id="nestedatt--https-use-tls"></a>&#x2022; [`use_tls`](#nestedatt--https-use-tls) - Optional String<br>TLS Parameters for Origin Servers. Upstream TLS Parameters
+
+#### Origin Pool More Origin Options
+
+A [`more_origin_options`](#origin-pool-more-origin-options) block (within [`origin_pool`](#origin-pool)) supports the following:
+
+<a id="request-dff5fa"></a>&#x2022; [`enable_byte_range_request`](#request-dff5fa) - Optional Bool<br>Choice to enable/disable byte range requests towards origin
+
+<a id="nestedatt--https-websocket-proxy"></a>&#x2022; [`websocket_proxy`](#nestedatt--https-websocket-proxy) - Optional Bool<br>Option to enable proxying of WebSocket connections to the origin server
+
+#### Origin Pool No TLS
+
+A [`no_tls`](#origin-pool-no-tls) block (within [`origin_pool`](#origin-pool)) supports the following:
+
+#### Origin Pool Origin Servers
+
+An [`origin_servers`](#origin-pool-origin-servers) block (within [`origin_pool`](#origin-pool)) supports the following:
+
+<a id="nestedatt--https-port"></a>&#x2022; [`port`](#nestedatt--https-port) - Optional Number<br>Origin Server Port. Port the workload can be reached on
+
+<a id="nestedatt--https-public-ip"></a>&#x2022; [`public_ip`](#nestedatt--https-public-ip) - Optional String<br>Specify origin server with public IP address
+
+<a id="nestedatt--https-public-name"></a>&#x2022; [`public_name`](#nestedatt--https-public-name) - Optional String<br>Specify origin server with public DNS name
+
+#### Origin Pool Origin Servers Public IP
+
+A [`public_ip`](#origin-pool-origin-servers-public-ip) block (within [`origin_pool.origin_servers`](#origin-pool-origin-servers)) supports the following:
+
+<a id="nestedatt--https-ip"></a>&#x2022; [`ip`](#nestedatt--https-ip) - Optional String<br>Public IPv4. Public IPv4 address
+
+#### Origin Pool Origin Servers Public Name
+
+A [`public_name`](#origin-pool-origin-servers-public-name) block (within [`origin_pool.origin_servers`](#origin-pool-origin-servers)) supports the following:
+
+<a id="nestedatt--https-dns-name"></a>&#x2022; [`dns_name`](#nestedatt--https-dns-name) - Optional String<br>DNS Name. DNS Name
+
+<a id="nestedatt--https-refresh-interval"></a>&#x2022; [`refresh_interval`](#nestedatt--https-refresh-interval) - Optional Number<br>Interval for DNS refresh in seconds. Max value is 7 days as per `HTTPS://datatracker.ietf.org/doc/HTML/rfc8767.`
+
+#### Origin Pool Public Name
+
+A [`public_name`](#origin-pool-public-name) block (within [`origin_pool`](#origin-pool)) supports the following:
+
+<a id="nestedatt--https-dns-name"></a>&#x2022; [`dns_name`](#nestedatt--https-dns-name) - Optional String<br>DNS Name. DNS Name
+
+<a id="nestedatt--https-refresh-interval"></a>&#x2022; [`refresh_interval`](#nestedatt--https-refresh-interval) - Optional Number<br>Interval for DNS refresh in seconds. Max value is 7 days as per `HTTPS://datatracker.ietf.org/doc/HTML/rfc8767.`
+
+#### Origin Pool Use TLS
+
+An [`use_tls`](#origin-pool-use-tls) block (within [`origin_pool`](#origin-pool)) supports the following:
+
+<a id="caching-2cffb9"></a>&#x2022; [`default_session_key_caching`](#caching-2cffb9) - Optional Object  Defaults to `map[]`<br>Configuration parameter for default session key caching.  Server applies default when omitted
+
+<a id="caching-06eb2f"></a>&#x2022; [`disable_session_key_caching`](#caching-06eb2f) - Optional Object<br>Configuration parameter for disable session key caching
+
+<a id="nestedatt--https-disable-sni"></a>&#x2022; [`disable_sni`](#nestedatt--https-disable-sni) - Optional Object<br>Configuration parameter for disable sni
+
+<a id="nestedatt--https-max-session-keys"></a>&#x2022; [`max_session_keys`](#nestedatt--https-max-session-keys) - Optional Number<br>Number of session keys that are cached
+
+<a id="nestedatt--https-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--https-no-mtls) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="verification-e718f0"></a>&#x2022; [`skip_server_verification`](#verification-e718f0) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-sni"></a>&#x2022; [`sni`](#nestedatt--https-sni) - Optional String<br>SNI value to be used
+
+<a id="nestedatt--https-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--https-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--https-use-host-header-as-sni"></a>&#x2022; [`use_host_header_as_sni`](#nestedatt--https-use-host-header-as-sni) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="nestedatt--https-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--https-use-mtls) - Optional String<br>mTLS Certificate. mTLS Client Certificate
+
+<a id="nestedatt--https-use-mtls-obj"></a>&#x2022; [`use_mtls_obj`](#nestedatt--https-use-mtls-obj) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="verification-792d02"></a>&#x2022; [`use_server_verification`](#verification-792d02) - Optional String<br>Configuration parameter for use server verification
+
+<a id="nestedatt--https-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#nestedatt--https-volterra-trusted-ca) - Optional Object  Defaults to `map[]`<br>Configuration parameter for volterra trusted CA.  Server applies default when omitted
+
+#### Origin Pool Use TLS Default Session Key Caching
+
+<a id="deep-40dc63"></a>Deeply nested **Caching** block collapsed for readability.
+
+#### Origin Pool Use TLS Disable Session Key Caching
+
+<a id="deep-5cb47b"></a>Deeply nested **Caching** block collapsed for readability.
+
+#### Origin Pool Use TLS Disable Sni
+
+A [`disable_sni`](#origin-pool-use-tls-disable-sni) block (within [`origin_pool.use_tls`](#origin-pool-use-tls)) supports the following:
+
+#### Origin Pool Use TLS No mTLS
+
+A [`no_mtls`](#origin-pool-use-tls-no-mtls) block (within [`origin_pool.use_tls`](#origin-pool-use-tls)) supports the following:
+
+#### Origin Pool Use TLS Skip Server Verification
+
+A [`skip_server_verification`](#origin-pool-use-tls-skip-server-verification) block (within [`origin_pool.use_tls`](#origin-pool-use-tls)) supports the following:
+
+#### Origin Pool Use TLS TLS Config
+
+A [`tls_config`](#origin-pool-use-tls-tls-config) block (within [`origin_pool.use_tls`](#origin-pool-use-tls)) supports the following:
+
+<a id="nestedatt--https-custom-security"></a>&#x2022; [`custom_security`](#nestedatt--https-custom-security) - Optional String<br>Defines TLS protocol config including min/max versions and allowed ciphers
+
+<a id="nestedatt--https-default-security"></a>&#x2022; [`default_security`](#nestedatt--https-default-security) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-low-security"></a>&#x2022; [`low_security`](#nestedatt--https-low-security) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-medium-security"></a>&#x2022; [`medium_security`](#nestedatt--https-medium-security) - Optional Object<br>Enable this option
+
+#### Origin Pool Use TLS TLS Config Custom Security
+
+<a id="deep-723457"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Origin Pool Use TLS TLS Config Default Security
+
+<a id="deep-2c6765"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Origin Pool Use TLS TLS Config Low Security
+
+<a id="deep-08aacd"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Origin Pool Use TLS TLS Config Medium Security
+
+<a id="deep-b5a49b"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Origin Pool Use TLS Use Host Header As Sni
+
+<a id="deep-354271"></a>Deeply nested **Sni** block collapsed for readability.
+
+#### Origin Pool Use TLS Use mTLS
+
+An [`use_mtls`](#origin-pool-use-tls-use-mtls) block (within [`origin_pool.use_tls`](#origin-pool-use-tls)) supports the following:
+
+<a id="nestedatt--https-tls-certificates"></a>&#x2022; [`tls_certificates`](#nestedatt--https-tls-certificates) - Optional List<br>mTLS Client Certificate. mTLS Client Certificate
+
+#### Origin Pool Use TLS Use mTLS TLS Certificates
+
+<a id="deep-c44369"></a>Deeply nested **Certificates** block collapsed for readability.
+
+#### Origin Pool Use TLS Use mTLS TLS Certificates Custom Hash Algorithms
+
+<a id="deep-b56fdc"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### Origin Pool Use TLS Use mTLS TLS Certificates Disable OCSP Stapling
+
+<a id="deep-dbd412"></a>Deeply nested **Stapling** block collapsed for readability.
+
+#### Origin Pool Use TLS Use mTLS TLS Certificates Private Key
+
+<a id="deep-986401"></a>Deeply nested **Key** block collapsed for readability.
+
+#### Origin Pool Use TLS Use mTLS TLS Certificates Private Key Blindfold Secret Info
+
+<a id="deep-9ff3ae"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Origin Pool Use TLS Use mTLS TLS Certificates Private Key Clear Secret Info
+
+<a id="deep-385fe9"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Origin Pool Use TLS Use mTLS TLS Certificates Use System Defaults
+
+<a id="deep-942642"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Origin Pool Use TLS Use mTLS Obj
+
+An [`use_mtls_obj`](#origin-pool-use-tls-use-mtls-obj) block (within [`origin_pool.use_tls`](#origin-pool-use-tls)) supports the following:
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--https-namespace"></a>&#x2022; [`namespace`](#nestedatt--https-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--https-tenant"></a>&#x2022; [`tenant`](#nestedatt--https-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Origin Pool Use TLS Use Server Verification
+
+An [`use_server_verification`](#origin-pool-use-tls-use-server-verification) block (within [`origin_pool.use_tls`](#origin-pool-use-tls)) supports the following:
+
+<a id="nestedatt--https-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--https-trusted-ca) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--https-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#nestedatt--https-trusted-ca-url) - Optional String<br>Upload a Root CA Certificate specifically for this Origin Pool for verification of server's certificate
+
+#### Origin Pool Use TLS Use Server Verification Trusted CA
+
+<a id="deep-33f32d"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Origin Pool Use TLS Volterra Trusted CA
+
+A [`volterra_trusted_ca`](#origin-pool-use-tls-volterra-trusted-ca) block (within [`origin_pool.use_tls`](#origin-pool-use-tls)) supports the following:
+
+#### Other Settings
+
+An [`other_settings`](#other-settings) block supports the following:
+
+<a id="nestedatt--https-add-location"></a>&#x2022; [`add_location`](#nestedatt--https-add-location) - Optional Bool<br>Add Location. X-example: true Appends header x-F5 Distributed Cloud-location = `<RE-site-name>` in responses
+
+<a id="nestedatt--https-header-options"></a>&#x2022; [`header_options`](#nestedatt--https-header-options) - Optional String<br>Defines various OPTIONS related to request/response headers
+
+<a id="nestedatt--https-logging-options"></a>&#x2022; [`logging_options`](#nestedatt--https-logging-options) - Optional String<br>Defines various OPTIONS related to logging
+
+#### Other Settings Header Options
+
+A [`header_options`](#other-settings-header-options) block (within [`other_settings`](#other-settings)) supports the following:
+
+<a id="nestedatt--https-request-headers-to-add"></a>&#x2022; [`request_headers_to_add`](#nestedatt--https-request-headers-to-add) - Optional List<br>Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied
+
+<a id="remove-5e17d6"></a>&#x2022; [`request_headers_to_remove`](#remove-5e17d6) - Optional List<br>List of keys of Headers to be removed from the HTTP request being sent towards upstream
+
+<a id="add-ff39e8"></a>&#x2022; [`response_headers_to_add`](#add-ff39e8) - Optional List<br>Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied
+
+<a id="remove-bff163"></a>&#x2022; [`response_headers_to_remove`](#remove-bff163) - Optional List<br>List of keys of Headers to be removed from the HTTP response being sent towards downstream
+
+#### Other Settings Header Options Request Headers To Add
+
+<a id="deep-8d939b"></a>Deeply nested **Add** block collapsed for readability.
+
+#### Other Settings Header Options Request Headers To Add Secret Value
+
+<a id="deep-0b788e"></a>Deeply nested **Value** block collapsed for readability.
+
+#### Other Settings Header Options Request Headers To Add Secret Value Blindfold Secret Info
+
+<a id="deep-da70e1"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Other Settings Header Options Request Headers To Add Secret Value Clear Secret Info
+
+<a id="deep-0e70d5"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Other Settings Header Options Response Headers To Add
+
+<a id="deep-91db8e"></a>Deeply nested **Add** block collapsed for readability.
+
+#### Other Settings Header Options Response Headers To Add Secret Value
+
+<a id="deep-279dc7"></a>Deeply nested **Value** block collapsed for readability.
+
+#### Other Settings Header Options Response Headers To Add Secret Value Blindfold Secret Info
+
+<a id="deep-6c7d71"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Other Settings Header Options Response Headers To Add Secret Value Clear Secret Info
+
+<a id="deep-08104e"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Other Settings Logging Options
+
+A [`logging_options`](#other-settings-logging-options) block (within [`other_settings`](#other-settings)) supports the following:
+
+<a id="nestedatt--https-client-log-options"></a>&#x2022; [`client_log_options`](#nestedatt--https-client-log-options) - Optional String<br>Headers to Log. List of headers to Log
+
+<a id="nestedatt--https-origin-log-options"></a>&#x2022; [`origin_log_options`](#nestedatt--https-origin-log-options) - Optional String<br>Configuration parameter for origin log options
+
+#### Other Settings Logging Options Client Log Options
+
+A [`client_log_options`](#other-settings-logging-options-client-log-options) block (within [`other_settings.logging_options`](#other-settings-logging-options)) supports the following:
+
+<a id="nestedatt--https-header-list"></a>&#x2022; [`header_list`](#nestedatt--https-header-list) - Optional List<br>Headers. List of headers
+
+#### Other Settings Logging Options Origin Log Options
+
+An [`origin_log_options`](#other-settings-logging-options-origin-log-options) block (within [`other_settings.logging_options`](#other-settings-logging-options)) supports the following:
+
+<a id="nestedatt--https-header-list"></a>&#x2022; [`header_list`](#nestedatt--https-header-list) - Optional List<br>Headers. List of headers
+
+#### Policy Based Challenge
+
+A [`policy_based_challenge`](#policy-based-challenge) block supports the following:
+
+<a id="challenge-6698a9"></a>&#x2022; [`always_enable_captcha_challenge`](#challenge-6698a9) - Optional Object<br>Configuration parameter for always enable captcha challenge
+
+<a id="challenge-af65c1"></a>&#x2022; [`always_enable_js_challenge`](#challenge-af65c1) - Optional Object<br>Configuration parameter for always enable js challenge
+
+<a id="parameters-0235c7"></a>&#x2022; [`captcha_challenge_parameters`](#parameters-0235c7) - Optional String<br>Enables loadbalancer to perform captcha challenge Captcha challenge will be based on Google Recaptcha. With this feature enabled, only clients that pass the captcha challenge will be allowed to complete the HTTP request. When loadbalancer is configured to do Captcha Challenge, it will
+redirect
+
+<a id="parameters-aae78e"></a>&#x2022; [`default_captcha_challenge_parameters`](#parameters-aae78e) - Optional Object<br>Configuration parameter for default captcha challenge parameters
+
+<a id="parameters-501ca7"></a>&#x2022; [`default_js_challenge_parameters`](#parameters-501ca7) - Optional Object<br>Configuration parameter for default js challenge parameters
+
+<a id="settings-514d59"></a>&#x2022; [`default_mitigation_settings`](#settings-514d59) - Optional Object<br>Enable this option
+
+<a id="parameters-090ddb"></a>&#x2022; [`default_temporary_blocking_parameters`](#parameters-090ddb) - Optional Object<br>Enable this option
+
+<a id="parameters-66b89c"></a>&#x2022; [`js_challenge_parameters`](#parameters-66b89c) - Optional String<br>Enables loadbalancer to perform client browser compatibility test by redirecting to a page with JavaScript. With this feature enabled, only clients that are capable of executing JavaScript(mostly browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do
+
+<a id="mitigation-3a484f"></a>&#x2022; [`malicious_user_mitigation`](#mitigation-3a484f) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--https-no-challenge"></a>&#x2022; [`no_challenge`](#nestedatt--https-no-challenge) - Optional Object<br>Configuration parameter for no challenge
+
+<a id="nestedatt--https-rule-list"></a>&#x2022; [`rule_list`](#nestedatt--https-rule-list) - Optional String<br>List of challenge rules to be used in policy based challenge
+
+<a id="blocking-45da63"></a>&#x2022; [`temporary_user_blocking`](#blocking-45da63) - Optional String<br>Specifies configuration for temporary user blocking resulting from user behavior analysis. When Malicious User Mitigation is enabled from service policy rules, users' accessing the application will be analyzed for malicious activity and the configured mitigation actions will be taken on
+
+#### Policy Based Challenge Always Enable Captcha Challenge
+
+An [`always_enable_captcha_challenge`](#policy-based-challenge-always-enable-captcha-challenge) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+#### Policy Based Challenge Always Enable Js Challenge
+
+An [`always_enable_js_challenge`](#policy-based-challenge-always-enable-js-challenge) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+#### Policy Based Challenge Captcha Challenge Parameters
+
+A [`captcha_challenge_parameters`](#policy-based-challenge-captcha-challenge-parameters) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+<a id="nestedatt--https-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#nestedatt--https-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="nestedatt--https-custom-page"></a>&#x2022; [`custom_page`](#nestedatt--https-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+#### Policy Based Challenge Default Captcha Challenge Parameters
+
+A [`default_captcha_challenge_parameters`](#policy-based-challenge-default-captcha-challenge-parameters) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+#### Policy Based Challenge Default Js Challenge Parameters
+
+A [`default_js_challenge_parameters`](#policy-based-challenge-default-js-challenge-parameters) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+#### Policy Based Challenge Default Mitigation Settings
+
+A [`default_mitigation_settings`](#policy-based-challenge-default-mitigation-settings) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+#### Policy Based Challenge Default Temporary Blocking Parameters
+
+A [`default_temporary_blocking_parameters`](#policy-based-challenge-default-temporary-blocking-parameters) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+#### Policy Based Challenge Js Challenge Parameters
+
+A [`js_challenge_parameters`](#policy-based-challenge-js-challenge-parameters) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+<a id="nestedatt--https-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#nestedatt--https-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
+
+<a id="nestedatt--https-custom-page"></a>&#x2022; [`custom_page`](#nestedatt--https-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+
+<a id="nestedatt--https-js-script-delay"></a>&#x2022; [`js_script_delay`](#nestedatt--https-js-script-delay) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
+
+#### Policy Based Challenge Malicious User Mitigation
+
+A [`malicious_user_mitigation`](#policy-based-challenge-malicious-user-mitigation) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--https-namespace"></a>&#x2022; [`namespace`](#nestedatt--https-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--https-tenant"></a>&#x2022; [`tenant`](#nestedatt--https-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Policy Based Challenge No Challenge
+
+A [`no_challenge`](#policy-based-challenge-no-challenge) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+#### Policy Based Challenge Rule List
+
+A [`rule_list`](#policy-based-challenge-rule-list) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+<a id="nestedatt--https-rules"></a>&#x2022; [`rules`](#nestedatt--https-rules) - Optional List<br>Rules that specify the match conditions and challenge type to be launched. When a challenge type is selected to be always enabled, these rules can be used to disable challenge or launch a different challenge for requests that match the specified conditions
+
+#### Policy Based Challenge Rule List Rules
+
+A [`rules`](#policy-based-challenge-rule-list-rules) block (within [`policy_based_challenge.rule_list`](#policy-based-challenge-rule-list)) supports the following:
+
+<a id="nestedatt--https-metadata"></a>&#x2022; [`metadata`](#nestedatt--https-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during
+create
+
+<a id="nestedatt--https-spec"></a>&#x2022; [`spec`](#nestedatt--https-spec) - Optional String<br>Challenge Rule consists of an unordered list of predicates and an action. The predicates are evaluated against a set of input fields that are extracted from or derived from an L7 request API. A request API is considered to match the rule if all predicates in the rule evaluate to true for that
+
+#### Policy Based Challenge Rule List Rules Metadata
+
+A [`metadata`](#policy-based-challenge-rule-list-rules-metadata) block (within [`policy_based_challenge.rule_list.rules`](#policy-based-challenge-rule-list-rules)) supports the following:
+
+<a id="nestedatt--https-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--https-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Policy Based Challenge Rule List Rules Spec
+
+A [`spec`](#policy-based-challenge-rule-list-rules-spec) block (within [`policy_based_challenge.rule_list.rules`](#policy-based-challenge-rule-list-rules)) supports the following:
+
+<a id="nestedatt--https-any-asn"></a>&#x2022; [`any_asn`](#nestedatt--https-any-asn) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-any-client"></a>&#x2022; [`any_client`](#nestedatt--https-any-client) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-any-ip"></a>&#x2022; [`any_ip`](#nestedatt--https-any-ip) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-arg-matchers"></a>&#x2022; [`arg_matchers`](#nestedatt--https-arg-matchers) - Optional List<br>List of predicates for all POST args that need to be matched. The criteria for matching each arg are described in individual instances of ArgMatcherType. The actual arg values are extracted from the request API as a list of strings for each arg selector name
+
+<a id="nestedatt--https-asn-list"></a>&#x2022; [`asn_list`](#nestedatt--https-asn-list) - Optional String<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="nestedatt--https-asn-matcher"></a>&#x2022; [`asn_matcher`](#nestedatt--https-asn-matcher) - Optional String<br>Match any AS number contained in the list of bgp_asn_sets
+
+<a id="nestedatt--https-body-matcher"></a>&#x2022; [`body_matcher`](#nestedatt--https-body-matcher) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="nestedatt--https-client-selector"></a>&#x2022; [`client_selector`](#nestedatt--https-client-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="nestedatt--https-cookie-matchers"></a>&#x2022; [`cookie_matchers`](#nestedatt--https-cookie-matchers) - Optional List<br>List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name
+
+<a id="nestedatt--https-disable-challenge"></a>&#x2022; [`disable_challenge`](#nestedatt--https-disable-challenge) - Optional Object<br>Configuration parameter for disable challenge
+
+<a id="nestedatt--https-domain-matcher"></a>&#x2022; [`domain_matcher`](#nestedatt--https-domain-matcher) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="challenge-62350c"></a>&#x2022; [`enable_captcha_challenge`](#challenge-62350c) - Optional Object<br>Configuration parameter for enable captcha challenge
+
+<a id="challenge-a8c9b1"></a>&#x2022; [`enable_javascript_challenge`](#challenge-a8c9b1) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-expiration-timestamp"></a>&#x2022; [`expiration_timestamp`](#nestedatt--https-expiration-timestamp) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
+
+<a id="nestedatt--https-headers"></a>&#x2022; [`headers`](#nestedatt--https-headers) - Optional List<br>List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type
+
+<a id="nestedatt--https-http-method"></a>&#x2022; [`http_method`](#nestedatt--https-http-method) - Optional String<br>HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true
+
+<a id="nestedatt--https-ip-matcher"></a>&#x2022; [`ip_matcher`](#nestedatt--https-ip-matcher) - Optional String<br>Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true
+
+<a id="nestedatt--https-ip-prefix-list"></a>&#x2022; [`ip_prefix_list`](#nestedatt--https-ip-prefix-list) - Optional String<br>List of IP Prefix strings to match against
+
+<a id="nestedatt--https-path"></a>&#x2022; [`path`](#nestedatt--https-path) - Optional String<br>Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions
+
+<a id="nestedatt--https-query-params"></a>&#x2022; [`query_params`](#nestedatt--https-query-params) - Optional List<br>List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for
+each query
+
+<a id="matcher-165727"></a>&#x2022; [`tls_fingerprint_matcher`](#matcher-165727) - Optional String<br>TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied
+
+#### Policy Based Challenge Rule List Rules Spec Any Asn
+
+<a id="deep-2e93b1"></a>Deeply nested **Asn** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Any Client
+
+<a id="deep-53fd01"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Any IP
+
+<a id="deep-341ea0"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Arg Matchers
+
+<a id="deep-eb8ffe"></a>Deeply nested **Matchers** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Arg Matchers Check Not Present
+
+<a id="deep-7e97ac"></a>Deeply nested **Present** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Arg Matchers Check Present
+
+<a id="deep-9313ba"></a>Deeply nested **Present** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Arg Matchers Item
+
+<a id="deep-e03a12"></a>Deeply nested **Item** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Asn List
+
+<a id="deep-8e9207"></a>Deeply nested **List** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Asn Matcher
+
+<a id="deep-4e0cfb"></a>Deeply nested **Matcher** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Asn Matcher Asn Sets
+
+<a id="deep-2a5120"></a>Deeply nested **Sets** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Body Matcher
+
+<a id="deep-43ae26"></a>Deeply nested **Matcher** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Client Selector
+
+<a id="deep-73214b"></a>Deeply nested **Selector** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Cookie Matchers
+
+<a id="deep-946f25"></a>Deeply nested **Matchers** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Cookie Matchers Check Not Present
+
+<a id="deep-7f4140"></a>Deeply nested **Present** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Cookie Matchers Check Present
+
+<a id="deep-5c51b4"></a>Deeply nested **Present** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Cookie Matchers Item
+
+<a id="deep-939b70"></a>Deeply nested **Item** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Disable Challenge
+
+<a id="deep-4d0a5a"></a>Deeply nested **Challenge** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Domain Matcher
+
+<a id="deep-c2c201"></a>Deeply nested **Matcher** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Enable Captcha Challenge
+
+<a id="deep-2376f2"></a>Deeply nested **Challenge** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Enable JavaScript Challenge
+
+<a id="deep-2ed981"></a>Deeply nested **Challenge** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Headers
+
+<a id="deep-c62b4f"></a>Deeply nested **Headers** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Headers Check Not Present
+
+<a id="deep-7dd95a"></a>Deeply nested **Present** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Headers Check Present
+
+<a id="deep-bad74d"></a>Deeply nested **Present** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Headers Item
+
+<a id="deep-b6374c"></a>Deeply nested **Item** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec HTTP Method
+
+<a id="deep-dba95f"></a>Deeply nested **Method** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec IP Matcher
+
+<a id="deep-b37ae0"></a>Deeply nested **Matcher** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec IP Matcher Prefix Sets
+
+<a id="deep-73bd32"></a>Deeply nested **Sets** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec IP Prefix List
+
+<a id="deep-fb570d"></a>Deeply nested **List** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Path
+
+<a id="deep-2ed6cf"></a>Deeply nested **Path** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Query Params
+
+<a id="deep-39ee89"></a>Deeply nested **Params** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Query Params Check Not Present
+
+<a id="deep-c4b0f2"></a>Deeply nested **Present** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Query Params Check Present
+
+<a id="deep-350f7f"></a>Deeply nested **Present** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec Query Params Item
+
+<a id="deep-f76120"></a>Deeply nested **Item** block collapsed for readability.
+
+#### Policy Based Challenge Rule List Rules Spec TLS Fingerprint Matcher
+
+<a id="deep-2cb28a"></a>Deeply nested **Matcher** block collapsed for readability.
+
+#### Policy Based Challenge Temporary User Blocking
+
+A [`temporary_user_blocking`](#policy-based-challenge-temporary-user-blocking) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
+
+<a id="nestedatt--https-custom-page"></a>&#x2022; [`custom_page`](#nestedatt--https-custom-page) - Optional String<br>Custom message is of type . Currently supported URL schemes is . For scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. 'Blocked.' or it can be HTML paragraph or a body string encoded as base64 string E.g.
+'`<p>` Blocked
+
+#### Protected Cookies
+
+A [`protected_cookies`](#protected-cookies) block supports the following:
+
+<a id="nestedatt--https-add-httponly"></a>&#x2022; [`add_httponly`](#nestedatt--https-add-httponly) - Optional Object<br>Configuration parameter for add httponly
+
+<a id="nestedatt--https-add-secure"></a>&#x2022; [`add_secure`](#nestedatt--https-add-secure) - Optional Object<br>Enable this option
+
+<a id="protection-83db6e"></a>&#x2022; [`disable_tampering_protection`](#protection-83db6e) - Optional Object<br>Configuration parameter for disable tampering protection
+
+<a id="protection-471807"></a>&#x2022; [`enable_tampering_protection`](#protection-471807) - Optional Object<br>Configuration parameter for enable tampering protection
+
+<a id="nestedatt--https-ignore-httponly"></a>&#x2022; [`ignore_httponly`](#nestedatt--https-ignore-httponly) - Optional Object<br>Configuration parameter for ignore httponly
+
+<a id="nestedatt--https-ignore-max-age"></a>&#x2022; [`ignore_max_age`](#nestedatt--https-ignore-max-age) - Optional Object<br>Configuration parameter for ignore max age
+
+<a id="nestedatt--https-ignore-samesite"></a>&#x2022; [`ignore_samesite`](#nestedatt--https-ignore-samesite) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-ignore-secure"></a>&#x2022; [`ignore_secure`](#nestedatt--https-ignore-secure) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-max-age-value"></a>&#x2022; [`max_age_value`](#nestedatt--https-max-age-value) - Optional Number<br>Add max age attribute
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>Cookie Name. Name of the Cookie
+
+<a id="nestedatt--https-samesite-lax"></a>&#x2022; [`samesite_lax`](#nestedatt--https-samesite-lax) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-samesite-none"></a>&#x2022; [`samesite_none`](#nestedatt--https-samesite-none) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-samesite-strict"></a>&#x2022; [`samesite_strict`](#nestedatt--https-samesite-strict) - Optional Object<br>Enable this option
+
+#### Protected Cookies Add Httponly
+
+An [`add_httponly`](#protected-cookies-add-httponly) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Add Secure
+
+An [`add_secure`](#protected-cookies-add-secure) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Disable Tampering Protection
+
+A [`disable_tampering_protection`](#protected-cookies-disable-tampering-protection) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Enable Tampering Protection
+
+An [`enable_tampering_protection`](#protected-cookies-enable-tampering-protection) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Ignore Httponly
+
+An [`ignore_httponly`](#protected-cookies-ignore-httponly) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Ignore Max Age
+
+An [`ignore_max_age`](#protected-cookies-ignore-max-age) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Ignore Samesite
+
+An [`ignore_samesite`](#protected-cookies-ignore-samesite) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Ignore Secure
+
+An [`ignore_secure`](#protected-cookies-ignore-secure) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Samesite Lax
+
+A [`samesite_lax`](#protected-cookies-samesite-lax) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Samesite None
+
+A [`samesite_none`](#protected-cookies-samesite-none) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Protected Cookies Samesite Strict
+
+A [`samesite_strict`](#protected-cookies-samesite-strict) block (within [`protected_cookies`](#protected-cookies)) supports the following:
+
+#### Rate Limit
+
+A [`rate_limit`](#rate-limit) block supports the following:
+
+<a id="nestedatt--https-custom-ip-allowed-list"></a>&#x2022; [`custom_ip_allowed_list`](#nestedatt--https-custom-ip-allowed-list) - Optional String<br>IP Allowed list using existing ip_prefix_set objects
+
+<a id="nestedatt--https-ip-allowed-list"></a>&#x2022; [`ip_allowed_list`](#nestedatt--https-ip-allowed-list) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="nestedatt--https-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#nestedatt--https-no-ip-allowed-list) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="nestedatt--https-no-policies"></a>&#x2022; [`no_policies`](#nestedatt--https-no-policies) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no policies.  Server applies default when omitted
+
+<a id="nestedatt--https-policies"></a>&#x2022; [`policies`](#nestedatt--https-policies) - Optional String<br>List of rate limiter policies to be applied
+
+<a id="nestedatt--https-rate-limiter"></a>&#x2022; [`rate_limiter`](#nestedatt--https-rate-limiter) - Optional String<br>Tuple consisting of a rate limit period unit and the total number of allowed requests for that period
+
+#### Rate Limit Custom IP Allowed List
+
+A [`custom_ip_allowed_list`](#rate-limit-custom-ip-allowed-list) block (within [`rate_limit`](#rate-limit)) supports the following:
+
+<a id="prefixes-47ce81"></a>&#x2022; [`rate_limiter_allowed_prefixes`](#prefixes-47ce81) - Optional List<br>References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting
+
+#### Rate Limit Custom IP Allowed List Rate Limiter Allowed Prefixes
+
+<a id="deep-e048af"></a>Deeply nested **Prefixes** block collapsed for readability.
+
+#### Rate Limit IP Allowed List
+
+An [`ip_allowed_list`](#rate-limit-ip-allowed-list) block (within [`rate_limit`](#rate-limit)) supports the following:
+
+<a id="nestedatt--https-prefixes"></a>&#x2022; [`prefixes`](#nestedatt--https-prefixes) - Optional List<br>List of IPv4 prefixes that represent an endpoint
+
+#### Rate Limit No IP Allowed List
+
+A [`no_ip_allowed_list`](#rate-limit-no-ip-allowed-list) block (within [`rate_limit`](#rate-limit)) supports the following:
+
+#### Rate Limit No Policies
+
+A [`no_policies`](#rate-limit-no-policies) block (within [`rate_limit`](#rate-limit)) supports the following:
+
+#### Rate Limit Policies
+
+A [`policies`](#rate-limit-policies) block (within [`rate_limit`](#rate-limit)) supports the following:
+
+<a id="nestedatt--https-policies"></a>&#x2022; [`policies`](#nestedatt--https-policies) - Optional List<br>Rate Limiter Policies. Ordered list of rate limiter policies
+
+#### Rate Limit Policies Policies
+
+A [`policies`](#rate-limit-policies-policies) block (within [`rate_limit.policies`](#rate-limit-policies)) supports the following:
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--https-namespace"></a>&#x2022; [`namespace`](#nestedatt--https-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--https-tenant"></a>&#x2022; [`tenant`](#nestedatt--https-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Rate Limit Rate Limiter
+
+A [`rate_limiter`](#rate-limit-rate-limiter) block (within [`rate_limit`](#rate-limit)) supports the following:
+
+<a id="nestedatt--https-action-block"></a>&#x2022; [`action_block`](#nestedatt--https-action-block) - Optional String<br>Action where a user is blocked from making further requests after exceeding rate limit threshold
+
+<a id="nestedatt--https-burst-multiplier"></a>&#x2022; [`burst_multiplier`](#nestedatt--https-burst-multiplier) - Optional Number<br>The maximum burst of requests to accommodate, expressed as a multiple of the rate
+
+<a id="nestedatt--https-disabled"></a>&#x2022; [`disabled`](#nestedatt--https-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#nestedatt--https-leaky-bucket) - Optional Object<br>Leaky-Bucket is the default rate limiter algorithm for F5
+
+<a id="nestedatt--https-period-multiplier"></a>&#x2022; [`period_multiplier`](#nestedatt--https-period-multiplier) - Optional Number<br>Setting, combined with Per Period units, provides a duration. Server applies default when omitted
+
+<a id="nestedatt--https-token-bucket"></a>&#x2022; [`token_bucket`](#nestedatt--https-token-bucket) - Optional Object<br>Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
+
+<a id="nestedatt--https-total-number"></a>&#x2022; [`total_number`](#nestedatt--https-total-number) - Optional Number<br>The total number of allowed requests per rate-limiting period
+
+<a id="nestedatt--https-unit"></a>&#x2022; [`unit`](#nestedatt--https-unit) - Optional String  Defaults to `SECOND`<br>Possible values are `SECOND`, `MINUTE`, `HOUR`<br>[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours
+
+- DAY: Day Rate limit period unit is days
+
+#### Rate Limit Rate Limiter Action Block
+
+An [`action_block`](#rate-limit-rate-limiter-action-block) block (within [`rate_limit.rate_limiter`](#rate-limit-rate-limiter)) supports the following:
+
+<a id="nestedatt--https-hours"></a>&#x2022; [`hours`](#nestedatt--https-hours) - Optional String<br>Hours. Input Duration Hours
+
+<a id="nestedatt--https-minutes"></a>&#x2022; [`minutes`](#nestedatt--https-minutes) - Optional String<br>Minutes. Input Duration Minutes
+
+<a id="nestedatt--https-seconds"></a>&#x2022; [`seconds`](#nestedatt--https-seconds) - Optional String<br>Seconds. Input Duration Seconds
+
+#### Rate Limit Rate Limiter Action Block Hours
+
+A [`hours`](#rate-limit-rate-limiter-action-block-hours) block (within [`rate_limit.rate_limiter.action_block`](#rate-limit-rate-limiter-action-block)) supports the following:
+
+<a id="nestedatt--https-duration"></a>&#x2022; [`duration`](#nestedatt--https-duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+#### Rate Limit Rate Limiter Action Block Minutes
+
+A [`minutes`](#rate-limit-rate-limiter-action-block-minutes) block (within [`rate_limit.rate_limiter.action_block`](#rate-limit-rate-limiter-action-block)) supports the following:
+
+<a id="nestedatt--https-duration"></a>&#x2022; [`duration`](#nestedatt--https-duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+#### Rate Limit Rate Limiter Action Block Seconds
+
+A [`seconds`](#rate-limit-rate-limiter-action-block-seconds) block (within [`rate_limit.rate_limiter.action_block`](#rate-limit-rate-limiter-action-block)) supports the following:
+
+<a id="nestedatt--https-duration"></a>&#x2022; [`duration`](#nestedatt--https-duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+#### Rate Limit Rate Limiter Disabled
+
+A [`disabled`](#rate-limit-rate-limiter-disabled) block (within [`rate_limit.rate_limiter`](#rate-limit-rate-limiter)) supports the following:
+
+#### Rate Limit Rate Limiter Leaky Bucket
+
+A [`leaky_bucket`](#rate-limit-rate-limiter-leaky-bucket) block (within [`rate_limit.rate_limiter`](#rate-limit-rate-limiter)) supports the following:
+
+#### Rate Limit Rate Limiter Token Bucket
+
+A [`token_bucket`](#rate-limit-rate-limiter-token-bucket) block (within [`rate_limit.rate_limiter`](#rate-limit-rate-limiter)) supports the following:
+
+#### Sensitive Data Policy
+
+A [`sensitive_data_policy`](#sensitive-data-policy) block supports the following:
+
+<a id="ref-0c1393"></a>&#x2022; [`sensitive_data_policy_ref`](#ref-0c1393) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+#### Sensitive Data Policy Sensitive Data Policy Ref
+
+A [`sensitive_data_policy_ref`](#sensitive-data-policy-sensitive-data-policy-ref) block (within [`sensitive_data_policy`](#sensitive-data-policy)) supports the following:
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--https-namespace"></a>&#x2022; [`namespace`](#nestedatt--https-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--https-tenant"></a>&#x2022; [`tenant`](#nestedatt--https-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Service Policies From Namespace
+
+A [`service_policies_from_namespace`](#service-policies-from-namespace) block supports the following:
+
+#### Slow DDOS Mitigation
+
+A [`slow_ddos_mitigation`](#slow-ddos-mitigation) block supports the following:
+
+<a id="timeout-032b13"></a>&#x2022; [`disable_request_timeout`](#timeout-032b13) - Optional Object<br>Configuration parameter for disable request timeout
+
+<a id="timeout-3000a1"></a>&#x2022; [`request_headers_timeout`](#timeout-3000a1) - Optional Number  Defaults to `10000`<br>The amount of time the client has to send only the headers on the request stream before the stream is cancelled. The milliseconds. This setting provides protection against Slowloris attacks
+
+<a id="nestedatt--https-request-timeout"></a>&#x2022; [`request_timeout`](#nestedatt--https-request-timeout) - Optional Number
+
+#### Slow DDOS Mitigation Disable Request Timeout
+
+A [`disable_request_timeout`](#slow-ddos-mitigation-disable-request-timeout) block (within [`slow_ddos_mitigation`](#slow-ddos-mitigation)) supports the following:
+
+#### System Default Timeouts
+
+A [`system_default_timeouts`](#system-default-timeouts) block supports the following:
+
+#### Trusted Clients
+
+A [`trusted_clients`](#trusted-clients) block supports the following:
+
+<a id="nestedatt--https-actions"></a>&#x2022; [`actions`](#nestedatt--https-actions) - Optional List  Defaults to `SKIP_PROCESSING_WAF`<br>Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`,
+`SKIP_PROCESSING_MALWARE_PROTECTION`<br>[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule
+
+<a id="nestedatt--https-as-number"></a>&#x2022; [`as_number`](#nestedatt--https-as-number) - Optional Number<br>RFC 6793 defined 4-byte AS number
+
+<a id="nestedatt--https-bot-skip-processing"></a>&#x2022; [`bot_skip_processing`](#nestedatt--https-bot-skip-processing) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-expiration-timestamp"></a>&#x2022; [`expiration_timestamp`](#nestedatt--https-expiration-timestamp) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
+
+<a id="nestedatt--https-http-header"></a>&#x2022; [`http_header`](#nestedatt--https-http-header) - Optional String<br>Configuration parameter for HTTP header
+
+<a id="nestedatt--https-ip-prefix"></a>&#x2022; [`ip_prefix`](#nestedatt--https-ip-prefix) - Optional String<br>IPv4 prefix string
+
+<a id="nestedatt--https-ipv6-prefix"></a>&#x2022; [`ipv6_prefix`](#nestedatt--https-ipv6-prefix) - Optional String<br>IPv6 prefix string
+
+<a id="nestedatt--https-metadata"></a>&#x2022; [`metadata`](#nestedatt--https-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during
+create
+
+<a id="nestedatt--https-skip-processing"></a>&#x2022; [`skip_processing`](#nestedatt--https-skip-processing) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-user-identifier"></a>&#x2022; [`user_identifier`](#nestedatt--https-user-identifier) - Optional String<br>Identify user based on user identifier. User identifier value needs to be copied from security event
+
+<a id="nestedatt--https-waf-skip-processing"></a>&#x2022; [`waf_skip_processing`](#nestedatt--https-waf-skip-processing) - Optional Object<br>Enable this option
+
+#### Trusted Clients Bot Skip Processing
+
+A [`bot_skip_processing`](#trusted-clients-bot-skip-processing) block (within [`trusted_clients`](#trusted-clients)) supports the following:
+
+#### Trusted Clients HTTP Header
+
+A [`http_header`](#trusted-clients-http-header) block (within [`trusted_clients`](#trusted-clients)) supports the following:
+
+<a id="nestedatt--https-headers"></a>&#x2022; [`headers`](#nestedatt--https-headers) - Optional List<br>List of HTTP header name and value pairs
+
+#### Trusted Clients HTTP Header Headers
+
+A [`headers`](#trusted-clients-http-header-headers) block (within [`trusted_clients.http_header`](#trusted-clients-http-header)) supports the following:
+
+<a id="nestedatt--https-exact"></a>&#x2022; [`exact`](#nestedatt--https-exact) - Optional String<br>Header value to match exactly
+
+<a id="nestedatt--https-invert-match"></a>&#x2022; [`invert_match`](#nestedatt--https-invert-match) - Optional Bool<br>Invert the result of the match to detect missing header or non-matching value
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>Name. Name of the header
+
+<a id="nestedatt--https-presence"></a>&#x2022; [`presence`](#nestedatt--https-presence) - Optional Bool<br>If true, check for presence of header
+
+<a id="nestedatt--https-regex"></a>&#x2022; [`regex`](#nestedatt--https-regex) - Optional String<br>Regex match of the header value in re2 format
+
+#### Trusted Clients Metadata
+
+A [`metadata`](#trusted-clients-metadata) block (within [`trusted_clients`](#trusted-clients)) supports the following:
+
+<a id="nestedatt--https-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--https-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Trusted Clients Skip Processing
+
+A [`skip_processing`](#trusted-clients-skip-processing) block (within [`trusted_clients`](#trusted-clients)) supports the following:
+
+#### Trusted Clients WAF Skip Processing
+
+A [`waf_skip_processing`](#trusted-clients-waf-skip-processing) block (within [`trusted_clients`](#trusted-clients)) supports the following:
+
+#### User ID Client IP
+
+An [`user_id_client_ip`](#user-id-client-ip) block supports the following:
+
+#### User Identification
+
+An [`user_identification`](#user-identification) block supports the following:
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--https-namespace"></a>&#x2022; [`namespace`](#nestedatt--https-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--https-tenant"></a>&#x2022; [`tenant`](#nestedatt--https-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### WAF Exclusion
+
+A [`waf_exclusion`](#waf-exclusion) block supports the following:
+
+<a id="rules-7f3192"></a>&#x2022; [`waf_exclusion_inline_rules`](#rules-7f3192) - Optional String<br>List of WAF exclusion rules that will be applied inline
+
+<a id="nestedatt--https-waf-exclusion-policy"></a>&#x2022; [`waf_exclusion_policy`](#nestedatt--https-waf-exclusion-policy) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+#### WAF Exclusion WAF Exclusion Inline Rules
+
+A [`waf_exclusion_inline_rules`](#waf-exclusion-waf-exclusion-inline-rules) block (within [`waf_exclusion`](#waf-exclusion)) supports the following:
+
+<a id="nestedatt--https-rules"></a>&#x2022; [`rules`](#nestedatt--https-rules) - Optional List<br>Ordered list of WAF Exclusions specific to this Load Balancer
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules
+
+A [`rules`](#waf-exclusion-waf-exclusion-inline-rules-rules) block (within [`waf_exclusion.waf_exclusion_inline_rules`](#waf-exclusion-waf-exclusion-inline-rules)) supports the following:
+
+<a id="nestedatt--https-any-domain"></a>&#x2022; [`any_domain`](#nestedatt--https-any-domain) - Optional Object<br>Enable this option
+
+<a id="nestedatt--https-any-path"></a>&#x2022; [`any_path`](#nestedatt--https-any-path) - Optional Object<br>Enable this option
+
+<a id="control-f0480a"></a>&#x2022; [`app_firewall_detection_control`](#control-f0480a) - Optional String<br>Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria
+
+<a id="nestedatt--https-exact-value"></a>&#x2022; [`exact_value`](#nestedatt--https-exact-value) - Optional String<br>Exact domain name
+
+<a id="nestedatt--https-expiration-timestamp"></a>&#x2022; [`expiration_timestamp`](#nestedatt--https-expiration-timestamp) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
+
+<a id="nestedatt--https-metadata"></a>&#x2022; [`metadata`](#nestedatt--https-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during
+create
+
+<a id="nestedatt--https-methods"></a>&#x2022; [`methods`](#nestedatt--https-methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Methods. Methods to be matched
+
+<a id="nestedatt--https-path-prefix"></a>&#x2022; [`path_prefix`](#nestedatt--https-path-prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="nestedatt--https-path-regex"></a>&#x2022; [`path_regex`](#nestedatt--https-path-regex) - Optional String<br>Define the regex for the path. For example, the regex ^/.*$ will match on all paths
+
+<a id="nestedatt--https-suffix-value"></a>&#x2022; [`suffix_value`](#nestedatt--https-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="nestedatt--https-waf-skip-processing"></a>&#x2022; [`waf_skip_processing`](#nestedatt--https-waf-skip-processing) - Optional Object<br>Enable this option
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules Any Domain
+
+<a id="deep-f13b12"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules Any Path
+
+<a id="deep-03b43b"></a>Deeply nested **Path** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules App Firewall Detection Control
+
+<a id="deep-832ffb"></a>Deeply nested **Control** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules App Firewall Detection Control Exclude Attack Type Contexts
+
+<a id="deep-0e5af0"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules App Firewall Detection Control Exclude Bot Name Contexts
+
+<a id="deep-22f5f8"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules App Firewall Detection Control Exclude Signature Contexts
+
+<a id="deep-30cc06"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules App Firewall Detection Control Exclude Violation Contexts
+
+<a id="deep-d6ba53"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules Metadata
+
+<a id="deep-68f59c"></a>Deeply nested **Metadata** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Inline Rules Rules WAF Skip Processing
+
+<a id="deep-2057e6"></a>Deeply nested **Processing** block collapsed for readability.
+
+#### WAF Exclusion WAF Exclusion Policy
+
+A [`waf_exclusion_policy`](#waf-exclusion-waf-exclusion-policy) block (within [`waf_exclusion`](#waf-exclusion)) supports the following:
+
+<a id="nestedatt--https-name"></a>&#x2022; [`name`](#nestedatt--https-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--https-namespace"></a>&#x2022; [`namespace`](#nestedatt--https-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--https-tenant"></a>&#x2022; [`tenant`](#nestedatt--https-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

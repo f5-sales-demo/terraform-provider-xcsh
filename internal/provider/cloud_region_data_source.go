@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,15 +28,33 @@ type CloudRegionDataSource struct {
 	client *client.Client
 }
 
+// CloudRegionEmptyModel represents empty nested blocks
+type CloudRegionEmptyModel struct {
+}
+
+// CloudRegionPolicyGroupModel represents policy_group block
+type CloudRegionPolicyGroupModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// CloudRegionPolicyGroupModelAttrTypes defines the attribute types for CloudRegionPolicyGroupModel
+var CloudRegionPolicyGroupModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
 type CloudRegionDataSourceModel struct {
-	ID                 types.String `tfsdk:"id"`
-	Name               types.String `tfsdk:"name"`
-	Namespace          types.String `tfsdk:"namespace"`
-	Description        types.String `tfsdk:"description"`
-	Labels             types.Map    `tfsdk:"labels"`
-	Annotations        types.Map    `tfsdk:"annotations"`
-	DefaultPolicyGroup types.String `tfsdk:"default_policy_group"`
-	PolicyGroup        types.String `tfsdk:"policy_group"`
+	ID                 types.String                 `tfsdk:"id"`
+	Name               types.String                 `tfsdk:"name"`
+	Namespace          types.String                 `tfsdk:"namespace"`
+	Description        types.String                 `tfsdk:"description"`
+	Labels             types.Map                    `tfsdk:"labels"`
+	Annotations        types.Map                    `tfsdk:"annotations"`
+	DefaultPolicyGroup types.Object                 `tfsdk:"default_policy_group"`
+	PolicyGroup        *CloudRegionPolicyGroupModel `tfsdk:"policy_group"`
 }
 
 func (d *CloudRegionDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -72,13 +91,28 @@ func (d *CloudRegionDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
-			"default_policy_group": schema.StringAttribute{
+			"default_policy_group": schema.ObjectAttribute{
 				MarkdownDescription: "Configuration parameter for default policy group.",
 				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
-			"policy_group": schema.StringAttribute{
+			"policy_group": schema.SingleNestedAttribute{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+						Computed:            true,
+					},
+					"tenant": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
 			},
 		},
 	}
@@ -142,17 +176,36 @@ func (d *CloudRegionDataSource) Read(ctx context.Context, req datasource.ReadReq
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["default_policy_group"]; ok && v != nil {
-		data.DefaultPolicyGroup = types.StringValue(fmt.Sprintf("%v", v))
+	apiResource := resource
+	isImport := true
+	if !isImport && !data.DefaultPolicyGroup.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_policy_group"].(map[string]interface{}); ok {
+		data.DefaultPolicyGroup = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 	} else {
-		data.DefaultPolicyGroup = types.StringNull()
+		data.DefaultPolicyGroup = types.ObjectNull(map[string]attr.Type{})
 	}
-	if v, ok := resource.Spec["policy_group"]; ok && v != nil {
-		data.PolicyGroup = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.PolicyGroup = types.StringNull()
+	if blockData, ok := apiResource.Spec["policy_group"].(map[string]interface{}); ok && (isImport || data.PolicyGroup != nil) {
+		data.PolicyGroup = &CloudRegionPolicyGroupModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Tenant: func() types.String {
+				if v, ok := blockData["tenant"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

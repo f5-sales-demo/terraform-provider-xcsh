@@ -56,11 +56,11 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
-<a id="infras-752e67"></a>&#x2022; [`bot_detection_rule_configs_per_bot_infras`](#infras-752e67) - Optional String<br>Rule configurations per Bot-Infras. Rule or policy definition
+<a id="infras-752e67"></a>&#x2022; [`bot_detection_rule_configs_per_bot_infras`](#infras-752e67) - Optional List<br>Rule configurations per Bot-Infras. Rule or policy definition
 
-<a id="classification"></a>&#x2022; [`classification`](#classification) - Optional String<br>Classification. Classification or category data
+<a id="classification"></a>&#x2022; [`classification`](#classification) - Optional List<br>Classification. Classification or category data
 
-<a id="cluster-groups"></a>&#x2022; [`cluster_groups`](#cluster-groups) - Optional String<br>Cluster Groups. Cluster or grouping configuration
+<a id="cluster-groups"></a>&#x2022; [`cluster_groups`](#cluster-groups) - Optional List<br>Cluster Groups. Cluster or grouping configuration
 
 <a id="created-at"></a>&#x2022; [`created_at`](#created-at) - Optional String<br>Created At. Created at as per SAPI's database
 
@@ -82,7 +82,33 @@ Detection Rule Type
 <a id="traffic-type"></a>&#x2022; [`traffic_type`](#traffic-type) - Optional String  Defaults to `WEB`<br>Possible values are `WEB`, `MOBILE`<br>[Enum: WEB|MOBILE] The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic
 from native mobile apps with the Bot Defense SDK are routed
 
-<a id="version"></a>&#x2022; [`version`](#version) - Optional String<br>Version. Version number or identifier
+<a id="version"></a>&#x2022; [`version`](#version) - Optional Number<br>Version. Version number or identifier
+
+<a id="bot-detection-rule-config"></a>&#x2022; [`bot_detection_rule_config`](#bot-detection-rule-config) - Optional String<br>Rule configuration. Rule configuration
+
+<a id="bot-infra-id"></a>&#x2022; [`bot_infra_id`](#bot-infra-id) - Optional String<br>Bot Infrastructure ID as per SAPI's database
+
+<a id="bot-infra-name"></a>&#x2022; [`bot_infra_name`](#bot-infra-name) - Optional String<br>Name of the bot infrastructure as per SAPI's database
+
+<a id="bot-infrastructure-type"></a>&#x2022; [`bot_infrastructure_type`](#bot-infrastructure-type) - Optional String  Defaults to `BOT_INFRA_TYPE_UNKNOWN`<br>Possible values are `BOT_INFRA_TYPE_UNKNOWN`, `BOT_INFRA_TYPE_CLOUD_HOSTED`, `BOT_INFRA_TYPE_HOSTED`, `BOT_INFRA_TYPE_ON_PREM`, `BOT_INFRA_TYPE_K8S_CLUSTER`<br>[Enum:
+BOT_INFRA_TYPE_UNKNOWN|BOT_INFRA_TYPE_CLOUD_HOSTED|BOT_INFRA_TYPE_HOSTED|BOT_INFRA_TYPE_ON_PREM|BOT_INFRA_TYPE_K8S_CLUSTER] Type of the Bot Infrastructure - BOT_INFRA_TYPE_UNKNOWN: Unknown - BOT_INFRA_TYPE_CLOUD_HOSTED: F5 Cloud Hosted - BOT_INFRA_TYPE_HOSTED: F5 Hosted - BOT_INFRA_TYPE_ON_PREM: F5 On Premises - BOT_INFRA_TYPE_K8S_CLUSTER: Kubernetes Cluster
+
+<a id="environment-type"></a>&#x2022; [`environment_type`](#environment-type) - Optional String  Defaults to `PRODUCTION`<br>Possible values are `PRODUCTION`, `TESTING`<br>[Enum: PRODUCTION|TESTING] Identifies the environment as either Production or Testing. Production environments have two infrastructure regions in an Active-Active configuration where traffic is routed equally between the two
+regions. Test environments have a single infrastructure region
+
+<a id="k8s-cluster-rule-config"></a>&#x2022; [`k8s_cluster_rule_config`](#k8s-cluster-rule-config) - Optional String<br>Kubernetes Cluster Rule Config. Kubernetes cluster rule config
+
+<a id="region-rule-config"></a>&#x2022; [`region_rule_config`](#region-rule-config) - Optional String<br>Rule Config Per Region. Rule config per region
+
+<a id="mitigation"></a>&#x2022; [`mitigation`](#mitigation) - Optional Bool<br>Mitigation. Mitigation - true(ON) / false(OFF)
+
+<a id="in-used-k8s-cluster-rule-config"></a>&#x2022; [`in_used_k8s_cluster_rule_config`](#in-used-k8s-cluster-rule-config) - Optional String<br>In-Used Kubernetes Cluster Rule Config. Cluster or grouping configuration
+
+<a id="sync-status-per-k8s-cluster"></a>&#x2022; [`sync_status_per_k8s_cluster`](#sync-status-per-k8s-cluster) - Optional String<br>Sync Status. Cluster or grouping configuration
+
+<a id="target-k8s-cluster-rule-config"></a>&#x2022; [`target_k8s_cluster_rule_config`](#target-k8s-cluster-rule-config) - Optional String<br>Target Kubernetes Cluster Rule Config. Cluster or grouping configuration
+
+<a id="region-config"></a>&#x2022; [`region_config`](#region-config) - Optional String<br>Rule Config Per Region. Configuration settings and parameters
 
 ---
 

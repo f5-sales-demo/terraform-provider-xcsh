@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,29 @@ type UDPLoadBalancerDataSource struct {
 }
 
 type UDPLoadBalancerDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                                 types.String                               `tfsdk:"id"`
+	Name                               types.String                               `tfsdk:"name"`
+	Namespace                          types.String                               `tfsdk:"namespace"`
+	Description                        types.String                               `tfsdk:"description"`
+	Labels                             types.Map                                  `tfsdk:"labels"`
+	Annotations                        types.Map                                  `tfsdk:"annotations"`
+	AdvertiseOnPublicDefaultVIP        types.Object                               `tfsdk:"advertise_on_public_default_vip"`
+	DoNotAdvertise                     types.Object                               `tfsdk:"do_not_advertise"`
+	Domains                            types.List                                 `tfsdk:"domains"`
+	HashPolicyChoiceRandom             types.Object                               `tfsdk:"hash_policy_choice_random"`
+	HashPolicyChoiceRoundRobin         types.Object                               `tfsdk:"hash_policy_choice_round_robin"`
+	HashPolicyChoiceSourceIPStickiness types.Object                               `tfsdk:"hash_policy_choice_source_ip_stickiness"`
+	NoServicePolicies                  types.Object                               `tfsdk:"no_service_policies"`
+	ServicePoliciesFromNamespace       types.Object                               `tfsdk:"service_policies_from_namespace"`
+	DNSVolterraManaged                 types.Bool                                 `tfsdk:"dns_volterra_managed"`
+	IdleTimeout                        types.Int64                                `tfsdk:"idle_timeout"`
+	ListenPort                         types.Int64                                `tfsdk:"listen_port"`
+	PortRanges                         types.String                               `tfsdk:"port_ranges"`
+	ActiveServicePolicies              *UDPLoadBalancerActiveServicePoliciesModel `tfsdk:"active_service_policies"`
+	AdvertiseCustom                    *UDPLoadBalancerAdvertiseCustomModel       `tfsdk:"advertise_custom"`
+	AdvertiseOnPublic                  *UDPLoadBalancerAdvertiseOnPublicModel     `tfsdk:"advertise_on_public"`
+	OriginPoolsWeights                 types.List                                 `tfsdk:"origin_pools_weights"`
+	UDP                                *UDPLoadBalancerEmptyModel                 `tfsdk:"udp"`
 }
 
 func (d *UDPLoadBalancerDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +88,401 @@ func (d *UDPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.S
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"active_service_policies": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: active_service_policies, no_service_policies, service_policies_from_namespace; Default: no_service_policies] Configuration parameter for active service policies.",
+				Attributes: map[string]schema.Attribute{
+					"policies": schema.ListNestedAttribute{
+						MarkdownDescription: "Service Policies is a sequential engine where policies (and rules within the policy) are evaluated one after the other. It's important to define the correct order (policies evaluated from top to bottom in the list) for service policies, to GET the intended result. For each request, its..",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"advertise_custom": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: advertise_custom, advertise_on_public, advertise_on_public_default_vip, do_not_advertise; Default: advertise_on_public_default_vip] Defines a way to advertise a VIP on specific sites.",
+				Attributes: map[string]schema.Attribute{
+					"advertise_where": schema.ListNestedAttribute{
+						MarkdownDescription: "Where should this load balancer be available.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"advertise_on_public": schema.SingleNestedAttribute{
+									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+									Attributes: map[string]schema.Attribute{
+										"public_ip": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"port": schema.Int64Attribute{
+									MarkdownDescription: "Exclusive with [port_ranges use_default_port] Port to Listen.",
+									Computed:            true,
+								},
+								"port_ranges": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [port use_default_port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
+									Computed:            true,
+								},
+								"site": schema.SingleNestedAttribute{
+									MarkdownDescription: "Defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised.",
+									Attributes: map[string]schema.Attribute{
+										"ip": schema.StringAttribute{
+											MarkdownDescription: "Use given IP address as VIP on the site.",
+											Computed:            true,
+										},
+										"network": schema.StringAttribute{
+											MarkdownDescription: "[Enum: SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NETWORK_SERVICE|SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_IP_FABRIC] Defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks. Possible values are `SITE_NETWORK_INSIDE_AND_OUTSIDE`, `SITE_NETWORK_INSIDE`, `SITE_NETWORK_OUTSIDE`, `SITE_NETWORK_SERVICE`, `SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_IP_FABRIC`. Defaults to `SITE_NETWORK_INSIDE_AND_OUTSIDE`.",
+											Computed:            true,
+										},
+										"site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"use_default_port": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"virtual_network": schema.SingleNestedAttribute{
+									MarkdownDescription: "Parameters to advertise on a given virtual network.",
+									Attributes: map[string]schema.Attribute{
+										"default_v6_vip": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"default_vip": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"specific_v6_vip": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [default_v6_vip] Use given IPv6 address as VIP on virtual Network.",
+											Computed:            true,
+										},
+										"specific_vip": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [default_vip] Use given IPv4 address as VIP on virtual Network.",
+											Computed:            true,
+										},
+										"virtual_network": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"virtual_site": schema.SingleNestedAttribute{
+									MarkdownDescription: "Defines a reference to a customer site virtual site along with network type where a load balancer could be advertised.",
+									Attributes: map[string]schema.Attribute{
+										"network": schema.StringAttribute{
+											MarkdownDescription: "[Enum: SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NETWORK_SERVICE|SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_IP_FABRIC] Defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks. Possible values are `SITE_NETWORK_INSIDE_AND_OUTSIDE`, `SITE_NETWORK_INSIDE`, `SITE_NETWORK_OUTSIDE`, `SITE_NETWORK_SERVICE`, `SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_IP_FABRIC`. Defaults to `SITE_NETWORK_INSIDE_AND_OUTSIDE`.",
+											Computed:            true,
+										},
+										"virtual_site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"virtual_site_with_vip": schema.SingleNestedAttribute{
+									MarkdownDescription: "Defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised.",
+									Attributes: map[string]schema.Attribute{
+										"ip": schema.StringAttribute{
+											MarkdownDescription: "Use given IP address as VIP on the site.",
+											Computed:            true,
+										},
+										"network": schema.StringAttribute{
+											MarkdownDescription: "[Enum: SITE_NETWORK_SPECIFIED_VIP_OUTSIDE|SITE_NETWORK_SPECIFIED_VIP_INSIDE] Defines network types to be used on virtual-site with specified VIP All outside networks. All inside networks. Possible values are `SITE_NETWORK_SPECIFIED_VIP_OUTSIDE`, `SITE_NETWORK_SPECIFIED_VIP_INSIDE`. Defaults to `SITE_NETWORK_SPECIFIED_VIP_OUTSIDE`.",
+											Computed:            true,
+										},
+										"virtual_site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"vk8s_service": schema.SingleNestedAttribute{
+									MarkdownDescription: "Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
+									Attributes: map[string]schema.Attribute{
+										"site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"virtual_site": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"advertise_on_public": schema.SingleNestedAttribute{
+				MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+				Attributes: map[string]schema.Attribute{
+					"public_ip": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"advertise_on_public_default_vip": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"do_not_advertise": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for do not advertise.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"domains": schema.ListAttribute{
+				MarkdownDescription: "List of domains (host/authority header) that will be matched to this load balancer.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"hash_policy_choice_random": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: hash_policy_choice_random, hash_policy_choice_round_robin, hash_policy_choice_source_ip_stickiness] Configuration parameter for hash policy choice random.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"hash_policy_choice_round_robin": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for hash policy choice round robin.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"hash_policy_choice_source_ip_stickiness": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_service_policies": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no service policies.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"origin_pools_weights": schema.ListNestedAttribute{
+				MarkdownDescription: "Origin pools with weights and priorities used for this load balancer.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"cluster": schema.SingleNestedAttribute{
+							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"endpoint_subsets": schema.SingleNestedAttribute{
+							MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
+							Attributes:          map[string]schema.Attribute{},
+							Computed:            true,
+						},
+						"pool": schema.SingleNestedAttribute{
+							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+							Attributes: map[string]schema.Attribute{
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"priority": schema.Int64Attribute{
+							MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
+							Computed:            true,
+						},
+						"weight": schema.Int64Attribute{
+							MarkdownDescription: "Weight of this origin pool, valid only with multiple origin pool. Value of 0 will disable the pool.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"service_policies_from_namespace": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"udp": schema.SingleNestedAttribute{
+				MarkdownDescription: "Enable this option",
+				Attributes:          map[string]schema.Attribute{},
+				Computed:            true,
+			},
+			"dns_volterra_managed": schema.BoolAttribute{
+				MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain to be delegated to F5 Distributed Cloud using the Delegated Domain feature or a DNS CNAME record must be created in your DNS provider's portal.",
+				Computed:            true,
+			},
+			"idle_timeout": schema.Int64Attribute{
+				MarkdownDescription: "The amount of time that a session can exist without upstream or downstream activity, in milliseconds.",
+				Computed:            true,
+			},
+			"listen_port": schema.Int64Attribute{
+				MarkdownDescription: "[OneOf: listen_port, port_ranges] Exclusive with [port_ranges] Listen Port for this load balancer.",
+				Computed:            true,
+			},
+			"port_ranges": schema.StringAttribute{
+				MarkdownDescription: "Exclusive with [listen_port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +506,8 @@ func (d *UDPLoadBalancerDataSource) Read(ctx context.Context, req datasource.Rea
 		return
 	}
 
-	resource, err := d.client.GetUDPLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetUDPLoadBalancer(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read UDPLoadBalancer: %s", err))
 		return
@@ -101,7 +515,11 @@ func (d *UDPLoadBalancerDataSource) Read(ctx context.Context, req datasource.Rea
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +552,586 @@ func (d *UDPLoadBalancerDataSource) Read(ctx context.Context, req datasource.Rea
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["active_service_policies"].(map[string]interface{}); ok && (isImport || data.ActiveServicePolicies != nil) {
+		data.ActiveServicePolicies = &UDPLoadBalancerActiveServicePoliciesModel{
+			Policies: func() types.List {
+				if !isImport && data.ActiveServicePolicies != nil && (data.ActiveServicePolicies.Policies.IsNull() || len(data.ActiveServicePolicies.Policies.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
+				}
+				var PoliciesExisting []UDPLoadBalancerActiveServicePoliciesPoliciesModel
+				if !isImport && data.ActiveServicePolicies != nil && !data.ActiveServicePolicies.Policies.IsNull() && !data.ActiveServicePolicies.Policies.IsUnknown() {
+					data.ActiveServicePolicies.Policies.ElementsAs(ctx, &PoliciesExisting, false)
+				}
+				if rawList, ok := blockData["policies"].([]interface{}); ok && len(rawList) > 0 {
+					var PoliciesResult []UDPLoadBalancerActiveServicePoliciesPoliciesModel
+					for PoliciesIdx, PoliciesItem := range rawList {
+						_ = PoliciesIdx
+						if PoliciesItemMap, ok := PoliciesItem.(map[string]interface{}); ok {
+							PoliciesResult = append(PoliciesResult, UDPLoadBalancerActiveServicePoliciesPoliciesModel{
+								Name: func() types.String {
+									if v, ok := PoliciesItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := PoliciesItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := PoliciesItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UDPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes}, PoliciesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerActiveServicePoliciesPoliciesModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["advertise_custom"].(map[string]interface{}); ok && (isImport || data.AdvertiseCustom != nil) {
+		data.AdvertiseCustom = &UDPLoadBalancerAdvertiseCustomModel{
+			AdvertiseWhere: func() types.List {
+				if !isImport && data.AdvertiseCustom != nil && (data.AdvertiseCustom.AdvertiseWhere.IsNull() || len(data.AdvertiseCustom.AdvertiseWhere.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
+				}
+				var AdvertiseWhereExisting []UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+				if !isImport && data.AdvertiseCustom != nil && !data.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
+					data.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereExisting, false)
+				}
+				if rawList, ok := blockData["advertise_where"].([]interface{}); ok && len(rawList) > 0 {
+					var AdvertiseWhereResult []UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel
+					for AdvertiseWhereIdx, AdvertiseWhereItem := range rawList {
+						_ = AdvertiseWhereIdx
+						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
+							AdvertiseWhereResult = append(AdvertiseWhereResult, UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+								AdvertiseOnPublic: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
+									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
+										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
+											PublicIP: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Port: func() types.Int64 {
+									if v, ok := AdvertiseWhereItemMap["port"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								PortRanges: func() types.String {
+									if v, ok := AdvertiseWhereItemMap["port_ranges"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Site: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel {
+									if SiteData, ok := AdvertiseWhereItemMap["site"].(map[string]interface{}); ok {
+										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel{
+											IP: func() types.String {
+												if v, ok := SiteData["ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Network: func() types.String {
+												if v, ok := SiteData["network"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Site: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModel {
+												if SiteData, ok := SiteData["site"].(map[string]interface{}); ok {
+													return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
+									}
+									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								VirtualNetwork: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
+									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
+										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
+											DefaultV6VIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
+												}
+												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											DefaultVIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
+													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
+												}
+												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											SpecificV6VIP: func() types.String {
+												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SpecificVIP: func() types.String {
+												if v, ok := VirtualNetworkData["specific_vip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VirtualNetwork: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel {
+												if VirtualNetworkData, ok := VirtualNetworkData["virtual_network"].(map[string]interface{}); ok {
+													return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel{
+														Name: func() types.String {
+															if v, ok := VirtualNetworkData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualNetworkData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualNetworkData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								VirtualSite: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel {
+									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
+										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel{
+											Network: func() types.String {
+												if v, ok := VirtualSiteData["network"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VirtualSite: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteData["virtual_site"].(map[string]interface{}); ok {
+													return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								VirtualSiteWithVIP: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel {
+									if VirtualSiteWithVIPData, ok := AdvertiseWhereItemMap["virtual_site_with_vip"].(map[string]interface{}); ok {
+										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel{
+											IP: func() types.String {
+												if v, ok := VirtualSiteWithVIPData["ip"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Network: func() types.String {
+												if v, ok := VirtualSiteWithVIPData["network"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											VirtualSite: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel {
+												if VirtualSiteData, ok := VirtualSiteWithVIPData["virtual_site"].(map[string]interface{}); ok {
+													return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Vk8sService: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel {
+									if Vk8sServiceData, ok := AdvertiseWhereItemMap["vk8s_service"].(map[string]interface{}); ok {
+										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel{
+											Site: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel {
+												if SiteData, ok := Vk8sServiceData["site"].(map[string]interface{}); ok {
+													return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceSiteModel{
+														Name: func() types.String {
+															if v, ok := SiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := SiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := SiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											VirtualSite: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel {
+												if VirtualSiteData, ok := Vk8sServiceData["virtual_site"].(map[string]interface{}); ok {
+													return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModel{
+														Name: func() types.String {
+															if v, ok := VirtualSiteData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := VirtualSiteData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := VirtualSiteData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes}, AdvertiseWhereResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
+		data.AdvertiseOnPublic = &UDPLoadBalancerAdvertiseOnPublicModel{
+			PublicIP: func() *UDPLoadBalancerAdvertiseOnPublicPublicIPModel {
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &UDPLoadBalancerAdvertiseOnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if !isImport && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
+	}
+	if v, ok := apiResource.Spec["domains"].([]interface{}); ok {
+		domainsList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				domainsList = append(domainsList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, domainsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Domains = listVal
+		}
+	} else if isImport || data.Domains.IsUnknown() {
+		data.Domains = types.ListNull(types.StringType)
+	}
+	if !isImport && !data.HashPolicyChoiceRandom.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRandom = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRandom = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRoundRobin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRoundRobin = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.NoServicePolicies.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok {
+		data.NoServicePolicies = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoServicePolicies = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
+		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["origin_pools_weights"].([]interface{}); ok && len(listData) > 0 {
+		var OriginPoolsWeightsList []UDPLoadBalancerOriginPoolsWeightsModel
+		var existingOriginPoolsWeightsItems []UDPLoadBalancerOriginPoolsWeightsModel
+		if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
+			data.OriginPoolsWeights.ElementsAs(ctx, &existingOriginPoolsWeightsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				OriginPoolsWeightsList = append(OriginPoolsWeightsList, UDPLoadBalancerOriginPoolsWeightsModel{
+					Cluster: func() *UDPLoadBalancerOriginPoolsWeightsClusterModel {
+						if ClusterData, ok := itemMap["cluster"].(map[string]interface{}); ok {
+							return &UDPLoadBalancerOriginPoolsWeightsClusterModel{
+								Name: func() types.String {
+									if v, ok := ClusterData["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := ClusterData["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := ClusterData["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					EndpointSubsets: func() *UDPLoadBalancerEmptyModel {
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
+							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
+						}
+						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							return &UDPLoadBalancerEmptyModel{}
+						}
+						return nil
+					}(),
+					Pool: func() *UDPLoadBalancerOriginPoolsWeightsPoolModel {
+						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
+							return &UDPLoadBalancerOriginPoolsWeightsPoolModel{
+								Name: func() types.String {
+									if v, ok := PoolData["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := PoolData["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := PoolData["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					Priority: func() types.Int64 {
+						if v, ok := itemMap["priority"].(float64); ok && v != 0 {
+							return types.Int64Value(int64(v))
+						}
+						return types.Int64Null()
+					}(),
+					Weight: func() types.Int64 {
+						if v, ok := itemMap["weight"].(float64); ok && v != 0 {
+							return types.Int64Value(int64(v))
+						}
+						return types.Int64Null()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes}, OriginPoolsWeightsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.OriginPoolsWeights = listVal
+		}
+	} else {
+		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes})
+	}
+	if !isImport && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok {
+		data.ServicePoliciesFromNamespace = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ServicePoliciesFromNamespace = types.ObjectNull(map[string]attr.Type{})
+	}
+	if _, ok := apiResource.Spec["udp"].(map[string]interface{}); ok && isImport && data.UDP == nil {
+		data.UDP = &UDPLoadBalancerEmptyModel{}
+	}
+	if v, ok := apiResource.Spec["dns_volterra_managed"].(bool); ok {
+		data.DNSVolterraManaged = types.BoolValue(v)
+	} else {
+		data.DNSVolterraManaged = types.BoolNull()
+	}
+	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
+		data.IdleTimeout = types.Int64Value(int64(v))
+	} else {
+		data.IdleTimeout = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["listen_port"].(float64); ok {
+		data.ListenPort = types.Int64Value(int64(v))
+	} else {
+		data.ListenPort = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["port_ranges"].(string); ok && v != "" {
+		data.PortRanges = types.StringValue(v)
+	} else {
+		data.PortRanges = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

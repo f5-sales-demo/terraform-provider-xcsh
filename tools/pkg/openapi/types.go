@@ -166,6 +166,7 @@ type TerraformAttribute struct {
 	Optional           bool
 	Computed           bool
 	Sensitive          bool
+	WriteOnly          bool // x-field-mutability == "write-only"; never expose in data-source state.
 	NestedAttributes   []TerraformAttribute
 	NestedBlockType    string
 	IsBlock            bool

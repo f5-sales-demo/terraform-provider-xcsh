@@ -60,9 +60,55 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the APICrawler
 
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>API Crawler. API Crawler Configuration
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+---
+
+#### Domains
+
+A [`domains`](#domains) block supports the following:
+
+<a id="nestedatt--domains-domain"></a>&#x2022; [`domain`](#nestedatt--domains-domain) - Optional String<br>Select the domain to execute API Crawling with given credentials
+
+<a id="nestedatt--domains-simple-login"></a>&#x2022; [`simple_login`](#nestedatt--domains-simple-login) - Optional String<br>Configuration parameter for simple login
+
+#### Domains Simple Login
+
+A [`simple_login`](#domains-simple-login) block (within [`domains`](#domains)) supports the following:
+
+<a id="nestedatt--domains-password"></a>&#x2022; [`password`](#nestedatt--domains-password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--domains-user"></a>&#x2022; [`user`](#nestedatt--domains-user) - Optional String<br>Enter the username to assign credentials for the selected domain to crawl
+
+#### Domains Simple Login Password
+
+A [`password`](#domains-simple-login-password) block (within [`domains.simple_login`](#domains-simple-login)) supports the following:
+
+<a id="info-f2ee38"></a>&#x2022; [`blindfold_secret_info`](#info-f2ee38) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="nestedatt--domains-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#nestedatt--domains-clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Domains Simple Login Password Blindfold Secret Info
+
+A [`blindfold_secret_info`](#domains-simple-login-password-blindfold-secret-info) block (within [`domains.simple_login.password`](#domains-simple-login-password)) supports the following:
+
+<a id="nestedatt--domains-decryption-provider"></a>&#x2022; [`decryption_provider`](#nestedatt--domains-decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="nestedatt--domains-location"></a>&#x2022; [`location`](#nestedatt--domains-location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="nestedatt--domains-store-provider"></a>&#x2022; [`store_provider`](#nestedatt--domains-store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+#### Domains Simple Login Password Clear Secret Info
+
+A [`clear_secret_info`](#domains-simple-login-password-clear-secret-info) block (within [`domains.simple_login.password`](#domains-simple-login-password)) supports the following:
+
+<a id="nestedatt--domains-provider-ref"></a>&#x2022; [`provider_ref`](#nestedatt--domains-provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="nestedatt--domains-url"></a>&#x2022; [`url`](#nestedatt--domains-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 ---
 

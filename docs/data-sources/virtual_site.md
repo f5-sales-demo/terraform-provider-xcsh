@@ -87,6 +87,12 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="site-selector"></a>&#x2022; [`site_selector`](#site-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="site-type"></a>&#x2022; [`site_type`](#site-type) - Optional String<br>Possible values are `INVALID`, `REGIONAL_EDGE`, `CUSTOMER_EDGE`, `NGINX_ONE`<br>[Enum: INVALID|REGIONAL_EDGE|CUSTOMER_EDGE|NGINX_ONE] Site Type which can either RE or CE Invalid type of site Regional Edge site Customer Edge site
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
 ---
 
 ## Common Types

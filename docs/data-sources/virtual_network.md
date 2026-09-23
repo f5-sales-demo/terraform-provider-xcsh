@@ -50,7 +50,7 @@ output "virtual_network_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the VirtualNetwork
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the VirtualNetwork exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the VirtualNetwork exists
 
 ### Attributes Reference
 
@@ -60,9 +60,44 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the VirtualNetwork
 
+<a id="global-network"></a>&#x2022; [`global_network`](#global-network) - Optional Object<br>Select the global virtual-network scope for connectivity across participating sites
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="site-local-inside-network"></a>&#x2022; [`site_local_inside_network`](#site-local-inside-network) - Optional Object<br>Select the site-local inside network for site-internal connectivity
+
+<a id="site-local-network"></a>&#x2022; [`site_local_network`](#site-local-network) - Optional Object<br>Select a site-local virtual network when connectivity must remain within one site
+
+<a id="static-routes"></a>&#x2022; [`static_routes`](#static-routes) - Optional List<br>List of static routes on the virtual network
+
+<a id="attrs"></a>&#x2022; [`attrs`](#attrs) - Optional List  Defaults to `ROUTE_ATTR_NO_OP`<br>Possible values are `ROUTE_ATTR_NO_OP`, `ROUTE_ATTR_ADVERTISE`, `ROUTE_ATTR_INSTALL_HOST`, `ROUTE_ATTR_INSTALL_FORWARDING`, `ROUTE_ATTR_MERGE_ONLY`<br>[Enum: ROUTE_ATTR_NO_OP|ROUTE_ATTR_ADVERTISE|ROUTE_ATTR_INSTALL_HOST|ROUTE_ATTR_INSTALL_FORWARDING|ROUTE_ATTR_MERGE_ONLY] List of attributes that control
+forwarding, dynamic routing and control plane (host) reachability
+
+<a id="default-gateway"></a>&#x2022; [`default_gateway`](#default-gateway) - Optional Object<br>Configuration parameter for default gateway
+
+<a id="ip-address"></a>&#x2022; [`ip_address`](#ip-address) - Optional String<br>Traffic matching the IP prefixes is sent to this IP Address
+
+<a id="ip-prefixes"></a>&#x2022; [`ip_prefixes`](#ip-prefixes) - Optional List<br>List of route prefixes that have common next hop and attributes
+
+<a id="node-interface"></a>&#x2022; [`node_interface`](#node-interface) - Optional String<br>On multinode site, this type holds the information about per node interfaces
+
+<a id="list"></a>&#x2022; [`list`](#list) - Optional List<br>On a multinode site, this list holds the nodes and corresponding networking_interface
+
+<a id="interface"></a>&#x2022; [`interface`](#interface) - Optional List<br>Interface. Interface reference on this node
+
+<a id="node"></a>&#x2022; [`node`](#node) - Optional String<br>Node. Node name on this site
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 ---
 

@@ -50,7 +50,7 @@ output "segment_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Segment
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Segment exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the Segment exists
 
 ### Attributes Reference
 
@@ -59,6 +59,10 @@ In addition to all arguments above, the following attributes are exported:
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Segment
+
+<a id="disable-spec"></a>&#x2022; [`disable_spec`](#disable-spec) - Optional Object<br>Enable this option
+
+<a id="enable"></a>&#x2022; [`enable`](#enable) - Optional Object<br>Enable this option
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 

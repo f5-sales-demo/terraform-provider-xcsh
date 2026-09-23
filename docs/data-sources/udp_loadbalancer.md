@@ -56,13 +56,182 @@ output "udp_loadbalancer_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="active-service-policies"></a>&#x2022; [`active_service_policies`](#active-service-policies) - Optional String<br>Configuration parameter for active service policies
+
+<a id="advertise-custom"></a>&#x2022; [`advertise_custom`](#advertise-custom) - Optional String<br>Defines a way to advertise a VIP on specific sites
+
+<a id="advertise-on-public"></a>&#x2022; [`advertise_on_public`](#advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="advertise-on-public-default-vip"></a>&#x2022; [`advertise_on_public_default_vip`](#advertise-on-public-default-vip) - Optional Object<br>Enable this option
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the UDPLoadBalancer
 
+<a id="dns-volterra-managed"></a>&#x2022; [`dns_volterra_managed`](#dns-volterra-managed) - Optional Bool<br>DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain to be delegated to F5 Distributed Cloud using the Delegated Domain feature or a DNS CNAME record must be created in your DNS provider's portal
+
+<a id="do-not-advertise"></a>&#x2022; [`do_not_advertise`](#do-not-advertise) - Optional Object<br>Configuration parameter for do not advertise
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>List of domains (host/authority header) that will be matched to this load balancer
+
+<a id="hash-policy-choice-random"></a>&#x2022; [`hash_policy_choice_random`](#hash-policy-choice-random) - Optional Object<br>Configuration parameter for hash policy choice random
+
+<a id="hash-policy-choice-round-robin"></a>&#x2022; [`hash_policy_choice_round_robin`](#hash-policy-choice-round-robin) - Optional Object<br>Configuration parameter for hash policy choice round robin
+
+<a id="hash-policy-choice-source-ip-stickiness"></a>&#x2022; [`hash_policy_choice_source_ip_stickiness`](#hash-policy-choice-source-ip-stickiness) - Optional Object<br>Enable this option
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Optional Number<br>The amount of time that a session can exist without upstream or downstream activity, in milliseconds
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="listen-port"></a>&#x2022; [`listen_port`](#listen-port) - Optional Number<br>Listen Port for this load balancer
+
+<a id="no-service-policies"></a>&#x2022; [`no_service_policies`](#no-service-policies) - Optional Object<br>Configuration parameter for no service policies
+
+<a id="origin-pools-weights"></a>&#x2022; [`origin_pools_weights`](#origin-pools-weights) - Optional List<br>Origin pools with weights and priorities used for this load balancer
+
+<a id="port-ranges"></a>&#x2022; [`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+<a id="service-policies-from-namespace"></a>&#x2022; [`service_policies_from_namespace`](#service-policies-from-namespace) - Optional Object<br>Enable this option
+
+<a id="udp"></a>&#x2022; [`udp`](#udp) - Optional String<br>Enable this option
+
+<a id="policies"></a>&#x2022; [`policies`](#policies) - Optional List<br>Service Policies is a sequential engine where policies (and rules within the policy) are evaluated one after the other. It's important to define the correct order (policies evaluated from top to bottom in the list) for service policies, to GET the intended result. For each request, its
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="advertise-where"></a>&#x2022; [`advertise_where`](#advertise-where) - Optional List<br>Where should this load balancer be available
+
+<a id="advertise-on-public"></a>&#x2022; [`advertise_on_public`](#advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Port to Listen
+
+<a id="port-ranges"></a>&#x2022; [`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised
+
+<a id="use-default-port"></a>&#x2022; [`use_default_port`](#use-default-port) - Optional Object<br>Enable this option
+
+<a id="virtual-network"></a>&#x2022; [`virtual_network`](#virtual-network) - Optional String<br>Parameters to advertise on a given virtual network
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional String<br>Defines a reference to a customer site virtual site along with network type where a load balancer could be advertised
+
+<a id="virtual-site-with-vip"></a>&#x2022; [`virtual_site_with_vip`](#virtual-site-with-vip) - Optional String<br>Defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised
+
+<a id="vk8s-service"></a>&#x2022; [`vk8s_service`](#vk8s-service) - Optional String<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>Use given IP address as VIP on the site
+
+<a id="network"></a>&#x2022; [`network`](#network) - Optional String  Defaults to `SITE_NETWORK_INSIDE_AND_OUTSIDE`<br>Possible values are `SITE_NETWORK_INSIDE_AND_OUTSIDE`, `SITE_NETWORK_INSIDE`, `SITE_NETWORK_OUTSIDE`, `SITE_NETWORK_SERVICE`, `SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_IP_FABRIC`<br>[Enum:
+SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NETWORK_SERVICE|SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_IP_FABRIC] Defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="default-v6-vip"></a>&#x2022; [`default_v6_vip`](#default-v6-vip) - Optional Object<br>Enable this option
+
+<a id="default-vip"></a>&#x2022; [`default_vip`](#default-vip) - Optional Object<br>Enable this option
+
+<a id="specific-v6-vip"></a>&#x2022; [`specific_v6_vip`](#specific-v6-vip) - Optional String<br>Use given IPv6 address as VIP on virtual Network
+
+<a id="specific-vip"></a>&#x2022; [`specific_vip`](#specific-vip) - Optional String<br>Use given IPv4 address as VIP on virtual Network
+
+<a id="virtual-network"></a>&#x2022; [`virtual_network`](#virtual-network) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="network"></a>&#x2022; [`network`](#network) - Optional String  Defaults to `SITE_NETWORK_INSIDE_AND_OUTSIDE`<br>Possible values are `SITE_NETWORK_INSIDE_AND_OUTSIDE`, `SITE_NETWORK_INSIDE`, `SITE_NETWORK_OUTSIDE`, `SITE_NETWORK_SERVICE`, `SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_IP_FABRIC`<br>[Enum:
+SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NETWORK_SERVICE|SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_IP_FABRIC] Defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>Use given IP address as VIP on the site
+
+<a id="network"></a>&#x2022; [`network`](#network) - Optional String  Defaults to `SITE_NETWORK_SPECIFIED_VIP_OUTSIDE`<br>Possible values are `SITE_NETWORK_SPECIFIED_VIP_OUTSIDE`, `SITE_NETWORK_SPECIFIED_VIP_INSIDE`<br>[Enum: SITE_NETWORK_SPECIFIED_VIP_OUTSIDE|SITE_NETWORK_SPECIFIED_VIP_INSIDE] Defines network types to be used on virtual-site with specified VIP All outside networks. All inside
+networks
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="cluster"></a>&#x2022; [`cluster`](#cluster) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="endpoint-subsets"></a>&#x2022; [`endpoint_subsets`](#endpoint-subsets) - Optional String<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
+
+<a id="pool"></a>&#x2022; [`pool`](#pool) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="priority"></a>&#x2022; [`priority`](#priority) - Optional Number<br>Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the
+
+<a id="weight"></a>&#x2022; [`weight`](#weight) - Optional Number<br>Weight of this origin pool, valid only with multiple origin pool. Value of 0 will disable the pool
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

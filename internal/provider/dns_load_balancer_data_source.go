@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,16 @@ type DNSLoadBalancerDataSource struct {
 }
 
 type DNSLoadBalancerDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID            types.String                       `tfsdk:"id"`
+	Name          types.String                       `tfsdk:"name"`
+	Namespace     types.String                       `tfsdk:"namespace"`
+	Description   types.String                       `tfsdk:"description"`
+	Labels        types.Map                          `tfsdk:"labels"`
+	Annotations   types.Map                          `tfsdk:"annotations"`
+	RecordType    types.String                       `tfsdk:"record_type"`
+	FallbackPool  *DNSLoadBalancerFallbackPoolModel  `tfsdk:"fallback_pool"`
+	ResponseCache *DNSLoadBalancerResponseCacheModel `tfsdk:"response_cache"`
+	RuleList      *DNSLoadBalancerRuleListModel      `tfsdk:"rule_list"`
 }
 
 func (d *DNSLoadBalancerDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +59,8 @@ func (d *DNSLoadBalancerDataSource) Schema(ctx context.Context, req datasource.S
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the DNSLoadBalancer exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the DNSLoadBalancer.",
@@ -69,6 +75,225 @@ func (d *DNSLoadBalancerDataSource) Schema(ctx context.Context, req datasource.S
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"fallback_pool": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+						Computed:            true,
+					},
+					"tenant": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"response_cache": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for response cache.",
+				Attributes: map[string]schema.Attribute{
+					"default_response_cache_parameters": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default response cache parameters.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_spec": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"response_cache_parameters": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for response cache parameters.",
+						Attributes: map[string]schema.Attribute{
+							"cache_cidr_ipv4": schema.Int64Attribute{
+								MarkdownDescription: "Length of CIDR masks used to group IPv4 clients.",
+								Computed:            true,
+							},
+							"cache_cidr_ipv6": schema.Int64Attribute{
+								MarkdownDescription: "Length of CIDR masks used to group IPv6 clients.",
+								Computed:            true,
+							},
+							"cache_ttl": schema.Int64Attribute{
+								MarkdownDescription: "TTL. TTL for response cache.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"rule_list": schema.SingleNestedAttribute{
+				MarkdownDescription: "Load Balancing Rule List. List of the Load Balancing Rules.",
+				Attributes: map[string]schema.Attribute{
+					"rules": schema.ListNestedAttribute{
+						MarkdownDescription: "Load Balancing Rules. Rules to perform load balancing.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"asn_list": schema.SingleNestedAttribute{
+									MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+									Attributes: map[string]schema.Attribute{
+										"as_numbers": schema.ListAttribute{
+											MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
+											Computed:            true,
+											ElementType:         types.Int64Type,
+										},
+									},
+									Computed: true,
+								},
+								"asn_matcher": schema.SingleNestedAttribute{
+									MarkdownDescription: "Match any AS number contained in the list of bgp_asn_sets.",
+									Attributes: map[string]schema.Attribute{
+										"asn_sets": schema.ListNestedAttribute{
+											MarkdownDescription: "List of references to bgp_asn_set objects.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"kind": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+														Computed:            true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+														Computed:            true,
+													},
+													"namespace": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+														Computed:            true,
+													},
+													"tenant": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+														Computed:            true,
+													},
+													"uid": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"geo_location_label_selector": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Attributes: map[string]schema.Attribute{
+										"expressions": schema.ListAttribute{
+											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"geo_location_set": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Attributes: map[string]schema.Attribute{
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"ip_prefix_list": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of IP Prefix strings to match against.",
+									Attributes: map[string]schema.Attribute{
+										"invert_match": schema.BoolAttribute{
+											MarkdownDescription: "Invert Match Result. Invert the match result.",
+											Computed:            true,
+										},
+										"ip_prefixes": schema.ListAttribute{
+											MarkdownDescription: "IPv4 Prefix List. List of IPv4 prefix strings.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"ip_prefix_set": schema.SingleNestedAttribute{
+									MarkdownDescription: "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
+									Attributes: map[string]schema.Attribute{
+										"invert_matcher": schema.BoolAttribute{
+											MarkdownDescription: "Invert IP Matcher. Invert the match result.",
+											Computed:            true,
+										},
+										"prefix_sets": schema.ListNestedAttribute{
+											MarkdownDescription: "List of references to ip_prefix_set objects.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"kind": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+														Computed:            true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+														Computed:            true,
+													},
+													"namespace": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+														Computed:            true,
+													},
+													"tenant": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+														Computed:            true,
+													},
+													"uid": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"pool": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+									Attributes: map[string]schema.Attribute{
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"score": schema.Int64Attribute{
+									MarkdownDescription: "When multiple load balancing rules match a query, the one with the highest score is chosen.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"record_type": schema.StringAttribute{
+				MarkdownDescription: "[Enum: A|AAAA|MX|CNAME|SRV] Resource Record Type - A: A - AAAA: AAAA - MX: MX - CNAME: CNAME - SRV: SRV. Possible values are `A`, `AAAA`, `MX`, `CNAME`, `SRV`. Defaults to `A`.",
+				Computed:            true,
 			},
 		},
 	}
@@ -93,7 +318,11 @@ func (d *DNSLoadBalancerDataSource) Read(ctx context.Context, req datasource.Rea
 		return
 	}
 
-	resource, err := d.client.GetDNSLoadBalancer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetDNSLoadBalancer(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DNSLoadBalancer: %s", err))
 		return
@@ -101,7 +330,11 @@ func (d *DNSLoadBalancerDataSource) Read(ctx context.Context, req datasource.Rea
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +367,357 @@ func (d *DNSLoadBalancerDataSource) Read(ctx context.Context, req datasource.Rea
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["fallback_pool"].(map[string]interface{}); ok && (isImport || data.FallbackPool != nil) {
+		data.FallbackPool = &DNSLoadBalancerFallbackPoolModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Tenant: func() types.String {
+				if v, ok := blockData["tenant"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["response_cache"].(map[string]interface{}); ok && (isImport || data.ResponseCache != nil) {
+		data.ResponseCache = &DNSLoadBalancerResponseCacheModel{
+			DefaultResponseCacheParameters: func() types.Object {
+				if !isImport && data.ResponseCache != nil && !data.ResponseCache.DefaultResponseCacheParameters.IsUnknown() {
+					return data.ResponseCache.DefaultResponseCacheParameters
+				}
+				if _, ok := blockData["default_response_cache_parameters"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			DisableSpec: func() types.Object {
+				if !isImport && data.ResponseCache != nil && !data.ResponseCache.DisableSpec.IsUnknown() {
+					return data.ResponseCache.DisableSpec
+				}
+				if _, ok := blockData["disable"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			ResponseCacheParameters: func() *DNSLoadBalancerResponseCacheResponseCacheParametersModel {
+				if ResponseCacheParametersData, ok := blockData["response_cache_parameters"].(map[string]interface{}); ok {
+					return &DNSLoadBalancerResponseCacheResponseCacheParametersModel{
+						CacheCIDRIpv4: func() types.Int64 {
+							if v, ok := ResponseCacheParametersData["cache_cidr_ipv4"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						CacheCIDRIpv6: func() types.Int64 {
+							if v, ok := ResponseCacheParametersData["cache_cidr_ipv6"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						CacheTTL: func() types.Int64 {
+							if v, ok := ResponseCacheParametersData["cache_ttl"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
+		data.RuleList = &DNSLoadBalancerRuleListModel{
+			Rules: func() types.List {
+				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesModelAttrTypes})
+				}
+				var RulesExisting []DNSLoadBalancerRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []DNSLoadBalancerRuleListRulesModel
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, DNSLoadBalancerRuleListRulesModel{
+								AsnList: func() *DNSLoadBalancerRuleListRulesAsnListModel {
+									if AsnListData, ok := RulesItemMap["asn_list"].(map[string]interface{}); ok {
+										return &DNSLoadBalancerRuleListRulesAsnListModel{
+											AsNumbers: func() types.List {
+												if v, ok := AsnListData["as_numbers"].([]interface{}); ok && len(v) > 0 {
+													var items []int64
+													for _, item := range v {
+														if s, ok := item.(float64); ok {
+															items = append(items, int64(s))
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.Int64Type, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.Int64Type)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AsnMatcher: func() *DNSLoadBalancerRuleListRulesAsnMatcherModel {
+									if AsnMatcherData, ok := RulesItemMap["asn_matcher"].(map[string]interface{}); ok {
+										return &DNSLoadBalancerRuleListRulesAsnMatcherModel{
+											AsnSets: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AsnMatcher != nil && (RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsNull() || len(RulesExisting[RulesIdx].AsnMatcher.AsnSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModelAttrTypes})
+												}
+												var AsnSetsExisting []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AsnMatcher != nil && !RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsNull() && !RulesExisting[RulesIdx].AsnMatcher.AsnSets.IsUnknown() {
+													RulesExisting[RulesIdx].AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsExisting, false)
+												}
+												if rawList, ok := AsnMatcherData["asn_sets"].([]interface{}); ok && len(rawList) > 0 {
+													var AsnSetsResult []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
+													for AsnSetsIdx, AsnSetsItem := range rawList {
+														_ = AsnSetsIdx
+														if AsnSetsItemMap, ok := AsnSetsItem.(map[string]interface{}); ok {
+															AsnSetsResult = append(AsnSetsResult, DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel{
+																Kind: func() types.String {
+																	if v, ok := AsnSetsItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := AsnSetsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := AsnSetsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := AsnSetsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := AsnSetsItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModelAttrTypes}, AsnSetsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								GeoLocationLabelSelector: func() *DNSLoadBalancerRuleListRulesGeoLocationLabelSelectorModel {
+									if GeoLocationLabelSelectorData, ok := RulesItemMap["geo_location_label_selector"].(map[string]interface{}); ok {
+										return &DNSLoadBalancerRuleListRulesGeoLocationLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := GeoLocationLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								GeoLocationSet: func() *DNSLoadBalancerRuleListRulesGeoLocationSetModel {
+									if GeoLocationSetData, ok := RulesItemMap["geo_location_set"].(map[string]interface{}); ok {
+										return &DNSLoadBalancerRuleListRulesGeoLocationSetModel{
+											Name: func() types.String {
+												if v, ok := GeoLocationSetData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := GeoLocationSetData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := GeoLocationSetData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPPrefixList: func() *DNSLoadBalancerRuleListRulesIPPrefixListModel {
+									if IPPrefixListData, ok := RulesItemMap["ip_prefix_list"].(map[string]interface{}); ok {
+										return &DNSLoadBalancerRuleListRulesIPPrefixListModel{
+											InvertMatch: func() types.Bool {
+												if v, ok := IPPrefixListData["invert_match"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											IPPrefixes: func() types.List {
+												if v, ok := IPPrefixListData["ip_prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								IPPrefixSet: func() *DNSLoadBalancerRuleListRulesIPPrefixSetModel {
+									if IPPrefixSetData, ok := RulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
+										return &DNSLoadBalancerRuleListRulesIPPrefixSetModel{
+											InvertMatcher: func() types.Bool {
+												if v, ok := IPPrefixSetData["invert_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
+											PrefixSets: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && (RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsNull() || len(RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModelAttrTypes})
+												}
+												var PrefixSetsExisting []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].IPPrefixSet != nil && !RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsNull() && !RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.IsUnknown() {
+													RulesExisting[RulesIdx].IPPrefixSet.PrefixSets.ElementsAs(ctx, &PrefixSetsExisting, false)
+												}
+												if rawList, ok := IPPrefixSetData["prefix_sets"].([]interface{}); ok && len(rawList) > 0 {
+													var PrefixSetsResult []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
+													for PrefixSetsIdx, PrefixSetsItem := range rawList {
+														_ = PrefixSetsIdx
+														if PrefixSetsItemMap, ok := PrefixSetsItem.(map[string]interface{}); ok {
+															PrefixSetsResult = append(PrefixSetsResult, DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel{
+																Kind: func() types.String {
+																	if v, ok := PrefixSetsItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := PrefixSetsItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := PrefixSetsItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := PrefixSetsItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := PrefixSetsItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModelAttrTypes}, PrefixSetsResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Pool: func() *DNSLoadBalancerRuleListRulesPoolModel {
+									if PoolData, ok := RulesItemMap["pool"].(map[string]interface{}); ok {
+										return &DNSLoadBalancerRuleListRulesPoolModel{
+											Name: func() types.String {
+												if v, ok := PoolData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := PoolData["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := PoolData["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Score: func() types.Int64 {
+									if v, ok := RulesItemMap["score"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesModelAttrTypes}, RulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: DNSLoadBalancerRuleListRulesModelAttrTypes})
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["record_type"].(string); ok && v != "" {
+		data.RecordType = types.StringValue(v)
+	} else {
+		data.RecordType = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

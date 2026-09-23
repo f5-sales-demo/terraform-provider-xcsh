@@ -28,12 +28,14 @@ type VirtualSiteDataSource struct {
 }
 
 type VirtualSiteDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID           types.String                  `tfsdk:"id"`
+	Name         types.String                  `tfsdk:"name"`
+	Namespace    types.String                  `tfsdk:"namespace"`
+	Description  types.String                  `tfsdk:"description"`
+	Labels       types.Map                     `tfsdk:"labels"`
+	Annotations  types.Map                     `tfsdk:"annotations"`
+	SiteType     types.String                  `tfsdk:"site_type"`
+	SiteSelector *VirtualSiteSiteSelectorModel `tfsdk:"site_selector"`
 }
 
 func (d *VirtualSiteDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,21 @@ func (d *VirtualSiteDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"site_selector": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				Attributes: map[string]schema.Attribute{
+					"expressions": schema.ListAttribute{
+						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"site_type": schema.StringAttribute{
+				MarkdownDescription: "[Enum: INVALID|REGIONAL_EDGE|CUSTOMER_EDGE|NGINX_ONE] Site Type which can either RE or CE Invalid type of site Regional Edge site Customer Edge site. Possible values are `INVALID`, `REGIONAL_EDGE`, `CUSTOMER_EDGE`, `NGINX_ONE`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +110,8 @@ func (d *VirtualSiteDataSource) Read(ctx context.Context, req datasource.ReadReq
 		return
 	}
 
-	resource, err := d.client.GetVirtualSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetVirtualSite(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read VirtualSite: %s", err))
 		return
@@ -101,7 +119,11 @@ func (d *VirtualSiteDataSource) Read(ctx context.Context, req datasource.ReadReq
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +156,31 @@ func (d *VirtualSiteDataSource) Read(ctx context.Context, req datasource.ReadReq
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["site_selector"].(map[string]interface{}); ok && (isImport || data.SiteSelector != nil) {
+		data.SiteSelector = &VirtualSiteSiteSelectorModel{
+			Expressions: func() types.List {
+				if v, ok := blockData["expressions"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["site_type"].(string); ok && v != "" {
+		data.SiteType = types.StringValue(v)
+	} else {
+		data.SiteType = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

@@ -38,6 +38,12 @@ jobs:
       # Gitignored working location for the released API spec bundle — the same
       # path tools/generate-all-schemas.go defaults to.
       SPEC_DIR: docs/specifications/api
+      # Generated provider/client packages are large enough for parallel
+      # compiler processes to exhaust a GitHub-hosted runner. Keep every Go
+      # compile gate in this job within one bounded process budget.
+      GOGC: "20"
+      GOMEMLIMIT: 4GiB
+      GOMAXPROCS: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -95,13 +101,13 @@ jobs:
         # removed the apm* schemas, codegen dropped the GetAPM/DeleteAPM client
         # methods, and the hand-written acctest registry kept calling them while
         # a green "Build" step said nothing.
-        run: scripts/go-retry.sh 3 go build -v ./...
+        run: scripts/go-retry.sh 3 go build -p 1 -v ./...
 
       - name: Vet
         # go build ignores _test.go files; go vet type-checks them too, so this
         # is the step that notices a test file referencing a symbol codegen no
         # longer emits (#1351).
-        run: scripts/go-retry.sh 3 go vet ./...
+        run: scripts/go-retry.sh 3 go vet -p 1 ./...
 
       - name: Vet build-ignored generators
         # tools/*.go carry `//go:build ignore`, which hides them from ./...
@@ -115,7 +121,11 @@ jobs:
         # clean run.
         env:
           XCSH_SPEC_DIR: ${{ env.SPEC_DIR }}
-        run: scripts/go-retry.sh 2 go test -v -race ./internal/... ./tools/...
+        # The code-generation package includes compile-level regression tests
+        # that rebuild the generated provider tree. Under the bounded compiler
+        # memory settings above, a healthy package can exceed Go's 10-minute
+        # default test timeout on hosted runners.
+        run: scripts/go-retry.sh 2 go test -timeout=30m -v -race ./internal/... ./tools/...
 
       - name: Set result
         id: result

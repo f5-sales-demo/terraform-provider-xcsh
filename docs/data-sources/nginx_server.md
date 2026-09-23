@@ -66,6 +66,92 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="server-spec"></a>&#x2022; [`server_spec`](#server-spec) - Optional String<br>Configuration for server_spec
 
+<a id="nginx-csg"></a>&#x2022; [`nginx_csg`](#nginx-csg) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nginx-instance"></a>&#x2022; [`nginx_instance`](#nginx-instance) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="api-discovery-spec"></a>&#x2022; [`api_discovery_spec`](#api-discovery-spec) - Optional String<br>Configuration for api_discovery_spec
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>Server name list specified as ${server_name} in NGINX config. If no value is specified corresponding to this variable, 'default' is used Reference: `HTTPS://nginx.org/en/docs/HTTP/ngx_http_core_module.HTML#server.`
+
+<a id="locations"></a>&#x2022; [`locations`](#locations) - Optional List<br>Configuration of the set of locations corresponding to this server
+
+<a id="nginx-one-object-id"></a>&#x2022; [`nginx_one_object_id`](#nginx-one-object-id) - Optional String<br>Signifies the uniqueness identifier for NGINX One representation of this NGINX server
+
+<a id="nginx-one-object-name"></a>&#x2022; [`nginx_one_object_name`](#nginx-one-object-name) - Optional String<br>Hostname value set for Instance or Name for a Config Sync Group in NGINX One
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Signifies the port configured for the NGINX server
+
+<a id="server-name"></a>&#x2022; [`server_name`](#server-name) - Optional String<br>Signifies the combination of first element in domains array and the port configured for the NGINX server
+
+<a id="total-routes"></a>&#x2022; [`total_routes`](#total-routes) - Optional Number<br>Total locations configured in the NGINX Server
+
+<a id="waf-spec"></a>&#x2022; [`waf_spec`](#waf-spec) - Optional String<br>Configuration for waf_spec
+
+<a id="disabled"></a>&#x2022; [`disabled`](#disabled) - Optional Object<br>Enable this option
+
+<a id="enabled"></a>&#x2022; [`enabled`](#enabled) - Optional Object<br>Enable this option
+
+<a id="api-discovery-spec"></a>&#x2022; [`api_discovery_spec`](#api-discovery-spec) - Optional String<br>Configuration for api_discovery_spec
+
+<a id="definition"></a>&#x2022; [`definition`](#definition) - Optional String<br>Location definition specified as the attributes of ${location} block in NGINX config. This includes both the optional_modifier and the location_match combined. A location can either be defined by a prefix string, or by a regular expression
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Uniqueness identifier for a location definition
+
+<a id="waf-spec"></a>&#x2022; [`waf_spec`](#waf-spec) - Optional String<br>Configuration for waf_spec
+
+<a id="disabled"></a>&#x2022; [`disabled`](#disabled) - Optional Object<br>Enable this option
+
+<a id="enabled"></a>&#x2022; [`enabled`](#enabled) - Optional Object<br>Enable this option
+
+<a id="blocking-waf-mode"></a>&#x2022; [`blocking_waf_mode`](#blocking-waf-mode) - Optional Object<br>Enable this option
+
+<a id="distributed-cloud-policy-management"></a>&#x2022; [`distributed_cloud_policy_management`](#distributed-cloud-policy-management) - Optional Object<br>Configuration parameter for distributed cloud policy management
+
+<a id="monitoring-waf-mode"></a>&#x2022; [`monitoring_waf_mode`](#monitoring-waf-mode) - Optional Object<br>Configuration parameter for monitoring WAF mode
+
+<a id="nginx-policy-management"></a>&#x2022; [`nginx_policy_management`](#nginx-policy-management) - Optional Object<br>Configuration parameter for nginx policy management
+
+<a id="none-waf-mode"></a>&#x2022; [`none_waf_mode`](#none-waf-mode) - Optional Object<br>Configuration parameter for none WAF mode
+
+<a id="policy-file-name"></a>&#x2022; [`policy_file_name`](#policy-file-name) - Optional String<br>WAF Policy filename. Policy filename for WAF
+
+<a id="policy-name"></a>&#x2022; [`policy_name`](#policy-name) - Optional String<br>WAF Policy Name. Policy name configured for WAF
+
+<a id="security-log-enabled"></a>&#x2022; [`security_log_enabled`](#security-log-enabled) - Optional Bool<br>Specifies if security logging is enabled
+
+<a id="security-log-file-names"></a>&#x2022; [`security_log_file_names`](#security-log-file-names) - Optional List<br>Specifies the list of security log files specification
+
+<a id="blocking-waf-mode"></a>&#x2022; [`blocking_waf_mode`](#blocking-waf-mode) - Optional Object<br>Enable this option
+
+<a id="distributed-cloud-policy-management"></a>&#x2022; [`distributed_cloud_policy_management`](#distributed-cloud-policy-management) - Optional Object<br>Configuration parameter for distributed cloud policy management
+
+<a id="monitoring-waf-mode"></a>&#x2022; [`monitoring_waf_mode`](#monitoring-waf-mode) - Optional Object<br>Configuration parameter for monitoring WAF mode
+
+<a id="nginx-policy-management"></a>&#x2022; [`nginx_policy_management`](#nginx-policy-management) - Optional Object<br>Configuration parameter for nginx policy management
+
+<a id="none-waf-mode"></a>&#x2022; [`none_waf_mode`](#none-waf-mode) - Optional Object<br>Configuration parameter for none WAF mode
+
+<a id="policy-file-name"></a>&#x2022; [`policy_file_name`](#policy-file-name) - Optional String<br>WAF Policy filename. Policy filename for WAF
+
+<a id="policy-name"></a>&#x2022; [`policy_name`](#policy-name) - Optional String<br>WAF Policy Name. Policy name configured for WAF
+
+<a id="security-log-enabled"></a>&#x2022; [`security_log_enabled`](#security-log-enabled) - Optional Bool<br>Specifies if security logging is enabled
+
+<a id="security-log-file-names"></a>&#x2022; [`security_log_file_names`](#security-log-file-names) - Optional List<br>Specifies the list of security log files specification
+
 ---
 
 ## Common Types

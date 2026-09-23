@@ -73,35 +73,35 @@ In addition to all arguments above, the following attributes are exported:
 
 #### codebase Integration
 
-A [`code_base_integration`](#code-base-integration) block supports the following:
+A [`code_base_integration`](#codebase-integration) block supports the following:
 
-<a id="code-base-integration-Azure-repos"></a>&#x2022; [`azure_repos`](#code-base-integration-Azure-repos) - Optional Block<br>Configuration parameter for Azure repos<br>See [Azure Repos](#code-base-integration-Azure-repos) below.
+<a id="code-base-integration-azure-repos"></a>&#x2022; [`azure_repos`](#code-base-integration-azure-repos) - Optional Block<br>Configuration parameter for Azure repos<br>See [Azure Repos](#code-base-integration-azure-repos) below.
 
-<a id="code-base-integration-Bitbucket"></a>&#x2022; [`bitbucket`](#code-base-integration-Bitbucket) - Optional Block<br>Bitbucket Cloud Integration<br>See [Bitbucket](#code-base-integration-Bitbucket) below.
+<a id="code-base-integration-bitbucket"></a>&#x2022; [`bitbucket`](#code-base-integration-bitbucket) - Optional Block<br>Bitbucket Cloud Integration<br>See [Bitbucket](#code-base-integration-bitbucket) below.
 
-<a id="code-base-integration-Bitbucket-server"></a>&#x2022; [`bitbucket_server`](#code-base-integration-Bitbucket-server) - Optional Block<br>Configuration parameter for Bitbucket server<br>See [Bitbucket Server](#code-base-integration-Bitbucket-server) below.
+<a id="code-base-integration-bitbucket-server"></a>&#x2022; [`bitbucket_server`](#code-base-integration-bitbucket-server) - Optional Block<br>Configuration parameter for Bitbucket server<br>See [Bitbucket Server](#code-base-integration-bitbucket-server) below.
 
-<a id="code-base-integration-GitHub"></a>&#x2022; [`github`](#code-base-integration-GitHub) - Optional Block<br>GitHub Integration<br>See [GitHub](#code-base-integration-GitHub) below.
+<a id="code-base-integration-github"></a>&#x2022; [`github`](#code-base-integration-github) - Optional Block<br>GitHub Integration<br>See [GitHub](#code-base-integration-github) below.
 
-<a id="code-base-integration-GitHub-enterprise"></a>&#x2022; [`github_enterprise`](#code-base-integration-GitHub-enterprise) - Optional Block<br>Configuration parameter for GitHub enterprise<br>See [GitHub Enterprise](#code-base-integration-GitHub-enterprise) below.
+<a id="code-base-integration-github-enterprise"></a>&#x2022; [`github_enterprise`](#code-base-integration-github-enterprise) - Optional Block<br>Configuration parameter for GitHub enterprise<br>See [GitHub Enterprise](#code-base-integration-github-enterprise) below.
 
-<a id="code-base-integration-GitLab"></a>&#x2022; [`gitlab`](#code-base-integration-GitLab) - Optional Block<br>GitLab Cloud Integration<br>See [GitLab](#code-base-integration-GitLab) below.
+<a id="code-base-integration-gitlab"></a>&#x2022; [`gitlab`](#code-base-integration-gitlab) - Optional Block<br>GitLab Cloud Integration<br>See [GitLab](#code-base-integration-gitlab) below.
 
-<a id="code-base-integration-GitLab-enterprise"></a>&#x2022; [`gitlab_enterprise`](#code-base-integration-GitLab-enterprise) - Optional Block<br>Configuration parameter for GitLab enterprise<br>See [GitLab Enterprise](#code-base-integration-GitLab-enterprise) below.
+<a id="code-base-integration-gitlab-enterprise"></a>&#x2022; [`gitlab_enterprise`](#code-base-integration-gitlab-enterprise) - Optional Block<br>Configuration parameter for GitLab enterprise<br>See [GitLab Enterprise](#code-base-integration-gitlab-enterprise) below.
 
 #### codebase Integration Azure Repos
 
-An [`azure_repos`](#code-base-integration-Azure-repos) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+An [`azure_repos`](#codebase-integration-azure-repos) block (within [`code_base_integration`](#codebase-integration)) supports the following:
 
-<a id="token-5f0b03"></a>&#x2022; [`access_token`](#token-5f0b03) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-5f0b03) below.
+<a id="token-d4247d"></a>&#x2022; [`access_token`](#token-d4247d) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-d4247d) below.
 
 #### codebase Integration Azure Repos Access Token
 
-An [`access_token`](#token-5f0b03) block (within [`code_base_integration.azure_repos`](#code-base-integration-Azure-repos)) supports the following:
+An [`access_token`](#codebase-integration-azure-repos-access-token) block (within [`code_base_integration.azure_repos`](#codebase-integration-azure-repos)) supports the following:
 
-<a id="info-523775"></a>&#x2022; [`blindfold_secret_info`](#info-523775) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-523775) below.
+<a id="info-088938"></a>&#x2022; [`blindfold_secret_info`](#info-088938) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-088938) below.
 
-<a id="info-62f8d7"></a>&#x2022; [`clear_secret_info`](#info-62f8d7) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-62f8d7) below.
+<a id="info-8fbdd3"></a>&#x2022; [`clear_secret_info`](#info-8fbdd3) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-8fbdd3) below.
 
 #### codebase Integration Azure Repos Access Token Blindfold Secret Info
 
@@ -113,57 +113,57 @@ An [`access_token`](#token-5f0b03) block (within [`code_base_integration.azure_r
 
 #### codebase Integration Bitbucket
 
-A [`bitbucket`](#code-base-integration-Bitbucket) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`bitbucket`](#codebase-integration-bitbucket) block (within [`code_base_integration`](#codebase-integration)) supports the following:
 
-<a id="code-base-integration-Bitbucket-passwd"></a>&#x2022; [`passwd`](#code-base-integration-Bitbucket-passwd) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Passwd](#code-base-integration-Bitbucket-passwd) below.
+<a id="code-base-integration-bitbucket-passwd"></a>&#x2022; [`passwd`](#code-base-integration-bitbucket-passwd) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Passwd](#code-base-integration-bitbucket-passwd) below.
 
-<a id="username-5eed2c"></a>&#x2022; [`username`](#username-5eed2c) - Optional String<br>Bitbucket Username. Human-readable name for the resource
+<a id="username-d6a1e1"></a>&#x2022; [`username`](#username-d6a1e1) - Optional String<br>Bitbucket Username. Human-readable name for the resource
 
 #### codebase Integration Bitbucket Passwd
 
-A [`passwd`](#code-base-integration-Bitbucket-passwd) block (within [`code_base_integration.bitbucket`](#code-base-integration-Bitbucket)) supports the following:
+A [`passwd`](#codebase-integration-bitbucket-passwd) block (within [`code_base_integration.bitbucket`](#codebase-integration-bitbucket)) supports the following:
 
-<a id="info-171efa"></a>&#x2022; [`blindfold_secret_info`](#info-171efa) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-171efa) below.
+<a id="info-6400a1"></a>&#x2022; [`blindfold_secret_info`](#info-6400a1) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-6400a1) below.
 
-<a id="info-21fe0c"></a>&#x2022; [`clear_secret_info`](#info-21fe0c) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-21fe0c) below.
+<a id="info-3c272b"></a>&#x2022; [`clear_secret_info`](#info-3c272b) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-3c272b) below.
 
 #### codebase Integration Bitbucket Passwd Blindfold Secret Info
 
-A [`blindfold_secret_info`](#info-171efa) block (within [`code_base_integration.bitbucket.passwd`](#code-base-integration-Bitbucket-passwd)) supports the following:
+A [`blindfold_secret_info`](#codebase-integration-bitbucket-passwd-blindfold-secret-info) block (within [`code_base_integration.bitbucket.passwd`](#codebase-integration-bitbucket-passwd)) supports the following:
 
-<a id="provider-56cbce"></a>&#x2022; [`decryption_provider`](#provider-56cbce) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+<a id="provider-7e1ec3"></a>&#x2022; [`decryption_provider`](#provider-7e1ec3) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
 
-<a id="location-b1405d"></a>&#x2022; [`location`](#location-b1405d) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+<a id="location-a36cd5"></a>&#x2022; [`location`](#location-a36cd5) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
 
-<a id="provider-0981ef"></a>&#x2022; [`store_provider`](#provider-0981ef) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+<a id="provider-debf54"></a>&#x2022; [`store_provider`](#provider-debf54) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
 #### codebase Integration Bitbucket Passwd Clear Secret Info
 
-A [`clear_secret_info`](#info-21fe0c) block (within [`code_base_integration.bitbucket.passwd`](#code-base-integration-Bitbucket-passwd)) supports the following:
+A [`clear_secret_info`](#codebase-integration-bitbucket-passwd-clear-secret-info) block (within [`code_base_integration.bitbucket.passwd`](#codebase-integration-bitbucket-passwd)) supports the following:
 
-<a id="ref-4891e5"></a>&#x2022; [`provider_ref`](#ref-4891e5) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+<a id="ref-0df26b"></a>&#x2022; [`provider_ref`](#ref-0df26b) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-855d07"></a>&#x2022; [`url`](#url-855d07) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="url-850415"></a>&#x2022; [`url`](#url-850415) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### codebase Integration Bitbucket Server
 
-A [`bitbucket_server`](#code-base-integration-Bitbucket-server) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`bitbucket_server`](#codebase-integration-bitbucket-server) block (within [`code_base_integration`](#codebase-integration)) supports the following:
 
-<a id="passwd-2b47a2"></a>&#x2022; [`passwd`](#passwd-2b47a2) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Passwd](#passwd-2b47a2) below.
+<a id="passwd-13127c"></a>&#x2022; [`passwd`](#passwd-13127c) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Passwd](#passwd-13127c) below.
 
-<a id="url-248e46"></a>&#x2022; [`url`](#url-248e46) - Optional String<br>Bitbucket Server URL. URL or URI reference
+<a id="url-2b7ca9"></a>&#x2022; [`url`](#url-2b7ca9) - Optional String<br>Bitbucket Server URL. URL or URI reference
 
-<a id="username-18789e"></a>&#x2022; [`username`](#username-18789e) - Optional String<br>Bitbucket Server Username. Human-readable name for the resource
+<a id="username-9a8614"></a>&#x2022; [`username`](#username-9a8614) - Optional String<br>Bitbucket Server Username. Human-readable name for the resource
 
-<a id="ssl-2bc57e"></a>&#x2022; [`verify_ssl`](#ssl-2bc57e) - Optional Bool<br>Verify SSL. Configuration parameter for verify SSL
+<a id="ssl-af2ade"></a>&#x2022; [`verify_ssl`](#ssl-af2ade) - Optional Bool<br>Verify SSL. Configuration parameter for verify SSL
 
 #### codebase Integration Bitbucket Server Passwd
 
-A [`passwd`](#passwd-2b47a2) block (within [`code_base_integration.bitbucket_server`](#code-base-integration-Bitbucket-server)) supports the following:
+A [`passwd`](#codebase-integration-bitbucket-server-passwd) block (within [`code_base_integration.bitbucket_server`](#codebase-integration-bitbucket-server)) supports the following:
 
-<a id="info-7fc965"></a>&#x2022; [`blindfold_secret_info`](#info-7fc965) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-7fc965) below.
+<a id="info-e29dd9"></a>&#x2022; [`blindfold_secret_info`](#info-e29dd9) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-e29dd9) below.
 
-<a id="info-869ded"></a>&#x2022; [`clear_secret_info`](#info-869ded) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-869ded) below.
+<a id="info-38f71d"></a>&#x2022; [`clear_secret_info`](#info-38f71d) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-38f71d) below.
 
 #### codebase Integration Bitbucket Server Passwd Blindfold Secret Info
 
@@ -175,21 +175,21 @@ A [`passwd`](#passwd-2b47a2) block (within [`code_base_integration.bitbucket_ser
 
 #### codebase Integration GitHub
 
-A [`github`](#code-base-integration-GitHub) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`github`](#codebase-integration-github) block (within [`code_base_integration`](#codebase-integration)) supports the following:
 
-<a id="token-87a129"></a>&#x2022; [`access_token`](#token-87a129) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-87a129) below.
+<a id="token-b77f94"></a>&#x2022; [`access_token`](#token-b77f94) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-b77f94) below.
 
-<a id="code-base-integration-GitHub-username"></a>&#x2022; [`username`](#code-base-integration-GitHub-username) - Optional String<br>GitHub Username. Human-readable name for the resource
+<a id="code-base-integration-github-username"></a>&#x2022; [`username`](#code-base-integration-github-username) - Optional String<br>GitHub Username. Human-readable name for the resource
 
-<a id="code-base-integration-GitHub-verify-ssl"></a>&#x2022; [`verify_ssl`](#code-base-integration-GitHub-verify-ssl) - Optional Bool<br>GitHub Verify SSL. Configuration parameter for verify SSL
+<a id="code-base-integration-github-verify-ssl"></a>&#x2022; [`verify_ssl`](#code-base-integration-github-verify-ssl) - Optional Bool<br>GitHub Verify SSL. Configuration parameter for verify SSL
 
 #### codebase Integration GitHub Access Token
 
-An [`access_token`](#token-87a129) block (within [`code_base_integration.github`](#code-base-integration-GitHub)) supports the following:
+An [`access_token`](#codebase-integration-github-access-token) block (within [`code_base_integration.github`](#codebase-integration-github)) supports the following:
 
-<a id="info-27bcaa"></a>&#x2022; [`blindfold_secret_info`](#info-27bcaa) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-27bcaa) below.
+<a id="info-a74f41"></a>&#x2022; [`blindfold_secret_info`](#info-a74f41) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-a74f41) below.
 
-<a id="info-68b902"></a>&#x2022; [`clear_secret_info`](#info-68b902) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-68b902) below.
+<a id="info-4afb31"></a>&#x2022; [`clear_secret_info`](#info-4afb31) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-4afb31) below.
 
 #### codebase Integration GitHub Access Token Blindfold Secret Info
 
@@ -201,21 +201,21 @@ An [`access_token`](#token-87a129) block (within [`code_base_integration.github`
 
 #### codebase Integration GitHub Enterprise
 
-A [`github_enterprise`](#code-base-integration-GitHub-enterprise) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`github_enterprise`](#codebase-integration-github-enterprise) block (within [`code_base_integration`](#codebase-integration)) supports the following:
 
-<a id="token-1cb3b1"></a>&#x2022; [`access_token`](#token-1cb3b1) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-1cb3b1) below.
+<a id="token-c0b5c1"></a>&#x2022; [`access_token`](#token-c0b5c1) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-c0b5c1) below.
 
-<a id="hostname-c8f0af"></a>&#x2022; [`hostname`](#hostname-c8f0af) - Optional String<br>GitHub Hostname. Human-readable name for the resource
+<a id="hostname-b59154"></a>&#x2022; [`hostname`](#hostname-b59154) - Optional String<br>GitHub Hostname. Human-readable name for the resource
 
-<a id="username-cf1607"></a>&#x2022; [`username`](#username-cf1607) - Optional String<br>GitHub Username. Human-readable name for the resource
+<a id="username-ea5b7b"></a>&#x2022; [`username`](#username-ea5b7b) - Optional String<br>GitHub Username. Human-readable name for the resource
 
 #### codebase Integration GitHub Enterprise Access Token
 
-An [`access_token`](#token-1cb3b1) block (within [`code_base_integration.github_enterprise`](#code-base-integration-GitHub-enterprise)) supports the following:
+An [`access_token`](#codebase-integration-github-enterprise-access-token) block (within [`code_base_integration.github_enterprise`](#codebase-integration-github-enterprise)) supports the following:
 
-<a id="info-7766b8"></a>&#x2022; [`blindfold_secret_info`](#info-7766b8) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-7766b8) below.
+<a id="info-113b2a"></a>&#x2022; [`blindfold_secret_info`](#info-113b2a) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-113b2a) below.
 
-<a id="info-f5b7ec"></a>&#x2022; [`clear_secret_info`](#info-f5b7ec) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-f5b7ec) below.
+<a id="info-f7aaa0"></a>&#x2022; [`clear_secret_info`](#info-f7aaa0) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-f7aaa0) below.
 
 #### codebase Integration GitHub Enterprise Access Token Blindfold Secret Info
 
@@ -227,17 +227,17 @@ An [`access_token`](#token-1cb3b1) block (within [`code_base_integration.github_
 
 #### codebase Integration GitLab
 
-A [`gitlab`](#code-base-integration-GitLab) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`gitlab`](#codebase-integration-gitlab) block (within [`code_base_integration`](#codebase-integration)) supports the following:
 
-<a id="token-e72e1a"></a>&#x2022; [`access_token`](#token-e72e1a) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-e72e1a) below.
+<a id="token-5d157b"></a>&#x2022; [`access_token`](#token-5d157b) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-5d157b) below.
 
 #### codebase Integration GitLab Access Token
 
-An [`access_token`](#token-e72e1a) block (within [`code_base_integration.gitlab`](#code-base-integration-GitLab)) supports the following:
+An [`access_token`](#codebase-integration-gitlab-access-token) block (within [`code_base_integration.gitlab`](#codebase-integration-gitlab)) supports the following:
 
-<a id="info-d23d27"></a>&#x2022; [`blindfold_secret_info`](#info-d23d27) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-d23d27) below.
+<a id="info-ceae94"></a>&#x2022; [`blindfold_secret_info`](#info-ceae94) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-ceae94) below.
 
-<a id="info-92076e"></a>&#x2022; [`clear_secret_info`](#info-92076e) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-92076e) below.
+<a id="info-6cbf02"></a>&#x2022; [`clear_secret_info`](#info-6cbf02) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-6cbf02) below.
 
 #### codebase Integration GitLab Access Token Blindfold Secret Info
 
@@ -249,19 +249,19 @@ An [`access_token`](#token-e72e1a) block (within [`code_base_integration.gitlab`
 
 #### codebase Integration GitLab Enterprise
 
-A [`gitlab_enterprise`](#code-base-integration-GitLab-enterprise) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`gitlab_enterprise`](#codebase-integration-gitlab-enterprise) block (within [`code_base_integration`](#codebase-integration)) supports the following:
 
-<a id="token-c6d526"></a>&#x2022; [`access_token`](#token-c6d526) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-c6d526) below.
+<a id="token-b5c2b4"></a>&#x2022; [`access_token`](#token-b5c2b4) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-b5c2b4) below.
 
-<a id="url-4e0ac4"></a>&#x2022; [`url`](#url-4e0ac4) - Optional String<br>GitLab URL. URL or URI reference
+<a id="url-5e31c3"></a>&#x2022; [`url`](#url-5e31c3) - Optional String<br>GitLab URL. URL or URI reference
 
 #### codebase Integration GitLab Enterprise Access Token
 
-An [`access_token`](#token-c6d526) block (within [`code_base_integration.gitlab_enterprise`](#code-base-integration-GitLab-enterprise)) supports the following:
+An [`access_token`](#codebase-integration-gitlab-enterprise-access-token) block (within [`code_base_integration.gitlab_enterprise`](#codebase-integration-gitlab-enterprise)) supports the following:
 
-<a id="info-93d43a"></a>&#x2022; [`blindfold_secret_info`](#info-93d43a) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-93d43a) below.
+<a id="info-f6945e"></a>&#x2022; [`blindfold_secret_info`](#info-f6945e) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-f6945e) below.
 
-<a id="info-044653"></a>&#x2022; [`clear_secret_info`](#info-044653) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-044653) below.
+<a id="info-040ff9"></a>&#x2022; [`clear_secret_info`](#info-040ff9) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-040ff9) below.
 
 #### codebase Integration GitLab Enterprise Access Token Blindfold Secret Info
 

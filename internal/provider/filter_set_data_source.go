@@ -28,12 +28,14 @@ type FilterSetDataSource struct {
 }
 
 type FilterSetDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID           types.String `tfsdk:"id"`
+	Name         types.String `tfsdk:"name"`
+	Namespace    types.String `tfsdk:"namespace"`
+	Description  types.String `tfsdk:"description"`
+	Labels       types.Map    `tfsdk:"labels"`
+	Annotations  types.Map    `tfsdk:"annotations"`
+	ContextKey   types.String `tfsdk:"context_key"`
+	FilterFields types.List   `tfsdk:"filter_fields"`
 }
 
 func (d *FilterSetDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,67 @@ func (d *FilterSetDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"context_key": schema.StringAttribute{
+				MarkdownDescription: "Indexable context key that identifies a page or page type for which the FilterSet is applicable.",
+				Computed:            true,
+			},
+			"filter_fields": schema.ListNestedAttribute{
+				MarkdownDescription: "List of fields and their values selected by the user.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"date_field": schema.SingleNestedAttribute{
+							MarkdownDescription: "Either an absolute time range or a relative time interval.",
+							Attributes: map[string]schema.Attribute{
+								"absolute": schema.SingleNestedAttribute{
+									MarkdownDescription: "Date range is for selecting a date range.",
+									Attributes: map[string]schema.Attribute{
+										"end_date": schema.StringAttribute{
+											MarkdownDescription: "End Date. Contains end date.",
+											Computed:            true,
+										},
+										"start_date": schema.StringAttribute{
+											MarkdownDescription: "Start Date. Contains start date.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"relative": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [absolute] relative time duration.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"field_id": schema.StringAttribute{
+							MarkdownDescription: "Identifier for the field that maps to some UI filter component.",
+							Computed:            true,
+						},
+						"filter_expression_field": schema.SingleNestedAttribute{
+							MarkdownDescription: "Filter Expression Field.",
+							Attributes: map[string]schema.Attribute{
+								"expression": schema.StringAttribute{
+									MarkdownDescription: "Expression is a Kubernetes style label expression for selections, but differs in that it allows special characters in the keys and values.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"string_field": schema.SingleNestedAttribute{
+							MarkdownDescription: "Filter String Field.",
+							Attributes: map[string]schema.Attribute{
+								"field_values": schema.ListAttribute{
+									MarkdownDescription: "String Value(s). Field specification or configuration",
+									Computed:            true,
+									ElementType:         types.StringType,
+								},
+							},
+							Computed: true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +156,8 @@ func (d *FilterSetDataSource) Read(ctx context.Context, req datasource.ReadReque
 		return
 	}
 
-	resource, err := d.client.GetFilterSet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetFilterSet(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read FilterSet: %s", err))
 		return
@@ -101,7 +165,11 @@ func (d *FilterSetDataSource) Read(ctx context.Context, req datasource.ReadReque
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +202,108 @@ func (d *FilterSetDataSource) Read(ctx context.Context, req datasource.ReadReque
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["context_key"].(string); ok && v != "" {
+		data.ContextKey = types.StringValue(v)
+	} else {
+		data.ContextKey = types.StringNull()
+	}
+	if !isImport && (data.FilterFields.IsNull() || len(data.FilterFields.Elements()) == 0) {
+		data.FilterFields = types.ListNull(types.ObjectType{AttrTypes: FilterSetFilterFieldsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["filter_fields"].([]interface{}); ok && len(listData) > 0 {
+		var FilterFieldsList []FilterSetFilterFieldsModel
+		var existingFilterFieldsItems []FilterSetFilterFieldsModel
+		if !data.FilterFields.IsNull() && !data.FilterFields.IsUnknown() {
+			data.FilterFields.ElementsAs(ctx, &existingFilterFieldsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				FilterFieldsList = append(FilterFieldsList, FilterSetFilterFieldsModel{
+					DateField: func() *FilterSetFilterFieldsDateFieldModel {
+						if DateFieldData, ok := itemMap["date_field"].(map[string]interface{}); ok {
+							return &FilterSetFilterFieldsDateFieldModel{
+								Absolute: func() *FilterSetFilterFieldsDateFieldAbsoluteModel {
+									if AbsoluteData, ok := DateFieldData["absolute"].(map[string]interface{}); ok {
+										return &FilterSetFilterFieldsDateFieldAbsoluteModel{
+											EndDate: func() types.String {
+												if v, ok := AbsoluteData["end_date"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											StartDate: func() types.String {
+												if v, ok := AbsoluteData["start_date"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Relative: func() types.String {
+									if v, ok := DateFieldData["relative"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					FieldID: func() types.String {
+						if v, ok := itemMap["field_id"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					FilterExpressionField: func() *FilterSetFilterFieldsFilterExpressionFieldModel {
+						if FilterExpressionFieldData, ok := itemMap["filter_expression_field"].(map[string]interface{}); ok {
+							return &FilterSetFilterFieldsFilterExpressionFieldModel{
+								Expression: func() types.String {
+									if v, ok := FilterExpressionFieldData["expression"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					StringField: func() *FilterSetFilterFieldsStringFieldModel {
+						if StringFieldData, ok := itemMap["string_field"].(map[string]interface{}); ok {
+							return &FilterSetFilterFieldsStringFieldModel{
+								FieldValues: func() types.List {
+									if v, ok := StringFieldData["field_values"].([]interface{}); ok && len(v) > 0 {
+										var items []string
+										for _, item := range v {
+											if s, ok := item.(string); ok {
+												items = append(items, s)
+											}
+										}
+										listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+										resp.Diagnostics.Append(diags...)
+										return listVal
+									}
+									return types.ListNull(types.StringType)
+								}(),
+							}
+						}
+						return nil
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FilterSetFilterFieldsModelAttrTypes}, FilterFieldsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.FilterFields = listVal
+		}
+	} else {
+		data.FilterFields = types.ListNull(types.ObjectType{AttrTypes: FilterSetFilterFieldsModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

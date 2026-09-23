@@ -56,13 +56,25 @@ output "data_group_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="address-records"></a>&#x2022; [`address_records`](#address-records) - Optional String<br>Address Record. Data group with address record List
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the DataGroup
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="integer-records"></a>&#x2022; [`integer_records`](#integer-records) - Optional String<br>Configuration parameter for integer records
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="string-records"></a>&#x2022; [`string_records`](#string-records) - Optional String<br>Configuration parameter for string records
+
+<a id="records"></a>&#x2022; [`records`](#records) - Optional Map<br>Address records. Configuration parameter for records
+
+<a id="records"></a>&#x2022; [`records`](#records) - Optional Map<br>Integer records. Configuration parameter for records
+
+<a id="records"></a>&#x2022; [`records`](#records) - Optional Map<br>String records. Configuration parameter for records
 
 ---
 

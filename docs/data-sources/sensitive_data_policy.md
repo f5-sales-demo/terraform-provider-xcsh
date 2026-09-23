@@ -77,11 +77,26 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="compliances"></a>&#x2022; [`compliances`](#compliances) - Optional List  Defaults to `[]`<br>Possible values are `GDPR`, `CCPA`, `PIPEDA`, `LGPD`, `DPA_UK`, `PDPA_SG`, `APPI`, `HIPAA`, `CPRA_2023`, `CPA_CO`, `SOC2`, `PCI_DSS`, `ISO_IEC_27001`, `ISO_IEC_27701`, `EPRIVACY_DIRECTIVE`, `GLBA`, `SOX`<br>[Enum:
+GDPR|CCPA|PIPEDA|LGPD|DPA_UK|PDPA_SG|APPI|HIPAA|CPRA_2023|CPA_CO|SOC2|PCI_DSS|ISO_IEC_27001|ISO_IEC_27701|EPRIVACY_DIRECTIVE|GLBA|SOX] Select relevant compliance frameworks, such as GDPR, HIPAA, or PCI-DSS, to ensure monitoring under your sensitive data discovery.  Server applies default when omitted
+
+<a id="custom-data-types"></a>&#x2022; [`custom_data_types`](#custom-data-types) - Optional List  Defaults to `[]`<br>Select your custom data types to be monitored in the API discovery.  Server applies default when omitted
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the SensitiveDataPolicy
+
+<a id="disabled-predefined-data-types"></a>&#x2022; [`disabled_predefined_data_types`](#disabled-predefined-data-types) - Optional List  Defaults to `[]`<br>Select which pre-configured data types to disable, disabled data types will not be shown as sensitive in the API discovery.  Server applies default when omitted
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="custom-data-type-ref"></a>&#x2022; [`custom_data_type_ref`](#custom-data-type-ref) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

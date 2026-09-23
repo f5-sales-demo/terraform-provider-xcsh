@@ -50,7 +50,7 @@ output "workload_flavor_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the WorkloadFlavor
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the WorkloadFlavor exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the WorkloadFlavor exists
 
 ### Attributes Reference
 
@@ -60,9 +60,15 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the WorkloadFlavor
 
+<a id="ephemeral-storage"></a>&#x2022; [`ephemeral_storage`](#ephemeral-storage) - Optional String<br>Ephemeral storage in MiB (mebibyte) allocated for the workload_flavor
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="memory"></a>&#x2022; [`memory`](#memory) - Optional String<br>Memory in MiB (mebibyte) allocated for the workload_flavor
+
+<a id="vcpus"></a>&#x2022; [`vcpus`](#vcpus) - Optional Number<br>Number of vCPUs allocated for the workload_flavor. Each vCPU is a thread on a CPU core
 
 ---
 

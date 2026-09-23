@@ -80,11 +80,665 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="audit-logs"></a>&#x2022; [`audit_logs`](#audit-logs) - Optional Object<br>Enable this option
+
+<a id="aws-cloud-watch-receiver"></a>&#x2022; [`aws_cloud_watch_receiver`](#aws-cloud-watch-receiver) - Optional String<br>AWS Cloudwatch Logs Configuration for Global Log Receiver
+
+<a id="azure-event-hubs-receiver"></a>&#x2022; [`azure_event_hubs_receiver`](#azure-event-hubs-receiver) - Optional String<br>Azure Event Hubs Configuration for Global Log Receiver
+
+<a id="azure-receiver"></a>&#x2022; [`azure_receiver`](#azure-receiver) - Optional String<br>Azure Blob Configuration for Global Log Receiver
+
+<a id="datadog-receiver"></a>&#x2022; [`datadog_receiver`](#datadog-receiver) - Optional String<br>Datadog Configuration. Configuration for Datadog endpoint
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the GlobalLogReceiver
+
+<a id="dns-logs"></a>&#x2022; [`dns_logs`](#dns-logs) - Optional Object<br>Enable this option
+
+<a id="gcp-bucket-receiver"></a>&#x2022; [`gcp_bucket_receiver`](#gcp-bucket-receiver) - Optional String<br>GCP Bucket Configuration for Global Log Receiver
+
+<a id="http-receiver"></a>&#x2022; [`http_receiver`](#http-receiver) - Optional String<br>Configuration parameter for HTTP receiver
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="kafka-receiver"></a>&#x2022; [`kafka_receiver`](#kafka-receiver) - Optional String<br>Kafka Configuration for Global Log Receiver
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="new-relic-receiver"></a>&#x2022; [`new_relic_receiver`](#new-relic-receiver) - Optional String<br>Configuration parameter for new relic receiver
+
+<a id="ns-all"></a>&#x2022; [`ns_all`](#ns-all) - Optional Object<br>Enable this option
+
+<a id="ns-current"></a>&#x2022; [`ns_current`](#ns-current) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="ns-list"></a>&#x2022; [`ns_list`](#ns-list) - Optional String<br>Namespace List. Namespace List
+
+<a id="qradar-receiver"></a>&#x2022; [`qradar_receiver`](#qradar-receiver) - Optional String<br>Configuration parameter for qradar receiver
+
+<a id="request-logs"></a>&#x2022; [`request_logs`](#request-logs) - Optional String<br>Configuration for request logs with sampling choice. Allows selection between sampled (default) or unsampled (full) request logs
+
+<a id="s3-receiver"></a>&#x2022; [`s3_receiver`](#s3-receiver) - Optional String<br>S3 Configuration for Global Log Receiver
+
+<a id="security-events"></a>&#x2022; [`security_events`](#security-events) - Optional Object<br>Enable this option
+
+<a id="splunk-receiver"></a>&#x2022; [`splunk_receiver`](#splunk-receiver) - Optional String<br>Configuration for Splunk HEC Logs endpoint
+
+<a id="sumo-logic-receiver"></a>&#x2022; [`sumo_logic_receiver`](#sumo-logic-receiver) - Optional String<br>Configuration parameter for sumo logic receiver
+
+<a id="aws-cred"></a>&#x2022; [`aws_cred`](#aws-cred) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="aws-region"></a>&#x2022; [`aws_region`](#aws-region) - Optional String<br>Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `CA-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`,
+`ap-southeast-3`<br>[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|CA-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="group-name"></a>&#x2022; [`group_name`](#group-name) - Optional String<br>The group name of the target Cloudwatch Logs stream
+
+<a id="stream-name"></a>&#x2022; [`stream_name`](#stream-name) - Optional String<br>The stream name of the target Cloudwatch Logs stream. Note that there can only be one writer to a log stream at a time
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="connection-string"></a>&#x2022; [`connection_string`](#connection-string) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="instance"></a>&#x2022; [`instance`](#instance) - Optional String<br>Event Hubs Instance name into which logs should be stored
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Event Hubs Namespace is namespace with instance into which logs should be stored
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="connection-string"></a>&#x2022; [`connection_string`](#connection-string) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="container-name"></a>&#x2022; [`container_name`](#container-name) - Optional String<br>Container Name is the name of the container into which logs should be stored
+
+<a id="filename-options"></a>&#x2022; [`filename_options`](#filename-options) - Optional String<br>Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="custom-folder"></a>&#x2022; [`custom_folder`](#custom-folder) - Optional String<br>Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match
+
+<a id="log-type-folder"></a>&#x2022; [`log_type_folder`](#log-type-folder) - Optional Object<br>Configuration parameter for log type folder
+
+<a id="no-folder"></a>&#x2022; [`no_folder`](#no-folder) - Optional Object<br>Enable this option
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="datadog-api-key"></a>&#x2022; [`datadog_api_key`](#datadog-api-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="endpoint"></a>&#x2022; [`endpoint`](#endpoint) - Optional String<br>Datadog Endpoint,
+
+<a id="no-tls"></a>&#x2022; [`no_tls`](#no-tls) - Optional Object<br>Enable this option
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Datadog Site,
+
+<a id="use-tls"></a>&#x2022; [`use_tls`](#use-tls) - Optional String<br>TLS Parameters for client connection to the endpoint
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="disable-verify-certificate"></a>&#x2022; [`disable_verify_certificate`](#disable-verify-certificate) - Optional Object<br>Configuration parameter for disable verify certificate
+
+<a id="disable-verify-hostname"></a>&#x2022; [`disable_verify_hostname`](#disable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="enable-verify-certificate"></a>&#x2022; [`enable_verify_certificate`](#enable-verify-certificate) - Optional Object<br>Configuration parameter for enable verify certificate
+
+<a id="enable-verify-hostname"></a>&#x2022; [`enable_verify_hostname`](#enable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="mtls-disabled"></a>&#x2022; [`mtls_disabled`](#mtls-disabled) - Optional Object<br>Enable this option
+
+<a id="mtls-enable"></a>&#x2022; [`mtls_enable`](#mtls-enable) - Optional String<br>mTLS Client config allows configuration of mTLS client OPTIONS
+
+<a id="no-ca"></a>&#x2022; [`no_ca`](#no-ca) - Optional Object<br>Enable this option
+
+<a id="trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#trusted-ca-url) - Optional String<br>The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers
+
+<a id="certificate"></a>&#x2022; [`certificate`](#certificate) - Optional String<br>Client certificate is PEM-encoded certificate or certificate-chain
+
+<a id="key-url"></a>&#x2022; [`key_url`](#key-url) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="bucket"></a>&#x2022; [`bucket`](#bucket) - Optional String<br>GCP Bucket Name. GCP Bucket Name
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="filename-options"></a>&#x2022; [`filename_options`](#filename-options) - Optional String<br>Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file
+
+<a id="gcp-cred"></a>&#x2022; [`gcp_cred`](#gcp-cred) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="custom-folder"></a>&#x2022; [`custom_folder`](#custom-folder) - Optional String<br>Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match
+
+<a id="log-type-folder"></a>&#x2022; [`log_type_folder`](#log-type-folder) - Optional Object<br>Configuration parameter for log type folder
+
+<a id="no-folder"></a>&#x2022; [`no_folder`](#no-folder) - Optional Object<br>Enable this option
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="auth-basic"></a>&#x2022; [`auth_basic`](#auth-basic) - Optional String<br>Authentication parameters to access HTPP Log Receiver Endpoint
+
+<a id="auth-none"></a>&#x2022; [`auth_none`](#auth-none) - Optional Object<br>Enable this option
+
+<a id="auth-token"></a>&#x2022; [`auth_token`](#auth-token) - Optional String<br>Access Token. Authentication Token for access
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="no-tls"></a>&#x2022; [`no_tls`](#no-tls) - Optional Object<br>Enable this option
+
+<a id="uri"></a>&#x2022; [`uri`](#uri) - Optional String<br>HTTP URI is the URI of the HTTP endpoint to send logs to,
+
+<a id="use-tls"></a>&#x2022; [`use_tls`](#use-tls) - Optional String<br>TLS Parameters for client connection to the endpoint
+
+<a id="password"></a>&#x2022; [`password`](#password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="user-name"></a>&#x2022; [`user_name`](#user-name) - Optional String<br>username. HTTP Basic Auth username
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="token"></a>&#x2022; [`token`](#token) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="disable-verify-certificate"></a>&#x2022; [`disable_verify_certificate`](#disable-verify-certificate) - Optional Object<br>Configuration parameter for disable verify certificate
+
+<a id="disable-verify-hostname"></a>&#x2022; [`disable_verify_hostname`](#disable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="enable-verify-certificate"></a>&#x2022; [`enable_verify_certificate`](#enable-verify-certificate) - Optional Object<br>Configuration parameter for enable verify certificate
+
+<a id="enable-verify-hostname"></a>&#x2022; [`enable_verify_hostname`](#enable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="mtls-disabled"></a>&#x2022; [`mtls_disabled`](#mtls-disabled) - Optional Object<br>Enable this option
+
+<a id="mtls-enable"></a>&#x2022; [`mtls_enable`](#mtls-enable) - Optional String<br>mTLS Client config allows configuration of mTLS client OPTIONS
+
+<a id="no-ca"></a>&#x2022; [`no_ca`](#no-ca) - Optional Object<br>Enable this option
+
+<a id="trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#trusted-ca-url) - Optional String<br>The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers
+
+<a id="certificate"></a>&#x2022; [`certificate`](#certificate) - Optional String<br>Client certificate is PEM-encoded certificate or certificate-chain
+
+<a id="key-url"></a>&#x2022; [`key_url`](#key-url) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="bootstrap-servers"></a>&#x2022; [`bootstrap_servers`](#bootstrap-servers) - Optional List<br>List of host:port pairs of the Kafka brokers
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="kafka-topic"></a>&#x2022; [`kafka_topic`](#kafka-topic) - Optional String<br>The Kafka topic name to write events to
+
+<a id="no-tls"></a>&#x2022; [`no_tls`](#no-tls) - Optional Object<br>Enable this option
+
+<a id="use-tls"></a>&#x2022; [`use_tls`](#use-tls) - Optional String<br>TLS Parameters for client connection to the endpoint
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="disable-verify-certificate"></a>&#x2022; [`disable_verify_certificate`](#disable-verify-certificate) - Optional Object<br>Configuration parameter for disable verify certificate
+
+<a id="disable-verify-hostname"></a>&#x2022; [`disable_verify_hostname`](#disable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="enable-verify-certificate"></a>&#x2022; [`enable_verify_certificate`](#enable-verify-certificate) - Optional Object<br>Configuration parameter for enable verify certificate
+
+<a id="enable-verify-hostname"></a>&#x2022; [`enable_verify_hostname`](#enable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="mtls-disabled"></a>&#x2022; [`mtls_disabled`](#mtls-disabled) - Optional Object<br>Enable this option
+
+<a id="mtls-enable"></a>&#x2022; [`mtls_enable`](#mtls-enable) - Optional String<br>mTLS Client config allows configuration of mTLS client OPTIONS
+
+<a id="no-ca"></a>&#x2022; [`no_ca`](#no-ca) - Optional Object<br>Enable this option
+
+<a id="trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#trusted-ca-url) - Optional String<br>The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers
+
+<a id="certificate"></a>&#x2022; [`certificate`](#certificate) - Optional String<br>Client certificate is PEM-encoded certificate or certificate-chain
+
+<a id="key-url"></a>&#x2022; [`key_url`](#key-url) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="api-key"></a>&#x2022; [`api_key`](#api-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="eu"></a>&#x2022; [`eu`](#eu) - Optional Object<br>Enable this option
+
+<a id="us"></a>&#x2022; [`us`](#us) - Optional Object<br>Enable this option
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="namespaces"></a>&#x2022; [`namespaces`](#namespaces) - Optional List<br>Namespaces. List of namespaces to stream logs for
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="no-tls"></a>&#x2022; [`no_tls`](#no-tls) - Optional Object<br>Enable this option
+
+<a id="uri"></a>&#x2022; [`uri`](#uri) - Optional String<br>Log Source Collector URL is the URL of the IBM QRadar Log Source Collector to send logs to,
+
+<a id="use-tls"></a>&#x2022; [`use_tls`](#use-tls) - Optional String<br>TLS Parameters for client connection to the endpoint
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="disable-verify-certificate"></a>&#x2022; [`disable_verify_certificate`](#disable-verify-certificate) - Optional Object<br>Configuration parameter for disable verify certificate
+
+<a id="disable-verify-hostname"></a>&#x2022; [`disable_verify_hostname`](#disable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="enable-verify-certificate"></a>&#x2022; [`enable_verify_certificate`](#enable-verify-certificate) - Optional Object<br>Configuration parameter for enable verify certificate
+
+<a id="enable-verify-hostname"></a>&#x2022; [`enable_verify_hostname`](#enable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="mtls-disabled"></a>&#x2022; [`mtls_disabled`](#mtls-disabled) - Optional Object<br>Enable this option
+
+<a id="mtls-enable"></a>&#x2022; [`mtls_enable`](#mtls-enable) - Optional String<br>mTLS Client config allows configuration of mTLS client OPTIONS
+
+<a id="no-ca"></a>&#x2022; [`no_ca`](#no-ca) - Optional Object<br>Enable this option
+
+<a id="trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#trusted-ca-url) - Optional String<br>The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers
+
+<a id="certificate"></a>&#x2022; [`certificate`](#certificate) - Optional String<br>Client certificate is PEM-encoded certificate or certificate-chain
+
+<a id="key-url"></a>&#x2022; [`key_url`](#key-url) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="sampled"></a>&#x2022; [`sampled`](#sampled) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="unsampled"></a>&#x2022; [`unsampled`](#unsampled) - Optional Object<br>Enable this option
+
+<a id="aws-cred"></a>&#x2022; [`aws_cred`](#aws-cred) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="aws-region"></a>&#x2022; [`aws_region`](#aws-region) - Optional String<br>Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `CA-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`,
+`ap-southeast-3`<br>[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|CA-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="bucket"></a>&#x2022; [`bucket`](#bucket) - Optional String<br>S3 Bucket Name. S3 Bucket Name
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="filename-options"></a>&#x2022; [`filename_options`](#filename-options) - Optional String<br>Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="custom-folder"></a>&#x2022; [`custom_folder`](#custom-folder) - Optional String<br>Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match
+
+<a id="log-type-folder"></a>&#x2022; [`log_type_folder`](#log-type-folder) - Optional Object<br>Configuration parameter for log type folder
+
+<a id="no-folder"></a>&#x2022; [`no_folder`](#no-folder) - Optional Object<br>Enable this option
+
+<a id="batch"></a>&#x2022; [`batch`](#batch) - Optional String<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint
+
+<a id="compression"></a>&#x2022; [`compression`](#compression) - Optional String<br>Configuration parameter for compression
+
+<a id="endpoint"></a>&#x2022; [`endpoint`](#endpoint) - Optional String<br>Splunk HEC Logs Endpoint. Splunk HEC Logs Endpoint, (Note: must not contain `/services/collector`)
+
+<a id="no-tls"></a>&#x2022; [`no_tls`](#no-tls) - Optional Object<br>Enable this option
+
+<a id="splunk-hec-token"></a>&#x2022; [`splunk_hec_token`](#splunk-hec-token) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="use-tls"></a>&#x2022; [`use_tls`](#use-tls) - Optional String<br>TLS Parameters for client connection to the endpoint
+
+<a id="max-bytes"></a>&#x2022; [`max_bytes`](#max-bytes) - Optional Number<br>Send batch to endpoint after the batch is equal to or larger than this many bytes
+
+<a id="max-bytes-disabled"></a>&#x2022; [`max_bytes_disabled`](#max-bytes-disabled) - Optional Object<br>Enable this option
+
+<a id="max-events"></a>&#x2022; [`max_events`](#max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
+
+<a id="max-events-disabled"></a>&#x2022; [`max_events_disabled`](#max-events-disabled) - Optional Object<br>Enable this option
+
+<a id="timeout-seconds"></a>&#x2022; [`timeout_seconds`](#timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
+
+<a id="timeout-seconds-default"></a>&#x2022; [`timeout_seconds_default`](#timeout-seconds-default) - Optional Object<br>Enable this option
+
+<a id="compression-default"></a>&#x2022; [`compression_default`](#compression-default) - Optional Object<br>Configuration parameter for compression default
+
+<a id="compression-gzip"></a>&#x2022; [`compression_gzip`](#compression-gzip) - Optional Object<br>Enable this option
+
+<a id="compression-none"></a>&#x2022; [`compression_none`](#compression-none) - Optional Object<br>Configuration parameter for compression none
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="disable-verify-certificate"></a>&#x2022; [`disable_verify_certificate`](#disable-verify-certificate) - Optional Object<br>Configuration parameter for disable verify certificate
+
+<a id="disable-verify-hostname"></a>&#x2022; [`disable_verify_hostname`](#disable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="enable-verify-certificate"></a>&#x2022; [`enable_verify_certificate`](#enable-verify-certificate) - Optional Object<br>Configuration parameter for enable verify certificate
+
+<a id="enable-verify-hostname"></a>&#x2022; [`enable_verify_hostname`](#enable-verify-hostname) - Optional Object<br>Enable this option
+
+<a id="mtls-disabled"></a>&#x2022; [`mtls_disabled`](#mtls-disabled) - Optional Object<br>Enable this option
+
+<a id="mtls-enable"></a>&#x2022; [`mtls_enable`](#mtls-enable) - Optional String<br>mTLS Client config allows configuration of mTLS client OPTIONS
+
+<a id="no-ca"></a>&#x2022; [`no_ca`](#no-ca) - Optional Object<br>Enable this option
+
+<a id="trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#trusted-ca-url) - Optional String<br>The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers
+
+<a id="certificate"></a>&#x2022; [`certificate`](#certificate) - Optional String<br>Client certificate is PEM-encoded certificate or certificate-chain
+
+<a id="key-url"></a>&#x2022; [`key_url`](#key-url) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 ---
 

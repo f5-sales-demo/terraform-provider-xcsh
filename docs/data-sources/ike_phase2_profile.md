@@ -58,11 +58,34 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="authentication-algos"></a>&#x2022; [`authentication_algos`](#authentication-algos) - Optional List  Defaults to `AUTH_ALG_DEFAULT`<br>Possible values are `AUTH_ALG_DEFAULT`, `SHA256_HMAC`, `SHA384_HMAC`, `SHA512_HMAC`, `AUTH_ALG_NONE`<br>[Enum: AUTH_ALG_DEFAULT|SHA256_HMAC|SHA384_HMAC|SHA512_HMAC|AUTH_ALG_NONE] Choose one or more Authentication Algorithm. Use None option when using the
+AES-gcm or AES-ccm encryption algorithms
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the IKEPhase2Profile
+
+<a id="dh-group-set"></a>&#x2022; [`dh_group_set`](#dh-group-set) - Optional String<br>Choose the acceptable Diffie Hellman(DH) Group or Groups that you are willing to accept as part of this profile
+
+<a id="disable-pfs"></a>&#x2022; [`disable_pfs`](#disable-pfs) - Optional Object<br>Configuration parameter for disable pfs
+
+<a id="encryption-algos"></a>&#x2022; [`encryption_algos`](#encryption-algos) - Optional List  Defaults to `ENC_ALG_DEFAULT`<br>Possible values are `ENC_ALG_DEFAULT`, `AES128_CBC`, `AES192_CBC`, `AES256_CBC`, `TRIPLE_DES_CBC`, `AES128_GCM`, `AES192_GCM`, `AES256_GCM`<br>[Enum: ENC_ALG_DEFAULT|AES128_CBC|AES192_CBC|AES256_CBC|TRIPLE_DES_CBC|AES128_GCM|AES192_GCM|AES256_GCM] Choose one or more
+encryption algorithms
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ike-keylifetime-hours"></a>&#x2022; [`ike_keylifetime_hours`](#ike-keylifetime-hours) - Optional String<br>Configuration parameter for IKE keylifetime hours
+
+<a id="ike-keylifetime-minutes"></a>&#x2022; [`ike_keylifetime_minutes`](#ike-keylifetime-minutes) - Optional String<br>Configuration parameter for IKE keylifetime minutes
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="use-default-keylifetime"></a>&#x2022; [`use_default_keylifetime`](#use-default-keylifetime) - Optional Object<br>Configuration parameter for use default keylifetime
+
+<a id="dh-groups"></a>&#x2022; [`dh_groups`](#dh-groups) - Optional List  Defaults to `DH_GROUP_DEFAULT`<br>Possible values are `DH_GROUP_DEFAULT`, `DH_GROUP_14`, `DH_GROUP_15`, `DH_GROUP_16`, `DH_GROUP_17`, `DH_GROUP_18`, `DH_GROUP_19`, `DH_GROUP_20`, `DH_GROUP_21`, `DH_GROUP_26`<br>[Enum:
+DH_GROUP_DEFAULT|DH_GROUP_14|DH_GROUP_15|DH_GROUP_16|DH_GROUP_17|DH_GROUP_18|DH_GROUP_19|DH_GROUP_20|DH_GROUP_21|DH_GROUP_26] Choose the acceptable Diffie Hellman(DH) Group or Groups that you are willing to accept as part of this profile
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
 
 ---
 

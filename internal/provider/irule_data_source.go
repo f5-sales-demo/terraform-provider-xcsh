@@ -28,12 +28,14 @@ type IruleDataSource struct {
 }
 
 type IruleDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID              types.String `tfsdk:"id"`
+	Name            types.String `tfsdk:"name"`
+	Namespace       types.String `tfsdk:"namespace"`
+	Description     types.String `tfsdk:"description"`
+	Labels          types.Map    `tfsdk:"labels"`
+	Annotations     types.Map    `tfsdk:"annotations"`
+	DescriptionSpec types.String `tfsdk:"description_spec"`
+	Irule           types.String `tfsdk:"irule"`
 }
 
 func (d *IruleDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,14 @@ func (d *IruleDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"description_spec": schema.StringAttribute{
+				MarkdownDescription: "Description for iRule. Specify Description for iRule.",
+				Computed:            true,
+			},
+			"irule": schema.StringAttribute{
+				MarkdownDescription: "Www.internal.example.f5.com')} DNS::drop} irule content.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +103,8 @@ func (d *IruleDataSource) Read(ctx context.Context, req datasource.ReadRequest, 
 		return
 	}
 
-	resource, err := d.client.GetIrule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetIrule(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Irule: %s", err))
 		return
@@ -101,7 +112,11 @@ func (d *IruleDataSource) Read(ctx context.Context, req datasource.ReadRequest, 
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +149,17 @@ func (d *IruleDataSource) Read(ctx context.Context, req datasource.ReadRequest, 
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["description"].(string); ok && v != "" {
+		data.DescriptionSpec = types.StringValue(v)
+	} else {
+		data.DescriptionSpec = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["irule"].(string); ok && v != "" {
+		data.Irule = types.StringValue(v)
+	} else {
+		data.Irule = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

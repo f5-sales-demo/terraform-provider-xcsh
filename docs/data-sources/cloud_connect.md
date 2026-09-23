@@ -58,11 +58,109 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="aws-provider"></a>&#x2022; [`aws_provider`](#aws-provider) - Optional String<br>Configuration parameter for AWS provider
+
+<a id="azure-vnet-site"></a>&#x2022; [`azure_vnet_site`](#azure-vnet-site) - Optional String<br>Azure VNET Site Type. Cloud Connect Azure VNET Site Type
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the CloudConnect
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="segment"></a>&#x2022; [`segment`](#segment) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="aws-tgw-site"></a>&#x2022; [`aws_tgw_site`](#aws-tgw-site) - Optional String<br>AWS TGW Site Type. Cloud Connect AWS TGW Site Type
+
+<a id="cred"></a>&#x2022; [`cred`](#cred) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="vpc-attachments"></a>&#x2022; [`vpc_attachments`](#vpc-attachments) - Optional String<br>Configuration parameter for VPC attachments
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="vpc-list"></a>&#x2022; [`vpc_list`](#vpc-list) - Optional List<br>VPC List. Collection of items or values
+
+<a id="custom-routing"></a>&#x2022; [`custom_routing`](#custom-routing) - Optional String<br>AWS Route Table List. AWS Route Table List
+
+<a id="default-route"></a>&#x2022; [`default_route`](#default-route) - Optional String<br>Configuration parameter for default route
+
+<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional String<br>Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall
+
+<a id="manual-routing"></a>&#x2022; [`manual_routing`](#manual-routing) - Optional Object<br>Enable this option
+
+<a id="vpc-id"></a>&#x2022; [`vpc_id`](#vpc-id) - Optional String<br>Enter the VPC ID of the VPC to be attached
+
+<a id="route-tables"></a>&#x2022; [`route_tables`](#route-tables) - Optional List<br>List of route tables. Route Tables
+
+<a id="route-table-id"></a>&#x2022; [`route_table_id`](#route-table-id) - Optional String<br>Route table ID. Route table ID
+
+<a id="static-routes"></a>&#x2022; [`static_routes`](#static-routes) - Optional List<br>Static Routes. List of Static Routes
+
+<a id="all-route-tables"></a>&#x2022; [`all_route_tables`](#all-route-tables) - Optional Object<br>Configuration parameter for all route tables
+
+<a id="selective-route-tables"></a>&#x2022; [`selective_route_tables`](#selective-route-tables) - Optional String<br>Configuration parameter for selective route tables
+
+<a id="route-table-id"></a>&#x2022; [`route_table_id`](#route-table-id) - Optional List<br>Route table ID. Route table ID
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="vnet-attachments"></a>&#x2022; [`vnet_attachments`](#vnet-attachments) - Optional String<br>Configuration parameter for VNET attachments
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="vnet-list"></a>&#x2022; [`vnet_list`](#vnet-list) - Optional List<br>VNET List. Collection of items or values
+
+<a id="custom-routing"></a>&#x2022; [`custom_routing`](#custom-routing) - Optional String<br>List Azure Route Table with Static Route
+
+<a id="default-route"></a>&#x2022; [`default_route`](#default-route) - Optional String<br>Configuration parameter for default route
+
+<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional String<br>Add labels for the VNET attachments. These labels can then be used in policies such as enhanced firewall policies
+
+<a id="manual-routing"></a>&#x2022; [`manual_routing`](#manual-routing) - Optional Object<br>Enable this option
+
+<a id="subscription-id"></a>&#x2022; [`subscription_id`](#subscription-id) - Optional String<br>Enter the Subscription ID of the VNET to be attached
+
+<a id="vnet-id"></a>&#x2022; [`vnet_id`](#vnet-id) - Optional String<br>Enter the VNET ID of the VNET to be attached in format /`<resource-group-name>`/`<VNET-name>`
+
+<a id="route-tables"></a>&#x2022; [`route_tables`](#route-tables) - Optional List<br>List of route tables with static routes. Route Tables with static routes
+
+<a id="route-table-id"></a>&#x2022; [`route_table_id`](#route-table-id) - Optional String<br>Route table ID in the format /`<resource-group-name>`/`<route-table-name>`
+
+<a id="static-routes"></a>&#x2022; [`static_routes`](#static-routes) - Optional List<br>Static Routes. List of Static Routes
+
+<a id="all-route-tables"></a>&#x2022; [`all_route_tables`](#all-route-tables) - Optional Object<br>Configuration parameter for all route tables
+
+<a id="selective-route-tables"></a>&#x2022; [`selective_route_tables`](#selective-route-tables) - Optional String<br>Configuration parameter for selective route tables
+
+<a id="route-table-id"></a>&#x2022; [`route_table_id`](#route-table-id) - Optional List<br>Route table ID in the format /`<resource-group-name>`/`<route-table-name>`
+
+---
+
+#### Segment
+
+A [`segment`](#segment) block supports the following:
+
+<a id="nestedatt--segment-name"></a>&#x2022; [`name`](#nestedatt--segment-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--segment-namespace"></a>&#x2022; [`namespace`](#nestedatt--segment-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--segment-tenant"></a>&#x2022; [`tenant`](#nestedatt--segment-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

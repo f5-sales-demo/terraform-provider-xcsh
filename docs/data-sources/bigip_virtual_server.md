@@ -64,13 +64,13 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="bigip-vs-description"></a>&#x2022; [`bigip_vs_description`](#bigip-vs-description) - Optional String<br>Description. BIG-IP Virtual Server Description
 
-<a id="default-sensitive-data-policy"></a>&#x2022; [`default_sensitive_data_policy`](#default-sensitive-data-policy) - Optional String<br>Policy configuration for this feature
+<a id="default-sensitive-data-policy"></a>&#x2022; [`default_sensitive_data_policy`](#default-sensitive-data-policy) - Optional Object<br>Policy configuration for this feature
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 
-<a id="disable-api-definition"></a>&#x2022; [`disable_api_definition`](#disable-api-definition) - Optional String<br>Enable this option
+<a id="disable-api-definition"></a>&#x2022; [`disable_api_definition`](#disable-api-definition) - Optional Object<br>Enable this option
 
-<a id="disable-api-discovery"></a>&#x2022; [`disable_api_discovery`](#disable-api-discovery) - Optional String<br>Enable this option
+<a id="disable-api-discovery"></a>&#x2022; [`disable_api_discovery`](#disable-api-discovery) - Optional Object<br>Enable this option
 
 <a id="enable-api-discovery"></a>&#x2022; [`enable_api_discovery`](#enable-api-discovery) - Optional String<br>Specifies the settings used for API discovery
 
@@ -86,6 +86,264 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="type"></a>&#x2022; [`type`](#type) - Optional String  Defaults to `INVALID_VIRTUAL_SERVER`<br>Possible values are `INVALID_VIRTUAL_SERVER`, `BIGIP_VIRTUAL_SERVER`<br>[Enum: INVALID_VIRTUAL_SERVER|BIGIP_VIRTUAL_SERVER] VirtualServerType could be of type classic BIG-IP or BIG-IP-NEXT. BIG-IP-NEXT will be added later. Specifies the virtual server type Invalid Virtual Server Type Classic BIG-IP
 Virtual Server
+
+<a id="api-definition"></a>&#x2022; [`api_definition`](#api-definition) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="validation-all-spec-endpoints"></a>&#x2022; [`validation_all_spec_endpoints`](#validation-all-spec-endpoints) - Optional String<br>API Inventory. Settings for API Inventory validation
+
+<a id="validation-custom-list"></a>&#x2022; [`validation_custom_list`](#validation-custom-list) - Optional String<br>Define API groups, base paths, or API endpoints and their OpenAPI validation modes. Any other API-endpoint not listed will act according to 'Fall Through Mode'
+
+<a id="validation-disabled"></a>&#x2022; [`validation_disabled`](#validation-disabled) - Optional Object<br>Enable this option
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="fall-through-mode"></a>&#x2022; [`fall_through_mode`](#fall-through-mode) - Optional String<br>Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a. Swagger) or doesn't have a specific rule in custom rules)
+
+<a id="settings"></a>&#x2022; [`settings`](#settings) - Optional String<br>OpenAPI specification validation settings relevant for 'API Inventory' enforcement and for 'Custom list' enforcement
+
+<a id="validation-mode"></a>&#x2022; [`validation_mode`](#validation-mode) - Optional String<br>Validation mode of OpenAPI specification. When a validation mismatch occurs on a request to one of the endpoints listed on the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="fall-through-mode-allow"></a>&#x2022; [`fall_through_mode_allow`](#fall-through-mode-allow) - Optional Object<br>Configuration parameter for fall through mode allow
+
+<a id="fall-through-mode-custom"></a>&#x2022; [`fall_through_mode_custom`](#fall-through-mode-custom) - Optional String<br>Configuration parameter for fall through mode custom
+
+<a id="open-api-validation-rules"></a>&#x2022; [`open_api_validation_rules`](#open-api-validation-rules) - Optional List<br>Custom Fall Through Rule List. Rule or policy definition
+
+<a id="action-block"></a>&#x2022; [`action_block`](#action-block) - Optional Object<br>Enable this option
+
+<a id="action-report"></a>&#x2022; [`action_report`](#action-report) - Optional Object<br>Enable this option
+
+<a id="action-skip"></a>&#x2022; [`action_skip`](#action-skip) - Optional Object<br>Enable this option
+
+<a id="api-endpoint"></a>&#x2022; [`api_endpoint`](#api-endpoint) - Optional String<br>API Endpoint. This defines API endpoint
+
+<a id="api-group"></a>&#x2022; [`api_group`](#api-group) - Optional String<br>The API group which this validation applies to
+
+<a id="base-path"></a>&#x2022; [`base_path`](#base-path) - Optional String<br>The base path which this validation applies to
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="methods"></a>&#x2022; [`methods`](#methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Methods. Methods to be matched
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path. Path to be matched
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="oversized-body-fail-validation"></a>&#x2022; [`oversized_body_fail_validation`](#oversized-body-fail-validation) - Optional Object<br>Enable this option
+
+<a id="oversized-body-skip-validation"></a>&#x2022; [`oversized_body_skip_validation`](#oversized-body-skip-validation) - Optional Object<br>Enable this option
+
+<a id="property-validation-settings-custom"></a>&#x2022; [`property_validation_settings_custom`](#property-validation-settings-custom) - Optional String<br>Configuration parameter for property validation settings custom
+
+<a id="property-validation-settings-default"></a>&#x2022; [`property_validation_settings_default`](#property-validation-settings-default) - Optional Object<br>Configuration parameter for property validation settings default
+
+<a id="query-parameters"></a>&#x2022; [`query_parameters`](#query-parameters) - Optional String<br>Custom settings for query parameters validation
+
+<a id="allow-additional-parameters"></a>&#x2022; [`allow_additional_parameters`](#allow-additional-parameters) - Optional Object<br>Configuration parameter for allow additional parameters
+
+<a id="disallow-additional-parameters"></a>&#x2022; [`disallow_additional_parameters`](#disallow-additional-parameters) - Optional Object<br>Configuration parameter for disallow additional parameters
+
+<a id="response-validation-mode-active"></a>&#x2022; [`response_validation_mode_active`](#response-validation-mode-active) - Optional String<br>Open API Validation Mode Active. Validation mode properties of response
+
+<a id="skip-response-validation"></a>&#x2022; [`skip_response_validation`](#skip-response-validation) - Optional Object<br>Enable this option
+
+<a id="skip-validation"></a>&#x2022; [`skip_validation`](#skip-validation) - Optional Object<br>Enable this option
+
+<a id="validation-mode-active"></a>&#x2022; [`validation_mode_active`](#validation-mode-active) - Optional String<br>Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403
+
+<a id="enforcement-block"></a>&#x2022; [`enforcement_block`](#enforcement-block) - Optional Object<br>Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403
+
+<a id="enforcement-report"></a>&#x2022; [`enforcement_report`](#enforcement-report) - Optional Object<br>Report-only validation: record OpenAPI violations while allowing the request or response to continue
+
+<a id="response-validation-properties"></a>&#x2022; [`response_validation_properties`](#response-validation-properties) - Optional List  Defaults to `PROPERTY_QUERY_PARAMETERS`<br>Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`,
+`PROPERTY_RESPONSE_CODE`<br>[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="enforcement-block"></a>&#x2022; [`enforcement_block`](#enforcement-block) - Optional Object<br>Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403
+
+<a id="enforcement-report"></a>&#x2022; [`enforcement_report`](#enforcement-report) - Optional Object<br>Report-only validation: record OpenAPI violations while allowing the request or response to continue
+
+<a id="request-validation-properties"></a>&#x2022; [`request_validation_properties`](#request-validation-properties) - Optional List  Defaults to `PROPERTY_QUERY_PARAMETERS`<br>Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`,
+`PROPERTY_RESPONSE_CODE`<br>[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="fall-through-mode"></a>&#x2022; [`fall_through_mode`](#fall-through-mode) - Optional String<br>Determine what to do with unprotected endpoints (not in the OpenAPI specification file (a.k.a. Swagger) or doesn't have a specific rule in custom rules)
+
+<a id="open-api-validation-rules"></a>&#x2022; [`open_api_validation_rules`](#open-api-validation-rules) - Optional List<br>Validation List. Rule or policy definition
+
+<a id="settings"></a>&#x2022; [`settings`](#settings) - Optional String<br>OpenAPI specification validation settings relevant for 'API Inventory' enforcement and for 'Custom list' enforcement
+
+<a id="fall-through-mode-allow"></a>&#x2022; [`fall_through_mode_allow`](#fall-through-mode-allow) - Optional Object<br>Configuration parameter for fall through mode allow
+
+<a id="fall-through-mode-custom"></a>&#x2022; [`fall_through_mode_custom`](#fall-through-mode-custom) - Optional String<br>Configuration parameter for fall through mode custom
+
+<a id="open-api-validation-rules"></a>&#x2022; [`open_api_validation_rules`](#open-api-validation-rules) - Optional List<br>Custom Fall Through Rule List. Rule or policy definition
+
+<a id="action-block"></a>&#x2022; [`action_block`](#action-block) - Optional Object<br>Enable this option
+
+<a id="action-report"></a>&#x2022; [`action_report`](#action-report) - Optional Object<br>Enable this option
+
+<a id="action-skip"></a>&#x2022; [`action_skip`](#action-skip) - Optional Object<br>Enable this option
+
+<a id="api-endpoint"></a>&#x2022; [`api_endpoint`](#api-endpoint) - Optional String<br>API Endpoint. This defines API endpoint
+
+<a id="api-group"></a>&#x2022; [`api_group`](#api-group) - Optional String<br>The API group which this validation applies to
+
+<a id="base-path"></a>&#x2022; [`base_path`](#base-path) - Optional String<br>The base path which this validation applies to
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="methods"></a>&#x2022; [`methods`](#methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Methods. Methods to be matched
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path. Path to be matched
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="api-endpoint"></a>&#x2022; [`api_endpoint`](#api-endpoint) - Optional String<br>API Endpoint. This defines API endpoint
+
+<a id="api-group"></a>&#x2022; [`api_group`](#api-group) - Optional String<br>The API group which this validation applies to
+
+<a id="base-path"></a>&#x2022; [`base_path`](#base-path) - Optional String<br>The base path which this validation applies to
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="specific-domain"></a>&#x2022; [`specific_domain`](#specific-domain) - Optional String<br>The rule will apply for a specific domain
+
+<a id="validation-mode"></a>&#x2022; [`validation_mode`](#validation-mode) - Optional String<br>Validation mode of OpenAPI specification. When a validation mismatch occurs on a request to one of the endpoints listed on the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="methods"></a>&#x2022; [`methods`](#methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Methods. Methods to be matched
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path. Path to be matched
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="response-validation-mode-active"></a>&#x2022; [`response_validation_mode_active`](#response-validation-mode-active) - Optional String<br>Open API Validation Mode Active. Validation mode properties of response
+
+<a id="skip-response-validation"></a>&#x2022; [`skip_response_validation`](#skip-response-validation) - Optional Object<br>Enable this option
+
+<a id="skip-validation"></a>&#x2022; [`skip_validation`](#skip-validation) - Optional Object<br>Enable this option
+
+<a id="validation-mode-active"></a>&#x2022; [`validation_mode_active`](#validation-mode-active) - Optional String<br>Enable OpenAPI validation and explicitly select enforcement_report to allow and log invalid traffic, or enforcement_block to reject invalid requests with HTTP 403
+
+<a id="enforcement-block"></a>&#x2022; [`enforcement_block`](#enforcement-block) - Optional Object<br>Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403
+
+<a id="enforcement-report"></a>&#x2022; [`enforcement_report`](#enforcement-report) - Optional Object<br>Report-only validation: record OpenAPI violations while allowing the request or response to continue
+
+<a id="response-validation-properties"></a>&#x2022; [`response_validation_properties`](#response-validation-properties) - Optional List  Defaults to `PROPERTY_QUERY_PARAMETERS`<br>Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`,
+`PROPERTY_RESPONSE_CODE`<br>[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the response to validate according to the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="enforcement-block"></a>&#x2022; [`enforcement_block`](#enforcement-block) - Optional Object<br>Blocking validation: reject traffic that violates the selected OpenAPI validation properties. Invalid requests are returned as HTTP 403
+
+<a id="enforcement-report"></a>&#x2022; [`enforcement_report`](#enforcement-report) - Optional Object<br>Report-only validation: record OpenAPI violations while allowing the request or response to continue
+
+<a id="request-validation-properties"></a>&#x2022; [`request_validation_properties`](#request-validation-properties) - Optional List  Defaults to `PROPERTY_QUERY_PARAMETERS`<br>Possible values are `PROPERTY_QUERY_PARAMETERS`, `PROPERTY_PATH_PARAMETERS`, `PROPERTY_CONTENT_TYPE`, `PROPERTY_COOKIE_PARAMETERS`, `PROPERTY_HTTP_HEADERS`, `PROPERTY_HTTP_BODY`, `PROPERTY_SECURITY_SCHEMA`,
+`PROPERTY_RESPONSE_CODE`<br>[Enum: PROPERTY_QUERY_PARAMETERS|PROPERTY_PATH_PARAMETERS|PROPERTY_CONTENT_TYPE|PROPERTY_COOKIE_PARAMETERS|PROPERTY_HTTP_HEADERS|PROPERTY_HTTP_BODY|PROPERTY_SECURITY_SCHEMA|PROPERTY_RESPONSE_CODE] List of properties of the request to validate according to the OpenAPI specification file (a.k.a. Swagger)
+
+<a id="oversized-body-fail-validation"></a>&#x2022; [`oversized_body_fail_validation`](#oversized-body-fail-validation) - Optional Object<br>Enable this option
+
+<a id="oversized-body-skip-validation"></a>&#x2022; [`oversized_body_skip_validation`](#oversized-body-skip-validation) - Optional Object<br>Enable this option
+
+<a id="property-validation-settings-custom"></a>&#x2022; [`property_validation_settings_custom`](#property-validation-settings-custom) - Optional String<br>Configuration parameter for property validation settings custom
+
+<a id="property-validation-settings-default"></a>&#x2022; [`property_validation_settings_default`](#property-validation-settings-default) - Optional Object<br>Configuration parameter for property validation settings default
+
+<a id="query-parameters"></a>&#x2022; [`query_parameters`](#query-parameters) - Optional String<br>Custom settings for query parameters validation
+
+<a id="allow-additional-parameters"></a>&#x2022; [`allow_additional_parameters`](#allow-additional-parameters) - Optional Object<br>Configuration parameter for allow additional parameters
+
+<a id="disallow-additional-parameters"></a>&#x2022; [`disallow_additional_parameters`](#disallow-additional-parameters) - Optional Object<br>Configuration parameter for disallow additional parameters
+
+<a id="api-crawler"></a>&#x2022; [`api_crawler`](#api-crawler) - Optional String<br>API Crawling. API Crawler message
+
+<a id="api-discovery-from-code-scan"></a>&#x2022; [`api_discovery_from_code_scan`](#api-discovery-from-code-scan) - Optional String<br>Select codebase and Repositories
+
+<a id="custom-api-auth-discovery"></a>&#x2022; [`custom_api_auth_discovery`](#custom-api-auth-discovery) - Optional String<br>API Discovery Advanced Settings. API Discovery Advanced settings
+
+<a id="default-api-auth-discovery"></a>&#x2022; [`default_api_auth_discovery`](#default-api-auth-discovery) - Optional Object<br>Enable this option
+
+<a id="disable-learn-from-redirect-traffic"></a>&#x2022; [`disable_learn_from_redirect_traffic`](#disable-learn-from-redirect-traffic) - Optional Object<br>Configuration parameter for disable learn from redirect traffic
+
+<a id="discovered-api-settings"></a>&#x2022; [`discovered_api_settings`](#discovered-api-settings) - Optional String<br>Discovered API Settings. Configure Discovered API Settings
+
+<a id="enable-learn-from-redirect-traffic"></a>&#x2022; [`enable_learn_from_redirect_traffic`](#enable-learn-from-redirect-traffic) - Optional Object<br>Configuration parameter for enable learn from redirect traffic
+
+<a id="api-crawler-config"></a>&#x2022; [`api_crawler_config`](#api-crawler-config) - Optional String<br>Crawler Configure
+
+<a id="disable-api-crawler"></a>&#x2022; [`disable_api_crawler`](#disable-api-crawler) - Optional Object<br>Enable this option
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>Enter domains and their credentials to allow authenticated API crawling. You can only include domains you own that are associated with this Load Balancer
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Select the domain to execute API Crawling with given credentials
+
+<a id="simple-login"></a>&#x2022; [`simple_login`](#simple-login) - Optional String<br>Configuration parameter for simple login
+
+<a id="password"></a>&#x2022; [`password`](#password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="user"></a>&#x2022; [`user`](#user) - Optional String<br>Enter the username to assign credentials for the selected domain to crawl
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="code-base-integrations"></a>&#x2022; [`code_base_integrations`](#code-base-integrations) - Optional List<br>Configuration parameter for codebase integrations
+
+<a id="all-repos"></a>&#x2022; [`all_repos`](#all-repos) - Optional Object<br>Enable this option
+
+<a id="code-base-integration"></a>&#x2022; [`code_base_integration`](#code-base-integration) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="selected-repos"></a>&#x2022; [`selected_repos`](#selected-repos) - Optional String<br>Select which API repositories represent the LB applications
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="api-code-repo"></a>&#x2022; [`api_code_repo`](#api-code-repo) - Optional List<br>Code repository which contain API endpoints
+
+<a id="api-discovery-ref"></a>&#x2022; [`api_discovery_ref`](#api-discovery-ref) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="apis-c08bec"></a>&#x2022; [`purge_duration_for_inactive_discovered_apis`](#apis-c08bec) - Optional Number<br>Inactive discovered API will be deleted after configured duration
+
+<a id="sensitive-data-policy-ref"></a>&#x2022; [`sensitive_data_policy_ref`](#sensitive-data-policy-ref) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

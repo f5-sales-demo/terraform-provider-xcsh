@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,31 @@ type GlobalLogReceiverDataSource struct {
 }
 
 type GlobalLogReceiverDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                     types.String                                  `tfsdk:"id"`
+	Name                   types.String                                  `tfsdk:"name"`
+	Namespace              types.String                                  `tfsdk:"namespace"`
+	Description            types.String                                  `tfsdk:"description"`
+	Labels                 types.Map                                     `tfsdk:"labels"`
+	Annotations            types.Map                                     `tfsdk:"annotations"`
+	AuditLogs              types.Object                                  `tfsdk:"audit_logs"`
+	DNSLogs                types.Object                                  `tfsdk:"dns_logs"`
+	NsAll                  types.Object                                  `tfsdk:"ns_all"`
+	SecurityEvents         types.Object                                  `tfsdk:"security_events"`
+	NsCurrent              types.Object                                  `tfsdk:"ns_current"`
+	AWSCloudWatchReceiver  *GlobalLogReceiverAWSCloudWatchReceiverModel  `tfsdk:"aws_cloud_watch_receiver"`
+	AzureEventHubsReceiver *GlobalLogReceiverAzureEventHubsReceiverModel `tfsdk:"azure_event_hubs_receiver"`
+	AzureReceiver          *GlobalLogReceiverAzureReceiverModel          `tfsdk:"azure_receiver"`
+	DatadogReceiver        *GlobalLogReceiverDatadogReceiverModel        `tfsdk:"datadog_receiver"`
+	GCPBucketReceiver      *GlobalLogReceiverGCPBucketReceiverModel      `tfsdk:"gcp_bucket_receiver"`
+	HTTPReceiver           *GlobalLogReceiverHTTPReceiverModel           `tfsdk:"http_receiver"`
+	KafkaReceiver          *GlobalLogReceiverKafkaReceiverModel          `tfsdk:"kafka_receiver"`
+	NewRelicReceiver       *GlobalLogReceiverNewRelicReceiverModel       `tfsdk:"new_relic_receiver"`
+	NsList                 *GlobalLogReceiverNsListModel                 `tfsdk:"ns_list"`
+	QradarReceiver         *GlobalLogReceiverQradarReceiverModel         `tfsdk:"qradar_receiver"`
+	RequestLogs            *GlobalLogReceiverRequestLogsModel            `tfsdk:"request_logs"`
+	S3Receiver             *GlobalLogReceiverS3ReceiverModel             `tfsdk:"s3_receiver"`
+	SplunkReceiver         *GlobalLogReceiverSplunkReceiverModel         `tfsdk:"splunk_receiver"`
+	SumoLogicReceiver      *GlobalLogReceiverSumoLogicReceiverModel      `tfsdk:"sumo_logic_receiver"`
 }
 
 func (d *GlobalLogReceiverDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +90,1621 @@ func (d *GlobalLogReceiverDataSource) Schema(ctx context.Context, req datasource
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"audit_logs": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: audit_logs, dns_logs, request_logs, security_events] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"aws_cloud_watch_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: aws_cloud_watch_receiver, azure_event_hubs_receiver, azure_receiver, datadog_receiver, gcp_bucket_receiver, http_receiver, kafka_receiver, new_relic_receiver, qradar_receiver, s3_receiver, splunk_receiver, sumo_logic_receiver] AWS Cloudwatch Logs Configuration for Global Log Receiver.",
+				Attributes: map[string]schema.Attribute{
+					"aws_cred": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"aws_region": schema.StringAttribute{
+						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name. Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
+						Computed:            true,
+					},
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"group_name": schema.StringAttribute{
+						MarkdownDescription: "The group name of the target Cloudwatch Logs stream.",
+						Computed:            true,
+					},
+					"stream_name": schema.StringAttribute{
+						MarkdownDescription: "The stream name of the target Cloudwatch Logs stream. Note that there can only be one writer to a log stream at a time.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"azure_event_hubs_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Azure Event Hubs Configuration for Global Log Receiver.",
+				Attributes: map[string]schema.Attribute{
+					"connection_string": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"instance": schema.StringAttribute{
+						MarkdownDescription: "Event Hubs Instance name into which logs should be stored.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "Event Hubs Namespace is namespace with instance into which logs should be stored.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"azure_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Azure Blob Configuration for Global Log Receiver.",
+				Attributes: map[string]schema.Attribute{
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"connection_string": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"container_name": schema.StringAttribute{
+						MarkdownDescription: "Container Name is the name of the container into which logs should be stored.",
+						Computed:            true,
+					},
+					"filename_options": schema.SingleNestedAttribute{
+						MarkdownDescription: "Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file.",
+						Attributes: map[string]schema.Attribute{
+							"custom_folder": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [log_type_folder no_folder] Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match.",
+								Computed:            true,
+							},
+							"log_type_folder": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for log type folder.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"no_folder": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"datadog_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Datadog Configuration. Configuration for Datadog endpoint.",
+				Attributes: map[string]schema.Attribute{
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"datadog_api_key": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"endpoint": schema.StringAttribute{
+						MarkdownDescription: "Exclusive with [site] Datadog Endpoint,.",
+						Computed:            true,
+					},
+					"no_tls": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"site": schema.StringAttribute{
+						MarkdownDescription: "Exclusive with [endpoint] Datadog Site,.",
+						Computed:            true,
+					},
+					"use_tls": schema.SingleNestedAttribute{
+						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"disable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for enable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_enable": schema.SingleNestedAttribute{
+								MarkdownDescription: "MTLS Client config allows configuration of mTLS client OPTIONS.",
+								Attributes: map[string]schema.Attribute{
+									"certificate": schema.StringAttribute{
+										MarkdownDescription: "Client certificate is PEM-encoded certificate or certificate-chain.",
+										Computed:            true,
+									},
+									"key_url": schema.SingleNestedAttribute{
+										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Attributes: map[string]schema.Attribute{
+											"blindfold_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Attributes: map[string]schema.Attribute{
+													"decryption_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+														Computed:            true,
+													},
+													"location": schema.StringAttribute{
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+													"store_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+												},
+												Computed: true,
+											},
+											"clear_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Attributes: map[string]schema.Attribute{
+													"provider_ref": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+													"url": schema.StringAttribute{
+														MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"no_ca": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"trusted_ca_url": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"dns_logs": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"gcp_bucket_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "GCP Bucket Configuration for Global Log Receiver.",
+				Attributes: map[string]schema.Attribute{
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"bucket": schema.StringAttribute{
+						MarkdownDescription: "GCP Bucket Name. GCP Bucket Name.",
+						Computed:            true,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"filename_options": schema.SingleNestedAttribute{
+						MarkdownDescription: "Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file.",
+						Attributes: map[string]schema.Attribute{
+							"custom_folder": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [log_type_folder no_folder] Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match.",
+								Computed:            true,
+							},
+							"log_type_folder": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for log type folder.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"no_folder": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"gcp_cred": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"http_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for http receiver.",
+				Attributes: map[string]schema.Attribute{
+					"auth_basic": schema.SingleNestedAttribute{
+						MarkdownDescription: "Authentication parameters to access HTPP Log Receiver Endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"password": schema.SingleNestedAttribute{
+								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Attributes: map[string]schema.Attribute{
+									"blindfold_secret_info": schema.SingleNestedAttribute{
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Attributes: map[string]schema.Attribute{
+											"decryption_provider": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+												Computed:            true,
+											},
+											"location": schema.StringAttribute{
+												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+												Computed:            true,
+												Sensitive:           true,
+											},
+											"store_provider": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+												Computed:            true,
+											},
+										},
+										Computed: true,
+									},
+									"clear_secret_info": schema.SingleNestedAttribute{
+										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Attributes: map[string]schema.Attribute{
+											"provider_ref": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+												Computed:            true,
+											},
+											"url": schema.StringAttribute{
+												MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+												Computed:            true,
+												Sensitive:           true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"user_name": schema.StringAttribute{
+								MarkdownDescription: "User Name. HTTP Basic Auth User Name.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"auth_none": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"auth_token": schema.SingleNestedAttribute{
+						MarkdownDescription: "Access Token. Authentication Token for access.",
+						Attributes: map[string]schema.Attribute{
+							"token": schema.SingleNestedAttribute{
+								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Attributes: map[string]schema.Attribute{
+									"blindfold_secret_info": schema.SingleNestedAttribute{
+										MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+										Attributes: map[string]schema.Attribute{
+											"decryption_provider": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+												Computed:            true,
+											},
+											"location": schema.StringAttribute{
+												MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+												Computed:            true,
+												Sensitive:           true,
+											},
+											"store_provider": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+												Computed:            true,
+											},
+										},
+										Computed: true,
+									},
+									"clear_secret_info": schema.SingleNestedAttribute{
+										MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+										Attributes: map[string]schema.Attribute{
+											"provider_ref": schema.StringAttribute{
+												MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+												Computed:            true,
+											},
+											"url": schema.StringAttribute{
+												MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+												Computed:            true,
+												Sensitive:           true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"no_tls": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"uri": schema.StringAttribute{
+						MarkdownDescription: "HTTP URI is the URI of the HTTP endpoint to send logs to,.",
+						Computed:            true,
+					},
+					"use_tls": schema.SingleNestedAttribute{
+						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"disable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for enable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_enable": schema.SingleNestedAttribute{
+								MarkdownDescription: "MTLS Client config allows configuration of mTLS client OPTIONS.",
+								Attributes: map[string]schema.Attribute{
+									"certificate": schema.StringAttribute{
+										MarkdownDescription: "Client certificate is PEM-encoded certificate or certificate-chain.",
+										Computed:            true,
+									},
+									"key_url": schema.SingleNestedAttribute{
+										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Attributes: map[string]schema.Attribute{
+											"blindfold_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Attributes: map[string]schema.Attribute{
+													"decryption_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+														Computed:            true,
+													},
+													"location": schema.StringAttribute{
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+													"store_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+												},
+												Computed: true,
+											},
+											"clear_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Attributes: map[string]schema.Attribute{
+													"provider_ref": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+													"url": schema.StringAttribute{
+														MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"no_ca": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"trusted_ca_url": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"kafka_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Kafka Configuration for Global Log Receiver.",
+				Attributes: map[string]schema.Attribute{
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"bootstrap_servers": schema.ListAttribute{
+						MarkdownDescription: "List of host:port pairs of the Kafka brokers.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"kafka_topic": schema.StringAttribute{
+						MarkdownDescription: "The Kafka topic name to write events to.",
+						Computed:            true,
+					},
+					"no_tls": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"use_tls": schema.SingleNestedAttribute{
+						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"disable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for enable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_enable": schema.SingleNestedAttribute{
+								MarkdownDescription: "MTLS Client config allows configuration of mTLS client OPTIONS.",
+								Attributes: map[string]schema.Attribute{
+									"certificate": schema.StringAttribute{
+										MarkdownDescription: "Client certificate is PEM-encoded certificate or certificate-chain.",
+										Computed:            true,
+									},
+									"key_url": schema.SingleNestedAttribute{
+										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Attributes: map[string]schema.Attribute{
+											"blindfold_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Attributes: map[string]schema.Attribute{
+													"decryption_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+														Computed:            true,
+													},
+													"location": schema.StringAttribute{
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+													"store_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+												},
+												Computed: true,
+											},
+											"clear_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Attributes: map[string]schema.Attribute{
+													"provider_ref": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+													"url": schema.StringAttribute{
+														MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"no_ca": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"trusted_ca_url": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"new_relic_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for new relic receiver.",
+				Attributes: map[string]schema.Attribute{
+					"api_key": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"eu": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"us": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"ns_all": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: ns_all, ns_current, ns_list] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"ns_list": schema.SingleNestedAttribute{
+				MarkdownDescription: "Namespace List. Namespace List.",
+				Attributes: map[string]schema.Attribute{
+					"namespaces": schema.ListAttribute{
+						MarkdownDescription: "Namespaces. List of namespaces to stream logs for.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"qradar_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for qradar receiver.",
+				Attributes: map[string]schema.Attribute{
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"no_tls": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"uri": schema.StringAttribute{
+						MarkdownDescription: "Log Source Collector URL is the URL of the IBM QRadar Log Source Collector to send logs to,.",
+						Computed:            true,
+					},
+					"use_tls": schema.SingleNestedAttribute{
+						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"disable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for enable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_enable": schema.SingleNestedAttribute{
+								MarkdownDescription: "MTLS Client config allows configuration of mTLS client OPTIONS.",
+								Attributes: map[string]schema.Attribute{
+									"certificate": schema.StringAttribute{
+										MarkdownDescription: "Client certificate is PEM-encoded certificate or certificate-chain.",
+										Computed:            true,
+									},
+									"key_url": schema.SingleNestedAttribute{
+										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Attributes: map[string]schema.Attribute{
+											"blindfold_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Attributes: map[string]schema.Attribute{
+													"decryption_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+														Computed:            true,
+													},
+													"location": schema.StringAttribute{
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+													"store_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+												},
+												Computed: true,
+											},
+											"clear_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Attributes: map[string]schema.Attribute{
+													"provider_ref": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+													"url": schema.StringAttribute{
+														MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"no_ca": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"trusted_ca_url": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"request_logs": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration for request logs with sampling choice. Allows selection between sampled (default) or unsampled (full) request logs.",
+				Attributes: map[string]schema.Attribute{
+					"sampled": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"unsampled": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"s3_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "S3 Configuration for Global Log Receiver.",
+				Attributes: map[string]schema.Attribute{
+					"aws_cred": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"aws_region": schema.StringAttribute{
+						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name. Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
+						Computed:            true,
+					},
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"bucket": schema.StringAttribute{
+						MarkdownDescription: "S3 Bucket Name. S3 Bucket Name.",
+						Computed:            true,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"filename_options": schema.SingleNestedAttribute{
+						MarkdownDescription: "Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file.",
+						Attributes: map[string]schema.Attribute{
+							"custom_folder": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [log_type_folder no_folder] Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match.",
+								Computed:            true,
+							},
+							"log_type_folder": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for log type folder.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"no_folder": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"security_events": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"splunk_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration for Splunk HEC Logs endpoint.",
+				Attributes: map[string]schema.Attribute{
+					"batch": schema.SingleNestedAttribute{
+						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"max_bytes": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
+								Computed:            true,
+							},
+							"max_bytes_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"max_events": schema.Int64Attribute{
+								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
+								Computed:            true,
+							},
+							"max_events_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"timeout_seconds": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
+								Computed:            true,
+							},
+							"timeout_seconds_default": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"compression": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for compression.",
+						Attributes: map[string]schema.Attribute{
+							"compression_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_gzip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"compression_none": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for compression none.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"endpoint": schema.StringAttribute{
+						MarkdownDescription: "Splunk HEC Logs Endpoint. Splunk HEC Logs Endpoint, (Note: must not contain `/services/collector`)",
+						Computed:            true,
+					},
+					"no_tls": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"splunk_hec_token": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"use_tls": schema.SingleNestedAttribute{
+						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Attributes: map[string]schema.Attribute{
+							"disable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for enable verify certificate.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_verify_hostname": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_enable": schema.SingleNestedAttribute{
+								MarkdownDescription: "MTLS Client config allows configuration of mTLS client OPTIONS.",
+								Attributes: map[string]schema.Attribute{
+									"certificate": schema.StringAttribute{
+										MarkdownDescription: "Client certificate is PEM-encoded certificate or certificate-chain.",
+										Computed:            true,
+									},
+									"key_url": schema.SingleNestedAttribute{
+										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Attributes: map[string]schema.Attribute{
+											"blindfold_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+												Attributes: map[string]schema.Attribute{
+													"decryption_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+														Computed:            true,
+													},
+													"location": schema.StringAttribute{
+														MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+													"store_provider": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+												},
+												Computed: true,
+											},
+											"clear_secret_info": schema.SingleNestedAttribute{
+												MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+												Attributes: map[string]schema.Attribute{
+													"provider_ref": schema.StringAttribute{
+														MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+														Computed:            true,
+													},
+													"url": schema.StringAttribute{
+														MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+														Computed:            true,
+														Sensitive:           true,
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
+							"no_ca": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"trusted_ca_url": schema.StringAttribute{
+								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"sumo_logic_receiver": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for sumo logic receiver.",
+				Attributes: map[string]schema.Attribute{
+					"url": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"ns_current": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 		},
 	}
 }
@@ -93,7 +1728,8 @@ func (d *GlobalLogReceiverDataSource) Read(ctx context.Context, req datasource.R
 		return
 	}
 
-	resource, err := d.client.GetGlobalLogReceiver(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetGlobalLogReceiver(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read GlobalLogReceiver: %s", err))
 		return
@@ -101,7 +1737,11 @@ func (d *GlobalLogReceiverDataSource) Read(ctx context.Context, req datasource.R
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +1774,2332 @@ func (d *GlobalLogReceiverDataSource) Read(ctx context.Context, req datasource.R
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && !data.AuditLogs.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["audit_logs"].(map[string]interface{}); ok {
+		data.AuditLogs = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AuditLogs = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["aws_cloud_watch_receiver"].(map[string]interface{}); ok && (isImport || data.AWSCloudWatchReceiver != nil) {
+		data.AWSCloudWatchReceiver = &GlobalLogReceiverAWSCloudWatchReceiverModel{
+			AWSCred: func() *GlobalLogReceiverAWSCloudWatchReceiverAWSCredModel {
+				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverAWSCloudWatchReceiverAWSCredModel{
+						Name: func() types.String {
+							if v, ok := AWSCredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := AWSCredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := AWSCredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AWSRegion: func() types.String {
+				if v, ok := blockData["aws_region"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Batch: func() *GlobalLogReceiverAWSCloudWatchReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverAWSCloudWatchReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Batch != nil && !data.AWSCloudWatchReceiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Compression: func() *GlobalLogReceiverAWSCloudWatchReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverAWSCloudWatchReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil && !data.AWSCloudWatchReceiver.Compression.CompressionDefault.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil && !data.AWSCloudWatchReceiver.Compression.CompressionGzip.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.AWSCloudWatchReceiver != nil && data.AWSCloudWatchReceiver.Compression != nil && !data.AWSCloudWatchReceiver.Compression.CompressionNone.IsUnknown() {
+								return data.AWSCloudWatchReceiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GroupName: func() types.String {
+				if v, ok := blockData["group_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			StreamName: func() types.String {
+				if v, ok := blockData["stream_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["azure_event_hubs_receiver"].(map[string]interface{}); ok && (isImport || data.AzureEventHubsReceiver != nil) {
+		data.AzureEventHubsReceiver = &GlobalLogReceiverAzureEventHubsReceiverModel{
+			ConnectionString: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringModel {
+				if ConnectionStringData, ok := blockData["connection_string"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringModel{
+						BlindfoldSecretInfo: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ConnectionStringData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *GlobalLogReceiverAzureEventHubsReceiverConnectionStringClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ConnectionStringData["clear_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverAzureEventHubsReceiverConnectionStringClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Instance: func() types.String {
+				if v, ok := blockData["instance"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["azure_receiver"].(map[string]interface{}); ok && (isImport || data.AzureReceiver != nil) {
+		data.AzureReceiver = &GlobalLogReceiverAzureReceiverModel{
+			Batch: func() *GlobalLogReceiverAzureReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverAzureReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.AzureReceiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.AzureReceiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Batch != nil && !data.AzureReceiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.AzureReceiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Compression: func() *GlobalLogReceiverAzureReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverAzureReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil && !data.AzureReceiver.Compression.CompressionDefault.IsUnknown() {
+								return data.AzureReceiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil && !data.AzureReceiver.Compression.CompressionGzip.IsUnknown() {
+								return data.AzureReceiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.Compression != nil && !data.AzureReceiver.Compression.CompressionNone.IsUnknown() {
+								return data.AzureReceiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ConnectionString: func() *GlobalLogReceiverAzureReceiverConnectionStringModel {
+				if ConnectionStringData, ok := blockData["connection_string"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverAzureReceiverConnectionStringModel{
+						BlindfoldSecretInfo: func() *GlobalLogReceiverAzureReceiverConnectionStringBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ConnectionStringData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverAzureReceiverConnectionStringBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *GlobalLogReceiverAzureReceiverConnectionStringClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ConnectionStringData["clear_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverAzureReceiverConnectionStringClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ContainerName: func() types.String {
+				if v, ok := blockData["container_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			FilenameOptions: func() *GlobalLogReceiverAzureReceiverFilenameOptionsModel {
+				if FilenameOptionsData, ok := blockData["filename_options"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverAzureReceiverFilenameOptionsModel{
+						CustomFolder: func() types.String {
+							if v, ok := FilenameOptionsData["custom_folder"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						LogTypeFolder: func() types.Object {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.FilenameOptions != nil && !data.AzureReceiver.FilenameOptions.LogTypeFolder.IsUnknown() {
+								return data.AzureReceiver.FilenameOptions.LogTypeFolder
+							}
+							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						NoFolder: func() types.Object {
+							if !isImport && data.AzureReceiver != nil && data.AzureReceiver.FilenameOptions != nil && !data.AzureReceiver.FilenameOptions.NoFolder.IsUnknown() {
+								return data.AzureReceiver.FilenameOptions.NoFolder
+							}
+							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["datadog_receiver"].(map[string]interface{}); ok && (isImport || data.DatadogReceiver != nil) {
+		data.DatadogReceiver = &GlobalLogReceiverDatadogReceiverModel{
+			Batch: func() *GlobalLogReceiverDatadogReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverDatadogReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.DatadogReceiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.DatadogReceiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Batch != nil && !data.DatadogReceiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.DatadogReceiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Compression: func() *GlobalLogReceiverDatadogReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverDatadogReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil && !data.DatadogReceiver.Compression.CompressionDefault.IsUnknown() {
+								return data.DatadogReceiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil && !data.DatadogReceiver.Compression.CompressionGzip.IsUnknown() {
+								return data.DatadogReceiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.Compression != nil && !data.DatadogReceiver.Compression.CompressionNone.IsUnknown() {
+								return data.DatadogReceiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DatadogAPIKey: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyModel {
+				if DatadogAPIKeyData, ok := blockData["datadog_api_key"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyModel{
+						BlindfoldSecretInfo: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := DatadogAPIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *GlobalLogReceiverDatadogReceiverDatadogAPIKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := DatadogAPIKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverDatadogReceiverDatadogAPIKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Endpoint: func() types.String {
+				if v, ok := blockData["endpoint"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			NoTLS: func() types.Object {
+				if !isImport && data.DatadogReceiver != nil && !data.DatadogReceiver.NoTLS.IsUnknown() {
+					return data.DatadogReceiver.NoTLS
+				}
+				if _, ok := blockData["no_tls"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Site: func() types.String {
+				if v, ok := blockData["site"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			UseTLS: func() *GlobalLogReceiverDatadogReceiverUseTLSModel {
+				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverDatadogReceiverUseTLSModel{
+						DisableVerifyCertificate: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && !data.DatadogReceiver.UseTLS.DisableVerifyCertificate.IsUnknown() {
+								return data.DatadogReceiver.UseTLS.DisableVerifyCertificate
+							}
+							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						DisableVerifyHostname: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && !data.DatadogReceiver.UseTLS.DisableVerifyHostname.IsUnknown() {
+								return data.DatadogReceiver.UseTLS.DisableVerifyHostname
+							}
+							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyCertificate: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && !data.DatadogReceiver.UseTLS.EnableVerifyCertificate.IsUnknown() {
+								return data.DatadogReceiver.UseTLS.EnableVerifyCertificate
+							}
+							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyHostname: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && !data.DatadogReceiver.UseTLS.EnableVerifyHostname.IsUnknown() {
+								return data.DatadogReceiver.UseTLS.EnableVerifyHostname
+							}
+							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsDisabled: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && !data.DatadogReceiver.UseTLS.MtlsDisabled.IsUnknown() {
+								return data.DatadogReceiver.UseTLS.MtlsDisabled
+							}
+							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsEnable: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableModel {
+							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableModel{
+									Certificate: func() types.String {
+										if v, ok := MtlsEnableData["certificate"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									KeyURL: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLModel {
+										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLModel{
+												BlindfoldSecretInfo: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverDatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NoCA: func() types.Object {
+							if !isImport && data.DatadogReceiver != nil && data.DatadogReceiver.UseTLS != nil && !data.DatadogReceiver.UseTLS.NoCA.IsUnknown() {
+								return data.DatadogReceiver.UseTLS.NoCA
+							}
+							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseTLSData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if !isImport && !data.DNSLogs.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["dns_logs"].(map[string]interface{}); ok {
+		data.DNSLogs = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DNSLogs = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["gcp_bucket_receiver"].(map[string]interface{}); ok && (isImport || data.GCPBucketReceiver != nil) {
+		data.GCPBucketReceiver = &GlobalLogReceiverGCPBucketReceiverModel{
+			Batch: func() *GlobalLogReceiverGCPBucketReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverGCPBucketReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Batch != nil && !data.GCPBucketReceiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.GCPBucketReceiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Bucket: func() types.String {
+				if v, ok := blockData["bucket"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Compression: func() *GlobalLogReceiverGCPBucketReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverGCPBucketReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil && !data.GCPBucketReceiver.Compression.CompressionDefault.IsUnknown() {
+								return data.GCPBucketReceiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil && !data.GCPBucketReceiver.Compression.CompressionGzip.IsUnknown() {
+								return data.GCPBucketReceiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.Compression != nil && !data.GCPBucketReceiver.Compression.CompressionNone.IsUnknown() {
+								return data.GCPBucketReceiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			FilenameOptions: func() *GlobalLogReceiverGCPBucketReceiverFilenameOptionsModel {
+				if FilenameOptionsData, ok := blockData["filename_options"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverGCPBucketReceiverFilenameOptionsModel{
+						CustomFolder: func() types.String {
+							if v, ok := FilenameOptionsData["custom_folder"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						LogTypeFolder: func() types.Object {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.FilenameOptions != nil && !data.GCPBucketReceiver.FilenameOptions.LogTypeFolder.IsUnknown() {
+								return data.GCPBucketReceiver.FilenameOptions.LogTypeFolder
+							}
+							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						NoFolder: func() types.Object {
+							if !isImport && data.GCPBucketReceiver != nil && data.GCPBucketReceiver.FilenameOptions != nil && !data.GCPBucketReceiver.FilenameOptions.NoFolder.IsUnknown() {
+								return data.GCPBucketReceiver.FilenameOptions.NoFolder
+							}
+							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			GCPCred: func() *GlobalLogReceiverGCPBucketReceiverGCPCredModel {
+				if GCPCredData, ok := blockData["gcp_cred"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverGCPBucketReceiverGCPCredModel{
+						Name: func() types.String {
+							if v, ok := GCPCredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := GCPCredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := GCPCredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["http_receiver"].(map[string]interface{}); ok && (isImport || data.HTTPReceiver != nil) {
+		data.HTTPReceiver = &GlobalLogReceiverHTTPReceiverModel{
+			AuthBasic: func() *GlobalLogReceiverHTTPReceiverAuthBasicModel {
+				if AuthBasicData, ok := blockData["auth_basic"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverHTTPReceiverAuthBasicModel{
+						Password: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordModel {
+							if PasswordData, ok := AuthBasicData["password"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordModel{
+									BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthBasicPasswordClearSecretInfoModel {
+										if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverHTTPReceiverAuthBasicPasswordClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						UserName: func() types.String {
+							if v, ok := AuthBasicData["user_name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AuthNone: func() types.Object {
+				if !isImport && data.HTTPReceiver != nil && !data.HTTPReceiver.AuthNone.IsUnknown() {
+					return data.HTTPReceiver.AuthNone
+				}
+				if _, ok := blockData["auth_none"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			AuthToken: func() *GlobalLogReceiverHTTPReceiverAuthTokenModel {
+				if AuthTokenData, ok := blockData["auth_token"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverHTTPReceiverAuthTokenModel{
+						Token: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenModel {
+							if TokenData, ok := AuthTokenData["token"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverHTTPReceiverAuthTokenTokenModel{
+									BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenBlindfoldSecretInfoModel {
+										if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverHTTPReceiverAuthTokenTokenBlindfoldSecretInfoModel{
+												DecryptionProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												Location: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												StoreProvider: func() types.String {
+													if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverAuthTokenTokenClearSecretInfoModel {
+										if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverHTTPReceiverAuthTokenTokenClearSecretInfoModel{
+												Provider: func() types.String {
+													if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+												URL: func() types.String {
+													if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Batch: func() *GlobalLogReceiverHTTPReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverHTTPReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.HTTPReceiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.HTTPReceiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Batch != nil && !data.HTTPReceiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.HTTPReceiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Compression: func() *GlobalLogReceiverHTTPReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverHTTPReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil && !data.HTTPReceiver.Compression.CompressionDefault.IsUnknown() {
+								return data.HTTPReceiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil && !data.HTTPReceiver.Compression.CompressionGzip.IsUnknown() {
+								return data.HTTPReceiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.Compression != nil && !data.HTTPReceiver.Compression.CompressionNone.IsUnknown() {
+								return data.HTTPReceiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			NoTLS: func() types.Object {
+				if !isImport && data.HTTPReceiver != nil && !data.HTTPReceiver.NoTLS.IsUnknown() {
+					return data.HTTPReceiver.NoTLS
+				}
+				if _, ok := blockData["no_tls"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			URI: func() types.String {
+				if v, ok := blockData["uri"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			UseTLS: func() *GlobalLogReceiverHTTPReceiverUseTLSModel {
+				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverHTTPReceiverUseTLSModel{
+						DisableVerifyCertificate: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && !data.HTTPReceiver.UseTLS.DisableVerifyCertificate.IsUnknown() {
+								return data.HTTPReceiver.UseTLS.DisableVerifyCertificate
+							}
+							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						DisableVerifyHostname: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && !data.HTTPReceiver.UseTLS.DisableVerifyHostname.IsUnknown() {
+								return data.HTTPReceiver.UseTLS.DisableVerifyHostname
+							}
+							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyCertificate: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && !data.HTTPReceiver.UseTLS.EnableVerifyCertificate.IsUnknown() {
+								return data.HTTPReceiver.UseTLS.EnableVerifyCertificate
+							}
+							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyHostname: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && !data.HTTPReceiver.UseTLS.EnableVerifyHostname.IsUnknown() {
+								return data.HTTPReceiver.UseTLS.EnableVerifyHostname
+							}
+							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsDisabled: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && !data.HTTPReceiver.UseTLS.MtlsDisabled.IsUnknown() {
+								return data.HTTPReceiver.UseTLS.MtlsDisabled
+							}
+							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsEnable: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableModel {
+							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableModel{
+									Certificate: func() types.String {
+										if v, ok := MtlsEnableData["certificate"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									KeyURL: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLModel {
+										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLModel{
+												BlindfoldSecretInfo: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverHTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NoCA: func() types.Object {
+							if !isImport && data.HTTPReceiver != nil && data.HTTPReceiver.UseTLS != nil && !data.HTTPReceiver.UseTLS.NoCA.IsUnknown() {
+								return data.HTTPReceiver.UseTLS.NoCA
+							}
+							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseTLSData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["kafka_receiver"].(map[string]interface{}); ok && (isImport || data.KafkaReceiver != nil) {
+		data.KafkaReceiver = &GlobalLogReceiverKafkaReceiverModel{
+			Batch: func() *GlobalLogReceiverKafkaReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverKafkaReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.KafkaReceiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.KafkaReceiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Batch != nil && !data.KafkaReceiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.KafkaReceiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			BootstrapServers: func() types.List {
+				if v, ok := blockData["bootstrap_servers"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			Compression: func() *GlobalLogReceiverKafkaReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverKafkaReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil && !data.KafkaReceiver.Compression.CompressionDefault.IsUnknown() {
+								return data.KafkaReceiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil && !data.KafkaReceiver.Compression.CompressionGzip.IsUnknown() {
+								return data.KafkaReceiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.Compression != nil && !data.KafkaReceiver.Compression.CompressionNone.IsUnknown() {
+								return data.KafkaReceiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			KafkaTopic: func() types.String {
+				if v, ok := blockData["kafka_topic"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			NoTLS: func() types.Object {
+				if !isImport && data.KafkaReceiver != nil && !data.KafkaReceiver.NoTLS.IsUnknown() {
+					return data.KafkaReceiver.NoTLS
+				}
+				if _, ok := blockData["no_tls"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			UseTLS: func() *GlobalLogReceiverKafkaReceiverUseTLSModel {
+				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverKafkaReceiverUseTLSModel{
+						DisableVerifyCertificate: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && !data.KafkaReceiver.UseTLS.DisableVerifyCertificate.IsUnknown() {
+								return data.KafkaReceiver.UseTLS.DisableVerifyCertificate
+							}
+							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						DisableVerifyHostname: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && !data.KafkaReceiver.UseTLS.DisableVerifyHostname.IsUnknown() {
+								return data.KafkaReceiver.UseTLS.DisableVerifyHostname
+							}
+							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyCertificate: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && !data.KafkaReceiver.UseTLS.EnableVerifyCertificate.IsUnknown() {
+								return data.KafkaReceiver.UseTLS.EnableVerifyCertificate
+							}
+							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyHostname: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && !data.KafkaReceiver.UseTLS.EnableVerifyHostname.IsUnknown() {
+								return data.KafkaReceiver.UseTLS.EnableVerifyHostname
+							}
+							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsDisabled: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && !data.KafkaReceiver.UseTLS.MtlsDisabled.IsUnknown() {
+								return data.KafkaReceiver.UseTLS.MtlsDisabled
+							}
+							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsEnable: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableModel {
+							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableModel{
+									Certificate: func() types.String {
+										if v, ok := MtlsEnableData["certificate"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									KeyURL: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLModel {
+										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLModel{
+												BlindfoldSecretInfo: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverKafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NoCA: func() types.Object {
+							if !isImport && data.KafkaReceiver != nil && data.KafkaReceiver.UseTLS != nil && !data.KafkaReceiver.UseTLS.NoCA.IsUnknown() {
+								return data.KafkaReceiver.UseTLS.NoCA
+							}
+							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseTLSData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["new_relic_receiver"].(map[string]interface{}); ok && (isImport || data.NewRelicReceiver != nil) {
+		data.NewRelicReceiver = &GlobalLogReceiverNewRelicReceiverModel{
+			APIKey: func() *GlobalLogReceiverNewRelicReceiverAPIKeyModel {
+				if APIKeyData, ok := blockData["api_key"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverNewRelicReceiverAPIKeyModel{
+						BlindfoldSecretInfo: func() *GlobalLogReceiverNewRelicReceiverAPIKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := APIKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverNewRelicReceiverAPIKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *GlobalLogReceiverNewRelicReceiverAPIKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := APIKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverNewRelicReceiverAPIKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Eu: func() types.Object {
+				if !isImport && data.NewRelicReceiver != nil && !data.NewRelicReceiver.Eu.IsUnknown() {
+					return data.NewRelicReceiver.Eu
+				}
+				if _, ok := blockData["eu"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Us: func() types.Object {
+				if !isImport && data.NewRelicReceiver != nil && !data.NewRelicReceiver.Us.IsUnknown() {
+					return data.NewRelicReceiver.Us
+				}
+				if _, ok := blockData["us"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if !isImport && !data.NsAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["ns_all"].(map[string]interface{}); ok {
+		data.NsAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NsAll = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["ns_list"].(map[string]interface{}); ok && (isImport || data.NsList != nil) {
+		data.NsList = &GlobalLogReceiverNsListModel{
+			Namespaces: func() types.List {
+				if v, ok := blockData["namespaces"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["qradar_receiver"].(map[string]interface{}); ok && (isImport || data.QradarReceiver != nil) {
+		data.QradarReceiver = &GlobalLogReceiverQradarReceiverModel{
+			Batch: func() *GlobalLogReceiverQradarReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverQradarReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.QradarReceiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.QradarReceiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Batch != nil && !data.QradarReceiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.QradarReceiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Compression: func() *GlobalLogReceiverQradarReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverQradarReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil && !data.QradarReceiver.Compression.CompressionDefault.IsUnknown() {
+								return data.QradarReceiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil && !data.QradarReceiver.Compression.CompressionGzip.IsUnknown() {
+								return data.QradarReceiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.Compression != nil && !data.QradarReceiver.Compression.CompressionNone.IsUnknown() {
+								return data.QradarReceiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			NoTLS: func() types.Object {
+				if !isImport && data.QradarReceiver != nil && !data.QradarReceiver.NoTLS.IsUnknown() {
+					return data.QradarReceiver.NoTLS
+				}
+				if _, ok := blockData["no_tls"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			URI: func() types.String {
+				if v, ok := blockData["uri"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			UseTLS: func() *GlobalLogReceiverQradarReceiverUseTLSModel {
+				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverQradarReceiverUseTLSModel{
+						DisableVerifyCertificate: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && !data.QradarReceiver.UseTLS.DisableVerifyCertificate.IsUnknown() {
+								return data.QradarReceiver.UseTLS.DisableVerifyCertificate
+							}
+							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						DisableVerifyHostname: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && !data.QradarReceiver.UseTLS.DisableVerifyHostname.IsUnknown() {
+								return data.QradarReceiver.UseTLS.DisableVerifyHostname
+							}
+							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyCertificate: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && !data.QradarReceiver.UseTLS.EnableVerifyCertificate.IsUnknown() {
+								return data.QradarReceiver.UseTLS.EnableVerifyCertificate
+							}
+							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyHostname: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && !data.QradarReceiver.UseTLS.EnableVerifyHostname.IsUnknown() {
+								return data.QradarReceiver.UseTLS.EnableVerifyHostname
+							}
+							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsDisabled: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && !data.QradarReceiver.UseTLS.MtlsDisabled.IsUnknown() {
+								return data.QradarReceiver.UseTLS.MtlsDisabled
+							}
+							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsEnable: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableModel {
+							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableModel{
+									Certificate: func() types.String {
+										if v, ok := MtlsEnableData["certificate"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									KeyURL: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLModel {
+										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLModel{
+												BlindfoldSecretInfo: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NoCA: func() types.Object {
+							if !isImport && data.QradarReceiver != nil && data.QradarReceiver.UseTLS != nil && !data.QradarReceiver.UseTLS.NoCA.IsUnknown() {
+								return data.QradarReceiver.UseTLS.NoCA
+							}
+							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseTLSData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["request_logs"].(map[string]interface{}); ok && (isImport || data.RequestLogs != nil) {
+		data.RequestLogs = &GlobalLogReceiverRequestLogsModel{
+			Sampled: func() types.Object {
+				if !isImport && data.RequestLogs != nil && !data.RequestLogs.Sampled.IsUnknown() {
+					return data.RequestLogs.Sampled
+				}
+				if _, ok := blockData["sampled"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Unsampled: func() types.Object {
+				if !isImport && data.RequestLogs != nil && !data.RequestLogs.Unsampled.IsUnknown() {
+					return data.RequestLogs.Unsampled
+				}
+				if _, ok := blockData["unsampled"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["s3_receiver"].(map[string]interface{}); ok && (isImport || data.S3Receiver != nil) {
+		data.S3Receiver = &GlobalLogReceiverS3ReceiverModel{
+			AWSCred: func() *GlobalLogReceiverS3ReceiverAWSCredModel {
+				if AWSCredData, ok := blockData["aws_cred"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverS3ReceiverAWSCredModel{
+						Name: func() types.String {
+							if v, ok := AWSCredData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := AWSCredData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := AWSCredData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AWSRegion: func() types.String {
+				if v, ok := blockData["aws_region"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Batch: func() *GlobalLogReceiverS3ReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverS3ReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.S3Receiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.S3Receiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Batch != nil && !data.S3Receiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.S3Receiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Bucket: func() types.String {
+				if v, ok := blockData["bucket"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Compression: func() *GlobalLogReceiverS3ReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverS3ReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil && !data.S3Receiver.Compression.CompressionDefault.IsUnknown() {
+								return data.S3Receiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil && !data.S3Receiver.Compression.CompressionGzip.IsUnknown() {
+								return data.S3Receiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.Compression != nil && !data.S3Receiver.Compression.CompressionNone.IsUnknown() {
+								return data.S3Receiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			FilenameOptions: func() *GlobalLogReceiverS3ReceiverFilenameOptionsModel {
+				if FilenameOptionsData, ok := blockData["filename_options"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverS3ReceiverFilenameOptionsModel{
+						CustomFolder: func() types.String {
+							if v, ok := FilenameOptionsData["custom_folder"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						LogTypeFolder: func() types.Object {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.FilenameOptions != nil && !data.S3Receiver.FilenameOptions.LogTypeFolder.IsUnknown() {
+								return data.S3Receiver.FilenameOptions.LogTypeFolder
+							}
+							if _, ok := FilenameOptionsData["log_type_folder"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						NoFolder: func() types.Object {
+							if !isImport && data.S3Receiver != nil && data.S3Receiver.FilenameOptions != nil && !data.S3Receiver.FilenameOptions.NoFolder.IsUnknown() {
+								return data.S3Receiver.FilenameOptions.NoFolder
+							}
+							if _, ok := FilenameOptionsData["no_folder"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if !isImport && !data.SecurityEvents.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["security_events"].(map[string]interface{}); ok {
+		data.SecurityEvents = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SecurityEvents = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["splunk_receiver"].(map[string]interface{}); ok && (isImport || data.SplunkReceiver != nil) {
+		data.SplunkReceiver = &GlobalLogReceiverSplunkReceiverModel{
+			Batch: func() *GlobalLogReceiverSplunkReceiverBatchModel {
+				if BatchData, ok := blockData["batch"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverSplunkReceiverBatchModel{
+						MaxBytes: func() types.Int64 {
+							if v, ok := BatchData["max_bytes"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxBytesDisabled: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.MaxBytesDisabled.IsUnknown() {
+								return data.SplunkReceiver.Batch.MaxBytesDisabled
+							}
+							if _, ok := BatchData["max_bytes_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MaxEvents: func() types.Int64 {
+							if v, ok := BatchData["max_events"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						MaxEventsDisabled: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.MaxEventsDisabled.IsUnknown() {
+								return data.SplunkReceiver.Batch.MaxEventsDisabled
+							}
+							if _, ok := BatchData["max_events_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TimeoutSeconds: func() types.String {
+							if v, ok := BatchData["timeout_seconds"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						TimeoutSecondsDefault: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Batch != nil && !data.SplunkReceiver.Batch.TimeoutSecondsDefault.IsUnknown() {
+								return data.SplunkReceiver.Batch.TimeoutSecondsDefault
+							}
+							if _, ok := BatchData["timeout_seconds_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Compression: func() *GlobalLogReceiverSplunkReceiverCompressionModel {
+				if CompressionData, ok := blockData["compression"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverSplunkReceiverCompressionModel{
+						CompressionDefault: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil && !data.SplunkReceiver.Compression.CompressionDefault.IsUnknown() {
+								return data.SplunkReceiver.Compression.CompressionDefault
+							}
+							if _, ok := CompressionData["compression_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionGzip: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil && !data.SplunkReceiver.Compression.CompressionGzip.IsUnknown() {
+								return data.SplunkReceiver.Compression.CompressionGzip
+							}
+							if _, ok := CompressionData["compression_gzip"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						CompressionNone: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.Compression != nil && !data.SplunkReceiver.Compression.CompressionNone.IsUnknown() {
+								return data.SplunkReceiver.Compression.CompressionNone
+							}
+							if _, ok := CompressionData["compression_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Endpoint: func() types.String {
+				if v, ok := blockData["endpoint"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			NoTLS: func() types.Object {
+				if !isImport && data.SplunkReceiver != nil && !data.SplunkReceiver.NoTLS.IsUnknown() {
+					return data.SplunkReceiver.NoTLS
+				}
+				if _, ok := blockData["no_tls"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			SplunkHecToken: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenModel {
+				if SplunkHecTokenData, ok := blockData["splunk_hec_token"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverSplunkReceiverSplunkHecTokenModel{
+						BlindfoldSecretInfo: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := SplunkHecTokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverSplunkReceiverSplunkHecTokenBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *GlobalLogReceiverSplunkReceiverSplunkHecTokenClearSecretInfoModel {
+							if ClearSecretInfoData, ok := SplunkHecTokenData["clear_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverSplunkReceiverSplunkHecTokenClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UseTLS: func() *GlobalLogReceiverSplunkReceiverUseTLSModel {
+				if UseTLSData, ok := blockData["use_tls"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverSplunkReceiverUseTLSModel{
+						DisableVerifyCertificate: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && !data.SplunkReceiver.UseTLS.DisableVerifyCertificate.IsUnknown() {
+								return data.SplunkReceiver.UseTLS.DisableVerifyCertificate
+							}
+							if _, ok := UseTLSData["disable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						DisableVerifyHostname: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && !data.SplunkReceiver.UseTLS.DisableVerifyHostname.IsUnknown() {
+								return data.SplunkReceiver.UseTLS.DisableVerifyHostname
+							}
+							if _, ok := UseTLSData["disable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyCertificate: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && !data.SplunkReceiver.UseTLS.EnableVerifyCertificate.IsUnknown() {
+								return data.SplunkReceiver.UseTLS.EnableVerifyCertificate
+							}
+							if _, ok := UseTLSData["enable_verify_certificate"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						EnableVerifyHostname: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && !data.SplunkReceiver.UseTLS.EnableVerifyHostname.IsUnknown() {
+								return data.SplunkReceiver.UseTLS.EnableVerifyHostname
+							}
+							if _, ok := UseTLSData["enable_verify_hostname"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsDisabled: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && !data.SplunkReceiver.UseTLS.MtlsDisabled.IsUnknown() {
+								return data.SplunkReceiver.UseTLS.MtlsDisabled
+							}
+							if _, ok := UseTLSData["mtls_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						MtlsEnable: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableModel {
+							if MtlsEnableData, ok := UseTLSData["mtls_enable"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableModel{
+									Certificate: func() types.String {
+										if v, ok := MtlsEnableData["certificate"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									KeyURL: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLModel {
+										if KeyURLData, ok := MtlsEnableData["key_url"].(map[string]interface{}); ok {
+											return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLModel{
+												BlindfoldSecretInfo: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel {
+													if BlindfoldSecretInfoData, ok := KeyURLData["blindfold_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoModel{
+															DecryptionProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															Location: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															StoreProvider: func() types.String {
+																if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												ClearSecretInfo: func() *GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel {
+													if ClearSecretInfoData, ok := KeyURLData["clear_secret_info"].(map[string]interface{}); ok {
+														return &GlobalLogReceiverSplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModel{
+															Provider: func() types.String {
+																if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+															URL: func() types.String {
+																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						NoCA: func() types.Object {
+							if !isImport && data.SplunkReceiver != nil && data.SplunkReceiver.UseTLS != nil && !data.SplunkReceiver.UseTLS.NoCA.IsUnknown() {
+								return data.SplunkReceiver.UseTLS.NoCA
+							}
+							if _, ok := UseTLSData["no_ca"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TrustedCAURL: func() types.String {
+							if v, ok := UseTLSData["trusted_ca_url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["sumo_logic_receiver"].(map[string]interface{}); ok && (isImport || data.SumoLogicReceiver != nil) {
+		data.SumoLogicReceiver = &GlobalLogReceiverSumoLogicReceiverModel{
+			URL: func() *GlobalLogReceiverSumoLogicReceiverURLModel {
+				if URLData, ok := blockData["url"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverSumoLogicReceiverURLModel{
+						BlindfoldSecretInfo: func() *GlobalLogReceiverSumoLogicReceiverURLBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := URLData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverSumoLogicReceiverURLBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *GlobalLogReceiverSumoLogicReceiverURLClearSecretInfoModel {
+							if ClearSecretInfoData, ok := URLData["clear_secret_info"].(map[string]interface{}); ok {
+								return &GlobalLogReceiverSumoLogicReceiverURLClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if !isImport && !data.NsCurrent.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["ns_current"].(map[string]interface{}); ok {
+		data.NsCurrent = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NsCurrent = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

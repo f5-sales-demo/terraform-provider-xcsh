@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,20 @@ type HealthcheckDataSource struct {
 }
 
 type HealthcheckDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                 types.String                     `tfsdk:"id"`
+	Name               types.String                     `tfsdk:"name"`
+	Namespace          types.String                     `tfsdk:"namespace"`
+	Description        types.String                     `tfsdk:"description"`
+	Labels             types.Map                        `tfsdk:"labels"`
+	Annotations        types.Map                        `tfsdk:"annotations"`
+	HealthyThreshold   types.Int64                      `tfsdk:"healthy_threshold"`
+	Interval           types.Int64                      `tfsdk:"interval"`
+	Timeout            types.Int64                      `tfsdk:"timeout"`
+	UnhealthyThreshold types.Int64                      `tfsdk:"unhealthy_threshold"`
+	UDPICMPHealthCheck types.Object                     `tfsdk:"udp_icmp_health_check"`
+	JitterPercent      types.Int64                      `tfsdk:"jitter_percent"`
+	HTTPHealthCheck    *HealthcheckHTTPHealthCheckModel `tfsdk:"http_health_check"`
+	TCPHealthCheck     *HealthcheckTCPHealthCheckModel  `tfsdk:"tcp_health_check"`
 }
 
 func (d *HealthcheckDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +79,87 @@ func (d *HealthcheckDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"healthy_threshold": schema.Int64Attribute{
+				MarkdownDescription: "Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy. Recommended: `3`.",
+				Computed:            true,
+			},
+			"interval": schema.Int64Attribute{
+				MarkdownDescription: "Time interval in seconds between two healthcheck requests. Recommended: `15`.",
+				Computed:            true,
+			},
+			"timeout": schema.Int64Attribute{
+				MarkdownDescription: "Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure. Recommended: `3`.",
+				Computed:            true,
+			},
+			"unhealthy_threshold": schema.Int64Attribute{
+				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checking if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately. Recommended: `1`.",
+				Computed:            true,
+			},
+			"http_health_check": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: http_health_check, tcp_health_check, udp_icmp_health_check] Healthy if 'GET' method on URL 'HTTP(s)://<host>/<path>' with optional '<header>' returns success. 'host' is not used for DNS resolution. It is used as HTTP Header in the request.",
+				Attributes: map[string]schema.Attribute{
+					"expected_response": schema.StringAttribute{
+						MarkdownDescription: "Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format. If left empty, then response body is not considered for evaluating health check status. Server applies default when omitted.",
+						Computed:            true,
+					},
+					"expected_status_codes": schema.ListAttribute{
+						MarkdownDescription: "Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of which is single HTTP status code or a range with start and end values separated by '-'. Defaults to `[]`. Server applies default when omitted.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"headers": schema.MapAttribute{
+						MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"host_header": schema.StringAttribute{
+						MarkdownDescription: "Exclusive with [use_origin_server_name] The value of the host header.",
+						Computed:            true,
+					},
+					"path": schema.StringAttribute{
+						MarkdownDescription: "Specifies the HTTP path that will be requested during health checking. Recommended: `/`.",
+						Computed:            true,
+					},
+					"request_headers_to_remove": schema.ListAttribute{
+						MarkdownDescription: "Specifies a list of HTTP headers that should be removed from each request that is sent to the health checked cluster. This is a list of keys of headers. Defaults to `[]`. Server applies default when omitted.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+					"use_http2": schema.BoolAttribute{
+						MarkdownDescription: "If set, health checks will be made using HTTP/2. Defaults to `false`. Server applies default when omitted. Recommended: `false`.",
+						Computed:            true,
+					},
+					"use_origin_server_name": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"tcp_health_check": schema.SingleNestedAttribute{
+				MarkdownDescription: "Healthy if TCP connection is successful and response payload matches <expected_response>.",
+				Attributes: map[string]schema.Attribute{
+					"expected_response": schema.StringAttribute{
+						MarkdownDescription: "Raw bytes expected in the request. Describes the encoding of the payload bytes in the payload. Hex encoded payload.",
+						Computed:            true,
+					},
+					"send_payload": schema.StringAttribute{
+						MarkdownDescription: "Raw bytes sent in the request. Empty payloads imply a connect-only health check. Describes the encoding of the payload bytes in the payload. Hex encoded payload.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"udp_icmp_health_check": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for udp icmp health check.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"jitter_percent": schema.Int64Attribute{
+				MarkdownDescription: "Add a random amount of time as a percent value to the interval between successive healthcheck requests. Server applies default when omitted. Recommended: `30`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +183,8 @@ func (d *HealthcheckDataSource) Read(ctx context.Context, req datasource.ReadReq
 		return
 	}
 
-	resource, err := d.client.GetHealthcheck(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetHealthcheck(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Healthcheck: %s", err))
 		return
@@ -101,7 +192,11 @@ func (d *HealthcheckDataSource) Read(ctx context.Context, req datasource.ReadReq
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +229,127 @@ func (d *HealthcheckDataSource) Read(ctx context.Context, req datasource.ReadReq
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["healthy_threshold"].(float64); ok {
+		data.HealthyThreshold = types.Int64Value(int64(v))
+	} else {
+		data.HealthyThreshold = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["interval"].(float64); ok {
+		data.Interval = types.Int64Value(int64(v))
+	} else {
+		data.Interval = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["timeout"].(float64); ok {
+		data.Timeout = types.Int64Value(int64(v))
+	} else {
+		data.Timeout = types.Int64Null()
+	}
+	if v, ok := apiResource.Spec["unhealthy_threshold"].(float64); ok {
+		data.UnhealthyThreshold = types.Int64Value(int64(v))
+	} else {
+		data.UnhealthyThreshold = types.Int64Null()
+	}
+	if blockData, ok := apiResource.Spec["http_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPHealthCheck != nil) {
+		data.HTTPHealthCheck = &HealthcheckHTTPHealthCheckModel{
+			ExpectedResponse: func() types.String {
+				if v, ok := blockData["expected_response"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			ExpectedStatusCodes: func() types.List {
+				if v, ok := blockData["expected_status_codes"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			Headers: UnmarshalStringMapForRead(ctx, blockData["headers"], func() types.Map {
+				if data.HTTPHealthCheck != nil {
+					return data.HTTPHealthCheck.Headers
+				}
+				return types.MapNull(types.StringType)
+			}(), "headers", isImport, &resp.Diagnostics),
+			HostHeader: func() types.String {
+				if v, ok := blockData["host_header"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Path: func() types.String {
+				if v, ok := blockData["path"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			RequestHeadersToRemove: func() types.List {
+				if v, ok := blockData["request_headers_to_remove"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+			UseHttp2: func() types.Bool {
+				if v, ok := blockData["use_http2"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
+			UseOriginServerName: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.UseOriginServerName.IsUnknown() {
+					return data.HTTPHealthCheck.UseOriginServerName
+				}
+				if _, ok := blockData["use_origin_server_name"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["tcp_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHealthCheck != nil) {
+		data.TCPHealthCheck = &HealthcheckTCPHealthCheckModel{
+			ExpectedResponse: func() types.String {
+				if v, ok := blockData["expected_response"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			SendPayload: func() types.String {
+				if v, ok := blockData["send_payload"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if !isImport && !data.UDPICMPHealthCheck.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok {
+		data.UDPICMPHealthCheck = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UDPICMPHealthCheck = types.ObjectNull(map[string]attr.Type{})
+	}
+	if v, ok := apiResource.Spec["jitter_percent"].(float64); ok {
+		data.JitterPercent = types.Int64Value(int64(v))
+	} else {
+		data.JitterPercent = types.Int64Null()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

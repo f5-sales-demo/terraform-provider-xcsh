@@ -262,8 +262,10 @@ func TestReadOnlyDataSourceHonorsWireName(t *testing.T) {
 				TfsdkTag:    "volterra_software_override",
 				GoName:      "VolterraSoftwareOverride",
 				JsonName:    "volterra_software_overide",
+				Type:        "string",
 				Description: "Synthetic wire-name field.",
 				Computed:    true,
+				IsSpecField: true,
 			},
 		},
 	}
@@ -278,14 +280,13 @@ func TestReadOnlyDataSourceHonorsWireName(t *testing.T) {
 	}
 	got := string(generated)
 	for _, want := range []string{
-		`resource.Spec["volterra_software_overide"]`,
-		`"volterra_software_overide" is the API wire key declared by x-f5xc-wire-name for Terraform attribute "volterra_software_override"`,
+		`apiResource.Spec["volterra_software_overide"]`,
 	} {
 		if !strings.Contains(got, want) {
 			t.Errorf("generated read-only data source missing %q:\n%s", want, got)
 		}
 	}
-	if strings.Contains(got, `resource.Spec["volterra_software_override"]`) {
+	if strings.Contains(got, `apiResource.Spec["volterra_software_override"]`) {
 		t.Errorf("generated read-only data source must not look up the corrected Terraform name as an API key:\n%s", got)
 	}
 }

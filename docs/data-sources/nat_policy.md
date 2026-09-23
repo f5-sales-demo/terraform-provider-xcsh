@@ -64,6 +64,284 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>List of rules to apply under the NAT Policy. Rule that matches first would be applied
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Site Reference Type. Reference to Site Object
+
+---
+
+#### Rules
+
+A [`rules`](#rules) block supports the following:
+
+<a id="nestedatt--rules-action"></a>&#x2022; [`action`](#nestedatt--rules-action) - Optional String<br>Action to apply on the packet if the NAT rule is applied
+
+<a id="nestedatt--rules-cloud-connect"></a>&#x2022; [`cloud_connect`](#nestedatt--rules-cloud-connect) - Optional String<br>Configuration parameter for cloud connect
+
+<a id="nestedatt--rules-criteria"></a>&#x2022; [`criteria`](#nestedatt--rules-criteria) - Optional String<br>Match criteria of the packet to apply the NAT Rule
+
+<a id="nestedatt--rules-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--rules-disable-spec) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-enable"></a>&#x2022; [`enable`](#nestedatt--rules-enable) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules-name"></a>&#x2022; [`name`](#nestedatt--rules-name) - Optional String<br>Name. Name of the Rule
+
+<a id="nestedatt--rules-node-interface"></a>&#x2022; [`node_interface`](#nestedatt--rules-node-interface) - Optional String<br>On multinode site, this type holds the information about per node interfaces
+
+<a id="nestedatt--rules-segment"></a>&#x2022; [`segment`](#nestedatt--rules-segment) - Optional String<br>Segment Reference Type. Reference to Segment Object
+
+<a id="nestedatt--rules-virtual-network"></a>&#x2022; [`virtual_network`](#nestedatt--rules-virtual-network) - Optional String<br>Carries the reference to virtual network
+
+#### Rules Action
+
+An [`action`](#rules-action) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules--action-dynamic"></a>&#x2022; [`dynamic`](#nestedatt--rules--action-dynamic) - Optional String<br>Dynamic Pool. Dynamic Pool Configuration
+
+<a id="nestedatt--rules--action-virtual-cidr"></a>&#x2022; [`virtual_cidr`](#nestedatt--rules--action-virtual-cidr) - Optional String<br>Virtual Subnet NAT is static NAT that does a one-to-one translation between the real source IP CIDR in the policy and the virtual CIDR in a bidirectional fashion. The range of the real CIDR and virtual CIDRs should be the same (e.g. If the real CIDR has the CIDR
+
+#### Rules Action Dynamic
+
+A [`dynamic`](#rules-action-dynamic) block (within [`rules.action`](#rules-action)) supports the following:
+
+<a id="ips-b1a026"></a>&#x2022; [`elastic_ips`](#ips-b1a026) - Optional String<br>List of references to Cloud Elastic IP Object
+
+<a id="nestedatt--rules--action--dynamic-pools"></a>&#x2022; [`pools`](#nestedatt--rules--action--dynamic-pools) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+#### Rules Action Dynamic Elastic Ips
+
+An [`elastic_ips`](#rules-action-dynamic-elastic-ips) block (within [`rules.action.dynamic`](#rules-action-dynamic)) supports the following:
+
+<a id="nestedatt--rules--action--dynamic-refs"></a>&#x2022; [`refs`](#nestedatt--rules--action--dynamic-refs) - Optional List<br>Reference to one or more cloud elastic IP objects
+
+#### Rules Action Dynamic Elastic Ips Refs
+
+A [`refs`](#rules-action-dynamic-elastic-ips-refs) block (within [`rules.action.dynamic.elastic_ips`](#rules-action-dynamic-elastic-ips)) supports the following:
+
+<a id="nestedatt--rules--action--dynamic-kind"></a>&#x2022; [`kind`](#nestedatt--rules--action--dynamic-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--rules--action--dynamic-name"></a>&#x2022; [`name`](#nestedatt--rules--action--dynamic-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-f66592"></a>&#x2022; [`namespace`](#namespace-f66592) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant-4c869e"></a>&#x2022; [`tenant`](#tenant-4c869e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--rules--action--dynamic-uid"></a>&#x2022; [`uid`](#nestedatt--rules--action--dynamic-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Rules Action Dynamic Pools
+
+A [`pools`](#rules-action-dynamic-pools) block (within [`rules.action.dynamic`](#rules-action-dynamic)) supports the following:
+
+<a id="prefixes-4d68fb"></a>&#x2022; [`prefixes`](#prefixes-4d68fb) - Optional List<br>List of IPv4 prefixes that represent an endpoint
+
+#### Rules Cloud Connect
+
+A [`cloud_connect`](#rules-cloud-connect) block (within [`rules`](#rules)) supports the following:
+
+<a id="refs-52b80d"></a>&#x2022; [`refs`](#refs-52b80d) - Optional List<br>Cloud Connect. Reference to Cloud Connect Object
+
+#### Rules Cloud Connect Refs
+
+A [`refs`](#rules-cloud-connect-refs) block (within [`rules.cloud_connect`](#rules-cloud-connect)) supports the following:
+
+<a id="kind-7377a3"></a>&#x2022; [`kind`](#kind-7377a3) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name-11c6fb"></a>&#x2022; [`name`](#name-11c6fb) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-2b5967"></a>&#x2022; [`namespace`](#namespace-2b5967) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant-00f626"></a>&#x2022; [`tenant`](#tenant-00f626) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-93e0dd"></a>&#x2022; [`uid`](#uid-93e0dd) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Rules Criteria
+
+A [`criteria`](#rules-criteria) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules--criteria-any"></a>&#x2022; [`any`](#nestedatt--rules--criteria-any) - Optional Object<br>Enable this option
+
+<a id="cidr-930f46"></a>&#x2022; [`destination_cidr`](#cidr-930f46) - Optional List<br>Destination IP. Destination IP of the packet to match
+
+<a id="nestedatt--rules--criteria-icmp"></a>&#x2022; [`icmp`](#nestedatt--rules--criteria-icmp) - Optional Object<br>Enable this option
+
+<a id="network-0f0439"></a>&#x2022; [`site_local_inside_network`](#network-0f0439) - Optional Object<br>Enable this option
+
+<a id="network-570561"></a>&#x2022; [`site_local_network`](#network-570561) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules--criteria-source-cidr"></a>&#x2022; [`source_cidr`](#nestedatt--rules--criteria-source-cidr) - Optional List<br>Source IP. Source IP of the packet to match
+
+<a id="nestedatt--rules--criteria-tcp"></a>&#x2022; [`tcp`](#nestedatt--rules--criteria-tcp) - Optional String<br>Action to apply on the packet if the NAT rule is applied
+
+<a id="nestedatt--rules--criteria-udp"></a>&#x2022; [`udp`](#nestedatt--rules--criteria-udp) - Optional String<br>Action to apply on the packet if the NAT rule is applied
+
+#### Rules Criteria TCP
+
+A [`tcp`](#rules-criteria-tcp) block (within [`rules.criteria`](#rules-criteria)) supports the following:
+
+<a id="port-4d5dfb"></a>&#x2022; [`destination_port`](#port-4d5dfb) - Optional String<br>Port match of the request can be a range or a specific port
+
+<a id="port-ea03b0"></a>&#x2022; [`source_port`](#port-ea03b0) - Optional String<br>Port match of the request can be a range or a specific port
+
+#### Rules Criteria TCP Destination Port
+
+A [`destination_port`](#rules-criteria-tcp-destination-port) block (within [`rules.criteria.tcp`](#rules-criteria-tcp)) supports the following:
+
+<a id="match-e471e3"></a>&#x2022; [`no_port_match`](#match-e471e3) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules--criteria--tcp-port"></a>&#x2022; [`port`](#nestedatt--rules--criteria--tcp-port) - Optional Number<br>Exact Port to match
+
+<a id="ranges-c9b096"></a>&#x2022; [`port_ranges`](#ranges-c9b096) - Optional String<br>Port range to match
+
+#### Rules Criteria TCP Destination Port No Port Match
+
+<a id="deep-1b693f"></a>Deeply nested **Match** block collapsed for readability.
+
+#### Rules Criteria TCP Source Port
+
+A [`source_port`](#rules-criteria-tcp-source-port) block (within [`rules.criteria.tcp`](#rules-criteria-tcp)) supports the following:
+
+<a id="match-e471e3"></a>&#x2022; [`no_port_match`](#match-e471e3) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules--criteria--tcp-port"></a>&#x2022; [`port`](#nestedatt--rules--criteria--tcp-port) - Optional Number<br>Exact Port to match
+
+<a id="ranges-c9b096"></a>&#x2022; [`port_ranges`](#ranges-c9b096) - Optional String<br>Port range to match
+
+#### Rules Criteria TCP Source Port No Port Match
+
+<a id="deep-2d207b"></a>Deeply nested **Match** block collapsed for readability.
+
+#### Rules Criteria UDP
+
+An [`udp`](#rules-criteria-udp) block (within [`rules.criteria`](#rules-criteria)) supports the following:
+
+<a id="port-125a82"></a>&#x2022; [`destination_port`](#port-125a82) - Optional String<br>Port match of the request can be a range or a specific port
+
+<a id="port-c758a1"></a>&#x2022; [`source_port`](#port-c758a1) - Optional String<br>Port match of the request can be a range or a specific port
+
+#### Rules Criteria UDP Destination Port
+
+A [`destination_port`](#rules-criteria-udp-destination-port) block (within [`rules.criteria.udp`](#rules-criteria-udp)) supports the following:
+
+<a id="match-b965f4"></a>&#x2022; [`no_port_match`](#match-b965f4) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules--criteria--udp-port"></a>&#x2022; [`port`](#nestedatt--rules--criteria--udp-port) - Optional Number<br>Exact Port to match
+
+<a id="ranges-41e26e"></a>&#x2022; [`port_ranges`](#ranges-41e26e) - Optional String<br>Port range to match
+
+#### Rules Criteria UDP Destination Port No Port Match
+
+<a id="deep-cdd98f"></a>Deeply nested **Match** block collapsed for readability.
+
+#### Rules Criteria UDP Source Port
+
+A [`source_port`](#rules-criteria-udp-source-port) block (within [`rules.criteria.udp`](#rules-criteria-udp)) supports the following:
+
+<a id="match-b965f4"></a>&#x2022; [`no_port_match`](#match-b965f4) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules--criteria--udp-port"></a>&#x2022; [`port`](#nestedatt--rules--criteria--udp-port) - Optional Number<br>Exact Port to match
+
+<a id="ranges-41e26e"></a>&#x2022; [`port_ranges`](#ranges-41e26e) - Optional String<br>Port range to match
+
+#### Rules Criteria UDP Source Port No Port Match
+
+<a id="deep-672f26"></a>Deeply nested **Match** block collapsed for readability.
+
+#### Rules Disable Spec
+
+A [`disable_spec`](#rules-disable-spec) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Enable
+
+An [`enable`](#rules-enable) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Node Interface
+
+A [`node_interface`](#rules-node-interface) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules--enable-list"></a>&#x2022; [`list`](#nestedatt--rules--enable-list) - Optional List<br>On a multinode site, this list holds the nodes and corresponding networking_interface
+
+#### Rules Node Interface List
+
+A [`list`](#rules-node-interface-list) block (within [`rules.node_interface`](#rules-node-interface)) supports the following:
+
+<a id="nestedatt--rules--enable-interface"></a>&#x2022; [`interface`](#nestedatt--rules--enable-interface) - Optional List<br>Interface. Interface reference on this node
+
+<a id="nestedatt--rules--enable-node"></a>&#x2022; [`node`](#nestedatt--rules--enable-node) - Optional String<br>Node. Node name on this site
+
+#### Rules Node Interface List Interface
+
+An [`interface`](#rules-node-interface-list-interface) block (within [`rules.node_interface.list`](#rules-node-interface-list)) supports the following:
+
+<a id="nestedatt--rules--enable-kind"></a>&#x2022; [`kind`](#nestedatt--rules--enable-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--rules--enable-name"></a>&#x2022; [`name`](#nestedatt--rules--enable-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--rules--enable-namespace"></a>&#x2022; [`namespace`](#nestedatt--rules--enable-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--rules--enable-tenant"></a>&#x2022; [`tenant`](#nestedatt--rules--enable-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--rules--enable-uid"></a>&#x2022; [`uid`](#nestedatt--rules--enable-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Rules Segment
+
+A [`segment`](#rules-segment) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules--segment-refs"></a>&#x2022; [`refs`](#nestedatt--rules--segment-refs) - Optional List<br>Segment. Reference to Segment Object
+
+#### Rules Segment Refs
+
+A [`refs`](#rules-segment-refs) block (within [`rules.segment`](#rules-segment)) supports the following:
+
+<a id="nestedatt--rules--segment--refs-kind"></a>&#x2022; [`kind`](#nestedatt--rules--segment--refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--rules--segment--refs-name"></a>&#x2022; [`name`](#nestedatt--rules--segment--refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-e7d9a5"></a>&#x2022; [`namespace`](#namespace-e7d9a5) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--rules--segment--refs-tenant"></a>&#x2022; [`tenant`](#nestedatt--rules--segment--refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--rules--segment--refs-uid"></a>&#x2022; [`uid`](#nestedatt--rules--segment--refs-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Rules Virtual Network
+
+A [`virtual_network`](#rules-virtual-network) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules--segment--refs-refs"></a>&#x2022; [`refs`](#nestedatt--rules--segment--refs-refs) - Optional List<br>Virtual Network Reference. Reference to virtual network
+
+#### Rules Virtual Network Refs
+
+A [`refs`](#rules-virtual-network-refs) block (within [`rules.virtual_network`](#rules-virtual-network)) supports the following:
+
+<a id="nestedatt--rules--segment--refs-kind"></a>&#x2022; [`kind`](#nestedatt--rules--segment--refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--rules--segment--refs-name"></a>&#x2022; [`name`](#nestedatt--rules--segment--refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-e7d9a5"></a>&#x2022; [`namespace`](#namespace-e7d9a5) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--rules--segment--refs-tenant"></a>&#x2022; [`tenant`](#nestedatt--rules--segment--refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--rules--segment--refs-uid"></a>&#x2022; [`uid`](#nestedatt--rules--segment--refs-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Site
+
+A [`site`](#site) block supports the following:
+
+<a id="nestedatt--site-refs"></a>&#x2022; [`refs`](#nestedatt--site-refs) - Optional List<br>Site. Reference to Site Object
+
+#### Site Refs
+
+A [`refs`](#site-refs) block (within [`site`](#site)) supports the following:
+
+<a id="nestedatt--site--refs-kind"></a>&#x2022; [`kind`](#nestedatt--site--refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--site--refs-name"></a>&#x2022; [`name`](#nestedatt--site--refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--site--refs-namespace"></a>&#x2022; [`namespace`](#nestedatt--site--refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--site--refs-tenant"></a>&#x2022; [`tenant`](#nestedatt--site--refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--site--refs-uid"></a>&#x2022; [`uid`](#nestedatt--site--refs-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
 ---
 
 ## Common Types

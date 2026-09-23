@@ -64,6 +64,100 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="site-local"></a>&#x2022; [`site_local`](#site-local) - Optional String<br>Enable this option
+
+<a id="syslog"></a>&#x2022; [`syslog`](#syslog) - Optional String<br>Syslog Server Configuration. Configuration for syslog server
+
+---
+
+#### Syslog
+
+A [`syslog`](#syslog) block supports the following:
+
+<a id="nestedatt--syslog-syslog-rfc5424"></a>&#x2022; [`syslog_rfc5424`](#nestedatt--syslog-syslog-rfc5424) - Optional Number<br>Select RFC5424 syslog format and maximum message length
+
+<a id="nestedatt--syslog-tcp-server"></a>&#x2022; [`tcp_server`](#nestedatt--syslog-tcp-server) - Optional String<br>TCP Server name and Port Number. Name and port number for a TCP server
+
+<a id="nestedatt--syslog-tls-server"></a>&#x2022; [`tls_server`](#nestedatt--syslog-tls-server) - Optional String<br>TLS config for client of discovery service
+
+<a id="nestedatt--syslog-udp-server"></a>&#x2022; [`udp_server`](#nestedatt--syslog-udp-server) - Optional String<br>UDP Server Name and Port Number. Name and port number for a UDP server
+
+#### Syslog TCP Server
+
+A [`tcp_server`](#syslog-tcp-server) block (within [`syslog`](#syslog)) supports the following:
+
+<a id="nestedatt--syslog-port"></a>&#x2022; [`port`](#nestedatt--syslog-port) - Optional Number<br>Port Number. Port number used for communication
+
+<a id="nestedatt--syslog-server-name"></a>&#x2022; [`server_name`](#nestedatt--syslog-server-name) - Optional String<br>Server name is fully qualified domain name or IP address of the server
+
+#### Syslog TLS Server
+
+A [`tls_server`](#syslog-tls-server) block (within [`syslog`](#syslog)) supports the following:
+
+<a id="nestedatt--syslog-default-https-port"></a>&#x2022; [`default_https_port`](#nestedatt--syslog-default-https-port) - Optional Object<br>Enable this option
+
+<a id="port-851101"></a>&#x2022; [`default_syslog_tls_port`](#port-851101) - Optional Object<br>Enable this option
+
+<a id="nestedatt--syslog-mtls-disabled"></a>&#x2022; [`mtls_disabled`](#nestedatt--syslog-mtls-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--syslog-mtls-enable"></a>&#x2022; [`mtls_enable`](#nestedatt--syslog-mtls-enable) - Optional String<br>Configuration parameter for mTLS enable
+
+<a id="nestedatt--syslog-port"></a>&#x2022; [`port`](#nestedatt--syslog-port) - Optional Number<br>Custom port number used for communication
+
+<a id="nestedatt--syslog-server-name"></a>&#x2022; [`server_name`](#nestedatt--syslog-server-name) - Optional String<br>ServerName is passed to the server for SNI and is used in the client to check server certificates against
+
+<a id="nestedatt--syslog-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#nestedatt--syslog-trusted-ca-url) - Optional String<br>The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers
+
+<a id="nestedatt--syslog-volterra-ca"></a>&#x2022; [`volterra_ca`](#nestedatt--syslog-volterra-ca) - Optional Object<br>Configuration parameter for volterra CA
+
+#### Syslog TLS Server Default HTTPS Port
+
+A [`default_https_port`](#syslog-tls-server-default-https-port) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
+
+#### Syslog TLS Server Default Syslog TLS Port
+
+A [`default_syslog_tls_port`](#syslog-tls-server-default-syslog-tls-port) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
+
+#### Syslog TLS Server mTLS Disabled
+
+A [`mtls_disabled`](#syslog-tls-server-mtls-disabled) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
+
+#### Syslog TLS Server mTLS Enable
+
+A [`mtls_enable`](#syslog-tls-server-mtls-enable) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
+
+<a id="nestedatt--syslog-certificate"></a>&#x2022; [`certificate`](#nestedatt--syslog-certificate) - Optional String<br>Client certificate is PEM-encoded certificate or certificate-chain
+
+<a id="nestedatt--syslog-key-url"></a>&#x2022; [`key_url`](#nestedatt--syslog-key-url) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+#### Syslog TLS Server mTLS Enable Key URL
+
+A [`key_url`](#syslog-tls-server-mtls-enable-key-url) block (within [`syslog.tls_server.mtls_enable`](#syslog-tls-server-mtls-enable)) supports the following:
+
+<a id="nestedatt--syslog-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#nestedatt--syslog-blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="nestedatt--syslog-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#nestedatt--syslog-clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Syslog TLS Server mTLS Enable Key URL Blindfold Secret Info
+
+<a id="deep-259b9d"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Syslog TLS Server mTLS Enable Key URL Clear Secret Info
+
+<a id="deep-fa3192"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Syslog TLS Server Volterra CA
+
+A [`volterra_ca`](#syslog-tls-server-volterra-ca) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
+
+#### Syslog UDP Server
+
+An [`udp_server`](#syslog-udp-server) block (within [`syslog`](#syslog)) supports the following:
+
+<a id="nestedatt--syslog-port"></a>&#x2022; [`port`](#nestedatt--syslog-port) - Optional Number<br>Port Number. Port number used for communication
+
+<a id="nestedatt--syslog-server-name"></a>&#x2022; [`server_name`](#nestedatt--syslog-server-name) - Optional String<br>Server name is fully qualified domain name or IP address of the server
+
 ---
 
 ## Common Types

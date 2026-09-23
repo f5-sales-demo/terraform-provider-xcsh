@@ -34,7 +34,11 @@ type TokenDataSourceModel struct {
 	Description types.String `tfsdk:"description"`
 	Labels      types.Map    `tfsdk:"labels"`
 	Annotations types.Map    `tfsdk:"annotations"`
-	Uid         types.String `tfsdk:"uid"`
+	Content     types.String `tfsdk:"content"`
+	SiteName    types.String `tfsdk:"site_name"`
+	Type        types.Int64  `tfsdk:"type"`
+
+	Uid types.String `tfsdk:"uid"`
 }
 
 func (d *TokenDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -55,7 +59,8 @@ func (d *TokenDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the Token exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the Token.",
@@ -75,6 +80,19 @@ func (d *TokenDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 				MarkdownDescription: "Effective sensitive CE registration credential. NORMAL tokens use `system_metadata.uid`; JWT tokens use `spec.content`. This value is stored in plain text in the Terraform state file; ensure your state file is properly secured.",
 				Computed:            true,
 				Sensitive:           true,
+			},
+			"content": schema.StringAttribute{
+				MarkdownDescription: "Server-issued JWT registration credential.",
+				Computed:            true,
+				Sensitive:           true,
+			},
+			"site_name": schema.StringAttribute{
+				MarkdownDescription: "Secure Mesh Site v2 name bound into a JWT token.",
+				Computed:            true,
+			},
+			"type": schema.Int64Attribute{
+				MarkdownDescription: "[Enum: 0|1] Token type, where 0 is NORMAL and 1 is JWT. Possible values are `0`, `1`.",
+				Computed:            true,
 			},
 		},
 	}
@@ -99,7 +117,11 @@ func (d *TokenDataSource) Read(ctx context.Context, req datasource.ReadRequest, 
 		return
 	}
 
-	resource, err := d.client.GetToken(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetToken(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Token: %s", err))
 		return
@@ -117,7 +139,11 @@ func (d *TokenDataSource) Read(ctx context.Context, req datasource.ReadRequest, 
 		data.Uid = types.StringValue(credential)
 	}
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -150,6 +176,22 @@ func (d *TokenDataSource) Read(ctx context.Context, req datasource.ReadRequest, 
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["content"].(string); ok && v != "" {
+		data.Content = types.StringValue(v)
+	} else {
+		data.Content = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["site_name"].(string); ok && v != "" {
+		data.SiteName = types.StringValue(v)
+	} else {
+		data.SiteName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["type"].(float64); ok {
+		data.Type = types.Int64Value(int64(v))
+	} else {
+		data.Type = types.Int64Null()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

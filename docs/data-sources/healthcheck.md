@@ -91,9 +91,47 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Healthcheck
 
+<a id="healthy-threshold"></a>&#x2022; [`healthy_threshold`](#healthy-threshold) - Optional Number<br>Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy. Recommended: `3`
+
+<a id="http-health-check"></a>&#x2022; [`http_health_check`](#http-health-check) - Optional String<br>Healthy if 'GET' method on URL 'HTTP(s)://`<host>`/`<path>`' with optional '`<header>`' returns success. 'host' is not used for DNS resolution. It is used as HTTP Header in the request
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="interval"></a>&#x2022; [`interval`](#interval) - Optional Number<br>Time interval in seconds between two healthcheck requests. Recommended: `15`
+
+<a id="jitter-percent"></a>&#x2022; [`jitter_percent`](#jitter-percent) - Optional Number  Defaults to `0`<br>Add a random amount of time as a percent value to the interval between successive healthcheck requests.  Recommended: `30` ⚙️ **Server Default**
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="tcp-health-check"></a>&#x2022; [`tcp_health_check`](#tcp-health-check) - Optional String<br>Healthy if TCP connection is successful and response payload matches `<expected_response>`
+
+<a id="timeout"></a>&#x2022; [`timeout`](#timeout) - Optional Number<br>Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure. Recommended: `3`
+
+<a id="udp-icmp-health-check"></a>&#x2022; [`udp_icmp_health_check`](#udp-icmp-health-check) - Optional Object<br>Configuration parameter for UDP ICMP health check
+
+<a id="unhealthy-threshold"></a>&#x2022; [`unhealthy_threshold`](#unhealthy-threshold) - Optional Number<br>Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checking if a host responds with 503 this threshold is ignored and the host is considered unhealthy
+immediately. Recommended: `1`
+
+<a id="expected-response"></a>&#x2022; [`expected_response`](#expected-response) - Optional String<br>Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format. If left empty, then response body is not considered for evaluating health check status. Server applies default when omitted
+
+<a id="expected-status-codes"></a>&#x2022; [`expected_status_codes`](#expected-status-codes) - Optional List  Defaults to `[]`<br>Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of which is single HTTP status code or a range with start and end values
+separated by '-'.  Server applies default when omitted
+
+<a id="headers"></a>&#x2022; [`headers`](#headers) - Optional Map  Defaults to `map[]`<br>Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs.  Server applies default when omitted
+
+<a id="host-header"></a>&#x2022; [`host_header`](#host-header) - Optional String<br>The value of the host header
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Specifies the HTTP path that will be requested during health checking. Recommended: `/`
+
+<a id="request-headers-to-remove"></a>&#x2022; [`request_headers_to_remove`](#request-headers-to-remove) - Optional List  Defaults to `[]`<br>Specifies a list of HTTP headers that should be removed from each request that is sent to the health checked cluster. This is a list of keys of headers.  Server applies default when omitted
+
+<a id="use-http2"></a>&#x2022; [`use_http2`](#use-http2) - Optional Bool  Defaults to `false`<br>If set, health checks will be made using HTTP/2.   Recommended: `false` ⚙️ **Server Default**
+
+<a id="use-origin-server-name"></a>&#x2022; [`use_origin_server_name`](#use-origin-server-name) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="expected-response"></a>&#x2022; [`expected_response`](#expected-response) - Optional String<br>Raw bytes expected in the request. Describes the encoding of the payload bytes in the payload. Hex encoded payload
+
+<a id="send-payload"></a>&#x2022; [`send_payload`](#send-payload) - Optional String<br>Raw bytes sent in the request. Empty payloads imply a connect-only health check. Describes the encoding of the payload bytes in the payload. Hex encoded payload
 
 ---
 

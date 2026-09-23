@@ -60,9 +60,45 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the NginxServiceDiscovery
 
+<a id="discovery-target"></a>&#x2022; [`discovery_target`](#discovery-target) - Optional String<br>Configuration parameter for discovery target
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="server-block-filters"></a>&#x2022; [`server_block_filters`](#server-block-filters) - Optional List<br>Filters discovered server blocks based on server name, domain and ports. Atleast, one field should be populated for each filter. X-textBlockContent: If no filters are specified, all server blocks will be discovered by default
+
+<a id="config-sync-group"></a>&#x2022; [`config_sync_group`](#config-sync-group) - Optional String<br>Configuration parameter for config sync group
+
+<a id="nginx-instance"></a>&#x2022; [`nginx_instance`](#nginx-instance) - Optional String<br>NGINXInstance Reference. Select new NGINX Instance
+
+<a id="config-sync-group"></a>&#x2022; [`config_sync_group`](#config-sync-group) - Optional List<br>Reference. Select new ConfigSyncGroup
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="nginx-instance"></a>&#x2022; [`nginx_instance`](#nginx-instance) - Optional List<br>Reference. Select new NGINX Instance
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="name-regex"></a>&#x2022; [`name_regex`](#name-regex) - Optional String<br>Regular expression to match the server name or domain that must be discovered
+
+<a id="port-ranges"></a>&#x2022; [`port_ranges`](#port-ranges) - Optional String<br>String containing a comma separated list of individual service ports or port ranges. Each port range consists of a single port or two ports separated by '-'. For example, 8000-8191
 
 ---
 

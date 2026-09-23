@@ -123,7 +123,7 @@ A [`psp_spec`](#psp-spec) block supports the following:
 
 <a id="psp-spec-no-runtime-class"></a>&#x2022; [`no_runtime_class`](#psp-spec-no-runtime-class) - Optional Block<br>Configuration parameter for no runtime class
 
-<a id="psp-spec-no-se-linux-options"></a>&#x2022; [`no_se_linux_options`](#psp-spec-no-se-linux-options) - Optional Block<br>Configuration parameter for no se linux options
+<a id="psp-spec-no-se-linux-options"></a>&#x2022; [`no_se_linux_options`](#psp-spec-no-se-linux-options) - Optional Block<br>Configuration parameter for no se Linux options
 
 <a id="psp-spec-no-supplemental-groups"></a>&#x2022; [`no_supplemental_groups`](#psp-spec-no-supplemental-groups) - Optional Object<br>Enable this option
 

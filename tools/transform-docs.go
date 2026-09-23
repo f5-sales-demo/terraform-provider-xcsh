@@ -1244,6 +1244,15 @@ func headerTextToAnchor(headerText string) string {
 	return anchor
 }
 
+// nestedHeadingAndAnchor derives both values from the same normalized display
+// text so terminology corrections such as Clientside -> client-side cannot
+// leave a stale fragment target behind.
+func nestedHeadingAndAnchor(path string) (string, string) {
+	title := naming.ToTitleCase(strings.ReplaceAll(path, ".", " "))
+	title = docsterm.FixUpstreamTerminology(title)
+	return title, headerTextToAnchor(title)
+}
+
 // NOTE: convertNestedBlocksHeadings function removed - single-page mode handles H3→bold inline
 
 func transformDoc(filePath string) error {
@@ -1818,7 +1827,7 @@ func transformDoc(filePath string) error {
 
 					// Build full title from all path parts for unique H4 header
 					// This ensures each nested block has a unique anchor
-					fullTitle := naming.ToTitleCase(strings.ReplaceAll(fullPath, ".", " "))
+					fullTitle, fullAnchor := nestedHeadingAndAnchor(fullPath)
 					output.WriteString(fmt.Sprintf("#### %s\n\n", fullTitle))
 
 					// Add AzureRM-style context line showing parent relationship with clickable links
@@ -1829,13 +1838,11 @@ func transformDoc(filePath string) error {
 					}
 
 					// Build the full anchor for this block (all path parts joined with hyphens)
-					fullAnchor := naming.ToAnchorName(strings.Join(pathParts, "-"))
-
 					if len(pathParts) > 1 {
 						// Has parent - show relationship with clickable links for both block and parent
 						// Build parent anchor (all parts except last, joined with hyphens)
 						parentParts := pathParts[:len(pathParts)-1]
-						parentAnchor := naming.ToAnchorName(strings.Join(parentParts, "-"))
+						_, parentAnchor := nestedHeadingAndAnchor(strings.Join(parentParts, "."))
 						parentPath := strings.Join(parentParts, ".")
 						output.WriteString(fmt.Sprintf("%s [`%s`](#%s) block (within [`%s`](#%s)) supports the following:\n\n",
 							article, lastSegment, fullAnchor, parentPath, parentAnchor))

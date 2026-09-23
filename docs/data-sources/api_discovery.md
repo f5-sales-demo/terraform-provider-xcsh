@@ -79,11 +79,59 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="custom-auth-types"></a>&#x2022; [`custom_auth_types`](#custom-auth-types) - Optional List  Defaults to `[]`<br>Select your custom authentication types to be detected in the API discovery.  Server applies default when omitted
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the APIDiscovery
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="user-defined-api-discovery-policy"></a>&#x2022; [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy) - Optional String<br>Rules are evaluated sequentially, top to bottom. If no rules are added, all traffic will be discovered or ignored based on the selection in the 'Default Behaviour of the Rule Set' field
+
+<a id="parameter-name"></a>&#x2022; [`parameter_name`](#parameter-name) - Optional String<br>Parameter Name. The authentication parameter name
+
+<a id="parameter-type"></a>&#x2022; [`parameter_type`](#parameter-type) - Optional String  Defaults to `QUERY_PARAMETER`<br>Possible values are `QUERY_PARAMETER`, `HEADER`, `COOKIE`<br>[Enum: QUERY_PARAMETER|HEADER|COOKIE] Enumeration for authentication parameter types
+
+<a id="discovery-rules"></a>&#x2022; [`discovery_rules`](#discovery-rules) - Optional List  Defaults to `[]`<br>Define rules to include or exclude endpoints by path, domain, or header. Rules run top to bottom; unmatched endpoints follow the default action.  Server applies default when omitted
+
+<a id="exclusive"></a>&#x2022; [`exclusive`](#exclusive) - Optional String<br>Exclusion Configuration. Configuration for exclusion action
+
+<a id="inclusive"></a>&#x2022; [`inclusive`](#inclusive) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional String<br>Map of string keys and values that can be used to organize and categorize the rule
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="rule-properties"></a>&#x2022; [`rule_properties`](#rule-properties) - Optional String<br>Determines whether matching endpoints are included in API Discovery or excluded
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="exclusion"></a>&#x2022; [`exclusion`](#exclusion) - Optional String<br>Exclusion Configuration. Configuration for exclusion action
+
+<a id="http-header-criteria"></a>&#x2022; [`http_header_criteria`](#http-header-criteria) - Optional String<br>Configuration parameter for HTTP header criteria
+
+<a id="inclusion"></a>&#x2022; [`inclusion`](#inclusion) - Optional Object<br>Enable this option
+
+<a id="pattern"></a>&#x2022; [`pattern`](#pattern) - Optional String<br>Patterns are matched against the request path to identify endpoints by path structure, file extension, or version prefix. Endpoints that match this pattern are affected by the rule
+
+<a id="archive"></a>&#x2022; [`archive`](#archive) - Optional Object<br>Enable this option
+
+<a id="ignore"></a>&#x2022; [`ignore`](#ignore) - Optional Object<br>Enable this option
+
+<a id="field-name"></a>&#x2022; [`field_name`](#field-name) - Optional String<br>HTTP Header Name. Human-readable name for the resource
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String  Defaults to `REQUEST`<br>Possible values are `REQUEST`, `RESPONSE`<br>[Enum: REQUEST|RESPONSE] Specifies whether the rule criteria should be evaluated against request or response Applies the rule to incoming traffic from the client. Applies the rule to outgoing traffic sent back to the client
+
+<a id="match-type"></a>&#x2022; [`match_type`](#match-type) - Optional String  Defaults to `EXACT_MATCH`<br>Possible values are `EXACT_MATCH`, `SUBSTRING`, `REGEX`<br>[Enum: EXACT_MATCH|SUBSTRING|REGEX] Specifies how the value should be matched
+
+<a id="value"></a>&#x2022; [`value`](#value) - Optional String<br>Value. Configuration parameter for value
+
+<a id="archive"></a>&#x2022; [`archive`](#archive) - Optional Object<br>Enable this option
+
+<a id="ignore"></a>&#x2022; [`ignore`](#ignore) - Optional Object<br>Enable this option
 
 ---
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,19 @@ type EnhancedFirewallPolicyDataSource struct {
 }
 
 type EnhancedFirewallPolicyDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                  types.String                                    `tfsdk:"id"`
+	Name                types.String                                    `tfsdk:"name"`
+	Namespace           types.String                                    `tfsdk:"namespace"`
+	Description         types.String                                    `tfsdk:"description"`
+	Labels              types.Map                                       `tfsdk:"labels"`
+	Annotations         types.Map                                       `tfsdk:"annotations"`
+	DenyAll             types.Object                                    `tfsdk:"deny_all"`
+	AllowAll            types.Object                                    `tfsdk:"allow_all"`
+	AllowedDestinations *EnhancedFirewallPolicyAllowedDestinationsModel `tfsdk:"allowed_destinations"`
+	AllowedSources      *EnhancedFirewallPolicyAllowedSourcesModel      `tfsdk:"allowed_sources"`
+	DeniedDestinations  *EnhancedFirewallPolicyDeniedDestinationsModel  `tfsdk:"denied_destinations"`
+	DeniedSources       *EnhancedFirewallPolicyDeniedSourcesModel       `tfsdk:"denied_sources"`
+	RuleList            *EnhancedFirewallPolicyRuleListModel            `tfsdk:"rule_list"`
 }
 
 func (d *EnhancedFirewallPolicyDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +78,358 @@ func (d *EnhancedFirewallPolicyDataSource) Schema(ctx context.Context, req datas
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"allowed_destinations": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+				Attributes: map[string]schema.Attribute{
+					"prefix": schema.ListAttribute{
+						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"allowed_sources": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+				Attributes: map[string]schema.Attribute{
+					"prefix": schema.ListAttribute{
+						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"denied_destinations": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+				Attributes: map[string]schema.Attribute{
+					"prefix": schema.ListAttribute{
+						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"denied_sources": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+				Attributes: map[string]schema.Attribute{
+					"prefix": schema.ListAttribute{
+						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"deny_all": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"rule_list": schema.SingleNestedAttribute{
+				MarkdownDescription: "Custom Enhanced Firewall Policy Rules. Custom Enhanced Firewall Policy Rules.",
+				Attributes: map[string]schema.Attribute{
+					"rules": schema.ListNestedAttribute{
+						MarkdownDescription: "Ordered List of Enhanced Firewall Policy Rules.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"advanced_action": schema.SingleNestedAttribute{
+									MarkdownDescription: "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
+									Attributes: map[string]schema.Attribute{
+										"action": schema.StringAttribute{
+											MarkdownDescription: "[Enum: NOLOG|LOG] Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-. Possible values are `NOLOG`, `LOG`. Defaults to `NOLOG`.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"all_destinations": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all destinations.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_sli_vips": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_slo_vips": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_sources": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all sources.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_tcp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all tcp traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_udp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all udp traffic.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"allow": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"applications": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for applications.",
+									Attributes: map[string]schema.Attribute{
+										"applications": schema.ListAttribute{
+											MarkdownDescription: "[Enum: APPLICATION_HTTP|APPLICATION_HTTPS|APPLICATION_SNMP|APPLICATION_DNS] Application Protocols. Application protocols like HTTP, SNMP. Possible values are `APPLICATION_HTTP`, `APPLICATION_HTTPS`, `APPLICATION_SNMP`, `APPLICATION_DNS`. Defaults to `APPLICATION_HTTP`.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"deny": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"destination_aws_vpc_ids": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for destination aws vpc ids.",
+									Attributes: map[string]schema.Attribute{
+										"vpc_id": schema.ListAttribute{
+											MarkdownDescription: "AWS VPC List. List of VPC Identifiers in AWS.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"destination_ip_prefix_set": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of references to ip_prefix_set objects.",
+									Attributes: map[string]schema.Attribute{
+										"ref": schema.ListNestedAttribute{
+											MarkdownDescription: "List of references to ip_prefix_set objects.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"kind": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+														Computed:            true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+														Computed:            true,
+													},
+													"namespace": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+														Computed:            true,
+													},
+													"tenant": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+														Computed:            true,
+													},
+													"uid": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"destination_label_selector": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Attributes: map[string]schema.Attribute{
+										"expressions": schema.ListAttribute{
+											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"destination_prefix_list": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+									Attributes: map[string]schema.Attribute{
+										"prefixes": schema.ListAttribute{
+											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"insert_service": schema.SingleNestedAttribute{
+									MarkdownDescription: "Action to forward traffic to external service.",
+									Attributes: map[string]schema.Attribute{
+										"nfv_service": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"inside_destinations": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside destinations.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"inside_sources": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside sources.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"label_matcher": schema.SingleNestedAttribute{
+									MarkdownDescription: "Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
+									Attributes: map[string]schema.Attribute{
+										"keys": schema.ListAttribute{
+											MarkdownDescription: "The list of label key names that have to match.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"metadata": schema.SingleNestedAttribute{
+									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Attributes: map[string]schema.Attribute{
+										"description_spec": schema.StringAttribute{
+											MarkdownDescription: "Description. Human readable description.",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"outside_destinations": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside destinations.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_sources": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside sources.",
+									Computed:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"protocol_port_range": schema.SingleNestedAttribute{
+									MarkdownDescription: "Protocol and Port. Protocol and Port ranges.",
+									Attributes: map[string]schema.Attribute{
+										"port_ranges": schema.ListAttribute{
+											MarkdownDescription: "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+										"protocol": schema.StringAttribute{
+											MarkdownDescription: "[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp. Possible values are `ALL`, `TCP`, `UDP`, `ICMP`.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"source_aws_vpc_ids": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for source aws vpc ids.",
+									Attributes: map[string]schema.Attribute{
+										"vpc_id": schema.ListAttribute{
+											MarkdownDescription: "AWS VPC List. List of VPC Identifiers in AWS.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"source_ip_prefix_set": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of references to ip_prefix_set objects.",
+									Attributes: map[string]schema.Attribute{
+										"ref": schema.ListNestedAttribute{
+											MarkdownDescription: "List of references to ip_prefix_set objects.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"kind": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+														Computed:            true,
+													},
+													"name": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+														Computed:            true,
+													},
+													"namespace": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+														Computed:            true,
+													},
+													"tenant": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+														Computed:            true,
+													},
+													"uid": schema.StringAttribute{
+														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"source_label_selector": schema.SingleNestedAttribute{
+									MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+									Attributes: map[string]schema.Attribute{
+										"expressions": schema.ListAttribute{
+											MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"source_prefix_list": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+									Attributes: map[string]schema.Attribute{
+										"prefixes": schema.ListAttribute{
+											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"allow_all": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: allow_all, allowed_destinations, allowed_sources, denied_destinations, denied_sources, deny_all, rule_list] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 		},
 	}
 }
@@ -93,7 +453,8 @@ func (d *EnhancedFirewallPolicyDataSource) Read(ctx context.Context, req datasou
 		return
 	}
 
-	resource, err := d.client.GetEnhancedFirewallPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetEnhancedFirewallPolicy(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read EnhancedFirewallPolicy: %s", err))
 		return
@@ -101,7 +462,11 @@ func (d *EnhancedFirewallPolicyDataSource) Read(ctx context.Context, req datasou
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +499,614 @@ func (d *EnhancedFirewallPolicyDataSource) Read(ctx context.Context, req datasou
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["allowed_destinations"].(map[string]interface{}); ok && (isImport || data.AllowedDestinations != nil) {
+		data.AllowedDestinations = &EnhancedFirewallPolicyAllowedDestinationsModel{
+			Prefix: func() types.List {
+				if v, ok := blockData["prefix"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["allowed_sources"].(map[string]interface{}); ok && (isImport || data.AllowedSources != nil) {
+		data.AllowedSources = &EnhancedFirewallPolicyAllowedSourcesModel{
+			Prefix: func() types.List {
+				if v, ok := blockData["prefix"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["denied_destinations"].(map[string]interface{}); ok && (isImport || data.DeniedDestinations != nil) {
+		data.DeniedDestinations = &EnhancedFirewallPolicyDeniedDestinationsModel{
+			Prefix: func() types.List {
+				if v, ok := blockData["prefix"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["denied_sources"].(map[string]interface{}); ok && (isImport || data.DeniedSources != nil) {
+		data.DeniedSources = &EnhancedFirewallPolicyDeniedSourcesModel{
+			Prefix: func() types.List {
+				if v, ok := blockData["prefix"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if !isImport && !data.DenyAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok {
+		data.DenyAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAll = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
+		data.RuleList = &EnhancedFirewallPolicyRuleListModel{
+			Rules: func() types.List {
+				if !isImport && data.RuleList != nil && (data.RuleList.Rules.IsNull() || len(data.RuleList.Rules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
+				}
+				var RulesExisting []EnhancedFirewallPolicyRuleListRulesModel
+				if !isImport && data.RuleList != nil && !data.RuleList.Rules.IsNull() && !data.RuleList.Rules.IsUnknown() {
+					data.RuleList.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []EnhancedFirewallPolicyRuleListRulesModel
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, EnhancedFirewallPolicyRuleListRulesModel{
+								AdvancedAction: func() *EnhancedFirewallPolicyRuleListRulesAdvancedActionModel {
+									if AdvancedActionData, ok := RulesItemMap["advanced_action"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesAdvancedActionModel{
+											Action: func() types.String {
+												if v, ok := AdvancedActionData["action"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AllDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllDestinations.IsUnknown() {
+										return RulesExisting[RulesIdx].AllDestinations
+									}
+									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllSLIVips: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSLIVips.IsUnknown() {
+										return RulesExisting[RulesIdx].AllSLIVips
+									}
+									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllSloVips: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSloVips.IsUnknown() {
+										return RulesExisting[RulesIdx].AllSloVips
+									}
+									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSources.IsUnknown() {
+										return RulesExisting[RulesIdx].AllSources
+									}
+									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllTCPTraffic.IsUnknown() {
+										return RulesExisting[RulesIdx].AllTCPTraffic
+									}
+									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllTraffic.IsUnknown() {
+										return RulesExisting[RulesIdx].AllTraffic
+									}
+									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllUDPTraffic.IsUnknown() {
+										return RulesExisting[RulesIdx].AllUDPTraffic
+									}
+									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Allow: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].Allow.IsUnknown() {
+										return RulesExisting[RulesIdx].Allow
+									}
+									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								Applications: func() *EnhancedFirewallPolicyRuleListRulesApplicationsModel {
+									if ApplicationsData, ok := RulesItemMap["applications"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesApplicationsModel{
+											Applications: func() types.List {
+												if v, ok := ApplicationsData["applications"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Deny: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].Deny.IsUnknown() {
+										return RulesExisting[RulesIdx].Deny
+									}
+									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								DestinationAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel {
+									if DestinationAWSVPCIdsData, ok := RulesItemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel{
+											VPCID: func() types.List {
+												if v, ok := DestinationAWSVPCIdsData["vpc_id"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								DestinationIPPrefixSet: func() *EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel {
+									if DestinationIPPrefixSetData, ok := RulesItemMap["destination_ip_prefix_set"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel{
+											Ref: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].DestinationIPPrefixSet != nil && (RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsNull() || len(RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].DestinationIPPrefixSet != nil && !RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsNull() && !RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.IsUnknown() {
+													RulesExisting[RulesIdx].DestinationIPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
+												if rawList, ok := DestinationIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								DestinationLabelSelector: func() *EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel {
+									if DestinationLabelSelectorData, ok := RulesItemMap["destination_label_selector"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := DestinationLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								DestinationPrefixList: func() *EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel {
+									if DestinationPrefixListData, ok := RulesItemMap["destination_prefix_list"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := DestinationPrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								InsertService: func() *EnhancedFirewallPolicyRuleListRulesInsertServiceModel {
+									if InsertServiceData, ok := RulesItemMap["insert_service"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesInsertServiceModel{
+											NfvService: func() *EnhancedFirewallPolicyRuleListRulesInsertServiceNfvServiceModel {
+												if NfvServiceData, ok := InsertServiceData["nfv_service"].(map[string]interface{}); ok {
+													return &EnhancedFirewallPolicyRuleListRulesInsertServiceNfvServiceModel{
+														Name: func() types.String {
+															if v, ok := NfvServiceData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := NfvServiceData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := NfvServiceData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								InsideDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].InsideDestinations.IsUnknown() {
+										return RulesExisting[RulesIdx].InsideDestinations
+									}
+									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								InsideSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].InsideSources.IsUnknown() {
+										return RulesExisting[RulesIdx].InsideSources
+									}
+									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								LabelMatcher: func() *EnhancedFirewallPolicyRuleListRulesLabelMatcherModel {
+									if LabelMatcherData, ok := RulesItemMap["label_matcher"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesLabelMatcherModel{
+											Keys: func() types.List {
+												if v, ok := LabelMatcherData["keys"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								Metadata: func() *EnhancedFirewallPolicyRuleListRulesMetadataModel {
+									if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesMetadataModel{
+											DescriptionSpec: func() types.String {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								OutsideDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].OutsideDestinations.IsUnknown() {
+										return RulesExisting[RulesIdx].OutsideDestinations
+									}
+									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								OutsideSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].OutsideSources.IsUnknown() {
+										return RulesExisting[RulesIdx].OutsideSources
+									}
+									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+									}
+									return types.ObjectNull(map[string]attr.Type{})
+								}(),
+								ProtocolPortRange: func() *EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel {
+									if ProtocolPortRangeData, ok := RulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel{
+											PortRanges: func() types.List {
+												if v, ok := ProtocolPortRangeData["port_ranges"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Protocol: func() types.String {
+												if v, ok := ProtocolPortRangeData["protocol"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SourceAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel {
+									if SourceAWSVPCIdsData, ok := RulesItemMap["source_aws_vpc_ids"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel{
+											VPCID: func() types.List {
+												if v, ok := SourceAWSVPCIdsData["vpc_id"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SourceIPPrefixSet: func() *EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel {
+									if SourceIPPrefixSetData, ok := RulesItemMap["source_ip_prefix_set"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel{
+											Ref: func() types.List {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].SourceIPPrefixSet != nil && (RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsNull() || len(RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes})
+												}
+												var RefExisting []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].SourceIPPrefixSet != nil && !RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsNull() && !RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.IsUnknown() {
+													RulesExisting[RulesIdx].SourceIPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+												}
+												if rawList, ok := SourceIPPrefixSetData["ref"].([]interface{}); ok && len(rawList) > 0 {
+													var RefResult []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
+													for RefIdx, RefItem := range rawList {
+														_ = RefIdx
+														if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+															RefResult = append(RefResult, EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel{
+																Kind: func() types.String {
+																	if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Name: func() types.String {
+																	if v, ok := RefItemMap["name"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Namespace: func() types.String {
+																	if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Tenant: func() types.String {
+																	if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+																Uid: func() types.String {
+																	if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+																		return types.StringValue(v)
+																	}
+																	return types.StringNull()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes}, RefResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModelAttrTypes})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SourceLabelSelector: func() *EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel {
+									if SourceLabelSelectorData, ok := RulesItemMap["source_label_selector"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourceLabelSelectorModel{
+											Expressions: func() types.List {
+												if v, ok := SourceLabelSelectorData["expressions"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SourcePrefixList: func() *EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel {
+									if SourcePrefixListData, ok := RulesItemMap["source_prefix_list"].(map[string]interface{}); ok {
+										return &EnhancedFirewallPolicyRuleListRulesSourcePrefixListModel{
+											Prefixes: func() types.List {
+												if v, ok := SourcePrefixListData["prefixes"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes}, RulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesModelAttrTypes})
+			}(),
+		}
+	}
+	if !isImport && !data.AllowAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok {
+		data.AllowAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAll = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

@@ -56,13 +56,59 @@ output "network_policy_rule_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="action"></a>&#x2022; [`action`](#action) - Optional String  Defaults to `DENY`<br>Possible values are `DENY`, `ALLOW`<br>[Enum: DENY|ALLOW] Network policy rule action configures the action to be taken on rule match Apply deny action on rule match Apply allow action on rule match
+
+<a id="advanced-action"></a>&#x2022; [`advanced_action`](#advanced-action) - Optional String<br>Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the NetworkPolicyRule
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ip-prefix-set"></a>&#x2022; [`ip_prefix_set`](#ip-prefix-set) - Optional String<br>List of references to ip_prefix_set objects
+
+<a id="label-matcher"></a>&#x2022; [`label_matcher`](#label-matcher) - Optional String<br>Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="ports"></a>&#x2022; [`ports`](#ports) - Optional List<br>List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes
+
+<a id="prefix-selector"></a>&#x2022; [`prefix_selector`](#prefix-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String<br>Possible values are `ALL`, `TCP`, `UDP`, `ICMP`<br>[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
+
+<a id="action"></a>&#x2022; [`action`](#action) - Optional String  Defaults to `NOLOG`<br>Possible values are `NOLOG`, `LOG`<br>[Enum: NOLOG|LOG] Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="keys"></a>&#x2022; [`keys`](#keys) - Optional List<br>The list of label key names that have to match
+
+---
+
+#### Prefix
+
+A [`prefix`](#prefix) block supports the following:
+
+<a id="nestedatt--prefix-prefix"></a>&#x2022; [`prefix`](#nestedatt--prefix-prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
+
+#### Prefix Selector
+
+A [`prefix_selector`](#prefix-selector) block supports the following:
+
+<a id="nestedatt--prefix-expressions"></a>&#x2022; [`expressions`](#nestedatt--prefix-expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
 
 ---
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,20 @@ type ForwardingClassDataSource struct {
 }
 
 type ForwardingClassDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID             types.String                 `tfsdk:"id"`
+	Name           types.String                 `tfsdk:"name"`
+	Namespace      types.String                 `tfsdk:"namespace"`
+	Description    types.String                 `tfsdk:"description"`
+	Labels         types.Map                    `tfsdk:"labels"`
+	Annotations    types.Map                    `tfsdk:"annotations"`
+	DscpBasedQueue types.Object                 `tfsdk:"dscp_based_queue"`
+	NoMarking      types.Object                 `tfsdk:"no_marking"`
+	NoPolicer      types.Object                 `tfsdk:"no_policer"`
+	InterfaceGroup types.String                 `tfsdk:"interface_group"`
+	QueueIDToUse   types.String                 `tfsdk:"queue_id_to_use"`
+	TosValue       types.Int64                  `tfsdk:"tos_value"`
+	Dscp           *ForwardingClassDscpModel    `tfsdk:"dscp"`
+	Policer        *ForwardingClassPolicerModel `tfsdk:"policer"`
 }
 
 func (d *ForwardingClassDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +79,65 @@ func (d *ForwardingClassDataSource) Schema(ctx context.Context, req datasource.S
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"dscp": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: dscp, no_marking, tos_value; Default: no_marking] DSCP Marking setting. DSCP marking setting as per RFC 2475.",
+				Attributes: map[string]schema.Attribute{
+					"drop_precedence": schema.StringAttribute{
+						MarkdownDescription: "[Enum: DSCP_AF_LOW|DSCP_AF_MEDIUM|DSCP_AF_HIGH|DSCP_AF_POLICER] DSCP Assured forwarding drop precedence DSCP Low drop precedence DSCP Low drop precedence DSCP Low drop precedence DSCP drop precedence value is taken from output of policer. Possible values are `DSCP_AF_LOW`, `DSCP_AF_MEDIUM`, `DSCP_AF_HIGH`, `DSCP_AF_POLICER`.",
+						Computed:            true,
+					},
+					"dscp_class": schema.StringAttribute{
+						MarkdownDescription: "[Enum: DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link Layer traffic like.. Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`. Defaults to `DSCP_BEST_EFFORT`.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"dscp_based_queue": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: dscp_based_queue, queue_id_to_use] Configuration parameter for dscp based queue.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_marking": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_policer": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_policer, policer; Default: no_policer] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"policer": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+						Computed:            true,
+					},
+					"tenant": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"interface_group": schema.StringAttribute{
+				MarkdownDescription: "[Enum: ANY_AVAILABLE_INTERFACE|INTERFACE_GROUP1|INTERFACE_GROUP2|INTERFACE_GROUP3] Interface group, group membership by adding group label to interface Choose any of the available interfaces Choose all interfaces with label group1 Choose all interfaces with label group2 Choose all interfaces with label group3. Possible values are `ANY_AVAILABLE_INTERFACE`, `INTERFACE_GROUP1`, `INTERFACE_GROUP2`, `INTERFACE_GROUP3`. Defaults to `ANY_AVAILABLE_INTERFACE`.",
+				Computed:            true,
+			},
+			"queue_id_to_use": schema.StringAttribute{
+				MarkdownDescription: "[Enum: DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link Layer traffic like.. Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`. Defaults to `DSCP_BEST_EFFORT`.",
+				Computed:            true,
+			},
+			"tos_value": schema.Int64Attribute{
+				MarkdownDescription: "Exclusive with [dscp no_marking] Decimal value of raw 8 bit TOS. In above example DSCP 10 = Precedence Class 1 and drop precedence low.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +161,8 @@ func (d *ForwardingClassDataSource) Read(ctx context.Context, req datasource.Rea
 		return
 	}
 
-	resource, err := d.client.GetForwardingClass(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetForwardingClass(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ForwardingClass: %s", err))
 		return
@@ -101,7 +170,11 @@ func (d *ForwardingClassDataSource) Read(ctx context.Context, req datasource.Rea
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +207,82 @@ func (d *ForwardingClassDataSource) Read(ctx context.Context, req datasource.Rea
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["dscp"].(map[string]interface{}); ok && (isImport || data.Dscp != nil) {
+		data.Dscp = &ForwardingClassDscpModel{
+			DropPrecedence: func() types.String {
+				if v, ok := blockData["drop_precedence"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			DscpClass: func() types.String {
+				if v, ok := blockData["dscp_class"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if !isImport && !data.DscpBasedQueue.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok {
+		data.DscpBasedQueue = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DscpBasedQueue = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.NoMarking.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok {
+		data.NoMarking = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoMarking = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.NoPolicer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok {
+		data.NoPolicer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoPolicer = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["policer"].(map[string]interface{}); ok && (isImport || data.Policer != nil) {
+		data.Policer = &ForwardingClassPolicerModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Tenant: func() types.String {
+				if v, ok := blockData["tenant"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["interface_group"].(string); ok && v != "" {
+		data.InterfaceGroup = types.StringValue(v)
+	} else {
+		data.InterfaceGroup = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["queue_id_to_use"].(string); ok && v != "" {
+		data.QueueIDToUse = types.StringValue(v)
+	} else {
+		data.QueueIDToUse = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["tos_value"].(float64); ok {
+		data.TosValue = types.Int64Value(int64(v))
+	} else {
+		data.TosValue = types.Int64Null()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

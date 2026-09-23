@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,15 @@ type ProtocolInspectionDataSource struct {
 }
 
 type ProtocolInspectionDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                            types.String                                          `tfsdk:"id"`
+	Name                          types.String                                          `tfsdk:"name"`
+	Namespace                     types.String                                          `tfsdk:"namespace"`
+	Description                   types.String                                          `tfsdk:"description"`
+	Labels                        types.Map                                             `tfsdk:"labels"`
+	Annotations                   types.Map                                             `tfsdk:"annotations"`
+	Action                        types.String                                          `tfsdk:"action"`
+	EnableDisableComplianceChecks *ProtocolInspectionEnableDisableComplianceChecksModel `tfsdk:"enable_disable_compliance_checks"`
+	EnableDisableSignatures       *ProtocolInspectionEnableDisableSignaturesModel       `tfsdk:"enable_disable_signatures"`
 }
 
 func (d *ProtocolInspectionDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +74,55 @@ func (d *ProtocolInspectionDataSource) Schema(ctx context.Context, req datasourc
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"enable_disable_compliance_checks": schema.SingleNestedAttribute{
+				MarkdownDescription: "Enable Disable Compliance Checks Choice.",
+				Attributes: map[string]schema.Attribute{
+					"disable_compliance_checks": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable compliance checks.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_compliance_checks": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"enable_disable_signatures": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for enable disable signatures.",
+				Attributes: map[string]schema.Attribute{
+					"disable_signature": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable signature.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_signature": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for enable signature.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"action": schema.StringAttribute{
+				MarkdownDescription: "[Enum: ALLOW|DENY|DROP] Action after inspection - ALLOW: Allow Allow traffic - DENY: Deny Throw RST error for TCP and ICMP error for UDP - DROP: DROP Silently drop traffic. Possible values are `ALLOW`, `DENY`, `DROP`. Defaults to `ALLOW`. Server applies default when omitted.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +146,8 @@ func (d *ProtocolInspectionDataSource) Read(ctx context.Context, req datasource.
 		return
 	}
 
-	resource, err := d.client.GetProtocolInspection(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetProtocolInspection(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ProtocolInspection: %s", err))
 		return
@@ -101,7 +155,11 @@ func (d *ProtocolInspectionDataSource) Read(ctx context.Context, req datasource.
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +192,73 @@ func (d *ProtocolInspectionDataSource) Read(ctx context.Context, req datasource.
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && (isImport || data.EnableDisableComplianceChecks != nil) {
+		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{
+			DisableComplianceChecks: func() types.Object {
+				if !isImport && data.EnableDisableComplianceChecks != nil && !data.EnableDisableComplianceChecks.DisableComplianceChecks.IsUnknown() {
+					return data.EnableDisableComplianceChecks.DisableComplianceChecks
+				}
+				if _, ok := blockData["disable_compliance_checks"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
+				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
+					return &ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel{
+						Name: func() types.String {
+							if v, ok := EnableComplianceChecksData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := EnableComplianceChecksData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := EnableComplianceChecksData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && (isImport || data.EnableDisableSignatures != nil) {
+		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{
+			DisableSignature: func() types.Object {
+				if !isImport && data.EnableDisableSignatures != nil && !data.EnableDisableSignatures.DisableSignature.IsUnknown() {
+					return data.EnableDisableSignatures.DisableSignature
+				}
+				if _, ok := blockData["disable_signature"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableSignature: func() types.Object {
+				if !isImport && data.EnableDisableSignatures != nil && !data.EnableDisableSignatures.EnableSignature.IsUnknown() {
+					return data.EnableDisableSignatures.EnableSignature
+				}
+				if _, ok := blockData["enable_signature"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["action"].(string); ok && v != "" {
+		data.Action = types.StringValue(v)
+	} else {
+		data.Action = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

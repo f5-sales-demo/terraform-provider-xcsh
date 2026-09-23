@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,18 @@ type CertificateDataSource struct {
 }
 
 type CertificateDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                   types.String                          `tfsdk:"id"`
+	Name                 types.String                          `tfsdk:"name"`
+	Namespace            types.String                          `tfsdk:"namespace"`
+	Description          types.String                          `tfsdk:"description"`
+	Labels               types.Map                             `tfsdk:"labels"`
+	Annotations          types.Map                             `tfsdk:"annotations"`
+	CertificateURL       types.String                          `tfsdk:"certificate_url"`
+	DisableOCSPStapling  types.Object                          `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                          `tfsdk:"use_system_defaults"`
+	CertificateChain     *CertificateCertificateChainModel     `tfsdk:"certificate_chain"`
+	CustomHashAlgorithms *CertificateCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
+	PrivateKey           *CertificatePrivateKeyModel           `tfsdk:"private_key"`
 }
 
 func (d *CertificateDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +77,89 @@ func (d *CertificateDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"certificate_url": schema.StringAttribute{
+				MarkdownDescription: "Certificate. Certificate or certificate chain in PEM format including the PEM headers.",
+				Computed:            true,
+			},
+			"certificate_chain": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+						Computed:            true,
+					},
+					"tenant": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"custom_hash_algorithms": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: custom_hash_algorithms, disable_ocsp_stapling, use_system_defaults; Default: use_system_defaults] Specifies the hash algorithms to be used.",
+				Attributes: map[string]schema.Attribute{
+					"hash_algorithms": schema.ListAttribute{
+						MarkdownDescription: "[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used. Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`. Defaults to `INVALID_HASH_ALGORITHM`.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"disable_ocsp_stapling": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"private_key": schema.SingleNestedAttribute{
+				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+				Attributes: map[string]schema.Attribute{
+					"blindfold_secret_info": schema.SingleNestedAttribute{
+						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+						Attributes: map[string]schema.Attribute{
+							"decryption_provider": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+								Computed:            true,
+							},
+							"location": schema.StringAttribute{
+								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+								Computed:            true,
+								Sensitive:           true,
+							},
+							"store_provider": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"clear_secret_info": schema.SingleNestedAttribute{
+						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+						Attributes: map[string]schema.Attribute{
+							"provider_ref": schema.StringAttribute{
+								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+								Computed:            true,
+							},
+							"url": schema.StringAttribute{
+								MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+								Computed:            true,
+								Sensitive:           true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"use_system_defaults": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for use system defaults.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 		},
 	}
 }
@@ -93,7 +183,8 @@ func (d *CertificateDataSource) Read(ctx context.Context, req datasource.ReadReq
 		return
 	}
 
-	resource, err := d.client.GetCertificate(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetCertificate(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Certificate: %s", err))
 		return
@@ -101,7 +192,11 @@ func (d *CertificateDataSource) Read(ctx context.Context, req datasource.ReadReq
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +229,115 @@ func (d *CertificateDataSource) Read(ctx context.Context, req datasource.ReadReq
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["certificate_url"].(string); ok && v != "" {
+		data.CertificateURL = types.StringValue(v)
+	} else {
+		data.CertificateURL = types.StringNull()
+	}
+	if blockData, ok := apiResource.Spec["certificate_chain"].(map[string]interface{}); ok && (isImport || data.CertificateChain != nil) {
+		data.CertificateChain = &CertificateCertificateChainModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Tenant: func() types.String {
+				if v, ok := blockData["tenant"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["custom_hash_algorithms"].(map[string]interface{}); ok && (isImport || data.CustomHashAlgorithms != nil) {
+		data.CustomHashAlgorithms = &CertificateCustomHashAlgorithmsModel{
+			HashAlgorithms: func() types.List {
+				if v, ok := blockData["hash_algorithms"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if !isImport && !data.DisableOCSPStapling.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok {
+		data.DisableOCSPStapling = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableOCSPStapling = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
+		data.PrivateKey = &CertificatePrivateKeyModel{
+			BlindfoldSecretInfo: func() *CertificatePrivateKeyBlindfoldSecretInfoModel {
+				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
+					return &CertificatePrivateKeyBlindfoldSecretInfoModel{
+						DecryptionProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Location: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						StoreProvider: func() types.String {
+							if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClearSecretInfo: func() *CertificatePrivateKeyClearSecretInfoModel {
+				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
+					return &CertificatePrivateKeyClearSecretInfoModel{
+						Provider: func() types.String {
+							if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						URL: func() types.String {
+							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if !isImport && !data.UseSystemDefaults.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok {
+		data.UseSystemDefaults = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseSystemDefaults = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

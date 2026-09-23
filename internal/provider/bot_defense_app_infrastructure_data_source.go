@@ -28,12 +28,16 @@ type BotDefenseAppInfrastructureDataSource struct {
 }
 
 type BotDefenseAppInfrastructureDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID               types.String                                      `tfsdk:"id"`
+	Name             types.String                                      `tfsdk:"name"`
+	Namespace        types.String                                      `tfsdk:"namespace"`
+	Description      types.String                                      `tfsdk:"description"`
+	Labels           types.Map                                         `tfsdk:"labels"`
+	Annotations      types.Map                                         `tfsdk:"annotations"`
+	EnvironmentType  types.String                                      `tfsdk:"environment_type"`
+	TrafficType      types.String                                      `tfsdk:"traffic_type"`
+	CloudHosted      *BotDefenseAppInfrastructureCloudHostedModel      `tfsdk:"cloud_hosted"`
+	DataCenterHosted *BotDefenseAppInfrastructureDataCenterHostedModel `tfsdk:"data_center_hosted"`
 }
 
 func (d *BotDefenseAppInfrastructureDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +74,114 @@ func (d *BotDefenseAppInfrastructureDataSource) Schema(ctx context.Context, req 
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"cloud_hosted": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: cloud_hosted, data_center_hosted] F5 Hosted. Infra F5 Hosted.",
+				Attributes: map[string]schema.Attribute{
+					"egress": schema.ListNestedAttribute{
+						MarkdownDescription: "Egress. Egress",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"ip_address": schema.StringAttribute{
+									MarkdownDescription: "IP Address. Egress IP address.",
+									Computed:            true,
+								},
+								"location": schema.StringAttribute{
+									MarkdownDescription: "[Enum: AWS_AP_NORTHEAST_1|AWS_AP_NORTHEAST_3|AWS_AP_SOUTH_1|AWS_AP_SOUTH_2|AWS_AP_SOUTHEAST_1|AWS_AP_SOUTHEAST_2|AWS_AP_SOUTHEAST_3|AWS_EU_CENTRAL_1|AWS_EU_NORTH_1|AWS_EU_WEST_1|AWS_ME_SOUTH_1|AWS_SA_EAST_1|AWS_US_EAST_1|AWS_US_EAST_2|AWS_US_WEST_1|AWS_US_WEST_2|GCP_ASIA_EAST_1|GCP_ASIA_EAST_2|GCP_ASIA_NORTHEAST_1|GCP_ASIA_NORTHEAST_2|GCP_ASIA_NORTHEAST_3|GCP_ASIA_SOUTH_1|GCP_ASIA_SOUTHEAST_1|GCP_ASIA_SOUTHEAST_2|GCP_AUSTRALIA_SOUTHEAST_1|GCP_EUROPE_WEST_1|GCP_EUROPE_WEST_2|GCP_EUROPE_WEST_3|GCP_NORTHAMERICA_NORTHEAST_1|GCP_NORTHAMERICA_NORTHEAST_2|GCP_SOUTHAMERICA_EAST_1|GCP_SOUTHAMERICA_WEST_1|GCP_US_CENTRAL_1|GCP_US_EAST_1|GCP_US_EAST_4|GCP_US_WEST_1|GCP_US_WEST_2] Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1.. Possible values are `AWS_AP_NORTHEAST_1`, `AWS_AP_NORTHEAST_3`, `AWS_AP_SOUTH_1`, `AWS_AP_SOUTH_2`, `AWS_AP_SOUTHEAST_1`, `AWS_AP_SOUTHEAST_2`, `AWS_AP_SOUTHEAST_3`, `AWS_EU_CENTRAL_1`, `AWS_EU_NORTH_1`, `AWS_EU_WEST_1`, `AWS_ME_SOUTH_1`, `AWS_SA_EAST_1`, `AWS_US_EAST_1`, `AWS_US_EAST_2`, `AWS_US_WEST_1`, `AWS_US_WEST_2`, `GCP_ASIA_EAST_1`, `GCP_ASIA_EAST_2`, `GCP_ASIA_NORTHEAST_1`, `GCP_ASIA_NORTHEAST_2`, `GCP_ASIA_NORTHEAST_3`, `GCP_ASIA_SOUTH_1`, `GCP_ASIA_SOUTHEAST_1`, `GCP_ASIA_SOUTHEAST_2`, `GCP_AUSTRALIA_SOUTHEAST_1`, `GCP_EUROPE_WEST_1`, `GCP_EUROPE_WEST_2`, `GCP_EUROPE_WEST_3`, `GCP_NORTHAMERICA_NORTHEAST_1`, `GCP_NORTHAMERICA_NORTHEAST_2`, `GCP_SOUTHAMERICA_EAST_1`, `GCP_SOUTHAMERICA_WEST_1`, `GCP_US_CENTRAL_1`, `GCP_US_EAST_1`, `GCP_US_EAST_4`, `GCP_US_WEST_1`, `GCP_US_WEST_2`. Defaults to `AWS_AP_NORTHEAST_1`.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"infra_host_name": schema.StringAttribute{
+						MarkdownDescription: "Infra Host Name. Infra Host Name.",
+						Computed:            true,
+					},
+					"ingress": schema.ListNestedAttribute{
+						MarkdownDescription: "Ingress. Ingress",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"host_name": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [ip_address] Ingress Host Name.",
+									Computed:            true,
+								},
+								"ip_address": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [host_name] Ingress IP Address.",
+									Computed:            true,
+								},
+								"location": schema.StringAttribute{
+									MarkdownDescription: "[Enum: AWS_AP_NORTHEAST_1|AWS_AP_NORTHEAST_3|AWS_AP_SOUTH_1|AWS_AP_SOUTH_2|AWS_AP_SOUTHEAST_1|AWS_AP_SOUTHEAST_2|AWS_AP_SOUTHEAST_3|AWS_EU_CENTRAL_1|AWS_EU_NORTH_1|AWS_EU_WEST_1|AWS_ME_SOUTH_1|AWS_SA_EAST_1|AWS_US_EAST_1|AWS_US_EAST_2|AWS_US_WEST_1|AWS_US_WEST_2|GCP_ASIA_EAST_1|GCP_ASIA_EAST_2|GCP_ASIA_NORTHEAST_1|GCP_ASIA_NORTHEAST_2|GCP_ASIA_NORTHEAST_3|GCP_ASIA_SOUTH_1|GCP_ASIA_SOUTHEAST_1|GCP_ASIA_SOUTHEAST_2|GCP_AUSTRALIA_SOUTHEAST_1|GCP_EUROPE_WEST_1|GCP_EUROPE_WEST_2|GCP_EUROPE_WEST_3|GCP_NORTHAMERICA_NORTHEAST_1|GCP_NORTHAMERICA_NORTHEAST_2|GCP_SOUTHAMERICA_EAST_1|GCP_SOUTHAMERICA_WEST_1|GCP_US_CENTRAL_1|GCP_US_EAST_1|GCP_US_EAST_4|GCP_US_WEST_1|GCP_US_WEST_2] Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1.. Possible values are `AWS_AP_NORTHEAST_1`, `AWS_AP_NORTHEAST_3`, `AWS_AP_SOUTH_1`, `AWS_AP_SOUTH_2`, `AWS_AP_SOUTHEAST_1`, `AWS_AP_SOUTHEAST_2`, `AWS_AP_SOUTHEAST_3`, `AWS_EU_CENTRAL_1`, `AWS_EU_NORTH_1`, `AWS_EU_WEST_1`, `AWS_ME_SOUTH_1`, `AWS_SA_EAST_1`, `AWS_US_EAST_1`, `AWS_US_EAST_2`, `AWS_US_WEST_1`, `AWS_US_WEST_2`, `GCP_ASIA_EAST_1`, `GCP_ASIA_EAST_2`, `GCP_ASIA_NORTHEAST_1`, `GCP_ASIA_NORTHEAST_2`, `GCP_ASIA_NORTHEAST_3`, `GCP_ASIA_SOUTH_1`, `GCP_ASIA_SOUTHEAST_1`, `GCP_ASIA_SOUTHEAST_2`, `GCP_AUSTRALIA_SOUTHEAST_1`, `GCP_EUROPE_WEST_1`, `GCP_EUROPE_WEST_2`, `GCP_EUROPE_WEST_3`, `GCP_NORTHAMERICA_NORTHEAST_1`, `GCP_NORTHAMERICA_NORTHEAST_2`, `GCP_SOUTHAMERICA_EAST_1`, `GCP_SOUTHAMERICA_WEST_1`, `GCP_US_CENTRAL_1`, `GCP_US_EAST_1`, `GCP_US_EAST_4`, `GCP_US_WEST_1`, `GCP_US_WEST_2`. Defaults to `AWS_AP_NORTHEAST_1`.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"region": schema.StringAttribute{
+						MarkdownDescription: "[Enum: US|EU|ASIA] Defines a selection for Bot Defense Advanced region - US: US US region - EU: EU European Union region - ASIA: ASIA Asia region. Possible values are `US`, `EU`, `ASIA`. Defaults to `US`.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"data_center_hosted": schema.SingleNestedAttribute{
+				MarkdownDescription: "F5 Hosted. Infra F5 Hosted.",
+				Attributes: map[string]schema.Attribute{
+					"egress": schema.ListNestedAttribute{
+						MarkdownDescription: "Egress. Egress",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"ip_address": schema.StringAttribute{
+									MarkdownDescription: "IP Address. Egress IP address.",
+									Computed:            true,
+								},
+								"location": schema.StringAttribute{
+									MarkdownDescription: "[Enum: AWS_AP_NORTHEAST_1|AWS_AP_NORTHEAST_3|AWS_AP_SOUTH_1|AWS_AP_SOUTH_2|AWS_AP_SOUTHEAST_1|AWS_AP_SOUTHEAST_2|AWS_AP_SOUTHEAST_3|AWS_EU_CENTRAL_1|AWS_EU_NORTH_1|AWS_EU_WEST_1|AWS_ME_SOUTH_1|AWS_SA_EAST_1|AWS_US_EAST_1|AWS_US_EAST_2|AWS_US_WEST_1|AWS_US_WEST_2|GCP_ASIA_EAST_1|GCP_ASIA_EAST_2|GCP_ASIA_NORTHEAST_1|GCP_ASIA_NORTHEAST_2|GCP_ASIA_NORTHEAST_3|GCP_ASIA_SOUTH_1|GCP_ASIA_SOUTHEAST_1|GCP_ASIA_SOUTHEAST_2|GCP_AUSTRALIA_SOUTHEAST_1|GCP_EUROPE_WEST_1|GCP_EUROPE_WEST_2|GCP_EUROPE_WEST_3|GCP_NORTHAMERICA_NORTHEAST_1|GCP_NORTHAMERICA_NORTHEAST_2|GCP_SOUTHAMERICA_EAST_1|GCP_SOUTHAMERICA_WEST_1|GCP_US_CENTRAL_1|GCP_US_EAST_1|GCP_US_EAST_4|GCP_US_WEST_1|GCP_US_WEST_2] Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1.. Possible values are `AWS_AP_NORTHEAST_1`, `AWS_AP_NORTHEAST_3`, `AWS_AP_SOUTH_1`, `AWS_AP_SOUTH_2`, `AWS_AP_SOUTHEAST_1`, `AWS_AP_SOUTHEAST_2`, `AWS_AP_SOUTHEAST_3`, `AWS_EU_CENTRAL_1`, `AWS_EU_NORTH_1`, `AWS_EU_WEST_1`, `AWS_ME_SOUTH_1`, `AWS_SA_EAST_1`, `AWS_US_EAST_1`, `AWS_US_EAST_2`, `AWS_US_WEST_1`, `AWS_US_WEST_2`, `GCP_ASIA_EAST_1`, `GCP_ASIA_EAST_2`, `GCP_ASIA_NORTHEAST_1`, `GCP_ASIA_NORTHEAST_2`, `GCP_ASIA_NORTHEAST_3`, `GCP_ASIA_SOUTH_1`, `GCP_ASIA_SOUTHEAST_1`, `GCP_ASIA_SOUTHEAST_2`, `GCP_AUSTRALIA_SOUTHEAST_1`, `GCP_EUROPE_WEST_1`, `GCP_EUROPE_WEST_2`, `GCP_EUROPE_WEST_3`, `GCP_NORTHAMERICA_NORTHEAST_1`, `GCP_NORTHAMERICA_NORTHEAST_2`, `GCP_SOUTHAMERICA_EAST_1`, `GCP_SOUTHAMERICA_WEST_1`, `GCP_US_CENTRAL_1`, `GCP_US_EAST_1`, `GCP_US_EAST_4`, `GCP_US_WEST_1`, `GCP_US_WEST_2`. Defaults to `AWS_AP_NORTHEAST_1`.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"infra_host_name": schema.StringAttribute{
+						MarkdownDescription: "Infra Host Name. Infra Host Name.",
+						Computed:            true,
+					},
+					"ingress": schema.ListNestedAttribute{
+						MarkdownDescription: "Ingress. Ingress",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"host_name": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [ip_address] Ingress Host Name.",
+									Computed:            true,
+								},
+								"ip_address": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [host_name] Ingress IP Address.",
+									Computed:            true,
+								},
+								"location": schema.StringAttribute{
+									MarkdownDescription: "[Enum: AWS_AP_NORTHEAST_1|AWS_AP_NORTHEAST_3|AWS_AP_SOUTH_1|AWS_AP_SOUTH_2|AWS_AP_SOUTHEAST_1|AWS_AP_SOUTHEAST_2|AWS_AP_SOUTHEAST_3|AWS_EU_CENTRAL_1|AWS_EU_NORTH_1|AWS_EU_WEST_1|AWS_ME_SOUTH_1|AWS_SA_EAST_1|AWS_US_EAST_1|AWS_US_EAST_2|AWS_US_WEST_1|AWS_US_WEST_2|GCP_ASIA_EAST_1|GCP_ASIA_EAST_2|GCP_ASIA_NORTHEAST_1|GCP_ASIA_NORTHEAST_2|GCP_ASIA_NORTHEAST_3|GCP_ASIA_SOUTH_1|GCP_ASIA_SOUTHEAST_1|GCP_ASIA_SOUTHEAST_2|GCP_AUSTRALIA_SOUTHEAST_1|GCP_EUROPE_WEST_1|GCP_EUROPE_WEST_2|GCP_EUROPE_WEST_3|GCP_NORTHAMERICA_NORTHEAST_1|GCP_NORTHAMERICA_NORTHEAST_2|GCP_SOUTHAMERICA_EAST_1|GCP_SOUTHAMERICA_WEST_1|GCP_US_CENTRAL_1|GCP_US_EAST_1|GCP_US_EAST_4|GCP_US_WEST_1|GCP_US_WEST_2] Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1.. Possible values are `AWS_AP_NORTHEAST_1`, `AWS_AP_NORTHEAST_3`, `AWS_AP_SOUTH_1`, `AWS_AP_SOUTH_2`, `AWS_AP_SOUTHEAST_1`, `AWS_AP_SOUTHEAST_2`, `AWS_AP_SOUTHEAST_3`, `AWS_EU_CENTRAL_1`, `AWS_EU_NORTH_1`, `AWS_EU_WEST_1`, `AWS_ME_SOUTH_1`, `AWS_SA_EAST_1`, `AWS_US_EAST_1`, `AWS_US_EAST_2`, `AWS_US_WEST_1`, `AWS_US_WEST_2`, `GCP_ASIA_EAST_1`, `GCP_ASIA_EAST_2`, `GCP_ASIA_NORTHEAST_1`, `GCP_ASIA_NORTHEAST_2`, `GCP_ASIA_NORTHEAST_3`, `GCP_ASIA_SOUTH_1`, `GCP_ASIA_SOUTHEAST_1`, `GCP_ASIA_SOUTHEAST_2`, `GCP_AUSTRALIA_SOUTHEAST_1`, `GCP_EUROPE_WEST_1`, `GCP_EUROPE_WEST_2`, `GCP_EUROPE_WEST_3`, `GCP_NORTHAMERICA_NORTHEAST_1`, `GCP_NORTHAMERICA_NORTHEAST_2`, `GCP_SOUTHAMERICA_EAST_1`, `GCP_SOUTHAMERICA_WEST_1`, `GCP_US_CENTRAL_1`, `GCP_US_EAST_1`, `GCP_US_EAST_4`, `GCP_US_WEST_1`, `GCP_US_WEST_2`. Defaults to `AWS_AP_NORTHEAST_1`.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"region": schema.StringAttribute{
+						MarkdownDescription: "[Enum: US|EU|ASIA] Defines a selection for Bot Defense Advanced region - US: US US region - EU: EU European Union region - ASIA: ASIA Asia region. Possible values are `US`, `EU`, `ASIA`. Defaults to `US`.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"environment_type": schema.StringAttribute{
+				MarkdownDescription: "[Enum: PRODUCTION|TESTING] Environment Type Production environment Testing environment. Possible values are `PRODUCTION`, `TESTING`. Defaults to `PRODUCTION`.",
+				Computed:            true,
+			},
+			"traffic_type": schema.StringAttribute{
+				MarkdownDescription: "[Enum: WEB|MOBILE] Traffic Type Web traffic Mobile traffic. Possible values are `WEB`, `MOBILE`. Defaults to `WEB`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +205,8 @@ func (d *BotDefenseAppInfrastructureDataSource) Read(ctx context.Context, req da
 		return
 	}
 
-	resource, err := d.client.GetBotDefenseAppInfrastructure(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetBotDefenseAppInfrastructure(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read BotDefenseAppInfrastructure: %s", err))
 		return
@@ -101,7 +214,11 @@ func (d *BotDefenseAppInfrastructureDataSource) Read(ctx context.Context, req da
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +251,198 @@ func (d *BotDefenseAppInfrastructureDataSource) Read(ctx context.Context, req da
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["cloud_hosted"].(map[string]interface{}); ok && (isImport || data.CloudHosted != nil) {
+		data.CloudHosted = &BotDefenseAppInfrastructureCloudHostedModel{
+			Egress: func() types.List {
+				if !isImport && data.CloudHosted != nil && (data.CloudHosted.Egress.IsNull() || len(data.CloudHosted.Egress.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BotDefenseAppInfrastructureCloudHostedEgressModelAttrTypes})
+				}
+				var EgressExisting []BotDefenseAppInfrastructureCloudHostedEgressModel
+				if !isImport && data.CloudHosted != nil && !data.CloudHosted.Egress.IsNull() && !data.CloudHosted.Egress.IsUnknown() {
+					data.CloudHosted.Egress.ElementsAs(ctx, &EgressExisting, false)
+				}
+				if rawList, ok := blockData["egress"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressResult []BotDefenseAppInfrastructureCloudHostedEgressModel
+					for EgressIdx, EgressItem := range rawList {
+						_ = EgressIdx
+						if EgressItemMap, ok := EgressItem.(map[string]interface{}); ok {
+							EgressResult = append(EgressResult, BotDefenseAppInfrastructureCloudHostedEgressModel{
+								IPAddress: func() types.String {
+									if v, ok := EgressItemMap["ip_address"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Location: func() types.String {
+									if v, ok := EgressItemMap["location"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotDefenseAppInfrastructureCloudHostedEgressModelAttrTypes}, EgressResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BotDefenseAppInfrastructureCloudHostedEgressModelAttrTypes})
+			}(),
+			InfraHostName: func() types.String {
+				if v, ok := blockData["infra_host_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Ingress: func() types.List {
+				if !isImport && data.CloudHosted != nil && (data.CloudHosted.Ingress.IsNull() || len(data.CloudHosted.Ingress.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BotDefenseAppInfrastructureCloudHostedIngressModelAttrTypes})
+				}
+				var IngressExisting []BotDefenseAppInfrastructureCloudHostedIngressModel
+				if !isImport && data.CloudHosted != nil && !data.CloudHosted.Ingress.IsNull() && !data.CloudHosted.Ingress.IsUnknown() {
+					data.CloudHosted.Ingress.ElementsAs(ctx, &IngressExisting, false)
+				}
+				if rawList, ok := blockData["ingress"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressResult []BotDefenseAppInfrastructureCloudHostedIngressModel
+					for IngressIdx, IngressItem := range rawList {
+						_ = IngressIdx
+						if IngressItemMap, ok := IngressItem.(map[string]interface{}); ok {
+							IngressResult = append(IngressResult, BotDefenseAppInfrastructureCloudHostedIngressModel{
+								HostName: func() types.String {
+									if v, ok := IngressItemMap["host_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								IPAddress: func() types.String {
+									if v, ok := IngressItemMap["ip_address"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Location: func() types.String {
+									if v, ok := IngressItemMap["location"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotDefenseAppInfrastructureCloudHostedIngressModelAttrTypes}, IngressResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BotDefenseAppInfrastructureCloudHostedIngressModelAttrTypes})
+			}(),
+			Region: func() types.String {
+				if v, ok := blockData["region"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["data_center_hosted"].(map[string]interface{}); ok && (isImport || data.DataCenterHosted != nil) {
+		data.DataCenterHosted = &BotDefenseAppInfrastructureDataCenterHostedModel{
+			Egress: func() types.List {
+				if !isImport && data.DataCenterHosted != nil && (data.DataCenterHosted.Egress.IsNull() || len(data.DataCenterHosted.Egress.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BotDefenseAppInfrastructureDataCenterHostedEgressModelAttrTypes})
+				}
+				var EgressExisting []BotDefenseAppInfrastructureDataCenterHostedEgressModel
+				if !isImport && data.DataCenterHosted != nil && !data.DataCenterHosted.Egress.IsNull() && !data.DataCenterHosted.Egress.IsUnknown() {
+					data.DataCenterHosted.Egress.ElementsAs(ctx, &EgressExisting, false)
+				}
+				if rawList, ok := blockData["egress"].([]interface{}); ok && len(rawList) > 0 {
+					var EgressResult []BotDefenseAppInfrastructureDataCenterHostedEgressModel
+					for EgressIdx, EgressItem := range rawList {
+						_ = EgressIdx
+						if EgressItemMap, ok := EgressItem.(map[string]interface{}); ok {
+							EgressResult = append(EgressResult, BotDefenseAppInfrastructureDataCenterHostedEgressModel{
+								IPAddress: func() types.String {
+									if v, ok := EgressItemMap["ip_address"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Location: func() types.String {
+									if v, ok := EgressItemMap["location"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotDefenseAppInfrastructureDataCenterHostedEgressModelAttrTypes}, EgressResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BotDefenseAppInfrastructureDataCenterHostedEgressModelAttrTypes})
+			}(),
+			InfraHostName: func() types.String {
+				if v, ok := blockData["infra_host_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Ingress: func() types.List {
+				if !isImport && data.DataCenterHosted != nil && (data.DataCenterHosted.Ingress.IsNull() || len(data.DataCenterHosted.Ingress.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: BotDefenseAppInfrastructureDataCenterHostedIngressModelAttrTypes})
+				}
+				var IngressExisting []BotDefenseAppInfrastructureDataCenterHostedIngressModel
+				if !isImport && data.DataCenterHosted != nil && !data.DataCenterHosted.Ingress.IsNull() && !data.DataCenterHosted.Ingress.IsUnknown() {
+					data.DataCenterHosted.Ingress.ElementsAs(ctx, &IngressExisting, false)
+				}
+				if rawList, ok := blockData["ingress"].([]interface{}); ok && len(rawList) > 0 {
+					var IngressResult []BotDefenseAppInfrastructureDataCenterHostedIngressModel
+					for IngressIdx, IngressItem := range rawList {
+						_ = IngressIdx
+						if IngressItemMap, ok := IngressItem.(map[string]interface{}); ok {
+							IngressResult = append(IngressResult, BotDefenseAppInfrastructureDataCenterHostedIngressModel{
+								HostName: func() types.String {
+									if v, ok := IngressItemMap["host_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								IPAddress: func() types.String {
+									if v, ok := IngressItemMap["ip_address"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Location: func() types.String {
+									if v, ok := IngressItemMap["location"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotDefenseAppInfrastructureDataCenterHostedIngressModelAttrTypes}, IngressResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: BotDefenseAppInfrastructureDataCenterHostedIngressModelAttrTypes})
+			}(),
+			Region: func() types.String {
+				if v, ok := blockData["region"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["environment_type"].(string); ok && v != "" {
+		data.EnvironmentType = types.StringValue(v)
+	} else {
+		data.EnvironmentType = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["traffic_type"].(string); ok && v != "" {
+		data.TrafficType = types.StringValue(v)
+	} else {
+		data.TrafficType = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

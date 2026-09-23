@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,17 @@ type CloudCredentialsDataSource struct {
 }
 
 type CloudCredentialsDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                  types.String                              `tfsdk:"id"`
+	Name                types.String                              `tfsdk:"name"`
+	Namespace           types.String                              `tfsdk:"namespace"`
+	Description         types.String                              `tfsdk:"description"`
+	Labels              types.Map                                 `tfsdk:"labels"`
+	Annotations         types.Map                                 `tfsdk:"annotations"`
+	AWSAssumeRole       *CloudCredentialsAWSAssumeRoleModel       `tfsdk:"aws_assume_role"`
+	AWSSecretKey        *CloudCredentialsAWSSecretKeyModel        `tfsdk:"aws_secret_key"`
+	AzureClientSecret   *CloudCredentialsAzureClientSecretModel   `tfsdk:"azure_client_secret"`
+	AzurePfxCertificate *CloudCredentialsAzurePfxCertificateModel `tfsdk:"azure_pfx_certificate"`
+	GCPCredFile         *CloudCredentialsGCPCredFileModel         `tfsdk:"gcp_cred_file"`
 }
 
 func (d *CloudCredentialsDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +76,259 @@ func (d *CloudCredentialsDataSource) Schema(ctx context.Context, req datasource.
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"aws_assume_role": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: aws_assume_role, aws_secret_key, azure_client_secret, azure_pfx_certificate, gcp_cred_file] AWS Assume Role to Handle Delegated Access.",
+				Attributes: map[string]schema.Attribute{
+					"custom_external_id": schema.StringAttribute{
+						MarkdownDescription: "Exclusive with [external_id_is_optional external_id_is_tenant_id] External ID is Custom ID.",
+						Computed:            true,
+					},
+					"duration_seconds": schema.Int64Attribute{
+						MarkdownDescription: "The duration, in seconds of the role session.",
+						Computed:            true,
+					},
+					"external_id_is_optional": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for external id is optional.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"external_id_is_tenant_id": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"role_arn": schema.StringAttribute{
+						MarkdownDescription: "IAM Role ARN. IAM Role ARN to assume the role.",
+						Computed:            true,
+					},
+					"session_name": schema.StringAttribute{
+						MarkdownDescription: "Use the role session name to uniquely identify a session, which will be used for deploy, monitor from F5XC console.",
+						Computed:            true,
+					},
+					"session_tags": schema.MapAttribute{
+						MarkdownDescription: "Session tags are key-value pair attributes that you pass when you assume an IAM role.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"aws_secret_key": schema.SingleNestedAttribute{
+				MarkdownDescription: "AWS Programmatic Access Credentials type.",
+				Attributes: map[string]schema.Attribute{
+					"access_key": schema.StringAttribute{
+						MarkdownDescription: "Access Key ID. Access key ID for your AWS account.",
+						Computed:            true,
+					},
+					"secret_key": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"azure_client_secret": schema.SingleNestedAttribute{
+				MarkdownDescription: "Azure Client Secret. Azure Credentials Client Secret type.",
+				Attributes: map[string]schema.Attribute{
+					"client_id": schema.StringAttribute{
+						MarkdownDescription: "Client ID for your Azure service principal.",
+						Computed:            true,
+					},
+					"client_secret": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"subscription_id": schema.StringAttribute{
+						MarkdownDescription: "Subscription ID for your Azure service principal.",
+						Computed:            true,
+					},
+					"tenant_id": schema.StringAttribute{
+						MarkdownDescription: "Tenant ID for your Azure service principal.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"azure_pfx_certificate": schema.SingleNestedAttribute{
+				MarkdownDescription: "Azure Credentials Client Certificate type.",
+				Attributes: map[string]schema.Attribute{
+					"certificate_url": schema.StringAttribute{
+						MarkdownDescription: "URL for Client Certificate in '.pfx' or '.p12' whose certificate is linked to service principal object Certificate URL can contain client certificate in string:///<Base64 of certificate> format. Here <Base64 of certificate> is base64 of '.pfx' or '.p12' binary file.",
+						Computed:            true,
+					},
+					"client_id": schema.StringAttribute{
+						MarkdownDescription: "Client ID for your Azure service principal.",
+						Computed:            true,
+					},
+					"password": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"subscription_id": schema.StringAttribute{
+						MarkdownDescription: "Subscription ID for your Azure service principal.",
+						Computed:            true,
+					},
+					"tenant_id": schema.StringAttribute{
+						MarkdownDescription: "Tenant ID for your Azure service principal.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"gcp_cred_file": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for gcp cred file.",
+				Attributes: map[string]schema.Attribute{
+					"credential_file": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +352,8 @@ func (d *CloudCredentialsDataSource) Read(ctx context.Context, req datasource.Re
 		return
 	}
 
-	resource, err := d.client.GetCloudCredentials(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetCloudCredentials(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CloudCredentials: %s", err))
 		return
@@ -101,7 +361,11 @@ func (d *CloudCredentialsDataSource) Read(ctx context.Context, req datasource.Re
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +398,328 @@ func (d *CloudCredentialsDataSource) Read(ctx context.Context, req datasource.Re
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["aws_assume_role"].(map[string]interface{}); ok && (isImport || data.AWSAssumeRole != nil) {
+		data.AWSAssumeRole = &CloudCredentialsAWSAssumeRoleModel{
+			CustomExternalID: func() types.String {
+				if v, ok := blockData["custom_external_id"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			DurationSeconds: func() types.Int64 {
+				if v, ok := blockData["duration_seconds"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			ExternalIDIsOptional: func() types.Object {
+				if !isImport && data.AWSAssumeRole != nil && !data.AWSAssumeRole.ExternalIDIsOptional.IsUnknown() {
+					return data.AWSAssumeRole.ExternalIDIsOptional
+				}
+				if _, ok := blockData["external_id_is_optional"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			ExternalIDIsTenantID: func() types.Object {
+				if !isImport && data.AWSAssumeRole != nil && !data.AWSAssumeRole.ExternalIDIsTenantID.IsUnknown() {
+					return data.AWSAssumeRole.ExternalIDIsTenantID
+				}
+				if _, ok := blockData["external_id_is_tenant_id"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			RoleArn: func() types.String {
+				if v, ok := blockData["role_arn"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			SessionName: func() types.String {
+				if v, ok := blockData["session_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			SessionTags: UnmarshalStringMapForRead(ctx, blockData["session_tags"], func() types.Map {
+				if data.AWSAssumeRole != nil {
+					return data.AWSAssumeRole.SessionTags
+				}
+				return types.MapNull(types.StringType)
+			}(), "session_tags", isImport, &resp.Diagnostics),
+		}
+	}
+	if blockData, ok := apiResource.Spec["aws_secret_key"].(map[string]interface{}); ok && (isImport || data.AWSSecretKey != nil) {
+		data.AWSSecretKey = &CloudCredentialsAWSSecretKeyModel{
+			AccessKey: func() types.String {
+				if v, ok := blockData["access_key"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			SecretKey: func() *CloudCredentialsAWSSecretKeySecretKeyModel {
+				if SecretKeyData, ok := blockData["secret_key"].(map[string]interface{}); ok {
+					return &CloudCredentialsAWSSecretKeySecretKeyModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := SecretKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAWSSecretKeySecretKeyBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel {
+							if ClearSecretInfoData, ok := SecretKeyData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAWSSecretKeySecretKeyClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["azure_client_secret"].(map[string]interface{}); ok && (isImport || data.AzureClientSecret != nil) {
+		data.AzureClientSecret = &CloudCredentialsAzureClientSecretModel{
+			ClientID: func() types.String {
+				if v, ok := blockData["client_id"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			ClientSecret: func() *CloudCredentialsAzureClientSecretClientSecretModel {
+				if ClientSecretData, ok := blockData["client_secret"].(map[string]interface{}); ok {
+					return &CloudCredentialsAzureClientSecretClientSecretModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := ClientSecretData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzureClientSecretClientSecretBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel {
+							if ClearSecretInfoData, ok := ClientSecretData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzureClientSecretClientSecretClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			SubscriptionID: func() types.String {
+				if v, ok := blockData["subscription_id"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			TenantID: func() types.String {
+				if v, ok := blockData["tenant_id"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["azure_pfx_certificate"].(map[string]interface{}); ok && (isImport || data.AzurePfxCertificate != nil) {
+		data.AzurePfxCertificate = &CloudCredentialsAzurePfxCertificateModel{
+			CertificateURL: func() types.String {
+				if v, ok := blockData["certificate_url"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			ClientID: func() types.String {
+				if v, ok := blockData["client_id"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Password: func() *CloudCredentialsAzurePfxCertificatePasswordModel {
+				if PasswordData, ok := blockData["password"].(map[string]interface{}); ok {
+					return &CloudCredentialsAzurePfxCertificatePasswordModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzurePfxCertificatePasswordBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel {
+							if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsAzurePfxCertificatePasswordClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			SubscriptionID: func() types.String {
+				if v, ok := blockData["subscription_id"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			TenantID: func() types.String {
+				if v, ok := blockData["tenant_id"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["gcp_cred_file"].(map[string]interface{}); ok && (isImport || data.GCPCredFile != nil) {
+		data.GCPCredFile = &CloudCredentialsGCPCredFileModel{
+			CredentialFile: func() *CloudCredentialsGCPCredFileCredentialFileModel {
+				if CredentialFileData, ok := blockData["credential_file"].(map[string]interface{}); ok {
+					return &CloudCredentialsGCPCredFileCredentialFileModel{
+						BlindfoldSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := CredentialFileData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsGCPCredFileCredentialFileBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel {
+							if ClearSecretInfoData, ok := CredentialFileData["clear_secret_info"].(map[string]interface{}); ok {
+								return &CloudCredentialsGCPCredFileCredentialFileClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

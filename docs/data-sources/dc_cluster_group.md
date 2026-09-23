@@ -50,7 +50,7 @@ output "dc_cluster_group_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the DcClusterGroup
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the DcClusterGroup exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the DcClusterGroup exists
 
 ### Attributes Reference
 
@@ -63,6 +63,26 @@ In addition to all arguments above, the following attributes are exported:
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="type"></a>&#x2022; [`type`](#type) - Optional String<br>DC Cluster Group Mesh Type. Details of DC Cluster Group Mesh Type
+
+---
+
+#### Type
+
+A [`type`](#type) block supports the following:
+
+<a id="mesh-9659db"></a>&#x2022; [`control_and_data_plane_mesh`](#mesh-9659db) - Optional Object<br>Enable this option
+
+<a id="nestedatt--type-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#nestedatt--type-data-plane-mesh) - Optional Object<br>Enable this option
+
+#### Type Control And Data Plane Mesh
+
+A [`control_and_data_plane_mesh`](#type-control-and-data-plane-mesh) block (within [`type`](#type)) supports the following:
+
+#### Type Data Plane Mesh
+
+A [`data_plane_mesh`](#type-data-plane-mesh) block (within [`type`](#type)) supports the following:
 
 ---
 

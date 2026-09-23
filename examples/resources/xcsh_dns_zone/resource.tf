@@ -16,4 +16,8 @@ terraform {
 resource "xcsh_dns_zone" "example" {
   name      = "example-dns-zone"
   namespace = "system"
+
+  primary {
+    allow_http_lb_managed_records = true
+  }
 }

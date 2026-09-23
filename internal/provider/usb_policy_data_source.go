@@ -28,12 +28,13 @@ type UsbPolicyDataSource struct {
 }
 
 type UsbPolicyDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID             types.String `tfsdk:"id"`
+	Name           types.String `tfsdk:"name"`
+	Namespace      types.String `tfsdk:"namespace"`
+	Description    types.String `tfsdk:"description"`
+	Labels         types.Map    `tfsdk:"labels"`
+	Annotations    types.Map    `tfsdk:"annotations"`
+	AllowedDevices types.List   `tfsdk:"allowed_devices"`
 }
 
 func (d *UsbPolicyDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,38 @@ func (d *UsbPolicyDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"allowed_devices": schema.ListNestedAttribute{
+				MarkdownDescription: "Allowed USB devices. List of allowed USB devices.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"b_device_class": schema.StringAttribute{
+							MarkdownDescription: "Class. The class of this device.",
+							Computed:            true,
+						},
+						"b_device_protocol": schema.StringAttribute{
+							MarkdownDescription: "The protocol (within the sub-class) of this device.",
+							Computed:            true,
+						},
+						"b_device_sub_class": schema.StringAttribute{
+							MarkdownDescription: "The sub-class (within the class) of this device.",
+							Computed:            true,
+						},
+						"i_serial": schema.StringAttribute{
+							MarkdownDescription: "Index of Serial Number String Descriptor.",
+							Computed:            true,
+						},
+						"id_product": schema.StringAttribute{
+							MarkdownDescription: "Product ID (Assigned by Manufacturer) in hex.",
+							Computed:            true,
+						},
+						"id_vendor": schema.StringAttribute{
+							MarkdownDescription: "Vendor ID. Vendor ID (Assigned by USB Org) in hex.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +126,8 @@ func (d *UsbPolicyDataSource) Read(ctx context.Context, req datasource.ReadReque
 		return
 	}
 
-	resource, err := d.client.GetUsbPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetUsbPolicy(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read UsbPolicy: %s", err))
 		return
@@ -101,7 +135,11 @@ func (d *UsbPolicyDataSource) Read(ctx context.Context, req datasource.ReadReque
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +172,67 @@ func (d *UsbPolicyDataSource) Read(ctx context.Context, req datasource.ReadReque
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.AllowedDevices.IsNull() || len(data.AllowedDevices.Elements()) == 0) {
+		data.AllowedDevices = types.ListNull(types.ObjectType{AttrTypes: UsbPolicyAllowedDevicesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["allowed_devices"].([]interface{}); ok && len(listData) > 0 {
+		var AllowedDevicesList []UsbPolicyAllowedDevicesModel
+		var existingAllowedDevicesItems []UsbPolicyAllowedDevicesModel
+		if !data.AllowedDevices.IsNull() && !data.AllowedDevices.IsUnknown() {
+			data.AllowedDevices.ElementsAs(ctx, &existingAllowedDevicesItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				AllowedDevicesList = append(AllowedDevicesList, UsbPolicyAllowedDevicesModel{
+					BDeviceClass: func() types.String {
+						if v, ok := itemMap["b_device_class"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					BDeviceProtocol: func() types.String {
+						if v, ok := itemMap["b_device_protocol"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					BDeviceSubClass: func() types.String {
+						if v, ok := itemMap["b_device_sub_class"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					ISerial: func() types.String {
+						if v, ok := itemMap["i_serial"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					IDProduct: func() types.String {
+						if v, ok := itemMap["id_product"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					IDVendor: func() types.String {
+						if v, ok := itemMap["id_vendor"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: UsbPolicyAllowedDevicesModelAttrTypes}, AllowedDevicesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.AllowedDevices = listVal
+		}
+	} else {
+		data.AllowedDevices = types.ListNull(types.ObjectType{AttrTypes: UsbPolicyAllowedDevicesModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

@@ -50,7 +50,7 @@ output "geo_location_set_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the GeoLocationSet
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the GeoLocationSet exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the GeoLocationSet exists
 
 ### Attributes Reference
 
@@ -58,11 +58,18 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="custom-geo-location-selector"></a>&#x2022; [`custom_geo_location_selector`](#custom-geo-location-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all
+objects
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the GeoLocationSet
+
+<a id="global"></a>&#x2022; [`global`](#global) - Optional Object<br>Enable this option
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
 
 ---
 

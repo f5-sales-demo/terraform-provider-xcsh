@@ -50,7 +50,7 @@ output "srv6_network_slice_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Srv6NetworkSlice
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Srv6NetworkSlice exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the Srv6NetworkSlice exists
 
 ### Attributes Reference
 
@@ -58,11 +58,19 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="connect-to-access-networks"></a>&#x2022; [`connect_to_access_networks`](#connect-to-access-networks) - Optional Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to their corresponding access networks by importing route targets
+
+<a id="connect-to-enterprise-networks"></a>&#x2022; [`connect_to_enterprise_networks`](#connect-to-enterprise-networks) - Optional Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to their corresponding enterprise networks by importing route targets
+
+<a id="connect-to-internet"></a>&#x2022; [`connect_to_internet`](#connect-to-internet) - Optional Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to the internet by importing route targets
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Srv6NetworkSlice
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="sid-prefixes"></a>&#x2022; [`sid_prefixes`](#sid-prefixes) - Optional List<br>SID Locator from the prefix is allocated automatically for each node in each site
 
 ---
 

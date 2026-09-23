@@ -61,7 +61,7 @@ resource "xcsh_app_api_group" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="bigip-virtual-server"></a>[`bigip_virtual_server`](#bigip-virtual-server) - Optional Block<br>Set the scope of the API Group to a specific BIG-IP Virtual Server<br>See [Bigip Virtual Server](#bigip-virtual-server) below for details.
-<br><br>&#x2022; <a id="CDN-loadbalancer"></a>[`cdn_loadbalancer`](#CDN-loadbalancer) - Optional Block<br>Set the scope of the API Group to a specific CDN Loadbalancer<br>See [CDN Loadbalancer](#CDN-loadbalancer) below for details.
+<br><br>&#x2022; <a id="cdn-loadbalancer"></a>[`cdn_loadbalancer`](#cdn-loadbalancer) - Optional Block<br>Set the scope of the API Group to a specific CDN Loadbalancer<br>See [CDN Loadbalancer](#cdn-loadbalancer) below for details.
 <br><br>&#x2022; <a id="http-loadbalancer"></a>[`http_loadbalancer`](#http-loadbalancer) - Optional Block<br>Set the scope of the API Group to a specific HTTP Loadbalancer<br>See [HTTP Loadbalancer](#http-loadbalancer) below for details.
 
 <a id="elements"></a>&#x2022; [`elements`](#elements) - Optional Block<br>List of API group elements with methods and path regex for matching requests<br>See [Elements](#elements) below for details.
@@ -94,19 +94,19 @@ A [`bigip_virtual_server`](#server-575600) block (within [`bigip_virtual_server`
 
 #### CDN Loadbalancer
 
-A [`cdn_loadbalancer`](#CDN-loadbalancer) block supports the following:
+A [`cdn_loadbalancer`](#cdn-loadbalancer) block supports the following:
 
-<a id="CDN-loadbalancer-CDN-loadbalancer"></a>&#x2022; [`cdn_loadbalancer`](#CDN-loadbalancer-CDN-loadbalancer) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [CDN Loadbalancer](#CDN-loadbalancer-CDN-loadbalancer) below.
+<a id="cdn-loadbalancer-cdn-loadbalancer"></a>&#x2022; [`cdn_loadbalancer`](#cdn-loadbalancer-cdn-loadbalancer) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [CDN Loadbalancer](#cdn-loadbalancer-cdn-loadbalancer) below.
 
 #### CDN Loadbalancer CDN Loadbalancer
 
-A [`cdn_loadbalancer`](#CDN-loadbalancer-CDN-loadbalancer) block (within [`cdn_loadbalancer`](#CDN-loadbalancer)) supports the following:
+A [`cdn_loadbalancer`](#cdn-loadbalancer-cdn-loadbalancer) block (within [`cdn_loadbalancer`](#cdn-loadbalancer)) supports the following:
 
-<a id="CDN-loadbalancer-CDN-loadbalancer-name"></a>&#x2022; [`name`](#CDN-loadbalancer-CDN-loadbalancer-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+<a id="cdn-loadbalancer-cdn-loadbalancer-name"></a>&#x2022; [`name`](#cdn-loadbalancer-cdn-loadbalancer-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
-<a id="namespace-89a48c"></a>&#x2022; [`namespace`](#namespace-89a48c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+<a id="namespace-8ae5bf"></a>&#x2022; [`namespace`](#namespace-8ae5bf) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
-<a id="tenant-e35fe7"></a>&#x2022; [`tenant`](#tenant-e35fe7) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+<a id="tenant-ea0b41"></a>&#x2022; [`tenant`](#tenant-ea0b41) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### Elements
 

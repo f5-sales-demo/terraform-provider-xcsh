@@ -58,11 +58,35 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="context-key"></a>&#x2022; [`context_key`](#context-key) - Optional String<br>Indexable context key that identifies a page or page type for which the FilterSet is applicable
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the FilterSet
+
+<a id="filter-fields"></a>&#x2022; [`filter_fields`](#filter-fields) - Optional List<br>List of fields and their values selected by the user
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="date-field"></a>&#x2022; [`date_field`](#date-field) - Optional String<br>Either an absolute time range or a relative time interval
+
+<a id="field-id"></a>&#x2022; [`field_id`](#field-id) - Optional String<br>Identifier for the field that maps to some UI filter component
+
+<a id="filter-expression-field"></a>&#x2022; [`filter_expression_field`](#filter-expression-field) - Optional String<br>Filter Expression Field
+
+<a id="string-field"></a>&#x2022; [`string_field`](#string-field) - Optional String<br>Filter String Field
+
+<a id="absolute"></a>&#x2022; [`absolute`](#absolute) - Optional String<br>Date range is for selecting a date range
+
+<a id="relative"></a>&#x2022; [`relative`](#relative) - Optional String<br>relative time duration
+
+<a id="end-date"></a>&#x2022; [`end_date`](#end-date) - Optional String<br>End Date. Contains end date
+
+<a id="start-date"></a>&#x2022; [`start_date`](#start-date) - Optional String<br>Start Date. Contains start date
+
+<a id="expression"></a>&#x2022; [`expression`](#expression) - Optional String<br>Expression is a Kubernetes style label expression for selections, but differs in that it allows special characters in the keys and values
+
+<a id="field-values"></a>&#x2022; [`field_values`](#field-values) - Optional List<br>String Value(s). Field specification or configuration
 
 ---
 

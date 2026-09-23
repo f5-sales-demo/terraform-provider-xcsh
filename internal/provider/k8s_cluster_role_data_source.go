@@ -28,12 +28,15 @@ type K8SClusterRoleDataSource struct {
 }
 
 type K8SClusterRoleDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                     types.String                               `tfsdk:"id"`
+	Name                   types.String                               `tfsdk:"name"`
+	Namespace              types.String                               `tfsdk:"namespace"`
+	Description            types.String                               `tfsdk:"description"`
+	Labels                 types.Map                                  `tfsdk:"labels"`
+	Annotations            types.Map                                  `tfsdk:"annotations"`
+	Yaml                   types.String                               `tfsdk:"yaml"`
+	K8SClusterRoleSelector *K8SClusterRoleK8SClusterRoleSelectorModel `tfsdk:"k8s_cluster_role_selector"`
+	PolicyRuleList         *K8SClusterRolePolicyRuleListModel         `tfsdk:"policy_rule_list"`
 }
 
 func (d *K8SClusterRoleDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +57,8 @@ func (d *K8SClusterRoleDataSource) Schema(ctx context.Context, req datasource.Sc
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the K8SClusterRole exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the K8SClusterRole.",
@@ -69,6 +73,77 @@ func (d *K8SClusterRoleDataSource) Schema(ctx context.Context, req datasource.Sc
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"k8s_cluster_role_selector": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: k8s_cluster_role_selector, policy_rule_list, yaml] Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				Attributes: map[string]schema.Attribute{
+					"expressions": schema.ListAttribute{
+						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"policy_rule_list": schema.SingleNestedAttribute{
+				MarkdownDescription: "Policy Rule List. List of rules for role permissions.",
+				Attributes: map[string]schema.Attribute{
+					"policy_rule": schema.ListNestedAttribute{
+						MarkdownDescription: "Policy Rules. List of rules for role permissions.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"non_resource_url_list": schema.SingleNestedAttribute{
+									MarkdownDescription: "Permissions for URL(s) that do not represent K8s resource.",
+									Attributes: map[string]schema.Attribute{
+										"urls": schema.ListAttribute{
+											MarkdownDescription: "Allowed URL(s) that do not represent any K8s resource. URL can be suffix or regex.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+										"verbs": schema.ListAttribute{
+											MarkdownDescription: "Allowed list of verbs(operations) on resources. Use VerbAll for all operations.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"resource_list": schema.SingleNestedAttribute{
+									MarkdownDescription: "List of resources in terms of API groups/resource types/resource instances and verbs allowed.",
+									Attributes: map[string]schema.Attribute{
+										"api_groups": schema.ListAttribute{
+											MarkdownDescription: "Allowed list of API group that contains resources, all resources of a given API group.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+										"resource_instances": schema.ListAttribute{
+											MarkdownDescription: "Allowed list of resource instances within the resource types.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+										"resource_types": schema.ListAttribute{
+											MarkdownDescription: "Allowed list of resource types within the API groups.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+										"verbs": schema.ListAttribute{
+											MarkdownDescription: "Allowed list of verbs(operations) on resources. Use * for all operations.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"yaml": schema.StringAttribute{
+				MarkdownDescription: "Exclusive with [k8s_cluster_role_selector policy_rule_list] K8s YAML for ClusterRole.",
+				Computed:            true,
 			},
 		},
 	}
@@ -93,7 +168,11 @@ func (d *K8SClusterRoleDataSource) Read(ctx context.Context, req datasource.Read
 		return
 	}
 
-	resource, err := d.client.GetK8SClusterRole(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "system"
+	}
+	resource, err := d.client.GetK8SClusterRole(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read K8SClusterRole: %s", err))
 		return
@@ -101,7 +180,11 @@ func (d *K8SClusterRoleDataSource) Read(ctx context.Context, req datasource.Read
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +217,155 @@ func (d *K8SClusterRoleDataSource) Read(ctx context.Context, req datasource.Read
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["k8s_cluster_role_selector"].(map[string]interface{}); ok && (isImport || data.K8SClusterRoleSelector != nil) {
+		data.K8SClusterRoleSelector = &K8SClusterRoleK8SClusterRoleSelectorModel{
+			Expressions: func() types.List {
+				if v, ok := blockData["expressions"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["policy_rule_list"].(map[string]interface{}); ok && (isImport || data.PolicyRuleList != nil) {
+		data.PolicyRuleList = &K8SClusterRolePolicyRuleListModel{
+			PolicyRule: func() types.List {
+				if !isImport && data.PolicyRuleList != nil && (data.PolicyRuleList.PolicyRule.IsNull() || len(data.PolicyRuleList.PolicyRule.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
+				}
+				var PolicyRuleExisting []K8SClusterRolePolicyRuleListPolicyRuleModel
+				if !isImport && data.PolicyRuleList != nil && !data.PolicyRuleList.PolicyRule.IsNull() && !data.PolicyRuleList.PolicyRule.IsUnknown() {
+					data.PolicyRuleList.PolicyRule.ElementsAs(ctx, &PolicyRuleExisting, false)
+				}
+				if rawList, ok := blockData["policy_rule"].([]interface{}); ok && len(rawList) > 0 {
+					var PolicyRuleResult []K8SClusterRolePolicyRuleListPolicyRuleModel
+					for PolicyRuleIdx, PolicyRuleItem := range rawList {
+						_ = PolicyRuleIdx
+						if PolicyRuleItemMap, ok := PolicyRuleItem.(map[string]interface{}); ok {
+							PolicyRuleResult = append(PolicyRuleResult, K8SClusterRolePolicyRuleListPolicyRuleModel{
+								NonResourceURLList: func() *K8SClusterRolePolicyRuleListPolicyRuleNonResourceURLListModel {
+									if NonResourceURLListData, ok := PolicyRuleItemMap["non_resource_url_list"].(map[string]interface{}); ok {
+										return &K8SClusterRolePolicyRuleListPolicyRuleNonResourceURLListModel{
+											Urls: func() types.List {
+												if v, ok := NonResourceURLListData["urls"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Verbs: func() types.List {
+												if v, ok := NonResourceURLListData["verbs"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								ResourceList: func() *K8SClusterRolePolicyRuleListPolicyRuleResourceListModel {
+									if ResourceListData, ok := PolicyRuleItemMap["resource_list"].(map[string]interface{}); ok {
+										return &K8SClusterRolePolicyRuleListPolicyRuleResourceListModel{
+											APIGroups: func() types.List {
+												if v, ok := ResourceListData["api_groups"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											ResourceInstances: func() types.List {
+												if v, ok := ResourceListData["resource_instances"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											ResourceTypes: func() types.List {
+												if v, ok := ResourceListData["resource_types"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+											Verbs: func() types.List {
+												if v, ok := ResourceListData["verbs"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes}, PolicyRuleResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: K8SClusterRolePolicyRuleListPolicyRuleModelAttrTypes})
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["yaml"].(string); ok && v != "" {
+		data.Yaml = types.StringValue(v)
+	} else {
+		data.Yaml = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

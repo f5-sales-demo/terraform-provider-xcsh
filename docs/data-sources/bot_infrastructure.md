@@ -56,11 +56,28 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="create-cloud-hosted"></a>&#x2022; [`create_cloud_hosted`](#create-cloud-hosted) - Optional String<br>F5 Cloud Hosted
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the BotInfrastructure
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="traffic-type"></a>&#x2022; [`traffic_type`](#traffic-type) - Optional String  Defaults to `WEB`<br>Possible values are `WEB`, `MOBILE`<br>[Enum: WEB|MOBILE] The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic
+from native mobile apps with the Bot Defense SDK are routed
+
+<a id="ip-addresses"></a>&#x2022; [`ip_addresses`](#ip-addresses) - Optional List<br>Only traffic from these IP addresses is allowed to access this Bot Defense infrastructure
+
+<a id="production"></a>&#x2022; [`production`](#production) - Optional String<br>Production
+
+<a id="testing"></a>&#x2022; [`testing`](#testing) - Optional String<br>Testing
+
+<a id="region-1"></a>&#x2022; [`region_1`](#region-1) - Optional String<br>Active-Active Infrastructure configuration where traffic is routed equally between the two regions
+
+<a id="region-2"></a>&#x2022; [`region_2`](#region-2) - Optional String<br>Active-Active Infrastructure configuration where traffic is routed equally between the two regions
+
+<a id="region-1"></a>&#x2022; [`region_1`](#region-1) - Optional String<br>Active-Passive Infrastructure configuration where traffic is routed to a single region
 
 ---
 

@@ -75,6 +75,21 @@ func TestFixUpstreamTerminologyStillCorrectsProse(t *testing.T) {
 	}
 }
 
+func TestFixUpstreamTerminologyPreservesFragmentLinksAndAnchorIDs(t *testing.T) {
+	input := `<a id="azure-javascript"></a>[Azure JavaScript](#azure-javascript)`
+	if got := FixUpstreamTerminology(input); got != input {
+		t.Fatalf("FixUpstreamTerminology changed navigation identifiers: got %q, want %q", got, input)
+	}
+}
+
+func TestFixUpstreamTerminologyNormalizesGeneratedDescriptionTerms(t *testing.T) {
+	input := "linux bootstrap File Name and file name"
+	want := "Linux bootstrap filename and filename"
+	if got := FixUpstreamTerminology(input); got != want {
+		t.Fatalf("FixUpstreamTerminology(%q) = %q, want %q", input, got, want)
+	}
+}
+
 // Both at once: the identifier is preserved and the prose around it is corrected.
 func TestFixUpstreamTerminologyMixedLine(t *testing.T) {
 	in := "Web Client javascript Mode. Set `javascript_mode` to change it."

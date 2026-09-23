@@ -58,11 +58,153 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="custom-header-value"></a>&#x2022; [`custom_header_value`](#custom-header-value) - Optional String<br>Add x-F5-API-testing-identifier header value to prevent security flags on API testing traffic
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the APITesting
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>Add and configure testing domains and credentials
+
+<a id="every-day"></a>&#x2022; [`every_day`](#every-day) - Optional Object<br>Enable this option
+
+<a id="every-month"></a>&#x2022; [`every_month`](#every-month) - Optional Object<br>Configuration parameter for every month
+
+<a id="every-week"></a>&#x2022; [`every_week`](#every-week) - Optional Object<br>Enable this option
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+---
+
+#### Domains
+
+A [`domains`](#domains) block supports the following:
+
+<a id="methods-d0014b"></a>&#x2022; [`allow_destructive_methods`](#methods-d0014b) - Optional Bool<br>Enable to allow API Testing to execute against destructive methods. Use with caution as these may modify or DELETE data
+
+<a id="nestedatt--domains-credentials"></a>&#x2022; [`credentials`](#nestedatt--domains-credentials) - Optional List<br>Add credentials for API testing to use in the selected environment
+
+<a id="nestedatt--domains-domain"></a>&#x2022; [`domain`](#nestedatt--domains-domain) - Optional String<br>Add your testing environment domain. Be aware that running tests on a production domain can impact live applications, as API testing cannot distinguish between production and testing environments
+
+#### Domains Credentials
+
+A [`credentials`](#domains-credentials) block (within [`domains`](#domains)) supports the following:
+
+<a id="nestedatt--domains--credentials-admin"></a>&#x2022; [`admin`](#nestedatt--domains--credentials-admin) - Optional Object<br>Enable this option
+
+<a id="nestedatt--domains--credentials-api-key"></a>&#x2022; [`api_key`](#nestedatt--domains--credentials-api-key) - Optional String<br>API Key
+
+<a id="auth-08a67e"></a>&#x2022; [`basic_auth`](#auth-08a67e) - Optional String<br>Basic Authentication
+
+<a id="token-9e17c6"></a>&#x2022; [`bearer_token`](#token-9e17c6) - Optional String<br>Configuration parameter for bearer token
+
+<a id="name-f74f37"></a>&#x2022; [`credential_name`](#name-f74f37) - Optional String<br>Enter a unique name for the credentials used in API testing
+
+<a id="endpoint-ca4c77"></a>&#x2022; [`login_endpoint`](#endpoint-ca4c77) - Optional String<br>Login Endpoint
+
+<a id="standard-768abb"></a>&#x2022; [`standard`](#standard-768abb) - Optional Object<br>Enable this option
+
+#### Domains Credentials Admin
+
+An [`admin`](#domains-credentials-admin) block (within [`domains.credentials`](#domains-credentials)) supports the following:
+
+#### Domains Credentials API Key
+
+An [`api_key`](#domains-credentials-api-key) block (within [`domains.credentials`](#domains-credentials)) supports the following:
+
+<a id="key-1a8d93"></a>&#x2022; [`key`](#key-1a8d93) - Optional String<br>Key. Cryptographic key material
+
+<a id="value-909529"></a>&#x2022; [`value`](#value-909529) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+#### Domains Credentials API Key Value
+
+A [`value`](#domains-credentials-api-key-value) block (within [`domains.credentials.api_key`](#domains-credentials-api-key)) supports the following:
+
+<a id="info-f76f90"></a>&#x2022; [`blindfold_secret_info`](#info-f76f90) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-10fd99"></a>&#x2022; [`clear_secret_info`](#info-10fd99) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Domains Credentials API Key Value Blindfold Secret Info
+
+<a id="deep-632140"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Domains Credentials API Key Value Clear Secret Info
+
+<a id="deep-9f0e32"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Domains Credentials Basic Auth
+
+A [`basic_auth`](#domains-credentials-basic-auth) block (within [`domains.credentials`](#domains-credentials)) supports the following:
+
+<a id="password-6ca226"></a>&#x2022; [`password`](#password-6ca226) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="user-6ccecd"></a>&#x2022; [`user`](#user-6ccecd) - Optional String<br>User. Configuration parameter for user
+
+#### Domains Credentials Basic Auth Password
+
+A [`password`](#domains-credentials-basic-auth-password) block (within [`domains.credentials.basic_auth`](#domains-credentials-basic-auth)) supports the following:
+
+<a id="info-f76f90"></a>&#x2022; [`blindfold_secret_info`](#info-f76f90) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-10fd99"></a>&#x2022; [`clear_secret_info`](#info-10fd99) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Domains Credentials Basic Auth Password Blindfold Secret Info
+
+<a id="deep-5806a6"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Domains Credentials Basic Auth Password Clear Secret Info
+
+<a id="deep-49240b"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Domains Credentials Bearer Token
+
+A [`bearer_token`](#domains-credentials-bearer-token) block (within [`domains.credentials`](#domains-credentials)) supports the following:
+
+<a id="token-f09b7f"></a>&#x2022; [`token`](#token-f09b7f) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+#### Domains Credentials Bearer Token Token
+
+A [`token`](#domains-credentials-bearer-token-token) block (within [`domains.credentials.bearer_token`](#domains-credentials-bearer-token)) supports the following:
+
+<a id="info-f76f90"></a>&#x2022; [`blindfold_secret_info`](#info-f76f90) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-10fd99"></a>&#x2022; [`clear_secret_info`](#info-10fd99) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Domains Credentials Bearer Token Token Blindfold Secret Info
+
+<a id="deep-64161e"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Domains Credentials Bearer Token Token Clear Secret Info
+
+<a id="deep-3dfb39"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Domains Credentials Login Endpoint
+
+A [`login_endpoint`](#domains-credentials-login-endpoint) block (within [`domains.credentials`](#domains-credentials)) supports the following:
+
+<a id="payload-c8ee09"></a>&#x2022; [`json_payload`](#payload-c8ee09) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="method-0b5426"></a>&#x2022; [`method`](#method-0b5426) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
+
+<a id="path-cdc45c"></a>&#x2022; [`path`](#path-cdc45c) - Optional String<br>Path. URL path for the endpoint
+
+<a id="key-d283e2"></a>&#x2022; [`token_response_key`](#key-d283e2) - Optional String<br>Configuration parameter for token response key
+
+#### Domains Credentials Login Endpoint JSON Payload
+
+A [`json_payload`](#domains-credentials-login-endpoint-json-payload) block (within [`domains.credentials.login_endpoint`](#domains-credentials-login-endpoint)) supports the following:
+
+<a id="info-f76f90"></a>&#x2022; [`blindfold_secret_info`](#info-f76f90) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-10fd99"></a>&#x2022; [`clear_secret_info`](#info-10fd99) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Domains Credentials Login Endpoint JSON Payload Blindfold Secret Info
+
+<a id="deep-10e5d9"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Domains Credentials Login Endpoint JSON Payload Clear Secret Info
+
+<a id="deep-2ae113"></a>Deeply nested **Info** block collapsed for readability.
 
 ---
 

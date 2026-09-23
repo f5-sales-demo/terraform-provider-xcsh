@@ -90,6 +90,16 @@ func TestNormalizeDocumentProseIsIdempotent(t *testing.T) {
 	}
 }
 
+func TestNestedHeadingAndAnchorShareNormalizedTerminology(t *testing.T) {
+	title, anchor := nestedHeadingAndAnchor("l7_ddos_protection.clientside_action_js_challenge")
+	if title != "L7 DDOS Protection client-side Action Js Challenge" {
+		t.Fatalf("nested heading = %q", title)
+	}
+	if anchor != "l7-ddos-protection-client-side-action-js-challenge" {
+		t.Fatalf("nested anchor = %q", anchor)
+	}
+}
+
 func TestExtractSimpleTypePreservesEmptyObjectAttributes(t *testing.T) {
 	if got := extractSimpleType("Object"); got != "Object" {
 		t.Fatalf("extractSimpleType(Object) = %q, want Object", got)

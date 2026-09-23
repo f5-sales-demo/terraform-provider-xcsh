@@ -58,11 +58,100 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="compliances"></a>&#x2022; [`compliances`](#compliances) - Optional List<br>Possible values are `GDPR`, `CCPA`, `PIPEDA`, `LGPD`, `DPA_UK`, `PDPA_SG`, `APPI`, `HIPAA`, `CPRA_2023`, `CPA_CO`, `SOC2`, `PCI_DSS`, `ISO_IEC_27001`, `ISO_IEC_27701`, `EPRIVACY_DIRECTIVE`, `GLBA`, `SOX`<br>[Enum:
+GDPR|CCPA|PIPEDA|LGPD|DPA_UK|PDPA_SG|APPI|HIPAA|CPRA_2023|CPA_CO|SOC2|PCI_DSS|ISO_IEC_27001|ISO_IEC_27701|EPRIVACY_DIRECTIVE|GLBA|SOX] Choose applicable compliance frameworks such as GDPR, PCI/DSS, or CCPA to ensure the platform identifies whether vulnerabilities in API endpoints handling this data type may cause a compliance breach
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the DataType
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="is-pii"></a>&#x2022; [`is_pii`](#is-pii) - Optional Bool<br>Select this option to classify the custom data type as personally identifiable information (PII)
+
+<a id="is-sensitive-data"></a>&#x2022; [`is_sensitive_data`](#is-sensitive-data) - Optional Bool<br>Select this option to classify the custom data type as sensitive, enabling detection of API vulnerabilities related to this data type
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>Configure key/value or regex match rules to enable the platform to detect this custom data type in the API request or response
+
+---
+
+#### Rules
+
+A [`rules`](#rules) block supports the following:
+
+<a id="nestedatt--rules-key-pattern"></a>&#x2022; [`key_pattern`](#nestedatt--rules-key-pattern) - Optional String<br>Configuration parameter for key pattern
+
+<a id="nestedatt--rules-key-value-pattern"></a>&#x2022; [`key_value_pattern`](#nestedatt--rules-key-value-pattern) - Optional String<br>Search for specific key & value patterns in the specified sections
+
+<a id="nestedatt--rules-value-pattern"></a>&#x2022; [`value_pattern`](#nestedatt--rules-value-pattern) - Optional String<br>Configuration parameter for value pattern
+
+#### Rules Key Pattern
+
+A [`key_pattern`](#rules-key-pattern) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--rules-exact-values) - Optional String<br>Configuration parameter for exact values
+
+<a id="nestedatt--rules-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--rules-regex-value) - Optional String<br>Search for values matching this regular expression
+
+<a id="nestedatt--rules-substring-value"></a>&#x2022; [`substring_value`](#nestedatt--rules-substring-value) - Optional String<br>Search for values that include this substring
+
+#### Rules Key Pattern Exact Values
+
+An [`exact_values`](#rules-key-pattern-exact-values) block (within [`rules.key_pattern`](#rules-key-pattern)) supports the following:
+
+<a id="nestedatt--rules-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--rules-exact-values) - Optional List<br>Exact Values. List of exact values to match
+
+#### Rules Key Value Pattern
+
+A [`key_value_pattern`](#rules-key-value-pattern) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules-key-pattern"></a>&#x2022; [`key_pattern`](#nestedatt--rules-key-pattern) - Optional String<br>Configuration parameter for key pattern
+
+<a id="nestedatt--rules-value-pattern"></a>&#x2022; [`value_pattern`](#nestedatt--rules-value-pattern) - Optional String<br>Configuration parameter for value pattern
+
+#### Rules Key Value Pattern Key Pattern
+
+A [`key_pattern`](#rules-key-value-pattern-key-pattern) block (within [`rules.key_value_pattern`](#rules-key-value-pattern)) supports the following:
+
+<a id="nestedatt--rules-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--rules-exact-values) - Optional String<br>Configuration parameter for exact values
+
+<a id="nestedatt--rules-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--rules-regex-value) - Optional String<br>Search for values matching this regular expression
+
+<a id="nestedatt--rules-substring-value"></a>&#x2022; [`substring_value`](#nestedatt--rules-substring-value) - Optional String<br>Search for values that include this substring
+
+#### Rules Key Value Pattern Key Pattern Exact Values
+
+<a id="deep-b6e402"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Rules Key Value Pattern Value Pattern
+
+A [`value_pattern`](#rules-key-value-pattern-value-pattern) block (within [`rules.key_value_pattern`](#rules-key-value-pattern)) supports the following:
+
+<a id="nestedatt--rules-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--rules-exact-values) - Optional String<br>Configuration parameter for exact values
+
+<a id="nestedatt--rules-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--rules-regex-value) - Optional String<br>Search for values matching this regular expression
+
+<a id="nestedatt--rules-substring-value"></a>&#x2022; [`substring_value`](#nestedatt--rules-substring-value) - Optional String<br>Search for values that include this substring
+
+#### Rules Key Value Pattern Value Pattern Exact Values
+
+<a id="deep-a783f8"></a>Deeply nested **Values** block collapsed for readability.
+
+#### Rules Value Pattern
+
+A [`value_pattern`](#rules-value-pattern) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--rules-exact-values) - Optional String<br>Configuration parameter for exact values
+
+<a id="nestedatt--rules-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--rules-regex-value) - Optional String<br>Search for values matching this regular expression
+
+<a id="nestedatt--rules-substring-value"></a>&#x2022; [`substring_value`](#nestedatt--rules-substring-value) - Optional String<br>Search for values that include this substring
+
+#### Rules Value Pattern Exact Values
+
+An [`exact_values`](#rules-value-pattern-exact-values) block (within [`rules.value_pattern`](#rules-value-pattern)) supports the following:
+
+<a id="nestedatt--rules-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--rules-exact-values) - Optional List<br>Exact Values. List of exact values to match
 
 ---
 

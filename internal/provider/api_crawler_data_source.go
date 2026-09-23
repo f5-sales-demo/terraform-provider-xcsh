@@ -34,6 +34,7 @@ type APICrawlerDataSourceModel struct {
 	Description types.String `tfsdk:"description"`
 	Labels      types.Map    `tfsdk:"labels"`
 	Annotations types.Map    `tfsdk:"annotations"`
+	Domains     types.List   `tfsdk:"domains"`
 }
 
 func (d *APICrawlerDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,68 @@ func (d *APICrawlerDataSource) Schema(ctx context.Context, req datasource.Schema
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"domains": schema.ListNestedAttribute{
+				MarkdownDescription: "API Crawler. API Crawler Configuration.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"domain": schema.StringAttribute{
+							MarkdownDescription: "Select the domain to execute API Crawling with given credentials.",
+							Computed:            true,
+						},
+						"simple_login": schema.SingleNestedAttribute{
+							MarkdownDescription: "Configuration parameter for simple login.",
+							Attributes: map[string]schema.Attribute{
+								"password": schema.SingleNestedAttribute{
+									MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+									Attributes: map[string]schema.Attribute{
+										"blindfold_secret_info": schema.SingleNestedAttribute{
+											MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+											Attributes: map[string]schema.Attribute{
+												"decryption_provider": schema.StringAttribute{
+													MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+													Computed:            true,
+												},
+												"location": schema.StringAttribute{
+													MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+													Computed:            true,
+													Sensitive:           true,
+												},
+												"store_provider": schema.StringAttribute{
+													MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+										"clear_secret_info": schema.SingleNestedAttribute{
+											MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+											Attributes: map[string]schema.Attribute{
+												"provider_ref": schema.StringAttribute{
+													MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+													Computed:            true,
+												},
+												"url": schema.StringAttribute{
+													MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+													Computed:            true,
+													Sensitive:           true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"user": schema.StringAttribute{
+									MarkdownDescription: "Enter the username to assign credentials for the selected domain to crawl.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +156,8 @@ func (d *APICrawlerDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		return
 	}
 
-	resource, err := d.client.GetAPICrawler(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAPICrawler(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read APICrawler: %s", err))
 		return
@@ -101,7 +165,11 @@ func (d *APICrawlerDataSource) Read(ctx context.Context, req datasource.ReadRequ
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +202,101 @@ func (d *APICrawlerDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
+		var DomainsList []APICrawlerDomainsModel
+		var existingDomainsItems []APICrawlerDomainsModel
+		if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
+			data.Domains.ElementsAs(ctx, &existingDomainsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				DomainsList = append(DomainsList, APICrawlerDomainsModel{
+					Domain: func() types.String {
+						if v, ok := itemMap["domain"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					SimpleLogin: func() *APICrawlerDomainsSimpleLoginModel {
+						if SimpleLoginData, ok := itemMap["simple_login"].(map[string]interface{}); ok {
+							return &APICrawlerDomainsSimpleLoginModel{
+								Password: func() *APICrawlerDomainsSimpleLoginPasswordModel {
+									if PasswordData, ok := SimpleLoginData["password"].(map[string]interface{}); ok {
+										return &APICrawlerDomainsSimpleLoginPasswordModel{
+											BlindfoldSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel {
+												if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+													return &APICrawlerDomainsSimpleLoginPasswordBlindfoldSecretInfoModel{
+														DecryptionProvider: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Location: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														StoreProvider: func() types.String {
+															if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											ClearSecretInfo: func() *APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel {
+												if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+													return &APICrawlerDomainsSimpleLoginPasswordClearSecretInfoModel{
+														Provider: func() types.String {
+															if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														URL: func() types.String {
+															if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								User: func() types.String {
+									if v, ok := SimpleLoginData["user"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes}, DomainsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Domains = listVal
+		}
+	} else {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APICrawlerDomainsModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

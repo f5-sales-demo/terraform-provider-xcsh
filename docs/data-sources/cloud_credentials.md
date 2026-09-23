@@ -58,11 +58,115 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="aws-assume-role"></a>&#x2022; [`aws_assume_role`](#aws-assume-role) - Optional String<br>AWS Assume Role to Handle Delegated Access
+
+<a id="aws-secret-key"></a>&#x2022; [`aws_secret_key`](#aws-secret-key) - Optional String<br>AWS Programmatic Access Credentials type
+
+<a id="azure-client-secret"></a>&#x2022; [`azure_client_secret`](#azure-client-secret) - Optional String<br>Azure Client Secret. Azure Credentials Client Secret type
+
+<a id="azure-pfx-certificate"></a>&#x2022; [`azure_pfx_certificate`](#azure-pfx-certificate) - Optional String<br>Azure Credentials Client Certificate type
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the CloudCredentials
+
+<a id="gcp-cred-file"></a>&#x2022; [`gcp_cred_file`](#gcp-cred-file) - Optional String<br>Configuration parameter for GCP cred file
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="custom-external-id"></a>&#x2022; [`custom_external_id`](#custom-external-id) - Optional String<br>External ID is Custom ID
+
+<a id="duration-seconds"></a>&#x2022; [`duration_seconds`](#duration-seconds) - Optional Number<br>The duration, in seconds of the role session
+
+<a id="external-id-is-optional"></a>&#x2022; [`external_id_is_optional`](#external-id-is-optional) - Optional Object<br>Configuration parameter for external ID is optional
+
+<a id="external-id-is-tenant-id"></a>&#x2022; [`external_id_is_tenant_id`](#external-id-is-tenant-id) - Optional Object<br>Enable this option
+
+<a id="role-arn"></a>&#x2022; [`role_arn`](#role-arn) - Optional String<br>IAM Role ARN. IAM Role ARN to assume the role
+
+<a id="session-name"></a>&#x2022; [`session_name`](#session-name) - Optional String<br>Use the role session name to uniquely identify a session, which will be used for deploy, monitor from F5XC console
+
+<a id="session-tags"></a>&#x2022; [`session_tags`](#session-tags) - Optional Map<br>Session tags are key-value pair attributes that you pass when you assume an IAM role
+
+<a id="access-key"></a>&#x2022; [`access_key`](#access-key) - Optional String<br>Access Key ID. Access key ID for your AWS account
+
+<a id="secret-key"></a>&#x2022; [`secret_key`](#secret-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="client-id"></a>&#x2022; [`client_id`](#client-id) - Optional String<br>Client ID for your Azure service principal
+
+<a id="client-secret"></a>&#x2022; [`client_secret`](#client-secret) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="subscription-id"></a>&#x2022; [`subscription_id`](#subscription-id) - Optional String<br>Subscription ID for your Azure service principal
+
+<a id="tenant-id"></a>&#x2022; [`tenant_id`](#tenant-id) - Optional String<br>Tenant ID for your Azure service principal
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="certificate-url"></a>&#x2022; [`certificate_url`](#certificate-url) - Optional String<br>URL for Client Certificate in '.pfx' or '.p12' whose certificate is linked to service principal object Certificate URL can contain client certificate in string:///`<Base64 of certificate>` format. Here `<Base64 of certificate>` is base64 of '.pfx' or '.p12' binary file
+
+<a id="client-id"></a>&#x2022; [`client_id`](#client-id) - Optional String<br>Client ID for your Azure service principal
+
+<a id="password"></a>&#x2022; [`password`](#password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="subscription-id"></a>&#x2022; [`subscription_id`](#subscription-id) - Optional String<br>Subscription ID for your Azure service principal
+
+<a id="tenant-id"></a>&#x2022; [`tenant_id`](#tenant-id) - Optional String<br>Tenant ID for your Azure service principal
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="credential-file"></a>&#x2022; [`credential_file`](#credential-file) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 ---
 

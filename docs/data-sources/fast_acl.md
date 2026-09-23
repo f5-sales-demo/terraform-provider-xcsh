@@ -50,7 +50,7 @@ output "fast_acl_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the FastACL
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the FastACL exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the FastACL exists
 
 ### Attributes Reference
 
@@ -63,6 +63,176 @@ In addition to all arguments above, the following attributes are exported:
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="protocol-policer"></a>&#x2022; [`protocol_policer`](#protocol-policer) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="re-acl"></a>&#x2022; [`re_acl`](#re-acl) - Optional String<br>Fast ACL for RE. Fast ACL definition for RE
+
+<a id="site-acl"></a>&#x2022; [`site_acl`](#site-acl) - Optional String<br>Fast ACL for Site. Fast ACL definition for Site
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="all-public-vips"></a>&#x2022; [`all_public_vips`](#all-public-vips) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="default-tenant-vip"></a>&#x2022; [`default_tenant_vip`](#default-tenant-vip) - Optional Object<br>Enable this option
+
+<a id="fast-acl-rules"></a>&#x2022; [`fast_acl_rules`](#fast-acl-rules) - Optional List  Defaults to `[]`<br>Rules. Fast ACL rules to match.  Server applies default when omitted
+
+<a id="selected-tenant-vip"></a>&#x2022; [`selected_tenant_vip`](#selected-tenant-vip) - Optional String<br>Specific Tenant VIP. Select various tenant public VIP(s)
+
+<a id="action"></a>&#x2022; [`action`](#action) - Optional String<br>FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic
+
+<a id="ip-prefix-set"></a>&#x2022; [`ip_prefix_set`](#ip-prefix-set) - Optional String<br>List of references to ip_prefix_set objects
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional List<br>Source Ports. L4 port numbers to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes
+
+<a id="policer-action"></a>&#x2022; [`policer_action`](#policer-action) - Optional String<br>Policer Reference. Reference to policer object
+
+<a id="protocol-policer-action"></a>&#x2022; [`protocol_policer_action`](#protocol-policer-action) - Optional String<br>Protocol Policer Reference. Reference to policer object
+
+<a id="simple-action"></a>&#x2022; [`simple_action`](#simple-action) - Optional String  Defaults to `DENY`<br>Possible values are `DENY`, `ALLOW`<br>[Enum: DENY|ALLOW] FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>Reference. A policer direct reference
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>Protocol policer Reference. Reference to protocol policer object
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="all"></a>&#x2022; [`all`](#all) - Optional Object<br>Enable this option
+
+<a id="dns"></a>&#x2022; [`dns`](#dns) - Optional Object<br>Enable this option
+
+<a id="user-defined"></a>&#x2022; [`user_defined`](#user-defined) - Optional Number<br>Matches the user defined port
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
+
+<a id="default-tenant-vip"></a>&#x2022; [`default_tenant_vip`](#default-tenant-vip) - Optional Bool<br>Include tenant VIP in list of specific VIP(s)
+
+<a id="public-ip-refs"></a>&#x2022; [`public_ip_refs`](#public-ip-refs) - Optional List<br>Select Public VIP(s). Select additional public VIP(s)
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="all-services"></a>&#x2022; [`all_services`](#all-services) - Optional Object<br>Configuration parameter for all services
+
+<a id="fast-acl-rules"></a>&#x2022; [`fast_acl_rules`](#fast-acl-rules) - Optional List<br>Rules. Fast ACL rules to match
+
+<a id="inside-network"></a>&#x2022; [`inside_network`](#inside-network) - Optional Object<br>Configuration parameter for inside network
+
+<a id="interface-services"></a>&#x2022; [`interface_services`](#interface-services) - Optional Object<br>Configuration parameter for interface services
+
+<a id="outside-network"></a>&#x2022; [`outside_network`](#outside-network) - Optional Object<br>Configuration parameter for outside network
+
+<a id="vip-services"></a>&#x2022; [`vip_services`](#vip-services) - Optional Object<br>Enable this option
+
+<a id="action"></a>&#x2022; [`action`](#action) - Optional String<br>FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic
+
+<a id="ip-prefix-set"></a>&#x2022; [`ip_prefix_set`](#ip-prefix-set) - Optional String<br>List of references to ip_prefix_set objects
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional List<br>Source Ports. L4 port numbers to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes
+
+<a id="policer-action"></a>&#x2022; [`policer_action`](#policer-action) - Optional String<br>Policer Reference. Reference to policer object
+
+<a id="protocol-policer-action"></a>&#x2022; [`protocol_policer_action`](#protocol-policer-action) - Optional String<br>Protocol Policer Reference. Reference to policer object
+
+<a id="simple-action"></a>&#x2022; [`simple_action`](#simple-action) - Optional String  Defaults to `DENY`<br>Possible values are `DENY`, `ALLOW`<br>[Enum: DENY|ALLOW] FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>Reference. A policer direct reference
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>Protocol policer Reference. Reference to protocol policer object
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="all"></a>&#x2022; [`all`](#all) - Optional Object<br>Enable this option
+
+<a id="dns"></a>&#x2022; [`dns`](#dns) - Optional Object<br>Enable this option
+
+<a id="user-defined"></a>&#x2022; [`user_defined`](#user-defined) - Optional Number<br>Matches the user defined port
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
 
 ---
 

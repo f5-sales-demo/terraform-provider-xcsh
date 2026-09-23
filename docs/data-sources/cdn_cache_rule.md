@@ -58,11 +58,136 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="cache-rules"></a>&#x2022; [`cache_rules`](#cache-rules) - Optional String<br>Cache Rule. This defines a CDN Cache Rule
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the CDNCacheRule
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="cache-bypass"></a>&#x2022; [`cache_bypass`](#cache-bypass) - Optional Object<br>Configuration parameter for cache bypass
+
+<a id="eligible-for-cache"></a>&#x2022; [`eligible_for_cache`](#eligible-for-cache) - Optional String<br>Configuration parameter for eligible for cache
+
+<a id="rule-expression-list"></a>&#x2022; [`rule_expression_list`](#rule-expression-list) - Optional List<br>Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs
+
+<a id="rule-name"></a>&#x2022; [`rule_name`](#rule-name) - Optional String<br>Rule Name. Name of the Cache Rule
+
+<a id="scheme-proxy-host-request-uri"></a>&#x2022; [`scheme_proxy_host_request_uri`](#scheme-proxy-host-request-uri) - Optional String<br>Cache TTL Enable Props. Cache TTL Enable Values
+
+<a id="scheme-proxy-host-uri"></a>&#x2022; [`scheme_proxy_host_uri`](#scheme-proxy-host-uri) - Optional String<br>Cache TTL Enable Props. Cache TTL Enable Values
+
+<a id="cache-override"></a>&#x2022; [`cache_override`](#cache-override) - Optional Bool<br>Cache Override. Honour Cache Override
+
+<a id="cache-ttl"></a>&#x2022; [`cache_ttl`](#cache-ttl) - Optional String<br>Cache TTL value is used to cache the resource/content for the specified amount of time Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days
+
+<a id="ignore-response-cookie"></a>&#x2022; [`ignore_response_cookie`](#ignore-response-cookie) - Optional Bool<br>By default, response will not be cached if set-cookie header is present. This option will override the behavior and cache response even with set-cookie header present
+
+<a id="cache-override"></a>&#x2022; [`cache_override`](#cache-override) - Optional Bool<br>Cache Override. Honour Cache Override
+
+<a id="cache-ttl"></a>&#x2022; [`cache_ttl`](#cache-ttl) - Optional String<br>Cache TTL value is used to cache the resource/content for the specified amount of time Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days
+
+<a id="ignore-response-cookie"></a>&#x2022; [`ignore_response_cookie`](#ignore-response-cookie) - Optional Bool<br>By default, response will not be cached if set-cookie header is present. This option will override the behavior and cache response even with set-cookie header present
+
+<a id="cache-rule-expression"></a>&#x2022; [`cache_rule_expression`](#cache-rule-expression) - Optional List<br>The Cache Rule Expression Terms that are ANDed
+
+<a id="expression-name"></a>&#x2022; [`expression_name`](#expression-name) - Optional String<br>Name of the Expressions items that are ANDed
+
+<a id="cache-headers"></a>&#x2022; [`cache_headers`](#cache-headers) - Optional List<br>Configure cache rule headers to match the criteria
+
+<a id="cookie-matcher"></a>&#x2022; [`cookie_matcher`](#cookie-matcher) - Optional List<br>List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name
+
+<a id="path-match"></a>&#x2022; [`path_match`](#path-match) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="query-parameters"></a>&#x2022; [`query_parameters`](#query-parameters) - Optional List<br>Query Parameters. List of (key, value) query parameters
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String  Defaults to `PROXY_HOST`<br>Possible values are `PROXY_HOST`, `REFERER`, `SCHEME`, `USER_AGENT`<br>[Enum: PROXY_HOST|REFERER|SCHEME|USER_AGENT] - PROXY_HOST: Proxy hostname of the proxied server - REFERER: Referer This is the address of the previous web page from which a link to the currently requested page was followed - SCHEME: Scheme
+The HTTP scheme used: HTTP or HTTPS - USER_AGENT: User Agent The user agent string of the user agent
+
+<a id="operator"></a>&#x2022; [`operator`](#operator) - Optional String<br>Operator
+
+<a id="contains"></a>&#x2022; [`contains`](#contains) - Optional String<br>The header value must include the specified value as a substring
+
+<a id="does-not-contain"></a>&#x2022; [`does_not_contain`](#does-not-contain) - Optional String<br>The header value must not include the specified value as a substring
+
+<a id="does-not-end-with"></a>&#x2022; [`does_not_end_with`](#does-not-end-with) - Optional String<br>The header value must not end with the specified value
+
+<a id="does-not-equal"></a>&#x2022; [`does_not_equal`](#does-not-equal) - Optional String<br>The header value must not match the specified value
+
+<a id="does-not-start-with"></a>&#x2022; [`does_not_start_with`](#does-not-start-with) - Optional String<br>The header value must not begin with the specified value
+
+<a id="endswith"></a>&#x2022; [`endswith`](#endswith) - Optional String<br>The header value must end with the specified value
+
+<a id="equals"></a>&#x2022; [`equals`](#equals) - Optional String<br>The header value must exactly match the specified value
+
+<a id="match-regex"></a>&#x2022; [`match_regex`](#match-regex) - Optional String<br>The header value must match the specified regular expression pattern
+
+<a id="startswith"></a>&#x2022; [`startswith`](#startswith) - Optional String<br>The header value must begin with the specified value
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Cookie Name. Enter the name of the cookie to match
+
+<a id="operator"></a>&#x2022; [`operator`](#operator) - Optional String<br>Operator
+
+<a id="contains"></a>&#x2022; [`contains`](#contains) - Optional String<br>The cookie value must include the specified value as a substring
+
+<a id="does-not-contain"></a>&#x2022; [`does_not_contain`](#does-not-contain) - Optional String<br>The cookie value must not include the specified value as a substring
+
+<a id="does-not-end-with"></a>&#x2022; [`does_not_end_with`](#does-not-end-with) - Optional String<br>The cookie value must not end with the specified value
+
+<a id="does-not-equal"></a>&#x2022; [`does_not_equal`](#does-not-equal) - Optional String<br>The cookie value must not match the specified value
+
+<a id="does-not-start-with"></a>&#x2022; [`does_not_start_with`](#does-not-start-with) - Optional String<br>The cookie value must not begin with the specified value
+
+<a id="endswith"></a>&#x2022; [`endswith`](#endswith) - Optional String<br>The cookie value must end with the specified value
+
+<a id="equals"></a>&#x2022; [`equals`](#equals) - Optional String<br>The cookie value must exactly match the specified value
+
+<a id="match-regex"></a>&#x2022; [`match_regex`](#match-regex) - Optional String<br>The cookie value must match the specified regular expression pattern in PCRE format
+
+<a id="startswith"></a>&#x2022; [`startswith`](#startswith) - Optional String<br>The cookie value must begin with the specified value
+
+<a id="operator"></a>&#x2022; [`operator`](#operator) - Optional String<br>Operator
+
+<a id="contains"></a>&#x2022; [`contains`](#contains) - Optional String<br>The path must include the specified value as a substring, up to the filename
+
+<a id="does-not-contain"></a>&#x2022; [`does_not_contain`](#does-not-contain) - Optional String<br>The path must not include the specified value as a substring, up to the filename
+
+<a id="does-not-end-with"></a>&#x2022; [`does_not_end_with`](#does-not-end-with) - Optional String<br>The path must not end with the specified value, up to the filename
+
+<a id="does-not-equal"></a>&#x2022; [`does_not_equal`](#does-not-equal) - Optional String<br>The path must not match the specified value, up to the filename
+
+<a id="does-not-start-with"></a>&#x2022; [`does_not_start_with`](#does-not-start-with) - Optional String<br>The path must not begin with the specified value, up to the filename
+
+<a id="endswith"></a>&#x2022; [`endswith`](#endswith) - Optional String<br>The path must end with the specified value, up to the filename
+
+<a id="equals"></a>&#x2022; [`equals`](#equals) - Optional String<br>The path must exactly match the specified value, up to the filename
+
+<a id="match-regex"></a>&#x2022; [`match_regex`](#match-regex) - Optional String<br>The path must match the specified regular expression pattern in PCRE format
+
+<a id="startswith"></a>&#x2022; [`startswith`](#startswith) - Optional String<br>The path must begin with the specified value, up to the filename
+
+<a id="key"></a>&#x2022; [`key`](#key) - Optional String<br>The name of the query parameter to match
+
+<a id="operator"></a>&#x2022; [`operator`](#operator) - Optional String<br>Operator
+
+<a id="contains"></a>&#x2022; [`contains`](#contains) - Optional String<br>The query parameter value must include the specified value as a substring
+
+<a id="does-not-contain"></a>&#x2022; [`does_not_contain`](#does-not-contain) - Optional String<br>The query parameter value must not include the specified value as a substring
+
+<a id="does-not-end-with"></a>&#x2022; [`does_not_end_with`](#does-not-end-with) - Optional String<br>The query parameter value must not end with the specified value
+
+<a id="does-not-equal"></a>&#x2022; [`does_not_equal`](#does-not-equal) - Optional String<br>The query parameter value must not match the specified value
+
+<a id="does-not-start-with"></a>&#x2022; [`does_not_start_with`](#does-not-start-with) - Optional String<br>The query parameter value must not begin with the specified value
+
+<a id="endswith"></a>&#x2022; [`endswith`](#endswith) - Optional String<br>The query parameter value must end with the specified value
+
+<a id="equals"></a>&#x2022; [`equals`](#equals) - Optional String<br>The query parameter value must exactly match the specified value
+
+<a id="match-regex"></a>&#x2022; [`match_regex`](#match-regex) - Optional String<br>The query parameter value must match the specified regular expression pattern in PCRE format
+
+<a id="startswith"></a>&#x2022; [`startswith`](#startswith) - Optional String<br>The query parameter value must begin with the specified value
 
 ---
 

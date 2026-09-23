@@ -28,12 +28,15 @@ type DataGroupDataSource struct {
 }
 
 type DataGroupDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID             types.String                  `tfsdk:"id"`
+	Name           types.String                  `tfsdk:"name"`
+	Namespace      types.String                  `tfsdk:"namespace"`
+	Description    types.String                  `tfsdk:"description"`
+	Labels         types.Map                     `tfsdk:"labels"`
+	Annotations    types.Map                     `tfsdk:"annotations"`
+	AddressRecords *DataGroupAddressRecordsModel `tfsdk:"address_records"`
+	IntegerRecords *DataGroupIntegerRecordsModel `tfsdk:"integer_records"`
+	StringRecords  *DataGroupStringRecordsModel  `tfsdk:"string_records"`
 }
 
 func (d *DataGroupDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +73,39 @@ func (d *DataGroupDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"address_records": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: address_records, integer_records, string_records] Address Record. Data group with address record List.",
+				Attributes: map[string]schema.Attribute{
+					"records": schema.MapAttribute{
+						MarkdownDescription: "Address records. Configuration parameter for records",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"integer_records": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for integer records.",
+				Attributes: map[string]schema.Attribute{
+					"records": schema.MapAttribute{
+						MarkdownDescription: "Integer records. Configuration parameter for records",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
+			"string_records": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for string records.",
+				Attributes: map[string]schema.Attribute{
+					"records": schema.MapAttribute{
+						MarkdownDescription: "String records. Configuration parameter for records",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +129,8 @@ func (d *DataGroupDataSource) Read(ctx context.Context, req datasource.ReadReque
 		return
 	}
 
-	resource, err := d.client.GetDataGroup(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetDataGroup(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DataGroup: %s", err))
 		return
@@ -101,7 +138,11 @@ func (d *DataGroupDataSource) Read(ctx context.Context, req datasource.ReadReque
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +175,38 @@ func (d *DataGroupDataSource) Read(ctx context.Context, req datasource.ReadReque
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["address_records"].(map[string]interface{}); ok && (isImport || data.AddressRecords != nil) {
+		data.AddressRecords = &DataGroupAddressRecordsModel{
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
+				if data.AddressRecords != nil {
+					return data.AddressRecords.Records
+				}
+				return types.MapNull(types.StringType)
+			}(), "records", isImport, &resp.Diagnostics),
+		}
+	}
+	if blockData, ok := apiResource.Spec["integer_records"].(map[string]interface{}); ok && (isImport || data.IntegerRecords != nil) {
+		data.IntegerRecords = &DataGroupIntegerRecordsModel{
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
+				if data.IntegerRecords != nil {
+					return data.IntegerRecords.Records
+				}
+				return types.MapNull(types.StringType)
+			}(), "records", isImport, &resp.Diagnostics),
+		}
+	}
+	if blockData, ok := apiResource.Spec["string_records"].(map[string]interface{}); ok && (isImport || data.StringRecords != nil) {
+		data.StringRecords = &DataGroupStringRecordsModel{
+			Records: UnmarshalStringMapForRead(ctx, blockData["records"], func() types.Map {
+				if data.StringRecords != nil {
+					return data.StringRecords.Records
+				}
+				return types.MapNull(types.StringType)
+			}(), "records", isImport, &resp.Diagnostics),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

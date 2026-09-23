@@ -52,19 +52,2083 @@ output "azure_vnet_site_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the AzureVNETSite
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the AzureVNETSite exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the AzureVNETSite exists
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="address"></a>&#x2022; [`address`](#address) - Optional String<br>Site's geographical address that can be used to determine its latitude and longitude
+
+<a id="admin-password"></a>&#x2022; [`admin_password`](#admin-password) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="alternate-region"></a>&#x2022; [`alternate_region`](#alternate-region) - Optional String<br>Name of the Azure region which does not support availability zones
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="azure-cred"></a>&#x2022; [`azure_cred`](#azure-cred) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="azure-region"></a>&#x2022; [`azure_region`](#azure-region) - Optional String<br>Name of the Azure region which supports availability zones
+
+<a id="block-all-services"></a>&#x2022; [`block_all_services`](#block-all-services) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="blocked-services"></a>&#x2022; [`blocked_services`](#blocked-services) - Optional String<br>Disable node local services on this site
+
+<a id="coordinates"></a>&#x2022; [`coordinates`](#coordinates) - Optional String<br>Coordinates of the site which provides the site physical location
+
+<a id="custom-dns"></a>&#x2022; [`custom_dns`](#custom-dns) - Optional String<br>Custom DNS is the configured for specify CE site
+
+<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Object<br>Enable this option
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the AzureVNETSite
 
+<a id="disable-encryption"></a>&#x2022; [`disable_encryption`](#disable-encryption) - Optional Object<br>Configuration parameter for disable encryption
+
+<a id="disk-size"></a>&#x2022; [`disk_size`](#disk-size) - Optional Number<br>Disk size to be used for this instance in GiB. 80 is 80 GiB. Server applies default when omitted
+
+<a id="enable-encryption"></a>&#x2022; [`enable_encryption`](#enable-encryption) - Optional String<br>Configuration parameter for enable encryption
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ingress-egress-gw"></a>&#x2022; [`ingress_egress_gw`](#ingress-egress-gw) - Optional String<br>Two interface Azure ingress/egress site
+
+<a id="ingress-egress-gw-ar"></a>&#x2022; [`ingress_egress_gw_ar`](#ingress-egress-gw-ar) - Optional String<br>Two interface Azure ingress/egress site on Alternate Region with no support for zones
+
+<a id="ingress-gw"></a>&#x2022; [`ingress_gw`](#ingress-gw) - Optional String<br>Single interface Azure ingress site on on Recommended Region
+
+<a id="ingress-gw-ar"></a>&#x2022; [`ingress_gw_ar`](#ingress-gw-ar) - Optional String<br>Configuration parameter for ingress gw ar
+
+<a id="kubernetes-upgrade-drain"></a>&#x2022; [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) - Optional String<br>Specify how worker nodes within a site will be upgraded
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="log-receiver"></a>&#x2022; [`log_receiver`](#log-receiver) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="logs-streaming-disabled"></a>&#x2022; [`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="machine-type"></a>&#x2022; [`machine_type`](#machine-type) - Optional String<br>Select Instance size based on performance needed. The default setting for Accelerated Networking is enabled, thus make sure you select a Virtual Machine that supports accelerated networking or disable the setting under, Select Ingress Gateway or Ingress/Egress Gateway > advanced OPTIONS
+
+<a id="no-worker-nodes"></a>&#x2022; [`no_worker_nodes`](#no-worker-nodes) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no worker nodes.  Server applies default when omitted
+
+<a id="nodes-per-az"></a>&#x2022; [`nodes_per_az`](#nodes-per-az) - Optional Number<br>Desired Worker Nodes Per AZ. Max limit is up to 21
+
+<a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional String<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
+configuration for upto 7
+
+<a id="os"></a>&#x2022; [`os`](#os) - Optional String<br>Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions
+
+<a id="resource-group"></a>&#x2022; [`resource_group`](#resource-group) - Optional String<br>Azure resource group for resources that will be created
+
+<a id="ssh-key"></a>&#x2022; [`ssh_key`](#ssh-key) - Optional String<br>Public SSH key. Public SSH key for accessing the site
+
+<a id="sw"></a>&#x2022; [`sw`](#sw) - Optional String<br>Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions
+
+<a id="tags"></a>&#x2022; [`tags`](#tags) - Optional Map  Defaults to `map[]`<br>Azure Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in Azure console.  Server applies default when omitted
+
+<a id="total-nodes"></a>&#x2022; [`total_nodes`](#total-nodes) - Optional Number<br>Total number of worker nodes to be deployed across all AZ's used in the Site
+
+<a id="vnet"></a>&#x2022; [`vnet`](#vnet) - Optional String<br>Defines choice about Azure VNET for a view
+
+<a id="voltstack-cluster"></a>&#x2022; [`voltstack_cluster`](#voltstack-cluster) - Optional String<br>App Stack Cluster of single interface Azure nodes
+
+<a id="voltstack-cluster-ar"></a>&#x2022; [`voltstack_cluster_ar`](#voltstack-cluster-ar) - Optional String<br>App Stack Cluster of single interface Azure nodes
+
+<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+
+<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+
+<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+
+<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="blocked-service"></a>&#x2022; [`blocked_service`](#blocked-service) - Optional List<br>Disable Node Local Services. Blocking or denial configuration
+
+<a id="dns"></a>&#x2022; [`dns`](#dns) - Optional Object<br>Enable this option
+
+<a id="network-type"></a>&#x2022; [`network_type`](#network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+`VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
+VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
+Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
+
+<a id="ssh"></a>&#x2022; [`ssh`](#ssh) - Optional Object<br>Enable this option
+
+<a id="web-user-interface"></a>&#x2022; [`web_user_interface`](#web-user-interface) - Optional Object<br>Enable this option
+
+---
+
+#### Coordinates
+
+A [`coordinates`](#coordinates) block supports the following:
+
+<a id="nestedatt--coordinates-latitude"></a>&#x2022; [`latitude`](#nestedatt--coordinates-latitude) - Optional Number<br>Latitude. Latitude of the site location
+
+<a id="nestedatt--coordinates-longitude"></a>&#x2022; [`longitude`](#nestedatt--coordinates-longitude) - Optional Number<br>Longitude. Longitude of site location
+
+#### Custom DNS
+
+A [`custom_dns`](#custom-dns) block supports the following:
+
+<a id="nameserver-9c138b"></a>&#x2022; [`inside_nameserver`](#nameserver-9c138b) - Optional String<br>Optional DNS server IP to be used for name resolution in inside network
+
+<a id="nameserver-c507b8"></a>&#x2022; [`outside_nameserver`](#nameserver-c507b8) - Optional String<br>Optional DNS server IP to be used for name resolution in outside network
+
+#### Default Blocked Services
+
+A [`default_blocked_services`](#default-blocked-services) block supports the following:
+
+#### Disable Encryption
+
+A [`disable_encryption`](#disable-encryption) block supports the following:
+
+#### Enable Encryption
+
+An [`enable_encryption`](#enable-encryption) block supports the following:
+
+<a id="set-id-ac2e3b"></a>&#x2022; [`disk_encryption_set_id`](#set-id-ac2e3b) - Optional String<br>Azure Disk Encryption Set to be used to encrypt the disk attached to the VM
+
+<a id="nestedatt--coordinates-resource-group"></a>&#x2022; [`resource_group`](#nestedatt--coordinates-resource-group) - Optional String<br>The resource group in which the Disk Encryption Set is present
+
+#### Ingress Egress Gw
+
+An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
+
+<a id="networking-5f0cba"></a>&#x2022; [`accelerated_networking`](#networking-5f0cba) - Optional String<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen
+
+<a id="policies-5f98e6"></a>&#x2022; [`active_enhanced_firewall_policies`](#policies-5f98e6) - Optional String<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion
+
+<a id="policies-7ee55b"></a>&#x2022; [`active_forward_proxy_policies`](#policies-7ee55b) - Optional String<br>Ordered List of Forward Proxy Policies active
+
+<a id="policies-b8c97f"></a>&#x2022; [`active_network_policies`](#policies-b8c97f) - Optional String<br>Configuration parameter for active network policies
+
+<a id="nestedatt--coordinates-az-nodes"></a>&#x2022; [`az_nodes`](#nestedatt--coordinates-az-nodes) - Optional List<br>Only Single AZ or Three AZ(s) nodes are supported currently
+
+<a id="certified-hw-a75ac2"></a>&#x2022; [`azure_certified_hw`](#certified-hw-a75ac2) - Optional String<br>[Enum: azure-byol-multi-nic-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`
+
+<a id="inside-vn-f00a9e"></a>&#x2022; [`dc_cluster_group_inside_vn`](#inside-vn-f00a9e) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="outside-vn-177587"></a>&#x2022; [`dc_cluster_group_outside_vn`](#outside-vn-177587) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="all-ba18ca"></a>&#x2022; [`forward_proxy_allow_all`](#all-ba18ca) - Optional Object<br>Configuration parameter for forward proxy allow all
+
+<a id="list-d50542"></a>&#x2022; [`global_network_list`](#list-d50542) - Optional String<br>Global Network Connection List. List of global network connections
+
+<a id="nestedatt--coordinates-hub"></a>&#x2022; [`hub`](#nestedatt--coordinates-hub) - Optional String<br>Hub VNET type. Hub VNET type
+
+<a id="routes-21d150"></a>&#x2022; [`inside_static_routes`](#routes-21d150) - Optional String<br>Configuration parameter for inside static routes
+
+<a id="group-6aa95c"></a>&#x2022; [`no_dc_cluster_group`](#group-6aa95c) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#nestedatt--coordinates-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
+
+<a id="network-caa19c"></a>&#x2022; [`no_global_network`](#network-caa19c) - Optional Object<br>Configuration parameter for no global network
+
+<a id="routes-217d82"></a>&#x2022; [`no_inside_static_routes`](#routes-217d82) - Optional Object<br>Configuration parameter for no inside static routes
+
+<a id="policy-c3523b"></a>&#x2022; [`no_network_policy`](#policy-c3523b) - Optional Object<br>Policy configuration for this feature
+
+<a id="routes-5c2e4c"></a>&#x2022; [`no_outside_static_routes`](#routes-5c2e4c) - Optional Object<br>Configuration parameter for no outside static routes
+
+<a id="nestedatt--coordinates-not-hub"></a>&#x2022; [`not_hub`](#nestedatt--coordinates-not-hub) - Optional Object<br>Enable this option
+
+<a id="routes-3a95ba"></a>&#x2022; [`outside_static_routes`](#routes-3a95ba) - Optional String<br>Configuration parameter for outside static routes
+
+<a id="mode-b5f441"></a>&#x2022; [`performance_enhancement_mode`](#mode-b5f441) - Optional String<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default
+
+<a id="public-ip-55dd76"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-55dd76) - Optional Object<br>Enable this option
+
+<a id="pvt-ip-d865f6"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-d865f6) - Optional Object<br>Enable this option
+
+#### Ingress Egress Gw Accelerated Networking
+
+An [`accelerated_networking`](#ingress-egress-gw-accelerated-networking) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="nestedatt--coordinates-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--coordinates-disable-spec) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-enable"></a>&#x2022; [`enable`](#nestedatt--coordinates-enable) - Optional Object<br>Enable this option
+
+#### Ingress Egress Gw Accelerated Networking Disable Spec
+
+A [`disable_spec`](#ingress-egress-gw-accelerated-networking-disable-spec) block (within [`ingress_egress_gw.accelerated_networking`](#ingress-egress-gw-accelerated-networking)) supports the following:
+
+#### Ingress Egress Gw Accelerated Networking Enable
+
+An [`enable`](#ingress-egress-gw-accelerated-networking-enable) block (within [`ingress_egress_gw.accelerated_networking`](#ingress-egress-gw-accelerated-networking)) supports the following:
+
+#### Ingress Egress Gw Active Enhanced Firewall Policies
+
+An [`active_enhanced_firewall_policies`](#ingress-egress-gw-active-enhanced-firewall-policies) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="policies-5887ea"></a>&#x2022; [`enhanced_firewall_policies`](#policies-5887ea) - Optional List<br>Ordered List of Enhanced Firewall Policies active
+
+#### Ingress Egress Gw Active Enhanced Firewall Policies Enhanced Firewall Policies
+
+<a id="deep-3cb2d1"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Ingress Egress Gw Active Forward Proxy Policies
+
+An [`active_forward_proxy_policies`](#ingress-egress-gw-active-forward-proxy-policies) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="policies-a783de"></a>&#x2022; [`forward_proxy_policies`](#policies-a783de) - Optional List<br>Ordered List of Forward Proxy Policies active
+
+#### Ingress Egress Gw Active Forward Proxy Policies Forward Proxy Policies
+
+<a id="deep-54c023"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Ingress Egress Gw Active Network Policies
+
+An [`active_network_policies`](#ingress-egress-gw-active-network-policies) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="nestedatt--coordinates-network-policies"></a>&#x2022; [`network_policies`](#nestedatt--coordinates-network-policies) - Optional List<br>Ordered List of Firewall Policies active for this network firewall
+
+#### Ingress Egress Gw Active Network Policies Network Policies
+
+<a id="deep-18bd39"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Ingress Egress Gw Az Nodes
+
+An [`az_nodes`](#ingress-egress-gw-az-nodes) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="nestedatt--coordinates-azure-az"></a>&#x2022; [`azure_az`](#nestedatt--coordinates-azure-az) - Optional String<br>Possible values are `1`, `2`, `3`<br>[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input
+
+<a id="nestedatt--coordinates-inside-subnet"></a>&#x2022; [`inside_subnet`](#nestedatt--coordinates-inside-subnet) - Optional String<br>Configuration parameter for inside subnet
+
+<a id="nestedatt--coordinates-outside-subnet"></a>&#x2022; [`outside_subnet`](#nestedatt--coordinates-outside-subnet) - Optional String<br>Configuration parameter for outside subnet
+
+#### Ingress Egress Gw Az Nodes Inside Subnet
+
+An [`inside_subnet`](#ingress-egress-gw-az-nodes-inside-subnet) block (within [`ingress_egress_gw.az_nodes`](#ingress-egress-gw-az-nodes)) supports the following:
+
+<a id="nestedatt--coordinates-subnet"></a>&#x2022; [`subnet`](#nestedatt--coordinates-subnet) - Optional String<br>Subnet specification for network segmentation
+
+<a id="nestedatt--coordinates-subnet-param"></a>&#x2022; [`subnet_param`](#nestedatt--coordinates-subnet-param) - Optional String<br>Parameters for creating a new cloud subnet
+
+#### Ingress Egress Gw Az Nodes Inside Subnet Subnet
+
+<a id="deep-b03698"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Az Nodes Inside Subnet Subnet VNET Resource Group
+
+<a id="deep-089a07"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Az Nodes Inside Subnet Subnet Param
+
+<a id="deep-7b2aa4"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Az Nodes Outside Subnet
+
+An [`outside_subnet`](#ingress-egress-gw-az-nodes-outside-subnet) block (within [`ingress_egress_gw.az_nodes`](#ingress-egress-gw-az-nodes)) supports the following:
+
+<a id="nestedatt--coordinates-subnet"></a>&#x2022; [`subnet`](#nestedatt--coordinates-subnet) - Optional String<br>Subnet specification for network segmentation
+
+<a id="nestedatt--coordinates-subnet-param"></a>&#x2022; [`subnet_param`](#nestedatt--coordinates-subnet-param) - Optional String<br>Parameters for creating a new cloud subnet
+
+#### Ingress Egress Gw Az Nodes Outside Subnet Subnet
+
+<a id="deep-ab232b"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Az Nodes Outside Subnet Subnet VNET Resource Group
+
+<a id="deep-2a1222"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Az Nodes Outside Subnet Subnet Param
+
+<a id="deep-4b83fd"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Dc Cluster Group Inside Vn
+
+<a id="deep-23860c"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Dc Cluster Group Outside Vn
+
+<a id="deep-53ac3b"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#ingress-egress-gw-forward-proxy-allow-all) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw Global Network List
+
+A [`global_network_list`](#ingress-egress-gw-global-network-list) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="connections-18e712"></a>&#x2022; [`global_network_connections`](#connections-18e712) - Optional List<br>Global Network Connections. Global network connections
+
+#### Ingress Egress Gw Global Network List Global Network Connections
+
+<a id="deep-88f40a"></a>Deeply nested **Connections** block collapsed for readability.
+
+#### Ingress Egress Gw Global Network List Global Network Connections SLI To Global DR
+
+<a id="deep-c2be4c"></a>Deeply nested **DR** block collapsed for readability.
+
+#### Ingress Egress Gw Global Network List Global Network Connections SLI To Global DR Global Vn
+
+<a id="deep-60d106"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Global Network List Global Network Connections Slo To Global DR
+
+<a id="deep-c00d54"></a>Deeply nested **DR** block collapsed for readability.
+
+#### Ingress Egress Gw Global Network List Global Network Connections Slo To Global DR Global Vn
+
+<a id="deep-184e24"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Hub
+
+A [`hub`](#ingress-egress-gw-hub) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="disabled-1401bb"></a>&#x2022; [`express_route_disabled`](#disabled-1401bb) - Optional Object<br>Enable this option
+
+<a id="enabled-878710"></a>&#x2022; [`express_route_enabled`](#enabled-878710) - Optional String<br>Express Route Configuration. Express Route Configuration
+
+<a id="nestedatt--coordinates-spoke-vnets"></a>&#x2022; [`spoke_vnets`](#nestedatt--coordinates-spoke-vnets) - Optional List<br>Spoke VNET Peering (Legacy). Spoke VNET Peering
+
+#### Ingress Egress Gw Hub Express Route Disabled
+
+An [`express_route_disabled`](#ingress-egress-gw-hub-express-route-disabled) block (within [`ingress_egress_gw.hub`](#ingress-egress-gw-hub)) supports the following:
+
+#### Ingress Egress Gw Hub Express Route Enabled
+
+An [`express_route_enabled`](#ingress-egress-gw-hub-express-route-enabled) block (within [`ingress_egress_gw.hub`](#ingress-egress-gw-hub)) supports the following:
+
+<a id="server-bd63b8"></a>&#x2022; [`advertise_to_route_server`](#server-bd63b8) - Optional Object<br>Configuration parameter for advertise to route server
+
+<a id="nestedatt--coordinates-auto-asn"></a>&#x2022; [`auto_asn`](#nestedatt--coordinates-auto-asn) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-connections"></a>&#x2022; [`connections`](#nestedatt--coordinates-connections) - Optional List<br>Add the ExpressRoute Circuit Connections to this site
+
+<a id="nestedatt--coordinates-custom-asn"></a>&#x2022; [`custom_asn`](#nestedatt--coordinates-custom-asn) - Optional Number<br>Set custom ASN for F5XC Site
+
+<a id="server-06493b"></a>&#x2022; [`do_not_advertise_to_route_server`](#server-06493b) - Optional Object<br>Configuration parameter for do not advertise to route server
+
+<a id="nestedatt--coordinates-gateway-subnet"></a>&#x2022; [`gateway_subnet`](#nestedatt--coordinates-gateway-subnet) - Optional String<br>Configuration parameter for gateway subnet
+
+<a id="subnet-1d4e3f"></a>&#x2022; [`route_server_subnet`](#subnet-1d4e3f) - Optional String<br>Configuration parameter for route server subnet
+
+<a id="route-a48a0d"></a>&#x2022; [`site_registration_over_express_route`](#route-a48a0d) - Optional String<br>CloudLink ADN Network Config
+
+<a id="internet-f9edfe"></a>&#x2022; [`site_registration_over_internet`](#internet-f9edfe) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-sku-ergw1az"></a>&#x2022; [`sku_ergw1az`](#nestedatt--coordinates-sku-ergw1az) - Optional Object<br>Configuration parameter for sku ergw1az
+
+<a id="nestedatt--coordinates-sku-ergw2az"></a>&#x2022; [`sku_ergw2az`](#nestedatt--coordinates-sku-ergw2az) - Optional Object<br>Configuration parameter for sku ergw2az
+
+<a id="nestedatt--coordinates-sku-high-perf"></a>&#x2022; [`sku_high_perf`](#nestedatt--coordinates-sku-high-perf) - Optional Object<br>Configuration parameter for sku high perf
+
+<a id="nestedatt--coordinates-sku-standard"></a>&#x2022; [`sku_standard`](#nestedatt--coordinates-sku-standard) - Optional Object<br>Configuration parameter for sku standard
+
+#### Ingress Egress Gw Hub Express Route Enabled Advertise To Route Server
+
+<a id="deep-4e03da"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Auto Asn
+
+<a id="deep-64020e"></a>Deeply nested **Asn** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Connections
+
+<a id="deep-5aa2b8"></a>Deeply nested **Connections** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Connections Metadata
+
+<a id="deep-4a8577"></a>Deeply nested **Metadata** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Connections Other Subscription
+
+<a id="deep-57f4c5"></a>Deeply nested **Subscription** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Connections Other Subscription Authorized Key
+
+<a id="deep-739be2"></a>Deeply nested **Key** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Connections Other Subscription Authorized Key Blindfold Secret Info
+
+<a id="deep-a418eb"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Connections Other Subscription Authorized Key Clear Secret Info
+
+<a id="deep-a1a294"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Do Not Advertise To Route Server
+
+<a id="deep-29ce5e"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet
+
+<a id="deep-e54791"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet Auto
+
+<a id="deep-4f6143"></a>Deeply nested **Auto** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet Subnet
+
+<a id="deep-ad7509"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet Subnet VNET Resource Group
+
+<a id="deep-403b85"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet Subnet Param
+
+<a id="deep-c9d7f7"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet
+
+<a id="deep-839302"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet Auto
+
+<a id="deep-daa9db"></a>Deeply nested **Auto** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet Subnet
+
+<a id="deep-b8be72"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet Subnet VNET Resource Group
+
+<a id="deep-9d3cdb"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet Subnet Param
+
+<a id="deep-4b1835"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Site Registration Over Express Route
+
+<a id="deep-277a06"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Site Registration Over internet
+
+<a id="deep-96294f"></a>Deeply nested **internet** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Sku Ergw1az
+
+<a id="deep-a8c301"></a>Deeply nested **Ergw1az** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Sku Ergw2az
+
+<a id="deep-24cbde"></a>Deeply nested **Ergw2az** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Sku High Perf
+
+<a id="deep-f6ee45"></a>Deeply nested **Perf** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Sku Standard
+
+<a id="deep-50afcb"></a>Deeply nested **Standard** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Spoke Vnets
+
+A [`spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets) block (within [`ingress_egress_gw.hub`](#ingress-egress-gw-hub)) supports the following:
+
+<a id="nestedatt--coordinates-auto"></a>&#x2022; [`auto`](#nestedatt--coordinates-auto) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-labels"></a>&#x2022; [`labels`](#nestedatt--coordinates-labels) - Optional String<br>Add Labels for each of the VNets peered with transit VNET, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace
+
+<a id="nestedatt--coordinates-manual"></a>&#x2022; [`manual`](#nestedatt--coordinates-manual) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-vnet"></a>&#x2022; [`vnet`](#nestedatt--coordinates-vnet) - Optional String<br>Resource group and name of existing Azure VNET
+
+#### Ingress Egress Gw Hub Spoke Vnets Auto
+
+An [`auto`](#ingress-egress-gw-hub-spoke-vnets-auto) block (within [`ingress_egress_gw.hub.spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets)) supports the following:
+
+#### Ingress Egress Gw Hub Spoke Vnets Labels
+
+A [`labels`](#ingress-egress-gw-hub-spoke-vnets-labels) block (within [`ingress_egress_gw.hub.spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets)) supports the following:
+
+#### Ingress Egress Gw Hub Spoke Vnets Manual
+
+A [`manual`](#ingress-egress-gw-hub-spoke-vnets-manual) block (within [`ingress_egress_gw.hub.spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets)) supports the following:
+
+#### Ingress Egress Gw Hub Spoke Vnets VNET
+
+A [`vnet`](#ingress-egress-gw-hub-spoke-vnets-vnet) block (within [`ingress_egress_gw.hub.spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets)) supports the following:
+
+<a id="routing-66042e"></a>&#x2022; [`f5_orchestrated_routing`](#routing-66042e) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-manual-routing"></a>&#x2022; [`manual_routing`](#nestedatt--coordinates-manual-routing) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-resource-group"></a>&#x2022; [`resource_group`](#nestedatt--coordinates-resource-group) - Optional String<br>Existing VNET Resource Group. Resource group of existing VNET
+
+<a id="nestedatt--coordinates-vnet-name"></a>&#x2022; [`vnet_name`](#nestedatt--coordinates-vnet-name) - Optional String<br>Existing VNET Name. Name of existing VNET
+
+#### Ingress Egress Gw Hub Spoke Vnets VNET F5 Orchestrated Routing
+
+<a id="deep-8ec934"></a>Deeply nested **Routing** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Spoke Vnets VNET Manual Routing
+
+<a id="deep-6a0020"></a>Deeply nested **Routing** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes
+
+An [`inside_static_routes`](#ingress-egress-gw-inside-static-routes) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="list-934be6"></a>&#x2022; [`static_route_list`](#list-934be6) - Optional List<br>List of Static Routes. List of Static routes
+
+#### Ingress Egress Gw Inside Static Routes Static Route List
+
+<a id="deep-922a6f"></a>Deeply nested **List** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route
+
+<a id="deep-3b67c8"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Labels
+
+<a id="deep-a20682"></a>Deeply nested **Labels** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop
+
+<a id="deep-373011"></a>Deeply nested **Nexthop** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop Interface
+
+<a id="deep-a58927"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address
+
+<a id="deep-6b64ce"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
+
+<a id="deep-3b45f1"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv6
+
+<a id="deep-976e31"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Subnets
+
+<a id="deep-7e5beb"></a>Deeply nested **Subnets** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Subnets IPv4
+
+<a id="deep-4bd73c"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Subnets IPv6
+
+<a id="deep-5dec85"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#ingress-egress-gw-no-dc-cluster-group) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Forward Proxy
+
+A [`no_forward_proxy`](#ingress-egress-gw-no-forward-proxy) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Global Network
+
+A [`no_global_network`](#ingress-egress-gw-no-global-network) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Inside Static Routes
+
+A [`no_inside_static_routes`](#ingress-egress-gw-no-inside-static-routes) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Network Policy
+
+A [`no_network_policy`](#ingress-egress-gw-no-network-policy) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Outside Static Routes
+
+A [`no_outside_static_routes`](#ingress-egress-gw-no-outside-static-routes) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw Not Hub
+
+A [`not_hub`](#ingress-egress-gw-not-hub) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw Outside Static Routes
+
+An [`outside_static_routes`](#ingress-egress-gw-outside-static-routes) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="list-934be6"></a>&#x2022; [`static_route_list`](#list-934be6) - Optional List<br>List of Static Routes. List of Static routes
+
+#### Ingress Egress Gw Outside Static Routes Static Route List
+
+<a id="deep-fdf27e"></a>Deeply nested **List** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route
+
+<a id="deep-025383"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Labels
+
+<a id="deep-1b10c8"></a>Deeply nested **Labels** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop
+
+<a id="deep-390b03"></a>Deeply nested **Nexthop** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Interface
+
+<a id="deep-214d2f"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address
+
+<a id="deep-f33e18"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
+
+<a id="deep-f90bc5"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv6
+
+<a id="deep-23b94d"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Subnets
+
+<a id="deep-5d8217"></a>Deeply nested **Subnets** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Subnets IPv4
+
+<a id="deep-f9fb39"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Subnets IPv6
+
+<a id="deep-21fa47"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode
+
+A [`performance_enhancement_mode`](#ingress-egress-gw-performance-enhancement-mode) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+<a id="enhanced-a59693"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-a59693) - Optional String<br>Configuration parameter for perf mode l3 enhanced
+
+<a id="enhanced-afec80"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-afec80) - Optional String<br>Configuration parameter for perf mode l7 enhanced
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced
+
+<a id="deep-4a39a0"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-e1a2d3"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-02c2ce"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-b9cc72"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-b7e34e"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-a84ffd"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Ingress Egress Gw Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#ingress-egress-gw-sm-connection-public-ip) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#ingress-egress-gw-sm-connection-pvt-ip) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw Ar
+
+An [`ingress_egress_gw_ar`](#ingress-egress-gw-ar) block supports the following:
+
+<a id="networking-5f0cba"></a>&#x2022; [`accelerated_networking`](#networking-5f0cba) - Optional String<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen
+
+<a id="policies-5f98e6"></a>&#x2022; [`active_enhanced_firewall_policies`](#policies-5f98e6) - Optional String<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion
+
+<a id="policies-7ee55b"></a>&#x2022; [`active_forward_proxy_policies`](#policies-7ee55b) - Optional String<br>Ordered List of Forward Proxy Policies active
+
+<a id="policies-b8c97f"></a>&#x2022; [`active_network_policies`](#policies-b8c97f) - Optional String<br>Configuration parameter for active network policies
+
+<a id="certified-hw-a75ac2"></a>&#x2022; [`azure_certified_hw`](#certified-hw-a75ac2) - Optional String<br>[Enum: azure-byol-multi-nic-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`
+
+<a id="inside-vn-f00a9e"></a>&#x2022; [`dc_cluster_group_inside_vn`](#inside-vn-f00a9e) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="outside-vn-177587"></a>&#x2022; [`dc_cluster_group_outside_vn`](#outside-vn-177587) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="all-ba18ca"></a>&#x2022; [`forward_proxy_allow_all`](#all-ba18ca) - Optional Object<br>Configuration parameter for forward proxy allow all
+
+<a id="list-d50542"></a>&#x2022; [`global_network_list`](#list-d50542) - Optional String<br>Global Network Connection List. List of global network connections
+
+<a id="nestedatt--coordinates-hub"></a>&#x2022; [`hub`](#nestedatt--coordinates-hub) - Optional String<br>Hub VNET type. Hub VNET type
+
+<a id="routes-21d150"></a>&#x2022; [`inside_static_routes`](#routes-21d150) - Optional String<br>Configuration parameter for inside static routes
+
+<a id="group-6aa95c"></a>&#x2022; [`no_dc_cluster_group`](#group-6aa95c) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#nestedatt--coordinates-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
+
+<a id="network-caa19c"></a>&#x2022; [`no_global_network`](#network-caa19c) - Optional Object<br>Configuration parameter for no global network
+
+<a id="routes-217d82"></a>&#x2022; [`no_inside_static_routes`](#routes-217d82) - Optional Object<br>Configuration parameter for no inside static routes
+
+<a id="policy-c3523b"></a>&#x2022; [`no_network_policy`](#policy-c3523b) - Optional Object<br>Policy configuration for this feature
+
+<a id="routes-5c2e4c"></a>&#x2022; [`no_outside_static_routes`](#routes-5c2e4c) - Optional Object<br>Configuration parameter for no outside static routes
+
+<a id="nestedatt--coordinates-node"></a>&#x2022; [`node`](#nestedatt--coordinates-node) - Optional String<br>Parameters for creating two interface Node in one AZ
+
+<a id="nestedatt--coordinates-not-hub"></a>&#x2022; [`not_hub`](#nestedatt--coordinates-not-hub) - Optional Object<br>Enable this option
+
+<a id="routes-3a95ba"></a>&#x2022; [`outside_static_routes`](#routes-3a95ba) - Optional String<br>Configuration parameter for outside static routes
+
+<a id="mode-b5f441"></a>&#x2022; [`performance_enhancement_mode`](#mode-b5f441) - Optional String<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default
+
+<a id="public-ip-55dd76"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-55dd76) - Optional Object<br>Enable this option
+
+<a id="pvt-ip-d865f6"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-d865f6) - Optional Object<br>Enable this option
+
+#### Ingress Egress Gw Ar Accelerated Networking
+
+An [`accelerated_networking`](#ingress-egress-gw-ar-accelerated-networking) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+<a id="nestedatt--coordinates-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--coordinates-disable-spec) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-enable"></a>&#x2022; [`enable`](#nestedatt--coordinates-enable) - Optional Object<br>Enable this option
+
+#### Ingress Egress Gw Ar Accelerated Networking Disable Spec
+
+<a id="deep-1092c8"></a>Deeply nested **Spec** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Accelerated Networking Enable
+
+An [`enable`](#ingress-egress-gw-ar-accelerated-networking-enable) block (within [`ingress_egress_gw_ar.accelerated_networking`](#ingress-egress-gw-ar-accelerated-networking)) supports the following:
+
+#### Ingress Egress Gw Ar Active Enhanced Firewall Policies
+
+<a id="deep-99ea01"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Active Enhanced Firewall Policies Enhanced Firewall Policies
+
+<a id="deep-6382e5"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Active Forward Proxy Policies
+
+<a id="deep-629c89"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Active Forward Proxy Policies Forward Proxy Policies
+
+<a id="deep-5a296c"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Active Network Policies
+
+An [`active_network_policies`](#ingress-egress-gw-ar-active-network-policies) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+<a id="nestedatt--coordinates-network-policies"></a>&#x2022; [`network_policies`](#nestedatt--coordinates-network-policies) - Optional List<br>Ordered List of Firewall Policies active for this network firewall
+
+#### Ingress Egress Gw Ar Active Network Policies Network Policies
+
+<a id="deep-e63033"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Dc Cluster Group Inside Vn
+
+<a id="deep-7e63ae"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Dc Cluster Group Outside Vn
+
+<a id="deep-9155be"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Forward Proxy Allow All
+
+<a id="deep-3fcc8c"></a>Deeply nested **All** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Global Network List
+
+A [`global_network_list`](#ingress-egress-gw-ar-global-network-list) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+<a id="connections-18e712"></a>&#x2022; [`global_network_connections`](#connections-18e712) - Optional List<br>Global Network Connections. Global network connections
+
+#### Ingress Egress Gw Ar Global Network List Global Network Connections
+
+<a id="deep-49fbad"></a>Deeply nested **Connections** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Global Network List Global Network Connections SLI To Global DR
+
+<a id="deep-a26164"></a>Deeply nested **DR** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Global Network List Global Network Connections SLI To Global DR Global Vn
+
+<a id="deep-d461d0"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Global Network List Global Network Connections Slo To Global DR
+
+<a id="deep-169664"></a>Deeply nested **DR** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Global Network List Global Network Connections Slo To Global DR Global Vn
+
+<a id="deep-8c1065"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub
+
+A [`hub`](#ingress-egress-gw-ar-hub) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+<a id="disabled-1401bb"></a>&#x2022; [`express_route_disabled`](#disabled-1401bb) - Optional Object<br>Enable this option
+
+<a id="enabled-878710"></a>&#x2022; [`express_route_enabled`](#enabled-878710) - Optional String<br>Express Route Configuration. Express Route Configuration
+
+<a id="nestedatt--coordinates-spoke-vnets"></a>&#x2022; [`spoke_vnets`](#nestedatt--coordinates-spoke-vnets) - Optional List<br>Spoke VNET Peering (Legacy). Spoke VNET Peering
+
+#### Ingress Egress Gw Ar Hub Express Route Disabled
+
+<a id="deep-0b9def"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled
+
+<a id="deep-66e513"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Advertise To Route Server
+
+<a id="deep-8a048d"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Auto Asn
+
+<a id="deep-b61e4a"></a>Deeply nested **Asn** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Connections
+
+<a id="deep-19c95b"></a>Deeply nested **Connections** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Connections Metadata
+
+<a id="deep-bd1fbe"></a>Deeply nested **Metadata** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Connections Other Subscription
+
+<a id="deep-3b2ce8"></a>Deeply nested **Subscription** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Connections Other Subscription Authorized Key
+
+<a id="deep-eac236"></a>Deeply nested **Key** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Connections Other Subscription Authorized Key Blindfold Secret Info
+
+<a id="deep-af12fa"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Connections Other Subscription Authorized Key Clear Secret Info
+
+<a id="deep-d3a5d0"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Do Not Advertise To Route Server
+
+<a id="deep-87b4c0"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet
+
+<a id="deep-7b4661"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet Auto
+
+<a id="deep-4de9ea"></a>Deeply nested **Auto** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet Subnet
+
+<a id="deep-520d02"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet Subnet VNET Resource Group
+
+<a id="deep-208898"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet Subnet Param
+
+<a id="deep-07265b"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet
+
+<a id="deep-05872f"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet Auto
+
+<a id="deep-3516ef"></a>Deeply nested **Auto** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet Subnet
+
+<a id="deep-080d0f"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet Subnet VNET Resource Group
+
+<a id="deep-790890"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet Subnet Param
+
+<a id="deep-ba3a3b"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Site Registration Over Express Route
+
+<a id="deep-646d3d"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Site Registration Over internet
+
+<a id="deep-ff487a"></a>Deeply nested **internet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Sku Ergw1az
+
+<a id="deep-a3582c"></a>Deeply nested **Ergw1az** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Sku Ergw2az
+
+<a id="deep-641620"></a>Deeply nested **Ergw2az** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Sku High Perf
+
+<a id="deep-21295c"></a>Deeply nested **Perf** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Sku Standard
+
+<a id="deep-12759e"></a>Deeply nested **Standard** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets
+
+A [`spoke_vnets`](#ingress-egress-gw-ar-hub-spoke-vnets) block (within [`ingress_egress_gw_ar.hub`](#ingress-egress-gw-ar-hub)) supports the following:
+
+<a id="nestedatt--coordinates-auto"></a>&#x2022; [`auto`](#nestedatt--coordinates-auto) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-labels"></a>&#x2022; [`labels`](#nestedatt--coordinates-labels) - Optional String<br>Add Labels for each of the VNets peered with transit VNET, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace
+
+<a id="nestedatt--coordinates-manual"></a>&#x2022; [`manual`](#nestedatt--coordinates-manual) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-vnet"></a>&#x2022; [`vnet`](#nestedatt--coordinates-vnet) - Optional String<br>Resource group and name of existing Azure VNET
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets Auto
+
+<a id="deep-449ec2"></a>Deeply nested **Auto** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets Labels
+
+<a id="deep-29f2b4"></a>Deeply nested **Labels** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets Manual
+
+<a id="deep-6daf38"></a>Deeply nested **Manual** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets VNET
+
+<a id="deep-401418"></a>Deeply nested **VNET** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets VNET F5 Orchestrated Routing
+
+<a id="deep-447c48"></a>Deeply nested **Routing** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets VNET Manual Routing
+
+<a id="deep-ff607c"></a>Deeply nested **Routing** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes
+
+An [`inside_static_routes`](#ingress-egress-gw-ar-inside-static-routes) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+<a id="list-934be6"></a>&#x2022; [`static_route_list`](#list-934be6) - Optional List<br>List of Static Routes. List of Static routes
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List
+
+<a id="deep-a451e2"></a>Deeply nested **List** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route
+
+<a id="deep-30a730"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Labels
+
+<a id="deep-59a038"></a>Deeply nested **Labels** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop
+
+<a id="deep-ab56e2"></a>Deeply nested **Nexthop** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop Interface
+
+<a id="deep-4846fe"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address
+
+<a id="deep-b3f69a"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
+
+<a id="deep-c5d876"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv6
+
+<a id="deep-e0eb85"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Subnets
+
+<a id="deep-556713"></a>Deeply nested **Subnets** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Subnets IPv4
+
+<a id="deep-1d5ab6"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Subnets IPv6
+
+<a id="deep-2d5b97"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw Ar No Dc Cluster Group
+
+<a id="deep-a41423"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Ar No Forward Proxy
+
+A [`no_forward_proxy`](#ingress-egress-gw-ar-no-forward-proxy) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+#### Ingress Egress Gw Ar No Global Network
+
+A [`no_global_network`](#ingress-egress-gw-ar-no-global-network) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+#### Ingress Egress Gw Ar No Inside Static Routes
+
+<a id="deep-d0585a"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Ingress Egress Gw Ar No Network Policy
+
+A [`no_network_policy`](#ingress-egress-gw-ar-no-network-policy) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+#### Ingress Egress Gw Ar No Outside Static Routes
+
+<a id="deep-3eecb2"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Node
+
+A [`node`](#ingress-egress-gw-ar-node) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+<a id="nestedatt--coordinates-fault-domain"></a>&#x2022; [`fault_domain`](#nestedatt--coordinates-fault-domain) - Optional Number<br>Namuber of fault domains to be used while creating the availability set
+
+<a id="nestedatt--coordinates-inside-subnet"></a>&#x2022; [`inside_subnet`](#nestedatt--coordinates-inside-subnet) - Optional String<br>Configuration parameter for inside subnet
+
+<a id="nestedatt--coordinates-node-number"></a>&#x2022; [`node_number`](#nestedatt--coordinates-node-number) - Optional Number<br>Number of main nodes to create, either 1 or 3
+
+<a id="nestedatt--coordinates-outside-subnet"></a>&#x2022; [`outside_subnet`](#nestedatt--coordinates-outside-subnet) - Optional String<br>Configuration parameter for outside subnet
+
+<a id="nestedatt--coordinates-update-domain"></a>&#x2022; [`update_domain`](#nestedatt--coordinates-update-domain) - Optional Number<br>Namuber of update domains to be used while creating the availability set
+
+#### Ingress Egress Gw Ar Node Inside Subnet
+
+An [`inside_subnet`](#ingress-egress-gw-ar-node-inside-subnet) block (within [`ingress_egress_gw_ar.node`](#ingress-egress-gw-ar-node)) supports the following:
+
+<a id="nestedatt--coordinates-subnet"></a>&#x2022; [`subnet`](#nestedatt--coordinates-subnet) - Optional String<br>Subnet specification for network segmentation
+
+<a id="nestedatt--coordinates-subnet-param"></a>&#x2022; [`subnet_param`](#nestedatt--coordinates-subnet-param) - Optional String<br>Parameters for creating a new cloud subnet
+
+#### Ingress Egress Gw Ar Node Inside Subnet Subnet
+
+<a id="deep-b79408"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Node Inside Subnet Subnet VNET Resource Group
+
+<a id="deep-53bbbf"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Node Inside Subnet Subnet Param
+
+<a id="deep-e5f785"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Node Outside Subnet
+
+An [`outside_subnet`](#ingress-egress-gw-ar-node-outside-subnet) block (within [`ingress_egress_gw_ar.node`](#ingress-egress-gw-ar-node)) supports the following:
+
+<a id="nestedatt--coordinates-subnet"></a>&#x2022; [`subnet`](#nestedatt--coordinates-subnet) - Optional String<br>Subnet specification for network segmentation
+
+<a id="nestedatt--coordinates-subnet-param"></a>&#x2022; [`subnet_param`](#nestedatt--coordinates-subnet-param) - Optional String<br>Parameters for creating a new cloud subnet
+
+#### Ingress Egress Gw Ar Node Outside Subnet Subnet
+
+<a id="deep-2ece90"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Node Outside Subnet Subnet VNET Resource Group
+
+<a id="deep-ec567f"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Node Outside Subnet Subnet Param
+
+<a id="deep-182910"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Not Hub
+
+A [`not_hub`](#ingress-egress-gw-ar-not-hub) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+#### Ingress Egress Gw Ar Outside Static Routes
+
+An [`outside_static_routes`](#ingress-egress-gw-ar-outside-static-routes) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+<a id="list-934be6"></a>&#x2022; [`static_route_list`](#list-934be6) - Optional List<br>List of Static Routes. List of Static routes
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List
+
+<a id="deep-73d901"></a>Deeply nested **List** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route
+
+<a id="deep-b4e4bd"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Labels
+
+<a id="deep-f530b9"></a>Deeply nested **Labels** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop
+
+<a id="deep-120b78"></a>Deeply nested **Nexthop** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Interface
+
+<a id="deep-c4d29c"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address
+
+<a id="deep-ad9b56"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
+
+<a id="deep-9a451e"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv6
+
+<a id="deep-e4b363"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Subnets
+
+<a id="deep-06c441"></a>Deeply nested **Subnets** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Subnets IPv4
+
+<a id="deep-f3e7f6"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Subnets IPv6
+
+<a id="deep-68de1f"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode
+
+A [`performance_enhancement_mode`](#ingress-egress-gw-ar-performance-enhancement-mode) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+<a id="enhanced-a59693"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-a59693) - Optional String<br>Configuration parameter for perf mode l3 enhanced
+
+<a id="enhanced-afec80"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-afec80) - Optional String<br>Configuration parameter for perf mode l7 enhanced
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced
+
+<a id="deep-fcdd56"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-1bd3fe"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-2e810e"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-c39f80"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-6ab378"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-bd8755"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Sm Connection Public IP
+
+<a id="deep-ff465e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Sm Connection Pvt IP
+
+<a id="deep-dd09e3"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Ingress Gw
+
+An [`ingress_gw`](#ingress-gw) block supports the following:
+
+<a id="networking-5f0cba"></a>&#x2022; [`accelerated_networking`](#networking-5f0cba) - Optional String<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen. Server applies default when omitted
+
+<a id="nestedatt--coordinates-az-nodes"></a>&#x2022; [`az_nodes`](#nestedatt--coordinates-az-nodes) - Optional List<br>Only Single AZ or Three AZ(s) nodes are supported currently
+
+<a id="certified-hw-a75ac2"></a>&#x2022; [`azure_certified_hw`](#certified-hw-a75ac2) - Optional String<br>[Enum: azure-byol-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`
+
+<a id="mode-b5f441"></a>&#x2022; [`performance_enhancement_mode`](#mode-b5f441) - Optional String<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default. Server applies default when omitted
+
+#### Ingress Gw Accelerated Networking
+
+An [`accelerated_networking`](#ingress-gw-accelerated-networking) block (within [`ingress_gw`](#ingress-gw)) supports the following:
+
+<a id="nestedatt--coordinates-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--coordinates-disable-spec) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-enable"></a>&#x2022; [`enable`](#nestedatt--coordinates-enable) - Optional Object<br>Enable this option
+
+#### Ingress Gw Accelerated Networking Disable Spec
+
+A [`disable_spec`](#ingress-gw-accelerated-networking-disable-spec) block (within [`ingress_gw.accelerated_networking`](#ingress-gw-accelerated-networking)) supports the following:
+
+#### Ingress Gw Accelerated Networking Enable
+
+An [`enable`](#ingress-gw-accelerated-networking-enable) block (within [`ingress_gw.accelerated_networking`](#ingress-gw-accelerated-networking)) supports the following:
+
+#### Ingress Gw Az Nodes
+
+An [`az_nodes`](#ingress-gw-az-nodes) block (within [`ingress_gw`](#ingress-gw)) supports the following:
+
+<a id="nestedatt--coordinates-azure-az"></a>&#x2022; [`azure_az`](#nestedatt--coordinates-azure-az) - Optional String<br>Possible values are `1`, `2`, `3`<br>[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input
+
+<a id="nestedatt--coordinates-local-subnet"></a>&#x2022; [`local_subnet`](#nestedatt--coordinates-local-subnet) - Optional String<br>Configuration parameter for local subnet
+
+#### Ingress Gw Az Nodes Local Subnet
+
+A [`local_subnet`](#ingress-gw-az-nodes-local-subnet) block (within [`ingress_gw.az_nodes`](#ingress-gw-az-nodes)) supports the following:
+
+<a id="nestedatt--coordinates-subnet"></a>&#x2022; [`subnet`](#nestedatt--coordinates-subnet) - Optional String<br>Subnet specification for network segmentation
+
+<a id="nestedatt--coordinates-subnet-param"></a>&#x2022; [`subnet_param`](#nestedatt--coordinates-subnet-param) - Optional String<br>Parameters for creating a new cloud subnet
+
+#### Ingress Gw Az Nodes Local Subnet Subnet
+
+A [`subnet`](#ingress-gw-az-nodes-local-subnet-subnet) block (within [`ingress_gw.az_nodes.local_subnet`](#ingress-gw-az-nodes-local-subnet)) supports the following:
+
+<a id="nestedatt--coordinates-subnet-name"></a>&#x2022; [`subnet_name`](#nestedatt--coordinates-subnet-name) - Optional String<br>Subnet Name. Name of existing subnet
+
+<a id="grp-9c8e5a"></a>&#x2022; [`subnet_resource_grp`](#grp-9c8e5a) - Optional String<br>Specify name of Resource Group
+
+<a id="group-8fb4bd"></a>&#x2022; [`vnet_resource_group`](#group-8fb4bd) - Optional Object<br>Configuration parameter for VNET resource group
+
+#### Ingress Gw Az Nodes Local Subnet Subnet VNET Resource Group
+
+<a id="deep-ff51fa"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Gw Az Nodes Local Subnet Subnet Param
+
+<a id="deep-2c0fa5"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode
+
+A [`performance_enhancement_mode`](#ingress-gw-performance-enhancement-mode) block (within [`ingress_gw`](#ingress-gw)) supports the following:
+
+<a id="enhanced-a59693"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-a59693) - Optional String<br>Configuration parameter for perf mode l3 enhanced
+
+<a id="enhanced-afec80"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-afec80) - Optional String<br>Configuration parameter for perf mode l7 enhanced
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced
+
+<a id="deep-690f7e"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-7b934c"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-79581d"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-4e15d8"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-4e1f91"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-244a42"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Ingress Gw Ar
+
+An [`ingress_gw_ar`](#ingress-gw-ar) block supports the following:
+
+<a id="networking-5f0cba"></a>&#x2022; [`accelerated_networking`](#networking-5f0cba) - Optional String<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen
+
+<a id="certified-hw-a75ac2"></a>&#x2022; [`azure_certified_hw`](#certified-hw-a75ac2) - Optional String<br>[Enum: azure-byol-voltmesh] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`
+
+<a id="nestedatt--coordinates-node"></a>&#x2022; [`node`](#nestedatt--coordinates-node) - Optional String<br>Parameters for creating Single interface Node for Alternate Region
+
+<a id="mode-b5f441"></a>&#x2022; [`performance_enhancement_mode`](#mode-b5f441) - Optional String<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default
+
+#### Ingress Gw Ar Accelerated Networking
+
+An [`accelerated_networking`](#ingress-gw-ar-accelerated-networking) block (within [`ingress_gw_ar`](#ingress-gw-ar)) supports the following:
+
+<a id="nestedatt--coordinates-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--coordinates-disable-spec) - Optional Object<br>Enable this option
+
+<a id="nestedatt--coordinates-enable"></a>&#x2022; [`enable`](#nestedatt--coordinates-enable) - Optional Object<br>Enable this option
+
+#### Ingress Gw Ar Accelerated Networking Disable Spec
+
+A [`disable_spec`](#ingress-gw-ar-accelerated-networking-disable-spec) block (within [`ingress_gw_ar.accelerated_networking`](#ingress-gw-ar-accelerated-networking)) supports the following:
+
+#### Ingress Gw Ar Accelerated Networking Enable
+
+An [`enable`](#ingress-gw-ar-accelerated-networking-enable) block (within [`ingress_gw_ar.accelerated_networking`](#ingress-gw-ar-accelerated-networking)) supports the following:
+
+#### Ingress Gw Ar Node
+
+A [`node`](#ingress-gw-ar-node) block (within [`ingress_gw_ar`](#ingress-gw-ar)) supports the following:
+
+<a id="nestedatt--coordinates-fault-domain"></a>&#x2022; [`fault_domain`](#nestedatt--coordinates-fault-domain) - Optional Number<br>Namuber of fault domains to be used while creating the availability set
+
+<a id="nestedatt--coordinates-local-subnet"></a>&#x2022; [`local_subnet`](#nestedatt--coordinates-local-subnet) - Optional String<br>Configuration parameter for local subnet
+
+<a id="nestedatt--coordinates-node-number"></a>&#x2022; [`node_number`](#nestedatt--coordinates-node-number) - Optional Number<br>Number of main nodes to create, either 1 or 3
+
+<a id="nestedatt--coordinates-update-domain"></a>&#x2022; [`update_domain`](#nestedatt--coordinates-update-domain) - Optional Number<br>Namuber of update domains to be used while creating the availability set
+
+#### Ingress Gw Ar Node Local Subnet
+
+A [`local_subnet`](#ingress-gw-ar-node-local-subnet) block (within [`ingress_gw_ar.node`](#ingress-gw-ar-node)) supports the following:
+
+<a id="nestedatt--coordinates-subnet"></a>&#x2022; [`subnet`](#nestedatt--coordinates-subnet) - Optional String<br>Subnet specification for network segmentation
+
+<a id="nestedatt--coordinates-subnet-param"></a>&#x2022; [`subnet_param`](#nestedatt--coordinates-subnet-param) - Optional String<br>Parameters for creating a new cloud subnet
+
+#### Ingress Gw Ar Node Local Subnet Subnet
+
+A [`subnet`](#ingress-gw-ar-node-local-subnet-subnet) block (within [`ingress_gw_ar.node.local_subnet`](#ingress-gw-ar-node-local-subnet)) supports the following:
+
+<a id="nestedatt--coordinates-subnet-name"></a>&#x2022; [`subnet_name`](#nestedatt--coordinates-subnet-name) - Optional String<br>Subnet Name. Name of existing subnet
+
+<a id="grp-9c8e5a"></a>&#x2022; [`subnet_resource_grp`](#grp-9c8e5a) - Optional String<br>Specify name of Resource Group
+
+<a id="group-8fb4bd"></a>&#x2022; [`vnet_resource_group`](#group-8fb4bd) - Optional Object<br>Configuration parameter for VNET resource group
+
+#### Ingress Gw Ar Node Local Subnet Subnet VNET Resource Group
+
+<a id="deep-e6315f"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Gw Ar Node Local Subnet Subnet Param
+
+<a id="deep-da8cef"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode
+
+A [`performance_enhancement_mode`](#ingress-gw-ar-performance-enhancement-mode) block (within [`ingress_gw_ar`](#ingress-gw-ar)) supports the following:
+
+<a id="enhanced-a59693"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-a59693) - Optional String<br>Configuration parameter for perf mode l3 enhanced
+
+<a id="enhanced-afec80"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-afec80) - Optional String<br>Configuration parameter for perf mode l7 enhanced
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced
+
+<a id="deep-c7f2da"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-5fac22"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-18ab9b"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-dcd8f3"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-962a10"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-128ff6"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Kubernetes Upgrade Drain
+
+A [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) block supports the following:
+
+<a id="drain-f4e533"></a>&#x2022; [`disable_upgrade_drain`](#drain-f4e533) - Optional Object<br>Configuration parameter for disable upgrade drain
+
+<a id="drain-8b729a"></a>&#x2022; [`enable_upgrade_drain`](#drain-8b729a) - Optional String<br>Specify batch upgrade settings for worker nodes within a site
+
+#### Kubernetes Upgrade Drain Disable Upgrade Drain
+
+A [`disable_upgrade_drain`](#kubernetes-upgrade-drain-disable-upgrade-drain) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain
+
+An [`enable_upgrade_drain`](#kubernetes-upgrade-drain-enable-upgrade-drain) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
+
+<a id="mode-9e6465"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-9e6465) - Optional Object<br>Configuration parameter for disable vega upgrade mode
+
+<a id="count-74c459"></a>&#x2022; [`drain_max_unavailable_node_count`](#count-74c459) - Optional Number<br>Node Batch Size Count
+
+<a id="percentage-acfd68"></a>&#x2022; [`drain_max_unavailable_node_percentage`](#percentage-acfd68) - Optional Number<br>Maximum percentage of nodes unavailable during upgrade draining
+
+<a id="timeout-6767a4"></a>&#x2022; [`drain_node_timeout`](#timeout-6767a4) - Optional Number<br>Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
+
+<a id="mode-9fe695"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9fe695) - Optional Object<br>Configuration parameter for enable vega upgrade mode
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Disable Vega Upgrade Mode
+
+<a id="deep-6040f2"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Enable Vega Upgrade Mode
+
+<a id="deep-ea033c"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Log Receiver
+
+A [`log_receiver`](#log-receiver) block supports the following:
+
+<a id="nestedatt--coordinates-name"></a>&#x2022; [`name`](#nestedatt--coordinates-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--coordinates-namespace"></a>&#x2022; [`namespace`](#nestedatt--coordinates-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--coordinates-tenant"></a>&#x2022; [`tenant`](#nestedatt--coordinates-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Logs Streaming Disabled
+
+A [`logs_streaming_disabled`](#logs-streaming-disabled) block supports the following:
+
+#### No Worker Nodes
+
+A [`no_worker_nodes`](#no-worker-nodes) block supports the following:
+
+#### Offline Survivability Mode
+
+An [`offline_survivability_mode`](#offline-survivability-mode) block supports the following:
+
+<a id="mode-40f8c6"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-40f8c6) - Optional Object<br>Configuration parameter for enable offline survivability mode
+
+<a id="mode-f3c0ca"></a>&#x2022; [`no_offline_survivability_mode`](#mode-f3c0ca) - Optional Object<br>Configuration parameter for no offline survivability mode
+
+#### Offline Survivability Mode Enable Offline Survivability Mode
+
+An [`enable_offline_survivability_mode`](#offline-survivability-mode-enable-offline-survivability-mode) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
+
+#### Offline Survivability Mode No Offline Survivability Mode
+
+A [`no_offline_survivability_mode`](#offline-survivability-mode-no-offline-survivability-mode) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
+
+#### OS
+
+An [`os`](#os) block supports the following:
+
+<a id="nestedatt--os-default-os-version"></a>&#x2022; [`default_os_version`](#nestedatt--os-default-os-version) - Optional Object<br>Enable this option
+
+<a id="nestedatt--os-operating-system-version"></a>&#x2022; [`operating_system_version`](#nestedatt--os-operating-system-version) - Optional String<br>Specify a OS version to be used e.g. 9.2024.6
+
+#### OS Default OS Version
+
+A [`default_os_version`](#os-default-os-version) block (within [`os`](#os)) supports the following:
+
+#### Sw
+
+A [`sw`](#sw) block supports the following:
+
+<a id="nestedatt--sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#nestedatt--sw-default-sw-version) - Optional Object<br>Enable this option
+
+<a id="nestedatt--sw-volterra-software-version"></a>&#x2022; [`volterra_software_version`](#nestedatt--sw-volterra-software-version) - Optional String<br>Specify a F5XC Software Version to be used e.g. Crt-20210329-1002
+
+#### Sw Default Sw Version
+
+A [`default_sw_version`](#sw-default-sw-version) block (within [`sw`](#sw)) supports the following:
+
+#### VNET
+
+A [`vnet`](#vnet) block supports the following:
+
+<a id="nestedatt--vnet-existing-vnet"></a>&#x2022; [`existing_vnet`](#nestedatt--vnet-existing-vnet) - Optional String<br>Resource group and name of existing Azure VNET
+
+<a id="nestedatt--vnet-new-vnet"></a>&#x2022; [`new_vnet`](#nestedatt--vnet-new-vnet) - Optional String<br>Azure VNET Parameters. Parameters to create a new Azure VNET
+
+#### VNET Existing VNET
+
+An [`existing_vnet`](#vnet-existing-vnet) block (within [`vnet`](#vnet)) supports the following:
+
+<a id="nestedatt--vnet-f5-orchestrated-routing"></a>&#x2022; [`f5_orchestrated_routing`](#nestedatt--vnet-f5-orchestrated-routing) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-manual-routing"></a>&#x2022; [`manual_routing`](#nestedatt--vnet-manual-routing) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-resource-group"></a>&#x2022; [`resource_group`](#nestedatt--vnet-resource-group) - Optional String<br>Existing VNET Resource Group. Resource group of existing VNET
+
+<a id="nestedatt--vnet-vnet-name"></a>&#x2022; [`vnet_name`](#nestedatt--vnet-vnet-name) - Optional String<br>Existing VNET Name. Name of existing VNET
+
+#### VNET Existing VNET F5 Orchestrated Routing
+
+A [`f5_orchestrated_routing`](#vnet-existing-vnet-f5-orchestrated-routing) block (within [`vnet.existing_vnet`](#vnet-existing-vnet)) supports the following:
+
+#### VNET Existing VNET Manual Routing
+
+A [`manual_routing`](#vnet-existing-vnet-manual-routing) block (within [`vnet.existing_vnet`](#vnet-existing-vnet)) supports the following:
+
+#### VNET New VNET
+
+A [`new_vnet`](#vnet-new-vnet) block (within [`vnet`](#vnet)) supports the following:
+
+<a id="nestedatt--vnet-autogenerate"></a>&#x2022; [`autogenerate`](#nestedatt--vnet-autogenerate) - Optional Object<br>Configuration parameter for autogenerate
+
+<a id="nestedatt--vnet-name"></a>&#x2022; [`name`](#nestedatt--vnet-name) - Optional String<br>Specify the VNET Name
+
+<a id="nestedatt--vnet-primary-ipv4"></a>&#x2022; [`primary_ipv4`](#nestedatt--vnet-primary-ipv4) - Optional String<br>IPv4 CIDR block for this VNET. It has to be private address space
+
+#### VNET New VNET Autogenerate
+
+An [`autogenerate`](#vnet-new-vnet-autogenerate) block (within [`vnet.new_vnet`](#vnet-new-vnet)) supports the following:
+
+#### Voltstack Cluster
+
+A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
+
+<a id="nestedatt--vnet-accelerated-networking"></a>&#x2022; [`accelerated_networking`](#nestedatt--vnet-accelerated-networking) - Optional String<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen
+
+<a id="policies-3711e7"></a>&#x2022; [`active_enhanced_firewall_policies`](#policies-3711e7) - Optional String<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion
+
+<a id="policies-3b82ff"></a>&#x2022; [`active_forward_proxy_policies`](#policies-3b82ff) - Optional String<br>Ordered List of Forward Proxy Policies active
+
+<a id="nestedatt--vnet-active-network-policies"></a>&#x2022; [`active_network_policies`](#nestedatt--vnet-active-network-policies) - Optional String<br>Configuration parameter for active network policies
+
+<a id="nestedatt--vnet-az-nodes"></a>&#x2022; [`az_nodes`](#nestedatt--vnet-az-nodes) - Optional List<br>Only Single AZ or Three AZ(s) nodes are supported currently
+
+<a id="nestedatt--vnet-azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#nestedatt--vnet-azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltstack-combo] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`
+
+<a id="nestedatt--vnet-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#nestedatt--vnet-dc-cluster-group) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--vnet-default-storage"></a>&#x2022; [`default_storage`](#nestedatt--vnet-default-storage) - Optional Object<br>Configuration parameter for default storage
+
+<a id="nestedatt--vnet-forward-proxy-allow-all"></a>&#x2022; [`forward_proxy_allow_all`](#nestedatt--vnet-forward-proxy-allow-all) - Optional Object<br>Configuration parameter for forward proxy allow all
+
+<a id="nestedatt--vnet-global-network-list"></a>&#x2022; [`global_network_list`](#nestedatt--vnet-global-network-list) - Optional String<br>Global Network Connection List. List of global network connections
+
+<a id="nestedatt--vnet-k8s-cluster"></a>&#x2022; [`k8s_cluster`](#nestedatt--vnet-k8s-cluster) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--vnet-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#nestedatt--vnet-no-dc-cluster-group) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#nestedatt--vnet-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
+
+<a id="nestedatt--vnet-no-global-network"></a>&#x2022; [`no_global_network`](#nestedatt--vnet-no-global-network) - Optional Object<br>Configuration parameter for no global network
+
+<a id="nestedatt--vnet-no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#nestedatt--vnet-no-k8s-cluster) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-no-network-policy"></a>&#x2022; [`no_network_policy`](#nestedatt--vnet-no-network-policy) - Optional Object<br>Policy configuration for this feature
+
+<a id="routes-e3ec6a"></a>&#x2022; [`no_outside_static_routes`](#routes-e3ec6a) - Optional Object<br>Configuration parameter for no outside static routes
+
+<a id="nestedatt--vnet-outside-static-routes"></a>&#x2022; [`outside_static_routes`](#nestedatt--vnet-outside-static-routes) - Optional String<br>Configuration parameter for outside static routes
+
+<a id="nestedatt--vnet-sm-connection-public-ip"></a>&#x2022; [`sm_connection_public_ip`](#nestedatt--vnet-sm-connection-public-ip) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#nestedatt--vnet-sm-connection-pvt-ip) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-storage-class-list"></a>&#x2022; [`storage_class_list`](#nestedatt--vnet-storage-class-list) - Optional String<br>Add additional custom storage classes in Kubernetes for this site
+
+#### Voltstack Cluster Accelerated Networking
+
+An [`accelerated_networking`](#voltstack-cluster-accelerated-networking) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="nestedatt--vnet-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--vnet-disable-spec) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-enable"></a>&#x2022; [`enable`](#nestedatt--vnet-enable) - Optional Object<br>Enable this option
+
+#### Voltstack Cluster Accelerated Networking Disable Spec
+
+A [`disable_spec`](#voltstack-cluster-accelerated-networking-disable-spec) block (within [`voltstack_cluster.accelerated_networking`](#voltstack-cluster-accelerated-networking)) supports the following:
+
+#### Voltstack Cluster Accelerated Networking Enable
+
+An [`enable`](#voltstack-cluster-accelerated-networking-enable) block (within [`voltstack_cluster.accelerated_networking`](#voltstack-cluster-accelerated-networking)) supports the following:
+
+#### Voltstack Cluster Active Enhanced Firewall Policies
+
+An [`active_enhanced_firewall_policies`](#voltstack-cluster-active-enhanced-firewall-policies) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="policies-bd35f8"></a>&#x2022; [`enhanced_firewall_policies`](#policies-bd35f8) - Optional List<br>Ordered List of Enhanced Firewall Policies active
+
+#### Voltstack Cluster Active Enhanced Firewall Policies Enhanced Firewall Policies
+
+<a id="deep-bf6f5b"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Voltstack Cluster Active Forward Proxy Policies
+
+An [`active_forward_proxy_policies`](#voltstack-cluster-active-forward-proxy-policies) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="nestedatt--vnet-forward-proxy-policies"></a>&#x2022; [`forward_proxy_policies`](#nestedatt--vnet-forward-proxy-policies) - Optional List<br>Ordered List of Forward Proxy Policies active
+
+#### Voltstack Cluster Active Forward Proxy Policies Forward Proxy Policies
+
+<a id="deep-73e925"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Voltstack Cluster Active Network Policies
+
+An [`active_network_policies`](#voltstack-cluster-active-network-policies) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="nestedatt--vnet-network-policies"></a>&#x2022; [`network_policies`](#nestedatt--vnet-network-policies) - Optional List<br>Ordered List of Firewall Policies active for this network firewall
+
+#### Voltstack Cluster Active Network Policies Network Policies
+
+A [`network_policies`](#voltstack-cluster-active-network-policies-network-policies) block (within [`voltstack_cluster.active_network_policies`](#voltstack-cluster-active-network-policies)) supports the following:
+
+<a id="nestedatt--vnet-name"></a>&#x2022; [`name`](#nestedatt--vnet-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--vnet-namespace"></a>&#x2022; [`namespace`](#nestedatt--vnet-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--vnet-tenant"></a>&#x2022; [`tenant`](#nestedatt--vnet-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster Az Nodes
+
+An [`az_nodes`](#voltstack-cluster-az-nodes) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="nestedatt--vnet-azure-az"></a>&#x2022; [`azure_az`](#nestedatt--vnet-azure-az) - Optional String<br>Possible values are `1`, `2`, `3`<br>[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input
+
+<a id="nestedatt--vnet-local-subnet"></a>&#x2022; [`local_subnet`](#nestedatt--vnet-local-subnet) - Optional String<br>Configuration parameter for local subnet
+
+#### Voltstack Cluster Az Nodes Local Subnet
+
+A [`local_subnet`](#voltstack-cluster-az-nodes-local-subnet) block (within [`voltstack_cluster.az_nodes`](#voltstack-cluster-az-nodes)) supports the following:
+
+<a id="nestedatt--vnet-subnet"></a>&#x2022; [`subnet`](#nestedatt--vnet-subnet) - Optional String<br>Subnet specification for network segmentation
+
+<a id="nestedatt--vnet-subnet-param"></a>&#x2022; [`subnet_param`](#nestedatt--vnet-subnet-param) - Optional String<br>Parameters for creating a new cloud subnet
+
+#### Voltstack Cluster Az Nodes Local Subnet Subnet
+
+A [`subnet`](#voltstack-cluster-az-nodes-local-subnet-subnet) block (within [`voltstack_cluster.az_nodes.local_subnet`](#voltstack-cluster-az-nodes-local-subnet)) supports the following:
+
+<a id="nestedatt--vnet-subnet-name"></a>&#x2022; [`subnet_name`](#nestedatt--vnet-subnet-name) - Optional String<br>Subnet Name. Name of existing subnet
+
+<a id="nestedatt--vnet-subnet-resource-grp"></a>&#x2022; [`subnet_resource_grp`](#nestedatt--vnet-subnet-resource-grp) - Optional String<br>Specify name of Resource Group
+
+<a id="nestedatt--vnet-vnet-resource-group"></a>&#x2022; [`vnet_resource_group`](#nestedatt--vnet-vnet-resource-group) - Optional Object<br>Configuration parameter for VNET resource group
+
+#### Voltstack Cluster Az Nodes Local Subnet Subnet VNET Resource Group
+
+<a id="deep-848e5e"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Voltstack Cluster Az Nodes Local Subnet Subnet Param
+
+<a id="deep-5303b7"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Voltstack Cluster Dc Cluster Group
+
+A [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="nestedatt--vnet-name"></a>&#x2022; [`name`](#nestedatt--vnet-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--vnet-namespace"></a>&#x2022; [`namespace`](#nestedatt--vnet-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--vnet-tenant"></a>&#x2022; [`tenant`](#nestedatt--vnet-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster Default Storage
+
+A [`default_storage`](#voltstack-cluster-default-storage) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#voltstack-cluster-forward-proxy-allow-all) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Global Network List
+
+A [`global_network_list`](#voltstack-cluster-global-network-list) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="connections-271c9f"></a>&#x2022; [`global_network_connections`](#connections-271c9f) - Optional List<br>Global Network Connections. Global network connections
+
+#### Voltstack Cluster Global Network List Global Network Connections
+
+<a id="deep-974094"></a>Deeply nested **Connections** block collapsed for readability.
+
+#### Voltstack Cluster Global Network List Global Network Connections SLI To Global DR
+
+<a id="deep-8abeaa"></a>Deeply nested **DR** block collapsed for readability.
+
+#### Voltstack Cluster Global Network List Global Network Connections SLI To Global DR Global Vn
+
+<a id="deep-44dfa7"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Voltstack Cluster Global Network List Global Network Connections Slo To Global DR
+
+<a id="deep-a8283c"></a>Deeply nested **DR** block collapsed for readability.
+
+#### Voltstack Cluster Global Network List Global Network Connections Slo To Global DR Global Vn
+
+<a id="deep-3168f1"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Voltstack Cluster K8S Cluster
+
+A [`k8s_cluster`](#voltstack-cluster-k8s-cluster) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="nestedatt--vnet-name"></a>&#x2022; [`name`](#nestedatt--vnet-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--vnet-namespace"></a>&#x2022; [`namespace`](#nestedatt--vnet-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--vnet-tenant"></a>&#x2022; [`tenant`](#nestedatt--vnet-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#voltstack-cluster-no-dc-cluster-group) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Forward Proxy
+
+A [`no_forward_proxy`](#voltstack-cluster-no-forward-proxy) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Global Network
+
+A [`no_global_network`](#voltstack-cluster-no-global-network) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No K8S Cluster
+
+A [`no_k8s_cluster`](#voltstack-cluster-no-k8s-cluster) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Network Policy
+
+A [`no_network_policy`](#voltstack-cluster-no-network-policy) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Outside Static Routes
+
+A [`no_outside_static_routes`](#voltstack-cluster-no-outside-static-routes) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Outside Static Routes
+
+An [`outside_static_routes`](#voltstack-cluster-outside-static-routes) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="nestedatt--vnet-static-route-list"></a>&#x2022; [`static_route_list`](#nestedatt--vnet-static-route-list) - Optional List<br>List of Static Routes. List of Static routes
+
+#### Voltstack Cluster Outside Static Routes Static Route List
+
+<a id="deep-8327ca"></a>Deeply nested **List** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route
+
+<a id="deep-a60273"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Labels
+
+<a id="deep-92798a"></a>Deeply nested **Labels** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop
+
+<a id="deep-9cbea6"></a>Deeply nested **Nexthop** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop Interface
+
+<a id="deep-81201b"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address
+
+<a id="deep-fe330c"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
+
+<a id="deep-f7834a"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv6
+
+<a id="deep-0d1284"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Subnets
+
+<a id="deep-626be0"></a>Deeply nested **Subnets** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Subnets IPv4
+
+<a id="deep-a073ef"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Subnets IPv6
+
+<a id="deep-85f420"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Voltstack Cluster Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#voltstack-cluster-sm-connection-public-ip) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#voltstack-cluster-sm-connection-pvt-ip) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Storage Class List
+
+A [`storage_class_list`](#voltstack-cluster-storage-class-list) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+<a id="nestedatt--vnet-storage-classes"></a>&#x2022; [`storage_classes`](#nestedatt--vnet-storage-classes) - Optional List<br>List of Storage Classes. List of custom storage classes
+
+#### Voltstack Cluster Storage Class List Storage Classes
+
+A [`storage_classes`](#voltstack-cluster-storage-class-list-storage-classes) block (within [`voltstack_cluster.storage_class_list`](#voltstack-cluster-storage-class-list)) supports the following:
+
+<a id="nestedatt--vnet-default-storage-class"></a>&#x2022; [`default_storage_class`](#nestedatt--vnet-default-storage-class) - Optional Bool<br>Make this storage class default storage class for the K8S cluster
+
+<a id="nestedatt--vnet-storage-class-name"></a>&#x2022; [`storage_class_name`](#nestedatt--vnet-storage-class-name) - Optional String<br>Name of the storage class as it will appear in K8S
+
+#### Voltstack Cluster Ar
+
+A [`voltstack_cluster_ar`](#voltstack-cluster-ar) block supports the following:
+
+<a id="nestedatt--vnet-accelerated-networking"></a>&#x2022; [`accelerated_networking`](#nestedatt--vnet-accelerated-networking) - Optional String<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen
+
+<a id="policies-3711e7"></a>&#x2022; [`active_enhanced_firewall_policies`](#policies-3711e7) - Optional String<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion
+
+<a id="policies-3b82ff"></a>&#x2022; [`active_forward_proxy_policies`](#policies-3b82ff) - Optional String<br>Ordered List of Forward Proxy Policies active
+
+<a id="nestedatt--vnet-active-network-policies"></a>&#x2022; [`active_network_policies`](#nestedatt--vnet-active-network-policies) - Optional String<br>Configuration parameter for active network policies
+
+<a id="nestedatt--vnet-azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#nestedatt--vnet-azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltstack-combo] Azure Certified Hardware. Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`
+
+<a id="nestedatt--vnet-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#nestedatt--vnet-dc-cluster-group) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--vnet-default-storage"></a>&#x2022; [`default_storage`](#nestedatt--vnet-default-storage) - Optional Object<br>Configuration parameter for default storage
+
+<a id="nestedatt--vnet-forward-proxy-allow-all"></a>&#x2022; [`forward_proxy_allow_all`](#nestedatt--vnet-forward-proxy-allow-all) - Optional Object<br>Configuration parameter for forward proxy allow all
+
+<a id="nestedatt--vnet-global-network-list"></a>&#x2022; [`global_network_list`](#nestedatt--vnet-global-network-list) - Optional String<br>Global Network Connection List. List of global network connections
+
+<a id="nestedatt--vnet-k8s-cluster"></a>&#x2022; [`k8s_cluster`](#nestedatt--vnet-k8s-cluster) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--vnet-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#nestedatt--vnet-no-dc-cluster-group) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#nestedatt--vnet-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
+
+<a id="nestedatt--vnet-no-global-network"></a>&#x2022; [`no_global_network`](#nestedatt--vnet-no-global-network) - Optional Object<br>Configuration parameter for no global network
+
+<a id="nestedatt--vnet-no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#nestedatt--vnet-no-k8s-cluster) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-no-network-policy"></a>&#x2022; [`no_network_policy`](#nestedatt--vnet-no-network-policy) - Optional Object<br>Policy configuration for this feature
+
+<a id="routes-e3ec6a"></a>&#x2022; [`no_outside_static_routes`](#routes-e3ec6a) - Optional Object<br>Configuration parameter for no outside static routes
+
+<a id="nestedatt--vnet-node"></a>&#x2022; [`node`](#nestedatt--vnet-node) - Optional String<br>Parameters for creating Single interface Node for Alternate Region
+
+<a id="nestedatt--vnet-outside-static-routes"></a>&#x2022; [`outside_static_routes`](#nestedatt--vnet-outside-static-routes) - Optional String<br>Configuration parameter for outside static routes
+
+<a id="nestedatt--vnet-sm-connection-public-ip"></a>&#x2022; [`sm_connection_public_ip`](#nestedatt--vnet-sm-connection-public-ip) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#nestedatt--vnet-sm-connection-pvt-ip) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-storage-class-list"></a>&#x2022; [`storage_class_list`](#nestedatt--vnet-storage-class-list) - Optional String<br>Add additional custom storage classes in Kubernetes for this site
+
+#### Voltstack Cluster Ar Accelerated Networking
+
+An [`accelerated_networking`](#voltstack-cluster-ar-accelerated-networking) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="nestedatt--vnet-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--vnet-disable-spec) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-enable"></a>&#x2022; [`enable`](#nestedatt--vnet-enable) - Optional Object<br>Enable this option
+
+#### Voltstack Cluster Ar Accelerated Networking Disable Spec
+
+A [`disable_spec`](#voltstack-cluster-ar-accelerated-networking-disable-spec) block (within [`voltstack_cluster_ar.accelerated_networking`](#voltstack-cluster-ar-accelerated-networking)) supports the following:
+
+#### Voltstack Cluster Ar Accelerated Networking Enable
+
+An [`enable`](#voltstack-cluster-ar-accelerated-networking-enable) block (within [`voltstack_cluster_ar.accelerated_networking`](#voltstack-cluster-ar-accelerated-networking)) supports the following:
+
+#### Voltstack Cluster Ar Active Enhanced Firewall Policies
+
+An [`active_enhanced_firewall_policies`](#voltstack-cluster-ar-active-enhanced-firewall-policies) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="policies-bd35f8"></a>&#x2022; [`enhanced_firewall_policies`](#policies-bd35f8) - Optional List<br>Ordered List of Enhanced Firewall Policies active
+
+#### Voltstack Cluster Ar Active Enhanced Firewall Policies Enhanced Firewall Policies
+
+<a id="deep-93d92f"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Voltstack Cluster Ar Active Forward Proxy Policies
+
+An [`active_forward_proxy_policies`](#voltstack-cluster-ar-active-forward-proxy-policies) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="nestedatt--vnet-forward-proxy-policies"></a>&#x2022; [`forward_proxy_policies`](#nestedatt--vnet-forward-proxy-policies) - Optional List<br>Ordered List of Forward Proxy Policies active
+
+#### Voltstack Cluster Ar Active Forward Proxy Policies Forward Proxy Policies
+
+<a id="deep-9cf721"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Voltstack Cluster Ar Active Network Policies
+
+An [`active_network_policies`](#voltstack-cluster-ar-active-network-policies) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="nestedatt--vnet-network-policies"></a>&#x2022; [`network_policies`](#nestedatt--vnet-network-policies) - Optional List<br>Ordered List of Firewall Policies active for this network firewall
+
+#### Voltstack Cluster Ar Active Network Policies Network Policies
+
+<a id="deep-38a720"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Voltstack Cluster Ar Dc Cluster Group
+
+A [`dc_cluster_group`](#voltstack-cluster-ar-dc-cluster-group) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="nestedatt--vnet-name"></a>&#x2022; [`name`](#nestedatt--vnet-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--vnet-namespace"></a>&#x2022; [`namespace`](#nestedatt--vnet-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--vnet-tenant"></a>&#x2022; [`tenant`](#nestedatt--vnet-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster Ar Default Storage
+
+A [`default_storage`](#voltstack-cluster-ar-default-storage) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#voltstack-cluster-ar-forward-proxy-allow-all) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar Global Network List
+
+A [`global_network_list`](#voltstack-cluster-ar-global-network-list) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="connections-271c9f"></a>&#x2022; [`global_network_connections`](#connections-271c9f) - Optional List<br>Global Network Connections. Global network connections
+
+#### Voltstack Cluster Ar Global Network List Global Network Connections
+
+<a id="deep-1198a7"></a>Deeply nested **Connections** block collapsed for readability.
+
+#### Voltstack Cluster Ar Global Network List Global Network Connections SLI To Global DR
+
+<a id="deep-a69e8f"></a>Deeply nested **DR** block collapsed for readability.
+
+#### Voltstack Cluster Ar Global Network List Global Network Connections SLI To Global DR Global Vn
+
+<a id="deep-951e13"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Voltstack Cluster Ar Global Network List Global Network Connections Slo To Global DR
+
+<a id="deep-cb868c"></a>Deeply nested **DR** block collapsed for readability.
+
+#### Voltstack Cluster Ar Global Network List Global Network Connections Slo To Global DR Global Vn
+
+<a id="deep-bde99c"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Voltstack Cluster Ar K8S Cluster
+
+A [`k8s_cluster`](#voltstack-cluster-ar-k8s-cluster) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="nestedatt--vnet-name"></a>&#x2022; [`name`](#nestedatt--vnet-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--vnet-namespace"></a>&#x2022; [`namespace`](#nestedatt--vnet-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--vnet-tenant"></a>&#x2022; [`tenant`](#nestedatt--vnet-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster Ar No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#voltstack-cluster-ar-no-dc-cluster-group) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No Forward Proxy
+
+A [`no_forward_proxy`](#voltstack-cluster-ar-no-forward-proxy) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No Global Network
+
+A [`no_global_network`](#voltstack-cluster-ar-no-global-network) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No K8S Cluster
+
+A [`no_k8s_cluster`](#voltstack-cluster-ar-no-k8s-cluster) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No Network Policy
+
+A [`no_network_policy`](#voltstack-cluster-ar-no-network-policy) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No Outside Static Routes
+
+A [`no_outside_static_routes`](#voltstack-cluster-ar-no-outside-static-routes) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar Node
+
+A [`node`](#voltstack-cluster-ar-node) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="nestedatt--vnet-fault-domain"></a>&#x2022; [`fault_domain`](#nestedatt--vnet-fault-domain) - Optional Number<br>Namuber of fault domains to be used while creating the availability set
+
+<a id="nestedatt--vnet-local-subnet"></a>&#x2022; [`local_subnet`](#nestedatt--vnet-local-subnet) - Optional String<br>Configuration parameter for local subnet
+
+<a id="nestedatt--vnet-node-number"></a>&#x2022; [`node_number`](#nestedatt--vnet-node-number) - Optional Number<br>Number of main nodes to create, either 1 or 3
+
+<a id="nestedatt--vnet-update-domain"></a>&#x2022; [`update_domain`](#nestedatt--vnet-update-domain) - Optional Number<br>Namuber of update domains to be used while creating the availability set
+
+#### Voltstack Cluster Ar Node Local Subnet
+
+A [`local_subnet`](#voltstack-cluster-ar-node-local-subnet) block (within [`voltstack_cluster_ar.node`](#voltstack-cluster-ar-node)) supports the following:
+
+<a id="nestedatt--vnet-subnet"></a>&#x2022; [`subnet`](#nestedatt--vnet-subnet) - Optional String<br>Subnet specification for network segmentation
+
+<a id="nestedatt--vnet-subnet-param"></a>&#x2022; [`subnet_param`](#nestedatt--vnet-subnet-param) - Optional String<br>Parameters for creating a new cloud subnet
+
+#### Voltstack Cluster Ar Node Local Subnet Subnet
+
+A [`subnet`](#voltstack-cluster-ar-node-local-subnet-subnet) block (within [`voltstack_cluster_ar.node.local_subnet`](#voltstack-cluster-ar-node-local-subnet)) supports the following:
+
+<a id="nestedatt--vnet-subnet-name"></a>&#x2022; [`subnet_name`](#nestedatt--vnet-subnet-name) - Optional String<br>Subnet Name. Name of existing subnet
+
+<a id="nestedatt--vnet-subnet-resource-grp"></a>&#x2022; [`subnet_resource_grp`](#nestedatt--vnet-subnet-resource-grp) - Optional String<br>Specify name of Resource Group
+
+<a id="nestedatt--vnet-vnet-resource-group"></a>&#x2022; [`vnet_resource_group`](#nestedatt--vnet-vnet-resource-group) - Optional Object<br>Configuration parameter for VNET resource group
+
+#### Voltstack Cluster Ar Node Local Subnet Subnet VNET Resource Group
+
+<a id="deep-9a4ceb"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Voltstack Cluster Ar Node Local Subnet Subnet Param
+
+<a id="deep-db8b2c"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes
+
+An [`outside_static_routes`](#voltstack-cluster-ar-outside-static-routes) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="nestedatt--vnet-static-route-list"></a>&#x2022; [`static_route_list`](#nestedatt--vnet-static-route-list) - Optional List<br>List of Static Routes. List of Static routes
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List
+
+<a id="deep-859dd7"></a>Deeply nested **List** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route
+
+<a id="deep-611948"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Labels
+
+<a id="deep-ca3127"></a>Deeply nested **Labels** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop
+
+<a id="deep-d38345"></a>Deeply nested **Nexthop** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop Interface
+
+<a id="deep-f5a887"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address
+
+<a id="deep-ae52ed"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
+
+<a id="deep-77e9bc"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv6
+
+<a id="deep-ddfd10"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Subnets
+
+<a id="deep-ad5565"></a>Deeply nested **Subnets** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Subnets IPv4
+
+<a id="deep-651e2b"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Subnets IPv6
+
+<a id="deep-7e1352"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Voltstack Cluster Ar Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#voltstack-cluster-ar-sm-connection-public-ip) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#voltstack-cluster-ar-sm-connection-pvt-ip) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar Storage Class List
+
+A [`storage_class_list`](#voltstack-cluster-ar-storage-class-list) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+<a id="nestedatt--vnet-storage-classes"></a>&#x2022; [`storage_classes`](#nestedatt--vnet-storage-classes) - Optional List<br>List of Storage Classes. List of custom storage classes
+
+#### Voltstack Cluster Ar Storage Class List Storage Classes
+
+<a id="deep-865f74"></a>Deeply nested **Classes** block collapsed for readability.
 
 ---
 

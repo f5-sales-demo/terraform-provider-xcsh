@@ -60,9 +60,63 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the ForwardingClass
 
+<a id="dscp"></a>&#x2022; [`dscp`](#dscp) - Optional String<br>DSCP Marking setting. DSCP marking setting as per RFC 2475
+
+<a id="dscp-based-queue"></a>&#x2022; [`dscp_based_queue`](#dscp-based-queue) - Optional Object<br>Configuration parameter for dscp based queue
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="interface-group"></a>&#x2022; [`interface_group`](#interface-group) - Optional String  Defaults to `ANY_AVAILABLE_INTERFACE`<br>Possible values are `ANY_AVAILABLE_INTERFACE`, `INTERFACE_GROUP1`, `INTERFACE_GROUP2`, `INTERFACE_GROUP3`<br>[Enum: ANY_AVAILABLE_INTERFACE|INTERFACE_GROUP1|INTERFACE_GROUP2|INTERFACE_GROUP3] Interface group, group membership by adding group label to interface
+Choose any of the available interfaces Choose all interfaces with label group1 Choose all interfaces with label group2 Choose all interfaces with label group3
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="no-marking"></a>&#x2022; [`no_marking`](#no-marking) - Optional Object<br>Enable this option
+
+<a id="no-policer"></a>&#x2022; [`no_policer`](#no-policer) - Optional Object<br>Enable this option
+
+<a id="policer"></a>&#x2022; [`policer`](#policer) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="queue-id-to-use"></a>&#x2022; [`queue_id_to_use`](#queue-id-to-use) - Optional String  Defaults to `DSCP_BEST_EFFORT`<br>Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`<br>[Enum:
+DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link
+Layer traffic like
+
+<a id="tos-value"></a>&#x2022; [`tos_value`](#tos-value) - Optional Number<br>Decimal value of raw 8 bit TOS. In above example DSCP 10 = Precedence Class 1 and drop precedence low
+
+---
+
+#### Dscp
+
+A [`dscp`](#dscp) block supports the following:
+
+<a id="nestedatt--dscp-drop-precedence"></a>&#x2022; [`drop_precedence`](#nestedatt--dscp-drop-precedence) - Optional String<br>Possible values are `DSCP_AF_LOW`, `DSCP_AF_MEDIUM`, `DSCP_AF_HIGH`, `DSCP_AF_POLICER`<br>[Enum: DSCP_AF_LOW|DSCP_AF_MEDIUM|DSCP_AF_HIGH|DSCP_AF_POLICER] DSCP Assured forwarding drop precedence DSCP Low drop precedence DSCP Low drop precedence DSCP Low drop precedence
+DSCP drop precedence value is taken from output of policer
+
+<a id="nestedatt--dscp-dscp-class"></a>&#x2022; [`dscp_class`](#nestedatt--dscp-dscp-class) - Optional String  Defaults to `DSCP_BEST_EFFORT`<br>Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`<br>[Enum:
+DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link
+Layer traffic like
+
+#### Dscp Based Queue
+
+A [`dscp_based_queue`](#dscp-based-queue) block supports the following:
+
+#### No Marking
+
+A [`no_marking`](#no-marking) block supports the following:
+
+#### No Policer
+
+A [`no_policer`](#no-policer) block supports the following:
+
+#### Policer
+
+A [`policer`](#policer) block supports the following:
+
+<a id="nestedatt--policer-name"></a>&#x2022; [`name`](#nestedatt--policer-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--policer-namespace"></a>&#x2022; [`namespace`](#nestedatt--policer-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--policer-tenant"></a>&#x2022; [`tenant`](#nestedatt--policer-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

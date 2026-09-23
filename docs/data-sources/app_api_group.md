@@ -58,11 +58,61 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="bigip-virtual-server"></a>&#x2022; [`bigip_virtual_server`](#bigip-virtual-server) - Optional String<br>Set the scope of the API Group to a specific BIG-IP Virtual Server
+
+<a id="cdn-loadbalancer"></a>&#x2022; [`cdn_loadbalancer`](#cdn-loadbalancer) - Optional String<br>Set the scope of the API Group to a specific CDN Loadbalancer
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the AppAPIGroup
+
+<a id="elements"></a>&#x2022; [`elements`](#elements) - Optional List<br>List of API group elements with methods and path regex for matching requests
+
+<a id="http-loadbalancer"></a>&#x2022; [`http_loadbalancer`](#http-loadbalancer) - Optional String<br>Set the scope of the API Group to a specific HTTP Loadbalancer
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="bigip-virtual-server"></a>&#x2022; [`bigip_virtual_server`](#bigip-virtual-server) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="cdn-loadbalancer"></a>&#x2022; [`cdn_loadbalancer`](#cdn-loadbalancer) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+---
+
+#### Elements
+
+An [`elements`](#elements) block supports the following:
+
+<a id="nestedatt--elements-methods"></a>&#x2022; [`methods`](#nestedatt--elements-methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> List of method values to match the input request API method against. The match is considered to succeed if the input request API method is a member of the list
+
+<a id="nestedatt--elements-path-regex"></a>&#x2022; [`path_regex`](#nestedatt--elements-path-regex) - Optional String<br>Regular expression to match the input request API path against. The match is considered to succeed if the input request API path matches the specified path regex
+
+#### HTTP Loadbalancer
+
+A [`http_loadbalancer`](#http-loadbalancer) block supports the following:
+
+<a id="nestedatt--elements-http-loadbalancer"></a>&#x2022; [`http_loadbalancer`](#nestedatt--elements-http-loadbalancer) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+#### HTTP Loadbalancer HTTP Loadbalancer
+
+A [`http_loadbalancer`](#http-loadbalancer-http-loadbalancer) block (within [`http_loadbalancer`](#http-loadbalancer)) supports the following:
+
+<a id="nestedatt--elements-name"></a>&#x2022; [`name`](#nestedatt--elements-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--elements-namespace"></a>&#x2022; [`namespace`](#nestedatt--elements-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--elements-tenant"></a>&#x2022; [`tenant`](#nestedatt--elements-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

@@ -81,11 +81,319 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="any-server"></a>&#x2022; [`any_server`](#any-server) - Optional Object<br>Enable this option
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the RateLimiterPolicy
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List  Defaults to `[]`<br>List of RateLimiterRules that are evaluated sequentially till a matching rule is identified.  Server applies default when omitted
+
+<a id="server-name"></a>&#x2022; [`server_name`](#server-name) - Optional String<br>The expected name of the server. The actual names for the server are extracted from the HTTP Host header and the name of the virtual_host for the request
+
+<a id="server-name-matcher"></a>&#x2022; [`server_name_matcher`](#server-name-matcher) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="server-selector"></a>&#x2022; [`server_selector`](#server-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+---
+
+#### Rules
+
+A [`rules`](#rules) block supports the following:
+
+<a id="nestedatt--rules-metadata"></a>&#x2022; [`metadata`](#nestedatt--rules-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during
+create
+
+<a id="nestedatt--rules-spec"></a>&#x2022; [`spec`](#nestedatt--rules-spec) - Optional String<br>Rate Limiter Rule Specification. Shape of Rate Limiter Rule
+
+#### Rules Metadata
+
+A [`metadata`](#rules-metadata) block (within [`rules`](#rules)) supports the following:
+
+<a id="spec-3071d7"></a>&#x2022; [`description_spec`](#spec-3071d7) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--rules--metadata-name"></a>&#x2022; [`name`](#nestedatt--rules--metadata-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Rules Spec
+
+A [`spec`](#rules-spec) block (within [`rules`](#rules)) supports the following:
+
+<a id="nestedatt--rules--spec-any-asn"></a>&#x2022; [`any_asn`](#nestedatt--rules--spec-any-asn) - Optional Object<br>Enable this option
+
+<a id="nestedatt--rules--spec-any-country"></a>&#x2022; [`any_country`](#nestedatt--rules--spec-any-country) - Optional Object<br>Configuration parameter for any country
+
+<a id="nestedatt--rules--spec-any-ip"></a>&#x2022; [`any_ip`](#nestedatt--rules--spec-any-ip) - Optional Object<br>Enable this option
+
+<a id="limiter-707db2"></a>&#x2022; [`apply_rate_limiter`](#limiter-707db2) - Optional Object<br>Configuration parameter for apply rate limiter
+
+<a id="nestedatt--rules--spec-asn-list"></a>&#x2022; [`asn_list`](#nestedatt--rules--spec-asn-list) - Optional String<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="nestedatt--rules--spec-asn-matcher"></a>&#x2022; [`asn_matcher`](#nestedatt--rules--spec-asn-matcher) - Optional String<br>Match any AS number contained in the list of bgp_asn_sets
+
+<a id="limiter-d180a5"></a>&#x2022; [`bypass_rate_limiter`](#limiter-d180a5) - Optional Object<br>Configuration parameter for bypass rate limiter
+
+<a id="nestedatt--rules--spec-country-list"></a>&#x2022; [`country_list`](#nestedatt--rules--spec-country-list) - Optional String<br>Country Codes List. List of Country Codes to match against
+
+<a id="limiter-1951fe"></a>&#x2022; [`custom_rate_limiter`](#limiter-1951fe) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--rules--spec-domain-matcher"></a>&#x2022; [`domain_matcher`](#nestedatt--rules--spec-domain-matcher) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="nestedatt--rules--spec-headers"></a>&#x2022; [`headers`](#nestedatt--rules--spec-headers) - Optional List<br>List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type
+
+<a id="nestedatt--rules--spec-http-method"></a>&#x2022; [`http_method`](#nestedatt--rules--spec-http-method) - Optional String<br>HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true
+
+<a id="nestedatt--rules--spec-ip-matcher"></a>&#x2022; [`ip_matcher`](#nestedatt--rules--spec-ip-matcher) - Optional String<br>Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true
+
+<a id="nestedatt--rules--spec-ip-prefix-list"></a>&#x2022; [`ip_prefix_list`](#nestedatt--rules--spec-ip-prefix-list) - Optional String<br>List of IP Prefix strings to match against
+
+<a id="nestedatt--rules--spec-path"></a>&#x2022; [`path`](#nestedatt--rules--spec-path) - Optional String<br>Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions
+
+<a id="nestedatt--rules--spec-segment-policy"></a>&#x2022; [`segment_policy`](#nestedatt--rules--spec-segment-policy) - Optional String<br>Configure source and destination segment for policy
+
+#### Rules Spec Any Asn
+
+An [`any_asn`](#rules-spec-any-asn) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+#### Rules Spec Any Country
+
+An [`any_country`](#rules-spec-any-country) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+#### Rules Spec Any IP
+
+An [`any_ip`](#rules-spec-any-ip) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+#### Rules Spec Apply Rate Limiter
+
+An [`apply_rate_limiter`](#rules-spec-apply-rate-limiter) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+#### Rules Spec Asn List
+
+An [`asn_list`](#rules-spec-asn-list) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="nestedatt--rules--spec-as-numbers"></a>&#x2022; [`as_numbers`](#nestedatt--rules--spec-as-numbers) - Optional List<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+#### Rules Spec Asn Matcher
+
+An [`asn_matcher`](#rules-spec-asn-matcher) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="nestedatt--rules--spec-asn-sets"></a>&#x2022; [`asn_sets`](#nestedatt--rules--spec-asn-sets) - Optional List<br>List of references to bgp_asn_set objects
+
+#### Rules Spec Asn Matcher Asn Sets
+
+An [`asn_sets`](#rules-spec-asn-matcher-asn-sets) block (within [`rules.spec.asn_matcher`](#rules-spec-asn-matcher)) supports the following:
+
+<a id="nestedatt--rules--spec-kind"></a>&#x2022; [`kind`](#nestedatt--rules--spec-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--rules--spec-name"></a>&#x2022; [`name`](#nestedatt--rules--spec-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--rules--spec-namespace"></a>&#x2022; [`namespace`](#nestedatt--rules--spec-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--rules--spec-tenant"></a>&#x2022; [`tenant`](#nestedatt--rules--spec-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--rules--spec-uid"></a>&#x2022; [`uid`](#nestedatt--rules--spec-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Rules Spec Bypass Rate Limiter
+
+A [`bypass_rate_limiter`](#rules-spec-bypass-rate-limiter) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+#### Rules Spec Country List
+
+A [`country_list`](#rules-spec-country-list) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="nestedatt--rules--spec-country-codes"></a>&#x2022; [`country_codes`](#nestedatt--rules--spec-country-codes) - Optional List  Defaults to `COUNTRY_NONE`<br>Possible values are `COUNTRY_NONE`, `COUNTRY_AD`, `COUNTRY_AE`, `COUNTRY_AF`, `COUNTRY_AG`, `COUNTRY_AI`, `COUNTRY_AL`, `COUNTRY_AM`, `COUNTRY_AN`, `COUNTRY_AO`, `COUNTRY_AQ`, `COUNTRY_AR`, `COUNTRY_AS`, `COUNTRY_AT`, `COUNTRY_AU`,
+`COUNTRY_AW`, `COUNTRY_AX`, `COUNTRY_AZ`, `COUNTRY_BA`, `COUNTRY_BB`, `COUNTRY_BD`, `COUNTRY_BE`, `COUNTRY_BF`, `COUNTRY_BG`, `COUNTRY_BH`, `COUNTRY_BI`, `COUNTRY_BJ`, `COUNTRY_BL`, `COUNTRY_BM`, `COUNTRY_BN`, `COUNTRY_BO`, `COUNTRY_BQ`, `COUNTRY_BR`, `COUNTRY_BS`, `COUNTRY_BT`, `COUNTRY_BV`, `COUNTRY_BW`, `COUNTRY_BY`, `COUNTRY_BZ`, `COUNTRY_CA`, `COUNTRY_CC`, `COUNTRY_CD`, `COUNTRY_CF`,
+`COUNTRY_CG`, `COUNTRY_CH`, `COUNTRY_CI`, `COUNTRY_CK`, `COUNTRY_CL`, `COUNTRY_CM`, `COUNTRY_CN`, `COUNTRY_CO`, `COUNTRY_CR`, `COUNTRY_CS`, `COUNTRY_CU`, `COUNTRY_CV`, `COUNTRY_CW`, `COUNTRY_CX`, `COUNTRY_CY`, `COUNTRY_CZ`, `COUNTRY_DE`, `COUNTRY_DJ`, `COUNTRY_DK`, `COUNTRY_DM`, `COUNTRY_DO`, `COUNTRY_DZ`, `COUNTRY_EC`, `COUNTRY_EE`, `COUNTRY_EG`, `COUNTRY_EH`, `COUNTRY_ER`, `COUNTRY_ES`,
+`COUNTRY_ET`, `COUNTRY_FI`, `COUNTRY_FJ`, `COUNTRY_FK`, `COUNTRY_FM`, `COUNTRY_FO`, `COUNTRY_FR`, `COUNTRY_GA`, `COUNTRY_GB`, `COUNTRY_GD`, `COUNTRY_GE`, `COUNTRY_GF`, `COUNTRY_GG`, `COUNTRY_GH`, `COUNTRY_GI`, `COUNTRY_GL`, `COUNTRY_GM`, `COUNTRY_GN`, `COUNTRY_GP`, `COUNTRY_GQ`, `COUNTRY_GR`, `COUNTRY_GS`, `COUNTRY_GT`, `COUNTRY_GU`, `COUNTRY_GW`, `COUNTRY_GY`, `COUNTRY_HK`, `COUNTRY_HM`,
+`COUNTRY_HN`, `COUNTRY_HR`, `COUNTRY_HT`, `COUNTRY_HU`, `COUNTRY_ID`, `COUNTRY_IE`, `COUNTRY_IL`, `COUNTRY_IM`, `COUNTRY_IN`, `COUNTRY_IO`, `COUNTRY_IQ`, `COUNTRY_IR`, `COUNTRY_IS`, `COUNTRY_IT`, `COUNTRY_JE`, `COUNTRY_JM`, `COUNTRY_JO`, `COUNTRY_JP`, `COUNTRY_KE`, `COUNTRY_KG`, `COUNTRY_KH`, `COUNTRY_KI`, `COUNTRY_KM`, `COUNTRY_KN`, `COUNTRY_KP`, `COUNTRY_KR`, `COUNTRY_KW`, `COUNTRY_KY`,
+`COUNTRY_KZ`, `COUNTRY_LA`, `COUNTRY_LB`, `COUNTRY_LC`, `COUNTRY_LI`, `COUNTRY_LK`, `COUNTRY_LR`, `COUNTRY_LS`, `COUNTRY_LT`, `COUNTRY_LU`, `COUNTRY_LV`, `COUNTRY_LY`, `COUNTRY_MA`, `COUNTRY_MC`, `COUNTRY_MD`, `COUNTRY_ME`, `COUNTRY_MF`, `COUNTRY_MG`, `COUNTRY_MH`, `COUNTRY_MK`, `COUNTRY_ML`, `COUNTRY_MM`, `COUNTRY_MN`, `COUNTRY_MO`, `COUNTRY_MP`, `COUNTRY_MQ`, `COUNTRY_MR`, `COUNTRY_MS`,
+`COUNTRY_MT`, `COUNTRY_MU`, `COUNTRY_MV`, `COUNTRY_MW`, `COUNTRY_MX`, `COUNTRY_MY`, `COUNTRY_MZ`, `COUNTRY_NA`, `COUNTRY_NC`, `COUNTRY_NE`, `COUNTRY_NF`, `COUNTRY_NG`, `COUNTRY_NI`, `COUNTRY_NL`, `COUNTRY_NO`, `COUNTRY_NP`, `COUNTRY_NR`, `COUNTRY_NU`, `COUNTRY_NZ`, `COUNTRY_OM`, `COUNTRY_PA`, `COUNTRY_PE`, `COUNTRY_PF`, `COUNTRY_PG`, `COUNTRY_PH`, `COUNTRY_PK`, `COUNTRY_PL`, `COUNTRY_PM`,
+`COUNTRY_PN`, `COUNTRY_PR`, `COUNTRY_PS`, `COUNTRY_PT`, `COUNTRY_PW`, `COUNTRY_PY`, `COUNTRY_QA`, `COUNTRY_RE`, `COUNTRY_RO`, `COUNTRY_RS`, `COUNTRY_RU`, `COUNTRY_RW`, `COUNTRY_SA`, `COUNTRY_SB`, `COUNTRY_SC`, `COUNTRY_SD`, `COUNTRY_SE`, `COUNTRY_SG`, `COUNTRY_SH`, `COUNTRY_SI`, `COUNTRY_SJ`, `COUNTRY_SK`, `COUNTRY_SL`, `COUNTRY_SM`, `COUNTRY_SN`, `COUNTRY_SO`, `COUNTRY_SR`, `COUNTRY_SS`,
+`COUNTRY_ST`, `COUNTRY_SV`, `COUNTRY_SX`, `COUNTRY_SY`, `COUNTRY_SZ`, `COUNTRY_TC`, `COUNTRY_TD`, `COUNTRY_TF`, `COUNTRY_TG`, `COUNTRY_TH`, `COUNTRY_TJ`, `COUNTRY_TK`, `COUNTRY_TL`, `COUNTRY_TM`, `COUNTRY_TN`, `COUNTRY_TO`, `COUNTRY_TR`, `COUNTRY_TT`, `COUNTRY_TV`, `COUNTRY_TW`, `COUNTRY_TZ`, `COUNTRY_UA`, `COUNTRY_UG`, `COUNTRY_UM`, `COUNTRY_US`, `COUNTRY_UY`, `COUNTRY_UZ`, `COUNTRY_VA`,
+`COUNTRY_VC`, `COUNTRY_VE`, `COUNTRY_VG`, `COUNTRY_VI`, `COUNTRY_VN`, `COUNTRY_VU`, `COUNTRY_WF`, `COUNTRY_WS`, `COUNTRY_XK`, `COUNTRY_XT`, `COUNTRY_YE`, `COUNTRY_YT`, `COUNTRY_ZA`, `COUNTRY_ZM`, `COUNTRY_ZW`<br>[Enum:
+COUNTRY_NONE|COUNTRY_AD|COUNTRY_AE|COUNTRY_AF|COUNTRY_AG|COUNTRY_AI|COUNTRY_AL|COUNTRY_AM|COUNTRY_AN|COUNTRY_AO|COUNTRY_AQ|COUNTRY_AR|COUNTRY_AS|COUNTRY_AT|COUNTRY_AU|COUNTRY_AW|COUNTRY_AX|COUNTRY_AZ|COUNTRY_BA|COUNTRY_BB|COUNTRY_BD|COUNTRY_BE|COUNTRY_BF|COUNTRY_BG|COUNTRY_BH|COUNTRY_BI|COUNTRY_BJ|COUNTRY_BL|COUNTRY_BM|COUNTRY_BN|COUNTRY_BO|COUNTRY_BQ|COUNTRY_BR|COUNTRY_BS|COUNTRY_BT|COUNTRY_BV|COUNTRY_BW|COUNTRY_BY|COUNTRY_BZ|COUNTRY_CA|COUNTRY_CC|COUNTRY_CD|COUNTRY_CF|COUNTRY_CG|COUNTRY_CH|COUNTRY_CI|COUNTRY_CK|COUNTRY_CL|COUNTRY_CM|COUNTRY_CN|COUNTRY_CO|COUNTRY_CR|COUNTRY_CS|COUNTRY_CU|COUNTRY_CV|COUNTRY_CW|COUNTRY_CX|COUNTRY_CY|COUNTRY_CZ|COUNTRY_DE|COUNTRY_DJ|COUNTRY_DK|COUNTRY_DM|COUNTRY_DO|COUNTRY_DZ|COUNTRY_EC|COUNTRY_EE|COUNTRY_EG|COUNTRY_EH|COUNTRY_ER|COUNTRY_ES|COUNTRY_ET|COUNTRY_FI|COUNTRY_FJ|COUNTRY_FK|COUNTRY_FM|COUNTRY_FO|COUNTRY_FR|COUNTRY_GA|COUNTRY_GB|COUNTRY_GD|COUNTRY_GE|COUNTRY_GF|COUNTRY_GG|COUNTRY_GH|COUNTRY_GI|COUNTRY_GL|COUNTRY_GM|COUNTRY_GN|COUNTRY_GP|COUNTRY_GQ|COUNTRY_GR|COUNTRY_GS|COUNTRY_GT|COUNTRY_GU|COUNTRY_GW|COUNTRY_GY|COUNTRY_HK|COUNTRY_HM|COUNTRY_HN|COUNTRY_HR|COUNTRY_HT|COUNTRY_HU|COUNTRY_ID|COUNTRY_IE|COUNTRY_IL|COUNTRY_IM|COUNTRY_IN|COUNTRY_IO|COUNTRY_IQ|COUNTRY_IR|COUNTRY_IS|COUNTRY_IT|COUNTRY_JE|COUNTRY_JM|COUNTRY_JO|COUNTRY_JP|COUNTRY_KE|COUNTRY_KG|COUNTRY_KH|COUNTRY_KI|COUNTRY_KM|COUNTRY_KN|COUNTRY_KP|COUNTRY_KR|COUNTRY_KW|COUNTRY_KY|COUNTRY_KZ|COUNTRY_LA|COUNTRY_LB|COUNTRY_LC|COUNTRY_LI|COUNTRY_LK|COUNTRY_LR|COUNTRY_LS|COUNTRY_LT|COUNTRY_LU|COUNTRY_LV|COUNTRY_LY|COUNTRY_MA|COUNTRY_MC|COUNTRY_MD|COUNTRY_ME|COUNTRY_MF|COUNTRY_MG|COUNTRY_MH|COUNTRY_MK|COUNTRY_ML|COUNTRY_MM|COUNTRY_MN|COUNTRY_MO|COUNTRY_MP|COUNTRY_MQ|COUNTRY_MR|COUNTRY_MS|COUNTRY_MT|COUNTRY_MU|COUNTRY_MV|COUNTRY_MW|COUNTRY_MX|COUNTRY_MY|COUNTRY_MZ|COUNTRY_NA|COUNTRY_NC|COUNTRY_NE|COUNTRY_NF|COUNTRY_NG|COUNTRY_NI|COUNTRY_NL|COUNTRY_NO|COUNTRY_NP|COUNTRY_NR|COUNTRY_NU|COUNTRY_NZ|COUNTRY_OM|COUNTRY_PA|COUNTRY_PE|COUNTRY_PF|COUNTRY_PG|COUNTRY_PH|COUNTRY_PK|COUNTRY_PL|COUNTRY_PM|COUNTRY_PN|COUNTRY_PR|COUNTRY_PS|COUNTRY_PT|COUNTRY_PW|COUNTRY_PY|COUNTRY_QA|COUNTRY_RE|COUNTRY_RO|COUNTRY_RS|COUNTRY_RU|COUNTRY_RW|COUNTRY_SA|COUNTRY_SB|COUNTRY_SC|COUNTRY_SD|COUNTRY_SE|COUNTRY_SG|COUNTRY_SH|COUNTRY_SI|COUNTRY_SJ|COUNTRY_SK|COUNTRY_SL|COUNTRY_SM|COUNTRY_SN|COUNTRY_SO|COUNTRY_SR|COUNTRY_SS|COUNTRY_ST|COUNTRY_SV|COUNTRY_SX|COUNTRY_SY|COUNTRY_SZ|COUNTRY_TC|COUNTRY_TD|COUNTRY_TF|COUNTRY_TG|COUNTRY_TH|COUNTRY_TJ|COUNTRY_TK|COUNTRY_TL|COUNTRY_TM|COUNTRY_TN|COUNTRY_TO|COUNTRY_TR|COUNTRY_TT|COUNTRY_TV|COUNTRY_TW|COUNTRY_TZ|COUNTRY_UA|COUNTRY_UG|COUNTRY_UM|COUNTRY_US|COUNTRY_UY|COUNTRY_UZ|COUNTRY_VA|COUNTRY_VC|COUNTRY_VE|COUNTRY_VG|COUNTRY_VI|COUNTRY_VN|COUNTRY_VU|COUNTRY_WF|COUNTRY_WS|COUNTRY_XK|COUNTRY_XT|COUNTRY_YE|COUNTRY_YT|COUNTRY_ZA|COUNTRY_ZM|COUNTRY_ZW]
+Country Codes List. List of Country Codes
+
+<a id="nestedatt--rules--spec-invert-match"></a>&#x2022; [`invert_match`](#nestedatt--rules--spec-invert-match) - Optional Bool<br>Invert Match Result. Invert the match result
+
+#### Rules Spec Custom Rate Limiter
+
+A [`custom_rate_limiter`](#rules-spec-custom-rate-limiter) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="nestedatt--rules--spec-name"></a>&#x2022; [`name`](#nestedatt--rules--spec-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--rules--spec-namespace"></a>&#x2022; [`namespace`](#nestedatt--rules--spec-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--rules--spec-tenant"></a>&#x2022; [`tenant`](#nestedatt--rules--spec-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Rules Spec Domain Matcher
+
+A [`domain_matcher`](#rules-spec-domain-matcher) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="nestedatt--rules--spec-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--rules--spec-exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="nestedatt--rules--spec-regex-values"></a>&#x2022; [`regex_values`](#nestedatt--rules--spec-regex-values) - Optional List<br>List of regular expressions to match the input against
+
+#### Rules Spec Headers
+
+A [`headers`](#rules-spec-headers) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="present-9391d4"></a>&#x2022; [`check_not_present`](#present-9391d4) - Optional Object<br>Configuration parameter for check not present
+
+<a id="present-babe64"></a>&#x2022; [`check_present`](#present-babe64) - Optional Object<br>Configuration parameter for check present
+
+<a id="matcher-5e3d73"></a>&#x2022; [`invert_matcher`](#matcher-5e3d73) - Optional Bool<br>Invert Header Matcher. Invert the match result
+
+<a id="nestedatt--rules--spec--headers-item"></a>&#x2022; [`item`](#nestedatt--rules--spec--headers-item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="nestedatt--rules--spec--headers-name"></a>&#x2022; [`name`](#nestedatt--rules--spec--headers-name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+#### Rules Spec Headers Check Not Present
+
+A [`check_not_present`](#rules-spec-headers-check-not-present) block (within [`rules.spec.headers`](#rules-spec-headers)) supports the following:
+
+#### Rules Spec Headers Check Present
+
+A [`check_present`](#rules-spec-headers-check-present) block (within [`rules.spec.headers`](#rules-spec-headers)) supports the following:
+
+#### Rules Spec Headers Item
+
+An [`item`](#rules-spec-headers-item) block (within [`rules.spec.headers`](#rules-spec-headers)) supports the following:
+
+<a id="values-de71f6"></a>&#x2022; [`exact_values`](#values-de71f6) - Optional List<br>List of exact values to match the input against
+
+<a id="values-514fe7"></a>&#x2022; [`regex_values`](#values-514fe7) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers-023d78"></a>&#x2022; [`transformers`](#transformers-023d78) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+#### Rules Spec HTTP Method
+
+A [`http_method`](#rules-spec-http-method) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="matcher-825d44"></a>&#x2022; [`invert_matcher`](#matcher-825d44) - Optional Bool<br>Invert Method Matcher. Invert the match result
+
+<a id="methods-86bac8"></a>&#x2022; [`methods`](#methods-86bac8) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> List of methods values to match against
+
+#### Rules Spec IP Matcher
+
+An [`ip_matcher`](#rules-spec-ip-matcher) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="matcher-825d44"></a>&#x2022; [`invert_matcher`](#matcher-825d44) - Optional Bool<br>Invert IP Matcher. Invert the match result
+
+<a id="sets-622cdf"></a>&#x2022; [`prefix_sets`](#sets-622cdf) - Optional List<br>List of references to ip_prefix_set objects
+
+#### Rules Spec IP Matcher Prefix Sets
+
+A [`prefix_sets`](#rules-spec-ip-matcher-prefix-sets) block (within [`rules.spec.ip_matcher`](#rules-spec-ip-matcher)) supports the following:
+
+<a id="kind-12494a"></a>&#x2022; [`kind`](#kind-12494a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name-87c082"></a>&#x2022; [`name`](#name-87c082) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-e7ad6b"></a>&#x2022; [`namespace`](#namespace-e7ad6b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant-fca4c8"></a>&#x2022; [`tenant`](#tenant-fca4c8) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-769b61"></a>&#x2022; [`uid`](#uid-769b61) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Rules Spec IP Prefix List
+
+An [`ip_prefix_list`](#rules-spec-ip-prefix-list) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="match-68c340"></a>&#x2022; [`invert_match`](#match-68c340) - Optional Bool<br>Invert Match Result. Invert the match result
+
+<a id="prefixes-e36402"></a>&#x2022; [`ip_prefixes`](#prefixes-e36402) - Optional List<br>IPv4 Prefix List. List of IPv4 prefix strings
+
+#### Rules Spec Path
+
+A [`path`](#rules-spec-path) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="matcher-82733a"></a>&#x2022; [`encoded_path_matcher`](#matcher-82733a) - Optional Bool<br>Match against the encoded, escaped path
+
+<a id="values-731ce6"></a>&#x2022; [`exact_values`](#values-731ce6) - Optional List<br>List of exact path values to match the input HTTP path against
+
+<a id="matcher-0010d5"></a>&#x2022; [`invert_matcher`](#matcher-0010d5) - Optional Bool<br>Invert Path Matcher. Invert the match result
+
+<a id="values-160245"></a>&#x2022; [`prefix_values`](#values-160245) - Optional List<br>List of path prefix values to match the input HTTP path against
+
+<a id="values-ee4445"></a>&#x2022; [`regex_values`](#values-ee4445) - Optional List<br>List of regular expressions to match the input HTTP path against
+
+<a id="values-430c7a"></a>&#x2022; [`suffix_values`](#values-430c7a) - Optional List<br>List of path suffix values to match the input HTTP path against
+
+<a id="transformers-5379d0"></a>&#x2022; [`transformers`](#transformers-5379d0) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+#### Rules Spec Segment Policy
+
+A [`segment_policy`](#rules-spec-segment-policy) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="nestedatt--rules--spec--path-dst-any"></a>&#x2022; [`dst_any`](#nestedatt--rules--spec--path-dst-any) - Optional Object<br>Enable this option
+
+<a id="segments-548e87"></a>&#x2022; [`dst_segments`](#segments-548e87) - Optional String<br>Configuration parameter for dst segments
+
+<a id="segment-734d61"></a>&#x2022; [`intra_segment`](#segment-734d61) - Optional Object<br>Configuration parameter for intra segment
+
+<a id="nestedatt--rules--spec--path-src-any"></a>&#x2022; [`src_any`](#nestedatt--rules--spec--path-src-any) - Optional Object<br>Enable this option
+
+<a id="segments-9b280f"></a>&#x2022; [`src_segments`](#segments-9b280f) - Optional String<br>Configuration parameter for src segments
+
+#### Rules Spec Segment Policy Dst Any
+
+A [`dst_any`](#rules-spec-segment-policy-dst-any) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
+
+#### Rules Spec Segment Policy Dst Segments
+
+A [`dst_segments`](#rules-spec-segment-policy-dst-segments) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
+
+<a id="nestedatt--rules--spec--path-segments"></a>&#x2022; [`segments`](#nestedatt--rules--spec--path-segments) - Optional List<br>Segments. Select list of segments
+
+#### Rules Spec Segment Policy Dst Segments Segments
+
+A [`segments`](#rules-spec-segment-policy-dst-segments-segments) block (within [`rules.spec.segment_policy.dst_segments`](#rules-spec-segment-policy-dst-segments)) supports the following:
+
+<a id="nestedatt--rules--spec--path-name"></a>&#x2022; [`name`](#nestedatt--rules--spec--path-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--rules--spec--path-namespace"></a>&#x2022; [`namespace`](#nestedatt--rules--spec--path-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--rules--spec--path-tenant"></a>&#x2022; [`tenant`](#nestedatt--rules--spec--path-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Rules Spec Segment Policy Intra Segment
+
+An [`intra_segment`](#rules-spec-segment-policy-intra-segment) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
+
+#### Rules Spec Segment Policy Src Any
+
+A [`src_any`](#rules-spec-segment-policy-src-any) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
+
+#### Rules Spec Segment Policy Src Segments
+
+A [`src_segments`](#rules-spec-segment-policy-src-segments) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
+
+<a id="nestedatt--rules--spec--path-segments"></a>&#x2022; [`segments`](#nestedatt--rules--spec--path-segments) - Optional List<br>Segments. Select list of segments
+
+#### Rules Spec Segment Policy Src Segments Segments
+
+A [`segments`](#rules-spec-segment-policy-src-segments-segments) block (within [`rules.spec.segment_policy.src_segments`](#rules-spec-segment-policy-src-segments)) supports the following:
+
+<a id="nestedatt--rules--spec--path-name"></a>&#x2022; [`name`](#nestedatt--rules--spec--path-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--rules--spec--path-namespace"></a>&#x2022; [`namespace`](#nestedatt--rules--spec--path-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--rules--spec--path-tenant"></a>&#x2022; [`tenant`](#nestedatt--rules--spec--path-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Server Name Matcher
+
+A [`server_name_matcher`](#server-name-matcher) block supports the following:
+
+<a id="values-731ce6"></a>&#x2022; [`exact_values`](#values-731ce6) - Optional List<br>List of exact values to match the input against
+
+<a id="values-ee4445"></a>&#x2022; [`regex_values`](#values-ee4445) - Optional List<br>List of regular expressions to match the input against
+
+#### Server Selector
+
+A [`server_selector`](#server-selector) block supports the following:
+
+<a id="expressions-e777a4"></a>&#x2022; [`expressions`](#expressions-e777a4) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
 
 ---
 

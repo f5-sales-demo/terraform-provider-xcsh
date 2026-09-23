@@ -60,26 +60,149 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 
-<a id="devices"></a>&#x2022; [`devices`](#devices) - Optional String<br>List of supported devices in this model
+<a id="devices"></a>&#x2022; [`devices`](#devices) - Optional List<br>List of supported devices in this model
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
 
-<a id="image-list"></a>&#x2022; [`image_list`](#image-list) - Optional String<br>List of image names with providers for this certified hardware, e.g. AWS ami-0f99d090261d2acd5
+<a id="image-list"></a>&#x2022; [`image_list`](#image-list) - Optional List<br>List of image names with providers for this certified hardware, e.g. AWS ami-0f99d090261d2acd5
 
-<a id="internal-usb-device-rule"></a>&#x2022; [`internal_usb_device_rule`](#internal-usb-device-rule) - Optional String<br>List of internal USB device rules for server
+<a id="internal-usb-device-rule"></a>&#x2022; [`internal_usb_device_rule`](#internal-usb-device-rule) - Optional List<br>List of internal USB device rules for server
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
 
-<a id="mem-page-number"></a>&#x2022; [`mem_page_number`](#mem-page-number) - Optional String<br>Number of pages allocated in this certified hardware for Hugepages. Each page size is defined above in 'mem_page_size' Total memory reserved for Hugepages is 'mem_page_size \* mem_page_number'
+<a id="mem-page-number"></a>&#x2022; [`mem_page_number`](#mem-page-number) - Optional Number<br>Number of pages allocated in this certified hardware for Hugepages. Each page size is defined above in 'mem_page_size' Total memory reserved for Hugepages is 'mem_page_size \* mem_page_number'
 
 <a id="mem-page-size"></a>&#x2022; [`mem_page_size`](#mem-page-size) - Optional String  Defaults to `HARDWARE_MEM_PAGE_SIZE_INVALID`<br>Possible values are `HARDWARE_MEM_PAGE_SIZE_INVALID`, `HARDWARE_MEM_PAGE_SIZE_4KB`, `HARDWARE_MEM_PAGE_SIZE_2MB`, `HARDWARE_MEM_PAGE_SIZE_1GB`<br>[Enum:
 HARDWARE_MEM_PAGE_SIZE_INVALID|HARDWARE_MEM_PAGE_SIZE_4KB|HARDWARE_MEM_PAGE_SIZE_2MB|HARDWARE_MEM_PAGE_SIZE_1GB] Memory for packets buffers etc are allocated in blocks of pages. Size of each memory page is defined here. Invalid Page size Page size of 4KB Page size of 2MB Page size of 1GB
 
-<a id="numa-mem"></a>&#x2022; [`numa_mem`](#numa-mem) - Optional String<br>List of Numa nodes with the number of MB of instance memory to map to node instance If not specified, memory is evenly divided among available NUMA nodes
+<a id="numa-mem"></a>&#x2022; [`numa_mem`](#numa-mem) - Optional List<br>List of Numa nodes with the number of MB of instance memory to map to node instance If not specified, memory is evenly divided among available NUMA nodes
 
-<a id="numa-nodes"></a>&#x2022; [`numa_nodes`](#numa-nodes) - Optional String<br>The number of host NUMA nodes used in certified hardware
+<a id="numa-nodes"></a>&#x2022; [`numa_nodes`](#numa-nodes) - Optional Number<br>The number of host NUMA nodes used in certified hardware
 
-<a id="vendor-model-list"></a>&#x2022; [`vendor_model_list`](#vendor-model-list) - Optional String<br>List of supported hardware vendor and model for this certified hardware
+<a id="vendor-model-list"></a>&#x2022; [`vendor_model_list`](#vendor-model-list) - Optional List<br>List of supported hardware vendor and model for this certified hardware
+
+---
+
+#### Devices
+
+A [`devices`](#devices) block supports the following:
+
+<a id="nestedatt--devices-device-list"></a>&#x2022; [`device_list`](#nestedatt--devices-device-list) - Optional List<br>In case of logical boot strap devices like LACP Link aggregation or RAID
+
+<a id="nestedatt--devices-max-unit"></a>&#x2022; [`max_unit`](#nestedatt--devices-max-unit) - Optional Number<br>Last unit number of the device supported in this certified hardware
+
+<a id="nestedatt--devices-min-unit"></a>&#x2022; [`min_unit`](#nestedatt--devices-min-unit) - Optional Number<br>First unit number of the device supported in this certified hardware
+
+<a id="nestedatt--devices-name"></a>&#x2022; [`name`](#nestedatt--devices-name) - Optional String<br>Device. Name of the device
+
+<a id="nestedatt--devices-type"></a>&#x2022; [`type`](#nestedatt--devices-type) - Optional String  Defaults to `HARDWARE_DEVICE_INVALID`<br>Possible values are `HARDWARE_DEVICE_INVALID`, `HARDWARE_DEVICE_ETHERNET`, `HARDWARE_DEVICE_VIRTIO`, `HARDWARE_DEVICE_TUNTAP`, `HARDWARE_DEVICE_BOND`, `HARDWARE_DEVICE_EXTERNAL_ISCSI_STORTAGE`, `HARDWARE_DEVICE_NVIDIA_GPU`<br>[Enum:
+HARDWARE_DEVICE_INVALID|HARDWARE_DEVICE_ETHERNET|HARDWARE_DEVICE_VIRTIO|HARDWARE_DEVICE_TUNTAP|HARDWARE_DEVICE_BOND|HARDWARE_DEVICE_EXTERNAL_ISCSI_STORTAGE|HARDWARE_DEVICE_NVIDIA_GPU] Different type of devices supported Invalid device or device that's not supported Ethernet device VIRTIO device TUNTAP device LACP based bond interface External iSCSI devices supported Nvidia GPU device used for
+machine learning
+
+<a id="nestedatt--devices-use"></a>&#x2022; [`use`](#nestedatt--devices-use) - Optional String  Defaults to `HARDWARE_DEVICE_USE_REGULAR`<br>Possible values are `HARDWARE_DEVICE_USE_REGULAR`, `HARDWARE_DEVICE_USE_INTERNAL`, `HARDWARE_NETWORK_DEVICE_USE_REGULAR`, `HARDWARE_NETWORK_DEVICE_USE_INTERNAL`, `HARDWARE_NETWORK_DEVICE_USE_MANAGEMENT`, `HARDWARE_NETWORK_DEVICE_USE_OUTSIDE`,
+`HARDWARE_NETWORK_DEVICE_USE_INSIDE`, `HARDWARE_NETWORK_DEVICE_USE_OUTSIDE_LAG`, `HARDWARE_NETWORK_DEVICE_USE_INSIDE_LAG`, `HARDWARE_NETWORK_DEVICE_USE_LAG_MEMBER`, `HARDWARE_NETWORK_DEVICE_USE_STORAGE`, `HARDWARE_NETWORK_DEVICE_USE_FALLBACK_MANAGEMENT`<br>[Enum:
+HARDWARE_DEVICE_USE_REGULAR|HARDWARE_DEVICE_USE_INTERNAL|HARDWARE_NETWORK_DEVICE_USE_REGULAR|HARDWARE_NETWORK_DEVICE_USE_INTERNAL|HARDWARE_NETWORK_DEVICE_USE_MANAGEMENT|HARDWARE_NETWORK_DEVICE_USE_OUTSIDE|HARDWARE_NETWORK_DEVICE_USE_INSIDE|HARDWARE_NETWORK_DEVICE_USE_OUTSIDE_LAG|HARDWARE_NETWORK_DEVICE_USE_INSIDE_LAG|HARDWARE_NETWORK_DEVICE_USE_LAG_MEMBER|HARDWARE_NETWORK_DEVICE_USE_STORAGE|HARDWARE_NETWORK_DEVICE_USE_FALLBACK_MANAGEMENT]
+Defines how the device instance must be used If the device is owned by F5 Distributed Cloud software, it is available for users to configure as required Device reserved for internal use by F5 Distributed Cloud Node If the Network device is owned by VER, it is available for users to configure as
+
+#### Image List
+
+An [`image_list`](#image-list) block supports the following:
+
+<a id="nestedatt--devices-aws"></a>&#x2022; [`aws`](#nestedatt--devices-aws) - Optional String<br>AWS. AWS specific information
+
+<a id="nestedatt--devices-azure"></a>&#x2022; [`azure`](#nestedatt--devices-azure) - Optional String<br>Azure. Azure specific information
+
+<a id="nestedatt--devices-gcp"></a>&#x2022; [`gcp`](#nestedatt--devices-gcp) - Optional String<br>GCP. GCP specific information
+
+<a id="nestedatt--devices-name"></a>&#x2022; [`name`](#nestedatt--devices-name) - Optional String<br>Name. Image name to use for this hardware
+
+<a id="nestedatt--devices-provider-ref"></a>&#x2022; [`provider_ref`](#nestedatt--devices-provider-ref) - Optional String<br>Image provider F5 Distributed Cloud, Cloud provider like AWS or Azure
+
+#### Image List AWS
+
+An [`aws`](#image-list-aws) block (within [`image_list`](#image-list)) supports the following:
+
+<a id="nestedatt--devices-image-id"></a>&#x2022; [`image_id`](#nestedatt--devices-image-id) - Optional String<br>Configuration for image_id
+
+#### Image List AWS Image ID
+
+An [`image_id`](#image-list-aws-image-id) block (within [`image_list.aws`](#image-list-aws)) supports the following:
+
+<a id="nestedatt--devices-image-id"></a>&#x2022; [`image_id`](#nestedatt--devices-image-id) - Optional String<br>AWS ami image name. AWS ami image
+
+<a id="nestedatt--devices-region"></a>&#x2022; [`region`](#nestedatt--devices-region) - Optional String<br>AWS ami image region. AWS ami image region
+
+#### Image List Azure
+
+An [`azure`](#image-list-azure) block (within [`image_list`](#image-list)) supports the following:
+
+<a id="nestedatt--devices-image-id"></a>&#x2022; [`image_id`](#nestedatt--devices-image-id) - Optional String<br>Configuration for image_id
+
+<a id="nestedatt--devices-marketplace"></a>&#x2022; [`marketplace`](#nestedatt--devices-marketplace) - Optional String<br>Configuration parameter for marketplace
+
+#### Image List Azure Image ID
+
+An [`image_id`](#image-list-azure-image-id) block (within [`image_list.azure`](#image-list-azure)) supports the following:
+
+<a id="nestedatt--devices-image-id"></a>&#x2022; [`image_id`](#nestedatt--devices-image-id) - Optional String<br>Azure image ID info. Azure image ID
+
+#### Image List Azure Marketplace
+
+A [`marketplace`](#image-list-azure-marketplace) block (within [`image_list.azure`](#image-list-azure)) supports the following:
+
+<a id="nestedatt--devices-name"></a>&#x2022; [`name`](#nestedatt--devices-name) - Optional String<br>Azure Marketplace Name. Azure Marketplace Name
+
+<a id="nestedatt--devices-offer"></a>&#x2022; [`offer`](#nestedatt--devices-offer) - Optional String<br>Azure Marketplace offer. Azure Marketplace offer
+
+<a id="nestedatt--devices-publisher"></a>&#x2022; [`publisher`](#nestedatt--devices-publisher) - Optional String<br>Azure Marketplace Publisher. Azure Marketplace Publisher
+
+<a id="nestedatt--devices-sku"></a>&#x2022; [`sku`](#nestedatt--devices-sku) - Optional String<br>Azure Marketplace SKU. Azure Marketplace SKU
+
+<a id="nestedatt--devices-version"></a>&#x2022; [`version`](#nestedatt--devices-version) - Optional String<br>Azure Marketplace Version. Azure Marketplace Version
+
+#### Image List GCP
+
+A [`gcp`](#image-list-gcp) block (within [`image_list`](#image-list)) supports the following:
+
+<a id="nestedatt--devices-image-id"></a>&#x2022; [`image_id`](#nestedatt--devices-image-id) - Optional String<br>Configuration for image_id
+
+#### Image List GCP Image ID
+
+An [`image_id`](#image-list-gcp-image-id) block (within [`image_list.gcp`](#image-list-gcp)) supports the following:
+
+<a id="nestedatt--devices-image-id"></a>&#x2022; [`image_id`](#nestedatt--devices-image-id) - Optional String<br>GCP image name. GCP image
+
+#### Internal Usb Device Rule
+
+An [`internal_usb_device_rule`](#internal-usb-device-rule) block supports the following:
+
+<a id="nestedatt--devices-b-device-class"></a>&#x2022; [`b_device_class`](#nestedatt--devices-b-device-class) - Optional String<br>Class. The class of this device
+
+<a id="nestedatt--devices-b-device-protocol"></a>&#x2022; [`b_device_protocol`](#nestedatt--devices-b-device-protocol) - Optional String<br>The protocol (within the subclass) of this device
+
+<a id="nestedatt--devices-b-device-sub-class"></a>&#x2022; [`b_device_sub_class`](#nestedatt--devices-b-device-sub-class) - Optional String<br>The subclass (within the class) of this device
+
+<a id="nestedatt--devices-i-serial"></a>&#x2022; [`i_serial`](#nestedatt--devices-i-serial) - Optional String<br>Index of Serial Number String Descriptor
+
+<a id="nestedatt--devices-id-product"></a>&#x2022; [`id_product`](#nestedatt--devices-id-product) - Optional String<br>Product ID (Assigned by Manufacturer) in hex
+
+<a id="nestedatt--devices-id-vendor"></a>&#x2022; [`id_vendor`](#nestedatt--devices-id-vendor) - Optional String<br>Vendor ID. Vendor ID (Assigned by USB Org) in hex
+
+#### Numa Mem
+
+A [`numa_mem`](#numa-mem) block supports the following:
+
+<a id="nestedatt--devices-memory"></a>&#x2022; [`memory`](#nestedatt--devices-memory) - Optional Number<br>The number of MB of instance memory to map to instance NUMA node N
+
+<a id="nestedatt--devices-node"></a>&#x2022; [`node`](#nestedatt--devices-node) - Optional Number<br>Node. NUMA node instance with mapped memory
+
+#### Vendor Model List
+
+A [`vendor_model_list`](#vendor-model-list) block supports the following:
+
+<a id="nestedatt--devices-model"></a>&#x2022; [`model`](#nestedatt--devices-model) - Optional String<br>Hw Model or instance type from cloud provider like number of interfaces, vCPUs, memory
+
+<a id="nestedatt--devices-vendor"></a>&#x2022; [`vendor`](#nestedatt--devices-vendor) - Optional String<br>Vendor could be F5 Distributed Cloud, Dell, Cloud provider like AWS or Azure
 
 ---
 

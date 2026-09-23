@@ -58,11 +58,98 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="app-type-settings"></a>&#x2022; [`app_type_settings`](#app-type-settings) - Optional List<br>List of settings to enable for each AppType, given instance of AppType Exist in this Namespace
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the AppSetting
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="app-type-ref"></a>&#x2022; [`app_type_ref`](#app-type-ref) - Optional List<br>The AppType of App instance in current Namespace. Associating an AppType reference, will enable analysis on this instance's generated data
+
+<a id="business-logic-markup-setting"></a>&#x2022; [`business_logic_markup_setting`](#business-logic-markup-setting) - Optional String<br>Settings specifying how API Discovery will be performed
+
+<a id="timeseries-analyses-setting"></a>&#x2022; [`timeseries_analyses_setting`](#timeseries-analyses-setting) - Optional String<br>Configuration parameter for timeseries analyses setting
+
+<a id="user-behavior-analysis-setting"></a>&#x2022; [`user_behavior_analysis_setting`](#user-behavior-analysis-setting) - Optional String<br>Configuration for user behavior analysis
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="disable-spec"></a>&#x2022; [`disable_spec`](#disable-spec) - Optional Object<br>Enable this option
+
+<a id="enable"></a>&#x2022; [`enable`](#enable) - Optional Object<br>Enable this option
+
+<a id="metric-selectors"></a>&#x2022; [`metric_selectors`](#metric-selectors) - Optional List<br>Define the metric selection criteria, i.e. The metrics source and the actual metrics that should be included in the detection logic
+
+<a id="metric"></a>&#x2022; [`metric`](#metric) - Optional List  Defaults to `NO_METRICS`<br>Possible values are `NO_METRICS`, `REQUEST_RATE`, `ERROR_RATE`, `LATENCY`, `THROUGHPUT`<br>[Enum: NO_METRICS|REQUEST_RATE|ERROR_RATE|LATENCY|THROUGHPUT] Choose one or more metrics to be included in the detection logic
+
+<a id="metrics-source"></a>&#x2022; [`metrics_source`](#metrics-source) - Optional String<br>Possible values are `NONE`, `NODES`, `EDGES`, `VIRTUAL_HOSTS`<br>[Enum: NONE|NODES|EDGES|VIRTUAL_HOSTS] Supported sources from which Metrics can be analyzed All edges in the service mesh graph. Metrics are analyzed separately between all source and destination service combinations
+
+<a id="disable-detection"></a>&#x2022; [`disable_detection`](#disable-detection) - Optional Object<br>Configuration parameter for disable detection
+
+<a id="disable-learning"></a>&#x2022; [`disable_learning`](#disable-learning) - Optional Object<br>Configuration parameter for disable learning
+
+<a id="enable-detection"></a>&#x2022; [`enable_detection`](#enable-detection) - Optional String<br>Various factors about user activity are monitored and analysed to determine malicious users. These settings allow tuning those factors used by the system to detect malicious users
+
+<a id="enable-learning"></a>&#x2022; [`enable_learning`](#enable-learning) - Optional Object<br>Configuration parameter for enable learning
+
+<a id="bola-detection-automatic"></a>&#x2022; [`bola_detection_automatic`](#bola-detection-automatic) - Optional Object<br>Configuration parameter for bola detection automatic
+
+<a id="cooling-off-period"></a>&#x2022; [`cooling_off_period`](#cooling-off-period) - Optional Number<br>Malicious user detection assigns a threat level to each user based on their activity. Once a threat level is assigned, the system continues tracking activity from this user and if no further malicious activity is seen, it gradually reduces the threat assessment to lower levels
+
+<a id="exclude-bola-detection"></a>&#x2022; [`exclude_bola_detection`](#exclude-bola-detection) - Optional Object<br>Configuration parameter for exclude bola detection
+
+<a id="exclude-bot-defense-activity"></a>&#x2022; [`exclude_bot_defense_activity`](#exclude-bot-defense-activity) - Optional Object<br>Configuration parameter for exclude bot defense activity
+
+<a id="exclude-failed-login-activity"></a>&#x2022; [`exclude_failed_login_activity`](#exclude-failed-login-activity) - Optional Object<br>Configuration parameter for exclude failed login activity
+
+<a id="exclude-forbidden-activity"></a>&#x2022; [`exclude_forbidden_activity`](#exclude-forbidden-activity) - Optional Object<br>Configuration parameter for exclude forbidden activity
+
+<a id="exclude-ip-reputation"></a>&#x2022; [`exclude_ip_reputation`](#exclude-ip-reputation) - Optional Object<br>Enable this option
+
+<a id="exclude-non-existent-url-activity"></a>&#x2022; [`exclude_non_existent_url_activity`](#exclude-non-existent-url-activity) - Optional Object<br>Enable this option
+
+<a id="exclude-rate-limit"></a>&#x2022; [`exclude_rate_limit`](#exclude-rate-limit) - Optional Object<br>Configuration parameter for exclude rate limit
+
+<a id="exclude-waf-activity"></a>&#x2022; [`exclude_waf_activity`](#exclude-waf-activity) - Optional Object<br>Configuration parameter for exclude WAF activity
+
+<a id="include-bot-defense-activity"></a>&#x2022; [`include_bot_defense_activity`](#include-bot-defense-activity) - Optional Object<br>Configuration parameter for include bot defense activity
+
+<a id="include-failed-login-activity"></a>&#x2022; [`include_failed_login_activity`](#include-failed-login-activity) - Optional String<br>When enabled, the system monitors persistent failed login attempts from a user. A failed login is detected if a request results in a response code of 401. These settings specify how to use failed login activity to determine suspicious behavior
+
+<a id="include-forbidden-activity"></a>&#x2022; [`include_forbidden_activity`](#include-forbidden-activity) - Optional String<br>When L7 policy rules are set up to disallow certain types of requests, the system monitors persistent attempts from a user to send requests which result in policy denies. These settings specify how to use disallowed request activity from a user to determine suspicious
+behavior
+
+<a id="include-ip-reputation"></a>&#x2022; [`include_ip_reputation`](#include-ip-reputation) - Optional Object<br>Enable this option
+
+<a id="automatic-eb7cca"></a>&#x2022; [`include_non_existent_url_activity_automatic`](#automatic-eb7cca) - Optional String<br>Non-existent URL Automatic Activity Settings
+
+<a id="custom-90c242"></a>&#x2022; [`include_non_existent_url_activity_custom`](#custom-90c242) - Optional String<br>Non-existent URL Custom Activity Setting
+
+<a id="include-rate-limit"></a>&#x2022; [`include_rate_limit`](#include-rate-limit) - Optional Object<br>Configuration parameter for include rate limit
+
+<a id="include-waf-activity"></a>&#x2022; [`include_waf_activity`](#include-waf-activity) - Optional Object<br>Configuration parameter for include WAF activity
+
+<a id="login-failures-threshold"></a>&#x2022; [`login_failures_threshold`](#login-failures-threshold) - Optional Number<br>The number of failed logins beyond which the system will flag this user as malicious
+
+<a id="forbidden-requests-threshold"></a>&#x2022; [`forbidden_requests_threshold`](#forbidden-requests-threshold) - Optional Number<br>The number of forbidden requests beyond which the system will flag this user as malicious
+
+<a id="high"></a>&#x2022; [`high`](#high) - Optional Object<br>Enable this option
+
+<a id="low"></a>&#x2022; [`low`](#low) - Optional Object<br>Enable this option
+
+<a id="medium"></a>&#x2022; [`medium`](#medium) - Optional Object<br>Enable this option
+
+<a id="nonexistent-requests-threshold"></a>&#x2022; [`nonexistent_requests_threshold`](#nonexistent-requests-threshold) - Optional Number<br>The percentage of non-existent requests beyond which the system will flag this user as malicious
 
 ---
 

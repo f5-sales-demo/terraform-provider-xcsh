@@ -28,12 +28,15 @@ type WorkloadFlavorDataSource struct {
 }
 
 type WorkloadFlavorDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID               types.String `tfsdk:"id"`
+	Name             types.String `tfsdk:"name"`
+	Namespace        types.String `tfsdk:"namespace"`
+	Description      types.String `tfsdk:"description"`
+	Labels           types.Map    `tfsdk:"labels"`
+	Annotations      types.Map    `tfsdk:"annotations"`
+	EphemeralStorage types.String `tfsdk:"ephemeral_storage"`
+	Memory           types.String `tfsdk:"memory"`
+	Vcpus            types.Int64  `tfsdk:"vcpus"`
 }
 
 func (d *WorkloadFlavorDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -54,7 +57,8 @@ func (d *WorkloadFlavorDataSource) Schema(ctx context.Context, req datasource.Sc
 			},
 			"namespace": schema.StringAttribute{
 				MarkdownDescription: "Namespace where the WorkloadFlavor exists.",
-				Required:            true,
+				Optional:            true,
+				Computed:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the WorkloadFlavor.",
@@ -69,6 +73,18 @@ func (d *WorkloadFlavorDataSource) Schema(ctx context.Context, req datasource.Sc
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"ephemeral_storage": schema.StringAttribute{
+				MarkdownDescription: "Ephemeral storage in MiB (mebibyte) allocated for the workload_flavor.",
+				Computed:            true,
+			},
+			"memory": schema.StringAttribute{
+				MarkdownDescription: "Memory in MiB (mebibyte) allocated for the workload_flavor.",
+				Computed:            true,
+			},
+			"vcpus": schema.Int64Attribute{
+				MarkdownDescription: "Number of vCPUs allocated for the workload_flavor. Each vCPU is a thread on a CPU core.",
+				Computed:            true,
 			},
 		},
 	}
@@ -93,7 +109,11 @@ func (d *WorkloadFlavorDataSource) Read(ctx context.Context, req datasource.Read
 		return
 	}
 
-	resource, err := d.client.GetWorkloadFlavor(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	if data.Namespace.IsNull() || data.Namespace.IsUnknown() || namespace == "" {
+		namespace = "shared"
+	}
+	resource, err := d.client.GetWorkloadFlavor(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read WorkloadFlavor: %s", err))
 		return
@@ -101,7 +121,11 @@ func (d *WorkloadFlavorDataSource) Read(ctx context.Context, req datasource.Read
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +158,22 @@ func (d *WorkloadFlavorDataSource) Read(ctx context.Context, req datasource.Read
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["ephemeral_storage"].(string); ok && v != "" {
+		data.EphemeralStorage = types.StringValue(v)
+	} else {
+		data.EphemeralStorage = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["memory"].(string); ok && v != "" {
+		data.Memory = types.StringValue(v)
+	} else {
+		data.Memory = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["vcpus"].(float64); ok {
+		data.Vcpus = types.Int64Value(int64(v))
+	} else {
+		data.Vcpus = types.Int64Null()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

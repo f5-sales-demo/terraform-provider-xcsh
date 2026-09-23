@@ -56,7 +56,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
-<a id="default-policy-group"></a>&#x2022; [`default_policy_group`](#default-policy-group) - Optional String<br>Configuration parameter for default policy group
+<a id="default-policy-group"></a>&#x2022; [`default_policy_group`](#default-policy-group) - Optional Object<br>Configuration parameter for default policy group
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 
@@ -65,6 +65,12 @@ In addition to all arguments above, the following attributes are exported:
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
 
 <a id="policy-group"></a>&#x2022; [`policy_group`](#policy-group) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

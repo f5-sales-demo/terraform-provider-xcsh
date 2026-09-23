@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,16 @@ type VirtualK8SDataSource struct {
 }
 
 type VirtualK8SDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID               types.String                     `tfsdk:"id"`
+	Name             types.String                     `tfsdk:"name"`
+	Namespace        types.String                     `tfsdk:"namespace"`
+	Description      types.String                     `tfsdk:"description"`
+	Labels           types.Map                        `tfsdk:"labels"`
+	Annotations      types.Map                        `tfsdk:"annotations"`
+	Disabled         types.Object                     `tfsdk:"disabled"`
+	Isolated         types.Object                     `tfsdk:"isolated"`
+	DefaultFlavorRef *VirtualK8SDefaultFlavorRefModel `tfsdk:"default_flavor_ref"`
+	VsiteRefs        types.List                       `tfsdk:"vsite_refs"`
 }
 
 func (d *VirtualK8SDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +75,62 @@ func (d *VirtualK8SDataSource) Schema(ctx context.Context, req datasource.Schema
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"default_flavor_ref": schema.SingleNestedAttribute{
+				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+				Attributes: map[string]schema.Attribute{
+					"name": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+						Computed:            true,
+					},
+					"namespace": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+						Computed:            true,
+					},
+					"tenant": schema.StringAttribute{
+						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disabled, isolated] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"isolated": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"vsite_refs": schema.ListNestedAttribute{
+				MarkdownDescription: "Reference to virtual-sites Default virtual-site of the Virtual K8s object. If no virtual-site is specified in the Kubernetes API resource object annotations via F5 XC/virtual-sites, then this virtual-site is used select sites on which to instantiate the Kubernetes API resource object.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +154,8 @@ func (d *VirtualK8SDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		return
 	}
 
-	resource, err := d.client.GetVirtualK8S(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetVirtualK8S(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read VirtualK8S: %s", err))
 		return
@@ -101,7 +163,11 @@ func (d *VirtualK8SDataSource) Read(ctx context.Context, req datasource.ReadRequ
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +200,97 @@ func (d *VirtualK8SDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["default_flavor_ref"].(map[string]interface{}); ok && (isImport || data.DefaultFlavorRef != nil) {
+		data.DefaultFlavorRef = &VirtualK8SDefaultFlavorRefModel{
+			Name: func() types.String {
+				if v, ok := blockData["name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Namespace: func() types.String {
+				if v, ok := blockData["namespace"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			Tenant: func() types.String {
+				if v, ok := blockData["tenant"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if !isImport && !data.Disabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok {
+		data.Disabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Disabled = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.Isolated.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok {
+		data.Isolated = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Isolated = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && (data.VsiteRefs.IsNull() || len(data.VsiteRefs.Elements()) == 0) {
+		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["vsite_refs"].([]interface{}); ok && len(listData) > 0 {
+		var VsiteRefsList []VirtualK8SVsiteRefsModel
+		var existingVsiteRefsItems []VirtualK8SVsiteRefsModel
+		if !data.VsiteRefs.IsNull() && !data.VsiteRefs.IsUnknown() {
+			data.VsiteRefs.ElementsAs(ctx, &existingVsiteRefsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				VsiteRefsList = append(VsiteRefsList, VirtualK8SVsiteRefsModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes}, VsiteRefsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.VsiteRefs = listVal
+		}
+	} else {
+		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

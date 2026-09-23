@@ -60,9 +60,149 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the PolicyBasedRouting
 
+<a id="forward-proxy-pbr"></a>&#x2022; [`forward_proxy_pbr`](#forward-proxy-pbr) - Optional String<br>Configuration parameter for forward proxy pbr
+
+<a id="forwarding-class-list"></a>&#x2022; [`forwarding_class_list`](#forwarding-class-list) - Optional List<br>Ordered list of forwarding Class to be used if source application match and no rule match
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="network-pbr"></a>&#x2022; [`network_pbr`](#network-pbr) - Optional String<br>Configuration parameter for network pbr
+
+<a id="forward-proxy-pbr-rules"></a>&#x2022; [`forward_proxy_pbr_rules`](#forward-proxy-pbr-rules) - Optional List<br>L3/L4 routing rules. Network(L3/L4) routing policy rules
+
+<a id="all-destinations"></a>&#x2022; [`all_destinations`](#all-destinations) - Optional Object<br>Configuration parameter for all destinations
+
+<a id="all-sources"></a>&#x2022; [`all_sources`](#all-sources) - Optional Object<br>Configuration parameter for all sources
+
+<a id="forwarding-class-list"></a>&#x2022; [`forwarding_class_list`](#forwarding-class-list) - Optional List<br>Ordered list of forwarding Class to be used if no rule match
+
+<a id="http-list"></a>&#x2022; [`http_list`](#http-list) - Optional String<br>URLListType
+
+<a id="ip-prefix-set"></a>&#x2022; [`ip_prefix_set`](#ip-prefix-set) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="label-selector"></a>&#x2022; [`label_selector`](#label-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="prefix-list"></a>&#x2022; [`prefix_list`](#prefix-list) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="tls-list"></a>&#x2022; [`tls_list`](#tls-list) - Optional String<br>DomainListType
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="http-list"></a>&#x2022; [`http_list`](#http-list) - Optional List<br>HTTP URLs. URLs for HTTP connections
+
+<a id="any-path"></a>&#x2022; [`any_path`](#any-path) - Optional Object<br>Enable this option
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="path-exact-value"></a>&#x2022; [`path_exact_value`](#path-exact-value) - Optional String<br>Exact Path to match
+
+<a id="path-prefix-value"></a>&#x2022; [`path_prefix_value`](#path-prefix-value) - Optional String<br>Prefix of Path e.g '/abc/xyz' will match '/abc/xyz/.*'
+
+<a id="path-regex-value"></a>&#x2022; [`path_regex_value`](#path-regex-value) - Optional String<br>Regular Expression value for the Path to match
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain names e.g 'xyz.com' will match '*.xyz.com'
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="prefixes"></a>&#x2022; [`prefixes`](#prefixes) - Optional List<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="tls-list"></a>&#x2022; [`tls_list`](#tls-list) - Optional List<br>TLS Domains. Domains in SNI for TLS connections
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="any"></a>&#x2022; [`any`](#any) - Optional Object<br>Enable this option
+
+<a id="label-selector"></a>&#x2022; [`label_selector`](#label-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="network-pbr-rules"></a>&#x2022; [`network_pbr_rules`](#network-pbr-rules) - Optional List<br>L3/L4 Destination Routing Rules. Network(L3/L4) routing policy rule
+
+<a id="prefix-list"></a>&#x2022; [`prefix_list`](#prefix-list) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="all-tcp-traffic"></a>&#x2022; [`all_tcp_traffic`](#all-tcp-traffic) - Optional Object<br>Configuration parameter for all TCP traffic
+
+<a id="all-traffic"></a>&#x2022; [`all_traffic`](#all-traffic) - Optional Object<br>Configuration parameter for all traffic
+
+<a id="all-udp-traffic"></a>&#x2022; [`all_udp_traffic`](#all-udp-traffic) - Optional Object<br>Configuration parameter for all UDP traffic
+
+<a id="any"></a>&#x2022; [`any`](#any) - Optional Object<br>Enable this option
+
+<a id="applications"></a>&#x2022; [`applications`](#applications) - Optional String<br>Configuration parameter for applications
+
+<a id="dns-name"></a>&#x2022; [`dns_name`](#dns-name) - Optional String<br>Resolve hostname to GET the IP
+
+<a id="forwarding-class-list"></a>&#x2022; [`forwarding_class_list`](#forwarding-class-list) - Optional List<br>Ordered list of forwarding Class to be used if rule match
+
+<a id="ip-prefix-set"></a>&#x2022; [`ip_prefix_set`](#ip-prefix-set) - Optional String<br>List of references to ip_prefix_set objects
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="prefix-list"></a>&#x2022; [`prefix_list`](#prefix-list) - Optional String<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="protocol-port-range"></a>&#x2022; [`protocol_port_range`](#protocol-port-range) - Optional String<br>Protocol and Port. Protocol and Port ranges
+
+<a id="applications"></a>&#x2022; [`applications`](#applications) - Optional List  Defaults to `APPLICATION_HTTP`<br>Possible values are `APPLICATION_HTTP`, `APPLICATION_HTTPS`, `APPLICATION_SNMP`, `APPLICATION_DNS`<br>[Enum: APPLICATION_HTTP|APPLICATION_HTTPS|APPLICATION_SNMP|APPLICATION_DNS] Application Protocols. Application protocols like HTTP, SNMP
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="ref"></a>&#x2022; [`ref`](#ref) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="prefixes"></a>&#x2022; [`prefixes`](#prefixes) - Optional List<br>List of IPv4 prefixes that represent an endpoint
+
+<a id="port-ranges"></a>&#x2022; [`port_ranges`](#port-ranges) - Optional List<br>List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192
+
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String<br>Possible values are `ALL`, `TCP`, `UDP`, `ICMP`<br>[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
+
+<a id="prefixes"></a>&#x2022; [`prefixes`](#prefixes) - Optional List<br>List of IPv4 prefixes that represent an endpoint
 
 ---
 

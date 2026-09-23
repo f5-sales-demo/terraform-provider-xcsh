@@ -2481,7 +2481,7 @@ A [`policy`](#bot-defense-policy) block (within [`bot_defense`](#bot-defense)) s
 
 <a id="bot-defense-policy-disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#bot-defense-policy-disable-mobile-sdk) - Optional Object<br>Enable this option
 
-<a id="bot-defense-policy-JavaScript-mode"></a>&#x2022; [`javascript_mode`](#bot-defense-policy-JavaScript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense
+<a id="bot-defense-policy-javascript-mode"></a>&#x2022; [`javascript_mode`](#bot-defense-policy-javascript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense
 JavaScript for telemetry collection is requested asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
 
 <a id="bot-defense-policy-js-download-path"></a>&#x2022; [`js_download_path`](#bot-defense-policy-js-download-path) - Optional String<br>Customize Bot Defense Client JavaScript path. If not specified, default
@@ -2508,7 +2508,7 @@ A [`disable_mobile_sdk`](#bot-defense-policy-disable-mobile-sdk) block (within [
 
 A [`js_insert_all_pages`](#bot-defense-policy-js-insert-all-pages) block (within [`bot_defense.policy`](#bot-defense-policy)) supports the following:
 
-<a id="location-0d5121"></a>&#x2022; [`javascript_location`](#location-0d5121) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-3a398d"></a>&#x2022; [`javascript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Policy Js Insert All Pages Except
 
@@ -2570,7 +2570,7 @@ A [`rules`](#rules-15d983) block (within [`bot_defense.policy.js_insertion_rules
 
 <a id="domain-834b0f"></a>&#x2022; [`domain`](#domain-834b0f) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-834b0f) below.
 
-<a id="location-5b3be0"></a>&#x2022; [`javascript_location`](#location-5b3be0) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-16277f"></a>&#x2022; [`javascript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-e15703"></a>&#x2022; [`metadata`](#metadata-e15703) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-e15703) below.
@@ -2978,7 +2978,7 @@ A [`disable_mobile_sdk`](#bot-defense-advanced-disable-mobile-sdk) block (within
 
 A [`js_insert_all_pages`](#pages-27f3ea) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
 
-<a id="location-281bca"></a>&#x2022; [`javascript_location`](#location-281bca) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-f54ccc"></a>&#x2022; [`javascript_location`](#location-f54ccc) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Advanced Js Insert All Pages Except
 
@@ -3040,7 +3040,7 @@ A [`rules`](#rules-24e5a0) block (within [`bot_defense_advanced.js_insertion_rul
 
 <a id="domain-ff2f2e"></a>&#x2022; [`domain`](#domain-ff2f2e) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-ff2f2e) below.
 
-<a id="location-ff779c"></a>&#x2022; [`javascript_location`](#location-ff779c) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-20f540"></a>&#x2022; [`javascript_location`](#location-20f540) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-43c6ee"></a>&#x2022; [`metadata`](#metadata-43c6ee) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-43c6ee) below.
@@ -3121,7 +3121,7 @@ A [`caching_policy`](#caching-policy) block supports the following:
 
 A [`custom_cache_rule`](#caching-policy-custom-cache-rule) block (within [`caching_policy`](#caching-policy)) supports the following:
 
-<a id="rules-fa09a1"></a>&#x2022; [`cdn_cache_rules`](#rules-fa09a1) - Optional Block<br>Reference to CDN Cache Rule configuration object<br>See [CDN Cache Rules](#rules-fa09a1) below.
+<a id="rules-e10c80"></a>&#x2022; [`cdn_cache_rules`](#rules-e10c80) - Optional Block<br>Reference to CDN Cache Rule configuration object<br>See [CDN Cache Rules](#rules-e10c80) below.
 
 #### Caching Policy Custom Cache Rule CDN Cache Rules
 
@@ -5320,7 +5320,7 @@ do<br>See [Mitigation Js Challenge](#challenge-2a2755) below.
 
 #### L7 DDOS Protection client-side Action Captcha Challenge
 
-A [`clientside_action_captcha_challenge`](#challenge-84ab9e) block (within [`l7_ddos_protection`](#l7-ddos-protection)) supports the following:
+A [`clientside_action_captcha_challenge`](#l7-ddos-protection-client-side-action-captcha-challenge) block (within [`l7_ddos_protection`](#l7-ddos-protection)) supports the following:
 
 <a id="expiry-758337"></a>&#x2022; [`cookie_expiry`](#expiry-758337) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
@@ -5328,7 +5328,7 @@ A [`clientside_action_captcha_challenge`](#challenge-84ab9e) block (within [`l7_
 
 #### L7 DDOS Protection client-side Action Js Challenge
 
-A [`clientside_action_js_challenge`](#challenge-1070c2) block (within [`l7_ddos_protection`](#l7-ddos-protection)) supports the following:
+A [`clientside_action_js_challenge`](#l7-ddos-protection-client-side-action-js-challenge) block (within [`l7_ddos_protection`](#l7-ddos-protection)) supports the following:
 
 <a id="expiry-fb1ca5"></a>&#x2022; [`cookie_expiry`](#expiry-fb1ca5) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
@@ -5338,7 +5338,7 @@ A [`clientside_action_js_challenge`](#challenge-1070c2) block (within [`l7_ddos_
 
 #### L7 DDOS Protection client-side Action None
 
-A [`clientside_action_none`](#none-88961b) block (within [`l7_ddos_protection`](#l7-ddos-protection)) supports the following:
+A [`clientside_action_none`](#l7-ddos-protection-client-side-action-none) block (within [`l7_ddos_protection`](#l7-ddos-protection)) supports the following:
 
 #### L7 DDOS Protection DDOS Policy Custom
 
@@ -5934,7 +5934,7 @@ below.
 
 <a id="challenge-e0353b"></a>&#x2022; [`enable_captcha_challenge`](#challenge-e0353b) - Optional Object<br>Configuration parameter for enable captcha challenge
 
-<a id="challenge-6e968e"></a>&#x2022; [`enable_javascript_challenge`](#challenge-6e968e) - Optional Object<br>Enable this option
+<a id="challenge-3644c3"></a>&#x2022; [`enable_javascript_challenge`](#challenge-3644c3) - Optional Object<br>Enable this option
 
 <a id="timestamp-6d26e1"></a>&#x2022; [`expiration_timestamp`](#timestamp-6d26e1) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
 
@@ -6595,7 +6595,7 @@ An [`advanced_options`](#routes-simple-route-advanced-options) block (within [`r
 
 <a id="firewall-b8f7c9"></a>&#x2022; [`app_firewall`](#firewall-b8f7c9) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [App Firewall](#firewall-b8f7c9) below.
 
-<a id="injection-d53ee6"></a>&#x2022; [`bot_defense_javascript_injection`](#injection-d53ee6) - Optional Block<br>Bot Defense JavaScript Injection Configuration for inline bot defense deployments<br>See [Bot Defense JavaScript Injection](#injection-d53ee6) below.
+<a id="injection-23f0bd"></a>&#x2022; [`bot_defense_javascript_injection`](#injection-23f0bd) - Optional Block<br>Bot Defense JavaScript Injection Configuration for inline bot defense deployments<br>See [Bot Defense JavaScript Injection](#injection-23f0bd) below.
 
 <a id="policy-23a3f6"></a>&#x2022; [`buffer_policy`](#policy-23a3f6) - Optional Block<br>Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config<br>See [Buffer Policy](#policy-23a3f6) below.
 
@@ -6629,7 +6629,7 @@ Policy](#policy-7816d7) below.
 
 <a id="subsets-b6a9d9"></a>&#x2022; [`endpoint_subsets`](#subsets-b6a9d9) - Optional Block<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
 
-<a id="injection-4f494f"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-4f494f) - Optional Object<br>Enable this option
+<a id="injection-46208e"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-46208e) - Optional Object<br>Enable this option
 
 <a id="waf-0043f0"></a>&#x2022; [`inherited_waf`](#waf-0043f0) - Optional Object<br>Configuration parameter for inherited WAF
 

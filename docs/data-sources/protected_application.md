@@ -56,13 +56,1069 @@ output "protected_application_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="adobe-commerce-connector"></a>&#x2022; [`adobe_commerce_connector`](#adobe-commerce-connector) - Optional Object<br>Configuration parameter for adobe commerce connector
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="big-ip-iapp"></a>&#x2022; [`big_ip_iapp`](#big-ip-iapp) - Optional Object<br>Enable this option
+
+<a id="cloudflare"></a>&#x2022; [`cloudflare`](#cloudflare) - Optional String<br>Bot Defense policy configuration for Cloudflare
+
+<a id="cloudfront"></a>&#x2022; [`cloudfront`](#cloudfront) - Optional String<br>Bot Defense policy configuration for AWS Cloudfront
+
+<a id="custom-connector"></a>&#x2022; [`custom_connector`](#custom-connector) - Optional Object<br>Configuration parameter for custom connector
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the ProtectedApplication
+
+<a id="f5-big-ip"></a>&#x2022; [`f5_big_ip`](#f5-big-ip) - Optional Object<br>Enable this option
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="region"></a>&#x2022; [`region`](#region) - Optional String  Defaults to `US`<br>Possible values are `US`, `EU`, `ASIA`, `CA`<br>[Enum: US|EU|ASIA|CA] Defines a selection for Bot Defense region - US: US United States of America - EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada
+
+<a id="salesforce-commerce-connector"></a>&#x2022; [`salesforce_commerce_connector`](#salesforce-commerce-connector) - Optional Object<br>Configuration parameter for salesforce commerce connector
+
+---
+
+#### Cloudflare
+
+A [`cloudflare`](#cloudflare) block supports the following:
+
+<a id="hdr-e035bb"></a>&#x2022; [`continue_mitigation_action_hdr`](#hdr-e035bb) - Optional String<br>Case-insensitive HTTP header name for Continue Mitigation Action when add header selected
+
+<a id="nestedatt--cloudflare-disable-js-insert"></a>&#x2022; [`disable_js_insert`](#nestedatt--cloudflare-disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
+
+<a id="sdk-325b17"></a>&#x2022; [`disable_mobile_sdk`](#sdk-325b17) - Optional Object<br>Enable this option
+
+<a id="rules-999e1c"></a>&#x2022; [`js_insertion_rules`](#rules-999e1c) - Optional String<br>Defines custom JavaScript insertion rules for Bot Defense Policy
+
+<a id="nestedatt--cloudflare-loglevel"></a>&#x2022; [`loglevel`](#nestedatt--cloudflare-loglevel) - Optional String  Defaults to `LOG_UNDEFINED`<br>Possible values are `LOG_UNDEFINED`, `LOG_ERROR`, `LOG_WARNING`, `LOG_INFO`, `LOG_DEBUG`<br>[Enum: LOG_UNDEFINED|LOG_ERROR|LOG_WARNING|LOG_INFO|LOG_DEBUG] Select the level of logging desired. Levels are cumulative (e.g. Debug includes Error, Warning,
+and Informational) - LOG_UNDEFINED: Undefined - LOG_ERROR: Error Log only errors - LOG_WARNING: Warning Log malicious requests - LOG_INFO: Info Log all requests - LOG_DEBUG: Debug Log debugging data
+
+<a id="nestedatt--cloudflare-manual-js-insert"></a>&#x2022; [`manual_js_insert`](#nestedatt--cloudflare-manual-js-insert) - Optional String<br>Insert JavaScript Manually. Insert JavaScript manually
+
+<a id="nestedatt--cloudflare-mobile-sdk-config"></a>&#x2022; [`mobile_sdk_config`](#nestedatt--cloudflare-mobile-sdk-config) - Optional String<br>Mobile SDK Configuration. Mobile SDK configuration
+
+<a id="endpoints-3592bc"></a>&#x2022; [`protected_endpoints`](#endpoints-3592bc) - Optional List<br>List of protected endpoints (max 128 items)
+
+<a id="nestedatt--cloudflare-timeout"></a>&#x2022; [`timeout`](#nestedatt--cloudflare-timeout) - Optional Number<br>The timeout for the inference check, in milliseconds
+
+<a id="nestedatt--cloudflare-trusted-clients"></a>&#x2022; [`trusted_clients`](#nestedatt--cloudflare-trusted-clients) - Optional List<br>Define your allowlists to skip Bot Defense inference processing
+
+#### Cloudflare Disable Js Insert
+
+A [`disable_js_insert`](#cloudflare-disable-js-insert) block (within [`cloudflare`](#cloudflare)) supports the following:
+
+#### Cloudflare Disable Mobile SDK
+
+A [`disable_mobile_sdk`](#cloudflare-disable-mobile-sdk) block (within [`cloudflare`](#cloudflare)) supports the following:
+
+#### Cloudflare Js Insertion Rules
+
+A [`js_insertion_rules`](#cloudflare-js-insertion-rules) block (within [`cloudflare`](#cloudflare)) supports the following:
+
+<a id="nestedatt--cloudflare-exclude-list"></a>&#x2022; [`exclude_list`](#nestedatt--cloudflare-exclude-list) - Optional List<br>Optional JavaScript insertions exclude list of domain and path matchers
+
+<a id="location-48ac23"></a>&#x2022; [`javascript_location`](#location-48ac23) - Optional String  Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`<br>Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED:
+JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+
+<a id="nestedatt--cloudflare-js-download-path"></a>&#x2022; [`js_download_path`](#nestedatt--cloudflare-js-download-path) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’
+
+<a id="nestedatt--cloudflare-rules"></a>&#x2022; [`rules`](#nestedatt--cloudflare-rules) - Optional List<br>Required list of pages to insert Bot Defense client JavaScript
+
+#### Cloudflare Js Insertion Rules Exclude List
+
+An [`exclude_list`](#cloudflare-js-insertion-rules-exclude-list) block (within [`cloudflare.js_insertion_rules`](#cloudflare-js-insertion-rules)) supports the following:
+
+<a id="nestedatt--cloudflare-any-domain"></a>&#x2022; [`any_domain`](#nestedatt--cloudflare-any-domain) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudflare-domain"></a>&#x2022; [`domain`](#nestedatt--cloudflare-domain) - Optional String<br>Domain name for routing and identification
+
+<a id="nestedatt--cloudflare-metadata"></a>&#x2022; [`metadata`](#nestedatt--cloudflare-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by
+user during create
+
+<a id="nestedatt--cloudflare-path"></a>&#x2022; [`path`](#nestedatt--cloudflare-path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+#### Cloudflare Js Insertion Rules Exclude List Any Domain
+
+<a id="deep-598086"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Cloudflare Js Insertion Rules Exclude List Domain
+
+A [`domain`](#cloudflare-js-insertion-rules-exclude-list-domain) block (within [`cloudflare.js_insertion_rules.exclude_list`](#cloudflare-js-insertion-rules-exclude-list)) supports the following:
+
+<a id="nestedatt--cloudflare-exact-value"></a>&#x2022; [`exact_value`](#nestedatt--cloudflare-exact-value) - Optional String<br>Exact domain name
+
+<a id="nestedatt--cloudflare-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--cloudflare-regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="nestedatt--cloudflare-suffix-value"></a>&#x2022; [`suffix_value`](#nestedatt--cloudflare-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+#### Cloudflare Js Insertion Rules Exclude List Metadata
+
+A [`metadata`](#cloudflare-js-insertion-rules-exclude-list-metadata) block (within [`cloudflare.js_insertion_rules.exclude_list`](#cloudflare-js-insertion-rules-exclude-list)) supports the following:
+
+<a id="nestedatt--cloudflare-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--cloudflare-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--cloudflare-name"></a>&#x2022; [`name`](#nestedatt--cloudflare-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Cloudflare Js Insertion Rules Exclude List Path
+
+A [`path`](#cloudflare-js-insertion-rules-exclude-list-path) block (within [`cloudflare.js_insertion_rules.exclude_list`](#cloudflare-js-insertion-rules-exclude-list)) supports the following:
+
+<a id="nestedatt--cloudflare-path"></a>&#x2022; [`path`](#nestedatt--cloudflare-path) - Optional String<br>Exact path value to match
+
+<a id="nestedatt--cloudflare-prefix"></a>&#x2022; [`prefix`](#nestedatt--cloudflare-prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="nestedatt--cloudflare-regex"></a>&#x2022; [`regex`](#nestedatt--cloudflare-regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+#### Cloudflare Js Insertion Rules Rules
+
+A [`rules`](#cloudflare-js-insertion-rules-rules) block (within [`cloudflare.js_insertion_rules`](#cloudflare-js-insertion-rules)) supports the following:
+
+<a id="nestedatt--cloudflare-any-domain"></a>&#x2022; [`any_domain`](#nestedatt--cloudflare-any-domain) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudflare-domain"></a>&#x2022; [`domain`](#nestedatt--cloudflare-domain) - Optional String<br>Domain name for routing and identification
+
+<a id="nestedatt--cloudflare-exact-path"></a>&#x2022; [`exact_path`](#nestedatt--cloudflare-exact-path) - Optional String<br>Exact path value to match
+
+<a id="nestedatt--cloudflare-glob"></a>&#x2022; [`glob`](#nestedatt--cloudflare-glob) - Optional String<br>Accepts wildcards \* to match multiple characters or ? To match a single character
+
+<a id="nestedatt--cloudflare-metadata"></a>&#x2022; [`metadata`](#nestedatt--cloudflare-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by
+user during create
+
+<a id="nestedatt--cloudflare-prefix"></a>&#x2022; [`prefix`](#nestedatt--cloudflare-prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+#### Cloudflare Js Insertion Rules Rules Any Domain
+
+An [`any_domain`](#cloudflare-js-insertion-rules-rules-any-domain) block (within [`cloudflare.js_insertion_rules.rules`](#cloudflare-js-insertion-rules-rules)) supports the following:
+
+#### Cloudflare Js Insertion Rules Rules Domain
+
+A [`domain`](#cloudflare-js-insertion-rules-rules-domain) block (within [`cloudflare.js_insertion_rules.rules`](#cloudflare-js-insertion-rules-rules)) supports the following:
+
+<a id="nestedatt--cloudflare-exact-value"></a>&#x2022; [`exact_value`](#nestedatt--cloudflare-exact-value) - Optional String<br>Exact domain name
+
+<a id="nestedatt--cloudflare-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--cloudflare-regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="nestedatt--cloudflare-suffix-value"></a>&#x2022; [`suffix_value`](#nestedatt--cloudflare-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+#### Cloudflare Js Insertion Rules Rules Metadata
+
+A [`metadata`](#cloudflare-js-insertion-rules-rules-metadata) block (within [`cloudflare.js_insertion_rules.rules`](#cloudflare-js-insertion-rules-rules)) supports the following:
+
+<a id="nestedatt--cloudflare-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--cloudflare-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--cloudflare-name"></a>&#x2022; [`name`](#nestedatt--cloudflare-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Cloudflare Manual Js Insert
+
+A [`manual_js_insert`](#cloudflare-manual-js-insert) block (within [`cloudflare`](#cloudflare)) supports the following:
+
+<a id="nestedatt--cloudflare-js-download-path"></a>&#x2022; [`js_download_path`](#nestedatt--cloudflare-js-download-path) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’
+
+#### Cloudflare Mobile SDK Config
+
+A [`mobile_sdk_config`](#cloudflare-mobile-sdk-config) block (within [`cloudflare`](#cloudflare)) supports the following:
+
+<a id="nestedatt--cloudflare-mobile-identifier"></a>&#x2022; [`mobile_identifier`](#nestedatt--cloudflare-mobile-identifier) - Optional String<br>Mobile Traffic Identifier. Mobile traffic identifier type
+
+#### Cloudflare Mobile SDK Config Mobile Identifier
+
+A [`mobile_identifier`](#cloudflare-mobile-sdk-config-mobile-identifier) block (within [`cloudflare.mobile_sdk_config`](#cloudflare-mobile-sdk-config)) supports the following:
+
+<a id="nestedatt--cloudflare-headers"></a>&#x2022; [`headers`](#nestedatt--cloudflare-headers) - Optional List<br>List of headers that can be used to identify mobile traffic
+
+#### Cloudflare Mobile SDK Config Mobile Identifier Headers
+
+A [`headers`](#cloudflare-mobile-sdk-config-mobile-identifier-headers) block (within [`cloudflare.mobile_sdk_config.mobile_identifier`](#cloudflare-mobile-sdk-config-mobile-identifier)) supports the following:
+
+<a id="nestedatt--cloudflare-exact"></a>&#x2022; [`exact`](#nestedatt--cloudflare-exact) - Optional String<br>Header value to match exactly
+
+<a id="nestedatt--cloudflare-name"></a>&#x2022; [`name`](#nestedatt--cloudflare-name) - Optional String<br>Name. Name of the header
+
+<a id="nestedatt--cloudflare-regex"></a>&#x2022; [`regex`](#nestedatt--cloudflare-regex) - Optional String<br>Regex match of the header value in re2 format
+
+#### Cloudflare Protected Endpoints
+
+A [`protected_endpoints`](#cloudflare-protected-endpoints) block (within [`cloudflare`](#cloudflare)) supports the following:
+
+<a id="nestedatt--cloudflare-any-domain"></a>&#x2022; [`any_domain`](#nestedatt--cloudflare-any-domain) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudflare-domain"></a>&#x2022; [`domain`](#nestedatt--cloudflare-domain) - Optional String<br>Domain name for routing and identification
+
+<a id="nestedatt--cloudflare-http-methods"></a>&#x2022; [`http_methods`](#nestedatt--cloudflare-http-methods) - Optional List  Defaults to `METHOD_ANY`<br>Possible values are `METHOD_ANY`, `METHOD_GET`, `METHOD_POST`, `METHOD_PUT`, `METHOD_PATCH`, `METHOD_DELETE`, `METHOD_GET_DOCUMENT`<br>[Enum: METHOD_ANY|METHOD_GET|METHOD_POST|METHOD_PUT|METHOD_PATCH|METHOD_DELETE|METHOD_GET_DOCUMENT] HTTP
+Methods. List of HTTP methods
+
+<a id="nestedatt--cloudflare-metadata"></a>&#x2022; [`metadata`](#nestedatt--cloudflare-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by
+user during create
+
+<a id="nestedatt--cloudflare-mobile-client"></a>&#x2022; [`mobile_client`](#nestedatt--cloudflare-mobile-client) - Optional String<br>Mobile Client. Mobile client configuration OPTIONS
+
+<a id="nestedatt--cloudflare-path"></a>&#x2022; [`path`](#nestedatt--cloudflare-path) - Optional String<br>Path. URI Path
+
+<a id="nestedatt--cloudflare-query"></a>&#x2022; [`query`](#nestedatt--cloudflare-query) - Optional String<br>Enter a regular expression to match your query parameters of interest
+
+<a id="nestedatt--cloudflare-web-client"></a>&#x2022; [`web_client`](#nestedatt--cloudflare-web-client) - Optional String<br>Web Client. Web client configuration OPTIONS
+
+<a id="nestedatt--cloudflare-web-mobile-client"></a>&#x2022; [`web_mobile_client`](#nestedatt--cloudflare-web-mobile-client) - Optional String<br>Web and Mobile client configuration OPTIONS
+
+#### Cloudflare Protected Endpoints Any Domain
+
+An [`any_domain`](#cloudflare-protected-endpoints-any-domain) block (within [`cloudflare.protected_endpoints`](#cloudflare-protected-endpoints)) supports the following:
+
+#### Cloudflare Protected Endpoints Domain
+
+A [`domain`](#cloudflare-protected-endpoints-domain) block (within [`cloudflare.protected_endpoints`](#cloudflare-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudflare-exact-value"></a>&#x2022; [`exact_value`](#nestedatt--cloudflare-exact-value) - Optional String<br>Exact domain name
+
+<a id="nestedatt--cloudflare-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--cloudflare-regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="nestedatt--cloudflare-suffix-value"></a>&#x2022; [`suffix_value`](#nestedatt--cloudflare-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+#### Cloudflare Protected Endpoints Metadata
+
+A [`metadata`](#cloudflare-protected-endpoints-metadata) block (within [`cloudflare.protected_endpoints`](#cloudflare-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudflare-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--cloudflare-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--cloudflare-name"></a>&#x2022; [`name`](#nestedatt--cloudflare-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Cloudflare Protected Endpoints Mobile Client
+
+A [`mobile_client`](#cloudflare-protected-endpoints-mobile-client) block (within [`cloudflare.protected_endpoints`](#cloudflare-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudflare-block"></a>&#x2022; [`block`](#nestedatt--cloudflare-block) - Optional String<br>Block Response for Mobile. Block Response
+
+<a id="nestedatt--cloudflare-continue"></a>&#x2022; [`continue`](#nestedatt--cloudflare-continue) - Optional String<br>Select Continue Bot Mitigation Action. Continue mitigation action
+
+#### Cloudflare Protected Endpoints Mobile Client Block
+
+A [`block`](#cloudflare-protected-endpoints-mobile-client-block) block (within [`cloudflare.protected_endpoints.mobile_client`](#cloudflare-protected-endpoints-mobile-client)) supports the following:
+
+<a id="nestedatt--cloudflare-body"></a>&#x2022; [`body`](#nestedatt--cloudflare-body) - Optional String<br>Body. Custom body message
+
+<a id="nestedatt--cloudflare-content-type"></a>&#x2022; [`content_type`](#nestedatt--cloudflare-content-type) - Optional String<br>Content type to use in a block response
+
+<a id="nestedatt--cloudflare-status"></a>&#x2022; [`status`](#nestedatt--cloudflare-status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`,
+`SeeOther`, `NotModified`, `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`,
+`ExpectationFailed`, `MisdirectedRequest`, `UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`,
+`NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+#### Cloudflare Protected Endpoints Mobile Client Continue
+
+A [`continue`](#cloudflare-protected-endpoints-mobile-client-continue) block (within [`cloudflare.protected_endpoints.mobile_client`](#cloudflare-protected-endpoints-mobile-client)) supports the following:
+
+<a id="nestedatt--cloudflare-add-header"></a>&#x2022; [`add_header`](#nestedatt--cloudflare-add-header) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudflare-no-header"></a>&#x2022; [`no_header`](#nestedatt--cloudflare-no-header) - Optional Object<br>Enable this option
+
+#### Cloudflare Protected Endpoints Mobile Client Continue Add Header
+
+<a id="deep-824092"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Mobile Client Continue No Header
+
+<a id="deep-571799"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Path
+
+A [`path`](#cloudflare-protected-endpoints-path) block (within [`cloudflare.protected_endpoints`](#cloudflare-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudflare-caseinsensitive"></a>&#x2022; [`caseinsensitive`](#nestedatt--cloudflare-caseinsensitive) - Optional Bool<br>Should path be searched case insensitive;
+
+<a id="nestedatt--cloudflare-path"></a>&#x2022; [`path`](#nestedatt--cloudflare-path) - Optional String<br>Path. URI Path
+
+#### Cloudflare Protected Endpoints Web Client
+
+A [`web_client`](#cloudflare-protected-endpoints-web-client) block (within [`cloudflare.protected_endpoints`](#cloudflare-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudflare-block"></a>&#x2022; [`block`](#nestedatt--cloudflare-block) - Optional String<br>Block Response. Block Response
+
+<a id="nestedatt--cloudflare-continue"></a>&#x2022; [`continue`](#nestedatt--cloudflare-continue) - Optional String<br>Select Continue Bot Mitigation Action. Continue mitigation action
+
+<a id="nestedatt--cloudflare-redirect"></a>&#x2022; [`redirect`](#nestedatt--cloudflare-redirect) - Optional String<br>Redirect. Redirect
+
+#### Cloudflare Protected Endpoints Web Client Block
+
+A [`block`](#cloudflare-protected-endpoints-web-client-block) block (within [`cloudflare.protected_endpoints.web_client`](#cloudflare-protected-endpoints-web-client)) supports the following:
+
+<a id="nestedatt--cloudflare-body"></a>&#x2022; [`body`](#nestedatt--cloudflare-body) - Optional String<br>Body. Custom body message
+
+<a id="nestedatt--cloudflare-content-type"></a>&#x2022; [`content_type`](#nestedatt--cloudflare-content-type) - Optional String<br>Content type to use in a block response
+
+<a id="nestedatt--cloudflare-status"></a>&#x2022; [`status`](#nestedatt--cloudflare-status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`,
+`SeeOther`, `NotModified`, `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`,
+`ExpectationFailed`, `MisdirectedRequest`, `UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`,
+`NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+#### Cloudflare Protected Endpoints Web Client Continue
+
+A [`continue`](#cloudflare-protected-endpoints-web-client-continue) block (within [`cloudflare.protected_endpoints.web_client`](#cloudflare-protected-endpoints-web-client)) supports the following:
+
+<a id="nestedatt--cloudflare-add-header"></a>&#x2022; [`add_header`](#nestedatt--cloudflare-add-header) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudflare-no-header"></a>&#x2022; [`no_header`](#nestedatt--cloudflare-no-header) - Optional Object<br>Enable this option
+
+#### Cloudflare Protected Endpoints Web Client Continue Add Header
+
+<a id="deep-a8c957"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Client Continue No Header
+
+<a id="deep-6b570c"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Client Redirect
+
+A [`redirect`](#cloudflare-protected-endpoints-web-client-redirect) block (within [`cloudflare.protected_endpoints.web_client`](#cloudflare-protected-endpoints-web-client)) supports the following:
+
+<a id="nestedatt--cloudflare-location"></a>&#x2022; [`location`](#nestedatt--cloudflare-location) - Optional String<br>Location. URI location for redirect response
+
+<a id="nestedatt--cloudflare-status"></a>&#x2022; [`status`](#nestedatt--cloudflare-status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`,
+`SeeOther`, `NotModified`, `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`,
+`ExpectationFailed`, `MisdirectedRequest`, `UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`,
+`NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+#### Cloudflare Protected Endpoints Web Mobile Client
+
+A [`web_mobile_client`](#cloudflare-protected-endpoints-web-mobile-client) block (within [`cloudflare.protected_endpoints`](#cloudflare-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudflare-block-mobile"></a>&#x2022; [`block_mobile`](#nestedatt--cloudflare-block-mobile) - Optional String<br>Block Response for Mobile. Block Response
+
+<a id="nestedatt--cloudflare-block-web"></a>&#x2022; [`block_web`](#nestedatt--cloudflare-block-web) - Optional String<br>Block Response. Block Response
+
+<a id="nestedatt--cloudflare-continue-mobile"></a>&#x2022; [`continue_mobile`](#nestedatt--cloudflare-continue-mobile) - Optional String<br>Select Continue Bot Mitigation Action. Continue mitigation action
+
+<a id="nestedatt--cloudflare-continue-web"></a>&#x2022; [`continue_web`](#nestedatt--cloudflare-continue-web) - Optional String<br>Select Continue Bot Mitigation Action. Continue mitigation action
+
+<a id="nestedatt--cloudflare-redirect-web"></a>&#x2022; [`redirect_web`](#nestedatt--cloudflare-redirect-web) - Optional String<br>Redirect. Redirect
+
+#### Cloudflare Protected Endpoints Web Mobile Client Block Mobile
+
+<a id="deep-4efcff"></a>Deeply nested **Mobile** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Block Web
+
+<a id="deep-a3d7ea"></a>Deeply nested **Web** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Mobile
+
+<a id="deep-bef9cf"></a>Deeply nested **Mobile** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Mobile Add Header
+
+<a id="deep-b0b1d5"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Mobile No Header
+
+<a id="deep-966648"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Web
+
+<a id="deep-dca160"></a>Deeply nested **Web** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Web Add Header
+
+<a id="deep-5b5656"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Web No Header
+
+<a id="deep-a1744e"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Redirect Web
+
+<a id="deep-4a6255"></a>Deeply nested **Web** block collapsed for readability.
+
+#### Cloudflare Trusted Clients
+
+A [`trusted_clients`](#cloudflare-trusted-clients) block (within [`cloudflare`](#cloudflare)) supports the following:
+
+<a id="nestedatt--cloudflare-http-header"></a>&#x2022; [`http_header`](#nestedatt--cloudflare-http-header) - Optional String<br>Configuration parameter for HTTP header
+
+<a id="nestedatt--cloudflare-ip-prefix"></a>&#x2022; [`ip_prefix`](#nestedatt--cloudflare-ip-prefix) - Optional String<br>IP prefix string
+
+<a id="nestedatt--cloudflare-metadata"></a>&#x2022; [`metadata`](#nestedatt--cloudflare-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by
+user during create
+
+#### Cloudflare Trusted Clients HTTP Header
+
+A [`http_header`](#cloudflare-trusted-clients-http-header) block (within [`cloudflare.trusted_clients`](#cloudflare-trusted-clients)) supports the following:
+
+<a id="nestedatt--cloudflare-headers"></a>&#x2022; [`headers`](#nestedatt--cloudflare-headers) - Optional List<br>List of HTTP header name and value pairs
+
+#### Cloudflare Trusted Clients HTTP Header Headers
+
+A [`headers`](#cloudflare-trusted-clients-http-header-headers) block (within [`cloudflare.trusted_clients.http_header`](#cloudflare-trusted-clients-http-header)) supports the following:
+
+<a id="nestedatt--cloudflare-exact"></a>&#x2022; [`exact`](#nestedatt--cloudflare-exact) - Optional String<br>Header value to match exactly
+
+<a id="nestedatt--cloudflare-name"></a>&#x2022; [`name`](#nestedatt--cloudflare-name) - Optional String<br>Name. Name of the header
+
+<a id="nestedatt--cloudflare-regex"></a>&#x2022; [`regex`](#nestedatt--cloudflare-regex) - Optional String<br>Regex match of the header value in re2 format
+
+#### Cloudflare Trusted Clients Metadata
+
+A [`metadata`](#cloudflare-trusted-clients-metadata) block (within [`cloudflare.trusted_clients`](#cloudflare-trusted-clients)) supports the following:
+
+<a id="nestedatt--cloudflare-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--cloudflare-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--cloudflare-name"></a>&#x2022; [`name`](#nestedatt--cloudflare-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Cloudfront
+
+A [`cloudfront`](#cloudfront) block supports the following:
+
+<a id="selector-54b12f"></a>&#x2022; [`aws_configuration_id_selector`](#selector-54b12f) - Optional String<br>Configuration parameter for AWS configuration ID selector
+
+<a id="selector-c1b8c7"></a>&#x2022; [`aws_configuration_tag_selector`](#selector-c1b8c7) - Optional String<br>Distribution Tag List. CloudFront distribution tag list
+
+<a id="hdr-674a5c"></a>&#x2022; [`continue_mitigation_action_hdr`](#hdr-674a5c) - Optional String<br>Case-insensitive HTTP header name for Continue Mitigation Action when add header selected
+
+<a id="nestedatt--cloudfront-data-sample"></a>&#x2022; [`data_sample`](#nestedatt--cloudfront-data-sample) - Optional Number<br>Limit on amount of request-body data (other than F5 telemetry) to send for analysis (limit 1,048,576 == 1 MiByte)
+
+<a id="configuration-daea7a"></a>&#x2022; [`disable_aws_configuration`](#configuration-daea7a) - Optional Object<br>Configuration parameter for disable AWS configuration
+
+<a id="nestedatt--cloudfront-disable-js-insert"></a>&#x2022; [`disable_js_insert`](#nestedatt--cloudfront-disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
+
+<a id="sdk-a254a0"></a>&#x2022; [`disable_mobile_sdk`](#sdk-a254a0) - Optional Object<br>Enable this option
+
+<a id="rules-ae3a10"></a>&#x2022; [`js_insertion_rules`](#rules-ae3a10) - Optional String<br>Defines custom JavaScript insertion rules for Bot Defense Policy
+
+<a id="nestedatt--cloudfront-loglevel"></a>&#x2022; [`loglevel`](#nestedatt--cloudfront-loglevel) - Optional String  Defaults to `LOG_UNDEFINED`<br>Possible values are `LOG_UNDEFINED`, `LOG_ERROR`, `LOG_WARNING`, `LOG_INFO`, `LOG_DEBUG`<br>[Enum: LOG_UNDEFINED|LOG_ERROR|LOG_WARNING|LOG_INFO|LOG_DEBUG] Select the level of logging desired. Levels are cumulative (e.g. Debug includes Error, Warning,
+and Informational) - LOG_UNDEFINED: Undefined - LOG_ERROR: Error Log only errors - LOG_WARNING: Warning Log malicious requests - LOG_INFO: Info Log all requests - LOG_DEBUG: Debug Log debugging data
+
+<a id="nestedatt--cloudfront-manual-js-insert"></a>&#x2022; [`manual_js_insert`](#nestedatt--cloudfront-manual-js-insert) - Optional String<br>Insert JavaScript Manually. Insert JavaScript manually
+
+<a id="nestedatt--cloudfront-mobile-sdk-config"></a>&#x2022; [`mobile_sdk_config`](#nestedatt--cloudfront-mobile-sdk-config) - Optional String<br>Mobile SDK Configuration. Mobile SDK configuration
+
+<a id="endpoints-83e587"></a>&#x2022; [`protected_endpoints`](#endpoints-83e587) - Optional List<br>List of protected endpoints (max 128 items)
+
+<a id="nestedatt--cloudfront-timeout"></a>&#x2022; [`timeout`](#nestedatt--cloudfront-timeout) - Optional Number<br>The timeout for the inference check, in milliseconds
+
+<a id="nestedatt--cloudfront-trusted-clients"></a>&#x2022; [`trusted_clients`](#nestedatt--cloudfront-trusted-clients) - Optional List<br>Define your allowlists to skip Bot Defense inference processing
+
+#### Cloudfront AWS Configuration ID Selector
+
+An [`aws_configuration_id_selector`](#cloudfront-aws-configuration-id-selector) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+<a id="nestedatt--cloudfront-ids"></a>&#x2022; [`ids`](#nestedatt--cloudfront-ids) - Optional List<br>Add AWS CloudFront distribution ID, e.g. ABCDEFGHI0JKLM
+
+#### Cloudfront AWS Configuration Tag Selector
+
+An [`aws_configuration_tag_selector`](#cloudfront-aws-configuration-tag-selector) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+<a id="nestedatt--cloudfront-tags"></a>&#x2022; [`tags`](#nestedatt--cloudfront-tags) - Optional Map<br>List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match
+
+#### Cloudfront Disable AWS Configuration
+
+A [`disable_aws_configuration`](#cloudfront-disable-aws-configuration) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+#### Cloudfront Disable Js Insert
+
+A [`disable_js_insert`](#cloudfront-disable-js-insert) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+#### Cloudfront Disable Mobile SDK
+
+A [`disable_mobile_sdk`](#cloudfront-disable-mobile-sdk) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+#### Cloudfront Js Insertion Rules
+
+A [`js_insertion_rules`](#cloudfront-js-insertion-rules) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+<a id="nestedatt--cloudfront-exclude-list"></a>&#x2022; [`exclude_list`](#nestedatt--cloudfront-exclude-list) - Optional List<br>Optional JavaScript insertions exclude list of domain and path matchers
+
+<a id="location-053890"></a>&#x2022; [`javascript_location`](#location-053890) - Optional String  Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`<br>Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED:
+JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+
+<a id="nestedatt--cloudfront-javascript-mode"></a>&#x2022; [`javascript_mode`](#nestedatt--cloudfront-javascript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense
+JavaScript for telemetry collection is requested asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
+
+<a id="nestedatt--cloudfront-js-download-path"></a>&#x2022; [`js_download_path`](#nestedatt--cloudfront-js-download-path) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’
+
+<a id="nestedatt--cloudfront-rules"></a>&#x2022; [`rules`](#nestedatt--cloudfront-rules) - Optional List<br>Required list of pages to insert Bot Defense client JavaScript
+
+#### Cloudfront Js Insertion Rules Exclude List
+
+An [`exclude_list`](#cloudfront-js-insertion-rules-exclude-list) block (within [`cloudfront.js_insertion_rules`](#cloudfront-js-insertion-rules)) supports the following:
+
+<a id="nestedatt--cloudfront-any-domain"></a>&#x2022; [`any_domain`](#nestedatt--cloudfront-any-domain) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-domain"></a>&#x2022; [`domain`](#nestedatt--cloudfront-domain) - Optional String<br>Domain name for routing and identification
+
+<a id="nestedatt--cloudfront-metadata"></a>&#x2022; [`metadata`](#nestedatt--cloudfront-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by
+user during create
+
+<a id="nestedatt--cloudfront-path"></a>&#x2022; [`path`](#nestedatt--cloudfront-path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+#### Cloudfront Js Insertion Rules Exclude List Any Domain
+
+<a id="deep-f3960e"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Cloudfront Js Insertion Rules Exclude List Domain
+
+A [`domain`](#cloudfront-js-insertion-rules-exclude-list-domain) block (within [`cloudfront.js_insertion_rules.exclude_list`](#cloudfront-js-insertion-rules-exclude-list)) supports the following:
+
+<a id="nestedatt--cloudfront-exact-value"></a>&#x2022; [`exact_value`](#nestedatt--cloudfront-exact-value) - Optional String<br>Exact domain name
+
+<a id="nestedatt--cloudfront-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--cloudfront-regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="nestedatt--cloudfront-suffix-value"></a>&#x2022; [`suffix_value`](#nestedatt--cloudfront-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+#### Cloudfront Js Insertion Rules Exclude List Metadata
+
+A [`metadata`](#cloudfront-js-insertion-rules-exclude-list-metadata) block (within [`cloudfront.js_insertion_rules.exclude_list`](#cloudfront-js-insertion-rules-exclude-list)) supports the following:
+
+<a id="nestedatt--cloudfront-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--cloudfront-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--cloudfront-name"></a>&#x2022; [`name`](#nestedatt--cloudfront-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Cloudfront Js Insertion Rules Exclude List Path
+
+A [`path`](#cloudfront-js-insertion-rules-exclude-list-path) block (within [`cloudfront.js_insertion_rules.exclude_list`](#cloudfront-js-insertion-rules-exclude-list)) supports the following:
+
+<a id="nestedatt--cloudfront-path"></a>&#x2022; [`path`](#nestedatt--cloudfront-path) - Optional String<br>Exact path value to match
+
+<a id="nestedatt--cloudfront-prefix"></a>&#x2022; [`prefix`](#nestedatt--cloudfront-prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="nestedatt--cloudfront-regex"></a>&#x2022; [`regex`](#nestedatt--cloudfront-regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+#### Cloudfront Js Insertion Rules Rules
+
+A [`rules`](#cloudfront-js-insertion-rules-rules) block (within [`cloudfront.js_insertion_rules`](#cloudfront-js-insertion-rules)) supports the following:
+
+<a id="nestedatt--cloudfront-any-domain"></a>&#x2022; [`any_domain`](#nestedatt--cloudfront-any-domain) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-domain"></a>&#x2022; [`domain`](#nestedatt--cloudfront-domain) - Optional String<br>Domain name for routing and identification
+
+<a id="nestedatt--cloudfront-exact-path"></a>&#x2022; [`exact_path`](#nestedatt--cloudfront-exact-path) - Optional String<br>Exact path value to match
+
+<a id="nestedatt--cloudfront-glob"></a>&#x2022; [`glob`](#nestedatt--cloudfront-glob) - Optional String<br>Accepts wildcards \* to match multiple characters or ? To match a single character
+
+<a id="nestedatt--cloudfront-metadata"></a>&#x2022; [`metadata`](#nestedatt--cloudfront-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by
+user during create
+
+<a id="nestedatt--cloudfront-prefix"></a>&#x2022; [`prefix`](#nestedatt--cloudfront-prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+#### Cloudfront Js Insertion Rules Rules Any Domain
+
+An [`any_domain`](#cloudfront-js-insertion-rules-rules-any-domain) block (within [`cloudfront.js_insertion_rules.rules`](#cloudfront-js-insertion-rules-rules)) supports the following:
+
+#### Cloudfront Js Insertion Rules Rules Domain
+
+A [`domain`](#cloudfront-js-insertion-rules-rules-domain) block (within [`cloudfront.js_insertion_rules.rules`](#cloudfront-js-insertion-rules-rules)) supports the following:
+
+<a id="nestedatt--cloudfront-exact-value"></a>&#x2022; [`exact_value`](#nestedatt--cloudfront-exact-value) - Optional String<br>Exact domain name
+
+<a id="nestedatt--cloudfront-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--cloudfront-regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="nestedatt--cloudfront-suffix-value"></a>&#x2022; [`suffix_value`](#nestedatt--cloudfront-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+#### Cloudfront Js Insertion Rules Rules Metadata
+
+A [`metadata`](#cloudfront-js-insertion-rules-rules-metadata) block (within [`cloudfront.js_insertion_rules.rules`](#cloudfront-js-insertion-rules-rules)) supports the following:
+
+<a id="nestedatt--cloudfront-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--cloudfront-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--cloudfront-name"></a>&#x2022; [`name`](#nestedatt--cloudfront-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Cloudfront Manual Js Insert
+
+A [`manual_js_insert`](#cloudfront-manual-js-insert) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+<a id="nestedatt--cloudfront-javascript-mode"></a>&#x2022; [`javascript_mode`](#nestedatt--cloudfront-javascript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense
+JavaScript for telemetry collection is requested asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
+
+<a id="nestedatt--cloudfront-js-download-path"></a>&#x2022; [`js_download_path`](#nestedatt--cloudfront-js-download-path) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’
+
+#### Cloudfront Mobile SDK Config
+
+A [`mobile_sdk_config`](#cloudfront-mobile-sdk-config) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+<a id="nestedatt--cloudfront-mobile-identifier"></a>&#x2022; [`mobile_identifier`](#nestedatt--cloudfront-mobile-identifier) - Optional String<br>Mobile Traffic Identifier. Mobile traffic identifier type
+
+#### Cloudfront Mobile SDK Config Mobile Identifier
+
+A [`mobile_identifier`](#cloudfront-mobile-sdk-config-mobile-identifier) block (within [`cloudfront.mobile_sdk_config`](#cloudfront-mobile-sdk-config)) supports the following:
+
+<a id="nestedatt--cloudfront-headers"></a>&#x2022; [`headers`](#nestedatt--cloudfront-headers) - Optional List<br>List of headers that can be used to identify mobile traffic
+
+#### Cloudfront Mobile SDK Config Mobile Identifier Headers
+
+A [`headers`](#cloudfront-mobile-sdk-config-mobile-identifier-headers) block (within [`cloudfront.mobile_sdk_config.mobile_identifier`](#cloudfront-mobile-sdk-config-mobile-identifier)) supports the following:
+
+<a id="nestedatt--cloudfront-exact"></a>&#x2022; [`exact`](#nestedatt--cloudfront-exact) - Optional String<br>Header value to match exactly
+
+<a id="nestedatt--cloudfront-name"></a>&#x2022; [`name`](#nestedatt--cloudfront-name) - Optional String<br>Name. Name of the header
+
+<a id="nestedatt--cloudfront-regex"></a>&#x2022; [`regex`](#nestedatt--cloudfront-regex) - Optional String<br>Regex match of the header value in re2 format
+
+#### Cloudfront Protected Endpoints
+
+A [`protected_endpoints`](#cloudfront-protected-endpoints) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+<a id="nestedatt--cloudfront-any-domain"></a>&#x2022; [`any_domain`](#nestedatt--cloudfront-any-domain) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-domain"></a>&#x2022; [`domain`](#nestedatt--cloudfront-domain) - Optional String<br>Domain name for routing and identification
+
+<a id="nestedatt--cloudfront-flow-label"></a>&#x2022; [`flow_label`](#nestedatt--cloudfront-flow-label) - Optional String<br>Bot Defense Flow Label Category allows to associate traffic with selected category
+
+<a id="nestedatt--cloudfront-http-methods"></a>&#x2022; [`http_methods`](#nestedatt--cloudfront-http-methods) - Optional List  Defaults to `METHOD_ANY`<br>Possible values are `METHOD_ANY`, `METHOD_GET`, `METHOD_POST`, `METHOD_PUT`, `METHOD_PATCH`, `METHOD_DELETE`, `METHOD_GET_DOCUMENT`<br>[Enum: METHOD_ANY|METHOD_GET|METHOD_POST|METHOD_PUT|METHOD_PATCH|METHOD_DELETE|METHOD_GET_DOCUMENT] HTTP
+Methods. List of HTTP methods
+
+<a id="nestedatt--cloudfront-metadata"></a>&#x2022; [`metadata`](#nestedatt--cloudfront-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by
+user during create
+
+<a id="nestedatt--cloudfront-mobile-client"></a>&#x2022; [`mobile_client`](#nestedatt--cloudfront-mobile-client) - Optional String<br>Mobile Client. Mobile client configuration OPTIONS
+
+<a id="nestedatt--cloudfront-path"></a>&#x2022; [`path`](#nestedatt--cloudfront-path) - Optional String<br>Accepts wildcards \* to match multiple characters or ? To match a single character
+
+<a id="nestedatt--cloudfront-query"></a>&#x2022; [`query`](#nestedatt--cloudfront-query) - Optional String<br>Enter a regular expression to match your query parameters of interest
+
+<a id="label-65ecee"></a>&#x2022; [`undefined_flow_label`](#label-65ecee) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-web-client"></a>&#x2022; [`web_client`](#nestedatt--cloudfront-web-client) - Optional String<br>Web Client. Web client configuration OPTIONS
+
+<a id="nestedatt--cloudfront-web-mobile-client"></a>&#x2022; [`web_mobile_client`](#nestedatt--cloudfront-web-mobile-client) - Optional String<br>Web and Mobile client configuration OPTIONS
+
+#### Cloudfront Protected Endpoints Any Domain
+
+An [`any_domain`](#cloudfront-protected-endpoints-any-domain) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
+
+#### Cloudfront Protected Endpoints Domain
+
+A [`domain`](#cloudfront-protected-endpoints-domain) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudfront-exact-value"></a>&#x2022; [`exact_value`](#nestedatt--cloudfront-exact-value) - Optional String<br>Exact domain name
+
+<a id="nestedatt--cloudfront-regex-value"></a>&#x2022; [`regex_value`](#nestedatt--cloudfront-regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="nestedatt--cloudfront-suffix-value"></a>&#x2022; [`suffix_value`](#nestedatt--cloudfront-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+#### Cloudfront Protected Endpoints Flow Label
+
+A [`flow_label`](#cloudfront-protected-endpoints-flow-label) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
+
+<a id="management-5285d8"></a>&#x2022; [`account_management`](#management-5285d8) - Optional String<br>Bot Defense Flow Label Account Management Category
+
+<a id="nestedatt--cloudfront-authentication"></a>&#x2022; [`authentication`](#nestedatt--cloudfront-authentication) - Optional String<br>Bot Defense Flow Label Authentication Category
+
+<a id="services-904db7"></a>&#x2022; [`financial_services`](#services-904db7) - Optional String<br>Bot Defense Flow Label Financial Services Category
+
+<a id="nestedatt--cloudfront-flight"></a>&#x2022; [`flight`](#nestedatt--cloudfront-flight) - Optional String<br>Bot Defense Flow Label Flight Category. Bot Defense Flow Label Flight Category
+
+<a id="management-4a6b00"></a>&#x2022; [`profile_management`](#management-4a6b00) - Optional String<br>Bot Defense Flow Label Profile Management Category
+
+<a id="nestedatt--cloudfront-search"></a>&#x2022; [`search`](#nestedatt--cloudfront-search) - Optional String<br>Bot Defense Flow Label Search Category. Bot Defense Flow Label Search Category
+
+<a id="cards-f9c4fe"></a>&#x2022; [`shopping_gift_cards`](#cards-f9c4fe) - Optional String<br>Bot Defense Flow Label Shopping & Gift Cards Category
+
+#### Cloudfront Protected Endpoints Flow Label Account Management
+
+An [`account_management`](#cloudfront-protected-endpoints-flow-label-account-management) block (within [`cloudfront.protected_endpoints.flow_label`](#cloudfront-protected-endpoints-flow-label)) supports the following:
+
+<a id="nestedatt--cloudfront-create"></a>&#x2022; [`create`](#nestedatt--cloudfront-create) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-password-reset"></a>&#x2022; [`password_reset`](#nestedatt--cloudfront-password-reset) - Optional Object<br>Configuration parameter for password reset
+
+#### Cloudfront Protected Endpoints Flow Label Account Management Create
+
+<a id="deep-ad17fd"></a>Deeply nested **Create** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Account Management Password Reset
+
+<a id="deep-799fa5"></a>Deeply nested **Reset** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication
+
+An [`authentication`](#cloudfront-protected-endpoints-flow-label-authentication) block (within [`cloudfront.protected_endpoints.flow_label`](#cloudfront-protected-endpoints-flow-label)) supports the following:
+
+<a id="nestedatt--cloudfront-login"></a>&#x2022; [`login`](#nestedatt--cloudfront-login) - Optional String<br>Bot Defense Transaction Result. Bot Defense Transaction Result
+
+<a id="nestedatt--cloudfront-login-mfa"></a>&#x2022; [`login_mfa`](#nestedatt--cloudfront-login-mfa) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-login-partner"></a>&#x2022; [`login_partner`](#nestedatt--cloudfront-login-partner) - Optional Object<br>Configuration parameter for login partner
+
+<a id="nestedatt--cloudfront-logout"></a>&#x2022; [`logout`](#nestedatt--cloudfront-logout) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-token-refresh"></a>&#x2022; [`token_refresh`](#nestedatt--cloudfront-token-refresh) - Optional Object<br>Configuration parameter for token refresh
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login
+
+A [`login`](#cloudfront-protected-endpoints-flow-label-authentication-login) block (within [`cloudfront.protected_endpoints.flow_label.authentication`](#cloudfront-protected-endpoints-flow-label-authentication)) supports the following:
+
+<a id="result-75d701"></a>&#x2022; [`disable_transaction_result`](#result-75d701) - Optional Object<br>Enable this option
+
+<a id="result-73b878"></a>&#x2022; [`transaction_result`](#result-73b878) - Optional String<br>Bot Defense Transaction Result Type. Bot Defense Transaction ResultType
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login Disable Transaction Result
+
+<a id="deep-316854"></a>Deeply nested **Result** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login Transaction Result
+
+<a id="deep-be6a58"></a>Deeply nested **Result** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login Transaction Result Failure Conditions
+
+<a id="deep-b9ca4d"></a>Deeply nested **Conditions** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login Transaction Result Success Conditions
+
+<a id="deep-88dfed"></a>Deeply nested **Conditions** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login MFA
+
+<a id="deep-0d114c"></a>Deeply nested **MFA** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login Partner
+
+<a id="deep-dba9c0"></a>Deeply nested **Partner** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Logout
+
+A [`logout`](#cloudfront-protected-endpoints-flow-label-authentication-logout) block (within [`cloudfront.protected_endpoints.flow_label.authentication`](#cloudfront-protected-endpoints-flow-label-authentication)) supports the following:
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Token Refresh
+
+<a id="deep-ea9b6b"></a>Deeply nested **Refresh** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Financial Services
+
+A [`financial_services`](#cloudfront-protected-endpoints-flow-label-financial-services) block (within [`cloudfront.protected_endpoints.flow_label`](#cloudfront-protected-endpoints-flow-label)) supports the following:
+
+<a id="nestedatt--cloudfront-apply"></a>&#x2022; [`apply`](#nestedatt--cloudfront-apply) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-money-transfer"></a>&#x2022; [`money_transfer`](#nestedatt--cloudfront-money-transfer) - Optional Object<br>Configuration parameter for money transfer
+
+#### Cloudfront Protected Endpoints Flow Label Financial Services Apply
+
+<a id="deep-179a4a"></a>Deeply nested **Apply** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Financial Services Money Transfer
+
+<a id="deep-e5bd0b"></a>Deeply nested **Transfer** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Flight
+
+A [`flight`](#cloudfront-protected-endpoints-flow-label-flight) block (within [`cloudfront.protected_endpoints.flow_label`](#cloudfront-protected-endpoints-flow-label)) supports the following:
+
+<a id="nestedatt--cloudfront-checkin"></a>&#x2022; [`checkin`](#nestedatt--cloudfront-checkin) - Optional String<br>Enable this option
+
+#### Cloudfront Protected Endpoints Flow Label Flight Checkin
+
+A [`checkin`](#cloudfront-protected-endpoints-flow-label-flight-checkin) block (within [`cloudfront.protected_endpoints.flow_label.flight`](#cloudfront-protected-endpoints-flow-label-flight)) supports the following:
+
+#### Cloudfront Protected Endpoints Flow Label Profile Management
+
+A [`profile_management`](#cloudfront-protected-endpoints-flow-label-profile-management) block (within [`cloudfront.protected_endpoints.flow_label`](#cloudfront-protected-endpoints-flow-label)) supports the following:
+
+<a id="nestedatt--cloudfront-create"></a>&#x2022; [`create`](#nestedatt--cloudfront-create) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-update"></a>&#x2022; [`update`](#nestedatt--cloudfront-update) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-view"></a>&#x2022; [`view`](#nestedatt--cloudfront-view) - Optional Object<br>Enable this option
+
+#### Cloudfront Protected Endpoints Flow Label Profile Management Create
+
+<a id="deep-4f9489"></a>Deeply nested **Create** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Profile Management Update
+
+<a id="deep-0640f5"></a>Deeply nested **Update** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Profile Management View
+
+<a id="deep-7886a1"></a>Deeply nested **View** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Search
+
+A [`search`](#cloudfront-protected-endpoints-flow-label-search) block (within [`cloudfront.protected_endpoints.flow_label`](#cloudfront-protected-endpoints-flow-label)) supports the following:
+
+<a id="nestedatt--cloudfront-flight-search"></a>&#x2022; [`flight_search`](#nestedatt--cloudfront-flight-search) - Optional Object<br>Configuration parameter for flight search
+
+<a id="nestedatt--cloudfront-product-search"></a>&#x2022; [`product_search`](#nestedatt--cloudfront-product-search) - Optional Object<br>Configuration parameter for product search
+
+<a id="search-280e4d"></a>&#x2022; [`reservation_search`](#search-280e4d) - Optional Object<br>Configuration parameter for reservation search
+
+<a id="nestedatt--cloudfront-room-search"></a>&#x2022; [`room_search`](#nestedatt--cloudfront-room-search) - Optional Object<br>Configuration parameter for room search
+
+#### Cloudfront Protected Endpoints Flow Label Search Flight Search
+
+<a id="deep-bebc06"></a>Deeply nested **Search** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Search Product Search
+
+<a id="deep-ca8dae"></a>Deeply nested **Search** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Search Reservation Search
+
+<a id="deep-0c0242"></a>Deeply nested **Search** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Search Room Search
+
+<a id="deep-cfdb8b"></a>Deeply nested **Search** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards
+
+<a id="deep-4781fa"></a>Deeply nested **Cards** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Gift Card Make Purchase With Gift Card
+
+<a id="deep-202637"></a>Deeply nested **Card** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Gift Card Validation
+
+<a id="deep-e25ad4"></a>Deeply nested **Validation** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Add To Cart
+
+<a id="deep-f9d4f6"></a>Deeply nested **Cart** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Checkout
+
+<a id="deep-89be07"></a>Deeply nested **Checkout** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Choose Seat
+
+<a id="deep-fbe792"></a>Deeply nested **Seat** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Enter Drawing Submission
+
+<a id="deep-a02963"></a>Deeply nested **Submission** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Make Payment
+
+<a id="deep-1ad291"></a>Deeply nested **Payment** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Order
+
+<a id="deep-d4cf59"></a>Deeply nested **Order** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Price Inquiry
+
+<a id="deep-f9bf34"></a>Deeply nested **Inquiry** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Promo Code Validation
+
+<a id="deep-09e28f"></a>Deeply nested **Validation** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Purchase Gift Card
+
+<a id="deep-56deea"></a>Deeply nested **Card** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Update Quantity
+
+<a id="deep-cf8c12"></a>Deeply nested **Quantity** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Metadata
+
+A [`metadata`](#cloudfront-protected-endpoints-metadata) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudfront-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--cloudfront-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--cloudfront-name"></a>&#x2022; [`name`](#nestedatt--cloudfront-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Cloudfront Protected Endpoints Mobile Client
+
+A [`mobile_client`](#cloudfront-protected-endpoints-mobile-client) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudfront-block"></a>&#x2022; [`block`](#nestedatt--cloudfront-block) - Optional String<br>Block Response for Mobile. Block Response
+
+<a id="nestedatt--cloudfront-continue"></a>&#x2022; [`continue`](#nestedatt--cloudfront-continue) - Optional String<br>Select Continue Bot Mitigation Action. Continue mitigation action
+
+#### Cloudfront Protected Endpoints Mobile Client Block
+
+A [`block`](#cloudfront-protected-endpoints-mobile-client-block) block (within [`cloudfront.protected_endpoints.mobile_client`](#cloudfront-protected-endpoints-mobile-client)) supports the following:
+
+<a id="nestedatt--cloudfront-body"></a>&#x2022; [`body`](#nestedatt--cloudfront-body) - Optional String<br>Body. Custom body message
+
+<a id="nestedatt--cloudfront-content-type"></a>&#x2022; [`content_type`](#nestedatt--cloudfront-content-type) - Optional String<br>Content type to use in a block response
+
+<a id="nestedatt--cloudfront-status"></a>&#x2022; [`status`](#nestedatt--cloudfront-status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`,
+`SeeOther`, `NotModified`, `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`,
+`ExpectationFailed`, `MisdirectedRequest`, `UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`,
+`NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+#### Cloudfront Protected Endpoints Mobile Client Continue
+
+A [`continue`](#cloudfront-protected-endpoints-mobile-client-continue) block (within [`cloudfront.protected_endpoints.mobile_client`](#cloudfront-protected-endpoints-mobile-client)) supports the following:
+
+<a id="nestedatt--cloudfront-add-header"></a>&#x2022; [`add_header`](#nestedatt--cloudfront-add-header) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-no-header"></a>&#x2022; [`no_header`](#nestedatt--cloudfront-no-header) - Optional Object<br>Enable this option
+
+#### Cloudfront Protected Endpoints Mobile Client Continue Add Header
+
+<a id="deep-c8aba8"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Mobile Client Continue No Header
+
+<a id="deep-455e09"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Undefined Flow Label
+
+An [`undefined_flow_label`](#cloudfront-protected-endpoints-undefined-flow-label) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
+
+#### Cloudfront Protected Endpoints Web Client
+
+A [`web_client`](#cloudfront-protected-endpoints-web-client) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudfront-block"></a>&#x2022; [`block`](#nestedatt--cloudfront-block) - Optional String<br>Block Response. Block Response
+
+<a id="nestedatt--cloudfront-continue"></a>&#x2022; [`continue`](#nestedatt--cloudfront-continue) - Optional String<br>Select Continue Bot Mitigation Action. Continue mitigation action
+
+<a id="nestedatt--cloudfront-redirect"></a>&#x2022; [`redirect`](#nestedatt--cloudfront-redirect) - Optional String<br>Redirect. Redirect
+
+#### Cloudfront Protected Endpoints Web Client Block
+
+A [`block`](#cloudfront-protected-endpoints-web-client-block) block (within [`cloudfront.protected_endpoints.web_client`](#cloudfront-protected-endpoints-web-client)) supports the following:
+
+<a id="nestedatt--cloudfront-body"></a>&#x2022; [`body`](#nestedatt--cloudfront-body) - Optional String<br>Body. Custom body message
+
+<a id="nestedatt--cloudfront-content-type"></a>&#x2022; [`content_type`](#nestedatt--cloudfront-content-type) - Optional String<br>Content type to use in a block response
+
+<a id="nestedatt--cloudfront-status"></a>&#x2022; [`status`](#nestedatt--cloudfront-status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`,
+`SeeOther`, `NotModified`, `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`,
+`ExpectationFailed`, `MisdirectedRequest`, `UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`,
+`NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+#### Cloudfront Protected Endpoints Web Client Continue
+
+A [`continue`](#cloudfront-protected-endpoints-web-client-continue) block (within [`cloudfront.protected_endpoints.web_client`](#cloudfront-protected-endpoints-web-client)) supports the following:
+
+<a id="nestedatt--cloudfront-add-header"></a>&#x2022; [`add_header`](#nestedatt--cloudfront-add-header) - Optional Object<br>Enable this option
+
+<a id="nestedatt--cloudfront-no-header"></a>&#x2022; [`no_header`](#nestedatt--cloudfront-no-header) - Optional Object<br>Enable this option
+
+#### Cloudfront Protected Endpoints Web Client Continue Add Header
+
+<a id="deep-5324c3"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Client Continue No Header
+
+<a id="deep-23ac5f"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Client Redirect
+
+A [`redirect`](#cloudfront-protected-endpoints-web-client-redirect) block (within [`cloudfront.protected_endpoints.web_client`](#cloudfront-protected-endpoints-web-client)) supports the following:
+
+<a id="nestedatt--cloudfront-location"></a>&#x2022; [`location`](#nestedatt--cloudfront-location) - Optional String<br>Location. URI location for redirect response
+
+<a id="nestedatt--cloudfront-status"></a>&#x2022; [`status`](#nestedatt--cloudfront-status) - Optional String  Defaults to `EmptyStatusCode`<br>Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`,
+`SeeOther`, `NotModified`, `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`,
+`ExpectationFailed`, `MisdirectedRequest`, `UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`,
+`NetworkAuthenticationRequired`<br>[Enum:
+EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired]
+HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status
+
+#### Cloudfront Protected Endpoints Web Mobile Client
+
+A [`web_mobile_client`](#cloudfront-protected-endpoints-web-mobile-client) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
+
+<a id="nestedatt--cloudfront-block-mobile"></a>&#x2022; [`block_mobile`](#nestedatt--cloudfront-block-mobile) - Optional String<br>Block Response for Mobile. Block Response
+
+<a id="nestedatt--cloudfront-block-web"></a>&#x2022; [`block_web`](#nestedatt--cloudfront-block-web) - Optional String<br>Block Response. Block Response
+
+<a id="nestedatt--cloudfront-continue-mobile"></a>&#x2022; [`continue_mobile`](#nestedatt--cloudfront-continue-mobile) - Optional String<br>Select Continue Bot Mitigation Action. Continue mitigation action
+
+<a id="nestedatt--cloudfront-continue-web"></a>&#x2022; [`continue_web`](#nestedatt--cloudfront-continue-web) - Optional String<br>Select Continue Bot Mitigation Action. Continue mitigation action
+
+<a id="nestedatt--cloudfront-redirect-web"></a>&#x2022; [`redirect_web`](#nestedatt--cloudfront-redirect-web) - Optional String<br>Redirect. Redirect
+
+#### Cloudfront Protected Endpoints Web Mobile Client Block Mobile
+
+<a id="deep-c0fb4f"></a>Deeply nested **Mobile** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Block Web
+
+<a id="deep-3b10c9"></a>Deeply nested **Web** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Mobile
+
+<a id="deep-d90b56"></a>Deeply nested **Mobile** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Mobile Add Header
+
+<a id="deep-824eb3"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Mobile No Header
+
+<a id="deep-34b5ec"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Web
+
+<a id="deep-38a8e8"></a>Deeply nested **Web** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Web Add Header
+
+<a id="deep-e7d474"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Web No Header
+
+<a id="deep-724462"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Redirect Web
+
+<a id="deep-fddc11"></a>Deeply nested **Web** block collapsed for readability.
+
+#### Cloudfront Trusted Clients
+
+A [`trusted_clients`](#cloudfront-trusted-clients) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+<a id="nestedatt--cloudfront-http-header"></a>&#x2022; [`http_header`](#nestedatt--cloudfront-http-header) - Optional String<br>Configuration parameter for HTTP header
+
+<a id="nestedatt--cloudfront-ip-prefix"></a>&#x2022; [`ip_prefix`](#nestedatt--cloudfront-ip-prefix) - Optional String<br>IP prefix string
+
+<a id="nestedatt--cloudfront-metadata"></a>&#x2022; [`metadata`](#nestedatt--cloudfront-metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by
+user during create
+
+#### Cloudfront Trusted Clients HTTP Header
+
+A [`http_header`](#cloudfront-trusted-clients-http-header) block (within [`cloudfront.trusted_clients`](#cloudfront-trusted-clients)) supports the following:
+
+<a id="nestedatt--cloudfront-headers"></a>&#x2022; [`headers`](#nestedatt--cloudfront-headers) - Optional List<br>List of HTTP header name and value pairs
+
+#### Cloudfront Trusted Clients HTTP Header Headers
+
+A [`headers`](#cloudfront-trusted-clients-http-header-headers) block (within [`cloudfront.trusted_clients.http_header`](#cloudfront-trusted-clients-http-header)) supports the following:
+
+<a id="nestedatt--cloudfront-exact"></a>&#x2022; [`exact`](#nestedatt--cloudfront-exact) - Optional String<br>Header value to match exactly
+
+<a id="nestedatt--cloudfront-name"></a>&#x2022; [`name`](#nestedatt--cloudfront-name) - Optional String<br>Name. Name of the header
+
+<a id="nestedatt--cloudfront-regex"></a>&#x2022; [`regex`](#nestedatt--cloudfront-regex) - Optional String<br>Regex match of the header value in re2 format
+
+#### Cloudfront Trusted Clients Metadata
+
+A [`metadata`](#cloudfront-trusted-clients-metadata) block (within [`cloudfront.trusted_clients`](#cloudfront-trusted-clients)) supports the following:
+
+<a id="nestedatt--cloudfront-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--cloudfront-description-spec) - Optional String<br>Description. Human readable description
+
+<a id="nestedatt--cloudfront-name"></a>&#x2022; [`name`](#nestedatt--cloudfront-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Custom Connector
+
+A [`custom_connector`](#custom-connector) block supports the following:
+
+#### F5 Big IP
+
+A [`f5_big_ip`](#f5-big-ip) block supports the following:
+
+#### Salesforce Commerce Connector
+
+A [`salesforce_commerce_connector`](#salesforce-commerce-connector) block supports the following:
 
 ---
 

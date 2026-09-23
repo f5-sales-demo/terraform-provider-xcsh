@@ -58,11 +58,45 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="default-flavor-ref"></a>&#x2022; [`default_flavor_ref`](#default-flavor-ref) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the VirtualK8S
+
+<a id="disabled"></a>&#x2022; [`disabled`](#disabled) - Optional Object<br>Enable this option
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="isolated"></a>&#x2022; [`isolated`](#isolated) - Optional Object<br>Enable this option
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="vsite-refs"></a>&#x2022; [`vsite_refs`](#vsite-refs) - Optional List  Specified in the Kubernetes API resource object annotations via F5 XC/virtual-sites, then this virtual-site is used select sites on which to instantiate the Kubernetes API resource object<br>Reference to virtual-sites Default virtual-site of the Virtual K8S object. If no virtual-site is
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+---
+
+#### Isolated
+
+An [`isolated`](#isolated) block supports the following:
+
+#### Vsite Refs
+
+A [`vsite_refs`](#vsite-refs) block supports the following:
+
+<a id="nestedatt--isolated-kind"></a>&#x2022; [`kind`](#nestedatt--isolated-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--isolated-name"></a>&#x2022; [`name`](#nestedatt--isolated-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--isolated-namespace"></a>&#x2022; [`namespace`](#nestedatt--isolated-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--isolated-tenant"></a>&#x2022; [`tenant`](#nestedatt--isolated-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--isolated-uid"></a>&#x2022; [`uid`](#nestedatt--isolated-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 ---
 

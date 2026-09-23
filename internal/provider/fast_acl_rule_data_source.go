@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,16 @@ type FastACLRuleDataSource struct {
 }
 
 type FastACLRuleDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID          types.String                 `tfsdk:"id"`
+	Name        types.String                 `tfsdk:"name"`
+	Namespace   types.String                 `tfsdk:"namespace"`
+	Description types.String                 `tfsdk:"description"`
+	Labels      types.Map                    `tfsdk:"labels"`
+	Annotations types.Map                    `tfsdk:"annotations"`
+	Port        types.List                   `tfsdk:"port"`
+	Action      *FastACLRuleActionModel      `tfsdk:"action"`
+	IPPrefixSet *FastACLRuleIPPrefixSetModel `tfsdk:"ip_prefix_set"`
+	Prefix      *FastACLRulePrefixModel      `tfsdk:"prefix"`
 }
 
 func (d *FastACLRuleDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +75,151 @@ func (d *FastACLRuleDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"port": schema.ListNestedAttribute{
+				MarkdownDescription: "Source Ports. L4 port numbers to match.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"all": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"dns": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"user_defined": schema.Int64Attribute{
+							MarkdownDescription: "Exclusive with [all DNS] Matches the user defined port.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"action": schema.SingleNestedAttribute{
+				MarkdownDescription: "FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic.",
+				Attributes: map[string]schema.Attribute{
+					"policer_action": schema.SingleNestedAttribute{
+						MarkdownDescription: "Policer Reference. Reference to policer object.",
+						Attributes: map[string]schema.Attribute{
+							"ref": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. A policer direct reference.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"protocol_policer_action": schema.SingleNestedAttribute{
+						MarkdownDescription: "Protocol Policer Reference. Reference to policer object.",
+						Attributes: map[string]schema.Attribute{
+							"ref": schema.ListNestedAttribute{
+								MarkdownDescription: "Protocol policer Reference. Reference to protocol policer object.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"simple_action": schema.StringAttribute{
+						MarkdownDescription: "[Enum: DENY|ALLOW] FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic. Possible values are `DENY`, `ALLOW`. Defaults to `DENY`.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"ip_prefix_set": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: ip_prefix_set, prefix] List of references to ip_prefix_set objects.",
+				Attributes: map[string]schema.Attribute{
+					"ref": schema.ListNestedAttribute{
+						MarkdownDescription: "List of references to ip_prefix_set objects.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"prefix": schema.SingleNestedAttribute{
+				MarkdownDescription: "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
+				Attributes: map[string]schema.Attribute{
+					"prefix": schema.ListAttribute{
+						MarkdownDescription: "IP Address prefix in string format. String must contain both prefix and prefix-length.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +243,8 @@ func (d *FastACLRuleDataSource) Read(ctx context.Context, req datasource.ReadReq
 		return
 	}
 
-	resource, err := d.client.GetFastACLRule(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetFastACLRule(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read FastACLRule: %s", err))
 		return
@@ -101,7 +252,11 @@ func (d *FastACLRuleDataSource) Read(ctx context.Context, req datasource.ReadReq
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +289,257 @@ func (d *FastACLRuleDataSource) Read(ctx context.Context, req datasource.ReadReq
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.Port.IsNull() || len(data.Port.Elements()) == 0) {
+		data.Port = types.ListNull(types.ObjectType{AttrTypes: FastACLRulePortModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["port"].([]interface{}); ok && len(listData) > 0 {
+		var PortList []FastACLRulePortModel
+		var existingPortItems []FastACLRulePortModel
+		if !data.Port.IsNull() && !data.Port.IsUnknown() {
+			data.Port.ElementsAs(ctx, &existingPortItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				PortList = append(PortList, FastACLRulePortModel{
+					All: func() types.Object {
+						if !isImport && len(existingPortItems) > listIdx && !existingPortItems[listIdx].All.IsUnknown() {
+							return existingPortItems[listIdx].All
+						}
+						if _, ok := itemMap["all"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					DNS: func() types.Object {
+						if !isImport && len(existingPortItems) > listIdx && !existingPortItems[listIdx].DNS.IsUnknown() {
+							return existingPortItems[listIdx].DNS
+						}
+						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					UserDefined: func() types.Int64 {
+						if v, ok := itemMap["user_defined"].(float64); ok && v != 0 {
+							return types.Int64Value(int64(v))
+						}
+						return types.Int64Null()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLRulePortModelAttrTypes}, PortList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Port = listVal
+		}
+	} else {
+		data.Port = types.ListNull(types.ObjectType{AttrTypes: FastACLRulePortModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["action"].(map[string]interface{}); ok && (isImport || data.Action != nil) {
+		data.Action = &FastACLRuleActionModel{
+			PolicerAction: func() *FastACLRuleActionPolicerActionModel {
+				if PolicerActionData, ok := blockData["policer_action"].(map[string]interface{}); ok {
+					return &FastACLRuleActionPolicerActionModel{
+						Ref: func() types.List {
+							if !isImport && data.Action != nil && data.Action.PolicerAction != nil && (data.Action.PolicerAction.Ref.IsNull() || len(data.Action.PolicerAction.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionPolicerActionRefModelAttrTypes})
+							}
+							var RefExisting []FastACLRuleActionPolicerActionRefModel
+							if !isImport && data.Action != nil && data.Action.PolicerAction != nil && !data.Action.PolicerAction.Ref.IsNull() && !data.Action.PolicerAction.Ref.IsUnknown() {
+								data.Action.PolicerAction.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
+							if rawList, ok := PolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []FastACLRuleActionPolicerActionRefModel
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, FastACLRuleActionPolicerActionRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLRuleActionPolicerActionRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionPolicerActionRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ProtocolPolicerAction: func() *FastACLRuleActionProtocolPolicerActionModel {
+				if ProtocolPolicerActionData, ok := blockData["protocol_policer_action"].(map[string]interface{}); ok {
+					return &FastACLRuleActionProtocolPolicerActionModel{
+						Ref: func() types.List {
+							if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil && (data.Action.ProtocolPolicerAction.Ref.IsNull() || len(data.Action.ProtocolPolicerAction.Ref.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionProtocolPolicerActionRefModelAttrTypes})
+							}
+							var RefExisting []FastACLRuleActionProtocolPolicerActionRefModel
+							if !isImport && data.Action != nil && data.Action.ProtocolPolicerAction != nil && !data.Action.ProtocolPolicerAction.Ref.IsNull() && !data.Action.ProtocolPolicerAction.Ref.IsUnknown() {
+								data.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefExisting, false)
+							}
+							if rawList, ok := ProtocolPolicerActionData["ref"].([]interface{}); ok && len(rawList) > 0 {
+								var RefResult []FastACLRuleActionProtocolPolicerActionRefModel
+								for RefIdx, RefItem := range rawList {
+									_ = RefIdx
+									if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+										RefResult = append(RefResult, FastACLRuleActionProtocolPolicerActionRefModel{
+											Kind: func() types.String {
+												if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := RefItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLRuleActionProtocolPolicerActionRefModelAttrTypes}, RefResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleActionProtocolPolicerActionRefModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			SimpleAction: func() types.String {
+				if v, ok := blockData["simple_action"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["ip_prefix_set"].(map[string]interface{}); ok && (isImport || data.IPPrefixSet != nil) {
+		data.IPPrefixSet = &FastACLRuleIPPrefixSetModel{
+			Ref: func() types.List {
+				if !isImport && data.IPPrefixSet != nil && (data.IPPrefixSet.Ref.IsNull() || len(data.IPPrefixSet.Ref.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleIPPrefixSetRefModelAttrTypes})
+				}
+				var RefExisting []FastACLRuleIPPrefixSetRefModel
+				if !isImport && data.IPPrefixSet != nil && !data.IPPrefixSet.Ref.IsNull() && !data.IPPrefixSet.Ref.IsUnknown() {
+					data.IPPrefixSet.Ref.ElementsAs(ctx, &RefExisting, false)
+				}
+				if rawList, ok := blockData["ref"].([]interface{}); ok && len(rawList) > 0 {
+					var RefResult []FastACLRuleIPPrefixSetRefModel
+					for RefIdx, RefItem := range rawList {
+						_ = RefIdx
+						if RefItemMap, ok := RefItem.(map[string]interface{}); ok {
+							RefResult = append(RefResult, FastACLRuleIPPrefixSetRefModel{
+								Kind: func() types.String {
+									if v, ok := RefItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := RefItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := RefItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := RefItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := RefItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: FastACLRuleIPPrefixSetRefModelAttrTypes}, RefResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: FastACLRuleIPPrefixSetRefModelAttrTypes})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["prefix"].(map[string]interface{}); ok && (isImport || data.Prefix != nil) {
+		data.Prefix = &FastACLRulePrefixModel{
+			Prefix: func() types.List {
+				if v, ok := blockData["prefix"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

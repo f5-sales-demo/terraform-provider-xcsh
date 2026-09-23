@@ -28,12 +28,16 @@ type AppAPIGroupDataSource struct {
 }
 
 type AppAPIGroupDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                 types.String                        `tfsdk:"id"`
+	Name               types.String                        `tfsdk:"name"`
+	Namespace          types.String                        `tfsdk:"namespace"`
+	Description        types.String                        `tfsdk:"description"`
+	Labels             types.Map                           `tfsdk:"labels"`
+	Annotations        types.Map                           `tfsdk:"annotations"`
+	Elements           types.List                          `tfsdk:"elements"`
+	BigIPVirtualServer *AppAPIGroupBigIPVirtualServerModel `tfsdk:"bigip_virtual_server"`
+	CDNLoadBalancer    *AppAPIGroupCDNLoadBalancerModel    `tfsdk:"cdn_loadbalancer"`
+	HTTPLoadBalancer   *AppAPIGroupHTTPLoadBalancerModel   `tfsdk:"http_loadbalancer"`
 }
 
 func (d *AppAPIGroupDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +74,95 @@ func (d *AppAPIGroupDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"elements": schema.ListNestedAttribute{
+				MarkdownDescription: "List of API group elements with methods and path regex for matching requests.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"methods": schema.ListAttribute{
+							MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] List of method values to match the input request API method against. The match is considered to succeed if the input request API method is a member of the list. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+							Computed:            true,
+							ElementType:         types.StringType,
+						},
+						"path_regex": schema.StringAttribute{
+							MarkdownDescription: "Regular expression to match the input request API path against. The match is considered to succeed if the input request API path matches the specified path regex.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"bigip_virtual_server": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: bigip_virtual_server, cdn_loadbalancer, http_loadbalancer] Set the scope of the API Group to a specific BIG-IP Virtual Server.",
+				Attributes: map[string]schema.Attribute{
+					"bigip_virtual_server": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"cdn_loadbalancer": schema.SingleNestedAttribute{
+				MarkdownDescription: "Set the scope of the API Group to a specific CDN Loadbalancer.",
+				Attributes: map[string]schema.Attribute{
+					"cdn_loadbalancer": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"http_loadbalancer": schema.SingleNestedAttribute{
+				MarkdownDescription: "Set the scope of the API Group to a specific HTTP Loadbalancer.",
+				Attributes: map[string]schema.Attribute{
+					"http_loadbalancer": schema.SingleNestedAttribute{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Computed:            true,
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Computed:            true,
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +186,8 @@ func (d *AppAPIGroupDataSource) Read(ctx context.Context, req datasource.ReadReq
 		return
 	}
 
-	resource, err := d.client.GetAppAPIGroup(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAppAPIGroup(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AppAPIGroup: %s", err))
 		return
@@ -101,7 +195,11 @@ func (d *AppAPIGroupDataSource) Read(ctx context.Context, req datasource.ReadReq
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +232,138 @@ func (d *AppAPIGroupDataSource) Read(ctx context.Context, req datasource.ReadReq
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.Elements.IsNull() || len(data.Elements.Elements()) == 0) {
+		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["elements"].([]interface{}); ok && len(listData) > 0 {
+		var ElementsList []AppAPIGroupElementsModel
+		var existingElementsItems []AppAPIGroupElementsModel
+		if !data.Elements.IsNull() && !data.Elements.IsUnknown() {
+			data.Elements.ElementsAs(ctx, &existingElementsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				ElementsList = append(ElementsList, AppAPIGroupElementsModel{
+					Methods: func() types.List {
+						if v, ok := itemMap["methods"].([]interface{}); ok && len(v) > 0 {
+							var items []string
+							for _, item := range v {
+								if s, ok := item.(string); ok {
+									items = append(items, s)
+								}
+							}
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return listVal
+						}
+						return types.ListNull(types.StringType)
+					}(),
+					PathRegex: func() types.String {
+						if v, ok := itemMap["path_regex"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes}, ElementsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Elements = listVal
+		}
+	} else {
+		data.Elements = types.ListNull(types.ObjectType{AttrTypes: AppAPIGroupElementsModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["bigip_virtual_server"].(map[string]interface{}); ok && (isImport || data.BigIPVirtualServer != nil) {
+		data.BigIPVirtualServer = &AppAPIGroupBigIPVirtualServerModel{
+			BigIPVirtualServer: func() *AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel {
+				if BigIPVirtualServerData, ok := blockData["bigip_virtual_server"].(map[string]interface{}); ok {
+					return &AppAPIGroupBigIPVirtualServerBigIPVirtualServerModel{
+						Name: func() types.String {
+							if v, ok := BigIPVirtualServerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := BigIPVirtualServerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := BigIPVirtualServerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["cdn_loadbalancer"].(map[string]interface{}); ok && (isImport || data.CDNLoadBalancer != nil) {
+		data.CDNLoadBalancer = &AppAPIGroupCDNLoadBalancerModel{
+			CDNLoadBalancer: func() *AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel {
+				if CDNLoadBalancerData, ok := blockData["cdn_loadbalancer"].(map[string]interface{}); ok {
+					return &AppAPIGroupCDNLoadBalancerCDNLoadBalancerModel{
+						Name: func() types.String {
+							if v, ok := CDNLoadBalancerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := CDNLoadBalancerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := CDNLoadBalancerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["http_loadbalancer"].(map[string]interface{}); ok && (isImport || data.HTTPLoadBalancer != nil) {
+		data.HTTPLoadBalancer = &AppAPIGroupHTTPLoadBalancerModel{
+			HTTPLoadBalancer: func() *AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel {
+				if HTTPLoadBalancerData, ok := blockData["http_loadbalancer"].(map[string]interface{}); ok {
+					return &AppAPIGroupHTTPLoadBalancerHTTPLoadBalancerModel{
+						Name: func() types.String {
+							if v, ok := HTTPLoadBalancerData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := HTTPLoadBalancerData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := HTTPLoadBalancerData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

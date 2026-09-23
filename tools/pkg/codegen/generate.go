@@ -203,7 +203,15 @@ func GenerateClientTypes(resource *openapi.ResourceTemplate, clientDir string) e
 func GenerateReadOnlyDataSource(resource *openapi.ResourceTemplate, outputDir string) error {
 	outputPath := filepath.Join(outputDir, resource.Name+"_data_source.go")
 
-	tmpl, err := template.New("readonly_ds").Parse(ReadOnlyDataSourceTemplate)
+	funcMap := template.FuncMap{
+		"dataSourceReadableAttributes":     DataSourceReadableAttributes,
+		"dataSourceNeedsAttrImport":        DataSourceNeedsAttrImport,
+		"renderDataSourceModelFields":      RenderDataSourceModelFields,
+		"renderDataSourceSchemaAttributes": RenderDataSourceSchemaAttributes,
+		"renderDataSourceSpecUnmarshal":    RenderDataSourceSpecUnmarshalCode,
+		"renderNestedModelTypes":           RenderNestedModelTypes,
+	}
+	tmpl, err := template.New("readonly_ds").Funcs(funcMap).Parse(ReadOnlyDataSourceTemplate)
 	if err != nil {
 		return fmt.Errorf("template parse error: %w", err)
 	}
@@ -292,7 +300,14 @@ func GenerateActionResource(resource *openapi.ResourceTemplate, outputDir, clien
 func GenerateDataSource(resource *openapi.ResourceTemplate, outputDir string) error {
 	outputPath := filepath.Join(outputDir, resource.Name+"_data_source.go")
 
-	tmpl, err := template.New("datasource").Parse(DataSourceTemplate)
+	funcMap := template.FuncMap{
+		"dataSourceReadableAttributes":     DataSourceReadableAttributes,
+		"dataSourceNamespaceDefault":       DataSourceNamespaceDefault,
+		"renderDataSourceModelFields":      RenderDataSourceModelFields,
+		"renderDataSourceSchemaAttributes": RenderDataSourceSchemaAttributes,
+		"renderDataSourceSpecUnmarshal":    RenderDataSourceSpecUnmarshalCode,
+	}
+	tmpl, err := template.New("datasource").Funcs(funcMap).Parse(DataSourceTemplate)
 	if err != nil {
 		return fmt.Errorf("template parse error: %w", err)
 	}

@@ -28,12 +28,13 @@ type IPPrefixSetDataSource struct {
 }
 
 type IPPrefixSetDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID           types.String `tfsdk:"id"`
+	Name         types.String `tfsdk:"name"`
+	Namespace    types.String `tfsdk:"namespace"`
+	Description  types.String `tfsdk:"description"`
+	Labels       types.Map    `tfsdk:"labels"`
+	Annotations  types.Map    `tfsdk:"annotations"`
+	Ipv4Prefixes types.List   `tfsdk:"ipv4_prefixes"`
 }
 
 func (d *IPPrefixSetDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,22 @@ func (d *IPPrefixSetDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"ipv4_prefixes": schema.ListNestedAttribute{
+				MarkdownDescription: "IPv4 Prefixes. List of IPv4 prefixes with description.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"description_spec": schema.StringAttribute{
+							MarkdownDescription: "Description. Human-readable description text",
+							Computed:            true,
+						},
+						"ipv4_prefix": schema.StringAttribute{
+							MarkdownDescription: "IPv4 Prefix. IP address configuration",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +110,8 @@ func (d *IPPrefixSetDataSource) Read(ctx context.Context, req datasource.ReadReq
 		return
 	}
 
-	resource, err := d.client.GetIPPrefixSet(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetIPPrefixSet(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read IPPrefixSet: %s", err))
 		return
@@ -101,7 +119,11 @@ func (d *IPPrefixSetDataSource) Read(ctx context.Context, req datasource.ReadReq
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +156,43 @@ func (d *IPPrefixSetDataSource) Read(ctx context.Context, req datasource.ReadReq
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.Ipv4Prefixes.IsNull() || len(data.Ipv4Prefixes.Elements()) == 0) {
+		data.Ipv4Prefixes = types.ListNull(types.ObjectType{AttrTypes: IPPrefixSetIpv4PrefixesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["ipv4_prefixes"].([]interface{}); ok && len(listData) > 0 {
+		var Ipv4PrefixesList []IPPrefixSetIpv4PrefixesModel
+		var existingIpv4PrefixesItems []IPPrefixSetIpv4PrefixesModel
+		if !data.Ipv4Prefixes.IsNull() && !data.Ipv4Prefixes.IsUnknown() {
+			data.Ipv4Prefixes.ElementsAs(ctx, &existingIpv4PrefixesItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				Ipv4PrefixesList = append(Ipv4PrefixesList, IPPrefixSetIpv4PrefixesModel{
+					DescriptionSpec: func() types.String {
+						if v, ok := itemMap["description"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Ipv4Prefix: func() types.String {
+						if v, ok := itemMap["ipv4_prefix"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: IPPrefixSetIpv4PrefixesModelAttrTypes}, Ipv4PrefixesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Ipv4Prefixes = listVal
+		}
+	} else {
+		data.Ipv4Prefixes = types.ListNull(types.ObjectType{AttrTypes: IPPrefixSetIpv4PrefixesModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

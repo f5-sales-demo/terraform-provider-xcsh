@@ -83,6 +83,26 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="mitigation-type"></a>&#x2022; [`mitigation_type`](#mitigation-type) - Optional String<br>Settings that specify the actions to be taken when malicious users are determined to be at different threat levels. User's activity is monitored and continuously analyzed for malicious behavior. From this analysis, a threat-level is assigned to each user. Server applies default when omitted
+
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>Define the threat levels and the corresponding mitigation actions to be taken
+
+<a id="mitigation-action"></a>&#x2022; [`mitigation_action`](#mitigation-action) - Optional String<br>Supported actions that can be taken to mitigate malicious activity from a user
+
+<a id="threat-level"></a>&#x2022; [`threat_level`](#threat-level) - Optional String<br>Threat level estimated for each user based on the user's activity and reputation
+
+<a id="block-temporarily"></a>&#x2022; [`block_temporarily`](#block-temporarily) - Optional Object<br>Enable this option
+
+<a id="captcha-challenge"></a>&#x2022; [`captcha_challenge`](#captcha-challenge) - Optional Object<br>Configuration parameter for captcha challenge
+
+<a id="javascript-challenge"></a>&#x2022; [`javascript_challenge`](#javascript-challenge) - Optional Object<br>Enable this option
+
+<a id="high"></a>&#x2022; [`high`](#high) - Optional Object<br>Enable this option
+
+<a id="low"></a>&#x2022; [`low`](#low) - Optional Object<br>Enable this option
+
+<a id="medium"></a>&#x2022; [`medium`](#medium) - Optional Object<br>Enable this option
+
 ---
 
 ## Common Types

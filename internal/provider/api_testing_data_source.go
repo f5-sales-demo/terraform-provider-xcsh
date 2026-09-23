@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,17 @@ type APITestingDataSource struct {
 }
 
 type APITestingDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                types.String `tfsdk:"id"`
+	Name              types.String `tfsdk:"name"`
+	Namespace         types.String `tfsdk:"namespace"`
+	Description       types.String `tfsdk:"description"`
+	Labels            types.Map    `tfsdk:"labels"`
+	Annotations       types.Map    `tfsdk:"annotations"`
+	EveryDay          types.Object `tfsdk:"every_day"`
+	EveryMonth        types.Object `tfsdk:"every_month"`
+	EveryWeek         types.Object `tfsdk:"every_week"`
+	CustomHeaderValue types.String `tfsdk:"custom_header_value"`
+	Domains           types.List   `tfsdk:"domains"`
 }
 
 func (d *APITestingDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +76,267 @@ func (d *APITestingDataSource) Schema(ctx context.Context, req datasource.Schema
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"domains": schema.ListNestedAttribute{
+				MarkdownDescription: "Add and configure testing domains and credentials.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"allow_destructive_methods": schema.BoolAttribute{
+							MarkdownDescription: "Enable to allow API Testing to execute against destructive methods. Use with caution as these may modify or DELETE data.",
+							Computed:            true,
+						},
+						"credentials": schema.ListNestedAttribute{
+							MarkdownDescription: "Add credentials for API testing to use in the selected environment.",
+							NestedObject: schema.NestedAttributeObject{
+								Attributes: map[string]schema.Attribute{
+									"admin": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"api_key": schema.SingleNestedAttribute{
+										MarkdownDescription: "API Key",
+										Attributes: map[string]schema.Attribute{
+											"key": schema.StringAttribute{
+												MarkdownDescription: "Key. Cryptographic key material",
+												Computed:            true,
+											},
+											"value": schema.SingleNestedAttribute{
+												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Attributes: map[string]schema.Attribute{
+													"blindfold_secret_info": schema.SingleNestedAttribute{
+														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+														Attributes: map[string]schema.Attribute{
+															"decryption_provider": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+																Computed:            true,
+															},
+															"location": schema.StringAttribute{
+																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+																Computed:            true,
+																Sensitive:           true,
+															},
+															"store_provider": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																Computed:            true,
+															},
+														},
+														Computed: true,
+													},
+													"clear_secret_info": schema.SingleNestedAttribute{
+														MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+														Attributes: map[string]schema.Attribute{
+															"provider_ref": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																Computed:            true,
+															},
+															"url": schema.StringAttribute{
+																MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+																Computed:            true,
+																Sensitive:           true,
+															},
+														},
+														Computed: true,
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+									"basic_auth": schema.SingleNestedAttribute{
+										MarkdownDescription: "Basic Authentication.",
+										Attributes: map[string]schema.Attribute{
+											"password": schema.SingleNestedAttribute{
+												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Attributes: map[string]schema.Attribute{
+													"blindfold_secret_info": schema.SingleNestedAttribute{
+														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+														Attributes: map[string]schema.Attribute{
+															"decryption_provider": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+																Computed:            true,
+															},
+															"location": schema.StringAttribute{
+																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+																Computed:            true,
+																Sensitive:           true,
+															},
+															"store_provider": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																Computed:            true,
+															},
+														},
+														Computed: true,
+													},
+													"clear_secret_info": schema.SingleNestedAttribute{
+														MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+														Attributes: map[string]schema.Attribute{
+															"provider_ref": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																Computed:            true,
+															},
+															"url": schema.StringAttribute{
+																MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+																Computed:            true,
+																Sensitive:           true,
+															},
+														},
+														Computed: true,
+													},
+												},
+												Computed: true,
+											},
+											"user": schema.StringAttribute{
+												MarkdownDescription: "User. Configuration parameter for user",
+												Computed:            true,
+											},
+										},
+										Computed: true,
+									},
+									"bearer_token": schema.SingleNestedAttribute{
+										MarkdownDescription: "Configuration parameter for bearer token.",
+										Attributes: map[string]schema.Attribute{
+											"token": schema.SingleNestedAttribute{
+												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Attributes: map[string]schema.Attribute{
+													"blindfold_secret_info": schema.SingleNestedAttribute{
+														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+														Attributes: map[string]schema.Attribute{
+															"decryption_provider": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+																Computed:            true,
+															},
+															"location": schema.StringAttribute{
+																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+																Computed:            true,
+																Sensitive:           true,
+															},
+															"store_provider": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																Computed:            true,
+															},
+														},
+														Computed: true,
+													},
+													"clear_secret_info": schema.SingleNestedAttribute{
+														MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+														Attributes: map[string]schema.Attribute{
+															"provider_ref": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																Computed:            true,
+															},
+															"url": schema.StringAttribute{
+																MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+																Computed:            true,
+																Sensitive:           true,
+															},
+														},
+														Computed: true,
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
+									"credential_name": schema.StringAttribute{
+										MarkdownDescription: "Enter a unique name for the credentials used in API testing.",
+										Computed:            true,
+									},
+									"login_endpoint": schema.SingleNestedAttribute{
+										MarkdownDescription: "Login Endpoint.",
+										Attributes: map[string]schema.Attribute{
+											"json_payload": schema.SingleNestedAttribute{
+												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Attributes: map[string]schema.Attribute{
+													"blindfold_secret_info": schema.SingleNestedAttribute{
+														MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+														Attributes: map[string]schema.Attribute{
+															"decryption_provider": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+																Computed:            true,
+															},
+															"location": schema.StringAttribute{
+																MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+																Computed:            true,
+																Sensitive:           true,
+															},
+															"store_provider": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																Computed:            true,
+															},
+														},
+														Computed: true,
+													},
+													"clear_secret_info": schema.SingleNestedAttribute{
+														MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+														Attributes: map[string]schema.Attribute{
+															"provider_ref": schema.StringAttribute{
+																MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+																Computed:            true,
+															},
+															"url": schema.StringAttribute{
+																MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+																Computed:            true,
+																Sensitive:           true,
+															},
+														},
+														Computed: true,
+													},
+												},
+												Computed: true,
+											},
+											"method": schema.StringAttribute{
+												MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] Specifies the HTTP method used to access a resource. Any HTTP Method. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+												Computed:            true,
+											},
+											"path": schema.StringAttribute{
+												MarkdownDescription: "Path. URL path for the endpoint",
+												Computed:            true,
+											},
+											"token_response_key": schema.StringAttribute{
+												MarkdownDescription: "Configuration parameter for token response key.",
+												Computed:            true,
+											},
+										},
+										Computed: true,
+									},
+									"standard": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
+							},
+							Computed: true,
+						},
+						"domain": schema.StringAttribute{
+							MarkdownDescription: "Add your testing environment domain. Be aware that running tests on a production domain can impact live applications, as API testing cannot distinguish between production and testing environments.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"every_day": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: every_day, every_month, every_week] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"every_month": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for every month.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"every_week": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"custom_header_value": schema.StringAttribute{
+				MarkdownDescription: "Add x-F5-API-testing-identifier header value to prevent security flags on API testing traffic.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +360,8 @@ func (d *APITestingDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		return
 	}
 
-	resource, err := d.client.GetAPITesting(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAPITesting(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read APITesting: %s", err))
 		return
@@ -101,7 +369,11 @@ func (d *APITestingDataSource) Read(ctx context.Context, req datasource.ReadRequ
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +406,377 @@ func (d *APITestingDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.Domains.IsNull() || len(data.Domains.Elements()) == 0) {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["domains"].([]interface{}); ok && len(listData) > 0 {
+		var DomainsList []APITestingDomainsModel
+		var existingDomainsItems []APITestingDomainsModel
+		if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
+			data.Domains.ElementsAs(ctx, &existingDomainsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				DomainsList = append(DomainsList, APITestingDomainsModel{
+					AllowDestructiveMethods: func() types.Bool {
+						if v, ok := itemMap["allow_destructive_methods"].(bool); ok {
+							return types.BoolValue(v)
+						}
+						return types.BoolNull()
+					}(),
+					Credentials: func() types.List {
+						if !isImport && len(existingDomainsItems) > listIdx && (existingDomainsItems[listIdx].Credentials.IsNull() || len(existingDomainsItems[listIdx].Credentials.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes})
+						}
+						var CredentialsExisting []APITestingDomainsCredentialsModel
+						if !isImport && len(existingDomainsItems) > listIdx && !existingDomainsItems[listIdx].Credentials.IsNull() && !existingDomainsItems[listIdx].Credentials.IsUnknown() {
+							existingDomainsItems[listIdx].Credentials.ElementsAs(ctx, &CredentialsExisting, false)
+						}
+						if rawList, ok := itemMap["credentials"].([]interface{}); ok && len(rawList) > 0 {
+							var CredentialsResult []APITestingDomainsCredentialsModel
+							for CredentialsIdx, CredentialsItem := range rawList {
+								_ = CredentialsIdx
+								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
+									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
+										Admin: func() types.Object {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx && !CredentialsExisting[CredentialsIdx].Admin.IsUnknown() {
+												return CredentialsExisting[CredentialsIdx].Admin
+											}
+											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+											}
+											return types.ObjectNull(map[string]attr.Type{})
+										}(),
+										APIKey: func() *APITestingDomainsCredentialsAPIKeyModel {
+											if APIKeyData, ok := CredentialsItemMap["api_key"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsAPIKeyModel{
+													Key: func() types.String {
+														if v, ok := APIKeyData["key"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Value: func() *APITestingDomainsCredentialsAPIKeyValueModel {
+														if ValueData, ok := APIKeyData["value"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsAPIKeyValueModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := ValueData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsAPIKeyValueBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := ValueData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsAPIKeyValueClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
+										BasicAuth: func() *APITestingDomainsCredentialsBasicAuthModel {
+											if BasicAuthData, ok := CredentialsItemMap["basic_auth"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsBasicAuthModel{
+													Password: func() *APITestingDomainsCredentialsBasicAuthPasswordModel {
+														if PasswordData, ok := BasicAuthData["password"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsBasicAuthPasswordModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := PasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBasicAuthPasswordBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := PasswordData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBasicAuthPasswordClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+													User: func() types.String {
+														if v, ok := BasicAuthData["user"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										BearerToken: func() *APITestingDomainsCredentialsBearerTokenModel {
+											if BearerTokenData, ok := CredentialsItemMap["bearer_token"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsBearerTokenModel{
+													Token: func() *APITestingDomainsCredentialsBearerTokenTokenModel {
+														if TokenData, ok := BearerTokenData["token"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsBearerTokenTokenModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := TokenData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBearerTokenTokenBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := TokenData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsBearerTokenTokenClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+												}
+											}
+											return nil
+										}(),
+										CredentialName: func() types.String {
+											if v, ok := CredentialsItemMap["credential_name"].(string); ok && v != "" {
+												return types.StringValue(v)
+											}
+											return types.StringNull()
+										}(),
+										LoginEndpoint: func() *APITestingDomainsCredentialsLoginEndpointModel {
+											if LoginEndpointData, ok := CredentialsItemMap["login_endpoint"].(map[string]interface{}); ok {
+												return &APITestingDomainsCredentialsLoginEndpointModel{
+													JSONPayload: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadModel {
+														if JSONPayloadData, ok := LoginEndpointData["json_payload"].(map[string]interface{}); ok {
+															return &APITestingDomainsCredentialsLoginEndpointJSONPayloadModel{
+																BlindfoldSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel {
+																	if BlindfoldSecretInfoData, ok := JSONPayloadData["blindfold_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadBlindfoldSecretInfoModel{
+																			DecryptionProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Location: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			StoreProvider: func() types.String {
+																				if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+																ClearSecretInfo: func() *APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel {
+																	if ClearSecretInfoData, ok := JSONPayloadData["clear_secret_info"].(map[string]interface{}); ok {
+																		return &APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModel{
+																			Provider: func() types.String {
+																				if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			URL: func() types.String {
+																				if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		}
+																	}
+																	return nil
+																}(),
+															}
+														}
+														return nil
+													}(),
+													Method: func() types.String {
+														if v, ok := LoginEndpointData["method"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													Path: func() types.String {
+														if v, ok := LoginEndpointData["path"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+													TokenResponseKey: func() types.String {
+														if v, ok := LoginEndpointData["token_response_key"].(string); ok && v != "" {
+															return types.StringValue(v)
+														}
+														return types.StringNull()
+													}(),
+												}
+											}
+											return nil
+										}(),
+										Standard: func() types.Object {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx && !CredentialsExisting[CredentialsIdx].Standard.IsUnknown() {
+												return CredentialsExisting[CredentialsIdx].Standard
+											}
+											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+											}
+											return types.ObjectNull(map[string]attr.Type{})
+										}(),
+									})
+								}
+							}
+							listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes}, CredentialsResult)
+							return listVal
+						}
+						return types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsCredentialsModelAttrTypes})
+					}(),
+					Domain: func() types.String {
+						if v, ok := itemMap["domain"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes}, DomainsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Domains = listVal
+		}
+	} else {
+		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
+	}
+	if !isImport && !data.EveryDay.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok {
+		data.EveryDay = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryDay = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.EveryMonth.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok {
+		data.EveryMonth = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryMonth = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.EveryWeek.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok {
+		data.EveryWeek = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryWeek = types.ObjectNull(map[string]attr.Type{})
+	}
+	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
+		data.CustomHeaderValue = types.StringValue(v)
+	} else {
+		data.CustomHeaderValue = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

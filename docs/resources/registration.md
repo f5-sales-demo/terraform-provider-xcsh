@@ -324,7 +324,7 @@ An [`usb`](#infra-hw-info-usb) block (within [`infra.hw_info`](#infra-hw-info)) 
 
 <a id="infra-hw-info-usb-b-device-protocol"></a>&#x2022; [`b_device_protocol`](#infra-hw-info-usb-b-device-protocol) - Optional String<br>The protocol (within the subclass) of this device
 
-<a id="infra-hw-info-usb-b-device-subclass"></a>&#x2022; [`b_device_sub_class`](#infra-hw-info-usb-b-device-subclass) - Optional String<br>The subclass (within the class) of this device
+<a id="infra-hw-info-usb-b-device-sub-class"></a>&#x2022; [`b_device_sub_class`](#infra-hw-info-usb-b-device-sub-class) - Optional String<br>The subclass (within the class) of this device
 
 <a id="infra-hw-info-usb-b-max-packet-size"></a>&#x2022; [`b_max_packet_size`](#infra-hw-info-usb-b-max-packet-size) - Optional Number<br>Max packet size. Maximum size of the control transfer
 

@@ -28,12 +28,13 @@ type CertificateChainDataSource struct {
 }
 
 type CertificateChainDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID             types.String `tfsdk:"id"`
+	Name           types.String `tfsdk:"name"`
+	Namespace      types.String `tfsdk:"namespace"`
+	Description    types.String `tfsdk:"description"`
+	Labels         types.Map    `tfsdk:"labels"`
+	Annotations    types.Map    `tfsdk:"annotations"`
+	CertificateURL types.String `tfsdk:"certificate_url"`
 }
 
 func (d *CertificateChainDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,10 @@ func (d *CertificateChainDataSource) Schema(ctx context.Context, req datasource.
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"certificate_url": schema.StringAttribute{
+				MarkdownDescription: "Certificate chain is the list of intermediate certificates in PEM format including the PEM headers.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +98,8 @@ func (d *CertificateChainDataSource) Read(ctx context.Context, req datasource.Re
 		return
 	}
 
-	resource, err := d.client.GetCertificateChain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetCertificateChain(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read CertificateChain: %s", err))
 		return
@@ -101,7 +107,11 @@ func (d *CertificateChainDataSource) Read(ctx context.Context, req datasource.Re
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +144,12 @@ func (d *CertificateChainDataSource) Read(ctx context.Context, req datasource.Re
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["certificate_url"].(string); ok && v != "" {
+		data.CertificateURL = types.StringValue(v)
+	} else {
+		data.CertificateURL = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

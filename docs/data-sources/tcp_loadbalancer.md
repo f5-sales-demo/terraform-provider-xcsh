@@ -85,13 +85,518 @@ spec:
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="active-service-policies"></a>&#x2022; [`active_service_policies`](#active-service-policies) - Optional String<br>Configuration parameter for active service policies
+
+<a id="advertise-custom"></a>&#x2022; [`advertise_custom`](#advertise-custom) - Optional String<br>Defines a way to advertise a VIP on specific sites
+
+<a id="advertise-on-public"></a>&#x2022; [`advertise_on_public`](#advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="advertise-on-public-default-vip"></a>&#x2022; [`advertise_on_public_default_vip`](#advertise-on-public-default-vip) - Optional Object<br>Enable this option
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="default-lb-with-sni"></a>&#x2022; [`default_lb_with_sni`](#default-lb-with-sni) - Optional Object<br>Configuration parameter for default LB with sni
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the TCPLoadBalancer
 
+<a id="dns-volterra-managed"></a>&#x2022; [`dns_volterra_managed`](#dns-volterra-managed) - Optional Bool  Defaults to `false`<br>DNS records for domains will be managed automatically by F5 Distributed Cloud. This requires the domain to be delegated to F5XC using the Delegated Domain feature.  Server applies default when omitted
+
+<a id="do-not-advertise"></a>&#x2022; [`do_not_advertise`](#do-not-advertise) - Optional Object<br>Configuration parameter for do not advertise
+
+<a id="do-not-retract-cluster"></a>&#x2022; [`do_not_retract_cluster`](#do-not-retract-cluster) - Optional Object<br>Enable this option
+
+<a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>List of Domains (host/authority header) that will be matched to this Load Balancer. Supported Domains and search order: 1. Exact Domain names: `www.example.com.` 2
+
+<a id="hash-policy-choice-least-active"></a>&#x2022; [`hash_policy_choice_least_active`](#hash-policy-choice-least-active) - Optional Object<br>Enable this option
+
+<a id="hash-policy-choice-random"></a>&#x2022; [`hash_policy_choice_random`](#hash-policy-choice-random) - Optional Object<br>Configuration parameter for hash policy choice random
+
+<a id="hash-policy-choice-round-robin"></a>&#x2022; [`hash_policy_choice_round_robin`](#hash-policy-choice-round-robin) - Optional Object  Defaults to `map[]`<br>Configuration parameter for hash policy choice round robin.  Server applies default when omitted
+
+<a id="hash-policy-choice-source-ip-stickiness"></a>&#x2022; [`hash_policy_choice_source_ip_stickiness`](#hash-policy-choice-source-ip-stickiness) - Optional Object<br>Enable this option
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Optional Number<br>The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. Server applies default when omitted
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="listen-port"></a>&#x2022; [`listen_port`](#listen-port) - Optional Number<br>Listen Port for this load balancer
+
+<a id="no-service-policies"></a>&#x2022; [`no_service_policies`](#no-service-policies) - Optional Object<br>Configuration parameter for no service policies
+
+<a id="no-sni"></a>&#x2022; [`no_sni`](#no-sni) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="origin-pools-weights"></a>&#x2022; [`origin_pools_weights`](#origin-pools-weights) - Optional List<br>Origin pools and weights used for this load balancer
+
+<a id="port-ranges"></a>&#x2022; [`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+<a id="retract-cluster"></a>&#x2022; [`retract_cluster`](#retract-cluster) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="service-policies-from-namespace"></a>&#x2022; [`service_policies_from_namespace`](#service-policies-from-namespace) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="sni"></a>&#x2022; [`sni`](#sni) - Optional Object<br>Enable this option
+
+<a id="tcp"></a>&#x2022; [`tcp`](#tcp) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="tls-tcp"></a>&#x2022; [`tls_tcp`](#tls-tcp) - Optional String<br>Choice for selecting TLS over TCP proxy with bring your own certificates
+
+<a id="tls-tcp-auto-cert"></a>&#x2022; [`tls_tcp_auto_cert`](#tls-tcp-auto-cert) - Optional String<br>Choice for selecting TLS over TCP proxy with automatic certificates
+
+<a id="policies"></a>&#x2022; [`policies`](#policies) - Optional List<br>Service Policies is a sequential engine where policies (and rules within the policy) are evaluated one after the other. It's important to define the correct order (policies evaluated from top to bottom in the list) for service policies, to GET the intended result. For each request, its
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="advertise-where"></a>&#x2022; [`advertise_where`](#advertise-where) - Optional List<br>Where should this load balancer be available
+
+<a id="advertise-on-public"></a>&#x2022; [`advertise_on_public`](#advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Port to Listen
+
+<a id="port-ranges"></a>&#x2022; [`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised
+
+<a id="use-default-port"></a>&#x2022; [`use_default_port`](#use-default-port) - Optional Object<br>Enable this option
+
+<a id="virtual-network"></a>&#x2022; [`virtual_network`](#virtual-network) - Optional String<br>Parameters to advertise on a given virtual network
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional String<br>Defines a reference to a customer site virtual site along with network type where a load balancer could be advertised
+
+<a id="virtual-site-with-vip"></a>&#x2022; [`virtual_site_with_vip`](#virtual-site-with-vip) - Optional String<br>Defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised
+
+<a id="vk8s-service"></a>&#x2022; [`vk8s_service`](#vk8s-service) - Optional String<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>Use given IP address as VIP on the site
+
+<a id="network"></a>&#x2022; [`network`](#network) - Optional String  Defaults to `SITE_NETWORK_INSIDE_AND_OUTSIDE`<br>Possible values are `SITE_NETWORK_INSIDE_AND_OUTSIDE`, `SITE_NETWORK_INSIDE`, `SITE_NETWORK_OUTSIDE`, `SITE_NETWORK_SERVICE`, `SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_IP_FABRIC`<br>[Enum:
+SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NETWORK_SERVICE|SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_IP_FABRIC] Defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="default-v6-vip"></a>&#x2022; [`default_v6_vip`](#default-v6-vip) - Optional Object<br>Enable this option
+
+<a id="default-vip"></a>&#x2022; [`default_vip`](#default-vip) - Optional Object<br>Enable this option
+
+<a id="specific-v6-vip"></a>&#x2022; [`specific_v6_vip`](#specific-v6-vip) - Optional String<br>Use given IPv6 address as VIP on virtual Network
+
+<a id="specific-vip"></a>&#x2022; [`specific_vip`](#specific-vip) - Optional String<br>Use given IPv4 address as VIP on virtual Network
+
+<a id="virtual-network"></a>&#x2022; [`virtual_network`](#virtual-network) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="network"></a>&#x2022; [`network`](#network) - Optional String  Defaults to `SITE_NETWORK_INSIDE_AND_OUTSIDE`<br>Possible values are `SITE_NETWORK_INSIDE_AND_OUTSIDE`, `SITE_NETWORK_INSIDE`, `SITE_NETWORK_OUTSIDE`, `SITE_NETWORK_SERVICE`, `SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_IP_FABRIC`<br>[Enum:
+SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NETWORK_SERVICE|SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_IP_FABRIC] Defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>Use given IP address as VIP on the site
+
+<a id="network"></a>&#x2022; [`network`](#network) - Optional String  Defaults to `SITE_NETWORK_SPECIFIED_VIP_OUTSIDE`<br>Possible values are `SITE_NETWORK_SPECIFIED_VIP_OUTSIDE`, `SITE_NETWORK_SPECIFIED_VIP_INSIDE`<br>[Enum: SITE_NETWORK_SPECIFIED_VIP_OUTSIDE|SITE_NETWORK_SPECIFIED_VIP_INSIDE] Defines network types to be used on virtual-site with specified VIP All outside networks. All inside
+networks
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="site"></a>&#x2022; [`site`](#site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="cluster"></a>&#x2022; [`cluster`](#cluster) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="endpoint-subsets"></a>&#x2022; [`endpoint_subsets`](#endpoint-subsets) - Optional String<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
+
+<a id="pool"></a>&#x2022; [`pool`](#pool) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="priority"></a>&#x2022; [`priority`](#priority) - Optional Number<br>Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the
+
+<a id="weight"></a>&#x2022; [`weight`](#weight) - Optional Number<br>Weight of this origin pool, valid only with multiple origin pool. Value of 0 will disable the pool
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+---
+
+#### TCP
+
+A [`tcp`](#tcp) block supports the following:
+
+#### TLS TCP
+
+A [`tls_tcp`](#tls-tcp) block supports the following:
+
+<a id="nestedatt--tcp-tls-cert-params"></a>&#x2022; [`tls_cert_params`](#nestedatt--tcp-tls-cert-params) - Optional String<br>Configuration parameter for TLS cert params
+
+<a id="nestedatt--tcp-tls-parameters"></a>&#x2022; [`tls_parameters`](#nestedatt--tcp-tls-parameters) - Optional String<br>Configuration parameter for TLS parameters
+
+#### TLS TCP TLS Cert Params
+
+A [`tls_cert_params`](#tls-tcp-tls-cert-params) block (within [`tls_tcp`](#tls-tcp)) supports the following:
+
+<a id="nestedatt--tcp-certificates"></a>&#x2022; [`certificates`](#nestedatt--tcp-certificates) - Optional List<br>Select one or more certificates with any domain names
+
+<a id="nestedatt--tcp-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--tcp-no-mtls) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--tcp-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--tcp-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--tcp-use-mtls) - Optional String<br>Validation context for downstream client TLS connections
+
+#### TLS TCP TLS Cert Params Certificates
+
+A [`certificates`](#tls-tcp-tls-cert-params-certificates) block (within [`tls_tcp.tls_cert_params`](#tls-tcp-tls-cert-params)) supports the following:
+
+<a id="nestedatt--tcp-name"></a>&#x2022; [`name`](#nestedatt--tcp-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--tcp-namespace"></a>&#x2022; [`namespace`](#nestedatt--tcp-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--tcp-tenant"></a>&#x2022; [`tenant`](#nestedatt--tcp-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### TLS TCP TLS Cert Params No mTLS
+
+A [`no_mtls`](#tls-tcp-tls-cert-params-no-mtls) block (within [`tls_tcp.tls_cert_params`](#tls-tcp-tls-cert-params)) supports the following:
+
+#### TLS TCP TLS Cert Params TLS Config
+
+A [`tls_config`](#tls-tcp-tls-cert-params-tls-config) block (within [`tls_tcp.tls_cert_params`](#tls-tcp-tls-cert-params)) supports the following:
+
+<a id="nestedatt--tcp-custom-security"></a>&#x2022; [`custom_security`](#nestedatt--tcp-custom-security) - Optional String<br>Defines TLS protocol config including min/max versions and allowed ciphers
+
+<a id="nestedatt--tcp-default-security"></a>&#x2022; [`default_security`](#nestedatt--tcp-default-security) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-low-security"></a>&#x2022; [`low_security`](#nestedatt--tcp-low-security) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-medium-security"></a>&#x2022; [`medium_security`](#nestedatt--tcp-medium-security) - Optional Object<br>Enable this option
+
+#### TLS TCP TLS Cert Params TLS Config Custom Security
+
+<a id="deep-124b53"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP TLS Cert Params TLS Config Default Security
+
+<a id="deep-5e7bd5"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP TLS Cert Params TLS Config Low Security
+
+<a id="deep-65834a"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP TLS Cert Params TLS Config Medium Security
+
+<a id="deep-426e05"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP TLS Cert Params Use mTLS
+
+An [`use_mtls`](#tls-tcp-tls-cert-params-use-mtls) block (within [`tls_tcp.tls_cert_params`](#tls-tcp-tls-cert-params)) supports the following:
+
+<a id="optional-fc45d9"></a>&#x2022; [`client_certificate_optional`](#optional-fc45d9) - Optional Bool<br>Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated
+
+<a id="nestedatt--tcp-crl"></a>&#x2022; [`crl`](#nestedatt--tcp-crl) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--tcp-no-crl"></a>&#x2022; [`no_crl`](#nestedatt--tcp-no-crl) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--tcp-trusted-ca) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--tcp-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#nestedatt--tcp-trusted-ca-url) - Optional String<br>Upload a Root CA Certificate specifically for this Load Balancer
+
+<a id="nestedatt--tcp-xfcc-disabled"></a>&#x2022; [`xfcc_disabled`](#nestedatt--tcp-xfcc-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-xfcc-options"></a>&#x2022; [`xfcc_options`](#nestedatt--tcp-xfcc-options) - Optional String<br>X-Forwarded-Client-Cert header elements to be added to requests
+
+#### TLS TCP TLS Cert Params Use mTLS CRL
+
+<a id="deep-b2118e"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### TLS TCP TLS Cert Params Use mTLS No CRL
+
+<a id="deep-ed2508"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### TLS TCP TLS Cert Params Use mTLS Trusted CA
+
+<a id="deep-1980d6"></a>Deeply nested **CA** block collapsed for readability.
+
+#### TLS TCP TLS Cert Params Use mTLS Xfcc Disabled
+
+<a id="deep-800358"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### TLS TCP TLS Cert Params Use mTLS Xfcc Options
+
+<a id="deep-1bac64"></a>Deeply nested **Options** block collapsed for readability.
+
+#### TLS TCP TLS Parameters
+
+A [`tls_parameters`](#tls-tcp-tls-parameters) block (within [`tls_tcp`](#tls-tcp)) supports the following:
+
+<a id="nestedatt--tcp-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--tcp-no-mtls) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-tls-certificates"></a>&#x2022; [`tls_certificates`](#nestedatt--tcp-tls-certificates) - Optional List<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms
+
+<a id="nestedatt--tcp-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--tcp-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--tcp-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--tcp-use-mtls) - Optional String<br>Validation context for downstream client TLS connections
+
+#### TLS TCP TLS Parameters No mTLS
+
+A [`no_mtls`](#tls-tcp-tls-parameters-no-mtls) block (within [`tls_tcp.tls_parameters`](#tls-tcp-tls-parameters)) supports the following:
+
+#### TLS TCP TLS Parameters TLS Certificates
+
+A [`tls_certificates`](#tls-tcp-tls-parameters-tls-certificates) block (within [`tls_tcp.tls_parameters`](#tls-tcp-tls-parameters)) supports the following:
+
+<a id="nestedatt--tcp-certificate-url"></a>&#x2022; [`certificate_url`](#nestedatt--tcp-certificate-url) - Optional String<br>TLS certificate. Certificate or certificate chain in PEM format including the PEM headers
+
+<a id="nestedatt--tcp-custom-hash-algorithms"></a>&#x2022; [`custom_hash_algorithms`](#nestedatt--tcp-custom-hash-algorithms) - Optional String<br>Specifies the hash algorithms to be used
+
+<a id="nestedatt--tcp-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--tcp-description-spec) - Optional String<br>Description. Description for the certificate
+
+<a id="nestedatt--tcp-disable-ocsp-stapling"></a>&#x2022; [`disable_ocsp_stapling`](#nestedatt--tcp-disable-ocsp-stapling) - Optional Object<br>Configuration parameter for disable OCSP stapling
+
+<a id="nestedatt--tcp-private-key"></a>&#x2022; [`private_key`](#nestedatt--tcp-private-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--tcp-use-system-defaults"></a>&#x2022; [`use_system_defaults`](#nestedatt--tcp-use-system-defaults) - Optional Object<br>Configuration parameter for use system defaults
+
+#### TLS TCP TLS Parameters TLS Certificates Custom Hash Algorithms
+
+<a id="deep-714aaa"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Certificates Disable OCSP Stapling
+
+<a id="deep-57a2ae"></a>Deeply nested **Stapling** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Certificates Private Key
+
+<a id="deep-966381"></a>Deeply nested **Key** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Certificates Private Key Blindfold Secret Info
+
+<a id="deep-fcac6a"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Certificates Private Key Clear Secret Info
+
+<a id="deep-710771"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Certificates Use System Defaults
+
+<a id="deep-b3820f"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Config
+
+A [`tls_config`](#tls-tcp-tls-parameters-tls-config) block (within [`tls_tcp.tls_parameters`](#tls-tcp-tls-parameters)) supports the following:
+
+<a id="nestedatt--tcp-custom-security"></a>&#x2022; [`custom_security`](#nestedatt--tcp-custom-security) - Optional String<br>Defines TLS protocol config including min/max versions and allowed ciphers
+
+<a id="nestedatt--tcp-default-security"></a>&#x2022; [`default_security`](#nestedatt--tcp-default-security) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-low-security"></a>&#x2022; [`low_security`](#nestedatt--tcp-low-security) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-medium-security"></a>&#x2022; [`medium_security`](#nestedatt--tcp-medium-security) - Optional Object<br>Enable this option
+
+#### TLS TCP TLS Parameters TLS Config Custom Security
+
+<a id="deep-f58168"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Config Default Security
+
+<a id="deep-01edef"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Config Low Security
+
+<a id="deep-47b71e"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP TLS Parameters TLS Config Medium Security
+
+<a id="deep-3cee6a"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP TLS Parameters Use mTLS
+
+An [`use_mtls`](#tls-tcp-tls-parameters-use-mtls) block (within [`tls_tcp.tls_parameters`](#tls-tcp-tls-parameters)) supports the following:
+
+<a id="optional-fc45d9"></a>&#x2022; [`client_certificate_optional`](#optional-fc45d9) - Optional Bool<br>Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated
+
+<a id="nestedatt--tcp-crl"></a>&#x2022; [`crl`](#nestedatt--tcp-crl) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--tcp-no-crl"></a>&#x2022; [`no_crl`](#nestedatt--tcp-no-crl) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--tcp-trusted-ca) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--tcp-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#nestedatt--tcp-trusted-ca-url) - Optional String<br>Upload a Root CA Certificate specifically for this Load Balancer
+
+<a id="nestedatt--tcp-xfcc-disabled"></a>&#x2022; [`xfcc_disabled`](#nestedatt--tcp-xfcc-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-xfcc-options"></a>&#x2022; [`xfcc_options`](#nestedatt--tcp-xfcc-options) - Optional String<br>X-Forwarded-Client-Cert header elements to be added to requests
+
+#### TLS TCP TLS Parameters Use mTLS CRL
+
+A [`crl`](#tls-tcp-tls-parameters-use-mtls-crl) block (within [`tls_tcp.tls_parameters.use_mtls`](#tls-tcp-tls-parameters-use-mtls)) supports the following:
+
+<a id="nestedatt--tcp-name"></a>&#x2022; [`name`](#nestedatt--tcp-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--tcp-namespace"></a>&#x2022; [`namespace`](#nestedatt--tcp-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--tcp-tenant"></a>&#x2022; [`tenant`](#nestedatt--tcp-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### TLS TCP TLS Parameters Use mTLS No CRL
+
+<a id="deep-989524"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### TLS TCP TLS Parameters Use mTLS Trusted CA
+
+<a id="deep-6a94df"></a>Deeply nested **CA** block collapsed for readability.
+
+#### TLS TCP TLS Parameters Use mTLS Xfcc Disabled
+
+<a id="deep-73ae8b"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### TLS TCP TLS Parameters Use mTLS Xfcc Options
+
+<a id="deep-10758e"></a>Deeply nested **Options** block collapsed for readability.
+
+#### TLS TCP Auto Cert
+
+A [`tls_tcp_auto_cert`](#tls-tcp-auto-cert) block supports the following:
+
+<a id="nestedatt--tcp-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--tcp-no-mtls) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--tcp-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--tcp-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--tcp-use-mtls) - Optional String<br>Validation context for downstream client TLS connections
+
+#### TLS TCP Auto Cert No mTLS
+
+A [`no_mtls`](#tls-tcp-auto-cert-no-mtls) block (within [`tls_tcp_auto_cert`](#tls-tcp-auto-cert)) supports the following:
+
+#### TLS TCP Auto Cert TLS Config
+
+A [`tls_config`](#tls-tcp-auto-cert-tls-config) block (within [`tls_tcp_auto_cert`](#tls-tcp-auto-cert)) supports the following:
+
+<a id="nestedatt--tcp-custom-security"></a>&#x2022; [`custom_security`](#nestedatt--tcp-custom-security) - Optional String<br>Defines TLS protocol config including min/max versions and allowed ciphers
+
+<a id="nestedatt--tcp-default-security"></a>&#x2022; [`default_security`](#nestedatt--tcp-default-security) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-low-security"></a>&#x2022; [`low_security`](#nestedatt--tcp-low-security) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-medium-security"></a>&#x2022; [`medium_security`](#nestedatt--tcp-medium-security) - Optional Object<br>Enable this option
+
+#### TLS TCP Auto Cert TLS Config Custom Security
+
+<a id="deep-7c4185"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP Auto Cert TLS Config Default Security
+
+<a id="deep-64cda2"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP Auto Cert TLS Config Low Security
+
+<a id="deep-3666eb"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP Auto Cert TLS Config Medium Security
+
+<a id="deep-a4c4f8"></a>Deeply nested **Security** block collapsed for readability.
+
+#### TLS TCP Auto Cert Use mTLS
+
+An [`use_mtls`](#tls-tcp-auto-cert-use-mtls) block (within [`tls_tcp_auto_cert`](#tls-tcp-auto-cert)) supports the following:
+
+<a id="optional-fc45d9"></a>&#x2022; [`client_certificate_optional`](#optional-fc45d9) - Optional Bool<br>Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated
+
+<a id="nestedatt--tcp-crl"></a>&#x2022; [`crl`](#nestedatt--tcp-crl) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--tcp-no-crl"></a>&#x2022; [`no_crl`](#nestedatt--tcp-no-crl) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--tcp-trusted-ca) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--tcp-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#nestedatt--tcp-trusted-ca-url) - Optional String<br>Upload a Root CA Certificate specifically for this Load Balancer
+
+<a id="nestedatt--tcp-xfcc-disabled"></a>&#x2022; [`xfcc_disabled`](#nestedatt--tcp-xfcc-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--tcp-xfcc-options"></a>&#x2022; [`xfcc_options`](#nestedatt--tcp-xfcc-options) - Optional String<br>X-Forwarded-Client-Cert header elements to be added to requests
+
+#### TLS TCP Auto Cert Use mTLS CRL
+
+A [`crl`](#tls-tcp-auto-cert-use-mtls-crl) block (within [`tls_tcp_auto_cert.use_mtls`](#tls-tcp-auto-cert-use-mtls)) supports the following:
+
+<a id="nestedatt--tcp-name"></a>&#x2022; [`name`](#nestedatt--tcp-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--tcp-namespace"></a>&#x2022; [`namespace`](#nestedatt--tcp-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--tcp-tenant"></a>&#x2022; [`tenant`](#nestedatt--tcp-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### TLS TCP Auto Cert Use mTLS No CRL
+
+<a id="deep-f8d8e1"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### TLS TCP Auto Cert Use mTLS Trusted CA
+
+<a id="deep-bafeed"></a>Deeply nested **CA** block collapsed for readability.
+
+#### TLS TCP Auto Cert Use mTLS Xfcc Disabled
+
+<a id="deep-88d834"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### TLS TCP Auto Cert Use mTLS Xfcc Options
+
+<a id="deep-dfa8f5"></a>Deeply nested **Options** block collapsed for readability.
 
 ---
 

@@ -61,7 +61,7 @@ resource "xcsh_cloud_connect" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="aws-provider"></a>[`aws_provider`](#aws-provider) - Optional Block<br>Configuration parameter for AWS provider<br>See [AWS Provider](#aws-provider) below for details.
-<br><br>&#x2022; <a id="Azure-vnet-site"></a>[`azure_vnet_site`](#Azure-vnet-site) - Optional Block<br>Azure VNET Site Type. Cloud Connect Azure VNET Site Type<br>See [Azure VNET Site](#Azure-vnet-site) below for details.
+<br><br>&#x2022; <a id="azure-vnet-site"></a>[`azure_vnet_site`](#azure-vnet-site) - Optional Block<br>Azure VNET Site Type. Cloud Connect Azure VNET Site Type<br>See [Azure VNET Site](#azure-vnet-site) below for details.
 
 <a id="segment"></a>&#x2022; [`segment`](#segment) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Segment](#segment) below for details.
 
@@ -143,43 +143,43 @@ A [`vpc_attachments`](#attachments-467d0a) block (within [`aws_provider.aws_tgw_
 
 #### Azure VNET Site
 
-An [`azure_vnet_site`](#Azure-vnet-site) block supports the following:
+An [`azure_vnet_site`](#azure-vnet-site) block supports the following:
 
-<a id="Azure-vnet-site-site"></a>&#x2022; [`site`](#Azure-vnet-site-site) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Site](#Azure-vnet-site-site) below.
+<a id="azure-vnet-site-site"></a>&#x2022; [`site`](#azure-vnet-site-site) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Site](#azure-vnet-site-site) below.
 
-<a id="Azure-vnet-site-vnet-attachments"></a>&#x2022; [`vnet_attachments`](#Azure-vnet-site-vnet-attachments) - Optional Block<br>Configuration parameter for VNET attachments<br>See [VNET Attachments](#Azure-vnet-site-vnet-attachments) below.
+<a id="azure-vnet-site-vnet-attachments"></a>&#x2022; [`vnet_attachments`](#azure-vnet-site-vnet-attachments) - Optional Block<br>Configuration parameter for VNET attachments<br>See [VNET Attachments](#azure-vnet-site-vnet-attachments) below.
 
 #### Azure VNET Site Site
 
-A [`site`](#Azure-vnet-site-site) block (within [`azure_vnet_site`](#Azure-vnet-site)) supports the following:
+A [`site`](#azure-vnet-site-site) block (within [`azure_vnet_site`](#azure-vnet-site)) supports the following:
 
-<a id="Azure-vnet-site-site-name"></a>&#x2022; [`name`](#Azure-vnet-site-site-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+<a id="azure-vnet-site-site-name"></a>&#x2022; [`name`](#azure-vnet-site-site-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
-<a id="Azure-vnet-site-site-namespace"></a>&#x2022; [`namespace`](#Azure-vnet-site-site-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+<a id="azure-vnet-site-site-namespace"></a>&#x2022; [`namespace`](#azure-vnet-site-site-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
-<a id="Azure-vnet-site-site-tenant"></a>&#x2022; [`tenant`](#Azure-vnet-site-site-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+<a id="azure-vnet-site-site-tenant"></a>&#x2022; [`tenant`](#azure-vnet-site-site-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### Azure VNET Site VNET Attachments
 
-A [`vnet_attachments`](#Azure-vnet-site-vnet-attachments) block (within [`azure_vnet_site`](#Azure-vnet-site)) supports the following:
+A [`vnet_attachments`](#azure-vnet-site-vnet-attachments) block (within [`azure_vnet_site`](#azure-vnet-site)) supports the following:
 
-<a id="list-af915b"></a>&#x2022; [`vnet_list`](#list-af915b) - Optional Block<br>VNET List. Collection of items or values<br>See [VNET List](#list-af915b) below.
+<a id="list-5826e3"></a>&#x2022; [`vnet_list`](#list-5826e3) - Optional Block<br>VNET List. Collection of items or values<br>See [VNET List](#list-5826e3) below.
 
 #### Azure VNET Site VNET Attachments VNET List
 
-A [`vnet_list`](#list-af915b) block (within [`azure_vnet_site.vnet_attachments`](#Azure-vnet-site-vnet-attachments)) supports the following:
+A [`vnet_list`](#list-5826e3) block (within [`azure_vnet_site.vnet_attachments`](#azure-vnet-site-vnet-attachments)) supports the following:
 
-<a id="routing-3c0668"></a>&#x2022; [`custom_routing`](#routing-3c0668) - Optional Block<br>List Azure Route Table with Static Route<br>See [Custom Routing](#routing-3c0668) below.
+<a id="routing-724341"></a>&#x2022; [`custom_routing`](#routing-724341) - Optional Block<br>List Azure Route Table with Static Route<br>See [Custom Routing](#routing-724341) below.
 
-<a id="route-ec4f37"></a>&#x2022; [`default_route`](#route-ec4f37) - Optional Block<br>Configuration parameter for default route<br>See [Default Route](#route-ec4f37) below.
+<a id="route-fd5eea"></a>&#x2022; [`default_route`](#route-fd5eea) - Optional Block<br>Configuration parameter for default route<br>See [Default Route](#route-fd5eea) below.
 
-<a id="labels-b9b212"></a>&#x2022; [`labels`](#labels-b9b212) - Optional Block<br>Add labels for the VNET attachments. These labels can then be used in policies such as enhanced firewall policies
+<a id="labels-e777f2"></a>&#x2022; [`labels`](#labels-e777f2) - Optional Block<br>Add labels for the VNET attachments. These labels can then be used in policies such as enhanced firewall policies
 
-<a id="routing-207575"></a>&#x2022; [`manual_routing`](#routing-207575) - Optional Object<br>Enable this option
+<a id="routing-e423fa"></a>&#x2022; [`manual_routing`](#routing-e423fa) - Optional Object<br>Enable this option
 
-<a id="subscription-id-02e44a"></a>&#x2022; [`subscription_id`](#subscription-id-02e44a) - Optional String<br>Enter the Subscription ID of the VNET to be attached
+<a id="subscription-id-9a0b4f"></a>&#x2022; [`subscription_id`](#subscription-id-9a0b4f) - Optional String<br>Enter the Subscription ID of the VNET to be attached
 
-<a id="vnet-id-a8f5ea"></a>&#x2022; [`vnet_id`](#vnet-id-a8f5ea) - Optional String<br>Enter the VNET ID of the VNET to be attached in format /`<resource-group-name>`/`<VNET-name>`
+<a id="vnet-id-6eb10e"></a>&#x2022; [`vnet_id`](#vnet-id-6eb10e) - Optional String<br>Enter the VNET ID of the VNET to be attached in format /`<resource-group-name>`/`<VNET-name>`
 
 #### Azure VNET Site VNET Attachments VNET List Custom Routing
 

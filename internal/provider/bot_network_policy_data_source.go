@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,15 +28,83 @@ type BotNetworkPolicyDataSource struct {
 	client *client.Client
 }
 
+// BotNetworkPolicyEmptyModel represents empty nested blocks
+type BotNetworkPolicyEmptyModel struct {
+}
+
+// BotNetworkPolicyNetworkPolicyContentModel represents network_policy_content block
+type BotNetworkPolicyNetworkPolicyContentModel struct {
+	ManualRoutingList   *BotNetworkPolicyNetworkPolicyContentManualRoutingListModel   `tfsdk:"manual_routing_list"`
+	UpstreamRoutingList *BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModel `tfsdk:"upstream_routing_list"`
+}
+
+// BotNetworkPolicyNetworkPolicyContentModelAttrTypes defines the attribute types for BotNetworkPolicyNetworkPolicyContentModel
+var BotNetworkPolicyNetworkPolicyContentModelAttrTypes = map[string]attr.Type{
+	"manual_routing_list":   types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentManualRoutingListModelAttrTypes},
+	"upstream_routing_list": types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModelAttrTypes},
+}
+
+// BotNetworkPolicyNetworkPolicyContentManualRoutingListModel represents manual_routing_list block
+type BotNetworkPolicyNetworkPolicyContentManualRoutingListModel struct {
+	ManualRouting types.List `tfsdk:"manual_routing"`
+}
+
+// BotNetworkPolicyNetworkPolicyContentManualRoutingListModelAttrTypes defines the attribute types for BotNetworkPolicyNetworkPolicyContentManualRoutingListModel
+var BotNetworkPolicyNetworkPolicyContentManualRoutingListModelAttrTypes = map[string]attr.Type{
+	"manual_routing": types.ListType{ElemType: types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModelAttrTypes}},
+}
+
+// BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModel represents manual_routing block
+type BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModel struct {
+	DomainName         types.String `tfsdk:"domain_name"`
+	HTTP               types.Object `tfsdk:"http"`
+	HTTPS              types.Object `tfsdk:"https"`
+	OutboundDomainName types.String `tfsdk:"outbound_domain_name"`
+	Port               types.Int64  `tfsdk:"port"`
+	ProtocolHTTP       types.Object `tfsdk:"protocol_http"`
+	ProtocolHTTPS      types.Object `tfsdk:"protocol_https"`
+}
+
+// BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModelAttrTypes defines the attribute types for BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModel
+var BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModelAttrTypes = map[string]attr.Type{
+	"domain_name":          types.StringType,
+	"http":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"https":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"outbound_domain_name": types.StringType,
+	"port":                 types.Int64Type,
+	"protocol_http":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"protocol_https":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModel represents upstream_routing_list block
+type BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModel struct {
+	UpstreamRouting types.List `tfsdk:"upstream_routing"`
+}
+
+// BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModelAttrTypes defines the attribute types for BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModel
+var BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModelAttrTypes = map[string]attr.Type{
+	"upstream_routing": types.ListType{ElemType: types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModelAttrTypes}},
+}
+
+// BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModel represents upstream_routing block
+type BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModel struct {
+	DomainName types.String `tfsdk:"domain_name"`
+}
+
+// BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModelAttrTypes defines the attribute types for BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModel
+var BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModelAttrTypes = map[string]attr.Type{
+	"domain_name": types.StringType,
+}
+
 type BotNetworkPolicyDataSourceModel struct {
-	ID                   types.String `tfsdk:"id"`
-	Name                 types.String `tfsdk:"name"`
-	Namespace            types.String `tfsdk:"namespace"`
-	Description          types.String `tfsdk:"description"`
-	Labels               types.Map    `tfsdk:"labels"`
-	Annotations          types.Map    `tfsdk:"annotations"`
-	LatestVersion        types.String `tfsdk:"latest_version"`
-	NetworkPolicyContent types.String `tfsdk:"network_policy_content"`
+	ID                   types.String                               `tfsdk:"id"`
+	Name                 types.String                               `tfsdk:"name"`
+	Namespace            types.String                               `tfsdk:"namespace"`
+	Description          types.String                               `tfsdk:"description"`
+	Labels               types.Map                                  `tfsdk:"labels"`
+	Annotations          types.Map                                  `tfsdk:"annotations"`
+	LatestVersion        types.String                               `tfsdk:"latest_version"`
+	NetworkPolicyContent *BotNetworkPolicyNetworkPolicyContentModel `tfsdk:"network_policy_content"`
 }
 
 func (d *BotNetworkPolicyDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -76,9 +145,75 @@ func (d *BotNetworkPolicyDataSource) Schema(ctx context.Context, req datasource.
 				MarkdownDescription: "Version. Version number or identifier",
 				Computed:            true,
 			},
-			"network_policy_content": schema.StringAttribute{
+			"network_policy_content": schema.SingleNestedAttribute{
 				MarkdownDescription: "Configuration parameter for network policy content.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"manual_routing_list": schema.SingleNestedAttribute{
+						MarkdownDescription: "Manual Routings. The list of manual routing.",
+						Attributes: map[string]schema.Attribute{
+							"manual_routing": schema.ListNestedAttribute{
+								MarkdownDescription: "Manual Routing. Routing or forwarding configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"domain_name": schema.StringAttribute{
+											MarkdownDescription: "Inbound FQDN. Inbound FQDN value.",
+											Computed:            true,
+										},
+										"http": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"https": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"outbound_domain_name": schema.StringAttribute{
+											MarkdownDescription: "Outbound FQDN / IP. Outbound FQDN or IP value.",
+											Computed:            true,
+										},
+										"port": schema.Int64Attribute{
+											MarkdownDescription: "Outbound Port. Outbound Port value.",
+											Computed:            true,
+										},
+										"protocol_http": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for protocol http.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"protocol_https": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for protocol https.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"upstream_routing_list": schema.SingleNestedAttribute{
+						MarkdownDescription: "Upstream Routings. Upstream DNS Routings.",
+						Attributes: map[string]schema.Attribute{
+							"upstream_routing": schema.ListNestedAttribute{
+								MarkdownDescription: "Upstream Routing. Routing or forwarding configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"domain_name": schema.StringAttribute{
+											MarkdownDescription: "FQDN. Domain Name.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
 			},
 		},
 	}
@@ -142,17 +277,134 @@ func (d *BotNetworkPolicyDataSource) Read(ctx context.Context, req datasource.Re
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["latest_version"]; ok && v != nil {
-		data.LatestVersion = types.StringValue(fmt.Sprintf("%v", v))
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["latest_version"].(string); ok && v != "" {
+		data.LatestVersion = types.StringValue(v)
 	} else {
 		data.LatestVersion = types.StringNull()
 	}
-	if v, ok := resource.Spec["network_policy_content"]; ok && v != nil {
-		data.NetworkPolicyContent = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.NetworkPolicyContent = types.StringNull()
+	if blockData, ok := apiResource.Spec["network_policy_content"].(map[string]interface{}); ok && (isImport || data.NetworkPolicyContent != nil) {
+		data.NetworkPolicyContent = &BotNetworkPolicyNetworkPolicyContentModel{
+			ManualRoutingList: func() *BotNetworkPolicyNetworkPolicyContentManualRoutingListModel {
+				if ManualRoutingListData, ok := blockData["manual_routing_list"].(map[string]interface{}); ok {
+					return &BotNetworkPolicyNetworkPolicyContentManualRoutingListModel{
+						ManualRouting: func() types.List {
+							if !isImport && data.NetworkPolicyContent != nil && data.NetworkPolicyContent.ManualRoutingList != nil && (data.NetworkPolicyContent.ManualRoutingList.ManualRouting.IsNull() || len(data.NetworkPolicyContent.ManualRoutingList.ManualRouting.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModelAttrTypes})
+							}
+							var ManualRoutingExisting []BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModel
+							if !isImport && data.NetworkPolicyContent != nil && data.NetworkPolicyContent.ManualRoutingList != nil && !data.NetworkPolicyContent.ManualRoutingList.ManualRouting.IsNull() && !data.NetworkPolicyContent.ManualRoutingList.ManualRouting.IsUnknown() {
+								data.NetworkPolicyContent.ManualRoutingList.ManualRouting.ElementsAs(ctx, &ManualRoutingExisting, false)
+							}
+							if rawList, ok := ManualRoutingListData["manual_routing"].([]interface{}); ok && len(rawList) > 0 {
+								var ManualRoutingResult []BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModel
+								for ManualRoutingIdx, ManualRoutingItem := range rawList {
+									_ = ManualRoutingIdx
+									if ManualRoutingItemMap, ok := ManualRoutingItem.(map[string]interface{}); ok {
+										ManualRoutingResult = append(ManualRoutingResult, BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModel{
+											DomainName: func() types.String {
+												if v, ok := ManualRoutingItemMap["domain_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											HTTP: func() types.Object {
+												if !isImport && len(ManualRoutingExisting) > ManualRoutingIdx && !ManualRoutingExisting[ManualRoutingIdx].HTTP.IsUnknown() {
+													return ManualRoutingExisting[ManualRoutingIdx].HTTP
+												}
+												if _, ok := ManualRoutingItemMap["http"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											HTTPS: func() types.Object {
+												if !isImport && len(ManualRoutingExisting) > ManualRoutingIdx && !ManualRoutingExisting[ManualRoutingIdx].HTTPS.IsUnknown() {
+													return ManualRoutingExisting[ManualRoutingIdx].HTTPS
+												}
+												if _, ok := ManualRoutingItemMap["https"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											OutboundDomainName: func() types.String {
+												if v, ok := ManualRoutingItemMap["outbound_domain_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Port: func() types.Int64 {
+												if v, ok := ManualRoutingItemMap["port"].(float64); ok && v != 0 {
+													return types.Int64Value(int64(v))
+												}
+												return types.Int64Null()
+											}(),
+											ProtocolHTTP: func() types.Object {
+												if !isImport && len(ManualRoutingExisting) > ManualRoutingIdx && !ManualRoutingExisting[ManualRoutingIdx].ProtocolHTTP.IsUnknown() {
+													return ManualRoutingExisting[ManualRoutingIdx].ProtocolHTTP
+												}
+												if _, ok := ManualRoutingItemMap["protocol_http"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											ProtocolHTTPS: func() types.Object {
+												if !isImport && len(ManualRoutingExisting) > ManualRoutingIdx && !ManualRoutingExisting[ManualRoutingIdx].ProtocolHTTPS.IsUnknown() {
+													return ManualRoutingExisting[ManualRoutingIdx].ProtocolHTTPS
+												}
+												if _, ok := ManualRoutingItemMap["protocol_https"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModelAttrTypes}, ManualRoutingResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentManualRoutingListManualRoutingModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UpstreamRoutingList: func() *BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModel {
+				if UpstreamRoutingListData, ok := blockData["upstream_routing_list"].(map[string]interface{}); ok {
+					return &BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListModel{
+						UpstreamRouting: func() types.List {
+							if !isImport && data.NetworkPolicyContent != nil && data.NetworkPolicyContent.UpstreamRoutingList != nil && (data.NetworkPolicyContent.UpstreamRoutingList.UpstreamRouting.IsNull() || len(data.NetworkPolicyContent.UpstreamRoutingList.UpstreamRouting.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModelAttrTypes})
+							}
+							var UpstreamRoutingExisting []BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModel
+							if !isImport && data.NetworkPolicyContent != nil && data.NetworkPolicyContent.UpstreamRoutingList != nil && !data.NetworkPolicyContent.UpstreamRoutingList.UpstreamRouting.IsNull() && !data.NetworkPolicyContent.UpstreamRoutingList.UpstreamRouting.IsUnknown() {
+								data.NetworkPolicyContent.UpstreamRoutingList.UpstreamRouting.ElementsAs(ctx, &UpstreamRoutingExisting, false)
+							}
+							if rawList, ok := UpstreamRoutingListData["upstream_routing"].([]interface{}); ok && len(rawList) > 0 {
+								var UpstreamRoutingResult []BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModel
+								for UpstreamRoutingIdx, UpstreamRoutingItem := range rawList {
+									_ = UpstreamRoutingIdx
+									if UpstreamRoutingItemMap, ok := UpstreamRoutingItem.(map[string]interface{}); ok {
+										UpstreamRoutingResult = append(UpstreamRoutingResult, BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModel{
+											DomainName: func() types.String {
+												if v, ok := UpstreamRoutingItemMap["domain_name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModelAttrTypes}, UpstreamRoutingResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: BotNetworkPolicyNetworkPolicyContentUpstreamRoutingListUpstreamRoutingModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

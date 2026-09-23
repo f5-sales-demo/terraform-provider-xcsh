@@ -66,6 +66,30 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="network-policy-content"></a>&#x2022; [`network_policy_content`](#network-policy-content) - Optional String<br>Configuration parameter for network policy content
 
+<a id="manual-routing-list"></a>&#x2022; [`manual_routing_list`](#manual-routing-list) - Optional String<br>Manual Routings. The list of manual routing
+
+<a id="upstream-routing-list"></a>&#x2022; [`upstream_routing_list`](#upstream-routing-list) - Optional String<br>Upstream Routings. Upstream DNS Routings
+
+<a id="manual-routing"></a>&#x2022; [`manual_routing`](#manual-routing) - Optional List<br>Manual Routing. Routing or forwarding configuration
+
+<a id="domain-name"></a>&#x2022; [`domain_name`](#domain-name) - Optional String<br>Inbound FQDN. Inbound FQDN value
+
+<a id="http"></a>&#x2022; [`http`](#http) - Optional Object<br>Enable this option
+
+<a id="https"></a>&#x2022; [`https`](#https) - Optional Object<br>Enable this option
+
+<a id="outbound-domain-name"></a>&#x2022; [`outbound_domain_name`](#outbound-domain-name) - Optional String<br>Outbound FQDN / IP. Outbound FQDN or IP value
+
+<a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Outbound Port. Outbound Port value
+
+<a id="protocol-http"></a>&#x2022; [`protocol_http`](#protocol-http) - Optional Object<br>Configuration parameter for protocol HTTP
+
+<a id="protocol-https"></a>&#x2022; [`protocol_https`](#protocol-https) - Optional Object<br>Configuration parameter for protocol HTTPS
+
+<a id="upstream-routing"></a>&#x2022; [`upstream_routing`](#upstream-routing) - Optional List<br>Upstream Routing. Routing or forwarding configuration
+
+<a id="domain-name"></a>&#x2022; [`domain_name`](#domain-name) - Optional String<br>FQDN. Domain Name
+
 ---
 
 ## Common Types

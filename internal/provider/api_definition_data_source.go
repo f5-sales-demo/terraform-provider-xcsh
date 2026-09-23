@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,18 @@ type APIDefinitionDataSource struct {
 }
 
 type APIDefinitionDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                        types.String `tfsdk:"id"`
+	Name                      types.String `tfsdk:"name"`
+	Namespace                 types.String `tfsdk:"namespace"`
+	Description               types.String `tfsdk:"description"`
+	Labels                    types.Map    `tfsdk:"labels"`
+	Annotations               types.Map    `tfsdk:"annotations"`
+	MixedSchemaOrigin         types.Object `tfsdk:"mixed_schema_origin"`
+	StrictSchemaOrigin        types.Object `tfsdk:"strict_schema_origin"`
+	SwaggerSpecs              types.List   `tfsdk:"swagger_specs"`
+	APIInventoryExclusionList types.List   `tfsdk:"api_inventory_exclusion_list"`
+	APIInventoryInclusionList types.List   `tfsdk:"api_inventory_inclusion_list"`
+	NonAPIEndpoints           types.List   `tfsdk:"non_api_endpoints"`
 }
 
 func (d *APIDefinitionDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +77,69 @@ func (d *APIDefinitionDataSource) Schema(ctx context.Context, req datasource.Sch
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"mixed_schema_origin": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: mixed_schema_origin, strict_schema_origin] Configuration parameter for mixed schema origin.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"api_inventory_exclusion_list": schema.ListNestedAttribute{
+				MarkdownDescription: "List of API Endpoints excluded from the API Inventory. Defaults to `[]`. Server applies default when omitted.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"method": schema.StringAttribute{
+							MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] Specifies the HTTP method used to access a resource. Any HTTP Method. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+							Computed:            true,
+						},
+						"path": schema.StringAttribute{
+							MarkdownDescription: "Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"api_inventory_inclusion_list": schema.ListNestedAttribute{
+				MarkdownDescription: "List of API Endpoints included in the API Inventory. Typically, discovered API endpoints are added to the API Inventory using this list. Defaults to `[]`. Server applies default when omitted.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"method": schema.StringAttribute{
+							MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] Specifies the HTTP method used to access a resource. Any HTTP Method. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+							Computed:            true,
+						},
+						"path": schema.StringAttribute{
+							MarkdownDescription: "Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"non_api_endpoints": schema.ListNestedAttribute{
+				MarkdownDescription: "API Discovery Exclusion List. List of Non-API Endpoints. Defaults to `[]`. Server applies default when omitted.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"method": schema.StringAttribute{
+							MarkdownDescription: "[Enum: ANY|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|COPY] Specifies the HTTP method used to access a resource. Any HTTP Method. Possible values are `ANY`, `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`, `COPY`. Defaults to `ANY`.",
+							Computed:            true,
+						},
+						"path": schema.StringAttribute{
+							MarkdownDescription: "Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"strict_schema_origin": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for strict schema origin. Defaults to `map[]`. Server applies default when omitted.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"swagger_specs": schema.ListAttribute{
+				MarkdownDescription: "URLs of versioned OpenAPI files uploaded through Web App & API Protection > Files > Swagger Files. The 512-byte item limit is a URL-length limit; inline string:/// OpenAPI content is rejected and does not create an API-definition object. Defaults to `[]`. Server applies default when omitted.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
 		},
 	}
 }
@@ -93,7 +163,8 @@ func (d *APIDefinitionDataSource) Read(ctx context.Context, req datasource.ReadR
 		return
 	}
 
-	resource, err := d.client.GetAPIDefinition(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAPIDefinition(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read APIDefinition: %s", err))
 		return
@@ -101,7 +172,11 @@ func (d *APIDefinitionDataSource) Read(ctx context.Context, req datasource.ReadR
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +209,142 @@ func (d *APIDefinitionDataSource) Read(ctx context.Context, req datasource.ReadR
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && !data.MixedSchemaOrigin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["mixed_schema_origin"].(map[string]interface{}); ok {
+		data.MixedSchemaOrigin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.MixedSchemaOrigin = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && (data.APIInventoryExclusionList.IsNull() || len(data.APIInventoryExclusionList.Elements()) == 0) {
+		data.APIInventoryExclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["api_inventory_exclusion_list"].([]interface{}); ok && len(listData) > 0 {
+		var APIInventoryExclusionListList []APIDefinitionAPIInventoryExclusionListModel
+		var existingAPIInventoryExclusionListItems []APIDefinitionAPIInventoryExclusionListModel
+		if !data.APIInventoryExclusionList.IsNull() && !data.APIInventoryExclusionList.IsUnknown() {
+			data.APIInventoryExclusionList.ElementsAs(ctx, &existingAPIInventoryExclusionListItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				APIInventoryExclusionListList = append(APIInventoryExclusionListList, APIDefinitionAPIInventoryExclusionListModel{
+					Method: func() types.String {
+						if v, ok := itemMap["method"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Path: func() types.String {
+						if v, ok := itemMap["path"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes}, APIInventoryExclusionListList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.APIInventoryExclusionList = listVal
+		}
+	} else {
+		data.APIInventoryExclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes})
+	}
+	if !isImport && (data.APIInventoryInclusionList.IsNull() || len(data.APIInventoryInclusionList.Elements()) == 0) {
+		data.APIInventoryInclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryInclusionListModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["api_inventory_inclusion_list"].([]interface{}); ok && len(listData) > 0 {
+		var APIInventoryInclusionListList []APIDefinitionAPIInventoryInclusionListModel
+		var existingAPIInventoryInclusionListItems []APIDefinitionAPIInventoryInclusionListModel
+		if !data.APIInventoryInclusionList.IsNull() && !data.APIInventoryInclusionList.IsUnknown() {
+			data.APIInventoryInclusionList.ElementsAs(ctx, &existingAPIInventoryInclusionListItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				APIInventoryInclusionListList = append(APIInventoryInclusionListList, APIDefinitionAPIInventoryInclusionListModel{
+					Method: func() types.String {
+						if v, ok := itemMap["method"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Path: func() types.String {
+						if v, ok := itemMap["path"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDefinitionAPIInventoryInclusionListModelAttrTypes}, APIInventoryInclusionListList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.APIInventoryInclusionList = listVal
+		}
+	} else {
+		data.APIInventoryInclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryInclusionListModelAttrTypes})
+	}
+	if !isImport && (data.NonAPIEndpoints.IsNull() || len(data.NonAPIEndpoints.Elements()) == 0) {
+		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["non_api_endpoints"].([]interface{}); ok && len(listData) > 0 {
+		var NonAPIEndpointsList []APIDefinitionNonAPIEndpointsModel
+		var existingNonAPIEndpointsItems []APIDefinitionNonAPIEndpointsModel
+		if !data.NonAPIEndpoints.IsNull() && !data.NonAPIEndpoints.IsUnknown() {
+			data.NonAPIEndpoints.ElementsAs(ctx, &existingNonAPIEndpointsItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				NonAPIEndpointsList = append(NonAPIEndpointsList, APIDefinitionNonAPIEndpointsModel{
+					Method: func() types.String {
+						if v, ok := itemMap["method"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Path: func() types.String {
+						if v, ok := itemMap["path"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes}, NonAPIEndpointsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.NonAPIEndpoints = listVal
+		}
+	} else {
+		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
+	}
+	if !isImport && !data.StrictSchemaOrigin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["strict_schema_origin"].(map[string]interface{}); ok {
+		data.StrictSchemaOrigin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.StrictSchemaOrigin = types.ObjectNull(map[string]attr.Type{})
+	}
+	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok {
+		swagger_specsList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				swagger_specsList = append(swagger_specsList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, swagger_specsList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.SwaggerSpecs = listVal
+		}
+	} else if isImport || data.SwaggerSpecs.IsUnknown() {
+		data.SwaggerSpecs = types.ListNull(types.StringType)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

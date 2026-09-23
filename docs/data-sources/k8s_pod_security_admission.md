@@ -50,7 +50,7 @@ output "k8s_pod_security_admission_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the K8SPodSecurityAdmission
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the K8SPodSecurityAdmission exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the K8SPodSecurityAdmission exists
 
 ### Attributes Reference
 
@@ -63,6 +63,20 @@ In addition to all arguments above, the following attributes are exported:
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="pod-security-admission-specs"></a>&#x2022; [`pod_security_admission_specs`](#pod-security-admission-specs) - Optional List<br>K8S Pod Security Admission. Uniform Resource Identifier
+
+<a id="audit"></a>&#x2022; [`audit`](#audit) - Optional Object<br>Enable this option
+
+<a id="baseline"></a>&#x2022; [`baseline`](#baseline) - Optional Object<br>Enable this option
+
+<a id="enforce"></a>&#x2022; [`enforce`](#enforce) - Optional Object<br>Enable this option
+
+<a id="privileged"></a>&#x2022; [`privileged`](#privileged) - Optional Object<br>Enable this option
+
+<a id="restricted"></a>&#x2022; [`restricted`](#restricted) - Optional Object<br>Enable this option
+
+<a id="warn"></a>&#x2022; [`warn`](#warn) - Optional Object<br>Enable this option
 
 ---
 

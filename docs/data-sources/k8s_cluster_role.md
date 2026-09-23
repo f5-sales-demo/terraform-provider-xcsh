@@ -50,7 +50,7 @@ output "k8s_cluster_role_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the K8SClusterRole
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the K8SClusterRole exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the K8SClusterRole exists
 
 ### Attributes Reference
 
@@ -62,7 +62,33 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="k8s-cluster-role-selector"></a>&#x2022; [`k8s_cluster_role_selector`](#k8s-cluster-role-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="policy-rule-list"></a>&#x2022; [`policy_rule_list`](#policy-rule-list) - Optional String<br>Policy Rule List. List of rules for role permissions
+
+<a id="yaml"></a>&#x2022; [`yaml`](#yaml) - Optional String<br>K8S YAML for ClusterRole
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="policy-rule"></a>&#x2022; [`policy_rule`](#policy-rule) - Optional List<br>Policy Rules. List of rules for role permissions
+
+<a id="non-resource-url-list"></a>&#x2022; [`non_resource_url_list`](#non-resource-url-list) - Optional String<br>Permissions for URL(s) that do not represent K8S resource
+
+<a id="resource-list"></a>&#x2022; [`resource_list`](#resource-list) - Optional String<br>List of resources in terms of API groups/resource types/resource instances and verbs allowed
+
+<a id="urls"></a>&#x2022; [`urls`](#urls) - Optional List<br>Allowed URL(s) that do not represent any K8S resource. URL can be suffix or regex
+
+<a id="verbs"></a>&#x2022; [`verbs`](#verbs) - Optional List<br>Allowed list of verbs(operations) on resources. Use VerbAll for all operations
+
+<a id="api-groups"></a>&#x2022; [`api_groups`](#api-groups) - Optional List<br>Allowed list of API group that contains resources, all resources of a given API group
+
+<a id="resource-instances"></a>&#x2022; [`resource_instances`](#resource-instances) - Optional List<br>Allowed list of resource instances within the resource types
+
+<a id="resource-types"></a>&#x2022; [`resource_types`](#resource-types) - Optional List<br>Allowed list of resource types within the API groups
+
+<a id="verbs"></a>&#x2022; [`verbs`](#verbs) - Optional List<br>Allowed list of verbs(operations) on resources. Use \* for all operations
 
 ---
 

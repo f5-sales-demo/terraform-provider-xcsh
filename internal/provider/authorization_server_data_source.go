@@ -34,6 +34,7 @@ type AuthorizationServerDataSourceModel struct {
 	Description types.String `tfsdk:"description"`
 	Labels      types.Map    `tfsdk:"labels"`
 	Annotations types.Map    `tfsdk:"annotations"`
+	JwksURI     types.String `tfsdk:"jwks_uri"`
 }
 
 func (d *AuthorizationServerDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,10 @@ func (d *AuthorizationServerDataSource) Schema(ctx context.Context, req datasour
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"jwks_uri": schema.StringAttribute{
+				MarkdownDescription: "X-textBlockContent: Automatic fetching of JWKS will happen once daily. You can also do it manually from the list of Authorization Servers at any time.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +98,8 @@ func (d *AuthorizationServerDataSource) Read(ctx context.Context, req datasource
 		return
 	}
 
-	resource, err := d.client.GetAuthorizationServer(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAuthorizationServer(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AuthorizationServer: %s", err))
 		return
@@ -101,7 +107,11 @@ func (d *AuthorizationServerDataSource) Read(ctx context.Context, req datasource
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +144,12 @@ func (d *AuthorizationServerDataSource) Read(ctx context.Context, req datasource
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["jwks_uri"].(string); ok && v != "" {
+		data.JwksURI = types.StringValue(v)
+	} else {
+		data.JwksURI = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

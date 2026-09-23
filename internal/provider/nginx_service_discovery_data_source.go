@@ -28,12 +28,14 @@ type NginxServiceDiscoveryDataSource struct {
 }
 
 type NginxServiceDiscoveryDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                 types.String                               `tfsdk:"id"`
+	Name               types.String                               `tfsdk:"name"`
+	Namespace          types.String                               `tfsdk:"namespace"`
+	Description        types.String                               `tfsdk:"description"`
+	Labels             types.Map                                  `tfsdk:"labels"`
+	Annotations        types.Map                                  `tfsdk:"annotations"`
+	DiscoveryTarget    *NginxServiceDiscoveryDiscoveryTargetModel `tfsdk:"discovery_target"`
+	ServerBlockFilters types.List                                 `tfsdk:"server_block_filters"`
 }
 
 func (d *NginxServiceDiscoveryDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,96 @@ func (d *NginxServiceDiscoveryDataSource) Schema(ctx context.Context, req dataso
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"discovery_target": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for discovery target.",
+				Attributes: map[string]schema.Attribute{
+					"config_sync_group": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for config sync group.",
+						Attributes: map[string]schema.Attribute{
+							"config_sync_group": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. Select new ConfigSyncGroup.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"nginx_instance": schema.SingleNestedAttribute{
+						MarkdownDescription: "NGINXInstance Reference. Select new NGINX Instance.",
+						Attributes: map[string]schema.Attribute{
+							"nginx_instance": schema.ListNestedAttribute{
+								MarkdownDescription: "Reference. Select new NGINX Instance.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"server_block_filters": schema.ListNestedAttribute{
+				MarkdownDescription: "Filters discovered server blocks based on server name, domain and ports. Atleast, one field should be populated for each filter. X-textBlockContent: If no filters are specified, all server blocks will be discovered by default.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"name_regex": schema.StringAttribute{
+							MarkdownDescription: "Regular expression to match the server name or domain that must be discovered.",
+							Computed:            true,
+						},
+						"port_ranges": schema.StringAttribute{
+							MarkdownDescription: "String containing a comma separated list of individual service ports or port ranges. Each port range consists of a single port or two ports separated by '-'. For example, 8000-8191.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +185,8 @@ func (d *NginxServiceDiscoveryDataSource) Read(ctx context.Context, req datasour
 		return
 	}
 
-	resource, err := d.client.GetNginxServiceDiscovery(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetNginxServiceDiscovery(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read NginxServiceDiscovery: %s", err))
 		return
@@ -101,7 +194,11 @@ func (d *NginxServiceDiscoveryDataSource) Read(ctx context.Context, req datasour
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +231,165 @@ func (d *NginxServiceDiscoveryDataSource) Read(ctx context.Context, req datasour
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["discovery_target"].(map[string]interface{}); ok && (isImport || data.DiscoveryTarget != nil) {
+		data.DiscoveryTarget = &NginxServiceDiscoveryDiscoveryTargetModel{
+			ConfigSyncGroup: func() *NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel {
+				if ConfigSyncGroupData, ok := blockData["config_sync_group"].(map[string]interface{}); ok {
+					return &NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupModel{
+						ConfigSyncGroup: func() types.List {
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil && (data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() || len(data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes})
+							}
+							var ConfigSyncGroupExisting []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.ConfigSyncGroup != nil && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsUnknown() {
+								data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.ElementsAs(ctx, &ConfigSyncGroupExisting, false)
+							}
+							if rawList, ok := ConfigSyncGroupData["config_sync_group"].([]interface{}); ok && len(rawList) > 0 {
+								var ConfigSyncGroupResult []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
+								for ConfigSyncGroupIdx, ConfigSyncGroupItem := range rawList {
+									_ = ConfigSyncGroupIdx
+									if ConfigSyncGroupItemMap, ok := ConfigSyncGroupItem.(map[string]interface{}); ok {
+										ConfigSyncGroupResult = append(ConfigSyncGroupResult, NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel{
+											Kind: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ConfigSyncGroupItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes}, ConfigSyncGroupResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			NginxInstance: func() *NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel {
+				if NginxInstanceData, ok := blockData["nginx_instance"].(map[string]interface{}); ok {
+					return &NginxServiceDiscoveryDiscoveryTargetNginxInstanceModel{
+						NginxInstance: func() types.List {
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil && (data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() || len(data.DiscoveryTarget.NginxInstance.NginxInstance.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes})
+							}
+							var NginxInstanceExisting []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+							if !isImport && data.DiscoveryTarget != nil && data.DiscoveryTarget.NginxInstance != nil && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsUnknown() {
+								data.DiscoveryTarget.NginxInstance.NginxInstance.ElementsAs(ctx, &NginxInstanceExisting, false)
+							}
+							if rawList, ok := NginxInstanceData["nginx_instance"].([]interface{}); ok && len(rawList) > 0 {
+								var NginxInstanceResult []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
+								for NginxInstanceIdx, NginxInstanceItem := range rawList {
+									_ = NginxInstanceIdx
+									if NginxInstanceItemMap, ok := NginxInstanceItem.(map[string]interface{}); ok {
+										NginxInstanceResult = append(NginxInstanceResult, NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel{
+											Kind: func() types.String {
+												if v, ok := NginxInstanceItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := NginxInstanceItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := NginxInstanceItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := NginxInstanceItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := NginxInstanceItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes}, NginxInstanceResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	if !isImport && (data.ServerBlockFilters.IsNull() || len(data.ServerBlockFilters.Elements()) == 0) {
+		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["server_block_filters"].([]interface{}); ok && len(listData) > 0 {
+		var ServerBlockFiltersList []NginxServiceDiscoveryServerBlockFiltersModel
+		var existingServerBlockFiltersItems []NginxServiceDiscoveryServerBlockFiltersModel
+		if !data.ServerBlockFilters.IsNull() && !data.ServerBlockFilters.IsUnknown() {
+			data.ServerBlockFilters.ElementsAs(ctx, &existingServerBlockFiltersItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				ServerBlockFiltersList = append(ServerBlockFiltersList, NginxServiceDiscoveryServerBlockFiltersModel{
+					NameRegex: func() types.String {
+						if v, ok := itemMap["name_regex"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					PortRanges: func() types.String {
+						if v, ok := itemMap["port_ranges"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes}, ServerBlockFiltersList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.ServerBlockFilters = listVal
+		}
+	} else {
+		data.ServerBlockFilters = types.ListNull(types.ObjectType{AttrTypes: NginxServiceDiscoveryServerBlockFiltersModelAttrTypes})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

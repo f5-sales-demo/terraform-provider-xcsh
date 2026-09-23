@@ -28,12 +28,16 @@ type DataTypeDataSource struct {
 }
 
 type DataTypeDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID              types.String `tfsdk:"id"`
+	Name            types.String `tfsdk:"name"`
+	Namespace       types.String `tfsdk:"namespace"`
+	Description     types.String `tfsdk:"description"`
+	Labels          types.Map    `tfsdk:"labels"`
+	Annotations     types.Map    `tfsdk:"annotations"`
+	Compliances     types.List   `tfsdk:"compliances"`
+	IsPII           types.Bool   `tfsdk:"is_pii"`
+	IsSensitiveData types.Bool   `tfsdk:"is_sensitive_data"`
+	Rules           types.List   `tfsdk:"rules"`
 }
 
 func (d *DataTypeDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +74,133 @@ func (d *DataTypeDataSource) Schema(ctx context.Context, req datasource.SchemaRe
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"rules": schema.ListNestedAttribute{
+				MarkdownDescription: "Configure key/value or regex match rules to enable the platform to detect this custom data type in the API request or response.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"key_pattern": schema.SingleNestedAttribute{
+							MarkdownDescription: "Configuration parameter for key pattern.",
+							Attributes: map[string]schema.Attribute{
+								"exact_values": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for exact values.",
+									Attributes: map[string]schema.Attribute{
+										"exact_values": schema.ListAttribute{
+											MarkdownDescription: "Exact Values. List of exact values to match.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"regex_value": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [exact_values substring_value] Search for values matching this regular expression.",
+									Computed:            true,
+								},
+								"substring_value": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [exact_values regex_value] Search for values that include this substring.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+						"key_value_pattern": schema.SingleNestedAttribute{
+							MarkdownDescription: "Search for specific key & value patterns in the specified sections.",
+							Attributes: map[string]schema.Attribute{
+								"key_pattern": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for key pattern.",
+									Attributes: map[string]schema.Attribute{
+										"exact_values": schema.SingleNestedAttribute{
+											MarkdownDescription: "Configuration parameter for exact values.",
+											Attributes: map[string]schema.Attribute{
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "Exact Values. List of exact values to match.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"regex_value": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [exact_values substring_value] Search for values matching this regular expression.",
+											Computed:            true,
+										},
+										"substring_value": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [exact_values regex_value] Search for values that include this substring.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+								"value_pattern": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for value pattern.",
+									Attributes: map[string]schema.Attribute{
+										"exact_values": schema.SingleNestedAttribute{
+											MarkdownDescription: "Configuration parameter for exact values.",
+											Attributes: map[string]schema.Attribute{
+												"exact_values": schema.ListAttribute{
+													MarkdownDescription: "Exact Values. List of exact values to match.",
+													Computed:            true,
+													ElementType:         types.StringType,
+												},
+											},
+											Computed: true,
+										},
+										"regex_value": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [exact_values substring_value] Search for values matching this regular expression.",
+											Computed:            true,
+										},
+										"substring_value": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [exact_values regex_value] Search for values that include this substring.",
+											Computed:            true,
+										},
+									},
+									Computed: true,
+								},
+							},
+							Computed: true,
+						},
+						"value_pattern": schema.SingleNestedAttribute{
+							MarkdownDescription: "Configuration parameter for value pattern.",
+							Attributes: map[string]schema.Attribute{
+								"exact_values": schema.SingleNestedAttribute{
+									MarkdownDescription: "Configuration parameter for exact values.",
+									Attributes: map[string]schema.Attribute{
+										"exact_values": schema.ListAttribute{
+											MarkdownDescription: "Exact Values. List of exact values to match.",
+											Computed:            true,
+											ElementType:         types.StringType,
+										},
+									},
+									Computed: true,
+								},
+								"regex_value": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [exact_values substring_value] Search for values matching this regular expression.",
+									Computed:            true,
+								},
+								"substring_value": schema.StringAttribute{
+									MarkdownDescription: "Exclusive with [exact_values regex_value] Search for values that include this substring.",
+									Computed:            true,
+								},
+							},
+							Computed: true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"compliances": schema.ListAttribute{
+				MarkdownDescription: "[Enum: GDPR|CCPA|PIPEDA|LGPD|DPA_UK|PDPA_SG|APPI|HIPAA|CPRA_2023|CPA_CO|SOC2|PCI_DSS|ISO_IEC_27001|ISO_IEC_27701|EPRIVACY_DIRECTIVE|GLBA|SOX] Choose applicable compliance frameworks such as GDPR, PCI/DSS, or CCPA to ensure the platform identifies whether vulnerabilities in API endpoints handling this data type may cause a compliance breach. Possible values are `GDPR`, `CCPA`, `PIPEDA`, `LGPD`, `DPA_UK`, `PDPA_SG`, `APPI`, `HIPAA`, `CPRA_2023`, `CPA_CO`, `SOC2`, `PCI_DSS`, `ISO_IEC_27001`, `ISO_IEC_27701`, `EPRIVACY_DIRECTIVE`, `GLBA`, `SOX`.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"is_pii": schema.BoolAttribute{
+				MarkdownDescription: "Select this option to classify the custom data type as personally identifiable information (PII).",
+				Computed:            true,
+			},
+			"is_sensitive_data": schema.BoolAttribute{
+				MarkdownDescription: "Select this option to classify the custom data type as sensitive, enabling detection of API vulnerabilities related to this data type.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +224,8 @@ func (d *DataTypeDataSource) Read(ctx context.Context, req datasource.ReadReques
 		return
 	}
 
-	resource, err := d.client.GetDataType(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetDataType(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read DataType: %s", err))
 		return
@@ -101,7 +233,11 @@ func (d *DataTypeDataSource) Read(ctx context.Context, req datasource.ReadReques
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +270,223 @@ func (d *DataTypeDataSource) Read(ctx context.Context, req datasource.ReadReques
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if !isImport && (data.Rules.IsNull() || len(data.Rules.Elements()) == 0) {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["rules"].([]interface{}); ok && len(listData) > 0 {
+		var RulesList []DataTypeRulesModel
+		var existingRulesItems []DataTypeRulesModel
+		if !data.Rules.IsNull() && !data.Rules.IsUnknown() {
+			data.Rules.ElementsAs(ctx, &existingRulesItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				RulesList = append(RulesList, DataTypeRulesModel{
+					KeyPattern: func() *DataTypeRulesKeyPatternModel {
+						if KeyPatternData, ok := itemMap["key_pattern"].(map[string]interface{}); ok {
+							return &DataTypeRulesKeyPatternModel{
+								ExactValues: func() *DataTypeRulesKeyPatternExactValuesModel {
+									if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyPatternExactValuesModel{
+											ExactValues: func() types.List {
+												if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								RegexValue: func() types.String {
+									if v, ok := KeyPatternData["regex_value"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								SubstringValue: func() types.String {
+									if v, ok := KeyPatternData["substring_value"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+					KeyValuePattern: func() *DataTypeRulesKeyValuePatternModel {
+						if KeyValuePatternData, ok := itemMap["key_value_pattern"].(map[string]interface{}); ok {
+							return &DataTypeRulesKeyValuePatternModel{
+								KeyPattern: func() *DataTypeRulesKeyValuePatternKeyPatternModel {
+									if KeyPatternData, ok := KeyValuePatternData["key_pattern"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyValuePatternKeyPatternModel{
+											ExactValues: func() *DataTypeRulesKeyValuePatternKeyPatternExactValuesModel {
+												if ExactValuesData, ok := KeyPatternData["exact_values"].(map[string]interface{}); ok {
+													return &DataTypeRulesKeyValuePatternKeyPatternExactValuesModel{
+														ExactValues: func() types.List {
+															if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											RegexValue: func() types.String {
+												if v, ok := KeyPatternData["regex_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SubstringValue: func() types.String {
+												if v, ok := KeyPatternData["substring_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								ValuePattern: func() *DataTypeRulesKeyValuePatternValuePatternModel {
+									if ValuePatternData, ok := KeyValuePatternData["value_pattern"].(map[string]interface{}); ok {
+										return &DataTypeRulesKeyValuePatternValuePatternModel{
+											ExactValues: func() *DataTypeRulesKeyValuePatternValuePatternExactValuesModel {
+												if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
+													return &DataTypeRulesKeyValuePatternValuePatternExactValuesModel{
+														ExactValues: func() types.List {
+															if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																var items []string
+																for _, item := range v {
+																	if s, ok := item.(string); ok {
+																		items = append(items, s)
+																	}
+																}
+																listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																resp.Diagnostics.Append(diags...)
+																return listVal
+															}
+															return types.ListNull(types.StringType)
+														}(),
+													}
+												}
+												return nil
+											}(),
+											RegexValue: func() types.String {
+												if v, ok := ValuePatternData["regex_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											SubstringValue: func() types.String {
+												if v, ok := ValuePatternData["substring_value"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							}
+						}
+						return nil
+					}(),
+					ValuePattern: func() *DataTypeRulesValuePatternModel {
+						if ValuePatternData, ok := itemMap["value_pattern"].(map[string]interface{}); ok {
+							return &DataTypeRulesValuePatternModel{
+								ExactValues: func() *DataTypeRulesValuePatternExactValuesModel {
+									if ExactValuesData, ok := ValuePatternData["exact_values"].(map[string]interface{}); ok {
+										return &DataTypeRulesValuePatternExactValuesModel{
+											ExactValues: func() types.List {
+												if v, ok := ExactValuesData["exact_values"].([]interface{}); ok && len(v) > 0 {
+													var items []string
+													for _, item := range v {
+														if s, ok := item.(string); ok {
+															items = append(items, s)
+														}
+													}
+													listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+													resp.Diagnostics.Append(diags...)
+													return listVal
+												}
+												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								RegexValue: func() types.String {
+									if v, ok := ValuePatternData["regex_value"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								SubstringValue: func() types.String {
+									if v, ok := ValuePatternData["substring_value"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							}
+						}
+						return nil
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes}, RulesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Rules = listVal
+		}
+	} else {
+		data.Rules = types.ListNull(types.ObjectType{AttrTypes: DataTypeRulesModelAttrTypes})
+	}
+	if v, ok := apiResource.Spec["compliances"].([]interface{}); ok {
+		compliancesList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				compliancesList = append(compliancesList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, compliancesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Compliances = listVal
+		}
+	} else if isImport || data.Compliances.IsUnknown() {
+		data.Compliances = types.ListNull(types.StringType)
+	}
+	if v, ok := apiResource.Spec["is_pii"].(bool); ok {
+		data.IsPII = types.BoolValue(v)
+	} else {
+		data.IsPII = types.BoolNull()
+	}
+	if v, ok := apiResource.Spec["is_sensitive_data"].(bool); ok {
+		data.IsSensitiveData = types.BoolValue(v)
+	} else {
+		data.IsSensitiveData = types.BoolNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

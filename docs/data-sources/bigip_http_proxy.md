@@ -56,13 +56,852 @@ output "bigip_http_proxy_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="advanced-profile"></a>&#x2022; [`advanced_profile`](#advanced-profile) - Optional String<br>Defines various advanced Profile OPTIONS for a Loadbalancer
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="ddos-profile"></a>&#x2022; [`ddos_profile`](#ddos-profile) - Optional String<br>Configuration parameter for DDOS profile
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the BigIPHTTPProxy
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="irules"></a>&#x2022; [`irules`](#irules) - Optional String<br>IRules Configuration for downstream connections
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="lb-algorithm"></a>&#x2022; [`lb_algorithm`](#lb-algorithm) - Optional String<br>Configuration parameter for LB algorithm
+
+<a id="origin-pools"></a>&#x2022; [`origin_pools`](#origin-pools) - Optional String<br>Configuration parameter for origin pools
+
+<a id="proxy-advertisement"></a>&#x2022; [`proxy_advertisement`](#proxy-advertisement) - Optional String<br>Configuration parameter for proxy advertisement
+
+<a id="proxy-config"></a>&#x2022; [`proxy_config`](#proxy-config) - Optional String<br>HTTP/HTTPS Load Balancer. HTTP/HTTPS Load balancer
+
+<a id="disable-spec"></a>&#x2022; [`disable_spec`](#disable-spec) - Optional Object<br>Enable this option
+
+<a id="enable-default-profile"></a>&#x2022; [`enable_default_profile`](#enable-default-profile) - Optional Object<br>Configuration parameter for enable default profile
+
+<a id="disable-ddos-mitigation"></a>&#x2022; [`disable_ddos_mitigation`](#disable-ddos-mitigation) - Optional Object<br>Enable this option
+
+<a id="enable-ddos-mitigation"></a>&#x2022; [`enable_ddos_mitigation`](#enable-ddos-mitigation) - Optional Object<br>Enable this option
+
+---
+
+#### Irules
+
+An [`irules`](#irules) block supports the following:
+
+<a id="nestedatt--irules-irules"></a>&#x2022; [`irules`](#nestedatt--irules-irules) - Optional List<br>OPTIONS for attaching iRules to BIG-IP HTTP Proxy
+
+#### Irules Irules
+
+An [`irules`](#irules-irules) block (within [`irules`](#irules)) supports the following:
+
+<a id="nestedatt--irules--irules-name"></a>&#x2022; [`name`](#nestedatt--irules--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### LB Algorithm
+
+A [`lb_algorithm`](#lb-algorithm) block supports the following:
+
+<a id="nestedatt--irules--irules-round-robin"></a>&#x2022; [`round_robin`](#nestedatt--irules--irules-round-robin) - Optional String<br>Configuration parameter for round robin
+
+#### LB Algorithm Round Robin
+
+A [`round_robin`](#lb-algorithm-round-robin) block (within [`lb_algorithm`](#lb-algorithm)) supports the following:
+
+#### Origin Pools
+
+An [`origin_pools`](#origin-pools) block supports the following:
+
+<a id="nestedatt--irules--irules-pools"></a>&#x2022; [`pools`](#nestedatt--irules--irules-pools) - Optional List<br>Origin Pools. List of Origin Pools
+
+#### Origin Pools Pools
+
+A [`pools`](#origin-pools-pools) block (within [`origin_pools`](#origin-pools)) supports the following:
+
+<a id="nestedatt--irules--irules-name"></a>&#x2022; [`name`](#nestedatt--irules--irules-name) - Optional String<br>Name. Name of the origin pool
+
+<a id="servers-2407be"></a>&#x2022; [`origin_servers`](#servers-2407be) - Optional String<br>List of origin Servers for the BIG-IP HTTP Proxy
+
+<a id="nestedatt--irules--irules-priority"></a>&#x2022; [`priority`](#nestedatt--irules--irules-priority) - Optional Number<br>Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool. When active origin pool is not available, lower priority origin pools are made active as per the increasing priority
+
+<a id="nestedatt--irules--irules-weight"></a>&#x2022; [`weight`](#nestedatt--irules--irules-weight) - Optional Number<br>Weight of this origin pool, valid only with multiple origin pools. Value of 0 will disable the pool
+
+#### Origin Pools Pools Origin Servers
+
+An [`origin_servers`](#origin-pools-pools-origin-servers) block (within [`origin_pools.pools`](#origin-pools-pools)) supports the following:
+
+<a id="port-a63ae6"></a>&#x2022; [`automatic_port`](#port-a63ae6) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules--irules-health-checks"></a>&#x2022; [`health_checks`](#nestedatt--irules--irules-health-checks) - Optional String<br>Configuration parameter for health checks
+
+<a id="nestedatt--irules--irules-lb-port"></a>&#x2022; [`lb_port`](#nestedatt--irules--irules-lb-port) - Optional Object<br>Enable this option
+
+<a id="servers-2407be"></a>&#x2022; [`origin_servers`](#servers-2407be) - Optional List<br>List of Origin Servers. List of origin servers for Proxy
+
+<a id="nestedatt--irules--irules-port"></a>&#x2022; [`port`](#nestedatt--irules--irules-port) - Optional Number<br>Endpoint service is available on this port
+
+#### Origin Pools Pools Origin Servers Automatic Port
+
+An [`automatic_port`](#origin-pools-pools-origin-servers-automatic-port) block (within [`origin_pools.pools.origin_servers`](#origin-pools-pools-origin-servers)) supports the following:
+
+#### Origin Pools Pools Origin Servers Health Checks
+
+A [`health_checks`](#origin-pools-pools-origin-servers-health-checks) block (within [`origin_pools.pools.origin_servers`](#origin-pools-pools-origin-servers)) supports the following:
+
+<a id="nestedatt--irules--irules-health-check"></a>&#x2022; [`health_check`](#nestedatt--irules--irules-health-check) - Optional List<br>List of Health Checks. List of Health Checks
+
+<a id="threshold-7403fe"></a>&#x2022; [`healthy_threshold`](#threshold-7403fe) - Optional Number<br>Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy
+
+<a id="nestedatt--irules--irules-interval"></a>&#x2022; [`interval`](#nestedatt--irules--irules-interval) - Optional Number<br>Time interval in seconds between two health check requests
+
+<a id="nestedatt--irules--irules-timeout"></a>&#x2022; [`timeout`](#nestedatt--irules--irules-timeout) - Optional Number<br>Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure
+
+<a id="threshold-5a6bb8"></a>&#x2022; [`unhealthy_threshold`](#threshold-5a6bb8) - Optional Number<br>Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health check if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately
+
+#### Origin Pools Pools Origin Servers Health Checks Health Check
+
+<a id="deep-607b11"></a>Deeply nested **Check** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Health Checks Health Check ICMP Health Check
+
+<a id="deep-897b11"></a>Deeply nested **Check** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Health Checks Health Check TCP Health Check
+
+<a id="deep-4b637b"></a>Deeply nested **Check** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers LB Port
+
+A [`lb_port`](#origin-pools-pools-origin-servers-lb-port) block (within [`origin_pools.pools.origin_servers`](#origin-pools-pools-origin-servers)) supports the following:
+
+#### Origin Pools Pools Origin Servers Origin Servers
+
+An [`origin_servers`](#origin-pools-pools-origin-servers-origin-servers) block (within [`origin_pools.pools.origin_servers`](#origin-pools-pools-origin-servers)) supports the following:
+
+<a id="nestedatt--irules--irules-k8s-service"></a>&#x2022; [`k8s_service`](#nestedatt--irules--irules-k8s-service) - Optional String<br>Specify origin server with K8S service name and site information
+
+<a id="nestedatt--irules--irules-private-ip"></a>&#x2022; [`private_ip`](#nestedatt--irules--irules-private-ip) - Optional String<br>Specify origin server with private or public IP address and site information
+
+<a id="nestedatt--irules--irules-public-ip"></a>&#x2022; [`public_ip`](#nestedatt--irules--irules-public-ip) - Optional String<br>Specify origin server with public IP address
+
+<a id="nestedatt--irules--irules-public-name"></a>&#x2022; [`public_name`](#nestedatt--irules--irules-public-name) - Optional String<br>Specify origin server with public DNS name
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service
+
+<a id="deep-16a53b"></a>Deeply nested **Service** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Inside Network
+
+<a id="deep-24c649"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Outside Network
+
+<a id="deep-4898d2"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Site Locator
+
+<a id="deep-144dcf"></a>Deeply nested **Locator** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Site Locator Site
+
+<a id="deep-9e5c95"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Site Locator Virtual Site
+
+<a id="deep-f3da9d"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Snat Pool
+
+<a id="deep-136925"></a>Deeply nested **Pool** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Snat Pool No Snat Pool
+
+<a id="deep-484673"></a>Deeply nested **Pool** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Snat Pool Snat Pool
+
+<a id="deep-df82be"></a>Deeply nested **Pool** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Vk8s Networks
+
+<a id="deep-9942fa"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP
+
+<a id="deep-3fc99e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Inside Network
+
+<a id="deep-437f38"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Outside Network
+
+<a id="deep-505c73"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Segment
+
+<a id="deep-e22abf"></a>Deeply nested **Segment** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Site Locator
+
+<a id="deep-c9b03b"></a>Deeply nested **Locator** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Site Locator Site
+
+<a id="deep-cc28cd"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Site Locator Virtual Site
+
+<a id="deep-5373fd"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Snat Pool
+
+<a id="deep-d9808d"></a>Deeply nested **Pool** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Snat Pool No Snat Pool
+
+<a id="deep-b4c28a"></a>Deeply nested **Pool** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Snat Pool Snat Pool
+
+<a id="deep-3111fb"></a>Deeply nested **Pool** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Public IP
+
+<a id="deep-c3275e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Public Name
+
+<a id="deep-f08d0f"></a>Deeply nested **Name** block collapsed for readability.
+
+#### Proxy Advertisement
+
+A [`proxy_advertisement`](#proxy-advertisement) block supports the following:
+
+<a id="custom-91cf19"></a>&#x2022; [`advertise_custom`](#custom-91cf19) - Optional String<br>Defines a way to advertise a VIP on specific sites
+
+<a id="advertise-68fd6d"></a>&#x2022; [`do_not_advertise`](#advertise-68fd6d) - Optional Object<br>Configuration parameter for do not advertise
+
+#### Proxy Advertisement Advertise Custom
+
+An [`advertise_custom`](#proxy-advertisement-advertise-custom) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+<a id="where-a4e0a8"></a>&#x2022; [`advertise_where`](#where-a4e0a8) - Optional List<br>Where should this load balancer be available
+
+#### Proxy Advertisement Advertise Custom Advertise Where
+
+An [`advertise_where`](#proxy-advertisement-advertise-custom-advertise-where) block (within [`proxy_advertisement.advertise_custom`](#proxy-advertisement-advertise-custom)) supports the following:
+
+<a id="public-e51174"></a>&#x2022; [`advertise_on_public`](#public-e51174) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="nestedatt--irules--irules-port"></a>&#x2022; [`port`](#nestedatt--irules--irules-port) - Optional Number<br>Port to Listen
+
+<a id="nestedatt--irules--irules-port-ranges"></a>&#x2022; [`port_ranges`](#nestedatt--irules--irules-port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+<a id="nestedatt--irules--irules-site"></a>&#x2022; [`site`](#nestedatt--irules--irules-site) - Optional String<br>Defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised
+
+<a id="port-3aaca1"></a>&#x2022; [`use_default_port`](#port-3aaca1) - Optional Object<br>Enable this option
+
+<a id="network-74d50b"></a>&#x2022; [`virtual_network`](#network-74d50b) - Optional String<br>Parameters to advertise on a given virtual network
+
+<a id="nestedatt--irules--irules-virtual-site"></a>&#x2022; [`virtual_site`](#nestedatt--irules--irules-virtual-site) - Optional String<br>Defines a reference to a customer site virtual site along with network type where a load balancer could be advertised
+
+<a id="vip-8ae203"></a>&#x2022; [`virtual_site_with_vip`](#vip-8ae203) - Optional String<br>Defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised
+
+<a id="nestedatt--irules--irules-vk8s-service"></a>&#x2022; [`vk8s_service`](#nestedatt--irules--irules-vk8s-service) - Optional String<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public
+
+<a id="deep-c7bbab"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public Public IP
+
+<a id="deep-3f999e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Site
+
+A [`site`](#proxy-advertisement-advertise-custom-advertise-where-site) block (within [`proxy_advertisement.advertise_custom.advertise_where`](#proxy-advertisement-advertise-custom-advertise-where)) supports the following:
+
+<a id="nestedatt--irules--irules-ip"></a>&#x2022; [`ip`](#nestedatt--irules--irules-ip) - Optional String<br>Use given IP address as VIP on the site
+
+<a id="nestedatt--irules--irules-network"></a>&#x2022; [`network`](#nestedatt--irules--irules-network) - Optional String  Defaults to `SITE_NETWORK_INSIDE_AND_OUTSIDE`<br>Possible values are `SITE_NETWORK_INSIDE_AND_OUTSIDE`, `SITE_NETWORK_INSIDE`, `SITE_NETWORK_OUTSIDE`, `SITE_NETWORK_SERVICE`, `SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP`, `SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP`,
+`SITE_NETWORK_IP_FABRIC`<br>[Enum: SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NETWORK_SERVICE|SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP|SITE_NETWORK_IP_FABRIC] Defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks
+
+<a id="nestedatt--irules--irules-site"></a>&#x2022; [`site`](#nestedatt--irules--irules-site) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+#### Proxy Advertisement Advertise Custom Advertise Where Site Site
+
+<a id="deep-9bd8ed"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Use Default Port
+
+<a id="deep-4755f5"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Network
+
+<a id="deep-7a2b81"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Default V6 VIP
+
+<a id="deep-7dccec"></a>Deeply nested **VIP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Default VIP
+
+<a id="deep-3de75e"></a>Deeply nested **VIP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Virtual Network
+
+<a id="deep-bb5f26"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Site
+
+<a id="deep-a0e820"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Site Virtual Site
+
+<a id="deep-f39a23"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Site With VIP
+
+<a id="deep-bfa2da"></a>Deeply nested **VIP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Site With VIP Virtual Site
+
+<a id="deep-3f606a"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Vk8s Service
+
+<a id="deep-934aae"></a>Deeply nested **Service** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Vk8s Service Site
+
+<a id="deep-2e1027"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Vk8s Service Virtual Site
+
+<a id="deep-f1fd9e"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Proxy Advertisement Do Not Advertise
+
+A [`do_not_advertise`](#proxy-advertisement-do-not-advertise) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+#### Proxy Config
+
+A [`proxy_config`](#proxy-config) block supports the following:
+
+<a id="nestedatt--irules--irules-domains"></a>&#x2022; [`domains`](#nestedatt--irules--irules-domains) - Optional List<br>List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: ``
+
+<a id="nestedatt--irules--irules-http"></a>&#x2022; [`http`](#nestedatt--irules--irules-http) - Optional String<br>HTTP Choice. Choice for selecting HTTP proxy
+
+<a id="nestedatt--irules--irules-https"></a>&#x2022; [`https`](#nestedatt--irules--irules-https) - Optional String<br>Choice for selecting HTTP proxy with bring your own certificates
+
+<a id="cert-9b8ad1"></a>&#x2022; [`https_auto_cert`](#cert-9b8ad1) - Optional String<br>Choice for selecting HTTP proxy with bring your own certificates
+
+#### Proxy Config HTTP
+
+A [`http`](#proxy-config-http) block (within [`proxy_config`](#proxy-config)) supports the following:
+
+<a id="managed-2280e1"></a>&#x2022; [`dns_volterra_managed`](#managed-2280e1) - Optional Bool<br>DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal
+
+<a id="nestedatt--irules--irules-port"></a>&#x2022; [`port`](#nestedatt--irules--irules-port) - Optional Number<br>HTTP port to Listen
+
+<a id="nestedatt--irules--irules-port-ranges"></a>&#x2022; [`port_ranges`](#nestedatt--irules--irules-port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+#### Proxy Config HTTPS
+
+A [`https`](#proxy-config-https) block (within [`proxy_config`](#proxy-config)) supports the following:
+
+<a id="nestedatt--irules--irules-add-hsts"></a>&#x2022; [`add_hsts`](#nestedatt--irules--irules-add-hsts) - Optional Bool<br>Add HTTP Strict-Transport-Security response header
+
+<a id="name-b57c9b"></a>&#x2022; [`append_server_name`](#name-b57c9b) - Optional String<br>Define the header value for the header name “server”. If header value is already present, it is not overwritten and passed as-is
+
+<a id="options-efaf0d"></a>&#x2022; [`coalescing_options`](#options-efaf0d) - Optional String<br>TLS connection coalescing configuration (not compatible with mTLS)
+
+<a id="timeout-4826ad"></a>&#x2022; [`connection_idle_timeout`](#timeout-4826ad) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+
+<a id="header-387e85"></a>&#x2022; [`default_header`](#header-387e85) - Optional Object<br>Configuration parameter for default header
+
+<a id="loadbalancer-e42651"></a>&#x2022; [`default_loadbalancer`](#loadbalancer-e42651) - Optional Object<br>Configuration parameter for default loadbalancer
+
+<a id="normalize-81aba8"></a>&#x2022; [`disable_path_normalize`](#normalize-81aba8) - Optional Object<br>Enable this option
+
+<a id="normalize-a1a996"></a>&#x2022; [`enable_path_normalize`](#normalize-a1a996) - Optional Object<br>Enable this option
+
+<a id="options-c24626"></a>&#x2022; [`http_protocol_options`](#options-c24626) - Optional String<br>HTTP protocol configuration OPTIONS for downstream connections
+
+<a id="nestedatt--irules--irules-http-redirect"></a>&#x2022; [`http_redirect`](#nestedatt--irules--irules-http-redirect) - Optional Bool<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS
+
+<a id="loadbalancer-c4f90e"></a>&#x2022; [`non_default_loadbalancer`](#loadbalancer-c4f90e) - Optional Object<br>Configuration parameter for non default loadbalancer
+
+<a id="nestedatt--irules--irules-pass-through"></a>&#x2022; [`pass_through`](#nestedatt--irules--irules-pass-through) - Optional Object<br>Configuration parameter for pass through
+
+<a id="nestedatt--irules--irules-port"></a>&#x2022; [`port`](#nestedatt--irules--irules-port) - Optional Number<br>HTTPS port to Listen
+
+<a id="nestedatt--irules--irules-port-ranges"></a>&#x2022; [`port_ranges`](#nestedatt--irules--irules-port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+<a id="nestedatt--irules--irules-server-name"></a>&#x2022; [`server_name`](#nestedatt--irules--irules-server-name) - Optional String<br>Define the header value for the header name “server”. This will overwrite existing values, if any, for the server header
+
+<a id="params-f62e31"></a>&#x2022; [`tls_cert_params`](#params-f62e31) - Optional String<br>Configuration parameter for TLS cert params
+
+<a id="parameters-3d024e"></a>&#x2022; [`tls_parameters`](#parameters-3d024e) - Optional String<br>Configuration parameter for TLS parameters
+
+#### Proxy Config HTTPS Coalescing Options
+
+A [`coalescing_options`](#proxy-config-https-coalescing-options) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+<a id="coalescing-ecc967"></a>&#x2022; [`default_coalescing`](#coalescing-ecc967) - Optional Object<br>Configuration parameter for default coalescing
+
+<a id="coalescing-3d4743"></a>&#x2022; [`strict_coalescing`](#coalescing-3d4743) - Optional Object<br>Configuration parameter for strict coalescing
+
+#### Proxy Config HTTPS Coalescing Options Default Coalescing
+
+A [`default_coalescing`](#proxy-config-https-coalescing-options-default-coalescing) block (within [`proxy_config.https.coalescing_options`](#proxy-config-https-coalescing-options)) supports the following:
+
+#### Proxy Config HTTPS Coalescing Options Strict Coalescing
+
+A [`strict_coalescing`](#proxy-config-https-coalescing-options-strict-coalescing) block (within [`proxy_config.https.coalescing_options`](#proxy-config-https-coalescing-options)) supports the following:
+
+#### Proxy Config HTTPS Default Header
+
+A [`default_header`](#proxy-config-https-default-header) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS Default Loadbalancer
+
+A [`default_loadbalancer`](#proxy-config-https-default-loadbalancer) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS Disable Path Normalize
+
+A [`disable_path_normalize`](#proxy-config-https-disable-path-normalize) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS Enable Path Normalize
+
+An [`enable_path_normalize`](#proxy-config-https-enable-path-normalize) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS HTTP Protocol Options
+
+A [`http_protocol_options`](#proxy-config-https-http-protocol-options) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+<a id="only-a884d2"></a>&#x2022; [`http_protocol_enable_v1_only`](#only-a884d2) - Optional String<br>HTTP/1.1 Protocol OPTIONS for downstream connections
+
+<a id="v1-v2-75abe4"></a>&#x2022; [`http_protocol_enable_v1_v2`](#v1-v2-75abe4) - Optional Object<br>Configuration parameter for HTTP protocol enable v1 v2
+
+<a id="only-4f749b"></a>&#x2022; [`http_protocol_enable_v2_only`](#only-4f749b) - Optional Object<br>Configuration parameter for HTTP protocol enable v2 only
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only
+
+<a id="deep-36cd05"></a>Deeply nested **Only** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation
+
+<a id="deep-bd5134"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Default Header Transformation
+
+<a id="deep-7cc9e7"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Preserve Case Header Transformation
+
+<a id="deep-a1ba5c"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Proper Case Header Transformation
+
+<a id="deep-446be2"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 V2
+
+<a id="deep-8acedd"></a>Deeply nested **V2** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V2 Only
+
+<a id="deep-832194"></a>Deeply nested **Only** block collapsed for readability.
+
+#### Proxy Config HTTPS Non Default Loadbalancer
+
+A [`non_default_loadbalancer`](#proxy-config-https-non-default-loadbalancer) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS Pass Through
+
+A [`pass_through`](#proxy-config-https-pass-through) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS TLS Cert Params
+
+A [`tls_cert_params`](#proxy-config-https-tls-cert-params) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+<a id="nestedatt--irules--irules-certificates"></a>&#x2022; [`certificates`](#nestedatt--irules--irules-certificates) - Optional List<br>Select one or more certificates with any domain names
+
+<a id="nestedatt--irules--irules-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--irules--irules-no-mtls) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules--irules-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--irules--irules-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--irules--irules-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--irules--irules-use-mtls) - Optional String<br>Validation context for downstream client TLS connections
+
+#### Proxy Config HTTPS TLS Cert Params Certificates
+
+A [`certificates`](#proxy-config-https-tls-cert-params-certificates) block (within [`proxy_config.https.tls_cert_params`](#proxy-config-https-tls-cert-params)) supports the following:
+
+<a id="nestedatt--irules--irules-name"></a>&#x2022; [`name`](#nestedatt--irules--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Proxy Config HTTPS TLS Cert Params No mTLS
+
+<a id="deep-25df37"></a>Deeply nested **mTLS** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params TLS Config
+
+<a id="deep-ca16e2"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params TLS Config Custom Security
+
+<a id="deep-fbb21c"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params TLS Config Default Security
+
+<a id="deep-d1d0d3"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params TLS Config Low Security
+
+<a id="deep-cab734"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params TLS Config Medium Security
+
+<a id="deep-78f287"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params Use mTLS
+
+<a id="deep-6dc647"></a>Deeply nested **mTLS** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params Use mTLS CRL
+
+<a id="deep-34e2cf"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params Use mTLS No CRL
+
+<a id="deep-13893e"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params Use mTLS Trusted CA
+
+<a id="deep-538810"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params Use mTLS Xfcc Disabled
+
+<a id="deep-78098f"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params Use mTLS Xfcc Options
+
+<a id="deep-ebfaa7"></a>Deeply nested **Options** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters
+
+A [`tls_parameters`](#proxy-config-https-tls-parameters) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+<a id="nestedatt--irules--irules-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--irules--irules-no-mtls) - Optional Object<br>Enable this option
+
+<a id="certificates-a644f7"></a>&#x2022; [`tls_certificates`](#certificates-a644f7) - Optional List<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms
+
+<a id="nestedatt--irules--irules-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--irules--irules-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--irules--irules-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--irules--irules-use-mtls) - Optional String<br>Validation context for downstream client TLS connections
+
+#### Proxy Config HTTPS TLS Parameters No mTLS
+
+A [`no_mtls`](#proxy-config-https-tls-parameters-no-mtls) block (within [`proxy_config.https.tls_parameters`](#proxy-config-https-tls-parameters)) supports the following:
+
+#### Proxy Config HTTPS TLS Parameters TLS Certificates
+
+A [`tls_certificates`](#proxy-config-https-tls-parameters-tls-certificates) block (within [`proxy_config.https.tls_parameters`](#proxy-config-https-tls-parameters)) supports the following:
+
+<a id="url-09e99d"></a>&#x2022; [`certificate_url`](#url-09e99d) - Optional String<br>TLS certificate. Certificate or certificate chain in PEM format including the PEM headers
+
+<a id="algorithms-ad2aed"></a>&#x2022; [`custom_hash_algorithms`](#algorithms-ad2aed) - Optional String<br>Specifies the hash algorithms to be used
+
+<a id="spec-c6a9d3"></a>&#x2022; [`description_spec`](#spec-c6a9d3) - Optional String<br>Description. Description for the certificate
+
+<a id="stapling-d1c999"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-d1c999) - Optional Object<br>Configuration parameter for disable OCSP stapling
+
+<a id="nestedatt--irules--irules-private-key"></a>&#x2022; [`private_key`](#nestedatt--irules--irules-private-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="defaults-085a22"></a>&#x2022; [`use_system_defaults`](#defaults-085a22) - Optional Object<br>Configuration parameter for use system defaults
+
+#### Proxy Config HTTPS TLS Parameters TLS Certificates Custom Hash Algorithms
+
+<a id="deep-dd7756"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Certificates Disable OCSP Stapling
+
+<a id="deep-fd0924"></a>Deeply nested **Stapling** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Certificates Private Key
+
+<a id="deep-19a197"></a>Deeply nested **Key** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Certificates Private Key Blindfold Secret Info
+
+<a id="deep-00c4e5"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Certificates Private Key Clear Secret Info
+
+<a id="deep-dd6e9a"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Certificates Use System Defaults
+
+<a id="deep-11306b"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Config
+
+A [`tls_config`](#proxy-config-https-tls-parameters-tls-config) block (within [`proxy_config.https.tls_parameters`](#proxy-config-https-tls-parameters)) supports the following:
+
+<a id="security-347809"></a>&#x2022; [`custom_security`](#security-347809) - Optional String<br>Defines TLS protocol config including min/max versions and allowed ciphers
+
+<a id="security-3f2b51"></a>&#x2022; [`default_security`](#security-3f2b51) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules--irules-low-security"></a>&#x2022; [`low_security`](#nestedatt--irules--irules-low-security) - Optional Object<br>Enable this option
+
+<a id="security-6a599e"></a>&#x2022; [`medium_security`](#security-6a599e) - Optional Object<br>Enable this option
+
+#### Proxy Config HTTPS TLS Parameters TLS Config Custom Security
+
+<a id="deep-9667ef"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Config Default Security
+
+<a id="deep-4744c9"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Config Low Security
+
+<a id="deep-6d0fb3"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Config Medium Security
+
+<a id="deep-bf7465"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters Use mTLS
+
+An [`use_mtls`](#proxy-config-https-tls-parameters-use-mtls) block (within [`proxy_config.https.tls_parameters`](#proxy-config-https-tls-parameters)) supports the following:
+
+<a id="optional-3e536c"></a>&#x2022; [`client_certificate_optional`](#optional-3e536c) - Optional Bool<br>Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated
+
+<a id="nestedatt--irules--irules-crl"></a>&#x2022; [`crl`](#nestedatt--irules--irules-crl) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--irules--irules-no-crl"></a>&#x2022; [`no_crl`](#nestedatt--irules--irules-no-crl) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules--irules-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--irules--irules-trusted-ca) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="url-8ba979"></a>&#x2022; [`trusted_ca_url`](#url-8ba979) - Optional String<br>Upload a Root CA Certificate specifically for this Load Balancer
+
+<a id="nestedatt--irules--irules-xfcc-disabled"></a>&#x2022; [`xfcc_disabled`](#nestedatt--irules--irules-xfcc-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules--irules-xfcc-options"></a>&#x2022; [`xfcc_options`](#nestedatt--irules--irules-xfcc-options) - Optional String<br>X-Forwarded-Client-Cert header elements to be added to requests
+
+#### Proxy Config HTTPS TLS Parameters Use mTLS CRL
+
+<a id="deep-e880ff"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters Use mTLS No CRL
+
+<a id="deep-db8fdb"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters Use mTLS Trusted CA
+
+<a id="deep-84c1bd"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters Use mTLS Xfcc Disabled
+
+<a id="deep-1ccb2c"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters Use mTLS Xfcc Options
+
+<a id="deep-e11324"></a>Deeply nested **Options** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert
+
+A [`https_auto_cert`](#proxy-config-https-auto-cert) block (within [`proxy_config`](#proxy-config)) supports the following:
+
+<a id="nestedatt--irules--irules-add-hsts"></a>&#x2022; [`add_hsts`](#nestedatt--irules--irules-add-hsts) - Optional Bool<br>Add HTTP Strict-Transport-Security response header
+
+<a id="name-b57c9b"></a>&#x2022; [`append_server_name`](#name-b57c9b) - Optional String<br>Define the header value for the header name “server”. If header value is already present, it is not overwritten and passed as-is
+
+<a id="options-efaf0d"></a>&#x2022; [`coalescing_options`](#options-efaf0d) - Optional String<br>TLS connection coalescing configuration (not compatible with mTLS)
+
+<a id="timeout-4826ad"></a>&#x2022; [`connection_idle_timeout`](#timeout-4826ad) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
+
+<a id="header-387e85"></a>&#x2022; [`default_header`](#header-387e85) - Optional Object<br>Configuration parameter for default header
+
+<a id="loadbalancer-e42651"></a>&#x2022; [`default_loadbalancer`](#loadbalancer-e42651) - Optional Object<br>Configuration parameter for default loadbalancer
+
+<a id="normalize-81aba8"></a>&#x2022; [`disable_path_normalize`](#normalize-81aba8) - Optional Object<br>Enable this option
+
+<a id="normalize-a1a996"></a>&#x2022; [`enable_path_normalize`](#normalize-a1a996) - Optional Object<br>Enable this option
+
+<a id="options-c24626"></a>&#x2022; [`http_protocol_options`](#options-c24626) - Optional String<br>HTTP protocol configuration OPTIONS for downstream connections
+
+<a id="nestedatt--irules--irules-http-redirect"></a>&#x2022; [`http_redirect`](#nestedatt--irules--irules-http-redirect) - Optional Bool<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS
+
+<a id="nestedatt--irules--irules-no-mtls"></a>&#x2022; [`no_mtls`](#nestedatt--irules--irules-no-mtls) - Optional Object<br>Enable this option
+
+<a id="loadbalancer-c4f90e"></a>&#x2022; [`non_default_loadbalancer`](#loadbalancer-c4f90e) - Optional Object<br>Configuration parameter for non default loadbalancer
+
+<a id="nestedatt--irules--irules-pass-through"></a>&#x2022; [`pass_through`](#nestedatt--irules--irules-pass-through) - Optional Object<br>Configuration parameter for pass through
+
+<a id="nestedatt--irules--irules-port"></a>&#x2022; [`port`](#nestedatt--irules--irules-port) - Optional Number<br>HTTPS port to Listen
+
+<a id="nestedatt--irules--irules-port-ranges"></a>&#x2022; [`port_ranges`](#nestedatt--irules--irules-port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
+
+<a id="nestedatt--irules--irules-server-name"></a>&#x2022; [`server_name`](#nestedatt--irules--irules-server-name) - Optional String<br>Define the header value for the header name “server”. This will overwrite existing values, if any, for the server header
+
+<a id="nestedatt--irules--irules-tls-config"></a>&#x2022; [`tls_config`](#nestedatt--irules--irules-tls-config) - Optional String<br>Defines various OPTIONS to configure TLS configuration parameters
+
+<a id="nestedatt--irules--irules-use-mtls"></a>&#x2022; [`use_mtls`](#nestedatt--irules--irules-use-mtls) - Optional String<br>Validation context for downstream client TLS connections
+
+#### Proxy Config HTTPS Auto Cert Coalescing Options
+
+A [`coalescing_options`](#proxy-config-https-auto-cert-coalescing-options) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+<a id="coalescing-ecc967"></a>&#x2022; [`default_coalescing`](#coalescing-ecc967) - Optional Object<br>Configuration parameter for default coalescing
+
+<a id="coalescing-3d4743"></a>&#x2022; [`strict_coalescing`](#coalescing-3d4743) - Optional Object<br>Configuration parameter for strict coalescing
+
+#### Proxy Config HTTPS Auto Cert Coalescing Options Default Coalescing
+
+<a id="deep-146436"></a>Deeply nested **Coalescing** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Coalescing Options Strict Coalescing
+
+<a id="deep-c787cf"></a>Deeply nested **Coalescing** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Default Header
+
+A [`default_header`](#proxy-config-https-auto-cert-default-header) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+#### Proxy Config HTTPS Auto Cert Default Loadbalancer
+
+A [`default_loadbalancer`](#proxy-config-https-auto-cert-default-loadbalancer) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+#### Proxy Config HTTPS Auto Cert Disable Path Normalize
+
+<a id="deep-647165"></a>Deeply nested **Normalize** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Enable Path Normalize
+
+<a id="deep-af64c0"></a>Deeply nested **Normalize** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options
+
+<a id="deep-dbf765"></a>Deeply nested **Options** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 Only
+
+<a id="deep-209a42"></a>Deeply nested **Only** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation
+
+<a id="deep-1b9437"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Default Header Transformation
+
+<a id="deep-ec3d9b"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Preserve Case Header Transformation
+
+<a id="deep-5fad28"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Proper Case Header Transformation
+
+<a id="deep-170fbe"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 V2
+
+<a id="deep-5f4537"></a>Deeply nested **V2** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V2 Only
+
+<a id="deep-1eaf2d"></a>Deeply nested **Only** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert No mTLS
+
+A [`no_mtls`](#proxy-config-https-auto-cert-no-mtls) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+#### Proxy Config HTTPS Auto Cert Non Default Loadbalancer
+
+<a id="deep-0fed4c"></a>Deeply nested **Loadbalancer** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Pass Through
+
+A [`pass_through`](#proxy-config-https-auto-cert-pass-through) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+#### Proxy Config HTTPS Auto Cert TLS Config
+
+A [`tls_config`](#proxy-config-https-auto-cert-tls-config) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+<a id="security-347809"></a>&#x2022; [`custom_security`](#security-347809) - Optional String<br>Defines TLS protocol config including min/max versions and allowed ciphers
+
+<a id="security-3f2b51"></a>&#x2022; [`default_security`](#security-3f2b51) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules--irules-low-security"></a>&#x2022; [`low_security`](#nestedatt--irules--irules-low-security) - Optional Object<br>Enable this option
+
+<a id="security-6a599e"></a>&#x2022; [`medium_security`](#security-6a599e) - Optional Object<br>Enable this option
+
+#### Proxy Config HTTPS Auto Cert TLS Config Custom Security
+
+<a id="deep-12403b"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert TLS Config Default Security
+
+<a id="deep-c58f8f"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert TLS Config Low Security
+
+<a id="deep-fae605"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert TLS Config Medium Security
+
+<a id="deep-ea179a"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Use mTLS
+
+An [`use_mtls`](#proxy-config-https-auto-cert-use-mtls) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+<a id="optional-3e536c"></a>&#x2022; [`client_certificate_optional`](#optional-3e536c) - Optional Bool<br>Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated
+
+<a id="nestedatt--irules--irules-crl"></a>&#x2022; [`crl`](#nestedatt--irules--irules-crl) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--irules--irules-no-crl"></a>&#x2022; [`no_crl`](#nestedatt--irules--irules-no-crl) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules--irules-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--irules--irules-trusted-ca) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="url-8ba979"></a>&#x2022; [`trusted_ca_url`](#url-8ba979) - Optional String<br>Upload a Root CA Certificate specifically for this Load Balancer
+
+<a id="nestedatt--irules--irules-xfcc-disabled"></a>&#x2022; [`xfcc_disabled`](#nestedatt--irules--irules-xfcc-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules--irules-xfcc-options"></a>&#x2022; [`xfcc_options`](#nestedatt--irules--irules-xfcc-options) - Optional String<br>X-Forwarded-Client-Cert header elements to be added to requests
+
+#### Proxy Config HTTPS Auto Cert Use mTLS CRL
+
+<a id="deep-f84d2a"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Use mTLS No CRL
+
+<a id="deep-ff64e1"></a>Deeply nested **CRL** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Use mTLS Trusted CA
+
+<a id="deep-ee900b"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Use mTLS Xfcc Disabled
+
+<a id="deep-7d5272"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Use mTLS Xfcc Options
+
+<a id="deep-5cc062"></a>Deeply nested **Options** block collapsed for readability.
 
 ---
 

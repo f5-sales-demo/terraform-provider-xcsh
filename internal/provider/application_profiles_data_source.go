@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,16 @@ type ApplicationProfilesDataSource struct {
 }
 
 type ApplicationProfilesDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                 types.String                                `tfsdk:"id"`
+	Name               types.String                                `tfsdk:"name"`
+	Namespace          types.String                                `tfsdk:"namespace"`
+	Description        types.String                                `tfsdk:"description"`
+	Labels             types.Map                                   `tfsdk:"labels"`
+	Annotations        types.Map                                   `tfsdk:"annotations"`
+	AdvancedTCPProfile *ApplicationProfilesAdvancedTCPProfileModel `tfsdk:"advanced_tcp_profile"`
+	DDOSProfile        *ApplicationProfilesDDOSProfileModel        `tfsdk:"ddos_profile"`
+	Irules             types.List                                  `tfsdk:"irules"`
+	VirtualServer      *ApplicationProfilesVirtualServerModel      `tfsdk:"virtual_server"`
 }
 
 func (d *ApplicationProfilesDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +75,1748 @@ func (d *ApplicationProfilesDataSource) Schema(ctx context.Context, req datasour
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"advanced_tcp_profile": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for advanced tcp profile.",
+				Attributes: map[string]schema.Attribute{
+					"disable_tcp_advanced_profile": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable tcp advanced profile.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_tcp_advanced_profile": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for enable tcp advanced profile.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"ddos_profile": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for ddos profile.",
+				Attributes: map[string]schema.Attribute{
+					"disable_ddos_mitigation": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_ddos_mitigation": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
+			},
+			"irules": schema.ListNestedAttribute{
+				MarkdownDescription: "OPTIONS for attaching iRules to BIG-IP Proxy.",
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
+			},
+			"virtual_server": schema.SingleNestedAttribute{
+				MarkdownDescription: "Specifies configuration related to virtual server.",
+				Attributes: map[string]schema.Attribute{
+					"address_translation": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that have the same IP address.",
+						Attributes: map[string]schema.Attribute{
+							"address_translation_disable": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"address_translation_enable": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"auto_last_hop": schema.SingleNestedAttribute{
+						MarkdownDescription: "When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the..",
+						Attributes: map[string]schema.Attribute{
+							"auto_last_hop_default": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for auto last hop default.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"auto_last_hop_disable": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for auto last hop disable.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"auto_last_hop_enable": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for auto last hop enable.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"clone_pool_client": schema.ListNestedAttribute{
+						MarkdownDescription: "Replicates client-side traffic (that is, prior to address translation) to a member of the specified pool.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"clone_pool_server": schema.ListNestedAttribute{
+						MarkdownDescription: "Replicates server-side traffic (that is, prior to address translation) to a member of the specified pool.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"connection_limit": schema.Int64Attribute{
+						MarkdownDescription: "Specifies the maximum number of concurrent connections allowed for the virtual server. Setting this to 0 turns off connection limits. The.",
+						Computed:            true,
+					},
+					"connection_rate_limit": schema.Int64Attribute{
+						MarkdownDescription: "Specifies the maximum number of connections-per-second allowed for a virtual server. When the number of connections-per-second reaches the limit for a given virtual server, the system drops (UDP) or resets (TCP) additional connection requests. This helps detect Denial of Service attacks, where..",
+						Computed:            true,
+					},
+					"connection_rate_limit_mode": schema.SingleNestedAttribute{
+						MarkdownDescription: "Configuration parameter for connection rate limit mode.",
+						Attributes: map[string]schema.Attribute{
+							"per_destination_address": schema.SingleNestedAttribute{
+								MarkdownDescription: "Destination Address Mask.",
+								Attributes: map[string]schema.Attribute{
+									"destination_mask": schema.Int64Attribute{
+										MarkdownDescription: "Configuration parameter for destination mask.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"per_source_address": schema.SingleNestedAttribute{
+								MarkdownDescription: "Source Address Mask.",
+								Attributes: map[string]schema.Attribute{
+									"source_mask": schema.Int64Attribute{
+										MarkdownDescription: "Configuration parameter for source mask.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"per_source_destination_address": schema.SingleNestedAttribute{
+								MarkdownDescription: "Destination and Source Address Mask.",
+								Attributes: map[string]schema.Attribute{
+									"destination_mask": schema.Int64Attribute{
+										MarkdownDescription: "Configuration parameter for destination mask.",
+										Computed:            true,
+									},
+									"source_mask": schema.Int64Attribute{
+										MarkdownDescription: "Configuration parameter for source mask.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"per_virtual_server": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for per virtual server.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"per_virtual_server_destination_address": schema.SingleNestedAttribute{
+								MarkdownDescription: "Destination Address Mask.",
+								Attributes: map[string]schema.Attribute{
+									"destination_mask": schema.Int64Attribute{
+										MarkdownDescription: "Configuration parameter for destination mask.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"per_virtual_server_source_address": schema.SingleNestedAttribute{
+								MarkdownDescription: "Source Address Mask.",
+								Attributes: map[string]schema.Attribute{
+									"source_mask": schema.Int64Attribute{
+										MarkdownDescription: "Configuration parameter for source mask.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"per_virtual_server_source_destination_address": schema.SingleNestedAttribute{
+								MarkdownDescription: "Destination and Source Address Mask.",
+								Attributes: map[string]schema.Attribute{
+									"destination_mask": schema.Int64Attribute{
+										MarkdownDescription: "Configuration parameter for destination mask.",
+										Computed:            true,
+									},
+									"source_mask": schema.Int64Attribute{
+										MarkdownDescription: "Configuration parameter for source mask.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"default_persistence_profile": schema.ListNestedAttribute{
+						MarkdownDescription: "Configuration parameter for default persistence profile.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"default_pool": schema.ListNestedAttribute{
+						MarkdownDescription: "Specifies the pool name that you want the virtual server to use as the default pool. A load balancing virtual server sends traffic to this pool automatically, unless an iRule directs the server to send the traffic to another pool instead.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"fallback_persistence_profile": schema.ListNestedAttribute{
+						MarkdownDescription: "Configuration parameter for fallback persistence profile.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"fix_profile": schema.ListNestedAttribute{
+						MarkdownDescription: "Configuration parameter for fix profile.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"http": schema.SingleNestedAttribute{
+						MarkdownDescription: "HTTP profiles.",
+						Attributes: map[string]schema.Attribute{
+							"client_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http2_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "HTTP/2 Profile Client. Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http2_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for http2 server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "HTTP Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for http server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"ocsp_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for ocsp profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"server_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"stream_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for stream profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"tcp_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Protocol Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"tcp_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for tcp server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"websocket_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "WebSocket Profile Client. Web-related configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"websocket_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "WebSocket Profile Server. Web-related configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"http3": schema.SingleNestedAttribute{
+						MarkdownDescription: "HTTP/3 profiles.",
+						Attributes: map[string]schema.Attribute{
+							"client_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http3_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for http3 profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "HTTP Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for http server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"quic_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for quic profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"server_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"tcp_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for tcp server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"udp_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Protocol Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"udp_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for udp server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"https": schema.SingleNestedAttribute{
+						MarkdownDescription: "HTTP profiles.",
+						Attributes: map[string]schema.Attribute{
+							"client_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http2_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "HTTP/2 Profile Client. Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http2_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for http2 server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "HTTP Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"http_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for http server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"ocsp_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for ocsp profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"server_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"stream_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for stream profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"tcp_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Protocol Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"tcp_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for tcp server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"websocket_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "WebSocket Profile Client. Web-related configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"websocket_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "WebSocket Profile Server. Web-related configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"immediate_action_on_service_down": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specifies the immediate action the BIG-IP system should respond with upon the receipt of the initial client's SYN packet, if the availability status of the virtual server is Offline or Unavailable. This is supported for the virtual server of Standard type and TCP protocol. The default is None.",
+						Attributes: map[string]schema.Attribute{
+							"immediate_action_on_service_down_drop": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"immediate_action_on_service_down_none": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"immediate_action_on_service_down_reset": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"last_hop_pool": schema.ListNestedAttribute{
+						MarkdownDescription: "Directs reply traffic to the last hop router using the specified pool.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"nat64": schema.SingleNestedAttribute{
+						MarkdownDescription: "When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the..",
+						Attributes: map[string]schema.Attribute{
+							"nat64_disable": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for nat64 disable.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"nat64_enable": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for nat64 enable.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"port_translation": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specifies, when checked (enabled), that the system translates the port of the virtual server. When cleared (disabled), specifies that the system uses the port without translation. Turning off port translation for a virtual server is useful if you want to use the virtual server to load balance..",
+						Attributes: map[string]schema.Attribute{
+							"port_translation_disable": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"port_translation_enable": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"request_logging_profile": schema.ListNestedAttribute{
+						MarkdownDescription: "Configuration parameter for request logging profile.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"source_port": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specifies whether the system preserves the source port of the connection. The default is Preserve.",
+						Attributes: map[string]schema.Attribute{
+							"source_port_change": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"source_port_preserve": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"source_port_preserve_strict": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"statistics_profile": schema.ListNestedAttribute{
+						MarkdownDescription: "Configuration parameter for statistics profile.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
+					"tcp": schema.SingleNestedAttribute{
+						MarkdownDescription: "TCP profiles.",
+						Attributes: map[string]schema.Attribute{
+							"client_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"ocsp_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for ocsp profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"server_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"tcp_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Protocol Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"tcp_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for tcp server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"udp": schema.SingleNestedAttribute{
+						MarkdownDescription: "UDP profiles.",
+						Attributes: map[string]schema.Attribute{
+							"client_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"server_ssl_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"udp_client_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Protocol Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+							"udp_server_profile": schema.ListNestedAttribute{
+								MarkdownDescription: "Configuration parameter for udp server profile.",
+								NestedObject: schema.NestedAttributeObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Computed:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Computed:            true,
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"virtual_server_state": schema.SingleNestedAttribute{
+						MarkdownDescription: "Displays the current state on the object.",
+						Attributes: map[string]schema.Attribute{
+							"state_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"state_enabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+					"vs_score": schema.Int64Attribute{
+						MarkdownDescription: "Specifies the virtual server score in percent. Global Traffic Manager (GTM) can rely on this value to load balance traffic in a proportional manner. The , meaning that no additional metric is applied for the virtual server.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +1840,8 @@ func (d *ApplicationProfilesDataSource) Read(ctx context.Context, req datasource
 		return
 	}
 
-	resource, err := d.client.GetApplicationProfiles(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetApplicationProfiles(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read ApplicationProfiles: %s", err))
 		return
@@ -101,7 +1849,11 @@ func (d *ApplicationProfilesDataSource) Read(ctx context.Context, req datasource
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +1886,3122 @@ func (d *ApplicationProfilesDataSource) Read(ctx context.Context, req datasource
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedTCPProfile != nil) {
+		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{
+			DisableTCPAdvancedProfile: func() types.Object {
+				if !isImport && data.AdvancedTCPProfile != nil && !data.AdvancedTCPProfile.DisableTCPAdvancedProfile.IsUnknown() {
+					return data.AdvancedTCPProfile.DisableTCPAdvancedProfile
+				}
+				if _, ok := blockData["disable_tcp_advanced_profile"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableTCPAdvancedProfile: func() types.Object {
+				if !isImport && data.AdvancedTCPProfile != nil && !data.AdvancedTCPProfile.EnableTCPAdvancedProfile.IsUnknown() {
+					return data.AdvancedTCPProfile.EnableTCPAdvancedProfile
+				}
+				if _, ok := blockData["enable_tcp_advanced_profile"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
+		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
+					return data.DDOSProfile.DisableDDOSMitigation
+				}
+				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
+					return data.DDOSProfile.EnableDDOSMitigation
+				}
+				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if !isImport && (data.Irules.IsNull() || len(data.Irules.Elements()) == 0) {
+		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["irules"].([]interface{}); ok && len(listData) > 0 {
+		var IrulesList []ApplicationProfilesIrulesModel
+		var existingIrulesItems []ApplicationProfilesIrulesModel
+		if !data.Irules.IsNull() && !data.Irules.IsUnknown() {
+			data.Irules.ElementsAs(ctx, &existingIrulesItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				IrulesList = append(IrulesList, ApplicationProfilesIrulesModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes}, IrulesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Irules = listVal
+		}
+	} else {
+		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
+		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
+			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
+				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerAddressTranslationModel{
+						AddressTranslationDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil && !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsUnknown() {
+								return data.VirtualServer.AddressTranslation.AddressTranslationDisable
+							}
+							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						AddressTranslationEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil && !data.VirtualServer.AddressTranslation.AddressTranslationEnable.IsUnknown() {
+								return data.VirtualServer.AddressTranslation.AddressTranslationEnable
+							}
+							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			AutoLastHop: func() *ApplicationProfilesVirtualServerAutoLastHopModel {
+				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerAutoLastHopModel{
+						AutoLastHopDefault: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopDefault.IsUnknown() {
+								return data.VirtualServer.AutoLastHop.AutoLastHopDefault
+							}
+							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						AutoLastHopDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopDisable.IsUnknown() {
+								return data.VirtualServer.AutoLastHop.AutoLastHopDisable
+							}
+							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						AutoLastHopEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopEnable.IsUnknown() {
+								return data.VirtualServer.AutoLastHop.AutoLastHopEnable
+							}
+							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ClonePoolClient: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolClient.IsNull() || len(data.VirtualServer.ClonePoolClient.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
+				}
+				var ClonePoolClientExisting []ApplicationProfilesVirtualServerClonePoolClientModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ClonePoolClient.IsNull() && !data.VirtualServer.ClonePoolClient.IsUnknown() {
+					data.VirtualServer.ClonePoolClient.ElementsAs(ctx, &ClonePoolClientExisting, false)
+				}
+				if rawList, ok := blockData["clone_pool_client"].([]interface{}); ok && len(rawList) > 0 {
+					var ClonePoolClientResult []ApplicationProfilesVirtualServerClonePoolClientModel
+					for ClonePoolClientIdx, ClonePoolClientItem := range rawList {
+						_ = ClonePoolClientIdx
+						if ClonePoolClientItemMap, ok := ClonePoolClientItem.(map[string]interface{}); ok {
+							ClonePoolClientResult = append(ClonePoolClientResult, ApplicationProfilesVirtualServerClonePoolClientModel{
+								Kind: func() types.String {
+									if v, ok := ClonePoolClientItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := ClonePoolClientItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := ClonePoolClientItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := ClonePoolClientItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := ClonePoolClientItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes}, ClonePoolClientResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes})
+			}(),
+			ClonePoolServer: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.ClonePoolServer.IsNull() || len(data.VirtualServer.ClonePoolServer.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
+				}
+				var ClonePoolServerExisting []ApplicationProfilesVirtualServerClonePoolServerModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.ClonePoolServer.IsNull() && !data.VirtualServer.ClonePoolServer.IsUnknown() {
+					data.VirtualServer.ClonePoolServer.ElementsAs(ctx, &ClonePoolServerExisting, false)
+				}
+				if rawList, ok := blockData["clone_pool_server"].([]interface{}); ok && len(rawList) > 0 {
+					var ClonePoolServerResult []ApplicationProfilesVirtualServerClonePoolServerModel
+					for ClonePoolServerIdx, ClonePoolServerItem := range rawList {
+						_ = ClonePoolServerIdx
+						if ClonePoolServerItemMap, ok := ClonePoolServerItem.(map[string]interface{}); ok {
+							ClonePoolServerResult = append(ClonePoolServerResult, ApplicationProfilesVirtualServerClonePoolServerModel{
+								Kind: func() types.String {
+									if v, ok := ClonePoolServerItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := ClonePoolServerItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := ClonePoolServerItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := ClonePoolServerItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := ClonePoolServerItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes}, ClonePoolServerResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes})
+			}(),
+			ConnectionLimit: func() types.Int64 {
+				if v, ok := blockData["connection_limit"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			ConnectionRateLimit: func() types.Int64 {
+				if v, ok := blockData["connection_rate_limit"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			ConnectionRateLimitMode: func() *ApplicationProfilesVirtualServerConnectionRateLimitModeModel {
+				if ConnectionRateLimitModeData, ok := blockData["connection_rate_limit_mode"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerConnectionRateLimitModeModel{
+						PerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel {
+							if PerDestinationAddressData, ok := ConnectionRateLimitModeData["per_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel {
+							if PerSourceAddressData, ok := ConnectionRateLimitModeData["per_source_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel{
+									SourceMask: func() types.Int64 {
+										if v, ok := PerSourceAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel {
+							if PerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_source_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									SourceMask: func() types.Int64 {
+										if v, ok := PerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServer: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer.IsUnknown() {
+								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer
+							}
+							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
+							if PerVirtualServerDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerVirtualServerDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServerSourceAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel {
+							if PerVirtualServerSourceAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel{
+									SourceMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						PerVirtualServerSourceDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel {
+							if PerVirtualServerSourceDestinationAddressData, ok := ConnectionRateLimitModeData["per_virtual_server_source_destination_address"].(map[string]interface{}); ok {
+								return &ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel{
+									DestinationMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceDestinationAddressData["destination_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+									SourceMask: func() types.Int64 {
+										if v, ok := PerVirtualServerSourceDestinationAddressData["source_mask"].(float64); ok && v != 0 {
+											return types.Int64Value(int64(v))
+										}
+										return types.Int64Null()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			DefaultPersistenceProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPersistenceProfile.IsNull() || len(data.VirtualServer.DefaultPersistenceProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
+				}
+				var DefaultPersistenceProfileExisting []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.DefaultPersistenceProfile.IsNull() && !data.VirtualServer.DefaultPersistenceProfile.IsUnknown() {
+					data.VirtualServer.DefaultPersistenceProfile.ElementsAs(ctx, &DefaultPersistenceProfileExisting, false)
+				}
+				if rawList, ok := blockData["default_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var DefaultPersistenceProfileResult []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
+					for DefaultPersistenceProfileIdx, DefaultPersistenceProfileItem := range rawList {
+						_ = DefaultPersistenceProfileIdx
+						if DefaultPersistenceProfileItemMap, ok := DefaultPersistenceProfileItem.(map[string]interface{}); ok {
+							DefaultPersistenceProfileResult = append(DefaultPersistenceProfileResult, ApplicationProfilesVirtualServerDefaultPersistenceProfileModel{
+								Kind: func() types.String {
+									if v, ok := DefaultPersistenceProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := DefaultPersistenceProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := DefaultPersistenceProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := DefaultPersistenceProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := DefaultPersistenceProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes}, DefaultPersistenceProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPersistenceProfileModelAttrTypes})
+			}(),
+			DefaultPool: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.DefaultPool.IsNull() || len(data.VirtualServer.DefaultPool.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
+				}
+				var DefaultPoolExisting []ApplicationProfilesVirtualServerDefaultPoolModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.DefaultPool.IsNull() && !data.VirtualServer.DefaultPool.IsUnknown() {
+					data.VirtualServer.DefaultPool.ElementsAs(ctx, &DefaultPoolExisting, false)
+				}
+				if rawList, ok := blockData["default_pool"].([]interface{}); ok && len(rawList) > 0 {
+					var DefaultPoolResult []ApplicationProfilesVirtualServerDefaultPoolModel
+					for DefaultPoolIdx, DefaultPoolItem := range rawList {
+						_ = DefaultPoolIdx
+						if DefaultPoolItemMap, ok := DefaultPoolItem.(map[string]interface{}); ok {
+							DefaultPoolResult = append(DefaultPoolResult, ApplicationProfilesVirtualServerDefaultPoolModel{
+								Kind: func() types.String {
+									if v, ok := DefaultPoolItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := DefaultPoolItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := DefaultPoolItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := DefaultPoolItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := DefaultPoolItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes}, DefaultPoolResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerDefaultPoolModelAttrTypes})
+			}(),
+			FallbackPersistenceProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FallbackPersistenceProfile.IsNull() || len(data.VirtualServer.FallbackPersistenceProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
+				}
+				var FallbackPersistenceProfileExisting []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.FallbackPersistenceProfile.IsNull() && !data.VirtualServer.FallbackPersistenceProfile.IsUnknown() {
+					data.VirtualServer.FallbackPersistenceProfile.ElementsAs(ctx, &FallbackPersistenceProfileExisting, false)
+				}
+				if rawList, ok := blockData["fallback_persistence_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var FallbackPersistenceProfileResult []ApplicationProfilesVirtualServerFallbackPersistenceProfileModel
+					for FallbackPersistenceProfileIdx, FallbackPersistenceProfileItem := range rawList {
+						_ = FallbackPersistenceProfileIdx
+						if FallbackPersistenceProfileItemMap, ok := FallbackPersistenceProfileItem.(map[string]interface{}); ok {
+							FallbackPersistenceProfileResult = append(FallbackPersistenceProfileResult, ApplicationProfilesVirtualServerFallbackPersistenceProfileModel{
+								Kind: func() types.String {
+									if v, ok := FallbackPersistenceProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := FallbackPersistenceProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := FallbackPersistenceProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := FallbackPersistenceProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := FallbackPersistenceProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes}, FallbackPersistenceProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes})
+			}(),
+			FixProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.FixProfile.IsNull() || len(data.VirtualServer.FixProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
+				}
+				var FixProfileExisting []ApplicationProfilesVirtualServerFixProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.FixProfile.IsNull() && !data.VirtualServer.FixProfile.IsUnknown() {
+					data.VirtualServer.FixProfile.ElementsAs(ctx, &FixProfileExisting, false)
+				}
+				if rawList, ok := blockData["fix_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var FixProfileResult []ApplicationProfilesVirtualServerFixProfileModel
+					for FixProfileIdx, FixProfileItem := range rawList {
+						_ = FixProfileIdx
+						if FixProfileItemMap, ok := FixProfileItem.(map[string]interface{}); ok {
+							FixProfileResult = append(FixProfileResult, ApplicationProfilesVirtualServerFixProfileModel{
+								Kind: func() types.String {
+									if v, ok := FixProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := FixProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := FixProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := FixProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := FixProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes}, FixProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes})
+			}(),
+			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
+				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHTTPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.ClientSSLProfile.IsNull() || len(data.VirtualServer.HTTP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHTTPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes})
+						}(),
+						Http2ClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.Http2ClientProfile.IsNull() || len(data.VirtualServer.HTTP.Http2ClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes})
+							}
+							var Http2ClientProfileExisting []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTP.Http2ClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http2_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ClientProfileResult []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+								for Http2ClientProfileIdx, Http2ClientProfileItem := range rawList {
+									_ = Http2ClientProfileIdx
+									if Http2ClientProfileItemMap, ok := Http2ClientProfileItem.(map[string]interface{}); ok {
+										Http2ClientProfileResult = append(Http2ClientProfileResult, ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes}, Http2ClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes})
+						}(),
+						Http2ServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.Http2ServerProfile.IsNull() || len(data.VirtualServer.HTTP.Http2ServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes})
+							}
+							var Http2ServerProfileExisting []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTP.Http2ServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http2_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ServerProfileResult []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+								for Http2ServerProfileIdx, Http2ServerProfileItem := range rawList {
+									_ = Http2ServerProfileIdx
+									if Http2ServerProfileItemMap, ok := Http2ServerProfileItem.(map[string]interface{}); ok {
+										Http2ServerProfileResult = append(Http2ServerProfileResult, ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes}, Http2ServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes})
+						}(),
+						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPServerProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTP.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.OCSPProfile.IsNull() || len(data.VirtualServer.HTTP.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.OCSPProfile.IsNull() && !data.VirtualServer.HTTP.OCSPProfile.IsUnknown() {
+								data.VirtualServer.HTTP.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerHTTPOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.ServerSSLProfile.IsNull() || len(data.VirtualServer.HTTP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHTTPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes})
+						}(),
+						StreamProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.StreamProfile.IsNull() || len(data.VirtualServer.HTTP.StreamProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
+							}
+							var StreamProfileExisting []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
+								data.VirtualServer.HTTP.StreamProfile.ElementsAs(ctx, &StreamProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPStreamProfileModel
+								for StreamProfileIdx, StreamProfileItem := range rawList {
+									_ = StreamProfileIdx
+									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
+										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPStreamProfileModel{
+											Kind: func() types.String {
+												if v, ok := StreamProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := StreamProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := StreamProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := StreamProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := StreamProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes}, StreamProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.TCPClientProfile.IsNull() || len(data.VirtualServer.HTTP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.TCPClientProfile.IsNull() && !data.VirtualServer.HTTP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPTCPClientProfileModel
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.TCPServerProfile.IsNull() || len(data.VirtualServer.HTTP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.TCPServerProfile.IsNull() && !data.VirtualServer.HTTP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPTCPServerProfileModel
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes})
+						}(),
+						WebSocketClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() || len(data.VirtualServer.HTTP.WebSocketClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
+							}
+							var WebSocketClientProfileExisting []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel
+								for WebSocketClientProfileIdx, WebSocketClientProfileItem := range rawList {
+									_ = WebSocketClientProfileIdx
+									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
+										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes}, WebSocketClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes})
+						}(),
+						WebSocketServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() || len(data.VirtualServer.HTTP.WebSocketServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes})
+							}
+							var WebSocketServerProfileExisting []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel
+								for WebSocketServerProfileIdx, WebSocketServerProfileItem := range rawList {
+									_ = WebSocketServerProfileIdx
+									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
+										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes}, WebSocketServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Http3: func() *ApplicationProfilesVirtualServerHttp3Model {
+				if Http3Data, ok := blockData["http3"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHttp3Model{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.ClientSSLProfile.IsNull() || len(data.VirtualServer.Http3.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.ClientSSLProfile.IsNull() && !data.VirtualServer.Http3.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.Http3.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes})
+						}(),
+						Http3Profile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.Http3Profile.IsNull() || len(data.VirtualServer.Http3.Http3Profile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes})
+							}
+							var Http3ProfileExisting []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.Http3Profile.IsNull() && !data.VirtualServer.Http3.Http3Profile.IsUnknown() {
+								data.VirtualServer.Http3.Http3Profile.ElementsAs(ctx, &Http3ProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http3_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http3ProfileResult []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+								for Http3ProfileIdx, Http3ProfileItem := range rawList {
+									_ = Http3ProfileIdx
+									if Http3ProfileItemMap, ok := Http3ProfileItem.(map[string]interface{}); ok {
+										Http3ProfileResult = append(Http3ProfileResult, ApplicationProfilesVirtualServerHttp3Http3ProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http3ProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http3ProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http3ProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http3ProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http3ProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes}, Http3ProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes})
+						}(),
+						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.HTTPClientProfile.IsNull() || len(data.VirtualServer.Http3.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.HTTPClientProfile.IsNull() && !data.VirtualServer.Http3.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.Http3.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.HTTPServerProfile.IsNull() || len(data.VirtualServer.Http3.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.HTTPServerProfile.IsNull() && !data.VirtualServer.Http3.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes})
+						}(),
+						QUICProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.QUICProfile.IsNull() || len(data.VirtualServer.Http3.QUICProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes})
+							}
+							var QUICProfileExisting []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.QUICProfile.IsNull() && !data.VirtualServer.Http3.QUICProfile.IsUnknown() {
+								data.VirtualServer.Http3.QUICProfile.ElementsAs(ctx, &QUICProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["quic_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var QUICProfileResult []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+								for QUICProfileIdx, QUICProfileItem := range rawList {
+									_ = QUICProfileIdx
+									if QUICProfileItemMap, ok := QUICProfileItem.(map[string]interface{}); ok {
+										QUICProfileResult = append(QUICProfileResult, ApplicationProfilesVirtualServerHttp3QUICProfileModel{
+											Kind: func() types.String {
+												if v, ok := QUICProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := QUICProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := QUICProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := QUICProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := QUICProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes}, QUICProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.ServerSSLProfile.IsNull() || len(data.VirtualServer.Http3.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.ServerSSLProfile.IsNull() && !data.VirtualServer.Http3.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.Http3.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.TCPServerProfile.IsNull() || len(data.VirtualServer.Http3.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.TCPServerProfile.IsNull() && !data.VirtualServer.Http3.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHttp3TCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes})
+						}(),
+						UDPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.UDPClientProfile.IsNull() || len(data.VirtualServer.Http3.UDPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes})
+							}
+							var UDPClientProfileExisting []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.UDPClientProfile.IsNull() && !data.VirtualServer.Http3.UDPClientProfile.IsUnknown() {
+								data.VirtualServer.Http3.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["udp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPClientProfileResult []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+								for UDPClientProfileIdx, UDPClientProfileItem := range rawList {
+									_ = UDPClientProfileIdx
+									if UDPClientProfileItemMap, ok := UDPClientProfileItem.(map[string]interface{}); ok {
+										UDPClientProfileResult = append(UDPClientProfileResult, ApplicationProfilesVirtualServerHttp3UDPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes}, UDPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes})
+						}(),
+						UDPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.UDPServerProfile.IsNull() || len(data.VirtualServer.Http3.UDPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes})
+							}
+							var UDPServerProfileExisting []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.UDPServerProfile.IsNull() && !data.VirtualServer.Http3.UDPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["udp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPServerProfileResult []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+								for UDPServerProfileIdx, UDPServerProfileItem := range rawList {
+									_ = UDPServerProfileIdx
+									if UDPServerProfileItemMap, ok := UDPServerProfileItem.(map[string]interface{}); ok {
+										UDPServerProfileResult = append(UDPServerProfileResult, ApplicationProfilesVirtualServerHttp3UDPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes}, UDPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
+				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHTTPSModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() || len(data.VirtualServer.HTTPS.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes})
+						}(),
+						Http2ClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() || len(data.VirtualServer.HTTPS.Http2ClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes})
+							}
+							var Http2ClientProfileExisting []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http2_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ClientProfileResult []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+								for Http2ClientProfileIdx, Http2ClientProfileItem := range rawList {
+									_ = Http2ClientProfileIdx
+									if Http2ClientProfileItemMap, ok := Http2ClientProfileItem.(map[string]interface{}); ok {
+										Http2ClientProfileResult = append(Http2ClientProfileResult, ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes}, Http2ClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes})
+						}(),
+						Http2ServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() || len(data.VirtualServer.HTTPS.Http2ServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes})
+							}
+							var Http2ServerProfileExisting []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http2_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ServerProfileResult []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+								for Http2ServerProfileIdx, Http2ServerProfileItem := range rawList {
+									_ = Http2ServerProfileIdx
+									if Http2ServerProfileItemMap, ok := Http2ServerProfileItem.(map[string]interface{}); ok {
+										Http2ServerProfileResult = append(Http2ServerProfileResult, ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes}, Http2ServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes})
+						}(),
+						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.OCSPProfile.IsNull() || len(data.VirtualServer.HTTPS.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.OCSPProfile.IsNull() && !data.VirtualServer.HTTPS.OCSPProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerHTTPSOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() || len(data.VirtualServer.HTTPS.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes})
+						}(),
+						StreamProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.StreamProfile.IsNull() || len(data.VirtualServer.HTTPS.StreamProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
+							}
+							var StreamProfileExisting []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.StreamProfile.ElementsAs(ctx, &StreamProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["stream_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var StreamProfileResult []ApplicationProfilesVirtualServerHTTPSStreamProfileModel
+								for StreamProfileIdx, StreamProfileItem := range rawList {
+									_ = StreamProfileIdx
+									if StreamProfileItemMap, ok := StreamProfileItem.(map[string]interface{}); ok {
+										StreamProfileResult = append(StreamProfileResult, ApplicationProfilesVirtualServerHTTPSStreamProfileModel{
+											Kind: func() types.String {
+												if v, ok := StreamProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := StreamProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := StreamProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := StreamProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := StreamProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes}, StreamProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.TCPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.TCPClientProfile.IsNull() && !data.VirtualServer.HTTPS.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerHTTPSTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.TCPServerProfile.IsNull() || len(data.VirtualServer.HTTPS.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.TCPServerProfile.IsNull() && !data.VirtualServer.HTTPS.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHTTPSTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes})
+						}(),
+						WebSocketClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() || len(data.VirtualServer.HTTPS.WebSocketClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
+							}
+							var WebSocketClientProfileExisting []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.WebSocketClientProfile.ElementsAs(ctx, &WebSocketClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["websocket_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketClientProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel
+								for WebSocketClientProfileIdx, WebSocketClientProfileItem := range rawList {
+									_ = WebSocketClientProfileIdx
+									if WebSocketClientProfileItemMap, ok := WebSocketClientProfileItem.(map[string]interface{}); ok {
+										WebSocketClientProfileResult = append(WebSocketClientProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes}, WebSocketClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes})
+						}(),
+						WebSocketServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() || len(data.VirtualServer.HTTPS.WebSocketServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes})
+							}
+							var WebSocketServerProfileExisting []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.WebSocketServerProfile.ElementsAs(ctx, &WebSocketServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["websocket_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var WebSocketServerProfileResult []ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel
+								for WebSocketServerProfileIdx, WebSocketServerProfileItem := range rawList {
+									_ = WebSocketServerProfileIdx
+									if WebSocketServerProfileItemMap, ok := WebSocketServerProfileItem.(map[string]interface{}); ok {
+										WebSocketServerProfileResult = append(WebSocketServerProfileResult, ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := WebSocketServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes}, WebSocketServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			ImmediateActionOnServiceDown: func() *ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel {
+				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
+						ImmediateActionOnServiceDownDrop: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop.IsUnknown() {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop
+							}
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						ImmediateActionOnServiceDownNone: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone.IsUnknown() {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone
+							}
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						ImmediateActionOnServiceDownReset: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset.IsUnknown() {
+								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset
+							}
+							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			LastHopPool: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.LastHopPool.IsNull() || len(data.VirtualServer.LastHopPool.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
+				}
+				var LastHopPoolExisting []ApplicationProfilesVirtualServerLastHopPoolModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.LastHopPool.IsNull() && !data.VirtualServer.LastHopPool.IsUnknown() {
+					data.VirtualServer.LastHopPool.ElementsAs(ctx, &LastHopPoolExisting, false)
+				}
+				if rawList, ok := blockData["last_hop_pool"].([]interface{}); ok && len(rawList) > 0 {
+					var LastHopPoolResult []ApplicationProfilesVirtualServerLastHopPoolModel
+					for LastHopPoolIdx, LastHopPoolItem := range rawList {
+						_ = LastHopPoolIdx
+						if LastHopPoolItemMap, ok := LastHopPoolItem.(map[string]interface{}); ok {
+							LastHopPoolResult = append(LastHopPoolResult, ApplicationProfilesVirtualServerLastHopPoolModel{
+								Kind: func() types.String {
+									if v, ok := LastHopPoolItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := LastHopPoolItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := LastHopPoolItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := LastHopPoolItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := LastHopPoolItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes}, LastHopPoolResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes})
+			}(),
+			Nat64: func() *ApplicationProfilesVirtualServerNat64Model {
+				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerNat64Model{
+						Nat64Disable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil && !data.VirtualServer.Nat64.Nat64Disable.IsUnknown() {
+								return data.VirtualServer.Nat64.Nat64Disable
+							}
+							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						Nat64Enable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil && !data.VirtualServer.Nat64.Nat64Enable.IsUnknown() {
+								return data.VirtualServer.Nat64.Nat64Enable
+							}
+							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PortTranslation: func() *ApplicationProfilesVirtualServerPortTranslationModel {
+				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerPortTranslationModel{
+						PortTranslationDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil && !data.VirtualServer.PortTranslation.PortTranslationDisable.IsUnknown() {
+								return data.VirtualServer.PortTranslation.PortTranslationDisable
+							}
+							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						PortTranslationEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil && !data.VirtualServer.PortTranslation.PortTranslationEnable.IsUnknown() {
+								return data.VirtualServer.PortTranslation.PortTranslationEnable
+							}
+							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			RequestLoggingProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.RequestLoggingProfile.IsNull() || len(data.VirtualServer.RequestLoggingProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
+				}
+				var RequestLoggingProfileExisting []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.RequestLoggingProfile.IsNull() && !data.VirtualServer.RequestLoggingProfile.IsUnknown() {
+					data.VirtualServer.RequestLoggingProfile.ElementsAs(ctx, &RequestLoggingProfileExisting, false)
+				}
+				if rawList, ok := blockData["request_logging_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var RequestLoggingProfileResult []ApplicationProfilesVirtualServerRequestLoggingProfileModel
+					for RequestLoggingProfileIdx, RequestLoggingProfileItem := range rawList {
+						_ = RequestLoggingProfileIdx
+						if RequestLoggingProfileItemMap, ok := RequestLoggingProfileItem.(map[string]interface{}); ok {
+							RequestLoggingProfileResult = append(RequestLoggingProfileResult, ApplicationProfilesVirtualServerRequestLoggingProfileModel{
+								Kind: func() types.String {
+									if v, ok := RequestLoggingProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := RequestLoggingProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := RequestLoggingProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := RequestLoggingProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := RequestLoggingProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes}, RequestLoggingProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes})
+			}(),
+			SourcePort: func() *ApplicationProfilesVirtualServerSourcePortModel {
+				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerSourcePortModel{
+						SourcePortChange: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortChange.IsUnknown() {
+								return data.VirtualServer.SourcePort.SourcePortChange
+							}
+							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						SourcePortPreserve: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortPreserve.IsUnknown() {
+								return data.VirtualServer.SourcePort.SourcePortPreserve
+							}
+							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						SourcePortPreserveStrict: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortPreserveStrict.IsUnknown() {
+								return data.VirtualServer.SourcePort.SourcePortPreserveStrict
+							}
+							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			StatisticsProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.StatisticsProfile.IsNull() || len(data.VirtualServer.StatisticsProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
+				}
+				var StatisticsProfileExisting []ApplicationProfilesVirtualServerStatisticsProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.StatisticsProfile.IsNull() && !data.VirtualServer.StatisticsProfile.IsUnknown() {
+					data.VirtualServer.StatisticsProfile.ElementsAs(ctx, &StatisticsProfileExisting, false)
+				}
+				if rawList, ok := blockData["statistics_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var StatisticsProfileResult []ApplicationProfilesVirtualServerStatisticsProfileModel
+					for StatisticsProfileIdx, StatisticsProfileItem := range rawList {
+						_ = StatisticsProfileIdx
+						if StatisticsProfileItemMap, ok := StatisticsProfileItem.(map[string]interface{}); ok {
+							StatisticsProfileResult = append(StatisticsProfileResult, ApplicationProfilesVirtualServerStatisticsProfileModel{
+								Kind: func() types.String {
+									if v, ok := StatisticsProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := StatisticsProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := StatisticsProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := StatisticsProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := StatisticsProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes}, StatisticsProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes})
+			}(),
+			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
+				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerTCPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.ClientSSLProfile.IsNull() || len(data.VirtualServer.TCP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.ClientSSLProfile.IsNull() && !data.VirtualServer.TCP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.TCP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := TCPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerTCPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.OCSPProfile.IsNull() || len(data.VirtualServer.TCP.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.OCSPProfile.IsNull() && !data.VirtualServer.TCP.OCSPProfile.IsUnknown() {
+								data.VirtualServer.TCP.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := TCPData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerTCPOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.ServerSSLProfile.IsNull() || len(data.VirtualServer.TCP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.ServerSSLProfile.IsNull() && !data.VirtualServer.TCP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.TCP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := TCPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerTCPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes})
+						}(),
+						TCPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPClientProfile.IsNull() || len(data.VirtualServer.TCP.TCPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
+							}
+							var TCPClientProfileExisting []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
+								data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							}
+							if rawList, ok := TCPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPClientProfileResult []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
+								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
+									_ = TCPClientProfileIdx
+									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
+										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerTCPTCPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPServerProfile.IsNull() || len(data.VirtualServer.TCP.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.TCPServerProfile.IsNull() && !data.VirtualServer.TCP.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.TCP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
+							if rawList, ok := TCPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerTCPTCPServerProfileModel
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerTCPTCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
+				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerUDPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.ClientSSLProfile.IsNull() || len(data.VirtualServer.UDP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.ClientSSLProfile.IsNull() && !data.VirtualServer.UDP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.UDP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := UDPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerUDPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.ServerSSLProfile.IsNull() || len(data.VirtualServer.UDP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.ServerSSLProfile.IsNull() && !data.VirtualServer.UDP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.UDP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := UDPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerUDPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes})
+						}(),
+						UDPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.UDPClientProfile.IsNull() || len(data.VirtualServer.UDP.UDPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes})
+							}
+							var UDPClientProfileExisting []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.UDPClientProfile.IsNull() && !data.VirtualServer.UDP.UDPClientProfile.IsUnknown() {
+								data.VirtualServer.UDP.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileExisting, false)
+							}
+							if rawList, ok := UDPData["udp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPClientProfileResult []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+								for UDPClientProfileIdx, UDPClientProfileItem := range rawList {
+									_ = UDPClientProfileIdx
+									if UDPClientProfileItemMap, ok := UDPClientProfileItem.(map[string]interface{}); ok {
+										UDPClientProfileResult = append(UDPClientProfileResult, ApplicationProfilesVirtualServerUDPUDPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes}, UDPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes})
+						}(),
+						UDPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.UDPServerProfile.IsNull() || len(data.VirtualServer.UDP.UDPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes})
+							}
+							var UDPServerProfileExisting []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.UDPServerProfile.IsNull() && !data.VirtualServer.UDP.UDPServerProfile.IsUnknown() {
+								data.VirtualServer.UDP.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileExisting, false)
+							}
+							if rawList, ok := UDPData["udp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPServerProfileResult []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+								for UDPServerProfileIdx, UDPServerProfileItem := range rawList {
+									_ = UDPServerProfileIdx
+									if UDPServerProfileItemMap, ok := UDPServerProfileItem.(map[string]interface{}); ok {
+										UDPServerProfileResult = append(UDPServerProfileResult, ApplicationProfilesVirtualServerUDPUDPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes}, UDPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VirtualServerState: func() *ApplicationProfilesVirtualServerVirtualServerStateModel {
+				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
+						StateDisabled: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil && !data.VirtualServer.VirtualServerState.StateDisabled.IsUnknown() {
+								return data.VirtualServer.VirtualServerState.StateDisabled
+							}
+							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						StateEnabled: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil && !data.VirtualServer.VirtualServerState.StateEnabled.IsUnknown() {
+								return data.VirtualServer.VirtualServerState.StateEnabled
+							}
+							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+			VsScore: func() types.Int64 {
+				if v, ok := blockData["vs_score"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

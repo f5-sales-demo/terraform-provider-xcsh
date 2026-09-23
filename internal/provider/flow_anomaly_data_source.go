@@ -142,15 +142,14 @@ func (d *FlowAnomalyDataSource) Read(ctx context.Context, req datasource.ReadReq
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["last_enabled_time"]; ok && v != nil {
-		data.LastEnabledTime = types.StringValue(fmt.Sprintf("%v", v))
+	apiResource := resource
+	if v, ok := apiResource.Spec["last_enabled_time"].(string); ok && v != "" {
+		data.LastEnabledTime = types.StringValue(v)
 	} else {
 		data.LastEnabledTime = types.StringNull()
 	}
-	if v, ok := resource.Spec["service_state"]; ok && v != nil {
-		data.ServiceState = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["service_state"].(string); ok && v != "" {
+		data.ServiceState = types.StringValue(v)
 	} else {
 		data.ServiceState = types.StringNull()
 	}

@@ -60,11 +60,63 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="bfd-disabled"></a>&#x2022; [`bfd_disabled`](#bfd-disabled) - Optional Object<br>Enable this option
+
+<a id="bfd-enabled"></a>&#x2022; [`bfd_enabled`](#bfd-enabled) - Optional String<br>BFD. BFD parameters
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the SiteMeshGroup
+
+<a id="disable-re-fallback"></a>&#x2022; [`disable_re_fallback`](#disable-re-fallback) - Optional Object<br>Configuration parameter for disable RE fallback
+
+<a id="enable-re-fallback"></a>&#x2022; [`enable_re_fallback`](#enable-re-fallback) - Optional Object<br>Configuration parameter for enable RE fallback
+
+<a id="full-mesh"></a>&#x2022; [`full_mesh`](#full-mesh) - Optional String<br>Full Mesh. Details of Full Mesh Group Type
+
+<a id="hub-mesh"></a>&#x2022; [`hub_mesh`](#hub-mesh) - Optional String<br>Hub Full Mesh. Details of Hub Full Mesh Group Type
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="spoke-mesh"></a>&#x2022; [`spoke_mesh`](#spoke-mesh) - Optional String<br>Spoke. Details of Spoke Mesh Group Type
+
+<a id="virtual-site"></a>&#x2022; [`virtual_site`](#virtual-site) - Optional List<br>Set of sites for which this mesh group config is valid. If 'Type' is Spoke, then it gives set of spoke sites. If 'Type' is Hub, then it gives set of hub sites
+
+<a id="multiplier"></a>&#x2022; [`multiplier`](#multiplier) - Optional Number<br>Specify Number of missed packets to bring session down'
+
+<a id="receive-interval-milliseconds"></a>&#x2022; [`receive_interval_milliseconds`](#receive-interval-milliseconds) - Optional Number<br>BFD receive interval timer, in milliseconds
+
+<a id="transmit-interval-milliseconds"></a>&#x2022; [`transmit_interval_milliseconds`](#transmit-interval-milliseconds) - Optional Number<br>BFD transmit interval timer, in milliseconds
+
+<a id="control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#control-and-data-plane-mesh) - Optional Object<br>Enable this option
+
+<a id="data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#data-plane-mesh) - Optional Object<br>Enable this option
+
+<a id="control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#control-and-data-plane-mesh) - Optional Object<br>Enable this option
+
+<a id="data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#data-plane-mesh) - Optional Object<br>Enable this option
+
+<a id="control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#control-and-data-plane-mesh) - Optional Object<br>Enable this option
+
+<a id="data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#data-plane-mesh) - Optional Object<br>Enable this option
+
+<a id="hub-mesh-group"></a>&#x2022; [`hub_mesh_group`](#hub-mesh-group) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 ---
 

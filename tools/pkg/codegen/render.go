@@ -448,8 +448,186 @@ func RenderFetchedComputedFieldsCode(attrs []openapi.TerraformAttribute, indent 
 	return RenderComputedFieldsCode(attrs, indent, "fetched")
 }
 
+// DataSourceReadableAttributes returns the server-readable spec surface for a
+// companion data source. Resource mutability and configuration validators do
+// not apply to computed lookup results, but sensitivity and exact wire names
+// do. Known write-only inputs are excluded at the generator boundary so they
+// cannot leak into provider schemas or Terraform state.
+func DataSourceReadableAttributes(resourceTitleCase string, attrs []openapi.TerraformAttribute) []openapi.TerraformAttribute {
+	return dataSourceReadableAttributes(resourceTitleCase, attrs, true)
+}
+
+func dataSourceReadableAttributes(resourceTitleCase string, attrs []openapi.TerraformAttribute, topLevel bool) []openapi.TerraformAttribute {
+	result := make([]openapi.TerraformAttribute, 0, len(attrs))
+	for _, attr := range attrs {
+		if topLevel && (!attr.IsSpecField || schema.IsMetadataField(attr.TfsdkTag)) {
+			continue
+		}
+		if attr.WriteOnly || (resourceTitleCase == "SecuremeshSiteV2" && attr.TfsdkTag == "software_settings") {
+			continue
+		}
+		readable := attr
+		readable.Required = false
+		readable.CreateRequired = false
+		readable.Optional = false
+		readable.Computed = true
+		readable.PlanModifier = ""
+		readable.StringDefault = ""
+		readable.ConflictsWith = nil
+		readable.OneOfGroup = ""
+		readable.NestedAttributes = dataSourceReadableAttributes(resourceTitleCase, attr.NestedAttributes, false)
+		result = append(result, readable)
+	}
+	return result
+}
+
+// DataSourceNamespaceDefault returns the resource namespace default, if one
+// is published by the immutable API contract.
+func DataSourceNamespaceDefault(attrs []openapi.TerraformAttribute) string {
+	for _, attr := range attrs {
+		if attr.TfsdkTag == "namespace" {
+			return attr.StringDefault
+		}
+	}
+	return ""
+}
+
+// DataSourceNeedsAttrImport reports whether generated data-source code refers
+// to framework attr.Type through nested model definitions or empty markers.
+func DataSourceNeedsAttrImport(attrs []openapi.TerraformAttribute) bool {
+	for _, attr := range attrs {
+		if attr.IsBlock || attr.EmptyObjectMarker || DataSourceNeedsAttrImport(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
+// RenderDataSourceModelFields emits typed computed spec fields. Nested model
+// types are shared with the generated resource in the same provider package.
+func RenderDataSourceModelFields(resourceTitleCase string, attrs []openapi.TerraformAttribute) string {
+	var sb strings.Builder
+	for _, attr := range attrs {
+		if attr.IsBlock {
+			continue
+		}
+		typeName := "String"
+		switch attr.Type {
+		case "int64":
+			typeName = "Int64"
+		case "bool":
+			typeName = "Bool"
+		case "map":
+			typeName = "Map"
+		case "list":
+			typeName = "List"
+		case "object":
+			typeName = "Object"
+		}
+		sb.WriteString(fmt.Sprintf("\t%s types.%s `tfsdk:\"%s\"`\n", attr.GoName, typeName, attr.TfsdkTag))
+	}
+	sb.WriteString(RenderBlockFields(resourceTitleCase, attrs))
+	return sb.String()
+}
+
+// RenderDataSourceSchemaAttributes emits recursively typed, computed-only
+// attributes. Data-source outputs are attributes rather than configuration
+// blocks so callers can traverse them in expressions and preconditions.
+func RenderDataSourceSchemaAttributes(attrs []openapi.TerraformAttribute, indent string) string {
+	var sb strings.Builder
+	for _, attr := range attrs {
+		description := EscapeGoString(attr.Description)
+		if attr.IsBlock {
+			typeName := "SingleNestedAttribute"
+			if attr.NestedBlockType == "list" {
+				typeName = "ListNestedAttribute"
+			}
+			sb.WriteString(fmt.Sprintf("%s\"%s\": schema.%s{\n", indent, attr.TfsdkTag, typeName))
+			sb.WriteString(fmt.Sprintf("%s\tMarkdownDescription: %q,\n", indent, description))
+			if attr.NestedBlockType == "list" {
+				sb.WriteString(fmt.Sprintf("%s\tNestedObject: schema.NestedAttributeObject{\n", indent))
+				sb.WriteString(fmt.Sprintf("%s\t\tAttributes: map[string]schema.Attribute{\n", indent))
+				sb.WriteString(RenderDataSourceSchemaAttributes(attr.NestedAttributes, indent+"\t\t\t"))
+				sb.WriteString(fmt.Sprintf("%s\t\t},\n%s\t},\n", indent, indent))
+			} else {
+				sb.WriteString(fmt.Sprintf("%s\tAttributes: map[string]schema.Attribute{\n", indent))
+				sb.WriteString(RenderDataSourceSchemaAttributes(attr.NestedAttributes, indent+"\t\t"))
+				sb.WriteString(fmt.Sprintf("%s\t},\n", indent))
+			}
+			sb.WriteString(fmt.Sprintf("%s\tComputed: true,\n", indent))
+			if attr.Sensitive {
+				sb.WriteString(fmt.Sprintf("%s\tSensitive: true,\n", indent))
+			}
+			sb.WriteString(fmt.Sprintf("%s},\n", indent))
+			continue
+		}
+
+		typeName := "String"
+		switch attr.Type {
+		case "int64":
+			typeName = "Int64"
+		case "bool":
+			typeName = "Bool"
+		case "map":
+			typeName = "Map"
+		case "list":
+			typeName = "List"
+		case "object":
+			typeName = "Object"
+		}
+		sb.WriteString(fmt.Sprintf("%s\"%s\": schema.%sAttribute{\n", indent, attr.TfsdkTag, typeName))
+		sb.WriteString(fmt.Sprintf("%s\tMarkdownDescription: %q,\n", indent, description))
+		sb.WriteString(fmt.Sprintf("%s\tComputed: true,\n", indent))
+		if attr.Sensitive {
+			sb.WriteString(fmt.Sprintf("%s\tSensitive: true,\n", indent))
+		}
+		if attr.Type == "map" || attr.Type == "list" {
+			elementType := "types.StringType"
+			switch attr.ElementType {
+			case "int64":
+				elementType = "types.Int64Type"
+			case "bool":
+				elementType = "types.BoolType"
+			}
+			sb.WriteString(fmt.Sprintf("%s\tElementType: %s,\n", indent, elementType))
+		}
+		if attr.EmptyObjectMarker {
+			sb.WriteString(fmt.Sprintf("%s\tAttributeTypes: map[string]attr.Type{},\n", indent))
+		}
+		sb.WriteString(fmt.Sprintf("%s},\n", indent))
+	}
+	return sb.String()
+}
+
+// RenderDataSourceSpecUnmarshalCode reuses the resource decoder in a
+// response-authoritative mode. That mode keeps model naming and wire-specific
+// scalar behavior, while disabling resource-only import suppressions and
+// managed-list filtering so data sources expose every server-readable field.
+func RenderDataSourceSpecUnmarshalCode(resourceTitleCase string, attrs []openapi.TerraformAttribute, indent string) (string, error) {
+	if len(attrs) == 0 {
+		return "", nil
+	}
+	renderAttrs := append([]openapi.TerraformAttribute(nil), attrs...)
+	for i := range renderAttrs {
+		renderAttrs[i].Required = true
+		renderAttrs[i].Computed = false
+	}
+	code, err := renderSpecUnmarshalCode(renderAttrs, indent, resourceTitleCase, true)
+	if err != nil {
+		return "", err
+	}
+	if strings.Contains(code, "isImport") {
+		code = indent + "isImport := true\n" + code
+	}
+	return code, nil
+}
+
 // RenderSpecUnmarshalCode generates Go code to unmarshal spec fields from API response to Terraform state
 func RenderSpecUnmarshalCode(attrs []openapi.TerraformAttribute, indent string, resourceTitleCase string) (string, error) {
+	return renderSpecUnmarshalCode(attrs, indent, resourceTitleCase, false)
+}
+
+func renderSpecUnmarshalCode(attrs []openapi.TerraformAttribute, indent string, resourceTitleCase string, responseAuthoritative bool) (string, error) {
 	specFields := schema.FilterSpecFields(attrs)
 	if len(specFields) == 0 {
 		return "", nil
@@ -463,17 +641,17 @@ func RenderSpecUnmarshalCode(attrs []openapi.TerraformAttribute, indent string, 
 		}
 		if attr.IsBlock {
 			if attr.NestedBlockType == "list" {
-				if err := renderUnmarshalTopLevelList(&sb, resourceTitleCase, attr, indent); err != nil {
+				if err := renderUnmarshalTopLevelList(&sb, resourceTitleCase, attr, indent, responseAuthoritative); err != nil {
 					return "", fmt.Errorf("unmarshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
 				}
 			} else {
-				if err := renderUnmarshalTopLevelSingle(&sb, resourceTitleCase, attr, indent); err != nil {
+				if err := renderUnmarshalTopLevelSingle(&sb, resourceTitleCase, attr, indent, responseAuthoritative); err != nil {
 					return "", fmt.Errorf("unmarshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
 				}
 			}
 			continue
 		}
-		if err := renderUnmarshalTopLevelScalar(&sb, resourceTitleCase, attr, indent); err != nil {
+		if err := renderUnmarshalTopLevelScalar(&sb, resourceTitleCase, attr, indent, responseAuthoritative); err != nil {
 			return "", fmt.Errorf("unmarshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
 		}
 	}
@@ -498,7 +676,8 @@ func nestedObjectTypeExpr(resourceTitleCase, childPath string, attr openapi.Terr
 }
 
 // renderUnmarshalTopLevelScalar assigns a primitive/list spec field directly to data.<Field>.
-func renderUnmarshalTopLevelScalar(sb *strings.Builder, resourceTitleCase string, attr openapi.TerraformAttribute, indent string) error {
+func renderUnmarshalTopLevelScalar(sb *strings.Builder, resourceTitleCase string, attr openapi.TerraformAttribute, indent string, responseAuthoritativeOpt ...bool) error {
+	responseAuthoritative := len(responseAuthoritativeOpt) > 0 && responseAuthoritativeOpt[0]
 	if attr.ConversionError != "" {
 		return fmt.Errorf("%s", attr.ConversionError)
 	}
@@ -546,7 +725,7 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, resourceTitleCase string
 		sb.WriteString(fmt.Sprintf("%sif !isImport && !data.%s.IsUnknown() {\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\t// Normal Read: preserve the configured marker presence.\n", indent))
 		sb.WriteString(fmt.Sprintf("%s} else if _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok", indent, jsonName))
-		if isImportDefaultSuppressed(resourceTitleCase, jsonName) {
+		if !responseAuthoritative && isImportDefaultSuppressed(resourceTitleCase, jsonName) {
 			sb.WriteString(" && !isImport")
 		}
 		sb.WriteString(" {\n")
@@ -600,7 +779,8 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, resourceTitleCase string
 
 // renderUnmarshalTopLevelList rebuilds a top-level list block (always types.List) from the API
 // response, converting to types.List via ListValueFrom.
-func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string) error {
+func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string, responseAuthoritativeOpt ...bool) error {
+	responseAuthoritative := len(responseAuthoritativeOpt) > 0 && responseAuthoritativeOpt[0]
 	if attr.ConversionError != "" {
 		return fmt.Errorf("%s", attr.ConversionError)
 	}
@@ -636,7 +816,7 @@ func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.Te
 		sb.WriteString(fmt.Sprintf("%s\t\tif itemMap, ok := item.(map[string]interface{}); ok {\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t%s = append(%s, %s{\n", indent, listVar, listVar, elemModel))
 		for _, child := range attr.NestedAttributes {
-			if err := renderUnmarshalChild(sb, rc, childPath, child, "itemMap", existingVar+"[listIdx]", fmt.Sprintf("len(%s) > listIdx", existingVar), "list", indent+"\t\t\t\t"); err != nil {
+			if err := renderUnmarshalChild(sb, rc, childPath, child, "itemMap", existingVar+"[listIdx]", fmt.Sprintf("len(%s) > listIdx", existingVar), "list", indent+"\t\t\t\t", responseAuthoritative); err != nil {
 				return err
 			}
 		}
@@ -665,7 +845,8 @@ func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.Te
 }
 
 // renderUnmarshalTopLevelSingle rebuilds a top-level single block (pointer) from the API response.
-func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string) error {
+func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string, responseAuthoritativeOpt ...bool) error {
+	responseAuthoritative := len(responseAuthoritativeOpt) > 0 && responseAuthoritativeOpt[0]
 	if attr.ConversionError != "" {
 		return fmt.Errorf("%s", attr.ConversionError)
 	}
@@ -682,7 +863,7 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 		// drift. Omitting a default member = the server re-applies the same
 		// default, so behavior is unchanged. Non-default/user-intent markers still
 		// import normally.
-		if !isImportDefaultSuppressed(rc, jsonName) {
+		if responseAuthoritative || !isImportDefaultSuppressed(rc, jsonName) {
 			sb.WriteString(fmt.Sprintf("%sif _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && isImport && data.%s == nil {\n", indent, jsonName, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%sEmptyModel{}\n", indent, fieldName, rc))
 			sb.WriteString(fmt.Sprintf("%s}\n", indent))
@@ -696,13 +877,13 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 	// the user never configured, causing post-import drift. A non-empty response
 	// (user configured something) still imports normally.
 	buildGuard := fmt.Sprintf("(isImport || data.%s != nil)", fieldName)
-	if isImportDefaultSuppressed(rc, jsonName) {
+	if !responseAuthoritative && isImportDefaultSuppressed(rc, jsonName) {
 		buildGuard = fmt.Sprintf("((isImport && len(blockData) > 0) || data.%s != nil)", fieldName)
 	}
 	sb.WriteString(fmt.Sprintf("%sif blockData, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && %s {\n", indent, jsonName, buildGuard))
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%s{\n", indent, fieldName, model))
 	for _, child := range attr.NestedAttributes {
-		if err := renderUnmarshalChild(sb, rc, childPath, child, "blockData", "data."+fieldName, "data."+fieldName+" != nil", "single", indent+"\t\t"); err != nil {
+		if err := renderUnmarshalChild(sb, rc, childPath, child, "blockData", "data."+fieldName, "data."+fieldName+" != nil", "single", indent+"\t\t", responseAuthoritative); err != nil {
 			return err
 		}
 	}
@@ -716,21 +897,22 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 // "single" or "list" (the block kind this child lives in). stateBase is the Go expr for the
 // existing-state model value at this level (for drift-preserving reads), or "" when unavailable;
 // stateGuard is a boolean Go expr true when stateBase is safe to read. It recurses to any depth.
-func renderUnmarshalChild(sb *strings.Builder, rc, prefixPath string, child openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
+func renderUnmarshalChild(sb *strings.Builder, rc, prefixPath string, child openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string, responseAuthoritativeOpt ...bool) error {
+	responseAuthoritative := len(responseAuthoritativeOpt) > 0 && responseAuthoritativeOpt[0]
 	if !child.IsBlock {
-		if err := renderUnmarshalScalarChild(sb, rc, child, srcMap, stateBase, stateGuard, container, indent); err != nil {
+		if err := renderUnmarshalScalarChild(sb, rc, child, srcMap, stateBase, stateGuard, container, indent, responseAuthoritative); err != nil {
 			return fmt.Errorf("field %q: %w", child.Name, err)
 		}
 		return nil
 	}
 	childPath := prefixPath + naming.ToResourceTypeName(child.TfsdkTag)
 	if child.NestedBlockType == "list" {
-		if err := renderUnmarshalListChild(sb, rc, childPath, child, srcMap, stateBase, stateGuard, container, indent); err != nil {
+		if err := renderUnmarshalListChild(sb, rc, childPath, child, srcMap, stateBase, stateGuard, container, indent, responseAuthoritative); err != nil {
 			return fmt.Errorf("field %q: %w", child.Name, err)
 		}
 		return nil
 	}
-	if err := renderUnmarshalSingleChild(sb, rc, childPath, child, srcMap, stateBase, stateGuard, container, indent); err != nil {
+	if err := renderUnmarshalSingleChild(sb, rc, childPath, child, srcMap, stateBase, stateGuard, container, indent, responseAuthoritative); err != nil {
 		return fmt.Errorf("field %q: %w", child.Name, err)
 	}
 	return nil
@@ -738,7 +920,8 @@ func renderUnmarshalChild(sb *strings.Builder, rc, prefixPath string, child open
 
 // renderUnmarshalScalarChild emits the closure entry for a primitive/list child.
 // rc is the resource title-case prefix, used for import-default suppression lookups.
-func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
+func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string, responseAuthoritativeOpt ...bool) error {
+	responseAuthoritative := len(responseAuthoritativeOpt) > 0 && responseAuthoritativeOpt[0]
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -798,7 +981,7 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
-		if isImportDefaultSuppressed(rc, jsonName) {
+		if !responseAuthoritative && isImportDefaultSuppressed(rc, jsonName) {
 			// On import a suppressed server-default bool at its false default must not
 			// be populated (config omits it) — otherwise the next plan shows a spurious
 			// "false -> null". A true value is a real user choice and still imports.
@@ -824,7 +1007,7 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
 		sb.WriteString(fmt.Sprintf("%s\tif _, ok := %s[\"%s\"].(map[string]interface{}); ok", indent, srcMap, jsonName))
-		if isImportDefaultSuppressed(rc, jsonName) {
+		if !responseAuthoritative && isImportDefaultSuppressed(rc, jsonName) {
 			sb.WriteString(" && !isImport")
 		}
 		sb.WriteString(" {\n")
@@ -925,7 +1108,8 @@ func hasComputedDescendant(attr openapi.TerraformAttribute) bool {
 }
 
 // renderUnmarshalSingleChild emits the closure entry for a single nested block child.
-func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
+func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string, responseAuthoritativeOpt ...bool) error {
+	responseAuthoritative := len(responseAuthoritativeOpt) > 0 && responseAuthoritativeOpt[0]
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -958,7 +1142,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 		// Root-only leaves (#1145, e.g. disable_waf) are a server default at the resource
 		// root but a DECLARED oneof arm here (nested / inside a list element), so they must
 		// read back and round-trip — skip suppression for them at this nested site.
-		suppress := isImportDefaultSuppressed(rc, jsonName) && !isSuppressionRootOnly(rc, jsonName)
+		suppress := !responseAuthoritative && isImportDefaultSuppressed(rc, jsonName) && !isSuppressionRootOnly(rc, jsonName)
 		popIndent := indent
 		if suppress {
 			sb.WriteString(fmt.Sprintf("%s\tif !isImport {\n", indent))
@@ -1006,7 +1190,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	sb.WriteString(fmt.Sprintf("%s\tif %s, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", indent, dataVar, srcMap, jsonName))
 	sb.WriteString(fmt.Sprintf("%s\t\treturn &%s{\n", indent, model))
 	for _, child := range attr.NestedAttributes {
-		if err := renderUnmarshalChild(sb, rc, childPath, child, dataVar, childStateBase, childStateGuard, "single", indent+"\t\t\t"); err != nil {
+		if err := renderUnmarshalChild(sb, rc, childPath, child, dataVar, childStateBase, childStateGuard, "single", indent+"\t\t\t", responseAuthoritative); err != nil {
 			return err
 		}
 	}
@@ -1019,7 +1203,8 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 
 // renderUnmarshalListChild emits the closure entry for a list nested block child. It always
 // returns types.List, matching the Go model (a native slice cannot hold unknown values).
-func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string) error {
+func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string, responseAuthoritativeOpt ...bool) error {
+	responseAuthoritative := len(responseAuthoritativeOpt) > 0 && responseAuthoritativeOpt[0]
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -1044,7 +1229,7 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 	// or a config that omits it drifts on round-trip. Matched by leaf name at any
 	// depth, mirroring the top-level list suppression. Verified live on the
 	// f5-sales-demo WAF exhaustive-coverage matrix.
-	if isImportDefaultSuppressed(rc, jsonName) {
+	if !responseAuthoritative && isImportDefaultSuppressed(rc, jsonName) {
 		if isTypesList {
 			sb.WriteString(fmt.Sprintf("%s\tif isImport {\n%s\t\treturn types.ListNull(%s)\n%s\t}\n", indent, indent, objType, indent))
 		} else {
@@ -1090,7 +1275,7 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 	// not declare them does not plan a forbidden delete. Filtering up front keeps
 	// prior-state positional threading aligned. See isSystemManagedFilteredList and
 	// filterSystemManagedRrSetGroups (internal/provider/provider_helpers.go).
-	if isSystemManagedFilteredList(rc, jsonName) {
+	if !responseAuthoritative && isSystemManagedFilteredList(rc, jsonName) {
 		sb.WriteString(fmt.Sprintf("%s\t\trawList = filterSystemManagedRrSetGroups(rawList)\n", indent))
 	}
 	sb.WriteString(fmt.Sprintf("%s\t\tvar %s []%s\n", indent, resultVar, elemModel))
@@ -1111,7 +1296,7 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 		sb.WriteString(fmt.Sprintf("%s\t\t\tif %s, ok := %s.(map[string]interface{}); ok {\n", indent, mapVar, loopVar))
 		sb.WriteString(fmt.Sprintf("%s\t\t\t\t%s = append(%s, %s{\n", indent, resultVar, resultVar, elemModel))
 		for _, child := range attr.NestedAttributes {
-			if err := renderUnmarshalChild(sb, rc, childPath, child, mapVar, childStateBase, childStateGuard, "list", indent+"\t\t\t\t\t"); err != nil {
+			if err := renderUnmarshalChild(sb, rc, childPath, child, mapVar, childStateBase, childStateGuard, "list", indent+"\t\t\t\t\t", responseAuthoritative); err != nil {
 				return err
 			}
 		}

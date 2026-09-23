@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,50 +28,280 @@ type SiteDataSource struct {
 	client *client.Client
 }
 
+// SiteEmptyModel represents empty nested blocks
+type SiteEmptyModel struct {
+}
+
+// SiteAdminUserCredentialsModel represents admin_user_credentials block
+type SiteAdminUserCredentialsModel struct {
+	SSHKey        types.String                                `tfsdk:"ssh_key"`
+	AdminPassword *SiteAdminUserCredentialsAdminPasswordModel `tfsdk:"admin_password"`
+}
+
+// SiteAdminUserCredentialsModelAttrTypes defines the attribute types for SiteAdminUserCredentialsModel
+var SiteAdminUserCredentialsModelAttrTypes = map[string]attr.Type{
+	"ssh_key":        types.StringType,
+	"admin_password": types.ObjectType{AttrTypes: SiteAdminUserCredentialsAdminPasswordModelAttrTypes},
+}
+
+// SiteAdminUserCredentialsAdminPasswordModel represents admin_password block
+type SiteAdminUserCredentialsAdminPasswordModel struct {
+	BlindfoldSecretInfo *SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *SiteAdminUserCredentialsAdminPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
+}
+
+// SiteAdminUserCredentialsAdminPasswordModelAttrTypes defines the attribute types for SiteAdminUserCredentialsAdminPasswordModel
+var SiteAdminUserCredentialsAdminPasswordModelAttrTypes = map[string]attr.Type{
+	"blindfold_secret_info": types.ObjectType{AttrTypes: SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: SiteAdminUserCredentialsAdminPasswordClearSecretInfoModelAttrTypes},
+}
+
+// SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
+type SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel struct {
+	DecryptionProvider types.String `tfsdk:"decryption_provider"`
+	Location           types.String `tfsdk:"location"`
+	StoreProvider      types.String `tfsdk:"store_provider"`
+}
+
+// SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModelAttrTypes defines the attribute types for SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel
+var SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModelAttrTypes = map[string]attr.Type{
+	"decryption_provider": types.StringType,
+	"location":            types.StringType,
+	"store_provider":      types.StringType,
+}
+
+// SiteAdminUserCredentialsAdminPasswordClearSecretInfoModel represents clear_secret_info block
+type SiteAdminUserCredentialsAdminPasswordClearSecretInfoModel struct {
+	Provider types.String `tfsdk:"provider_ref"`
+	URL      types.String `tfsdk:"url"`
+}
+
+// SiteAdminUserCredentialsAdminPasswordClearSecretInfoModelAttrTypes defines the attribute types for SiteAdminUserCredentialsAdminPasswordClearSecretInfoModel
+var SiteAdminUserCredentialsAdminPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
+	"provider_ref": types.StringType,
+	"url":          types.StringType,
+}
+
+// SiteConnectedREModel represents connected_re block
+type SiteConnectedREModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// SiteConnectedREModelAttrTypes defines the attribute types for SiteConnectedREModel
+var SiteConnectedREModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// SiteConnectedREForConfigModel represents connected_re_for_config block
+type SiteConnectedREForConfigModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// SiteConnectedREForConfigModelAttrTypes defines the attribute types for SiteConnectedREForConfigModel
+var SiteConnectedREForConfigModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// SiteCoordinatesModel represents coordinates block
+type SiteCoordinatesModel struct {
+	Latitude  types.Int64 `tfsdk:"latitude"`
+	Longitude types.Int64 `tfsdk:"longitude"`
+}
+
+// SiteCoordinatesModelAttrTypes defines the attribute types for SiteCoordinatesModel
+var SiteCoordinatesModelAttrTypes = map[string]attr.Type{
+	"latitude":  types.Int64Type,
+	"longitude": types.Int64Type,
+}
+
+// SiteDefaultUnderlayNetworkModel represents default_underlay_network block
+type SiteDefaultUnderlayNetworkModel struct {
+	SiteLocalInside  types.Object `tfsdk:"site_local_inside"`
+	SiteLocalOutside types.Object `tfsdk:"site_local_outside"`
+}
+
+// SiteDefaultUnderlayNetworkModelAttrTypes defines the attribute types for SiteDefaultUnderlayNetworkModel
+var SiteDefaultUnderlayNetworkModelAttrTypes = map[string]attr.Type{
+	"site_local_inside":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"site_local_outside": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SiteKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
+type SiteKubernetesUpgradeDrainModel struct {
+	DisableUpgradeDrain types.Object                                       `tfsdk:"disable_upgrade_drain"`
+	EnableUpgradeDrain  *SiteKubernetesUpgradeDrainEnableUpgradeDrainModel `tfsdk:"enable_upgrade_drain"`
+}
+
+// SiteKubernetesUpgradeDrainModelAttrTypes defines the attribute types for SiteKubernetesUpgradeDrainModel
+var SiteKubernetesUpgradeDrainModelAttrTypes = map[string]attr.Type{
+	"disable_upgrade_drain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_upgrade_drain":  types.ObjectType{AttrTypes: SiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes},
+}
+
+// SiteKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
+type SiteKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
+	DisableVegaUpgradeMode            types.Object `tfsdk:"disable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64  `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64  `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64  `tfsdk:"drain_node_timeout"`
+	EnableVegaUpgradeMode             types.Object `tfsdk:"enable_vega_upgrade_mode"`
+}
+
+// SiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for SiteKubernetesUpgradeDrainEnableUpgradeDrainModel
+var SiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"drain_max_unavailable_node_count":      types.Int64Type,
+	"drain_max_unavailable_node_percentage": types.Int64Type,
+	"drain_node_timeout":                    types.Int64Type,
+	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SiteMainNodesModel represents main_nodes block
+type SiteMainNodesModel struct {
+	Name       types.String `tfsdk:"name"`
+	SLIAddress types.String `tfsdk:"sli_address"`
+	SloAddress types.String `tfsdk:"slo_address"`
+}
+
+// SiteMainNodesModelAttrTypes defines the attribute types for SiteMainNodesModel
+var SiteMainNodesModelAttrTypes = map[string]attr.Type{
+	"name":        types.StringType,
+	"sli_address": types.StringType,
+	"slo_address": types.StringType,
+}
+
+// SitePrivateConnectivityModel represents private_connectivity block
+type SitePrivateConnectivityModel struct {
+	PrivateNetworkName types.String                           `tfsdk:"private_network_name"`
+	CloudLink          *SitePrivateConnectivityCloudLinkModel `tfsdk:"cloud_link"`
+}
+
+// SitePrivateConnectivityModelAttrTypes defines the attribute types for SitePrivateConnectivityModel
+var SitePrivateConnectivityModelAttrTypes = map[string]attr.Type{
+	"private_network_name": types.StringType,
+	"cloud_link":           types.ObjectType{AttrTypes: SitePrivateConnectivityCloudLinkModelAttrTypes},
+}
+
+// SitePrivateConnectivityCloudLinkModel represents cloud_link block
+type SitePrivateConnectivityCloudLinkModel struct {
+	Name  types.String `tfsdk:"name"`
+	State types.String `tfsdk:"state"`
+}
+
+// SitePrivateConnectivityCloudLinkModelAttrTypes defines the attribute types for SitePrivateConnectivityCloudLinkModel
+var SitePrivateConnectivityCloudLinkModelAttrTypes = map[string]attr.Type{
+	"name":  types.StringType,
+	"state": types.StringType,
+}
+
+// SiteRESelectModel represents re_select block
+type SiteRESelectModel struct {
+	GeoProximity      types.Object                 `tfsdk:"geo_proximity"`
+	SpecificGeography types.String                 `tfsdk:"specific_geography"`
+	SpecificRE        *SiteRESelectSpecificREModel `tfsdk:"specific_re"`
+}
+
+// SiteRESelectModelAttrTypes defines the attribute types for SiteRESelectModel
+var SiteRESelectModelAttrTypes = map[string]attr.Type{
+	"geo_proximity":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"specific_geography": types.StringType,
+	"specific_re":        types.ObjectType{AttrTypes: SiteRESelectSpecificREModelAttrTypes},
+}
+
+// SiteRESelectSpecificREModel represents specific_re block
+type SiteRESelectSpecificREModel struct {
+	BackupRE  types.String `tfsdk:"backup_re"`
+	PrimaryRE types.String `tfsdk:"primary_re"`
+}
+
+// SiteRESelectSpecificREModelAttrTypes defines the attribute types for SiteRESelectSpecificREModel
+var SiteRESelectSpecificREModelAttrTypes = map[string]attr.Type{
+	"backup_re":  types.StringType,
+	"primary_re": types.StringType,
+}
+
+// SiteVIPParamsPerAzModel represents vip_params_per_az block
+type SiteVIPParamsPerAzModel struct {
+	AzName          types.String `tfsdk:"az_name"`
+	InsideVIP       types.List   `tfsdk:"inside_vip"`
+	InsideVIPCname  types.String `tfsdk:"inside_vip_cname"`
+	InsideVIPV6     types.List   `tfsdk:"inside_vip_v6"`
+	OutsideVIP      types.List   `tfsdk:"outside_vip"`
+	OutsideVIPCname types.String `tfsdk:"outside_vip_cname"`
+	OutsideVIPV6    types.List   `tfsdk:"outside_vip_v6"`
+}
+
+// SiteVIPParamsPerAzModelAttrTypes defines the attribute types for SiteVIPParamsPerAzModel
+var SiteVIPParamsPerAzModelAttrTypes = map[string]attr.Type{
+	"az_name":           types.StringType,
+	"inside_vip":        types.ListType{ElemType: types.StringType},
+	"inside_vip_cname":  types.StringType,
+	"inside_vip_v6":     types.ListType{ElemType: types.StringType},
+	"outside_vip":       types.ListType{ElemType: types.StringType},
+	"outside_vip_cname": types.StringType,
+	"outside_vip_v6":    types.ListType{ElemType: types.StringType},
+}
+
 type SiteDataSourceModel struct {
-	ID                       types.String `tfsdk:"id"`
-	Name                     types.String `tfsdk:"name"`
-	Namespace                types.String `tfsdk:"namespace"`
-	Description              types.String `tfsdk:"description"`
-	Labels                   types.Map    `tfsdk:"labels"`
-	Annotations              types.Map    `tfsdk:"annotations"`
-	Address                  types.String `tfsdk:"address"`
-	AdminUserCredentials     types.String `tfsdk:"admin_user_credentials"`
-	BGPPeerAddress           types.String `tfsdk:"bgp_peer_address"`
-	BGPRouterID              types.String `tfsdk:"bgp_router_id"`
-	CESiteMode               types.String `tfsdk:"ce_site_mode"`
-	ConnectedRE              types.String `tfsdk:"connected_re"`
-	ConnectedREForConfig     types.String `tfsdk:"connected_re_for_config"`
-	Coordinates              types.String `tfsdk:"coordinates"`
-	DefaultUnderlayNetwork   types.String `tfsdk:"default_underlay_network"`
-	DesiredPoolCount         types.String `tfsdk:"desired_pool_count"`
-	GlobalAccessK8SEnabled   types.String `tfsdk:"global_access_k8s_enabled"`
-	InsideNameserver         types.String `tfsdk:"inside_nameserver"`
-	InsideVIP                types.String `tfsdk:"inside_vip"`
-	IpsecSSLNodesFqdn        types.String `tfsdk:"ipsec_ssl_nodes_fqdn"`
-	KubernetesUpgradeDrain   types.String `tfsdk:"kubernetes_upgrade_drain"`
-	LocalAccessK8SEnabled    types.String `tfsdk:"local_access_k8s_enabled"`
-	LocalK8SAccessEnabled    types.String `tfsdk:"local_k8s_access_enabled"`
-	MainNodes                types.String `tfsdk:"main_nodes"`
-	MultusEnabled            types.String `tfsdk:"multus_enabled"`
-	OperatingSystemVersion   types.String `tfsdk:"operating_system_version"`
-	OutsideNameserver        types.String `tfsdk:"outside_nameserver"`
-	OutsideVIP               types.String `tfsdk:"outside_vip"`
-	PrivateConnectivity      types.String `tfsdk:"private_connectivity"`
-	RESelect                 types.String `tfsdk:"re_select"`
-	Region                   types.String `tfsdk:"region"`
-	SiteState                types.String `tfsdk:"site_state"`
-	SiteSubtype              types.String `tfsdk:"site_subtype"`
-	SiteToSiteNetworkType    types.String `tfsdk:"site_to_site_network_type"`
-	SiteToSiteTunnelIP       types.String `tfsdk:"site_to_site_tunnel_ip"`
-	SiteType                 types.String `tfsdk:"site_type"`
-	TunnelDeadTimeout        types.String `tfsdk:"tunnel_dead_timeout"`
-	TunnelType               types.String `tfsdk:"tunnel_type"`
-	VIPParamsPerAz           types.String `tfsdk:"vip_params_per_az"`
-	VIPVrrpMode              types.String `tfsdk:"vip_vrrp_mode"`
-	VMEnabled                types.String `tfsdk:"vm_enabled"`
-	VolterraSoftwareOverride types.String `tfsdk:"volterra_software_override"`
-	VolterraSoftwareVersion  types.String `tfsdk:"volterra_software_version"`
+	ID                       types.String                     `tfsdk:"id"`
+	Name                     types.String                     `tfsdk:"name"`
+	Namespace                types.String                     `tfsdk:"namespace"`
+	Description              types.String                     `tfsdk:"description"`
+	Labels                   types.Map                        `tfsdk:"labels"`
+	Annotations              types.Map                        `tfsdk:"annotations"`
+	Address                  types.String                     `tfsdk:"address"`
+	BGPPeerAddress           types.String                     `tfsdk:"bgp_peer_address"`
+	BGPRouterID              types.String                     `tfsdk:"bgp_router_id"`
+	CESiteMode               types.String                     `tfsdk:"ce_site_mode"`
+	DesiredPoolCount         types.Int64                      `tfsdk:"desired_pool_count"`
+	GlobalAccessK8SEnabled   types.Bool                       `tfsdk:"global_access_k8s_enabled"`
+	InsideNameserver         types.String                     `tfsdk:"inside_nameserver"`
+	InsideVIP                types.String                     `tfsdk:"inside_vip"`
+	IpsecSSLNodesFqdn        types.List                       `tfsdk:"ipsec_ssl_nodes_fqdn"`
+	LocalAccessK8SEnabled    types.Bool                       `tfsdk:"local_access_k8s_enabled"`
+	LocalK8SAccessEnabled    types.Bool                       `tfsdk:"local_k8s_access_enabled"`
+	MultusEnabled            types.Bool                       `tfsdk:"multus_enabled"`
+	OperatingSystemVersion   types.String                     `tfsdk:"operating_system_version"`
+	OutsideNameserver        types.String                     `tfsdk:"outside_nameserver"`
+	OutsideVIP               types.String                     `tfsdk:"outside_vip"`
+	Region                   types.String                     `tfsdk:"region"`
+	SiteState                types.String                     `tfsdk:"site_state"`
+	SiteSubtype              types.String                     `tfsdk:"site_subtype"`
+	SiteToSiteNetworkType    types.String                     `tfsdk:"site_to_site_network_type"`
+	SiteToSiteTunnelIP       types.String                     `tfsdk:"site_to_site_tunnel_ip"`
+	SiteType                 types.String                     `tfsdk:"site_type"`
+	TunnelDeadTimeout        types.Int64                      `tfsdk:"tunnel_dead_timeout"`
+	TunnelType               types.String                     `tfsdk:"tunnel_type"`
+	VIPVrrpMode              types.String                     `tfsdk:"vip_vrrp_mode"`
+	VMEnabled                types.Bool                       `tfsdk:"vm_enabled"`
+	VolterraSoftwareOverride types.String                     `tfsdk:"volterra_software_override"`
+	VolterraSoftwareVersion  types.String                     `tfsdk:"volterra_software_version"`
+	AdminUserCredentials     *SiteAdminUserCredentialsModel   `tfsdk:"admin_user_credentials"`
+	ConnectedRE              types.List                       `tfsdk:"connected_re"`
+	ConnectedREForConfig     types.List                       `tfsdk:"connected_re_for_config"`
+	Coordinates              *SiteCoordinatesModel            `tfsdk:"coordinates"`
+	DefaultUnderlayNetwork   *SiteDefaultUnderlayNetworkModel `tfsdk:"default_underlay_network"`
+	KubernetesUpgradeDrain   *SiteKubernetesUpgradeDrainModel `tfsdk:"kubernetes_upgrade_drain"`
+	MainNodes                types.List                       `tfsdk:"main_nodes"`
+	PrivateConnectivity      *SitePrivateConnectivityModel    `tfsdk:"private_connectivity"`
+	RESelect                 *SiteRESelectModel               `tfsdk:"re_select"`
+	VIPParamsPerAz           types.List                       `tfsdk:"vip_params_per_az"`
 }
 
 func (d *SiteDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -111,9 +342,55 @@ func (d *SiteDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 				MarkdownDescription: "Site's geographical address that can be used to determine its latitude and longitude.",
 				Computed:            true,
 			},
-			"admin_user_credentials": schema.StringAttribute{
+			"admin_user_credentials": schema.SingleNestedAttribute{
 				MarkdownDescription: "Setup user credentials to manage access to nodes belonging to the site. When configured, 'admin' user will be setup and customers can access these nodes via either the node local WebUI or via SSH to access shell/CLI Ensure 'Node Local Services' are enabled to allow for required access.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"admin_password": schema.SingleNestedAttribute{
+						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Attributes: map[string]schema.Attribute{
+							"blindfold_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								Attributes: map[string]schema.Attribute{
+									"decryption_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+										Computed:            true,
+									},
+									"location": schema.StringAttribute{
+										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+									"store_provider": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
+							},
+							"clear_secret_info": schema.SingleNestedAttribute{
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								Attributes: map[string]schema.Attribute{
+									"provider_ref": schema.StringAttribute{
+										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+										Computed:            true,
+									},
+									"url": schema.StringAttribute{
+										MarkdownDescription: "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+										Computed:            true,
+										Sensitive:           true,
+									},
+								},
+								Computed: true,
+							},
+						},
+						Computed: true,
+					},
+					"ssh_key": schema.StringAttribute{
+						MarkdownDescription: "Provided Public SSH key can be used for accessing nodes of the site. When provided, customers can SSH to the nodes of this Customer Edge site using admin as the user.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
 			},
 			"bgp_peer_address": schema.StringAttribute{
 				MarkdownDescription: "Optional BGP peer address that can be used as parameter for BGP configuration when BGP is configured to fetch BGP peer address from site Object. This can be used to change peer address per site in fleet.",
@@ -127,27 +404,97 @@ func (d *SiteDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 				MarkdownDescription: "[Enum: CE_SITE_MODE_INGRESS_EGRESS_GW|CE_SITE_MODE_INGRESS_GW|CE_SITE_MODE_EGRESS_GW|CE_SITE_MODE_DC_CLOUD_GW|CE_SITE_MODE_CPE] If Site is CE, it can be in following modes Ingress Egress Gateway CE Ingress Gateway CE Egress Gateway CE DC Cloud Gateway CE CPE CE. Possible values are `CE_SITE_MODE_INGRESS_EGRESS_GW`, `CE_SITE_MODE_INGRESS_GW`, `CE_SITE_MODE_EGRESS_GW`, `CE_SITE_MODE_DC_CLOUD_GW`, `CE_SITE_MODE_CPE`. Defaults to `CE_SITE_MODE_INGRESS_EGRESS_GW`.",
 				Computed:            true,
 			},
-			"connected_re": schema.StringAttribute{
+			"connected_re": schema.ListNestedAttribute{
 				MarkdownDescription: "Following fields are only for customer edge sites List of REs to which to which this CE initiates IPsec/SSL connection to.",
-				Computed:            true,
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
 			},
-			"connected_re_for_config": schema.StringAttribute{
+			"connected_re_for_config": schema.ListNestedAttribute{
 				MarkdownDescription: "Valid only for CE site object List of REs which can send config to this CE site.",
-				Computed:            true,
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"kind": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+							Computed:            true,
+						},
+						"name": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							Computed:            true,
+						},
+						"namespace": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+							Computed:            true,
+						},
+						"tenant": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+							Computed:            true,
+						},
+						"uid": schema.StringAttribute{
+							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
 			},
-			"coordinates": schema.StringAttribute{
+			"coordinates": schema.SingleNestedAttribute{
 				MarkdownDescription: "Coordinates of the site which provides the site physical location.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"latitude": schema.Int64Attribute{
+						MarkdownDescription: "Latitude. Latitude of the site location.",
+						Computed:            true,
+					},
+					"longitude": schema.Int64Attribute{
+						MarkdownDescription: "Longitude. Longitude of site location.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
 			},
-			"default_underlay_network": schema.StringAttribute{
+			"default_underlay_network": schema.SingleNestedAttribute{
 				MarkdownDescription: "Optional, virtual network to be used as underlay for different overlay protocols (SRv6, IP-in-IP tunnels for DC Cluster Group) Default is site-local-outside network.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"site_local_inside": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"site_local_outside": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Computed: true,
 			},
-			"desired_pool_count": schema.StringAttribute{
+			"desired_pool_count": schema.Int64Attribute{
 				MarkdownDescription: "Desired pool count represent desired number of worker(non master) nodes for manual scaling of public cloud(AWS, GCP, Azure) sites. The desired count must be less than or equal to the maximum size of the scaling group for a given public cloud. One may also have to increase maximum scaling group..",
 				Computed:            true,
 			},
-			"global_access_k8s_enabled": schema.StringAttribute{
+			"global_access_k8s_enabled": schema.BoolAttribute{
 				MarkdownDescription: "Enable or disable functionality flag",
 				Computed:            true,
 			},
@@ -159,27 +506,79 @@ func (d *SiteDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 				MarkdownDescription: "Optional Virtual IP to be used as automatic VIP for site local inside network. See documentation for 'VIP' in advertise policy to see when Inside VIP is used. When configured, this is used as VIP (depending on advertise policy configuration).",
 				Computed:            true,
 			},
-			"ipsec_ssl_nodes_fqdn": schema.StringAttribute{
+			"ipsec_ssl_nodes_fqdn": schema.ListAttribute{
 				MarkdownDescription: "FQDN resolves to responders node IP, if there are multiple nodes at site the resolution will give a list of all/some individual node IP. Multiple FQDN for same site is also allowed.",
 				Computed:            true,
+				ElementType:         types.StringType,
 			},
-			"kubernetes_upgrade_drain": schema.StringAttribute{
+			"kubernetes_upgrade_drain": schema.SingleNestedAttribute{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"disable_upgrade_drain": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_upgrade_drain": schema.SingleNestedAttribute{
+						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
+						Attributes: map[string]schema.Attribute{
+							"disable_vega_upgrade_mode": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"drain_max_unavailable_node_count": schema.Int64Attribute{
+								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
+								Computed:            true,
+							},
+							"drain_max_unavailable_node_percentage": schema.Int64Attribute{
+								MarkdownDescription: "Maximum percentage of nodes unavailable during upgrade draining.",
+								Computed:            true,
+							},
+							"drain_node_timeout": schema.Int64Attribute{
+								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
+								Computed:            true,
+							},
+							"enable_vega_upgrade_mode": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for enable vega upgrade mode.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
 			},
-			"local_access_k8s_enabled": schema.StringAttribute{
+			"local_access_k8s_enabled": schema.BoolAttribute{
 				MarkdownDescription: "Enable or disable functionality flag",
 				Computed:            true,
 			},
-			"local_k8s_access_enabled": schema.StringAttribute{
+			"local_k8s_access_enabled": schema.BoolAttribute{
 				MarkdownDescription: "Lets user know if this site has local K8s cluster enabled via fleet configuration.",
 				Computed:            true,
 			},
-			"main_nodes": schema.StringAttribute{
+			"main_nodes": schema.ListNestedAttribute{
 				MarkdownDescription: "Connectivity information of main/master nodes to create a full mesh of Phobos services across all CEs in a site-mesh-group or dc-cluster-group.",
-				Computed:            true,
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"name": schema.StringAttribute{
+							MarkdownDescription: "Name of the master/main node on the site.",
+							Computed:            true,
+						},
+						"sli_address": schema.StringAttribute{
+							MarkdownDescription: "Site Local Inside IP addresses. Site Local Inside IP address.",
+							Computed:            true,
+						},
+						"slo_address": schema.StringAttribute{
+							MarkdownDescription: "Site Local Outside IP addresses. Site Local Outside IP address.",
+							Computed:            true,
+						},
+					},
+				},
+				Computed: true,
 			},
-			"multus_enabled": schema.StringAttribute{
+			"multus_enabled": schema.BoolAttribute{
 				MarkdownDescription: "Indicates that Multus cni is enabled on the site.",
 				Computed:            true,
 			},
@@ -195,13 +594,58 @@ func (d *SiteDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 				MarkdownDescription: "Optional Virtual IP to be used as automatic VIP for site local outside network. See documentation for 'VIP' in advertise policy to see when Outside VIP is used. When configured, this is used as VIP (depending on advertise policy configuration).",
 				Computed:            true,
 			},
-			"private_connectivity": schema.StringAttribute{
+			"private_connectivity": schema.SingleNestedAttribute{
 				MarkdownDescription: "Private Connectivity Information like ADN network name and cloud link information.",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"cloud_link": schema.SingleNestedAttribute{
+						MarkdownDescription: "Information related to cloud link used by the site.",
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "Name of the the CloudLink used with this site.",
+								Computed:            true,
+							},
+							"state": schema.StringAttribute{
+								MarkdownDescription: "[Enum: UP|DOWN|DEGRADED|NOT_APPLICABLE] State of the CloudLink connections - UP: Up CloudLink and their corresponding Direct Connect connections are up and healthy - DOWN: Down CloudLink and their corresponding Direct Connect connections are down - DEGRADED: Degraded Some of Direct Connect connections with the CloudLink are down .. Possible values are `UP`, `DOWN`, `DEGRADED`, `NOT_APPLICABLE`. Defaults to `UP`.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+					"private_network_name": schema.StringAttribute{
+						MarkdownDescription: "ADN Network Name for private access connectivity to F5XC ADN.",
+						Computed:            true,
+					},
+				},
+				Computed: true,
 			},
-			"re_select": schema.StringAttribute{
+			"re_select": schema.SingleNestedAttribute{
 				MarkdownDescription: "Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s).",
-				Computed:            true,
+				Attributes: map[string]schema.Attribute{
+					"geo_proximity": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for geo proximity.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"specific_geography": schema.StringAttribute{
+						MarkdownDescription: "Geographic selection for the site's Regional Edge connections.",
+						Computed:            true,
+					},
+					"specific_re": schema.SingleNestedAttribute{
+						MarkdownDescription: "Select specific REs. This is useful when a site needs to deterministically connect to a set of REs. A site will always be connected to 2 REs.",
+						Attributes: map[string]schema.Attribute{
+							"backup_re": schema.StringAttribute{
+								MarkdownDescription: "Select backup RE for this site, cannot be the same as Primary RE.",
+								Computed:            true,
+							},
+							"primary_re": schema.StringAttribute{
+								MarkdownDescription: "Primary RE Geography. Select primary RE for this site.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
 			},
 			"region": schema.StringAttribute{
 				MarkdownDescription: "Cloud Region. A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network.",
@@ -227,7 +671,7 @@ func (d *SiteDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 				MarkdownDescription: "[Enum: INVALID|REGIONAL_EDGE|CUSTOMER_EDGE|NGINX_ONE] Site Type which can either RE or CE Invalid type of site Regional Edge site Customer Edge site. Possible values are `INVALID`, `REGIONAL_EDGE`, `CUSTOMER_EDGE`, `NGINX_ONE`.",
 				Computed:            true,
 			},
-			"tunnel_dead_timeout": schema.StringAttribute{
+			"tunnel_dead_timeout": schema.Int64Attribute{
 				MarkdownDescription: "Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used.",
 				Computed:            true,
 			},
@@ -235,15 +679,51 @@ func (d *SiteDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 				MarkdownDescription: "[Enum: SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL|SITE_TO_SITE_TUNNEL_IPSEC|SITE_TO_SITE_TUNNEL_SSL] Tunnel encapsulation to be used between sites Tunnel can operate in both IPsec and SSL, with IPsec being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possible values are `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`, `SITE_TO_SITE_TUNNEL_IPSEC`, `SITE_TO_SITE_TUNNEL_SSL`. Defaults to `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`.",
 				Computed:            true,
 			},
-			"vip_params_per_az": schema.StringAttribute{
+			"vip_params_per_az": schema.ListNestedAttribute{
 				MarkdownDescription: "Optional Publish VIP Parameters Per AZ for public cloud sites. See documentation for 'VIP' in advertise policy to see when Inside VIP or Outside VIP is used. When configured, the VIP(s) defined will be used to publish to external systems like K8s, Consul.",
-				Computed:            true,
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"az_name": schema.StringAttribute{
+							MarkdownDescription: "AZ Name. Name of the Availability zone.",
+							Computed:            true,
+						},
+						"inside_vip": schema.ListAttribute{
+							MarkdownDescription: "Inside VIP(s). List of Inside VIPs for an AZ.",
+							Computed:            true,
+							ElementType:         types.StringType,
+						},
+						"inside_vip_cname": schema.StringAttribute{
+							MarkdownDescription: "CNAME value for the inside VIP, These are usually public cloud generated CNAME.",
+							Computed:            true,
+						},
+						"inside_vip_v6": schema.ListAttribute{
+							MarkdownDescription: "Optional list of Inside IPv6 VIPs for an AZ.",
+							Computed:            true,
+							ElementType:         types.StringType,
+						},
+						"outside_vip": schema.ListAttribute{
+							MarkdownDescription: "Outside VIP(s). List of Outside VIPs for an AZ.",
+							Computed:            true,
+							ElementType:         types.StringType,
+						},
+						"outside_vip_cname": schema.StringAttribute{
+							MarkdownDescription: "CNAME value for the outside VIP These are usually public cloud generated CNAME.",
+							Computed:            true,
+						},
+						"outside_vip_v6": schema.ListAttribute{
+							MarkdownDescription: "Optional list of Outside IPv6 VIPs for an AZ.",
+							Computed:            true,
+							ElementType:         types.StringType,
+						},
+					},
+				},
+				Computed: true,
 			},
 			"vip_vrrp_mode": schema.StringAttribute{
 				MarkdownDescription: "[Enum: VIP_VRRP_INVALID|VIP_VRRP_ENABLE|VIP_VRRP_DISABLE] VRRP advertisement mode for VIP Invalid VRRP mode. Possible values are `VIP_VRRP_INVALID`, `VIP_VRRP_ENABLE`, `VIP_VRRP_DISABLE`. Defaults to `VIP_VRRP_INVALID`.",
 				Computed:            true,
 			},
-			"vm_enabled": schema.StringAttribute{
+			"vm_enabled": schema.BoolAttribute{
 				MarkdownDescription: "Indicates that virtual machine support is enabled on the site.",
 				Computed:            true,
 			},
@@ -317,191 +797,616 @@ func (d *SiteDataSource) Read(ctx context.Context, req datasource.ReadRequest, r
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
-
-	// Map spec fields from API response
-	if v, ok := resource.Spec["address"]; ok && v != nil {
-		data.Address = types.StringValue(fmt.Sprintf("%v", v))
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["address"].(string); ok && v != "" {
+		data.Address = types.StringValue(v)
 	} else {
 		data.Address = types.StringNull()
 	}
-	if v, ok := resource.Spec["admin_user_credentials"]; ok && v != nil {
-		data.AdminUserCredentials = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.AdminUserCredentials = types.StringNull()
+	if blockData, ok := apiResource.Spec["admin_user_credentials"].(map[string]interface{}); ok && (isImport || data.AdminUserCredentials != nil) {
+		data.AdminUserCredentials = &SiteAdminUserCredentialsModel{
+			AdminPassword: func() *SiteAdminUserCredentialsAdminPasswordModel {
+				if AdminPasswordData, ok := blockData["admin_password"].(map[string]interface{}); ok {
+					return &SiteAdminUserCredentialsAdminPasswordModel{
+						BlindfoldSecretInfo: func() *SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel {
+							if BlindfoldSecretInfoData, ok := AdminPasswordData["blindfold_secret_info"].(map[string]interface{}); ok {
+								return &SiteAdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel{
+									DecryptionProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["decryption_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Location: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									StoreProvider: func() types.String {
+										if v, ok := BlindfoldSecretInfoData["store_provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						ClearSecretInfo: func() *SiteAdminUserCredentialsAdminPasswordClearSecretInfoModel {
+							if ClearSecretInfoData, ok := AdminPasswordData["clear_secret_info"].(map[string]interface{}); ok {
+								return &SiteAdminUserCredentialsAdminPasswordClearSecretInfoModel{
+									Provider: func() types.String {
+										if v, ok := ClearSecretInfoData["provider"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									URL: func() types.String {
+										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			SSHKey: func() types.String {
+				if v, ok := blockData["ssh_key"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["bgp_peer_address"]; ok && v != nil {
-		data.BGPPeerAddress = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["bgp_peer_address"].(string); ok && v != "" {
+		data.BGPPeerAddress = types.StringValue(v)
 	} else {
 		data.BGPPeerAddress = types.StringNull()
 	}
-	if v, ok := resource.Spec["bgp_router_id"]; ok && v != nil {
-		data.BGPRouterID = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["bgp_router_id"].(string); ok && v != "" {
+		data.BGPRouterID = types.StringValue(v)
 	} else {
 		data.BGPRouterID = types.StringNull()
 	}
-	if v, ok := resource.Spec["ce_site_mode"]; ok && v != nil {
-		data.CESiteMode = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["ce_site_mode"].(string); ok && v != "" {
+		data.CESiteMode = types.StringValue(v)
 	} else {
 		data.CESiteMode = types.StringNull()
 	}
-	if v, ok := resource.Spec["connected_re"]; ok && v != nil {
-		data.ConnectedRE = types.StringValue(fmt.Sprintf("%v", v))
+	if !isImport && (data.ConnectedRE.IsNull() || len(data.ConnectedRE.Elements()) == 0) {
+		data.ConnectedRE = types.ListNull(types.ObjectType{AttrTypes: SiteConnectedREModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["connected_re"].([]interface{}); ok && len(listData) > 0 {
+		var ConnectedREList []SiteConnectedREModel
+		var existingConnectedREItems []SiteConnectedREModel
+		if !data.ConnectedRE.IsNull() && !data.ConnectedRE.IsUnknown() {
+			data.ConnectedRE.ElementsAs(ctx, &existingConnectedREItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				ConnectedREList = append(ConnectedREList, SiteConnectedREModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteConnectedREModelAttrTypes}, ConnectedREList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.ConnectedRE = listVal
+		}
 	} else {
-		data.ConnectedRE = types.StringNull()
+		data.ConnectedRE = types.ListNull(types.ObjectType{AttrTypes: SiteConnectedREModelAttrTypes})
 	}
-	if v, ok := resource.Spec["connected_re_for_config"]; ok && v != nil {
-		data.ConnectedREForConfig = types.StringValue(fmt.Sprintf("%v", v))
+	if !isImport && (data.ConnectedREForConfig.IsNull() || len(data.ConnectedREForConfig.Elements()) == 0) {
+		data.ConnectedREForConfig = types.ListNull(types.ObjectType{AttrTypes: SiteConnectedREForConfigModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["connected_re_for_config"].([]interface{}); ok && len(listData) > 0 {
+		var ConnectedREForConfigList []SiteConnectedREForConfigModel
+		var existingConnectedREForConfigItems []SiteConnectedREForConfigModel
+		if !data.ConnectedREForConfig.IsNull() && !data.ConnectedREForConfig.IsUnknown() {
+			data.ConnectedREForConfig.ElementsAs(ctx, &existingConnectedREForConfigItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				ConnectedREForConfigList = append(ConnectedREForConfigList, SiteConnectedREForConfigModel{
+					Kind: func() types.String {
+						if v, ok := itemMap["kind"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Namespace: func() types.String {
+						if v, ok := itemMap["namespace"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Tenant: func() types.String {
+						if v, ok := itemMap["tenant"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					Uid: func() types.String {
+						if v, ok := itemMap["uid"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteConnectedREForConfigModelAttrTypes}, ConnectedREForConfigList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.ConnectedREForConfig = listVal
+		}
 	} else {
-		data.ConnectedREForConfig = types.StringNull()
+		data.ConnectedREForConfig = types.ListNull(types.ObjectType{AttrTypes: SiteConnectedREForConfigModelAttrTypes})
 	}
-	if v, ok := resource.Spec["coordinates"]; ok && v != nil {
-		data.Coordinates = types.StringValue(fmt.Sprintf("%v", v))
+	if blockData, ok := apiResource.Spec["coordinates"].(map[string]interface{}); ok && (isImport || data.Coordinates != nil) {
+		data.Coordinates = &SiteCoordinatesModel{
+			Latitude: func() types.Int64 {
+				if v, ok := blockData["latitude"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+			Longitude: func() types.Int64 {
+				if v, ok := blockData["longitude"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["default_underlay_network"].(map[string]interface{}); ok && (isImport || data.DefaultUnderlayNetwork != nil) {
+		data.DefaultUnderlayNetwork = &SiteDefaultUnderlayNetworkModel{
+			SiteLocalInside: func() types.Object {
+				if !isImport && data.DefaultUnderlayNetwork != nil && !data.DefaultUnderlayNetwork.SiteLocalInside.IsUnknown() {
+					return data.DefaultUnderlayNetwork.SiteLocalInside
+				}
+				if _, ok := blockData["site_local_inside"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			SiteLocalOutside: func() types.Object {
+				if !isImport && data.DefaultUnderlayNetwork != nil && !data.DefaultUnderlayNetwork.SiteLocalOutside.IsUnknown() {
+					return data.DefaultUnderlayNetwork.SiteLocalOutside
+				}
+				if _, ok := blockData["site_local_outside"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
+	if v, ok := apiResource.Spec["desired_pool_count"].(float64); ok {
+		data.DesiredPoolCount = types.Int64Value(int64(v))
 	} else {
-		data.Coordinates = types.StringNull()
+		data.DesiredPoolCount = types.Int64Null()
 	}
-	if v, ok := resource.Spec["default_underlay_network"]; ok && v != nil {
-		data.DefaultUnderlayNetwork = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["global_access_k8s_enabled"].(bool); ok {
+		data.GlobalAccessK8SEnabled = types.BoolValue(v)
 	} else {
-		data.DefaultUnderlayNetwork = types.StringNull()
+		data.GlobalAccessK8SEnabled = types.BoolNull()
 	}
-	if v, ok := resource.Spec["desired_pool_count"]; ok && v != nil {
-		data.DesiredPoolCount = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.DesiredPoolCount = types.StringNull()
-	}
-	if v, ok := resource.Spec["global_access_k8s_enabled"]; ok && v != nil {
-		data.GlobalAccessK8SEnabled = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.GlobalAccessK8SEnabled = types.StringNull()
-	}
-	if v, ok := resource.Spec["inside_nameserver"]; ok && v != nil {
-		data.InsideNameserver = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["inside_nameserver"].(string); ok && v != "" {
+		data.InsideNameserver = types.StringValue(v)
 	} else {
 		data.InsideNameserver = types.StringNull()
 	}
-	if v, ok := resource.Spec["inside_vip"]; ok && v != nil {
-		data.InsideVIP = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["inside_vip"].(string); ok && v != "" {
+		data.InsideVIP = types.StringValue(v)
 	} else {
 		data.InsideVIP = types.StringNull()
 	}
-	if v, ok := resource.Spec["ipsec_ssl_nodes_fqdn"]; ok && v != nil {
-		data.IpsecSSLNodesFqdn = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.IpsecSSLNodesFqdn = types.StringNull()
+	if v, ok := apiResource.Spec["ipsec_ssl_nodes_fqdn"].([]interface{}); ok {
+		ipsec_ssl_nodes_fqdnList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				ipsec_ssl_nodes_fqdnList = append(ipsec_ssl_nodes_fqdnList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, ipsec_ssl_nodes_fqdnList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.IpsecSSLNodesFqdn = listVal
+		}
+	} else if isImport || data.IpsecSSLNodesFqdn.IsUnknown() {
+		data.IpsecSSLNodesFqdn = types.ListNull(types.StringType)
 	}
-	if v, ok := resource.Spec["kubernetes_upgrade_drain"]; ok && v != nil {
-		data.KubernetesUpgradeDrain = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.KubernetesUpgradeDrain = types.StringNull()
+	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
+		data.KubernetesUpgradeDrain = &SiteKubernetesUpgradeDrainModel{
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
+					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
+				}
+				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			EnableUpgradeDrain: func() *SiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
+				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
+					return &SiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
+							}
+							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						DrainMaxUnavailableNodeCount: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainNodeTimeout: func() types.Int64 {
+							if v, ok := EnableUpgradeDrainData["drain_node_timeout"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
+							}
+							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["local_access_k8s_enabled"]; ok && v != nil {
-		data.LocalAccessK8SEnabled = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["local_access_k8s_enabled"].(bool); ok {
+		data.LocalAccessK8SEnabled = types.BoolValue(v)
 	} else {
-		data.LocalAccessK8SEnabled = types.StringNull()
+		data.LocalAccessK8SEnabled = types.BoolNull()
 	}
-	if v, ok := resource.Spec["local_k8s_access_enabled"]; ok && v != nil {
-		data.LocalK8SAccessEnabled = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["local_k8s_access_enabled"].(bool); ok {
+		data.LocalK8SAccessEnabled = types.BoolValue(v)
 	} else {
-		data.LocalK8SAccessEnabled = types.StringNull()
+		data.LocalK8SAccessEnabled = types.BoolNull()
 	}
-	if v, ok := resource.Spec["main_nodes"]; ok && v != nil {
-		data.MainNodes = types.StringValue(fmt.Sprintf("%v", v))
+	if !isImport && (data.MainNodes.IsNull() || len(data.MainNodes.Elements()) == 0) {
+		data.MainNodes = types.ListNull(types.ObjectType{AttrTypes: SiteMainNodesModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["main_nodes"].([]interface{}); ok && len(listData) > 0 {
+		var MainNodesList []SiteMainNodesModel
+		var existingMainNodesItems []SiteMainNodesModel
+		if !data.MainNodes.IsNull() && !data.MainNodes.IsUnknown() {
+			data.MainNodes.ElementsAs(ctx, &existingMainNodesItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				MainNodesList = append(MainNodesList, SiteMainNodesModel{
+					Name: func() types.String {
+						if v, ok := itemMap["name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					SLIAddress: func() types.String {
+						if v, ok := itemMap["sli_address"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					SloAddress: func() types.String {
+						if v, ok := itemMap["slo_address"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteMainNodesModelAttrTypes}, MainNodesList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.MainNodes = listVal
+		}
 	} else {
-		data.MainNodes = types.StringNull()
+		data.MainNodes = types.ListNull(types.ObjectType{AttrTypes: SiteMainNodesModelAttrTypes})
 	}
-	if v, ok := resource.Spec["multus_enabled"]; ok && v != nil {
-		data.MultusEnabled = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["multus_enabled"].(bool); ok {
+		data.MultusEnabled = types.BoolValue(v)
 	} else {
-		data.MultusEnabled = types.StringNull()
+		data.MultusEnabled = types.BoolNull()
 	}
-	if v, ok := resource.Spec["operating_system_version"]; ok && v != nil {
-		data.OperatingSystemVersion = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["operating_system_version"].(string); ok && v != "" {
+		data.OperatingSystemVersion = types.StringValue(v)
 	} else {
 		data.OperatingSystemVersion = types.StringNull()
 	}
-	if v, ok := resource.Spec["outside_nameserver"]; ok && v != nil {
-		data.OutsideNameserver = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["outside_nameserver"].(string); ok && v != "" {
+		data.OutsideNameserver = types.StringValue(v)
 	} else {
 		data.OutsideNameserver = types.StringNull()
 	}
-	if v, ok := resource.Spec["outside_vip"]; ok && v != nil {
-		data.OutsideVIP = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["outside_vip"].(string); ok && v != "" {
+		data.OutsideVIP = types.StringValue(v)
 	} else {
 		data.OutsideVIP = types.StringNull()
 	}
-	if v, ok := resource.Spec["private_connectivity"]; ok && v != nil {
-		data.PrivateConnectivity = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.PrivateConnectivity = types.StringNull()
+	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
+		data.PrivateConnectivity = &SitePrivateConnectivityModel{
+			CloudLink: func() *SitePrivateConnectivityCloudLinkModel {
+				if CloudLinkData, ok := blockData["cloud_link"].(map[string]interface{}); ok {
+					return &SitePrivateConnectivityCloudLinkModel{
+						Name: func() types.String {
+							if v, ok := CloudLinkData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						State: func() types.String {
+							if v, ok := CloudLinkData["state"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+			PrivateNetworkName: func() types.String {
+				if v, ok := blockData["private_network_name"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["re_select"]; ok && v != nil {
-		data.RESelect = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.RESelect = types.StringNull()
+	if blockData, ok := apiResource.Spec["re_select"].(map[string]interface{}); ok && (isImport || data.RESelect != nil) {
+		data.RESelect = &SiteRESelectModel{
+			GeoProximity: func() types.Object {
+				if !isImport && data.RESelect != nil && !data.RESelect.GeoProximity.IsUnknown() {
+					return data.RESelect.GeoProximity
+				}
+				if _, ok := blockData["geo_proximity"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			SpecificGeography: func() types.String {
+				if v, ok := blockData["specific_geography"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
+			}(),
+			SpecificRE: func() *SiteRESelectSpecificREModel {
+				if SpecificREData, ok := blockData["specific_re"].(map[string]interface{}); ok {
+					return &SiteRESelectSpecificREModel{
+						BackupRE: func() types.String {
+							if v, ok := SpecificREData["backup_re"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						PrimaryRE: func() types.String {
+							if v, ok := SpecificREData["primary_re"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
-	if v, ok := resource.Spec["region"]; ok && v != nil {
-		data.Region = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["region"].(string); ok && v != "" {
+		data.Region = types.StringValue(v)
 	} else {
 		data.Region = types.StringNull()
 	}
-	if v, ok := resource.Spec["site_state"]; ok && v != nil {
-		data.SiteState = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["site_state"].(string); ok && v != "" {
+		data.SiteState = types.StringValue(v)
 	} else {
 		data.SiteState = types.StringNull()
 	}
-	if v, ok := resource.Spec["site_subtype"]; ok && v != nil {
-		data.SiteSubtype = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["site_subtype"].(string); ok && v != "" {
+		data.SiteSubtype = types.StringValue(v)
 	} else {
 		data.SiteSubtype = types.StringNull()
 	}
-	if v, ok := resource.Spec["site_to_site_network_type"]; ok && v != nil {
-		data.SiteToSiteNetworkType = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["site_to_site_network_type"].(string); ok && v != "" {
+		data.SiteToSiteNetworkType = types.StringValue(v)
 	} else {
 		data.SiteToSiteNetworkType = types.StringNull()
 	}
-	if v, ok := resource.Spec["site_to_site_tunnel_ip"]; ok && v != nil {
-		data.SiteToSiteTunnelIP = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["site_to_site_tunnel_ip"].(string); ok && v != "" {
+		data.SiteToSiteTunnelIP = types.StringValue(v)
 	} else {
 		data.SiteToSiteTunnelIP = types.StringNull()
 	}
-	if v, ok := resource.Spec["site_type"]; ok && v != nil {
-		data.SiteType = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["site_type"].(string); ok && v != "" {
+		data.SiteType = types.StringValue(v)
 	} else {
 		data.SiteType = types.StringNull()
 	}
-	if v, ok := resource.Spec["tunnel_dead_timeout"]; ok && v != nil {
-		data.TunnelDeadTimeout = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["tunnel_dead_timeout"].(float64); ok {
+		data.TunnelDeadTimeout = types.Int64Value(int64(v))
 	} else {
-		data.TunnelDeadTimeout = types.StringNull()
+		data.TunnelDeadTimeout = types.Int64Null()
 	}
-	if v, ok := resource.Spec["tunnel_type"]; ok && v != nil {
-		data.TunnelType = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["tunnel_type"].(string); ok && v != "" {
+		data.TunnelType = types.StringValue(v)
 	} else {
 		data.TunnelType = types.StringNull()
 	}
-	if v, ok := resource.Spec["vip_params_per_az"]; ok && v != nil {
-		data.VIPParamsPerAz = types.StringValue(fmt.Sprintf("%v", v))
+	if !isImport && (data.VIPParamsPerAz.IsNull() || len(data.VIPParamsPerAz.Elements()) == 0) {
+		data.VIPParamsPerAz = types.ListNull(types.ObjectType{AttrTypes: SiteVIPParamsPerAzModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["vip_params_per_az"].([]interface{}); ok && len(listData) > 0 {
+		var VIPParamsPerAzList []SiteVIPParamsPerAzModel
+		var existingVIPParamsPerAzItems []SiteVIPParamsPerAzModel
+		if !data.VIPParamsPerAz.IsNull() && !data.VIPParamsPerAz.IsUnknown() {
+			data.VIPParamsPerAz.ElementsAs(ctx, &existingVIPParamsPerAzItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				VIPParamsPerAzList = append(VIPParamsPerAzList, SiteVIPParamsPerAzModel{
+					AzName: func() types.String {
+						if v, ok := itemMap["az_name"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					InsideVIP: func() types.List {
+						if v, ok := itemMap["inside_vip"].([]interface{}); ok && len(v) > 0 {
+							var items []string
+							for _, item := range v {
+								if s, ok := item.(string); ok {
+									items = append(items, s)
+								}
+							}
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return listVal
+						}
+						return types.ListNull(types.StringType)
+					}(),
+					InsideVIPCname: func() types.String {
+						if v, ok := itemMap["inside_vip_cname"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					InsideVIPV6: func() types.List {
+						if v, ok := itemMap["inside_vip_v6"].([]interface{}); ok && len(v) > 0 {
+							var items []string
+							for _, item := range v {
+								if s, ok := item.(string); ok {
+									items = append(items, s)
+								}
+							}
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return listVal
+						}
+						return types.ListNull(types.StringType)
+					}(),
+					OutsideVIP: func() types.List {
+						if v, ok := itemMap["outside_vip"].([]interface{}); ok && len(v) > 0 {
+							var items []string
+							for _, item := range v {
+								if s, ok := item.(string); ok {
+									items = append(items, s)
+								}
+							}
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return listVal
+						}
+						return types.ListNull(types.StringType)
+					}(),
+					OutsideVIPCname: func() types.String {
+						if v, ok := itemMap["outside_vip_cname"].(string); ok && v != "" {
+							return types.StringValue(v)
+						}
+						return types.StringNull()
+					}(),
+					OutsideVIPV6: func() types.List {
+						if v, ok := itemMap["outside_vip_v6"].([]interface{}); ok && len(v) > 0 {
+							var items []string
+							for _, item := range v {
+								if s, ok := item.(string); ok {
+									items = append(items, s)
+								}
+							}
+							listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+							resp.Diagnostics.Append(diags...)
+							return listVal
+						}
+						return types.ListNull(types.StringType)
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteVIPParamsPerAzModelAttrTypes}, VIPParamsPerAzList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.VIPParamsPerAz = listVal
+		}
 	} else {
-		data.VIPParamsPerAz = types.StringNull()
+		data.VIPParamsPerAz = types.ListNull(types.ObjectType{AttrTypes: SiteVIPParamsPerAzModelAttrTypes})
 	}
-	if v, ok := resource.Spec["vip_vrrp_mode"]; ok && v != nil {
-		data.VIPVrrpMode = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["vip_vrrp_mode"].(string); ok && v != "" {
+		data.VIPVrrpMode = types.StringValue(v)
 	} else {
 		data.VIPVrrpMode = types.StringNull()
 	}
-	if v, ok := resource.Spec["vm_enabled"]; ok && v != nil {
-		data.VMEnabled = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["vm_enabled"].(bool); ok {
+		data.VMEnabled = types.BoolValue(v)
 	} else {
-		data.VMEnabled = types.StringNull()
+		data.VMEnabled = types.BoolNull()
 	}
-	// "volterra_software_overide" is the API wire key declared by x-f5xc-wire-name for Terraform attribute "volterra_software_override".
-	if v, ok := resource.Spec["volterra_software_overide"]; ok && v != nil {
-		data.VolterraSoftwareOverride = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["volterra_software_overide"].(string); ok && v != "" {
+		data.VolterraSoftwareOverride = types.StringValue(v)
 	} else {
 		data.VolterraSoftwareOverride = types.StringNull()
 	}
-	if v, ok := resource.Spec["volterra_software_version"]; ok && v != nil {
-		data.VolterraSoftwareVersion = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := apiResource.Spec["volterra_software_version"].(string); ok && v != "" {
+		data.VolterraSoftwareVersion = types.StringValue(v)
 	} else {
 		data.VolterraSoftwareVersion = types.StringNull()
 	}

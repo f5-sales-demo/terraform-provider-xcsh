@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,13 @@ type MaliciousUserMitigationDataSource struct {
 }
 
 type MaliciousUserMitigationDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID             types.String                                `tfsdk:"id"`
+	Name           types.String                                `tfsdk:"name"`
+	Namespace      types.String                                `tfsdk:"namespace"`
+	Description    types.String                                `tfsdk:"description"`
+	Labels         types.Map                                   `tfsdk:"labels"`
+	Annotations    types.Map                                   `tfsdk:"annotations"`
+	MitigationType *MaliciousUserMitigationMitigationTypeModel `tfsdk:"mitigation_type"`
 }
 
 func (d *MaliciousUserMitigationDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +72,62 @@ func (d *MaliciousUserMitigationDataSource) Schema(ctx context.Context, req data
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"mitigation_type": schema.SingleNestedAttribute{
+				MarkdownDescription: "Settings that specify the actions to be taken when malicious users are determined to be at different threat levels. User's activity is monitored and continuously analyzed for malicious behavior. From this analysis, a threat-level is assigned to each user. Server applies default when omitted.",
+				Attributes: map[string]schema.Attribute{
+					"rules": schema.ListNestedAttribute{
+						MarkdownDescription: "Define the threat levels and the corresponding mitigation actions to be taken.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"mitigation_action": schema.SingleNestedAttribute{
+									MarkdownDescription: "Supported actions that can be taken to mitigate malicious activity from a user.",
+									Attributes: map[string]schema.Attribute{
+										"block_temporarily": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"captcha_challenge": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for captcha challenge.",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"javascript_challenge": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+									Computed: true,
+								},
+								"threat_level": schema.SingleNestedAttribute{
+									MarkdownDescription: "Threat level estimated for each user based on the user's activity and reputation.",
+									Attributes: map[string]schema.Attribute{
+										"high": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"low": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"medium": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+									Computed: true,
+								},
+							},
+						},
+						Computed: true,
+					},
+				},
+				Computed: true,
+			},
 		},
 	}
 }
@@ -93,7 +151,8 @@ func (d *MaliciousUserMitigationDataSource) Read(ctx context.Context, req dataso
 		return
 	}
 
-	resource, err := d.client.GetMaliciousUserMitigation(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetMaliciousUserMitigation(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read MaliciousUserMitigation: %s", err))
 		return
@@ -101,7 +160,11 @@ func (d *MaliciousUserMitigationDataSource) Read(ctx context.Context, req dataso
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +197,102 @@ func (d *MaliciousUserMitigationDataSource) Read(ctx context.Context, req dataso
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if blockData, ok := apiResource.Spec["mitigation_type"].(map[string]interface{}); ok && (isImport || data.MitigationType != nil) {
+		data.MitigationType = &MaliciousUserMitigationMitigationTypeModel{
+			Rules: func() types.List {
+				if !isImport && data.MitigationType != nil && (data.MitigationType.Rules.IsNull() || len(data.MitigationType.Rules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: MaliciousUserMitigationMitigationTypeRulesModelAttrTypes})
+				}
+				var RulesExisting []MaliciousUserMitigationMitigationTypeRulesModel
+				if !isImport && data.MitigationType != nil && !data.MitigationType.Rules.IsNull() && !data.MitigationType.Rules.IsUnknown() {
+					data.MitigationType.Rules.ElementsAs(ctx, &RulesExisting, false)
+				}
+				if rawList, ok := blockData["rules"].([]interface{}); ok && len(rawList) > 0 {
+					var RulesResult []MaliciousUserMitigationMitigationTypeRulesModel
+					for RulesIdx, RulesItem := range rawList {
+						_ = RulesIdx
+						if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+							RulesResult = append(RulesResult, MaliciousUserMitigationMitigationTypeRulesModel{
+								MitigationAction: func() *MaliciousUserMitigationMitigationTypeRulesMitigationActionModel {
+									if MitigationActionData, ok := RulesItemMap["mitigation_action"].(map[string]interface{}); ok {
+										return &MaliciousUserMitigationMitigationTypeRulesMitigationActionModel{
+											BlockTemporarily: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].MitigationAction != nil && !RulesExisting[RulesIdx].MitigationAction.BlockTemporarily.IsUnknown() {
+													return RulesExisting[RulesIdx].MitigationAction.BlockTemporarily
+												}
+												if _, ok := MitigationActionData["block_temporarily"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											CaptchaChallenge: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].MitigationAction != nil && !RulesExisting[RulesIdx].MitigationAction.CaptchaChallenge.IsUnknown() {
+													return RulesExisting[RulesIdx].MitigationAction.CaptchaChallenge
+												}
+												if _, ok := MitigationActionData["captcha_challenge"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											JavascriptChallenge: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].MitigationAction != nil && !RulesExisting[RulesIdx].MitigationAction.JavascriptChallenge.IsUnknown() {
+													return RulesExisting[RulesIdx].MitigationAction.JavascriptChallenge
+												}
+												if _, ok := MitigationActionData["javascript_challenge"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+										}
+									}
+									return nil
+								}(),
+								ThreatLevel: func() *MaliciousUserMitigationMitigationTypeRulesThreatLevelModel {
+									if ThreatLevelData, ok := RulesItemMap["threat_level"].(map[string]interface{}); ok {
+										return &MaliciousUserMitigationMitigationTypeRulesThreatLevelModel{
+											High: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].ThreatLevel != nil && !RulesExisting[RulesIdx].ThreatLevel.High.IsUnknown() {
+													return RulesExisting[RulesIdx].ThreatLevel.High
+												}
+												if _, ok := ThreatLevelData["high"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											Low: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].ThreatLevel != nil && !RulesExisting[RulesIdx].ThreatLevel.Low.IsUnknown() {
+													return RulesExisting[RulesIdx].ThreatLevel.Low
+												}
+												if _, ok := ThreatLevelData["low"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											Medium: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].ThreatLevel != nil && !RulesExisting[RulesIdx].ThreatLevel.Medium.IsUnknown() {
+													return RulesExisting[RulesIdx].ThreatLevel.Medium
+												}
+												if _, ok := ThreatLevelData["medium"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: MaliciousUserMitigationMitigationTypeRulesModelAttrTypes}, RulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: MaliciousUserMitigationMitigationTypeRulesModelAttrTypes})
+			}(),
+		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

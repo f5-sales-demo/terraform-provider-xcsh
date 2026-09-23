@@ -318,16 +318,65 @@ func TestProviderRegenerationVerificationIsMemoryBounded(t *testing.T) {
 	}
 }
 
+func TestBuildTestWorkflowBoundsCompilerMemory(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_build-test.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow struct {
+		Jobs map[string]struct {
+			Env   map[string]string `yaml:"env"`
+			Steps []struct {
+				Name string `yaml:"name"`
+				Run  string `yaml:"run"`
+			} `yaml:"steps"`
+		} `yaml:"jobs"`
+	}
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	for key, want := range map[string]string{
+		"GOGC":       "20",
+		"GOMEMLIMIT": "4GiB",
+		"GOMAXPROCS": "1",
+	} {
+		if got := workflow.Jobs["build"].Env[key]; got != want {
+			t.Errorf("build job %s = %q, want %q", key, got, want)
+		}
+	}
+	if _, exists := workflow.Jobs["build"].Env["GOFLAGS"]; exists {
+		t.Error("build job must not serialize the independent test packages")
+	}
+	requiredCommands := map[string]string{
+		"Build": "go build -p 1 -v ./...",
+		"Vet":   "go vet -p 1 ./...",
+		"Test":  "go test -timeout=30m -v -race ./internal/... ./tools/...",
+	}
+	for _, step := range workflow.Jobs["build"].Steps {
+		want, ok := requiredCommands[step.Name]
+		if !ok {
+			continue
+		}
+		if !strings.Contains(step.Run, want) {
+			t.Errorf("%s step does not use %q: %s", step.Name, want, step.Run)
+		}
+		delete(requiredCommands, step.Name)
+	}
+	if len(requiredCommands) != 0 {
+		t.Errorf("build workflow is missing memory-bounded steps: %v", requiredCommands)
+	}
+}
+
 func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
 	expectedImageJobs := map[string][]string{
-		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.12`},
-		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.12`},
-		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.12`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
-		"ci.yml/validate-mock-fixtures":       {`test "$(go env GOVERSION)" = go1.25.12`},
-		"discover-defaults.yml/discover":      {`test "$(go env GOVERSION)" = go1.25.12`},
-		"on-merge.yml/create-regeneration-pr": {`test "$(go env GOVERSION)" = go1.25.12`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
-		"security-audit.yml/govulncheck":      {`test "$(go env GOVERSION)" = go1.25.12`, "mod golang.org/x/vuln v1.6.0"},
+		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.13`},
+		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.13`},
+		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"ci.yml/validate-mock-fixtures":       {`test "$(go env GOVERSION)" = go1.25.13`},
+		"discover-defaults.yml/discover":      {`test "$(go env GOVERSION)" = go1.25.13`},
+		"on-merge.yml/create-regeneration-pr": {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"security-audit.yml/govulncheck":      {`test "$(go env GOVERSION)" = go1.25.13`, "mod golang.org/x/vuln v1.6.0"},
 	}
 	entries, err := filepath.Glob(filepath.Join(workflowDir, "*.y*ml"))
 	if err != nil {
@@ -386,7 +435,7 @@ func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 		"acc-tests.yml": {
 			"runs-on: ubuntu-latest",
 			"actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
-			"go-version: '1.25.12'",
+			"go-version: '1.25.13'",
 		},
 		"_build-test.yml": {
 			"runs-on: ubuntu-latest",
@@ -440,7 +489,7 @@ func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
 		if !reflect.DeepEqual(runsOn, canonicalGitHubHostedRunsOn) {
 			t.Errorf("%s runs-on = %v, want %v", jobID, runsOn, canonicalGitHubHostedRunsOn)
 		}
-		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.12", true)
+		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.13", true)
 	}
 
 	for _, jobID := range []string{"real-api-tests", "cleanup"} {
@@ -448,7 +497,7 @@ func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
 		if !ok {
 			t.Fatalf("missing acceptance job %s", jobID)
 		}
-		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.12", false)
+		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.13", false)
 	}
 }
 

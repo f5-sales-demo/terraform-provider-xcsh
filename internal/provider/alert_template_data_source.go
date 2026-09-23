@@ -28,12 +28,16 @@ type AlertTemplateDataSource struct {
 }
 
 type AlertTemplateDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                  types.String `tfsdk:"id"`
+	Name                types.String `tfsdk:"name"`
+	Namespace           types.String `tfsdk:"namespace"`
+	Description         types.String `tfsdk:"description"`
+	Labels              types.Map    `tfsdk:"labels"`
+	Annotations         types.Map    `tfsdk:"annotations"`
+	AlertMessage        types.String `tfsdk:"alert_message"`
+	AlertMessageDetails types.String `tfsdk:"alert_message_details"`
+	AlertName           types.String `tfsdk:"alert_name"`
+	Severity            types.String `tfsdk:"severity"`
 }
 
 func (d *AlertTemplateDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +74,22 @@ func (d *AlertTemplateDataSource) Schema(ctx context.Context, req datasource.Sch
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"alert_message": schema.StringAttribute{
+				MarkdownDescription: "Alert Message. Alert Message.",
+				Computed:            true,
+			},
+			"alert_message_details": schema.StringAttribute{
+				MarkdownDescription: "Alert Message Details. Detailed message of the alert.",
+				Computed:            true,
+			},
+			"alert_name": schema.StringAttribute{
+				MarkdownDescription: "Alert Name. Alert Name.",
+				Computed:            true,
+			},
+			"severity": schema.StringAttribute{
+				MarkdownDescription: "[Enum: MINOR|MAJOR|CRITICAL] List of alert severities Minor Major Critical. Possible values are `MINOR`, `MAJOR`, `CRITICAL`. Defaults to `MINOR`.",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -93,7 +113,8 @@ func (d *AlertTemplateDataSource) Read(ctx context.Context, req datasource.ReadR
 		return
 	}
 
-	resource, err := d.client.GetAlertTemplate(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetAlertTemplate(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AlertTemplate: %s", err))
 		return
@@ -101,7 +122,11 @@ func (d *AlertTemplateDataSource) Read(ctx context.Context, req datasource.ReadR
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +159,27 @@ func (d *AlertTemplateDataSource) Read(ctx context.Context, req datasource.ReadR
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	if v, ok := apiResource.Spec["alert_message"].(string); ok && v != "" {
+		data.AlertMessage = types.StringValue(v)
+	} else {
+		data.AlertMessage = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["alert_message_details"].(string); ok && v != "" {
+		data.AlertMessageDetails = types.StringValue(v)
+	} else {
+		data.AlertMessageDetails = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["alert_name"].(string); ok && v != "" {
+		data.AlertName = types.StringValue(v)
+	} else {
+		data.AlertName = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["severity"].(string); ok && v != "" {
+		data.Severity = types.StringValue(v)
+	} else {
+		data.Severity = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

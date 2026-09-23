@@ -56,13 +56,571 @@ output "service_policy_rule_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="action"></a>&#x2022; [`action`](#action) - Optional String  Defaults to `DENY`<br>Possible values are `DENY`, `ALLOW`, `NEXT_POLICY`<br>[Enum: DENY|ALLOW|NEXT_POLICY] The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of
+the request is terminated and an appropriate message/code returned to
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="any-asn"></a>&#x2022; [`any_asn`](#any-asn) - Optional Object<br>Enable this option
+
+<a id="any-client"></a>&#x2022; [`any_client`](#any-client) - Optional Object<br>Enable this option
+
+<a id="any-ip"></a>&#x2022; [`any_ip`](#any-ip) - Optional Object<br>Enable this option
+
+<a id="api-group-matcher"></a>&#x2022; [`api_group_matcher`](#api-group-matcher) - Optional String<br>Matcher specifies a list of values for matching an input string. The match is considered successful if the input value is present in the list. The result of the match is inverted if invert_matcher is true
+
+<a id="arg-matchers"></a>&#x2022; [`arg_matchers`](#arg-matchers) - Optional List<br>List of predicates for all POST args that need to be matched. The criteria for matching each arg are described in individual instances of ArgMatcherType. The actual arg values are extracted from the request API as a list of strings for each arg selector name
+
+<a id="asn-list"></a>&#x2022; [`asn_list`](#asn-list) - Optional String<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-matcher"></a>&#x2022; [`asn_matcher`](#asn-matcher) - Optional String<br>Match any AS number contained in the list of bgp_asn_sets
+
+<a id="body-matcher"></a>&#x2022; [`body_matcher`](#body-matcher) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="bot-action"></a>&#x2022; [`bot_action`](#bot-action) - Optional String<br>Modify Bot protection behavior for a matching request. The modification could be to entirely skip Bot processing
+
+<a id="client-name"></a>&#x2022; [`client_name`](#client-name) - Optional String<br>The expected name of the client invoking the request API. The predicate evaluates to true if any of the actual names is the same as the expected client name
+
+<a id="client-name-matcher"></a>&#x2022; [`client_name_matcher`](#client-name-matcher) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="client-selector"></a>&#x2022; [`client_selector`](#client-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="cookie-matchers"></a>&#x2022; [`cookie_matchers`](#cookie-matchers) - Optional List<br>List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the ServicePolicyRule
 
+<a id="domain-matcher"></a>&#x2022; [`domain_matcher`](#domain-matcher) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="expiration-timestamp"></a>&#x2022; [`expiration_timestamp`](#expiration-timestamp) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
+
+<a id="headers"></a>&#x2022; [`headers`](#headers) - Optional List<br>List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type
+
+<a id="http-method"></a>&#x2022; [`http_method`](#http-method) - Optional String<br>HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ip-matcher"></a>&#x2022; [`ip_matcher`](#ip-matcher) - Optional String<br>Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true
+
+<a id="ip-prefix-list"></a>&#x2022; [`ip_prefix_list`](#ip-prefix-list) - Optional String<br>List of IP Prefix strings to match against
+
+<a id="ip-threat-category-list"></a>&#x2022; [`ip_threat_category_list`](#ip-threat-category-list) - Optional String<br>IP Threat Category List Type. List of IP threat categories
+
+<a id="ja4-tls-fingerprint"></a>&#x2022; [`ja4_tls_fingerprint`](#ja4-tls-fingerprint) - Optional String<br>Extended version of JA3 that includes additional fields for more comprehensive fingerprinting of SSL/TLS clients and potentially has a different structure and length
+
+<a id="jwt-claims"></a>&#x2022; [`jwt_claims`](#jwt-claims) - Optional List<br>List of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings
+
+<a id="label-matcher"></a>&#x2022; [`label_matcher`](#label-matcher) - Optional String<br>Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="log-rule-evaluation"></a>&#x2022; [`log_rule_evaluation`](#log-rule-evaluation) - Optional Bool<br>Log the rule match details along with the request and continue to evaluate rules in the sequence
+
+<a id="mum-action"></a>&#x2022; [`mum_action`](#mum-action) - Optional String<br>Modify behavior for a matching request. The modification could be to entirely skip processing
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions
+
+<a id="port-matcher"></a>&#x2022; [`port_matcher`](#port-matcher) - Optional String<br>Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true. Server applies default when omitted
+
+<a id="query-params"></a>&#x2022; [`query_params`](#query-params) - Optional List<br>List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query
+
+<a id="request-constraints"></a>&#x2022; [`request_constraints`](#request-constraints) - Optional String<br>Configuration parameter for request constraints
+
+<a id="segment-policy"></a>&#x2022; [`segment_policy`](#segment-policy) - Optional String<br>Configure source and destination segment for policy
+
+<a id="tls-fingerprint-matcher"></a>&#x2022; [`tls_fingerprint_matcher`](#tls-fingerprint-matcher) - Optional String<br>TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive
+criteria are satisfied
+
+<a id="waf-action"></a>&#x2022; [`waf_action`](#waf-action) - Optional String<br>Modify App Firewall behavior for a matching request. The modification could either be to entirely skip firewall processing or to customize the firewall rules to be applied as defined by App Firewall Rule Control settings
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert String Matcher. Invert the match result
+
+<a id="match"></a>&#x2022; [`match`](#match) - Optional List<br>List of exact values to match the input against
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Matcher. Invert Match of the expression defined
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Case-sensitive JSON path in the HTTP request body
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="as-numbers"></a>&#x2022; [`as_numbers`](#as-numbers) - Optional List<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-sets"></a>&#x2022; [`asn_sets`](#asn-sets) - Optional List<br>List of references to bgp_asn_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="bot-skip-processing"></a>&#x2022; [`bot_skip_processing`](#bot-skip-processing) - Optional Object<br>Enable this option
+
+<a id="none"></a>&#x2022; [`none`](#none) - Optional Object<br>Enable this option
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="check-not-present"></a>&#x2022; [`check_not_present`](#check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="check-present"></a>&#x2022; [`check_present`](#check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert Matcher. Invert Match of the expression defined
+
+<a id="item"></a>&#x2022; [`item`](#item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Cookie Name. A case-sensitive cookie name
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="exact-values"></a>&#x2022; [`exact_values`](#exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
+
+---
+
+#### Headers
+
+A [`headers`](#headers) block supports the following:
+
+<a id="nestedatt--headers-check-not-present"></a>&#x2022; [`check_not_present`](#nestedatt--headers-check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="nestedatt--headers-check-present"></a>&#x2022; [`check_present`](#nestedatt--headers-check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="nestedatt--headers-invert-matcher"></a>&#x2022; [`invert_matcher`](#nestedatt--headers-invert-matcher) - Optional Bool<br>Invert Header Matcher. Invert the match result
+
+<a id="nestedatt--headers-item"></a>&#x2022; [`item`](#nestedatt--headers-item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="nestedatt--headers-name"></a>&#x2022; [`name`](#nestedatt--headers-name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+#### Headers Check Not Present
+
+A [`check_not_present`](#headers-check-not-present) block (within [`headers`](#headers)) supports the following:
+
+#### Headers Check Present
+
+A [`check_present`](#headers-check-present) block (within [`headers`](#headers)) supports the following:
+
+#### Headers Item
+
+An [`item`](#headers-item) block (within [`headers`](#headers)) supports the following:
+
+<a id="nestedatt--headers--item-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--headers--item-exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="nestedatt--headers--item-regex-values"></a>&#x2022; [`regex_values`](#nestedatt--headers--item-regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="nestedatt--headers--item-transformers"></a>&#x2022; [`transformers`](#nestedatt--headers--item-transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+#### HTTP Method
+
+A [`http_method`](#http-method) block supports the following:
+
+<a id="nestedatt--headers--item-invert-matcher"></a>&#x2022; [`invert_matcher`](#nestedatt--headers--item-invert-matcher) - Optional Bool<br>Invert Method Matcher. Invert the match result
+
+<a id="nestedatt--headers--item-methods"></a>&#x2022; [`methods`](#nestedatt--headers--item-methods) - Optional List  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> List of methods values to match against
+
+#### IP Matcher
+
+An [`ip_matcher`](#ip-matcher) block supports the following:
+
+<a id="nestedatt--headers--item-invert-matcher"></a>&#x2022; [`invert_matcher`](#nestedatt--headers--item-invert-matcher) - Optional Bool<br>Invert IP Matcher. Invert the match result
+
+<a id="nestedatt--headers--item-prefix-sets"></a>&#x2022; [`prefix_sets`](#nestedatt--headers--item-prefix-sets) - Optional List<br>List of references to ip_prefix_set objects
+
+#### IP Matcher Prefix Sets
+
+A [`prefix_sets`](#ip-matcher-prefix-sets) block (within [`ip_matcher`](#ip-matcher)) supports the following:
+
+<a id="nestedatt--headers--item-kind"></a>&#x2022; [`kind`](#nestedatt--headers--item-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--headers--item-name"></a>&#x2022; [`name`](#nestedatt--headers--item-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--headers--item-namespace"></a>&#x2022; [`namespace`](#nestedatt--headers--item-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--headers--item-tenant"></a>&#x2022; [`tenant`](#nestedatt--headers--item-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--headers--item-uid"></a>&#x2022; [`uid`](#nestedatt--headers--item-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### IP Prefix List
+
+An [`ip_prefix_list`](#ip-prefix-list) block supports the following:
+
+<a id="nestedatt--headers--item-invert-match"></a>&#x2022; [`invert_match`](#nestedatt--headers--item-invert-match) - Optional Bool<br>Invert Match Result. Invert the match result
+
+<a id="nestedatt--headers--item-ip-prefixes"></a>&#x2022; [`ip_prefixes`](#nestedatt--headers--item-ip-prefixes) - Optional List<br>IPv4 Prefix List. List of IPv4 prefix strings
+
+#### IP Threat Category List
+
+An [`ip_threat_category_list`](#ip-threat-category-list) block supports the following:
+
+<a id="categories-20ecb3"></a>&#x2022; [`ip_threat_categories`](#categories-20ecb3) - Optional List  Defaults to `SPAM_SOURCES`<br>See [IP Threat Categories](#common-ip-threat-categories)<br>[Enum: SPAM_SOURCES|WINDOWS_EXPLOITS|WEB_ATTACKS|BOTNETS|SCANNERS|REPUTATION|PHISHING|PROXY|MOBILE_THREATS|TOR_PROXY|DENIAL_OF_SERVICE|NETWORK] The IP threat categories is obtained from the list and is used to
+auto-generate equivalent label selection expressions
+
+#### Ja4 TLS Fingerprint
+
+A [`ja4_tls_fingerprint`](#ja4-tls-fingerprint) block supports the following:
+
+<a id="nestedatt--headers--item-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--headers--item-exact-values) - Optional List<br>List of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint against
+
+#### JWT Claims
+
+A [`jwt_claims`](#jwt-claims) block supports the following:
+
+<a id="present-810847"></a>&#x2022; [`check_not_present`](#present-810847) - Optional Object<br>Configuration parameter for check not present
+
+<a id="nestedatt--headers--item-check-present"></a>&#x2022; [`check_present`](#nestedatt--headers--item-check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="nestedatt--headers--item-invert-matcher"></a>&#x2022; [`invert_matcher`](#nestedatt--headers--item-invert-matcher) - Optional Bool<br>Invert Matcher. Invert the match result
+
+<a id="nestedatt--headers--item-item"></a>&#x2022; [`item`](#nestedatt--headers--item-item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="nestedatt--headers--item-name"></a>&#x2022; [`name`](#nestedatt--headers--item-name) - Optional String<br>JWT Claim Name. JWT claim name
+
+#### JWT Claims Check Not Present
+
+A [`check_not_present`](#jwt-claims-check-not-present) block (within [`jwt_claims`](#jwt-claims)) supports the following:
+
+#### JWT Claims Check Present
+
+A [`check_present`](#jwt-claims-check-present) block (within [`jwt_claims`](#jwt-claims)) supports the following:
+
+#### JWT Claims Item
+
+An [`item`](#jwt-claims-item) block (within [`jwt_claims`](#jwt-claims)) supports the following:
+
+<a id="nestedatt--headers--item-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--headers--item-exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="nestedatt--headers--item-regex-values"></a>&#x2022; [`regex_values`](#nestedatt--headers--item-regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="nestedatt--headers--item-transformers"></a>&#x2022; [`transformers`](#nestedatt--headers--item-transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+#### Label Matcher
+
+A [`label_matcher`](#label-matcher) block supports the following:
+
+<a id="nestedatt--headers--item-keys"></a>&#x2022; [`keys`](#nestedatt--headers--item-keys) - Optional List<br>The list of label key names that have to match
+
+#### Mum Action
+
+A [`mum_action`](#mum-action) block supports the following:
+
+<a id="nestedatt--headers--item-default"></a>&#x2022; [`default`](#nestedatt--headers--item-default) - Optional Object<br>Enable this option
+
+<a id="processing-4aa010"></a>&#x2022; [`skip_processing`](#processing-4aa010) - Optional Object<br>Enable this option
+
+#### Mum Action Default
+
+A [`default`](#mum-action-default) block (within [`mum_action`](#mum-action)) supports the following:
+
+#### Mum Action Skip Processing
+
+A [`skip_processing`](#mum-action-skip-processing) block (within [`mum_action`](#mum-action)) supports the following:
+
+#### Path
+
+A [`path`](#path) block supports the following:
+
+<a id="nestedatt--path-encoded-path-matcher"></a>&#x2022; [`encoded_path_matcher`](#nestedatt--path-encoded-path-matcher) - Optional Bool<br>Match against the encoded, escaped path
+
+<a id="nestedatt--path-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--path-exact-values) - Optional List<br>List of exact path values to match the input HTTP path against
+
+<a id="nestedatt--path-invert-matcher"></a>&#x2022; [`invert_matcher`](#nestedatt--path-invert-matcher) - Optional Bool<br>Invert Path Matcher. Invert the match result
+
+<a id="nestedatt--path-prefix-values"></a>&#x2022; [`prefix_values`](#nestedatt--path-prefix-values) - Optional List<br>List of path prefix values to match the input HTTP path against
+
+<a id="nestedatt--path-regex-values"></a>&#x2022; [`regex_values`](#nestedatt--path-regex-values) - Optional List<br>List of regular expressions to match the input HTTP path against
+
+<a id="nestedatt--path-suffix-values"></a>&#x2022; [`suffix_values`](#nestedatt--path-suffix-values) - Optional List<br>List of path suffix values to match the input HTTP path against
+
+<a id="nestedatt--path-transformers"></a>&#x2022; [`transformers`](#nestedatt--path-transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+#### Port Matcher
+
+A [`port_matcher`](#port-matcher) block supports the following:
+
+<a id="nestedatt--path-invert-matcher"></a>&#x2022; [`invert_matcher`](#nestedatt--path-invert-matcher) - Optional Bool<br>Invert Port Matcher. Invert the match result
+
+<a id="nestedatt--path-ports"></a>&#x2022; [`ports`](#nestedatt--path-ports) - Optional List<br>List of strings, each of which is a single port value or a tuple of start and end port values separated by '-'. The start and end values are considered to be part of the range
+
+#### Query Params
+
+A [`query_params`](#query-params) block supports the following:
+
+<a id="nestedatt--path-check-not-present"></a>&#x2022; [`check_not_present`](#nestedatt--path-check-not-present) - Optional Object<br>Configuration parameter for check not present
+
+<a id="nestedatt--path-check-present"></a>&#x2022; [`check_present`](#nestedatt--path-check-present) - Optional Object<br>Configuration parameter for check present
+
+<a id="nestedatt--path-invert-matcher"></a>&#x2022; [`invert_matcher`](#nestedatt--path-invert-matcher) - Optional Bool<br>Invert Query Parameter Matcher. Invert the match result
+
+<a id="nestedatt--path-item"></a>&#x2022; [`item`](#nestedatt--path-item) - Optional String<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions
+
+<a id="nestedatt--path-key"></a>&#x2022; [`key`](#nestedatt--path-key) - Optional String<br>Case-sensitive HTTP query parameter name
+
+#### Query Params Check Not Present
+
+A [`check_not_present`](#query-params-check-not-present) block (within [`query_params`](#query-params)) supports the following:
+
+#### Query Params Check Present
+
+A [`check_present`](#query-params-check-present) block (within [`query_params`](#query-params)) supports the following:
+
+#### Query Params Item
+
+An [`item`](#query-params-item) block (within [`query_params`](#query-params)) supports the following:
+
+<a id="nestedatt--path-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--path-exact-values) - Optional List<br>List of exact values to match the input against
+
+<a id="nestedatt--path-regex-values"></a>&#x2022; [`regex_values`](#nestedatt--path-regex-values) - Optional List<br>List of regular expressions to match the input against
+
+<a id="nestedatt--path-transformers"></a>&#x2022; [`transformers`](#nestedatt--path-transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+#### Request Constraints
+
+A [`request_constraints`](#request-constraints) block supports the following:
+
+<a id="exceeds-51bc7b"></a>&#x2022; [`max_cookie_count_exceeds`](#exceeds-51bc7b) - Optional Number<br>Match on the Count for all Cookies that exceed this value
+
+<a id="nestedatt--path-max-cookie-count-none"></a>&#x2022; [`max_cookie_count_none`](#nestedatt--path-max-cookie-count-none) - Optional Object<br>Configuration parameter for max cookie count none
+
+<a id="exceeds-20d3d9"></a>&#x2022; [`max_cookie_key_size_exceeds`](#exceeds-20d3d9) - Optional Number
+
+<a id="none-1330a1"></a>&#x2022; [`max_cookie_key_size_none`](#none-1330a1) - Optional Object<br>Configuration parameter for max cookie key size none
+
+<a id="exceeds-a4e292"></a>&#x2022; [`max_cookie_value_size_exceeds`](#exceeds-a4e292) - Optional Number
+
+<a id="none-eece39"></a>&#x2022; [`max_cookie_value_size_none`](#none-eece39) - Optional Object<br>Configuration parameter for max cookie value size none
+
+<a id="exceeds-d0b520"></a>&#x2022; [`max_header_count_exceeds`](#exceeds-d0b520) - Optional Number<br>Match on the Count for all Headers that exceed this value
+
+<a id="nestedatt--path-max-header-count-none"></a>&#x2022; [`max_header_count_none`](#nestedatt--path-max-header-count-none) - Optional Object<br>Configuration parameter for max header count none
+
+<a id="exceeds-6fd1f1"></a>&#x2022; [`max_header_key_size_exceeds`](#exceeds-6fd1f1) - Optional Number
+
+<a id="none-18a06a"></a>&#x2022; [`max_header_key_size_none`](#none-18a06a) - Optional Object<br>Configuration parameter for max header key size none
+
+<a id="exceeds-252e7c"></a>&#x2022; [`max_header_value_size_exceeds`](#exceeds-252e7c) - Optional Number
+
+<a id="none-76e404"></a>&#x2022; [`max_header_value_size_none`](#none-76e404) - Optional Object<br>Configuration parameter for max header value size none
+
+<a id="exceeds-49b20d"></a>&#x2022; [`max_parameter_count_exceeds`](#exceeds-49b20d) - Optional Number
+
+<a id="none-455e90"></a>&#x2022; [`max_parameter_count_none`](#none-455e90) - Optional Object<br>Configuration parameter for max parameter count none
+
+<a id="exceeds-1e888e"></a>&#x2022; [`max_parameter_name_size_exceeds`](#exceeds-1e888e) - Optional Number
+
+<a id="none-0f0a95"></a>&#x2022; [`max_parameter_name_size_none`](#none-0f0a95) - Optional Object<br>Enable this option
+
+<a id="exceeds-89e627"></a>&#x2022; [`max_parameter_value_size_exceeds`](#exceeds-89e627) - Optional Number
+
+<a id="none-f43fa0"></a>&#x2022; [`max_parameter_value_size_none`](#none-f43fa0) - Optional Object<br>Configuration parameter for max parameter value size none
+
+<a id="nestedatt--path-max-query-size-exceeds"></a>&#x2022; [`max_query_size_exceeds`](#nestedatt--path-max-query-size-exceeds) - Optional Number<br>Match on the URL Query Size that exceed this value
+
+<a id="nestedatt--path-max-query-size-none"></a>&#x2022; [`max_query_size_none`](#nestedatt--path-max-query-size-none) - Optional Object<br>Configuration parameter for max query size none
+
+<a id="exceeds-c032e8"></a>&#x2022; [`max_request_line_size_exceeds`](#exceeds-c032e8) - Optional Number
+
+<a id="none-4ee91e"></a>&#x2022; [`max_request_line_size_none`](#none-4ee91e) - Optional Object<br>Configuration parameter for max request line size none
+
+<a id="exceeds-bccc7b"></a>&#x2022; [`max_request_size_exceeds`](#exceeds-bccc7b) - Optional Number<br>Match on the Request Size that exceed this value
+
+<a id="nestedatt--path-max-request-size-none"></a>&#x2022; [`max_request_size_none`](#nestedatt--path-max-request-size-none) - Optional Object<br>Configuration parameter for max request size none
+
+<a id="nestedatt--path-max-url-size-exceeds"></a>&#x2022; [`max_url_size_exceeds`](#nestedatt--path-max-url-size-exceeds) - Optional Number<br>Match on the URL Size that exceed this value
+
+<a id="nestedatt--path-max-url-size-none"></a>&#x2022; [`max_url_size_none`](#nestedatt--path-max-url-size-none) - Optional Object<br>Enable this option
+
+#### Request Constraints Max Cookie Count None
+
+A [`max_cookie_count_none`](#request-constraints-max-cookie-count-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Cookie Key Size None
+
+A [`max_cookie_key_size_none`](#request-constraints-max-cookie-key-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Cookie Value Size None
+
+A [`max_cookie_value_size_none`](#request-constraints-max-cookie-value-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Header Count None
+
+A [`max_header_count_none`](#request-constraints-max-header-count-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Header Key Size None
+
+A [`max_header_key_size_none`](#request-constraints-max-header-key-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Header Value Size None
+
+A [`max_header_value_size_none`](#request-constraints-max-header-value-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Parameter Count None
+
+A [`max_parameter_count_none`](#request-constraints-max-parameter-count-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Parameter Name Size None
+
+A [`max_parameter_name_size_none`](#request-constraints-max-parameter-name-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Parameter Value Size None
+
+A [`max_parameter_value_size_none`](#request-constraints-max-parameter-value-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Query Size None
+
+A [`max_query_size_none`](#request-constraints-max-query-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Request Line Size None
+
+A [`max_request_line_size_none`](#request-constraints-max-request-line-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Request Size None
+
+A [`max_request_size_none`](#request-constraints-max-request-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max URL Size None
+
+A [`max_url_size_none`](#request-constraints-max-url-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Segment Policy
+
+A [`segment_policy`](#segment-policy) block supports the following:
+
+<a id="nestedatt--path-dst-any"></a>&#x2022; [`dst_any`](#nestedatt--path-dst-any) - Optional Object<br>Enable this option
+
+<a id="nestedatt--path-dst-segments"></a>&#x2022; [`dst_segments`](#nestedatt--path-dst-segments) - Optional String<br>Configuration parameter for dst segments
+
+<a id="nestedatt--path-intra-segment"></a>&#x2022; [`intra_segment`](#nestedatt--path-intra-segment) - Optional Object<br>Configuration parameter for intra segment
+
+<a id="nestedatt--path-src-any"></a>&#x2022; [`src_any`](#nestedatt--path-src-any) - Optional Object<br>Enable this option
+
+<a id="nestedatt--path-src-segments"></a>&#x2022; [`src_segments`](#nestedatt--path-src-segments) - Optional String<br>Configuration parameter for src segments
+
+#### Segment Policy Dst Any
+
+A [`dst_any`](#segment-policy-dst-any) block (within [`segment_policy`](#segment-policy)) supports the following:
+
+#### Segment Policy Dst Segments
+
+A [`dst_segments`](#segment-policy-dst-segments) block (within [`segment_policy`](#segment-policy)) supports the following:
+
+<a id="nestedatt--path-segments"></a>&#x2022; [`segments`](#nestedatt--path-segments) - Optional List<br>Segments. Select list of segments
+
+#### Segment Policy Dst Segments Segments
+
+A [`segments`](#segment-policy-dst-segments-segments) block (within [`segment_policy.dst_segments`](#segment-policy-dst-segments)) supports the following:
+
+<a id="nestedatt--path-name"></a>&#x2022; [`name`](#nestedatt--path-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--path-namespace"></a>&#x2022; [`namespace`](#nestedatt--path-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--path-tenant"></a>&#x2022; [`tenant`](#nestedatt--path-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Segment Policy Intra Segment
+
+An [`intra_segment`](#segment-policy-intra-segment) block (within [`segment_policy`](#segment-policy)) supports the following:
+
+#### Segment Policy Src Any
+
+A [`src_any`](#segment-policy-src-any) block (within [`segment_policy`](#segment-policy)) supports the following:
+
+#### Segment Policy Src Segments
+
+A [`src_segments`](#segment-policy-src-segments) block (within [`segment_policy`](#segment-policy)) supports the following:
+
+<a id="nestedatt--path-segments"></a>&#x2022; [`segments`](#nestedatt--path-segments) - Optional List<br>Segments. Select list of segments
+
+#### Segment Policy Src Segments Segments
+
+A [`segments`](#segment-policy-src-segments-segments) block (within [`segment_policy.src_segments`](#segment-policy-src-segments)) supports the following:
+
+<a id="nestedatt--path-name"></a>&#x2022; [`name`](#nestedatt--path-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--path-namespace"></a>&#x2022; [`namespace`](#nestedatt--path-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--path-tenant"></a>&#x2022; [`tenant`](#nestedatt--path-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### TLS Fingerprint Matcher
+
+A [`tls_fingerprint_matcher`](#tls-fingerprint-matcher) block supports the following:
+
+<a id="nestedatt--path-classes"></a>&#x2022; [`classes`](#nestedatt--path-classes) - Optional List  Defaults to `TLS_FINGERPRINT_NONE`<br>See [TLS Fingerprints](#common-tls-fingerprints)<br>[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the
+input TLS JA3 fingerprint against
+
+<a id="nestedatt--path-exact-values"></a>&#x2022; [`exact_values`](#nestedatt--path-exact-values) - Optional List<br>List of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint against
+
+<a id="nestedatt--path-excluded-values"></a>&#x2022; [`excluded_values`](#nestedatt--path-excluded-values) - Optional List<br>List of TLS JA3 fingerprints to be excluded when matching the input TLS JA3 fingerprint. This can be used to skip known false positives when using one or more known TLS fingerprint classes in the enclosing matcher
+
+#### WAF Action
+
+A [`waf_action`](#waf-action) block supports the following:
+
+<a id="control-cd07c0"></a>&#x2022; [`app_firewall_detection_control`](#control-cd07c0) - Optional String<br>Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria
+
+<a id="nestedatt--path-none"></a>&#x2022; [`none`](#nestedatt--path-none) - Optional Object<br>Enable this option
+
+<a id="nestedatt--path-waf-skip-processing"></a>&#x2022; [`waf_skip_processing`](#nestedatt--path-waf-skip-processing) - Optional Object<br>Enable this option
+
+#### WAF Action App Firewall Detection Control
+
+An [`app_firewall_detection_control`](#waf-action-app-firewall-detection-control) block (within [`waf_action`](#waf-action)) supports the following:
+
+<a id="contexts-ab7493"></a>&#x2022; [`exclude_attack_type_contexts`](#contexts-ab7493) - Optional List<br>Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected
+
+<a id="contexts-01f698"></a>&#x2022; [`exclude_bot_name_contexts`](#contexts-01f698) - Optional List<br>Bot Names to be excluded for the defined match criteria
+
+<a id="contexts-753a52"></a>&#x2022; [`exclude_signature_contexts`](#contexts-753a52) - Optional List<br>Signature IDs to be excluded for the defined match criteria
+
+<a id="contexts-b6bcbe"></a>&#x2022; [`exclude_violation_contexts`](#contexts-b6bcbe) - Optional List<br>Violations to be excluded for the defined match criteria
+
+#### WAF Action App Firewall Detection Control Exclude Attack Type Contexts
+
+<a id="deep-e071c3"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Action App Firewall Detection Control Exclude Bot Name Contexts
+
+<a id="deep-8654c5"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Action App Firewall Detection Control Exclude Signature Contexts
+
+<a id="deep-c084c6"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Action App Firewall Detection Control Exclude Violation Contexts
+
+<a id="deep-17f42c"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Action None
+
+A [`none`](#waf-action-none) block (within [`waf_action`](#waf-action)) supports the following:
+
+#### WAF Action WAF Skip Processing
+
+A [`waf_skip_processing`](#waf-action-waf-skip-processing) block (within [`waf_action`](#waf-action)) supports the following:
 
 ---
 

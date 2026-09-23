@@ -64,6 +64,87 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="limits"></a>&#x2022; [`limits`](#limits) - Optional List<br>List of RateLimitValues that specifies the total number of allowed requests for each specified period
+
+<a id="user-identification"></a>&#x2022; [`user_identification`](#user-identification) - Optional List  Defaults to `[]`<br>Reference to user_identification object. The rules in the user_identification object are evaluated to determine the user identifier to be rate limited.  Server applies default when omitted
+
+---
+
+#### Limits
+
+A [`limits`](#limits) block supports the following:
+
+<a id="nestedatt--limits-action-block"></a>&#x2022; [`action_block`](#nestedatt--limits-action-block) - Optional String<br>Action where a user is blocked from making further requests after exceeding rate limit threshold
+
+<a id="nestedatt--limits-burst-multiplier"></a>&#x2022; [`burst_multiplier`](#nestedatt--limits-burst-multiplier) - Optional Number<br>The maximum burst of requests to accommodate, expressed as a multiple of the rate
+
+<a id="nestedatt--limits-disabled"></a>&#x2022; [`disabled`](#nestedatt--limits-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--limits-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#nestedatt--limits-leaky-bucket) - Optional Object<br>Leaky-Bucket is the default rate limiter algorithm for F5
+
+<a id="nestedatt--limits-period-multiplier"></a>&#x2022; [`period_multiplier`](#nestedatt--limits-period-multiplier) - Optional Number<br>Setting, combined with Per Period units, provides a duration
+
+<a id="nestedatt--limits-token-bucket"></a>&#x2022; [`token_bucket`](#nestedatt--limits-token-bucket) - Optional Object<br>Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
+
+<a id="nestedatt--limits-total-number"></a>&#x2022; [`total_number`](#nestedatt--limits-total-number) - Optional Number<br>The total number of allowed requests per rate-limiting period
+
+<a id="nestedatt--limits-unit"></a>&#x2022; [`unit`](#nestedatt--limits-unit) - Optional String  Defaults to `SECOND`<br>Possible values are `SECOND`, `MINUTE`, `HOUR`<br>[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is
+hours - DAY: Day Rate limit period unit is days
+
+#### Limits Action Block
+
+An [`action_block`](#limits-action-block) block (within [`limits`](#limits)) supports the following:
+
+<a id="nestedatt--limits-hours"></a>&#x2022; [`hours`](#nestedatt--limits-hours) - Optional String<br>Hours. Input Duration Hours
+
+<a id="nestedatt--limits-minutes"></a>&#x2022; [`minutes`](#nestedatt--limits-minutes) - Optional String<br>Minutes. Input Duration Minutes
+
+<a id="nestedatt--limits-seconds"></a>&#x2022; [`seconds`](#nestedatt--limits-seconds) - Optional String<br>Seconds. Input Duration Seconds
+
+#### Limits Action Block Hours
+
+A [`hours`](#limits-action-block-hours) block (within [`limits.action_block`](#limits-action-block)) supports the following:
+
+<a id="nestedatt--limits-duration"></a>&#x2022; [`duration`](#nestedatt--limits-duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+#### Limits Action Block Minutes
+
+A [`minutes`](#limits-action-block-minutes) block (within [`limits.action_block`](#limits-action-block)) supports the following:
+
+<a id="nestedatt--limits-duration"></a>&#x2022; [`duration`](#nestedatt--limits-duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+#### Limits Action Block Seconds
+
+A [`seconds`](#limits-action-block-seconds) block (within [`limits.action_block`](#limits-action-block)) supports the following:
+
+<a id="nestedatt--limits-duration"></a>&#x2022; [`duration`](#nestedatt--limits-duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+#### Limits Disabled
+
+A [`disabled`](#limits-disabled) block (within [`limits`](#limits)) supports the following:
+
+#### Limits Leaky Bucket
+
+A [`leaky_bucket`](#limits-leaky-bucket) block (within [`limits`](#limits)) supports the following:
+
+#### Limits Token Bucket
+
+A [`token_bucket`](#limits-token-bucket) block (within [`limits`](#limits)) supports the following:
+
+#### User Identification
+
+An [`user_identification`](#user-identification) block supports the following:
+
+<a id="nestedatt--limits--disabled-kind"></a>&#x2022; [`kind`](#nestedatt--limits--disabled-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--limits--disabled-name"></a>&#x2022; [`name`](#nestedatt--limits--disabled-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--limits--disabled-namespace"></a>&#x2022; [`namespace`](#nestedatt--limits--disabled-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--limits--disabled-tenant"></a>&#x2022; [`tenant`](#nestedatt--limits--disabled-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--limits--disabled-uid"></a>&#x2022; [`uid`](#nestedatt--limits--disabled-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
 ---
 
 ## Common Types

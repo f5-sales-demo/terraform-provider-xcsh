@@ -17,6 +17,19 @@ data "xcsh_dns_zone" "example" {
   namespace = "system"
 }
 
+# Fail closed when this stack depends on an externally owned zone.
+resource "terraform_data" "require_managed_records" {
+  lifecycle {
+    precondition {
+      condition = try(
+        data.xcsh_dns_zone.example.primary.allow_http_lb_managed_records,
+        false
+      )
+      error_message = "The selected DNS zone must enable HTTP LB managed records."
+    }
+  }
+}
+
 output "dns_zone_id" {
   value = data.xcsh_dns_zone.example.id
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,22 @@ type IKEPhase1ProfileDataSource struct {
 }
 
 type IKEPhase1ProfileDataSourceModel struct {
-	ID          types.String `tfsdk:"id"`
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	Labels      types.Map    `tfsdk:"labels"`
-	Annotations types.Map    `tfsdk:"annotations"`
+	ID                    types.String                                `tfsdk:"id"`
+	Name                  types.String                                `tfsdk:"name"`
+	Namespace             types.String                                `tfsdk:"namespace"`
+	Description           types.String                                `tfsdk:"description"`
+	Labels                types.Map                                   `tfsdk:"labels"`
+	Annotations           types.Map                                   `tfsdk:"annotations"`
+	AuthenticationAlgos   types.List                                  `tfsdk:"authentication_algos"`
+	DhGroup               types.List                                  `tfsdk:"dh_group"`
+	EncryptionAlgos       types.List                                  `tfsdk:"encryption_algos"`
+	Prf                   types.List                                  `tfsdk:"prf"`
+	ReauthDisabled        types.Object                                `tfsdk:"reauth_disabled"`
+	UseDefaultKeylifetime types.Object                                `tfsdk:"use_default_keylifetime"`
+	IKEKeylifetimeHours   *IKEPhase1ProfileIKEKeylifetimeHoursModel   `tfsdk:"ike_keylifetime_hours"`
+	IKEKeylifetimeMinutes *IKEPhase1ProfileIKEKeylifetimeMinutesModel `tfsdk:"ike_keylifetime_minutes"`
+	ReauthTimeoutDays     *IKEPhase1ProfileReauthTimeoutDaysModel     `tfsdk:"reauth_timeout_days"`
+	ReauthTimeoutHours    *IKEPhase1ProfileReauthTimeoutHoursModel    `tfsdk:"reauth_timeout_hours"`
 }
 
 func (d *IKEPhase1ProfileDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +81,76 @@ func (d *IKEPhase1ProfileDataSource) Schema(ctx context.Context, req datasource.
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"authentication_algos": schema.ListAttribute{
+				MarkdownDescription: "[Enum: AUTH_ALG_DEFAULT|SHA256_HMAC|SHA384_HMAC|SHA512_HMAC|AUTH_ALG_NONE] Choose one or more Authentication Algorithm. Use None option when using the aes-gcm or aes-ccm encryption algorithms. Possible values are `AUTH_ALG_DEFAULT`, `SHA256_HMAC`, `SHA384_HMAC`, `SHA512_HMAC`, `AUTH_ALG_NONE`. Defaults to `AUTH_ALG_DEFAULT`.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"dh_group": schema.ListAttribute{
+				MarkdownDescription: "[Enum: DH_GROUP_DEFAULT|DH_GROUP_14|DH_GROUP_15|DH_GROUP_16|DH_GROUP_17|DH_GROUP_18|DH_GROUP_19|DH_GROUP_20|DH_GROUP_21|DH_GROUP_26] Choose the acceptable Diffie Hellman (DH) Group or Groups that you are willing to accept as part of this profile. Possible values are `DH_GROUP_DEFAULT`, `DH_GROUP_14`, `DH_GROUP_15`, `DH_GROUP_16`, `DH_GROUP_17`, `DH_GROUP_18`, `DH_GROUP_19`, `DH_GROUP_20`, `DH_GROUP_21`, `DH_GROUP_26`. Defaults to `DH_GROUP_DEFAULT`.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"encryption_algos": schema.ListAttribute{
+				MarkdownDescription: "[Enum: ENC_ALG_DEFAULT|AES128_CBC|AES192_CBC|AES256_CBC|TRIPLE_DES_CBC|AES128_GCM|AES192_GCM|AES256_GCM] Choose one or more encryption algorithms. Possible values are `ENC_ALG_DEFAULT`, `AES128_CBC`, `AES192_CBC`, `AES256_CBC`, `TRIPLE_DES_CBC`, `AES128_GCM`, `AES192_GCM`, `AES256_GCM`. Defaults to `ENC_ALG_DEFAULT`.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"prf": schema.ListAttribute{
+				MarkdownDescription: "[Enum: PRF_DEFAULT|PRFSHA256|PRFSHA384|PRFSHA512] PseudoRandomFunction. Select PseudoRandomFunction for IKE SA. Possible values are `PRF_DEFAULT`, `PRFSHA256`, `PRFSHA384`, `PRFSHA512`. Defaults to `PRF_DEFAULT`.",
+				Computed:            true,
+				ElementType:         types.StringType,
+			},
+			"ike_keylifetime_hours": schema.SingleNestedAttribute{
+				MarkdownDescription: "[OneOf: ike_keylifetime_hours, ike_keylifetime_minutes, use_default_keylifetime; Default: use_default_keylifetime] Configuration parameter for ike keylifetime hours.",
+				Attributes: map[string]schema.Attribute{
+					"duration": schema.Int64Attribute{
+						MarkdownDescription: "Duration. Configuration parameter for duration",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"ike_keylifetime_minutes": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for ike keylifetime minutes.",
+				Attributes: map[string]schema.Attribute{
+					"duration": schema.Int64Attribute{
+						MarkdownDescription: "Duration. Configuration parameter for duration",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"reauth_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: reauth_disabled, reauth_timeout_days, reauth_timeout_hours] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"reauth_timeout_days": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for reauth timeout days.",
+				Attributes: map[string]schema.Attribute{
+					"duration": schema.Int64Attribute{
+						MarkdownDescription: "Duration. Configuration parameter for duration",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"reauth_timeout_hours": schema.SingleNestedAttribute{
+				MarkdownDescription: "Configuration parameter for reauth timeout hours.",
+				Attributes: map[string]schema.Attribute{
+					"duration": schema.Int64Attribute{
+						MarkdownDescription: "Duration. Configuration parameter for duration",
+						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"use_default_keylifetime": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for use default keylifetime.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 		},
 	}
 }
@@ -93,7 +174,8 @@ func (d *IKEPhase1ProfileDataSource) Read(ctx context.Context, req datasource.Re
 		return
 	}
 
-	resource, err := d.client.GetIKEPhase1Profile(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	namespace := data.Namespace.ValueString()
+	resource, err := d.client.GetIKEPhase1Profile(ctx, namespace, data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read IKEPhase1Profile: %s", err))
 		return
@@ -101,7 +183,11 @@ func (d *IKEPhase1ProfileDataSource) Read(ctx context.Context, req datasource.Re
 
 	data.ID = types.StringValue(resource.Metadata.Name)
 	data.Name = types.StringValue(resource.Metadata.Name)
-	data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	if resource.Metadata.Namespace != "" {
+		data.Namespace = types.StringValue(resource.Metadata.Namespace)
+	} else {
+		data.Namespace = types.StringValue(namespace)
+	}
 	if resource.Metadata.Description != "" {
 		data.Description = types.StringValue(resource.Metadata.Description)
 	} else {
@@ -134,6 +220,122 @@ func (d *IKEPhase1ProfileDataSource) Read(ctx context.Context, req datasource.Re
 		}
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
+	}
+	apiResource := resource
+	isImport := true
+	if v, ok := apiResource.Spec["authentication_algos"].([]interface{}); ok {
+		authentication_algosList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				authentication_algosList = append(authentication_algosList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, authentication_algosList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.AuthenticationAlgos = listVal
+		}
+	} else if isImport || data.AuthenticationAlgos.IsUnknown() {
+		data.AuthenticationAlgos = types.ListNull(types.StringType)
+	}
+	if v, ok := apiResource.Spec["dh_group"].([]interface{}); ok {
+		dh_groupList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				dh_groupList = append(dh_groupList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, dh_groupList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.DhGroup = listVal
+		}
+	} else if isImport || data.DhGroup.IsUnknown() {
+		data.DhGroup = types.ListNull(types.StringType)
+	}
+	if v, ok := apiResource.Spec["encryption_algos"].([]interface{}); ok {
+		encryption_algosList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				encryption_algosList = append(encryption_algosList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, encryption_algosList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.EncryptionAlgos = listVal
+		}
+	} else if isImport || data.EncryptionAlgos.IsUnknown() {
+		data.EncryptionAlgos = types.ListNull(types.StringType)
+	}
+	if v, ok := apiResource.Spec["prf"].([]interface{}); ok {
+		prfList := make([]string, 0, len(v))
+		for _, item := range v {
+			if s, ok := item.(string); ok {
+				prfList = append(prfList, s)
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.StringType, prfList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.Prf = listVal
+		}
+	} else if isImport || data.Prf.IsUnknown() {
+		data.Prf = types.ListNull(types.StringType)
+	}
+	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
+		data.IKEKeylifetimeHours = &IKEPhase1ProfileIKEKeylifetimeHoursModel{
+			Duration: func() types.Int64 {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["ike_keylifetime_minutes"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeMinutes != nil) {
+		data.IKEKeylifetimeMinutes = &IKEPhase1ProfileIKEKeylifetimeMinutesModel{
+			Duration: func() types.Int64 {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if !isImport && !data.ReauthDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["reauth_disabled"].(map[string]interface{}); ok {
+		data.ReauthDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ReauthDisabled = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["reauth_timeout_days"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutDays != nil) {
+		data.ReauthTimeoutDays = &IKEPhase1ProfileReauthTimeoutDaysModel{
+			Duration: func() types.Int64 {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["reauth_timeout_hours"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutHours != nil) {
+		data.ReauthTimeoutHours = &IKEPhase1ProfileReauthTimeoutHoursModel{
+			Duration: func() types.Int64 {
+				if v, ok := blockData["duration"].(float64); ok && v != 0 {
+					return types.Int64Value(int64(v))
+				}
+				return types.Int64Null()
+			}(),
+		}
+	}
+	if !isImport && !data.UseDefaultKeylifetime.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok {
+		data.UseDefaultKeylifetime = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultKeylifetime = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

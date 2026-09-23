@@ -56,13 +56,1097 @@ output "application_profiles_id" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="advanced-tcp-profile"></a>&#x2022; [`advanced_tcp_profile`](#advanced-tcp-profile) - Optional String<br>Configuration parameter for advanced TCP profile
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+
+<a id="ddos-profile"></a>&#x2022; [`ddos_profile`](#ddos-profile) - Optional String<br>Configuration parameter for DDOS profile
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the ApplicationProfiles
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="irules"></a>&#x2022; [`irules`](#irules) - Optional List<br>OPTIONS for attaching iRules to BIG-IP Proxy
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="virtual-server"></a>&#x2022; [`virtual_server`](#virtual-server) - Optional String<br>Specifies configuration related to virtual server
+
+<a id="disable-tcp-advanced-profile"></a>&#x2022; [`disable_tcp_advanced_profile`](#disable-tcp-advanced-profile) - Optional Object<br>Configuration parameter for disable TCP advanced profile
+
+<a id="enable-tcp-advanced-profile"></a>&#x2022; [`enable_tcp_advanced_profile`](#enable-tcp-advanced-profile) - Optional Object<br>Configuration parameter for enable TCP advanced profile
+
+<a id="disable-ddos-mitigation"></a>&#x2022; [`disable_ddos_mitigation`](#disable-ddos-mitigation) - Optional Object<br>Enable this option
+
+<a id="enable-ddos-mitigation"></a>&#x2022; [`enable_ddos_mitigation`](#enable-ddos-mitigation) - Optional Object<br>Enable this option
+
+---
+
+#### Irules
+
+An [`irules`](#irules) block supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server
+
+A [`virtual_server`](#virtual-server) block supports the following:
+
+<a id="nestedatt--irules-address-translation"></a>&#x2022; [`address_translation`](#nestedatt--irules-address-translation) - Optional String<br>Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that
+have the same IP address
+
+<a id="nestedatt--irules-auto-last-hop"></a>&#x2022; [`auto_last_hop`](#nestedatt--irules-auto-last-hop) - Optional String<br>When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For
+example, if the
+
+<a id="nestedatt--irules-clone-pool-client"></a>&#x2022; [`clone_pool_client`](#nestedatt--irules-clone-pool-client) - Optional List<br>Replicates client-side traffic (that is, prior to address translation) to a member of the specified pool
+
+<a id="nestedatt--irules-clone-pool-server"></a>&#x2022; [`clone_pool_server`](#nestedatt--irules-clone-pool-server) - Optional List<br>Replicates server-side traffic (that is, prior to address translation) to a member of the specified pool
+
+<a id="nestedatt--irules-connection-limit"></a>&#x2022; [`connection_limit`](#nestedatt--irules-connection-limit) - Optional Number<br>Specifies the maximum number of concurrent connections allowed for the virtual server. Setting this to 0 turns off connection limits. The
+
+<a id="nestedatt--irules-connection-rate-limit"></a>&#x2022; [`connection_rate_limit`](#nestedatt--irules-connection-rate-limit) - Optional Number<br>Specifies the maximum number of connections-per-second allowed for a virtual server. When the number of connections-per-second reaches the limit for a given virtual server, the system drops (UDP) or resets (TCP) additional connection requests. This
+helps detect Denial of Service attacks, where
+
+<a id="mode-1324b7"></a>&#x2022; [`connection_rate_limit_mode`](#mode-1324b7) - Optional String<br>Configuration parameter for connection rate limit mode
+
+<a id="profile-e90f71"></a>&#x2022; [`default_persistence_profile`](#profile-e90f71) - Optional List<br>Configuration parameter for default persistence profile
+
+<a id="nestedatt--irules-default-pool"></a>&#x2022; [`default_pool`](#nestedatt--irules-default-pool) - Optional List<br>Specifies the pool name that you want the virtual server to use as the default pool. A load balancing virtual server sends traffic to this pool automatically, unless an iRule directs the server to send the traffic to another pool instead
+
+<a id="profile-377efe"></a>&#x2022; [`fallback_persistence_profile`](#profile-377efe) - Optional List<br>Configuration parameter for fallback persistence profile
+
+<a id="nestedatt--irules-fix-profile"></a>&#x2022; [`fix_profile`](#nestedatt--irules-fix-profile) - Optional List<br>Configuration parameter for fix profile
+
+<a id="nestedatt--irules-http"></a>&#x2022; [`http`](#nestedatt--irules-http) - Optional String<br>HTTP profiles
+
+<a id="nestedatt--irules-http3"></a>&#x2022; [`http3`](#nestedatt--irules-http3) - Optional String<br>HTTP/3 profiles
+
+<a id="nestedatt--irules-https"></a>&#x2022; [`https`](#nestedatt--irules-https) - Optional String<br>HTTP profiles
+
+<a id="down-42c5d4"></a>&#x2022; [`immediate_action_on_service_down`](#down-42c5d4) - Optional String<br>Specifies the immediate action the BIG-IP system should respond with upon the receipt of the initial client's SYN packet, if the availability status of the virtual server is Offline or Unavailable. This is supported for the virtual server of Standard type and TCP protocol. The default is None
+
+<a id="nestedatt--irules-last-hop-pool"></a>&#x2022; [`last_hop_pool`](#nestedatt--irules-last-hop-pool) - Optional List<br>Directs reply traffic to the last hop router using the specified pool
+
+<a id="nestedatt--irules-nat64"></a>&#x2022; [`nat64`](#nestedatt--irules-nat64) - Optional String<br>When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the
+
+<a id="nestedatt--irules-port-translation"></a>&#x2022; [`port_translation`](#nestedatt--irules-port-translation) - Optional String<br>Specifies, when checked (enabled), that the system translates the port of the virtual server. When cleared (disabled), specifies that the system uses the port without translation. Turning off port translation for a virtual server is useful if you want to use the
+virtual server to load balance
+
+<a id="profile-c33c29"></a>&#x2022; [`request_logging_profile`](#profile-c33c29) - Optional List<br>Configuration parameter for request logging profile
+
+<a id="nestedatt--irules-source-port"></a>&#x2022; [`source_port`](#nestedatt--irules-source-port) - Optional String<br>Specifies whether the system preserves the source port of the connection. The default is Preserve
+
+<a id="nestedatt--irules-statistics-profile"></a>&#x2022; [`statistics_profile`](#nestedatt--irules-statistics-profile) - Optional List<br>Configuration parameter for statistics profile
+
+<a id="nestedatt--irules-tcp"></a>&#x2022; [`tcp`](#nestedatt--irules-tcp) - Optional String<br>TCP profiles
+
+<a id="nestedatt--irules-udp"></a>&#x2022; [`udp`](#nestedatt--irules-udp) - Optional String<br>UDP profiles
+
+<a id="nestedatt--irules-virtual-server-state"></a>&#x2022; [`virtual_server_state`](#nestedatt--irules-virtual-server-state) - Optional String<br>Displays the current state on the object
+
+<a id="nestedatt--irules-vs-score"></a>&#x2022; [`vs_score`](#nestedatt--irules-vs-score) - Optional Number<br>Specifies the virtual server score in percent. Global Traffic Manager (GTM) can rely on this value to load balance traffic in a proportional manner. The , meaning that no additional metric is applied for the virtual server
+
+#### Virtual Server Address Translation
+
+An [`address_translation`](#virtual-server-address-translation) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="disable-bd002a"></a>&#x2022; [`address_translation_disable`](#disable-bd002a) - Optional Object<br>Enable this option
+
+<a id="enable-1c7777"></a>&#x2022; [`address_translation_enable`](#enable-1c7777) - Optional Object<br>Enable this option
+
+#### Virtual Server Address Translation Address Translation Disable
+
+An [`address_translation_disable`](#virtual-server-address-translation-address-translation-disable) block (within [`virtual_server.address_translation`](#virtual-server-address-translation)) supports the following:
+
+#### Virtual Server Address Translation Address Translation Enable
+
+An [`address_translation_enable`](#virtual-server-address-translation-address-translation-enable) block (within [`virtual_server.address_translation`](#virtual-server-address-translation)) supports the following:
+
+#### Virtual Server Auto Last Hop
+
+An [`auto_last_hop`](#virtual-server-auto-last-hop) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-auto-last-hop-default"></a>&#x2022; [`auto_last_hop_default`](#nestedatt--irules-auto-last-hop-default) - Optional Object<br>Configuration parameter for auto last hop default
+
+<a id="nestedatt--irules-auto-last-hop-disable"></a>&#x2022; [`auto_last_hop_disable`](#nestedatt--irules-auto-last-hop-disable) - Optional Object<br>Configuration parameter for auto last hop disable
+
+<a id="nestedatt--irules-auto-last-hop-enable"></a>&#x2022; [`auto_last_hop_enable`](#nestedatt--irules-auto-last-hop-enable) - Optional Object<br>Configuration parameter for auto last hop enable
+
+#### Virtual Server Auto Last Hop Auto Last Hop Default
+
+<a id="deep-7d99e8"></a>Deeply nested **Default** block collapsed for readability.
+
+#### Virtual Server Auto Last Hop Auto Last Hop Disable
+
+<a id="deep-1feae2"></a>Deeply nested **Disable** block collapsed for readability.
+
+#### Virtual Server Auto Last Hop Auto Last Hop Enable
+
+<a id="deep-b07149"></a>Deeply nested **Enable** block collapsed for readability.
+
+#### Virtual Server Clone Pool Client
+
+A [`clone_pool_client`](#virtual-server-clone-pool-client) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Clone Pool Server
+
+A [`clone_pool_server`](#virtual-server-clone-pool-server) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Connection Rate Limit Mode
+
+A [`connection_rate_limit_mode`](#virtual-server-connection-rate-limit-mode) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="address-6b7d8d"></a>&#x2022; [`per_destination_address`](#address-6b7d8d) - Optional String<br>Destination Address Mask
+
+<a id="nestedatt--irules-per-source-address"></a>&#x2022; [`per_source_address`](#nestedatt--irules-per-source-address) - Optional String<br>Source Address Mask
+
+<a id="address-602e67"></a>&#x2022; [`per_source_destination_address`](#address-602e67) - Optional String<br>Destination and Source Address Mask
+
+<a id="nestedatt--irules-per-virtual-server"></a>&#x2022; [`per_virtual_server`](#nestedatt--irules-per-virtual-server) - Optional Object<br>Configuration parameter for per virtual server
+
+<a id="address-2b1cde"></a>&#x2022; [`per_virtual_server_destination_address`](#address-2b1cde) - Optional String<br>Destination Address Mask
+
+<a id="address-1135d5"></a>&#x2022; [`per_virtual_server_source_address`](#address-1135d5) - Optional String<br>Source Address Mask
+
+<a id="address-f386de"></a>&#x2022; [`per_virtual_server_source_destination_address`](#address-f386de) - Optional String<br>Destination and Source Address Mask
+
+#### Virtual Server Connection Rate Limit Mode Per Destination Address
+
+<a id="deep-092db4"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Virtual Server Connection Rate Limit Mode Per Source Address
+
+<a id="deep-17aeca"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Virtual Server Connection Rate Limit Mode Per Source Destination Address
+
+<a id="deep-ac4282"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Virtual Server Connection Rate Limit Mode Per Virtual Server
+
+<a id="deep-82eea2"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Virtual Server Connection Rate Limit Mode Per Virtual Server Destination Address
+
+<a id="deep-e8f5f7"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Virtual Server Connection Rate Limit Mode Per Virtual Server Source Address
+
+<a id="deep-26ad6e"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Virtual Server Connection Rate Limit Mode Per Virtual Server Source Destination Address
+
+<a id="deep-ff7f42"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Virtual Server Default Persistence Profile
+
+A [`default_persistence_profile`](#virtual-server-default-persistence-profile) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Default Pool
+
+A [`default_pool`](#virtual-server-default-pool) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Fallback Persistence Profile
+
+A [`fallback_persistence_profile`](#virtual-server-fallback-persistence-profile) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Fix Profile
+
+A [`fix_profile`](#virtual-server-fix-profile) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP
+
+A [`http`](#virtual-server-http) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#nestedatt--irules-client-ssl-profile) - Optional List<br>Client SSL Profile. Client-side configuration
+
+<a id="nestedatt--irules-http2-client-profile"></a>&#x2022; [`http2_client_profile`](#nestedatt--irules-http2-client-profile) - Optional List<br>HTTP/2 Profile Client. Client-side configuration
+
+<a id="nestedatt--irules-http2-server-profile"></a>&#x2022; [`http2_server_profile`](#nestedatt--irules-http2-server-profile) - Optional List<br>Configuration parameter for http2 server profile
+
+<a id="nestedatt--irules-http-client-profile"></a>&#x2022; [`http_client_profile`](#nestedatt--irules-http-client-profile) - Optional List<br>HTTP Profile (Client). Client-side configuration
+
+<a id="nestedatt--irules-http-server-profile"></a>&#x2022; [`http_server_profile`](#nestedatt--irules-http-server-profile) - Optional List<br>Configuration parameter for HTTP server profile
+
+<a id="nestedatt--irules-ocsp-profile"></a>&#x2022; [`ocsp_profile`](#nestedatt--irules-ocsp-profile) - Optional List<br>Configuration parameter for OCSP profile
+
+<a id="nestedatt--irules-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#nestedatt--irules-server-ssl-profile) - Optional List<br>Configuration parameter for server SSL profile
+
+<a id="nestedatt--irules-stream-profile"></a>&#x2022; [`stream_profile`](#nestedatt--irules-stream-profile) - Optional List<br>Configuration parameter for stream profile
+
+<a id="nestedatt--irules-tcp-client-profile"></a>&#x2022; [`tcp_client_profile`](#nestedatt--irules-tcp-client-profile) - Optional List<br>Protocol Profile (Client). Client-side configuration
+
+<a id="nestedatt--irules-tcp-server-profile"></a>&#x2022; [`tcp_server_profile`](#nestedatt--irules-tcp-server-profile) - Optional List<br>Configuration parameter for TCP server profile
+
+<a id="profile-ab2da1"></a>&#x2022; [`websocket_client_profile`](#profile-ab2da1) - Optional List<br>WebSocket Profile Client. Web-related configuration
+
+<a id="profile-079ac3"></a>&#x2022; [`websocket_server_profile`](#profile-079ac3) - Optional List<br>WebSocket Profile Server. Web-related configuration
+
+#### Virtual Server HTTP Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-http-client-ssl-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP Http2 Client Profile
+
+A [`http2_client_profile`](#virtual-server-http-http2-client-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP Http2 Server Profile
+
+A [`http2_server_profile`](#virtual-server-http-http2-server-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP HTTP Client Profile
+
+A [`http_client_profile`](#virtual-server-http-http-client-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP HTTP Server Profile
+
+A [`http_server_profile`](#virtual-server-http-http-server-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP OCSP Profile
+
+An [`ocsp_profile`](#virtual-server-http-ocsp-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-http-server-ssl-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP Stream Profile
+
+A [`stream_profile`](#virtual-server-http-stream-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP TCP Client Profile
+
+A [`tcp_client_profile`](#virtual-server-http-tcp-client-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP TCP Server Profile
+
+A [`tcp_server_profile`](#virtual-server-http-tcp-server-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP WebSocket Client Profile
+
+A [`websocket_client_profile`](#virtual-server-http-websocket-client-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP WebSocket Server Profile
+
+A [`websocket_server_profile`](#virtual-server-http-websocket-server-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3
+
+A [`http3`](#virtual-server-http3) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#nestedatt--irules-client-ssl-profile) - Optional List<br>Client SSL Profile. Client-side configuration
+
+<a id="nestedatt--irules-http3-profile"></a>&#x2022; [`http3_profile`](#nestedatt--irules-http3-profile) - Optional List<br>Configuration parameter for http3 profile
+
+<a id="nestedatt--irules-http-client-profile"></a>&#x2022; [`http_client_profile`](#nestedatt--irules-http-client-profile) - Optional List<br>HTTP Profile (Client). Client-side configuration
+
+<a id="nestedatt--irules-http-server-profile"></a>&#x2022; [`http_server_profile`](#nestedatt--irules-http-server-profile) - Optional List<br>Configuration parameter for HTTP server profile
+
+<a id="nestedatt--irules-quic-profile"></a>&#x2022; [`quic_profile`](#nestedatt--irules-quic-profile) - Optional List<br>Configuration parameter for QUIC profile
+
+<a id="nestedatt--irules-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#nestedatt--irules-server-ssl-profile) - Optional List<br>Configuration parameter for server SSL profile
+
+<a id="nestedatt--irules-tcp-server-profile"></a>&#x2022; [`tcp_server_profile`](#nestedatt--irules-tcp-server-profile) - Optional List<br>Configuration parameter for TCP server profile
+
+<a id="nestedatt--irules-udp-client-profile"></a>&#x2022; [`udp_client_profile`](#nestedatt--irules-udp-client-profile) - Optional List<br>Protocol Profile (Client). Client-side configuration
+
+<a id="nestedatt--irules-udp-server-profile"></a>&#x2022; [`udp_server_profile`](#nestedatt--irules-udp-server-profile) - Optional List<br>Configuration parameter for UDP server profile
+
+#### Virtual Server Http3 Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-http3-client-ssl-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 Http3 Profile
+
+A [`http3_profile`](#virtual-server-http3-http3-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 HTTP Client Profile
+
+A [`http_client_profile`](#virtual-server-http3-http-client-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 HTTP Server Profile
+
+A [`http_server_profile`](#virtual-server-http3-http-server-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 QUIC Profile
+
+A [`quic_profile`](#virtual-server-http3-quic-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-http3-server-ssl-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 TCP Server Profile
+
+A [`tcp_server_profile`](#virtual-server-http3-tcp-server-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 UDP Client Profile
+
+An [`udp_client_profile`](#virtual-server-http3-udp-client-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 UDP Server Profile
+
+An [`udp_server_profile`](#virtual-server-http3-udp-server-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS
+
+A [`https`](#virtual-server-https) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#nestedatt--irules-client-ssl-profile) - Optional List<br>Client SSL Profile. Client-side configuration
+
+<a id="nestedatt--irules-http2-client-profile"></a>&#x2022; [`http2_client_profile`](#nestedatt--irules-http2-client-profile) - Optional List<br>HTTP/2 Profile Client. Client-side configuration
+
+<a id="nestedatt--irules-http2-server-profile"></a>&#x2022; [`http2_server_profile`](#nestedatt--irules-http2-server-profile) - Optional List<br>Configuration parameter for http2 server profile
+
+<a id="nestedatt--irules-http-client-profile"></a>&#x2022; [`http_client_profile`](#nestedatt--irules-http-client-profile) - Optional List<br>HTTP Profile (Client). Client-side configuration
+
+<a id="nestedatt--irules-http-server-profile"></a>&#x2022; [`http_server_profile`](#nestedatt--irules-http-server-profile) - Optional List<br>Configuration parameter for HTTP server profile
+
+<a id="nestedatt--irules-ocsp-profile"></a>&#x2022; [`ocsp_profile`](#nestedatt--irules-ocsp-profile) - Optional List<br>Configuration parameter for OCSP profile
+
+<a id="nestedatt--irules-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#nestedatt--irules-server-ssl-profile) - Optional List<br>Configuration parameter for server SSL profile
+
+<a id="nestedatt--irules-stream-profile"></a>&#x2022; [`stream_profile`](#nestedatt--irules-stream-profile) - Optional List<br>Configuration parameter for stream profile
+
+<a id="nestedatt--irules-tcp-client-profile"></a>&#x2022; [`tcp_client_profile`](#nestedatt--irules-tcp-client-profile) - Optional List<br>Protocol Profile (Client). Client-side configuration
+
+<a id="nestedatt--irules-tcp-server-profile"></a>&#x2022; [`tcp_server_profile`](#nestedatt--irules-tcp-server-profile) - Optional List<br>Configuration parameter for TCP server profile
+
+<a id="profile-ab2da1"></a>&#x2022; [`websocket_client_profile`](#profile-ab2da1) - Optional List<br>WebSocket Profile Client. Web-related configuration
+
+<a id="profile-079ac3"></a>&#x2022; [`websocket_server_profile`](#profile-079ac3) - Optional List<br>WebSocket Profile Server. Web-related configuration
+
+#### Virtual Server HTTPS Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-https-client-ssl-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS Http2 Client Profile
+
+A [`http2_client_profile`](#virtual-server-https-http2-client-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS Http2 Server Profile
+
+A [`http2_server_profile`](#virtual-server-https-http2-server-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS HTTP Client Profile
+
+A [`http_client_profile`](#virtual-server-https-http-client-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS HTTP Server Profile
+
+A [`http_server_profile`](#virtual-server-https-http-server-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS OCSP Profile
+
+An [`ocsp_profile`](#virtual-server-https-ocsp-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-https-server-ssl-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS Stream Profile
+
+A [`stream_profile`](#virtual-server-https-stream-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS TCP Client Profile
+
+A [`tcp_client_profile`](#virtual-server-https-tcp-client-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS TCP Server Profile
+
+A [`tcp_server_profile`](#virtual-server-https-tcp-server-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS WebSocket Client Profile
+
+A [`websocket_client_profile`](#virtual-server-https-websocket-client-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS WebSocket Server Profile
+
+A [`websocket_server_profile`](#virtual-server-https-websocket-server-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Immediate Action On Service Down
+
+An [`immediate_action_on_service_down`](#virtual-server-immediate-action-on-service-down) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="drop-0a04e0"></a>&#x2022; [`immediate_action_on_service_down_drop`](#drop-0a04e0) - Optional Object<br>Enable this option
+
+<a id="none-cc51f9"></a>&#x2022; [`immediate_action_on_service_down_none`](#none-cc51f9) - Optional Object<br>Enable this option
+
+<a id="reset-6b3329"></a>&#x2022; [`immediate_action_on_service_down_reset`](#reset-6b3329) - Optional Object<br>Enable this option
+
+#### Virtual Server Immediate Action On Service Down Immediate Action On Service Down Drop
+
+<a id="deep-3bc7c1"></a>Deeply nested **Drop** block collapsed for readability.
+
+#### Virtual Server Immediate Action On Service Down Immediate Action On Service Down None
+
+<a id="deep-75b282"></a>Deeply nested **None** block collapsed for readability.
+
+#### Virtual Server Immediate Action On Service Down Immediate Action On Service Down Reset
+
+<a id="deep-cdc843"></a>Deeply nested **Reset** block collapsed for readability.
+
+#### Virtual Server Last Hop Pool
+
+A [`last_hop_pool`](#virtual-server-last-hop-pool) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Nat64
+
+A [`nat64`](#virtual-server-nat64) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-nat64-disable"></a>&#x2022; [`nat64_disable`](#nestedatt--irules-nat64-disable) - Optional Object<br>Configuration parameter for nat64 disable
+
+<a id="nestedatt--irules-nat64-enable"></a>&#x2022; [`nat64_enable`](#nestedatt--irules-nat64-enable) - Optional Object<br>Configuration parameter for nat64 enable
+
+#### Virtual Server Nat64 Nat64 Disable
+
+A [`nat64_disable`](#virtual-server-nat64-nat64-disable) block (within [`virtual_server.nat64`](#virtual-server-nat64)) supports the following:
+
+#### Virtual Server Nat64 Nat64 Enable
+
+A [`nat64_enable`](#virtual-server-nat64-nat64-enable) block (within [`virtual_server.nat64`](#virtual-server-nat64)) supports the following:
+
+#### Virtual Server Port Translation
+
+A [`port_translation`](#virtual-server-port-translation) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="disable-232700"></a>&#x2022; [`port_translation_disable`](#disable-232700) - Optional Object<br>Enable this option
+
+<a id="enable-fb4130"></a>&#x2022; [`port_translation_enable`](#enable-fb4130) - Optional Object<br>Enable this option
+
+#### Virtual Server Port Translation Port Translation Disable
+
+A [`port_translation_disable`](#virtual-server-port-translation-port-translation-disable) block (within [`virtual_server.port_translation`](#virtual-server-port-translation)) supports the following:
+
+#### Virtual Server Port Translation Port Translation Enable
+
+A [`port_translation_enable`](#virtual-server-port-translation-port-translation-enable) block (within [`virtual_server.port_translation`](#virtual-server-port-translation)) supports the following:
+
+#### Virtual Server Request Logging Profile
+
+A [`request_logging_profile`](#virtual-server-request-logging-profile) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Source Port
+
+A [`source_port`](#virtual-server-source-port) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-source-port-change"></a>&#x2022; [`source_port_change`](#nestedatt--irules-source-port-change) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules-source-port-preserve"></a>&#x2022; [`source_port_preserve`](#nestedatt--irules-source-port-preserve) - Optional Object<br>Enable this option
+
+<a id="strict-e2a4d4"></a>&#x2022; [`source_port_preserve_strict`](#strict-e2a4d4) - Optional Object<br>Enable this option
+
+#### Virtual Server Source Port Source Port Change
+
+A [`source_port_change`](#virtual-server-source-port-source-port-change) block (within [`virtual_server.source_port`](#virtual-server-source-port)) supports the following:
+
+#### Virtual Server Source Port Source Port Preserve
+
+A [`source_port_preserve`](#virtual-server-source-port-source-port-preserve) block (within [`virtual_server.source_port`](#virtual-server-source-port)) supports the following:
+
+#### Virtual Server Source Port Source Port Preserve Strict
+
+<a id="deep-75c320"></a>Deeply nested **Strict** block collapsed for readability.
+
+#### Virtual Server Statistics Profile
+
+A [`statistics_profile`](#virtual-server-statistics-profile) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server TCP
+
+A [`tcp`](#virtual-server-tcp) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#nestedatt--irules-client-ssl-profile) - Optional List<br>Client SSL Profile. Client-side configuration
+
+<a id="nestedatt--irules-ocsp-profile"></a>&#x2022; [`ocsp_profile`](#nestedatt--irules-ocsp-profile) - Optional List<br>Configuration parameter for OCSP profile
+
+<a id="nestedatt--irules-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#nestedatt--irules-server-ssl-profile) - Optional List<br>Configuration parameter for server SSL profile
+
+<a id="nestedatt--irules-tcp-client-profile"></a>&#x2022; [`tcp_client_profile`](#nestedatt--irules-tcp-client-profile) - Optional List<br>Protocol Profile (Client). Client-side configuration
+
+<a id="nestedatt--irules-tcp-server-profile"></a>&#x2022; [`tcp_server_profile`](#nestedatt--irules-tcp-server-profile) - Optional List<br>Configuration parameter for TCP server profile
+
+#### Virtual Server TCP Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-tcp-client-ssl-profile) block (within [`virtual_server.tcp`](#virtual-server-tcp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server TCP OCSP Profile
+
+An [`ocsp_profile`](#virtual-server-tcp-ocsp-profile) block (within [`virtual_server.tcp`](#virtual-server-tcp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server TCP Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-tcp-server-ssl-profile) block (within [`virtual_server.tcp`](#virtual-server-tcp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server TCP TCP Client Profile
+
+A [`tcp_client_profile`](#virtual-server-tcp-tcp-client-profile) block (within [`virtual_server.tcp`](#virtual-server-tcp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server TCP TCP Server Profile
+
+A [`tcp_server_profile`](#virtual-server-tcp-tcp-server-profile) block (within [`virtual_server.tcp`](#virtual-server-tcp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server UDP
+
+An [`udp`](#virtual-server-udp) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#nestedatt--irules-client-ssl-profile) - Optional List<br>Client SSL Profile. Client-side configuration
+
+<a id="nestedatt--irules-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#nestedatt--irules-server-ssl-profile) - Optional List<br>Configuration parameter for server SSL profile
+
+<a id="nestedatt--irules-udp-client-profile"></a>&#x2022; [`udp_client_profile`](#nestedatt--irules-udp-client-profile) - Optional List<br>Protocol Profile (Client). Client-side configuration
+
+<a id="nestedatt--irules-udp-server-profile"></a>&#x2022; [`udp_server_profile`](#nestedatt--irules-udp-server-profile) - Optional List<br>Configuration parameter for UDP server profile
+
+#### Virtual Server UDP Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-udp-client-ssl-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server UDP Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-udp-server-ssl-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server UDP UDP Client Profile
+
+An [`udp_client_profile`](#virtual-server-udp-udp-client-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server UDP UDP Server Profile
+
+An [`udp_server_profile`](#virtual-server-udp-udp-server-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Virtual Server State
+
+A [`virtual_server_state`](#virtual-server-virtual-server-state) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-state-disabled"></a>&#x2022; [`state_disabled`](#nestedatt--irules-state-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--irules-state-enabled"></a>&#x2022; [`state_enabled`](#nestedatt--irules-state-enabled) - Optional Object<br>Enable this option
+
+#### Virtual Server Virtual Server State State Disabled
+
+A [`state_disabled`](#virtual-server-virtual-server-state-state-disabled) block (within [`virtual_server.virtual_server_state`](#virtual-server-virtual-server-state)) supports the following:
+
+#### Virtual Server Virtual Server State State Enabled
+
+A [`state_enabled`](#virtual-server-virtual-server-state-state-enabled) block (within [`virtual_server.virtual_server_state`](#virtual-server-virtual-server-state)) supports the following:
 
 ---
 

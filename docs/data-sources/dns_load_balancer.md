@@ -52,7 +52,7 @@ output "dns_load_balancer_id" {
 
 <a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the DNSLoadBalancer
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the DNSLoadBalancer exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>Namespace where the DNSLoadBalancer exists
 
 ### Attributes Reference
 
@@ -62,9 +62,99 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the DNSLoadBalancer
 
+<a id="fallback-pool"></a>&#x2022; [`fallback_pool`](#fallback-pool) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="record-type"></a>&#x2022; [`record_type`](#record-type) - Optional String  Defaults to `A`<br>Possible values are `A`, `AAAA`, `MX`, `CNAME`, `SRV`<br>[Enum: A|AAAA|MX|CNAME|SRV] Resource Record Type - A: A - AAAA: AAAA - MX: MX - CNAME: CNAME - SRV: SRV
+
+<a id="response-cache"></a>&#x2022; [`response_cache`](#response-cache) - Optional String<br>Configuration parameter for response cache
+
+<a id="rule-list"></a>&#x2022; [`rule_list`](#rule-list) - Optional String<br>Load Balancing Rule List. List of the Load Balancing Rules
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="default-response-cache-parameters"></a>&#x2022; [`default_response_cache_parameters`](#default-response-cache-parameters) - Optional Object<br>Configuration parameter for default response cache parameters
+
+<a id="disable-spec"></a>&#x2022; [`disable_spec`](#disable-spec) - Optional Object<br>Enable this option
+
+<a id="response-cache-parameters"></a>&#x2022; [`response_cache_parameters`](#response-cache-parameters) - Optional String<br>Configuration parameter for response cache parameters
+
+<a id="cache-cidr-ipv4"></a>&#x2022; [`cache_cidr_ipv4`](#cache-cidr-ipv4) - Optional Number<br>Length of CIDR masks used to group IPv4 clients
+
+<a id="cache-cidr-ipv6"></a>&#x2022; [`cache_cidr_ipv6`](#cache-cidr-ipv6) - Optional Number<br>Length of CIDR masks used to group IPv6 clients
+
+<a id="cache-ttl"></a>&#x2022; [`cache_ttl`](#cache-ttl) - Optional Number<br>TTL. TTL for response cache
+
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>Load Balancing Rules. Rules to perform load balancing
+
+<a id="asn-list"></a>&#x2022; [`asn_list`](#asn-list) - Optional String<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-matcher"></a>&#x2022; [`asn_matcher`](#asn-matcher) - Optional String<br>Match any AS number contained in the list of bgp_asn_sets
+
+<a id="geo-location-label-selector"></a>&#x2022; [`geo_location_label_selector`](#geo-location-label-selector) - Optional String<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects
+
+<a id="geo-location-set"></a>&#x2022; [`geo_location_set`](#geo-location-set) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="ip-prefix-list"></a>&#x2022; [`ip_prefix_list`](#ip-prefix-list) - Optional String<br>List of IP Prefix strings to match against
+
+<a id="ip-prefix-set"></a>&#x2022; [`ip_prefix_set`](#ip-prefix-set) - Optional String<br>Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true
+
+<a id="pool"></a>&#x2022; [`pool`](#pool) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="score"></a>&#x2022; [`score`](#score) - Optional Number<br>When multiple load balancing rules match a query, the one with the highest score is chosen
+
+<a id="as-numbers"></a>&#x2022; [`as_numbers`](#as-numbers) - Optional List<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer
+
+<a id="asn-sets"></a>&#x2022; [`asn_sets`](#asn-sets) - Optional List<br>List of references to bgp_asn_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="expressions"></a>&#x2022; [`expressions`](#expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="invert-match"></a>&#x2022; [`invert_match`](#invert-match) - Optional Bool<br>Invert Match Result. Invert the match result
+
+<a id="ip-prefixes"></a>&#x2022; [`ip_prefixes`](#ip-prefixes) - Optional List<br>IPv4 Prefix List. List of IPv4 prefix strings
+
+<a id="invert-matcher"></a>&#x2022; [`invert_matcher`](#invert-matcher) - Optional Bool<br>Invert IP Matcher. Invert the match result
+
+<a id="prefix-sets"></a>&#x2022; [`prefix_sets`](#prefix-sets) - Optional List<br>List of references to ip_prefix_set objects
+
+<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 ---
 

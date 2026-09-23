@@ -62,7 +62,27 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
+<a id="ike-keylifetime-hours"></a>&#x2022; [`ike_keylifetime_hours`](#ike-keylifetime-hours) - Optional String<br>Configuration parameter for IKE keylifetime hours
+
+<a id="ike-keylifetime-minutes"></a>&#x2022; [`ike_keylifetime_minutes`](#ike-keylifetime-minutes) - Optional String<br>Configuration parameter for IKE keylifetime minutes
+
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+
+<a id="reauth-disabled"></a>&#x2022; [`reauth_disabled`](#reauth-disabled) - Optional Object<br>Enable this option
+
+<a id="reauth-timeout-days"></a>&#x2022; [`reauth_timeout_days`](#reauth-timeout-days) - Optional String<br>Configuration parameter for reauth timeout days
+
+<a id="reauth-timeout-hours"></a>&#x2022; [`reauth_timeout_hours`](#reauth-timeout-hours) - Optional String<br>Configuration parameter for reauth timeout hours
+
+<a id="use-default-keylifetime"></a>&#x2022; [`use_default_keylifetime`](#use-default-keylifetime) - Optional Object<br>Configuration parameter for use default keylifetime
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+<a id="duration"></a>&#x2022; [`duration`](#duration) - Optional Number<br>Duration. Configuration parameter for duration
 
 ---
 

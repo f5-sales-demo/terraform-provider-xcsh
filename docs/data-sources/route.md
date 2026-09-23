@@ -64,6 +64,740 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="routes"></a>&#x2022; [`routes`](#routes) - Optional List<br>List of routes to match for incoming request
+
+---
+
+#### Routes
+
+A [`routes`](#routes) block supports the following:
+
+<a id="injection-e12a87"></a>&#x2022; [`bot_defense_javascript_injection`](#injection-e12a87) - Optional String<br>Bot Defense JavaScript Injection Configuration for inline bot defense deployments
+
+<a id="nestedatt--routes-disable-location-add"></a>&#x2022; [`disable_location_add`](#nestedatt--routes-disable-location-add) - Optional Bool<br>Disables append of x-F5 Distributed Cloud-location = `<RE-site-name>` at route level, if it is configured at virtual-host level. This configuration is ignored on CE sites
+
+<a id="injection-c2dada"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-c2dada) - Optional Object<br>Enable this option
+
+<a id="exclusion-c59a3d"></a>&#x2022; [`inherited_waf_exclusion`](#exclusion-c59a3d) - Optional Object<br>Configuration parameter for inherited WAF exclusion
+
+<a id="nestedatt--routes-match"></a>&#x2022; [`match`](#nestedatt--routes-match) - Optional List<br>Match. Route match condition
+
+<a id="add-4b43c0"></a>&#x2022; [`request_cookies_to_add`](#add-4b43c0) - Optional List<br>Cookies are key-value pairs to be added to HTTP request being routed towards upstream
+
+<a id="remove-01d760"></a>&#x2022; [`request_cookies_to_remove`](#remove-01d760) - Optional List<br>List of keys of Cookies to be removed from the HTTP request being sent towards upstream
+
+<a id="add-d88377"></a>&#x2022; [`request_headers_to_add`](#add-d88377) - Optional List<br>Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level
+
+<a id="remove-3e01f3"></a>&#x2022; [`request_headers_to_remove`](#remove-3e01f3) - Optional List<br>List of keys of Headers to be removed from the HTTP request being sent towards upstream
+
+<a id="add-646c3c"></a>&#x2022; [`response_cookies_to_add`](#add-646c3c) - Optional List<br>Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream
+
+<a id="remove-2be0a5"></a>&#x2022; [`response_cookies_to_remove`](#remove-2be0a5) - Optional List<br>List of name of Cookies to be removed from the HTTP response being sent towards downstream. Entire set-cookie header will be removed
+
+<a id="add-75f81a"></a>&#x2022; [`response_headers_to_add`](#add-75f81a) - Optional List<br>Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level
+
+<a id="remove-daa1ca"></a>&#x2022; [`response_headers_to_remove`](#remove-daa1ca) - Optional List<br>List of keys of Headers to be removed from the HTTP response being sent towards downstream
+
+<a id="nestedatt--routes-route-destination"></a>&#x2022; [`route_destination`](#nestedatt--routes-route-destination) - Optional String<br>List of destination to choose if the route is match
+
+<a id="nestedatt--routes-route-direct-response"></a>&#x2022; [`route_direct_response`](#nestedatt--routes-route-direct-response) - Optional String<br>Send this direct response in case of route match action is direct response
+
+<a id="nestedatt--routes-route-redirect"></a>&#x2022; [`route_redirect`](#nestedatt--routes-route-redirect) - Optional String<br>Route redirect parameters when match action is redirect
+
+<a id="nestedatt--routes-service-policy"></a>&#x2022; [`service_policy`](#nestedatt--routes-service-policy) - Optional String<br>ServicePolicy configuration details at route level
+
+<a id="nestedatt--routes-waf-exclusion-policy"></a>&#x2022; [`waf_exclusion_policy`](#nestedatt--routes-waf-exclusion-policy) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="nestedatt--routes-waf-type"></a>&#x2022; [`waf_type`](#nestedatt--routes-waf-type) - Optional String<br>WAF instance will be pointing to an app_firewall object
+
+#### Routes Bot Defense JavaScript Injection
+
+A [`bot_defense_javascript_injection`](#routes-bot-defense-javascript-injection) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes-javascript-location"></a>&#x2022; [`javascript_location`](#nestedatt--routes-javascript-location) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert
+JavaScript before first tag
+
+<a id="nestedatt--routes-javascript-tags"></a>&#x2022; [`javascript_tags`](#nestedatt--routes-javascript-tags) - Optional List<br>Select Add item to configure your JavaScript tag. If adding both Bot Adv and Fraud, the Bot JavaScript should be added first
+
+#### Routes Bot Defense JavaScript Injection JavaScript Tags
+
+A [`javascript_tags`](#routes-bot-defense-javascript-injection-javascript-tags) block (within [`routes.bot_defense_javascript_injection`](#routes-bot-defense-javascript-injection)) supports the following:
+
+<a id="nestedatt--routes-javascript-url"></a>&#x2022; [`javascript_url`](#nestedatt--routes-javascript-url) - Optional String<br>Please enter the full URL (include domain and path), or relative path
+
+<a id="nestedatt--routes-tag-attributes"></a>&#x2022; [`tag_attributes`](#nestedatt--routes-tag-attributes) - Optional List<br>Add the tag attributes you want to include in your JavaScript tag
+
+#### Routes Bot Defense JavaScript Injection JavaScript Tags Tag Attributes
+
+<a id="deep-002bb4"></a>Deeply nested **Attributes** block collapsed for readability.
+
+#### Routes Inherited Bot Defense JavaScript Injection
+
+An [`inherited_bot_defense_javascript_injection`](#routes-inherited-bot-defense-javascript-injection) block (within [`routes`](#routes)) supports the following:
+
+#### Routes Inherited WAF Exclusion
+
+An [`inherited_waf_exclusion`](#routes-inherited-waf-exclusion) block (within [`routes`](#routes)) supports the following:
+
+#### Routes Match
+
+A [`match`](#routes-match) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--match-headers"></a>&#x2022; [`headers`](#nestedatt--routes--match-headers) - Optional List<br>Headers. List of (key, value) headers
+
+<a id="nestedatt--routes--match-http-method"></a>&#x2022; [`http_method`](#nestedatt--routes--match-http-method) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
+
+<a id="nestedatt--routes--match-incoming-port"></a>&#x2022; [`incoming_port`](#nestedatt--routes--match-incoming-port) - Optional String<br>Port match of the request can be a range or a specific port
+
+<a id="nestedatt--routes--match-path"></a>&#x2022; [`path`](#nestedatt--routes--match-path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="nestedatt--routes--match-query-params"></a>&#x2022; [`query_params`](#nestedatt--routes--match-query-params) - Optional List<br>Query Parameters. List of (key, value) query parameters
+
+#### Routes Match Headers
+
+A [`headers`](#routes-match-headers) block (within [`routes.match`](#routes-match)) supports the following:
+
+<a id="nestedatt--routes--match--headers-exact"></a>&#x2022; [`exact`](#nestedatt--routes--match--headers-exact) - Optional String<br>Header value to match exactly
+
+<a id="match-33ec7d"></a>&#x2022; [`invert_match`](#match-33ec7d) - Optional Bool<br>Invert the result of the match to detect missing header or non-matching value
+
+<a id="nestedatt--routes--match--headers-name"></a>&#x2022; [`name`](#nestedatt--routes--match--headers-name) - Optional String<br>Name. Name of the header
+
+<a id="presence-679bcc"></a>&#x2022; [`presence`](#presence-679bcc) - Optional Bool<br>If true, check for presence of header
+
+<a id="nestedatt--routes--match--headers-regex"></a>&#x2022; [`regex`](#nestedatt--routes--match--headers-regex) - Optional String<br>Regex match of the header value in re2 format
+
+#### Routes Match Incoming Port
+
+An [`incoming_port`](#routes-match-incoming-port) block (within [`routes.match`](#routes-match)) supports the following:
+
+<a id="match-6e78fd"></a>&#x2022; [`no_port_match`](#match-6e78fd) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes--match--headers-port"></a>&#x2022; [`port`](#nestedatt--routes--match--headers-port) - Optional Number<br>Exact Port to match
+
+<a id="ranges-b5b591"></a>&#x2022; [`port_ranges`](#ranges-b5b591) - Optional String<br>Port range to match
+
+#### Routes Match Incoming Port No Port Match
+
+A [`no_port_match`](#routes-match-incoming-port-no-port-match) block (within [`routes.match.incoming_port`](#routes-match-incoming-port)) supports the following:
+
+#### Routes Match Path
+
+A [`path`](#routes-match-path) block (within [`routes.match`](#routes-match)) supports the following:
+
+<a id="nestedatt--routes--match--path-path"></a>&#x2022; [`path`](#nestedatt--routes--match--path-path) - Optional String<br>Exact path value to match
+
+<a id="nestedatt--routes--match--path-prefix"></a>&#x2022; [`prefix`](#nestedatt--routes--match--path-prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="nestedatt--routes--match--path-regex"></a>&#x2022; [`regex`](#nestedatt--routes--match--path-regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+#### Routes Match Query Params
+
+A [`query_params`](#routes-match-query-params) block (within [`routes.match`](#routes-match)) supports the following:
+
+<a id="nestedatt--routes--match--path-exact"></a>&#x2022; [`exact`](#nestedatt--routes--match--path-exact) - Optional String<br>Exact match value for the query parameter key
+
+<a id="nestedatt--routes--match--path-key"></a>&#x2022; [`key`](#nestedatt--routes--match--path-key) - Optional String<br>Query parameter key In the above example, assignee_username is the key
+
+<a id="nestedatt--routes--match--path-regex"></a>&#x2022; [`regex`](#nestedatt--routes--match--path-regex) - Optional String<br>Regex match value for the query parameter key
+
+#### Routes Request Cookies To Add
+
+A [`request_cookies_to_add`](#routes-request-cookies-to-add) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>Name. Name of the cookie in Cookie header
+
+<a id="overwrite-915812"></a>&#x2022; [`overwrite`](#overwrite-915812) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
+
+<a id="value-3f598f"></a>&#x2022; [`secret_value`](#value-3f598f) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--routes--match--path-value"></a>&#x2022; [`value`](#nestedatt--routes--match--path-value) - Optional String<br>Value of the Cookie header
+
+#### Routes Request Cookies To Add Secret Value
+
+A [`secret_value`](#routes-request-cookies-to-add-secret-value) block (within [`routes.request_cookies_to_add`](#routes-request-cookies-to-add)) supports the following:
+
+<a id="info-a71e73"></a>&#x2022; [`blindfold_secret_info`](#info-a71e73) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-e7e4ae"></a>&#x2022; [`clear_secret_info`](#info-e7e4ae) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Routes Request Cookies To Add Secret Value Blindfold Secret Info
+
+<a id="deep-e0b126"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Routes Request Cookies To Add Secret Value Clear Secret Info
+
+<a id="deep-8c0f9e"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Routes Request Headers To Add
+
+A [`request_headers_to_add`](#routes-request-headers-to-add) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--match--path-append"></a>&#x2022; [`append`](#nestedatt--routes--match--path-append) - Optional Bool  Defaults to `do`<br>Should the value be appended? If true, the value is appended to existing values. not append
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>Name. Name of the HTTP header
+
+<a id="value-3f598f"></a>&#x2022; [`secret_value`](#value-3f598f) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--routes--match--path-value"></a>&#x2022; [`value`](#nestedatt--routes--match--path-value) - Optional String<br>Value of the HTTP header
+
+#### Routes Request Headers To Add Secret Value
+
+A [`secret_value`](#routes-request-headers-to-add-secret-value) block (within [`routes.request_headers_to_add`](#routes-request-headers-to-add)) supports the following:
+
+<a id="info-a71e73"></a>&#x2022; [`blindfold_secret_info`](#info-a71e73) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-e7e4ae"></a>&#x2022; [`clear_secret_info`](#info-e7e4ae) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Routes Request Headers To Add Secret Value Blindfold Secret Info
+
+<a id="deep-c87e17"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Routes Request Headers To Add Secret Value Clear Secret Info
+
+<a id="deep-bd8fb1"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Routes Response Cookies To Add
+
+A [`response_cookies_to_add`](#routes-response-cookies-to-add) block (within [`routes`](#routes)) supports the following:
+
+<a id="domain-4f7675"></a>&#x2022; [`add_domain`](#domain-4f7675) - Optional String<br>Add domain attribute
+
+<a id="expiry-50fff7"></a>&#x2022; [`add_expiry`](#expiry-50fff7) - Optional String<br>Add expiry attribute
+
+<a id="httponly-b15898"></a>&#x2022; [`add_httponly`](#httponly-b15898) - Optional Object<br>Configuration parameter for add httponly
+
+<a id="partitioned-b6876a"></a>&#x2022; [`add_partitioned`](#partitioned-b6876a) - Optional Object<br>Configuration parameter for add partitioned
+
+<a id="nestedatt--routes--match--path-add-path"></a>&#x2022; [`add_path`](#nestedatt--routes--match--path-add-path) - Optional String<br>Add path attribute
+
+<a id="secure-8152b3"></a>&#x2022; [`add_secure`](#secure-8152b3) - Optional Object<br>Enable this option
+
+<a id="domain-7a48ca"></a>&#x2022; [`ignore_domain`](#domain-7a48ca) - Optional Object<br>Configuration parameter for ignore domain
+
+<a id="expiry-b8b90a"></a>&#x2022; [`ignore_expiry`](#expiry-b8b90a) - Optional Object<br>Configuration parameter for ignore expiry
+
+<a id="httponly-911c2b"></a>&#x2022; [`ignore_httponly`](#httponly-911c2b) - Optional Object<br>Configuration parameter for ignore httponly
+
+<a id="age-8c371c"></a>&#x2022; [`ignore_max_age`](#age-8c371c) - Optional Object<br>Configuration parameter for ignore max age
+
+<a id="partitioned-6a15f0"></a>&#x2022; [`ignore_partitioned`](#partitioned-6a15f0) - Optional Object<br>Configuration parameter for ignore partitioned
+
+<a id="path-60aab5"></a>&#x2022; [`ignore_path`](#path-60aab5) - Optional Object<br>Enable this option
+
+<a id="samesite-eab46b"></a>&#x2022; [`ignore_samesite`](#samesite-eab46b) - Optional Object<br>Enable this option
+
+<a id="secure-05ed2c"></a>&#x2022; [`ignore_secure`](#secure-05ed2c) - Optional Object<br>Enable this option
+
+<a id="value-ec6893"></a>&#x2022; [`ignore_value`](#value-ec6893) - Optional Object<br>Configuration parameter for ignore value
+
+<a id="value-76675b"></a>&#x2022; [`max_age_value`](#value-76675b) - Optional Number<br>Add max age attribute
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>Name. Name of the cookie in Cookie header
+
+<a id="overwrite-915812"></a>&#x2022; [`overwrite`](#overwrite-915812) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
+
+<a id="lax-b401b1"></a>&#x2022; [`samesite_lax`](#lax-b401b1) - Optional Object<br>Enable this option
+
+<a id="none-8c47f5"></a>&#x2022; [`samesite_none`](#none-8c47f5) - Optional Object<br>Enable this option
+
+<a id="strict-f8dc6a"></a>&#x2022; [`samesite_strict`](#strict-f8dc6a) - Optional Object<br>Enable this option
+
+<a id="value-3f598f"></a>&#x2022; [`secret_value`](#value-3f598f) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--routes--match--path-value"></a>&#x2022; [`value`](#nestedatt--routes--match--path-value) - Optional String<br>Value of the Cookie header
+
+#### Routes Response Cookies To Add Add Httponly
+
+An [`add_httponly`](#routes-response-cookies-to-add-add-httponly) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Add Partitioned
+
+An [`add_partitioned`](#routes-response-cookies-to-add-add-partitioned) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Add Secure
+
+An [`add_secure`](#routes-response-cookies-to-add-add-secure) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Domain
+
+An [`ignore_domain`](#routes-response-cookies-to-add-ignore-domain) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Expiry
+
+An [`ignore_expiry`](#routes-response-cookies-to-add-ignore-expiry) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Httponly
+
+An [`ignore_httponly`](#routes-response-cookies-to-add-ignore-httponly) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Max Age
+
+<a id="deep-25443a"></a>Deeply nested **Age** block collapsed for readability.
+
+#### Routes Response Cookies To Add Ignore Partitioned
+
+An [`ignore_partitioned`](#routes-response-cookies-to-add-ignore-partitioned) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Path
+
+An [`ignore_path`](#routes-response-cookies-to-add-ignore-path) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Samesite
+
+An [`ignore_samesite`](#routes-response-cookies-to-add-ignore-samesite) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Secure
+
+An [`ignore_secure`](#routes-response-cookies-to-add-ignore-secure) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Value
+
+An [`ignore_value`](#routes-response-cookies-to-add-ignore-value) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Samesite Lax
+
+A [`samesite_lax`](#routes-response-cookies-to-add-samesite-lax) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Samesite None
+
+A [`samesite_none`](#routes-response-cookies-to-add-samesite-none) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Samesite Strict
+
+A [`samesite_strict`](#routes-response-cookies-to-add-samesite-strict) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Secret Value
+
+A [`secret_value`](#routes-response-cookies-to-add-secret-value) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+<a id="info-a71e73"></a>&#x2022; [`blindfold_secret_info`](#info-a71e73) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-e7e4ae"></a>&#x2022; [`clear_secret_info`](#info-e7e4ae) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Routes Response Cookies To Add Secret Value Blindfold Secret Info
+
+<a id="deep-865271"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Routes Response Cookies To Add Secret Value Clear Secret Info
+
+<a id="deep-9342b1"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Routes Response Headers To Add
+
+A [`response_headers_to_add`](#routes-response-headers-to-add) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--match--path-append"></a>&#x2022; [`append`](#nestedatt--routes--match--path-append) - Optional Bool  Defaults to `do`<br>Should the value be appended? If true, the value is appended to existing values. not append
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>Name. Name of the HTTP header
+
+<a id="value-3f598f"></a>&#x2022; [`secret_value`](#value-3f598f) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--routes--match--path-value"></a>&#x2022; [`value`](#nestedatt--routes--match--path-value) - Optional String<br>Value of the HTTP header
+
+#### Routes Response Headers To Add Secret Value
+
+A [`secret_value`](#routes-response-headers-to-add-secret-value) block (within [`routes.response_headers_to_add`](#routes-response-headers-to-add)) supports the following:
+
+<a id="info-a71e73"></a>&#x2022; [`blindfold_secret_info`](#info-a71e73) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
+
+<a id="info-e7e4ae"></a>&#x2022; [`clear_secret_info`](#info-e7e4ae) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
+
+#### Routes Response Headers To Add Secret Value Blindfold Secret Info
+
+<a id="deep-d398dd"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Routes Response Headers To Add Secret Value Clear Secret Info
+
+<a id="deep-a8051b"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Routes Route Destination
+
+A [`route_destination`](#routes-route-destination) block (within [`routes`](#routes)) supports the following:
+
+<a id="rewrite-dd14e7"></a>&#x2022; [`auto_host_rewrite`](#rewrite-dd14e7) - Optional Bool<br>Indicates that during forwarding, the host header will be swapped with the hostname of the upstream host chosen by the cluster
+
+<a id="policy-cd9002"></a>&#x2022; [`buffer_policy`](#policy-cd9002) - Optional String<br>Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config
+
+<a id="policy-be8941"></a>&#x2022; [`cors_policy`](#policy-be8941) - Optional String<br>Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5
+
+<a id="policy-a978d2"></a>&#x2022; [`csrf_policy`](#policy-a978d2) - Optional String<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent
+
+<a id="destinations-92f432"></a>&#x2022; [`destinations`](#destinations-92f432) - Optional List<br>When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured
+
+<a id="cluster-f5c33e"></a>&#x2022; [`do_not_retract_cluster`](#cluster-f5c33e) - Optional Object<br>Enable this option
+
+<a id="subsets-8b2990"></a>&#x2022; [`endpoint_subsets`](#subsets-8b2990) - Optional String<br>Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset
+
+<a id="policy-a3b6f7"></a>&#x2022; [`hash_policy`](#policy-a3b6f7) - Optional List<br>Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request
+
+<a id="rewrite-6aacfe"></a>&#x2022; [`host_rewrite`](#rewrite-6aacfe) - Optional String<br>Indicates that during forwarding, the host header will be swapped with this value
+
+<a id="policy-366d6a"></a>&#x2022; [`mirror_policy`](#policy-366d6a) - Optional String<br>MirrorPolicy is used for shadowing traffic from one cluster to another. The approach used is 'fire and forget', meaning it will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making
+
+<a id="rewrite-7665cc"></a>&#x2022; [`prefix_rewrite`](#rewrite-7665cc) - Optional String<br>prefix_rewrite indicates that during forwarding, the matched prefix (or path) should be swapped with its value. When using regex path matching, the entire path (not including the query string) will be swapped with this value. This option allows application URLs to
+
+<a id="nestedatt--routes--match--path-priority"></a>&#x2022; [`priority`](#nestedatt--routes--match--path-priority) - Optional String  Defaults to `DEFAULT`<br>Possible values are `DEFAULT`, `HIGH`<br>[Enum: DEFAULT|HIGH] Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster
+is chosen based on selected priority
+
+<a id="params-822f2c"></a>&#x2022; [`query_params`](#params-822f2c) - Optional String<br>Handling of incoming query parameters in simple route
+
+<a id="rewrite-00cb7a"></a>&#x2022; [`regex_rewrite`](#rewrite-00cb7a) - Optional String<br>RegexMatchRewrite describes how to match a string and then produce a new string using a regular expression and a substitution string
+
+<a id="cluster-f1813d"></a>&#x2022; [`retract_cluster`](#cluster-f1813d) - Optional Object<br>Enable this option
+
+<a id="policy-928c85"></a>&#x2022; [`retry_policy`](#policy-928c85) - Optional String<br>Retry policy configuration for route destination
+
+<a id="config-993647"></a>&#x2022; [`spdy_config`](#config-993647) - Optional String<br>Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'SPDY/3.1' Configuration to allow UPGRADE of connection to SPDY and any additional tuning With configuration to allow SPDY upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade'
+
+<a id="nestedatt--routes--match--path-timeout"></a>&#x2022; [`timeout`](#nestedatt--routes--match--path-timeout) - Optional Number<br>Specifies the timeout for the route in milliseconds. This timeout includes all retries. For server-side streaming, configure this field with higher value or leave it un-configured for infinite timeout
+
+<a id="config-44101f"></a>&#x2022; [`web_socket_config`](#config-44101f) - Optional String<br>Configuration to allow WebSocket Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'WebSocket' With configuration to allow WebSocket upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'WebSocket' 'Connection': 'Upgrade'
+
+#### Routes Route Destination Buffer Policy
+
+A [`buffer_policy`](#routes-route-destination-buffer-policy) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="nestedatt--routes--match--path-disabled"></a>&#x2022; [`disabled`](#nestedatt--routes--match--path-disabled) - Optional Bool<br>Disable buffering for a particular route. This is useful when virtual-host has buffering, but we need to disable it on a specific route. The value of this field is ignored for virtual-host
+
+<a id="bytes-6ce9cb"></a>&#x2022; [`max_request_bytes`](#bytes-6ce9cb) - Optional Number<br>The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response
+
+#### Routes Route Destination CORS Policy
+
+A [`cors_policy`](#routes-route-destination-cors-policy) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="credentials-e0f05e"></a>&#x2022; [`allow_credentials`](#credentials-e0f05e) - Optional Bool<br>Specifies whether the resource allows credentials
+
+<a id="headers-2f8128"></a>&#x2022; [`allow_headers`](#headers-2f8128) - Optional String<br>Specifies the content for the access-control-allow-headers header
+
+<a id="methods-e50991"></a>&#x2022; [`allow_methods`](#methods-e50991) - Optional String<br>Specifies the content for the access-control-allow-methods header
+
+<a id="origin-d82490"></a>&#x2022; [`allow_origin`](#origin-d82490) - Optional List<br>Specifies the origins that will be allowed to do CORS requests. An origin is allowed if either allow_origin or allow_origin_regex match
+
+<a id="regex-6076c7"></a>&#x2022; [`allow_origin_regex`](#regex-6076c7) - Optional List<br>Specifies regex patterns that match allowed origins. An origin is allowed if either allow_origin or allow_origin_regex match
+
+<a id="nestedatt--routes--match--path-disabled"></a>&#x2022; [`disabled`](#nestedatt--routes--match--path-disabled) - Optional Bool<br>Disable the CorsPolicy for a particular route. This is useful when virtual-host has CorsPolicy, but we need to disable it on a specific route. The value of this field is ignored for virtual-host
+
+<a id="headers-26958a"></a>&#x2022; [`expose_headers`](#headers-26958a) - Optional String<br>Specifies the content for the access-control-expose-headers header
+
+<a id="age-e75b40"></a>&#x2022; [`maximum_age`](#age-e75b40) - Optional Number<br>Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours)
+
+#### Routes Route Destination CSRF Policy
+
+A [`csrf_policy`](#routes-route-destination-csrf-policy) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="domains-34d803"></a>&#x2022; [`all_load_balancer_domains`](#domains-34d803) - Optional Object<br>Configuration parameter for all load balancer domains
+
+<a id="list-3871ce"></a>&#x2022; [`custom_domain_list`](#list-3871ce) - Optional String<br>List of domain names used for Host header matching
+
+<a id="nestedatt--routes--match--path-disabled"></a>&#x2022; [`disabled`](#nestedatt--routes--match--path-disabled) - Optional Object<br>Enable this option
+
+#### Routes Route Destination CSRF Policy All Load Balancer Domains
+
+<a id="deep-1f93f1"></a>Deeply nested **Domains** block collapsed for readability.
+
+#### Routes Route Destination CSRF Policy Custom Domain List
+
+<a id="deep-6e8132"></a>Deeply nested **List** block collapsed for readability.
+
+#### Routes Route Destination CSRF Policy Disabled
+
+A [`disabled`](#routes-route-destination-csrf-policy-disabled) block (within [`routes.route_destination.csrf_policy`](#routes-route-destination-csrf-policy)) supports the following:
+
+#### Routes Route Destination Destinations
+
+A [`destinations`](#routes-route-destination-destinations) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="nestedatt--routes--match--path-cluster"></a>&#x2022; [`cluster`](#nestedatt--routes--match--path-cluster) - Optional List<br>Indicates the upstream cluster to which the request should be sent. If the cluster does not exist ServiceUnavailable response will be sent
+
+<a id="subsets-8b2990"></a>&#x2022; [`endpoint_subsets`](#subsets-8b2990) - Optional String<br>Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset
+
+<a id="nestedatt--routes--match--path-priority"></a>&#x2022; [`priority`](#nestedatt--routes--match--path-priority) - Optional Number<br>Priority of this cluster, valid only with multiple destinations are configured. Value of 0 will make the cluster as lowest priority upstream cluster Priority of 1 means highest priority and is considered active. When active cluster is not available, lower
+priority clusters are made active as per
+
+<a id="nestedatt--routes--match--path-weight"></a>&#x2022; [`weight`](#nestedatt--routes--match--path-weight) - Optional Number<br>When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured
+
+#### Routes Route Destination Destinations Cluster
+
+A [`cluster`](#routes-route-destination-destinations-cluster) block (within [`routes.route_destination.destinations`](#routes-route-destination-destinations)) supports the following:
+
+<a id="nestedatt--routes--match--path-kind"></a>&#x2022; [`kind`](#nestedatt--routes--match--path-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-f3c91a"></a>&#x2022; [`namespace`](#namespace-f3c91a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes--match--path-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes--match--path-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--routes--match--path-uid"></a>&#x2022; [`uid`](#nestedatt--routes--match--path-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Routes Route Destination Destinations Endpoint Subsets
+
+An [`endpoint_subsets`](#routes-route-destination-destinations-endpoint-subsets) block (within [`routes.route_destination.destinations`](#routes-route-destination-destinations)) supports the following:
+
+#### Routes Route Destination Do Not Retract Cluster
+
+A [`do_not_retract_cluster`](#routes-route-destination-do-not-retract-cluster) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+#### Routes Route Destination Endpoint Subsets
+
+An [`endpoint_subsets`](#routes-route-destination-endpoint-subsets) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+#### Routes Route Destination Hash Policy
+
+A [`hash_policy`](#routes-route-destination-hash-policy) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="nestedatt--routes--match--path-cookie"></a>&#x2022; [`cookie`](#nestedatt--routes--match--path-cookie) - Optional String<br>Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the
+endpoint the request gets
+
+<a id="name-5fff9c"></a>&#x2022; [`header_name`](#name-5fff9c) - Optional String<br>The name or key of the request header that will be used to obtain the hash key
+
+<a id="source-ip-4a2846"></a>&#x2022; [`source_ip`](#source-ip-4a2846) - Optional Bool<br>Hash based on source IP address
+
+<a id="nestedatt--routes--match--path-terminal"></a>&#x2022; [`terminal`](#nestedatt--routes--match--path-terminal) - Optional Bool<br>Terminal. Specify if its a terminal policy
+
+#### Routes Route Destination Hash Policy Cookie
+
+A [`cookie`](#routes-route-destination-hash-policy-cookie) block (within [`routes.route_destination.hash_policy`](#routes-route-destination-hash-policy)) supports the following:
+
+<a id="httponly-b15898"></a>&#x2022; [`add_httponly`](#httponly-b15898) - Optional Object<br>Configuration parameter for add httponly
+
+<a id="secure-8152b3"></a>&#x2022; [`add_secure`](#secure-8152b3) - Optional Object<br>Enable this option
+
+<a id="httponly-911c2b"></a>&#x2022; [`ignore_httponly`](#httponly-911c2b) - Optional Object<br>Configuration parameter for ignore httponly
+
+<a id="samesite-eab46b"></a>&#x2022; [`ignore_samesite`](#samesite-eab46b) - Optional Object<br>Enable this option
+
+<a id="secure-05ed2c"></a>&#x2022; [`ignore_secure`](#secure-05ed2c) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced
+
+<a id="nestedatt--routes--match--path-path"></a>&#x2022; [`path`](#nestedatt--routes--match--path-path) - Optional String<br>The name of the path for the cookie. If no path is specified here, no path will be set for the cookie
+
+<a id="lax-b401b1"></a>&#x2022; [`samesite_lax`](#lax-b401b1) - Optional Object<br>Enable this option
+
+<a id="none-8c47f5"></a>&#x2022; [`samesite_none`](#none-8c47f5) - Optional Object<br>Enable this option
+
+<a id="strict-f8dc6a"></a>&#x2022; [`samesite_strict`](#strict-f8dc6a) - Optional Object<br>Enable this option
+
+<a id="nestedatt--routes--match--path-ttl"></a>&#x2022; [`ttl`](#nestedatt--routes--match--path-ttl) - Optional Number<br>If specified, a cookie with the TTL will be generated if the cookie is not present. If the TTL is present and zero, the generated cookie will be a session cookie. TTL value is in milliseconds
+
+#### Routes Route Destination Hash Policy Cookie Add Httponly
+
+<a id="deep-a4e15d"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Add Secure
+
+<a id="deep-7ea189"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Ignore Httponly
+
+<a id="deep-2cc4e8"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Ignore Samesite
+
+<a id="deep-8e2813"></a>Deeply nested **Samesite** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Ignore Secure
+
+<a id="deep-fa71b0"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Samesite Lax
+
+<a id="deep-5a0a84"></a>Deeply nested **Lax** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Samesite None
+
+<a id="deep-a3be15"></a>Deeply nested **None** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Samesite Strict
+
+<a id="deep-c0179e"></a>Deeply nested **Strict** block collapsed for readability.
+
+#### Routes Route Destination Mirror Policy
+
+A [`mirror_policy`](#routes-route-destination-mirror-policy) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="nestedatt--routes--match--path-cluster"></a>&#x2022; [`cluster`](#nestedatt--routes--match--path-cluster) - Optional List<br>Specifies the cluster to which the requests will be mirrored. The cluster object referred here must be present
+
+<a id="nestedatt--routes--match--path-percent"></a>&#x2022; [`percent`](#nestedatt--routes--match--path-percent) - Optional String<br>Fraction used where sampling percentages are needed. Example sampled requests
+
+#### Routes Route Destination Mirror Policy Cluster
+
+A [`cluster`](#routes-route-destination-mirror-policy-cluster) block (within [`routes.route_destination.mirror_policy`](#routes-route-destination-mirror-policy)) supports the following:
+
+<a id="nestedatt--routes--match--path-kind"></a>&#x2022; [`kind`](#nestedatt--routes--match--path-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-f3c91a"></a>&#x2022; [`namespace`](#namespace-f3c91a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes--match--path-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes--match--path-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--routes--match--path-uid"></a>&#x2022; [`uid`](#nestedatt--routes--match--path-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Routes Route Destination Mirror Policy Percent
+
+A [`percent`](#routes-route-destination-mirror-policy-percent) block (within [`routes.route_destination.mirror_policy`](#routes-route-destination-mirror-policy)) supports the following:
+
+<a id="denominator-a165b7"></a>&#x2022; [`denominator`](#denominator-a165b7) - Optional String  Defaults to `HUNDRED`<br>Possible values are `HUNDRED`, `TEN_THOUSAND`, `MILLION`<br>[Enum: HUNDRED|TEN_THOUSAND|MILLION] Denominator used in fraction where sampling percentages are needed. Example sampled requests Use hundred as denominator Use ten thousand as denominator Use million as denominator
+
+<a id="numerator-987e02"></a>&#x2022; [`numerator`](#numerator-987e02) - Optional Number<br>Sampled parts per denominator. If denominator was 10000, then value of 5 will be 5 in 10000
+
+#### Routes Route Destination Query Params
+
+A [`query_params`](#routes-route-destination-query-params) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="params-9dc631"></a>&#x2022; [`remove_all_params`](#params-9dc631) - Optional Object<br>Configuration parameter for remove all params
+
+<a id="params-2d24cc"></a>&#x2022; [`replace_params`](#params-2d24cc) - Optional String
+
+<a id="params-9cb231"></a>&#x2022; [`retain_all_params`](#params-9cb231) - Optional Object<br>Configuration parameter for retain all params
+
+#### Routes Route Destination Query Params Remove All Params
+
+<a id="deep-1c4fe3"></a>Deeply nested **Params** block collapsed for readability.
+
+#### Routes Route Destination Query Params Retain All Params
+
+<a id="deep-1310f2"></a>Deeply nested **Params** block collapsed for readability.
+
+#### Routes Route Destination Regex Rewrite
+
+A [`regex_rewrite`](#routes-route-destination-regex-rewrite) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="nestedatt--routes--match--path-pattern"></a>&#x2022; [`pattern`](#nestedatt--routes--match--path-pattern) - Optional String<br>The regular expression used to find portions of a string that should be replaced
+
+<a id="substitution-14bf8c"></a>&#x2022; [`substitution`](#substitution-14bf8c) - Optional String<br>The string that should be substituted into matching portions of the subject string during a substitution operation to produce a new string
+
+#### Routes Route Destination Retract Cluster
+
+A [`retract_cluster`](#routes-route-destination-retract-cluster) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+#### Routes Route Destination Retry Policy
+
+A [`retry_policy`](#routes-route-destination-retry-policy) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="nestedatt--routes--match--path-back-off"></a>&#x2022; [`back_off`](#nestedatt--routes--match--path-back-off) - Optional String<br>Specifies parameters that control retry back off
+
+<a id="retries-b468e7"></a>&#x2022; [`num_retries`](#retries-b468e7) - Optional Number  Defaults to `1`<br>Specifies the allowed number of retries. Retries can be done any number of times. An exponential back-off algorithm is used between each retry
+
+<a id="timeout-04e820"></a>&#x2022; [`per_try_timeout`](#timeout-04e820) - Optional Number<br>Specifies a non-zero timeout per retry attempt. In milliseconds
+
+<a id="codes-6aa1a1"></a>&#x2022; [`retriable_status_codes`](#codes-6aa1a1) - Optional List<br>HTTP status codes that should trigger a retry in addition to those specified by retry_on
+
+<a id="condition-652fee"></a>&#x2022; [`retry_condition`](#condition-652fee) - Optional List<br>Specifies the conditions under which retry takes place. Retries can be on different types of condition depending on application requirements. For example, network failure, all 5xx response codes, idempotent 4xx response codes, etc The possible values are '5xx' : Retry will be done if the
+
+#### Routes Route Destination Retry Policy Back Off
+
+A [`back_off`](#routes-route-destination-retry-policy-back-off) block (within [`routes.route_destination.retry_policy`](#routes-route-destination-retry-policy)) supports the following:
+
+<a id="interval-b4db3a"></a>&#x2022; [`base_interval`](#interval-b4db3a) - Optional Number<br>Specifies the base interval between retries in milliseconds
+
+<a id="interval-71f9e4"></a>&#x2022; [`max_interval`](#interval-71f9e4) - Optional Number  Defaults to `10`<br>Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must be greater than or equal to the base_interval if set. The times the base_interval
+
+#### Routes Route Destination Spdy Config
+
+A [`spdy_config`](#routes-route-destination-spdy-config) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="nestedatt--routes--match--path-use-spdy"></a>&#x2022; [`use_spdy`](#nestedatt--routes--match--path-use-spdy) - Optional Bool<br>Specifies that the HTTP client connection to this route is allowed to upgrade to a SPDY connection
+
+#### Routes Route Destination Web Socket Config
+
+A [`web_socket_config`](#routes-route-destination-web-socket-config) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
+
+<a id="websocket-797679"></a>&#x2022; [`use_websocket`](#websocket-797679) - Optional Bool<br>Specifies that the HTTP client connection to this route is allowed to upgrade to a WebSocket connection
+
+#### Routes Route Direct Response
+
+A [`route_direct_response`](#routes-route-direct-response) block (within [`routes`](#routes)) supports the following:
+
+<a id="encoded-521c21"></a>&#x2022; [`response_body_encoded`](#encoded-521c21) - Optional String<br>Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML
+
+<a id="code-e59119"></a>&#x2022; [`response_code`](#code-e59119) - Optional Number<br>Response Code. Response code to send
+
+#### Routes Route Redirect
+
+A [`route_redirect`](#routes-route-redirect) block (within [`routes`](#routes)) supports the following:
+
+<a id="redirect-1c232c"></a>&#x2022; [`host_redirect`](#redirect-1c232c) - Optional String<br>Swap host part of incoming URL in redirect URL
+
+<a id="redirect-46cb04"></a>&#x2022; [`path_redirect`](#redirect-46cb04) - Optional String<br>swap path part of incoming URL in redirect URL
+
+<a id="rewrite-7665cc"></a>&#x2022; [`prefix_rewrite`](#rewrite-7665cc) - Optional String<br>In Redirect response, the matched prefix (or path) should be swapped with this value. This option allows redirect URLs be dynamically created based on the request
+
+<a id="redirect-97b99b"></a>&#x2022; [`proto_redirect`](#redirect-97b99b) - Optional String<br>Possible values are `incoming-proto`, `HTTP`, `HTTPS`<br>[Enum: incoming-proto|HTTP|HTTPS] Swap protocol part of incoming URL in redirect URL The protocol can be swapped with either HTTP or HTTPS When incoming-proto option is specified, swapping of protocol is not done
+
+<a id="params-9dc631"></a>&#x2022; [`remove_all_params`](#params-9dc631) - Optional Object<br>Configuration parameter for remove all params
+
+<a id="params-2d24cc"></a>&#x2022; [`replace_params`](#params-2d24cc) - Optional String
+
+<a id="code-e59119"></a>&#x2022; [`response_code`](#code-e59119) - Optional Number<br>The HTTP status code to use in the redirect response
+
+<a id="params-9cb231"></a>&#x2022; [`retain_all_params`](#params-9cb231) - Optional Object<br>Configuration parameter for retain all params
+
+#### Routes Route Redirect Remove All Params
+
+A [`remove_all_params`](#routes-route-redirect-remove-all-params) block (within [`routes.route_redirect`](#routes-route-redirect)) supports the following:
+
+#### Routes Route Redirect Retain All Params
+
+A [`retain_all_params`](#routes-route-redirect-retain-all-params) block (within [`routes.route_redirect`](#routes-route-redirect)) supports the following:
+
+#### Routes Service Policy
+
+A [`service_policy`](#routes-service-policy) block (within [`routes`](#routes)) supports the following:
+
+<a id="spec-e29d1c"></a>&#x2022; [`disable_spec`](#spec-e29d1c) - Optional Bool<br>disable service policy at route level, if it is configured at virtual-host level
+
+#### Routes WAF Exclusion Policy
+
+A [`waf_exclusion_policy`](#routes-waf-exclusion-policy) block (within [`routes`](#routes)) supports the following:
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-f3c91a"></a>&#x2022; [`namespace`](#namespace-f3c91a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes--match--path-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes--match--path-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Routes WAF Type
+
+A [`waf_type`](#routes-waf-type) block (within [`routes`](#routes)) supports the following:
+
+<a id="firewall-70af27"></a>&#x2022; [`app_firewall`](#firewall-70af27) - Optional String<br>List of references to the app_firewall configuration objects
+
+<a id="waf-817f7f"></a>&#x2022; [`disable_waf`](#waf-817f7f) - Optional Object<br>Configuration parameter for disable WAF
+
+<a id="waf-426d44"></a>&#x2022; [`inherit_waf`](#waf-426d44) - Optional Object<br>Configuration parameter for inherit WAF
+
+#### Routes WAF Type App Firewall
+
+An [`app_firewall`](#routes-waf-type-app-firewall) block (within [`routes.waf_type`](#routes-waf-type)) supports the following:
+
+<a id="firewall-70af27"></a>&#x2022; [`app_firewall`](#firewall-70af27) - Optional List<br>References to an Application Firewall configuration object
+
+#### Routes WAF Type App Firewall App Firewall
+
+An [`app_firewall`](#routes-waf-type-app-firewall-app-firewall) block (within [`routes.waf_type.app_firewall`](#routes-waf-type-app-firewall)) supports the following:
+
+<a id="nestedatt--routes--match--path-kind"></a>&#x2022; [`kind`](#nestedatt--routes--match--path-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--routes--match--path-name"></a>&#x2022; [`name`](#nestedatt--routes--match--path-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-f3c91a"></a>&#x2022; [`namespace`](#namespace-f3c91a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--routes--match--path-tenant"></a>&#x2022; [`tenant`](#nestedatt--routes--match--path-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--routes--match--path-uid"></a>&#x2022; [`uid`](#nestedatt--routes--match--path-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Routes WAF Type Disable WAF
+
+A [`disable_waf`](#routes-waf-type-disable-waf) block (within [`routes.waf_type`](#routes-waf-type)) supports the following:
+
+#### Routes WAF Type Inherit WAF
+
+An [`inherit_waf`](#routes-waf-type-inherit-waf) block (within [`routes.waf_type`](#routes-waf-type)) supports the following:
+
 ---
 
 ## Common Types
