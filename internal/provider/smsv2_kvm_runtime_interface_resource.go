@@ -26,9 +26,10 @@ import (
 )
 
 var (
-	_ resource.Resource                   = &Smsv2KVMRuntimeInterfaceResource{}
-	_ resource.ResourceWithConfigure      = &Smsv2KVMRuntimeInterfaceResource{}
-	_ resource.ResourceWithValidateConfig = &Smsv2KVMRuntimeInterfaceResource{}
+	_                                   resource.Resource                   = &Smsv2KVMRuntimeInterfaceResource{}
+	_                                   resource.ResourceWithConfigure      = &Smsv2KVMRuntimeInterfaceResource{}
+	_                                   resource.ResourceWithValidateConfig = &Smsv2KVMRuntimeInterfaceResource{}
+	errSMSv2KVMRuntimeInterfaceNotFound                                     = errors.New("KVM runtime interface not found")
 )
 
 type Smsv2KVMRuntimeInterfaceResource struct {
@@ -307,30 +308,48 @@ func selectSMSv2KVMRuntimeInterface(
 		if itemNamespace != target.Namespace || (target.Name != "" && name != target.Name) {
 			continue
 		}
-		matches++
 		owner, _ := nestedMap(item, "owner_view")
 		if len(owner) == 0 {
 			owner, _ = nestedMap(item, "system_metadata", "owner_view")
 		}
 		if stringField(owner, "kind") != "securemesh_site_v2" || stringField(owner, "name") != site || stringField(owner, "namespace") != namespace || stringField(owner, "uid") != uid {
-			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface ownership does not match the current Secure Mesh Site v2 configuration")
+			if target.Name != "" {
+				return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface ownership does not match the current Secure Mesh Site v2 configuration")
+			}
+			continue
+		}
+		if err := validateKVMRuntimeInterfaceName(name); err != nil {
+			return smsv2KVMRuntimeInterfaceObject{}, err
 		}
 		spec, specOK := smsv2RuntimeInterfaceSpec(item)
 		ethernet, ethernetOK := nestedMap(spec, "ethernet_interface")
-		if !specOK || !ethernetOK || stringField(ethernet, "node") != registrationMatches[0].hostname || stringField(ethernet, "device") != registrationMatches[0].device {
-			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface hostname or device does not match the live registration")
+		if !specOK || !ethernetOK {
+			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface has no ethernet_interface spec")
+		}
+		if stringField(ethernet, "node") != registrationMatches[0].hostname || stringField(ethernet, "device") != registrationMatches[0].device {
+			if target.Name != "" {
+				return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface hostname or device does not match the live registration")
+			}
+			continue
 		}
 		_, slo := ethernet["site_local_network"]
 		_, sli := ethernet["site_local_inside_network"]
 		if !sli || slo {
-			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface is not exactly one site-local-inside interface")
+			if target.Name != "" {
+				return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface is not exactly one site-local-inside interface")
+			}
+			continue
 		}
+		matches++
 		selected = smsv2KVMRuntimeInterfaceObject{
 			Name: name, Namespace: itemNamespace, Site: site, OwnerUID: uid, Hostname: registrationMatches[0].hostname,
 			Device: registrationMatches[0].device, MAC: mac, ResourceVersion: stringField(item, "resource_version"), Spec: deepCopySMSv2Map(spec), Raw: deepCopySMSv2Map(item),
 		}
 	}
 	if matches != 1 {
+		if matches == 0 && target.Name != "" {
+			return smsv2KVMRuntimeInterfaceObject{}, errSMSv2KVMRuntimeInterfaceNotFound
+		}
 		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("expected one exact owned KVM runtime interface; observed %d", matches)
 	}
 	return selected, nil
@@ -404,6 +423,9 @@ func currentSMSv2KVMRuntimeInterfaceCIDR(object smsv2KVMRuntimeInterfaceObject) 
 }
 
 func isSMSv2KVMRuntimeInterfaceNotFound(err error) bool {
+	if errors.Is(err, errSMSv2KVMRuntimeInterfaceNotFound) {
+		return true
+	}
 	var apiErr *xcsherrors.XCSHError
 	return errors.As(err, &apiErr) && apiErr.IsNotFound()
 }
