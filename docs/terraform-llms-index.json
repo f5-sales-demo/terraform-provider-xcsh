@@ -232,7 +232,7 @@
       "name": "smsv2_kvm_runtime_interface",
       "category": "uncategorized",
       "description": "Adopts one existing XC-owned KVM Secure Mesh Site v2 SLI child and manages only its DHCP/static IPv4 mode. It never creates or deletes the runtime child",
-      "required": ["device", "expected_mac", "hostname", "interface_name", "ipv4_cidr", "site"],
+      "required": ["expected_mac", "ipv4_cidr", "site"],
       "minimal_config": {
         "format": "terraform",
         "source": "_llms-txt/resources/smsv2_kvm_runtime_interface.txt#minimal-valid-config"

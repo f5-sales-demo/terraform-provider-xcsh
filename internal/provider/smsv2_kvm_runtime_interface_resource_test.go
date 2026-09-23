@@ -64,7 +64,9 @@ func kvmRuntimeInterfaceTargetFixture() smsv2KVMRuntimeInterfaceTarget {
 
 func TestSelectSMSv2KVMRuntimeInterfaceAcceptsLongOwnedSLIName(t *testing.T) {
 	site, registrations, interfaces := kvmRuntimeInterfaceFixture()
-	got, err := selectSMSv2KVMRuntimeInterface(site, registrations, interfaces, kvmRuntimeInterfaceTargetFixture())
+	target := kvmRuntimeInterfaceTargetFixture()
+	target.Name, target.Hostname, target.Device = "", "", ""
+	got, err := selectSMSv2KVMRuntimeInterface(site, registrations, interfaces, target)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -78,8 +80,8 @@ func TestSelectSMSv2KVMRuntimeInterfaceAcceptsLongOwnedSLIName(t *testing.T) {
 
 func TestSelectSMSv2KVMRuntimeInterfaceRejectsIdentityAndOwnershipDrift(t *testing.T) {
 	for name, mutate := range map[string]func(client.SMSv2Observation, *client.RegistrationListResponse, client.SMSv2Observation, *smsv2KVMRuntimeInterfaceTarget){
-		"empty name": func(_ client.SMSv2Observation, _ *client.RegistrationListResponse, _ client.SMSv2Observation, target *smsv2KVMRuntimeInterfaceTarget) {
-			target.Name = ""
+		"malformed name": func(_ client.SMSv2Observation, _ *client.RegistrationListResponse, _ client.SMSv2Observation, target *smsv2KVMRuntimeInterfaceTarget) {
+			target.Name = "invalid/name"
 		},
 		"wrong namespace": func(_ client.SMSv2Observation, _ *client.RegistrationListResponse, _ client.SMSv2Observation, target *smsv2KVMRuntimeInterfaceTarget) {
 			target.Namespace = "other"
@@ -289,7 +291,7 @@ func kvmRuntimeInterfaceModel() Smsv2KVMRuntimeInterfaceResourceModel {
 		ID: types.StringNull(), Namespace: types.StringValue("system"), Site: types.StringValue("mcn-ce-ha-smsv2-current-kvm"),
 		InterfaceName: types.StringValue(longKVMRuntimeInterfaceName), ExpectedMAC: types.StringValue("52:54:00:20:00:11"),
 		Hostname: types.StringValue("onprem-ce-01-90607"), Device: types.StringValue("ens4"), IPv4CIDR: types.StringValue("10.201.0.11/24"),
-		ResourceVersion: types.StringNull(), Configured: types.BoolNull(),
+		OwnerUID: types.StringNull(), ResourceVersion: types.StringNull(), Configured: types.BoolNull(),
 	}
 }
 
@@ -305,6 +307,9 @@ func TestSMSv2KVMRuntimeInterfaceAdoptsWithPUTReconcilesEOFAndRestoresDHCP(t *te
 	schemaResponse := &frameworkresource.SchemaResponse{}
 	providerResource.Schema(ctx, frameworkresource.SchemaRequest{}, schemaResponse)
 	model := kvmRuntimeInterfaceModel()
+	model.InterfaceName = types.StringNull()
+	model.Hostname = types.StringNull()
+	model.Device = types.StringNull()
 	createResponse := frameworkresource.CreateResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
 	providerResource.Create(ctx, frameworkresource.CreateRequest{Plan: tfsdk.Plan{
 		Schema: schemaResponse.Schema, Raw: responseOperationRaw(t, model, schemaResponse.Schema.Type()),
@@ -314,7 +319,7 @@ func TestSMSv2KVMRuntimeInterfaceAdoptsWithPUTReconcilesEOFAndRestoresDHCP(t *te
 	}
 	var state Smsv2KVMRuntimeInterfaceResourceModel
 	createResponse.Diagnostics.Append(createResponse.State.Get(ctx, &state)...)
-	if createResponse.Diagnostics.HasError() || !state.Configured.ValueBool() || state.IPv4CIDR.ValueString() != "10.201.0.11/24" {
+	if createResponse.Diagnostics.HasError() || !state.Configured.ValueBool() || state.IPv4CIDR.ValueString() != "10.201.0.11/24" || state.InterfaceName.ValueString() != longKVMRuntimeInterfaceName || state.OwnerUID.ValueString() != "site-uid-current" {
 		t.Fatalf("unexpected state: %#v diagnostics=%v", state, createResponse.Diagnostics)
 	}
 	api.mu.Lock()
@@ -361,6 +366,7 @@ func TestSMSv2KVMRuntimeInterfaceDestroyRefusesOwnershipDrift(t *testing.T) {
 	model := kvmRuntimeInterfaceModel()
 	model.ID = types.StringValue("system/" + longKVMRuntimeInterfaceName)
 	model.ResourceVersion = types.StringValue("rv-7")
+	model.OwnerUID = types.StringValue("site-uid-current")
 	model.Configured = types.BoolValue(true)
 	state := tfsdk.State{Schema: schemaResponse.Schema, Raw: responseOperationRaw(t, model, schemaResponse.Schema.Type())}
 	response := &frameworkresource.DeleteResponse{}

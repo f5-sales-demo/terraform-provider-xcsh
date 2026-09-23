@@ -44,6 +44,7 @@ type Smsv2KVMRuntimeInterfaceResourceModel struct {
 	Hostname        types.String `tfsdk:"hostname"`
 	Device          types.String `tfsdk:"device"`
 	IPv4CIDR        types.String `tfsdk:"ipv4_cidr"`
+	OwnerUID        types.String `tfsdk:"owner_uid"`
 	ResourceVersion types.String `tfsdk:"resource_version"`
 	Configured      types.Bool   `tfsdk:"configured"`
 }
@@ -55,6 +56,7 @@ type smsv2KVMRuntimeInterfaceTarget struct {
 	ExpectedMAC string
 	Hostname    string
 	Device      string
+	OwnerUID    string
 }
 
 type smsv2KVMRuntimeInterfaceObject struct {
@@ -89,15 +91,13 @@ func (r *Smsv2KVMRuntimeInterfaceResource) Schema(_ context.Context, _ resource.
 				Validators: []validator.String{stringvalidator.OneOf("system")}, PlanModifiers: replace,
 				MarkdownDescription: "Namespace containing the site and runtime child. KVM SMSv2 supports only `system`.",
 			},
-			"site": schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}, PlanModifiers: replace, MarkdownDescription: "Secure Mesh Site v2 configuration name."},
-			"interface_name": schema.StringAttribute{
-				Required: true, Validators: []validator.String{stringvalidator.LengthBetween(1, 253)}, PlanModifiers: replace,
-				MarkdownDescription: "Exact platform-generated SLI child name returned by runtime discovery. Platform names may exceed 64 characters.",
-			},
+			"site":             schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}, PlanModifiers: replace, MarkdownDescription: "Secure Mesh Site v2 configuration name."},
+			"interface_name":   schema.StringAttribute{Computed: true, MarkdownDescription: "Exact platform-generated SLI child name resolved from live ownership. Platform names may exceed 64 characters."},
 			"expected_mac":     schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}, PlanModifiers: replace, MarkdownDescription: "Terraform-owned SLI MAC used for live registration correlation."},
-			"hostname":         schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}, PlanModifiers: replace, MarkdownDescription: "Exact live registration hostname."},
-			"device":           schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}, PlanModifiers: replace, MarkdownDescription: "Exact live registration device."},
+			"hostname":         schema.StringAttribute{Computed: true, MarkdownDescription: "Exact live registration hostname resolved from the expected MAC."},
+			"device":           schema.StringAttribute{Computed: true, MarkdownDescription: "Exact live registration device resolved from the expected MAC."},
 			"ipv4_cidr":        schema.StringAttribute{Required: true, MarkdownDescription: "Static IPv4 host address and prefix to configure on the SLI."},
+			"owner_uid":        schema.StringAttribute{Computed: true, MarkdownDescription: "Secure Mesh Site v2 UID that owns the runtime child."},
 			"resource_version": schema.StringAttribute{Computed: true, MarkdownDescription: "Latest XC concurrency version observed after reconciliation."},
 			"configured":       schema.BoolAttribute{Computed: true, MarkdownDescription: "Whether the exact owned SLI currently uses static IPv4 configuration."},
 		},
@@ -140,10 +140,20 @@ func (r *Smsv2KVMRuntimeInterfaceResource) ValidateConfig(ctx context.Context, r
 }
 
 func runtimeInterfaceTarget(data Smsv2KVMRuntimeInterfaceResourceModel) smsv2KVMRuntimeInterfaceTarget {
-	return smsv2KVMRuntimeInterfaceTarget{
-		Namespace: data.Namespace.ValueString(), Site: data.Site.ValueString(), Name: data.InterfaceName.ValueString(),
-		ExpectedMAC: data.ExpectedMAC.ValueString(), Hostname: data.Hostname.ValueString(), Device: data.Device.ValueString(),
+	target := smsv2KVMRuntimeInterfaceTarget{Namespace: data.Namespace.ValueString(), Site: data.Site.ValueString(), ExpectedMAC: data.ExpectedMAC.ValueString()}
+	if !data.InterfaceName.IsNull() && !data.InterfaceName.IsUnknown() {
+		target.Name = data.InterfaceName.ValueString()
 	}
+	if !data.Hostname.IsNull() && !data.Hostname.IsUnknown() {
+		target.Hostname = data.Hostname.ValueString()
+	}
+	if !data.Device.IsNull() && !data.Device.IsUnknown() {
+		target.Device = data.Device.ValueString()
+	}
+	if !data.OwnerUID.IsNull() && !data.OwnerUID.IsUnknown() {
+		target.OwnerUID = data.OwnerUID.ValueString()
+	}
+	return target
 }
 
 func validateKVMRuntimeInterfaceName(name string) error {
@@ -234,8 +244,10 @@ func selectSMSv2KVMRuntimeInterface(
 	if target.Namespace != "system" {
 		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("KVM runtime interfaces are supported only in namespace system")
 	}
-	if err := validateKVMRuntimeInterfaceName(target.Name); err != nil {
-		return smsv2KVMRuntimeInterfaceObject{}, err
+	if target.Name != "" {
+		if err := validateKVMRuntimeInterfaceName(target.Name); err != nil {
+			return smsv2KVMRuntimeInterfaceObject{}, err
+		}
 	}
 	mac, err := normalizeSMSv2MAC(target.ExpectedMAC)
 	if err != nil {
@@ -250,23 +262,29 @@ func selectSMSv2KVMRuntimeInterface(
 	if site != target.Site || namespace != target.Namespace {
 		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("site configuration identity does not match the requested runtime interface")
 	}
+	if target.OwnerUID != "" && target.OwnerUID != uid {
+		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface state belongs to a different Secure Mesh Site v2 UID")
+	}
 	if registrations == nil || len(registrations.Errors) != 0 {
 		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("registration discovery is unavailable or contains partial errors")
 	}
-	registrationMatches := 0
+	type registrationMatch struct{ hostname, device string }
+	registrationMatches := []registrationMatch{}
 	for _, registration := range registrations.Items {
-		if isTerminalRegistrationState(registration.Object.Status.CurrentState) || registration.GetSpec.Passport.ClusterName != target.Site || kvmRegistrationProvider(registration.GetSpec.Infra) != "KVM" || strings.TrimSpace(registration.GetSpec.Infra.Hostname) != target.Hostname {
+		hostname := strings.TrimSpace(registration.GetSpec.Infra.Hostname)
+		if isTerminalRegistrationState(registration.Object.Status.CurrentState) || registration.GetSpec.Passport.ClusterName != target.Site || kvmRegistrationProvider(registration.GetSpec.Infra) != "KVM" || hostname == "" || (target.Hostname != "" && hostname != target.Hostname) {
 			continue
 		}
 		for _, network := range registration.GetSpec.Infra.HWInfo.Network {
 			observedMAC, normalizeErr := normalizeSMSv2MAC(network.MACAddress)
-			if normalizeErr == nil && observedMAC == mac && strings.TrimSpace(network.Name) == target.Device {
-				registrationMatches++
+			device := strings.TrimSpace(network.Name)
+			if normalizeErr == nil && observedMAC == mac && device != "" && (target.Device == "" || device == target.Device) {
+				registrationMatches = append(registrationMatches, registrationMatch{hostname: hostname, device: device})
 			}
 		}
 	}
-	if registrationMatches != 1 {
-		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("expected one live KVM registration match; observed %d", registrationMatches)
+	if len(registrationMatches) != 1 {
+		return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("expected one live KVM registration match; observed %d", len(registrationMatches))
 	}
 	if rawErrors, exists := interfaces["errors"]; exists && rawErrors != nil {
 		entries, ok := rawErrors.([]interface{})
@@ -286,7 +304,7 @@ func selectSMSv2KVMRuntimeInterface(
 			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("network_interface discovery contains a malformed item")
 		}
 		name, itemNamespace := smsv2RuntimeInterfaceItemIdentity(item)
-		if name != target.Name || itemNamespace != target.Namespace {
+		if itemNamespace != target.Namespace || (target.Name != "" && name != target.Name) {
 			continue
 		}
 		matches++
@@ -299,7 +317,7 @@ func selectSMSv2KVMRuntimeInterface(
 		}
 		spec, specOK := smsv2RuntimeInterfaceSpec(item)
 		ethernet, ethernetOK := nestedMap(spec, "ethernet_interface")
-		if !specOK || !ethernetOK || stringField(ethernet, "node") != target.Hostname || stringField(ethernet, "device") != target.Device {
+		if !specOK || !ethernetOK || stringField(ethernet, "node") != registrationMatches[0].hostname || stringField(ethernet, "device") != registrationMatches[0].device {
 			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface hostname or device does not match the live registration")
 		}
 		_, slo := ethernet["site_local_network"]
@@ -308,8 +326,8 @@ func selectSMSv2KVMRuntimeInterface(
 			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface is not exactly one site-local-inside interface")
 		}
 		selected = smsv2KVMRuntimeInterfaceObject{
-			Name: name, Namespace: itemNamespace, Site: site, OwnerUID: uid, Hostname: target.Hostname,
-			Device: target.Device, MAC: mac, ResourceVersion: stringField(item, "resource_version"), Spec: deepCopySMSv2Map(spec), Raw: deepCopySMSv2Map(item),
+			Name: name, Namespace: itemNamespace, Site: site, OwnerUID: uid, Hostname: registrationMatches[0].hostname,
+			Device: registrationMatches[0].device, MAC: mac, ResourceVersion: stringField(item, "resource_version"), Spec: deepCopySMSv2Map(spec), Raw: deepCopySMSv2Map(item),
 		}
 	}
 	if matches != 1 {
@@ -411,16 +429,19 @@ func (r *Smsv2KVMRuntimeInterfaceResource) observe(ctx context.Context, target s
 	if err != nil {
 		return smsv2KVMRuntimeInterfaceObject{}, err
 	}
-	if _, err = selectSMSv2KVMRuntimeInterface(configuration, registrations, interfaces, target); err != nil {
+	selected, err := selectSMSv2KVMRuntimeInterface(configuration, registrations, interfaces, target)
+	if err != nil {
 		return smsv2KVMRuntimeInterfaceObject{}, err
 	}
 	var exact client.SMSv2Observation
-	exactPath := fmt.Sprintf("/api/config/namespaces/%s/network_interfaces/%s", url.PathEscape(target.Namespace), url.PathEscape(target.Name))
+	exactPath := fmt.Sprintf("/api/config/namespaces/%s/network_interfaces/%s", url.PathEscape(target.Namespace), url.PathEscape(selected.Name))
 	if err = r.client.Get(ctx, exactPath, &exact); err != nil {
 		return smsv2KVMRuntimeInterfaceObject{}, err
 	}
 	exactItem := normalizeSMSv2KVMRuntimeInterfaceObservation(exact)
-	return selectSMSv2KVMRuntimeInterface(configuration, registrations, client.SMSv2Observation{"items": []interface{}{exactItem}}, target)
+	exactTarget := target
+	exactTarget.Name, exactTarget.Hostname, exactTarget.Device, exactTarget.OwnerUID = selected.Name, selected.Hostname, selected.Device, selected.OwnerUID
+	return selectSMSv2KVMRuntimeInterface(configuration, registrations, client.SMSv2Observation{"items": []interface{}{exactItem}}, exactTarget)
 }
 
 func (r *Smsv2KVMRuntimeInterfaceResource) putAndReconcile(ctx context.Context, target smsv2KVMRuntimeInterfaceTarget, object smsv2KVMRuntimeInterfaceObject, cidr string, restoreDHCP bool) (smsv2KVMRuntimeInterfaceObject, error) {
@@ -428,7 +449,8 @@ func (r *Smsv2KVMRuntimeInterfaceResource) putAndReconcile(ctx context.Context, 
 	if err != nil {
 		return smsv2KVMRuntimeInterfaceObject{}, err
 	}
-	path := fmt.Sprintf("/api/config/namespaces/%s/network_interfaces/%s", url.PathEscape(target.Namespace), url.PathEscape(target.Name))
+	target.Name, target.Hostname, target.Device, target.OwnerUID = object.Name, object.Hostname, object.Device, object.OwnerUID
+	path := fmt.Sprintf("/api/config/namespaces/%s/network_interfaces/%s", url.PathEscape(object.Namespace), url.PathEscape(object.Name))
 	var response client.SMSv2Observation
 	putErr := r.client.PutOnce(ctx, path, request, &response)
 	if putErr != nil && !isAmbiguousSMSv2KVMRuntimeInterfacePUT(putErr) {
@@ -475,6 +497,7 @@ func updateSMSv2KVMRuntimeInterfaceModel(data *Smsv2KVMRuntimeInterfaceResourceM
 	data.InterfaceName = types.StringValue(object.Name)
 	data.Hostname = types.StringValue(object.Hostname)
 	data.Device = types.StringValue(object.Device)
+	data.OwnerUID = types.StringValue(object.OwnerUID)
 	data.ResourceVersion = stringOrNull(object.ResourceVersion)
 	data.Configured = types.BoolValue(static)
 	if static {

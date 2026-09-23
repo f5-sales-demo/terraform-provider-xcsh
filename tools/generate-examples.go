@@ -30,7 +30,7 @@ import (
 const providerDir = "internal/provider"
 
 // manuallyMaintained lists resources/data sources whose examples are hand-authored (not
-// generated) — they have non-standard schemas or bespoke lookups. See the exceptions in
+// generated) — they have non-standard schemas, computed runtime identity, or bespoke lookups. See the exceptions in
 // scripts/check-no-generated-files.sh. Bespoke examples that use the xcsh_ prefix are retained
 // explicitly in the surface keep set.
 var manuallyMaintained = map[string]bool{

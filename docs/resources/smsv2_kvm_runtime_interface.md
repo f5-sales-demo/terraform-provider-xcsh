@@ -28,13 +28,10 @@ terraform {
 }
 
 resource "xcsh_smsv2_kvm_runtime_interface" "sli" {
-  namespace      = "system"
-  site           = "onprem-example-kvm"
-  interface_name = "ves-io-securemesh-site-v2-onprem-example-kvm-network-onprem-ce-01-12345-ens4-0"
-  expected_mac   = "52:54:00:20:00:11"
-  hostname       = "onprem-ce-01-12345"
-  device         = "ens4"
-  ipv4_cidr      = "10.201.0.11/24"
+  namespace    = "system"
+  site         = "onprem-example-kvm"
+  expected_mac = "52:54:00:20:00:11"
+  ipv4_cidr    = "10.201.0.11/24"
 }
 ```
 
@@ -50,13 +47,7 @@ resource "xcsh_smsv2_kvm_runtime_interface" "sli" {
 
 ### Spec Argument Reference
 
-<a id="device"></a>&#x2022; [`device`](#device) - Required String<br>Exact live registration device
-
 <a id="expected-mac"></a>&#x2022; [`expected_mac`](#expected-mac) - Required String<br>Terraform-owned SLI MAC used for live registration correlation
-
-<a id="hostname"></a>&#x2022; [`hostname`](#hostname) - Required String<br>Exact live registration hostname
-
-<a id="interface-name"></a>&#x2022; [`interface_name`](#interface-name) - Required String<br>Exact platform-generated SLI child name returned by runtime discovery. Platform names may exceed 64 characters
 
 <a id="ipv4-cidr"></a>&#x2022; [`ipv4_cidr`](#ipv4-cidr) - Required String<br>Static IPv4 host address and prefix to configure on the SLI
 
@@ -68,7 +59,15 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="configured"></a>&#x2022; [`configured`](#configured) - Optional Bool<br>Whether the exact owned SLI currently uses static IPv4 configuration
 
+<a id="device"></a>&#x2022; [`device`](#device) - Optional String<br>Exact live registration device resolved from the expected MAC
+
+<a id="hostname"></a>&#x2022; [`hostname`](#hostname) - Optional String<br>Exact live registration hostname resolved from the expected MAC
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Stable namespace/interface identity
+
+<a id="interface-name"></a>&#x2022; [`interface_name`](#interface-name) - Optional String<br>Exact platform-generated SLI child name resolved from live ownership. Platform names may exceed 64 characters
+
+<a id="owner-uid"></a>&#x2022; [`owner_uid`](#owner-uid) - Optional String<br>Secure Mesh Site v2 UID that owns the runtime child
 
 <a id="resource-version"></a>&#x2022; [`resource_version`](#resource-version) - Optional String<br>Latest XC concurrency version observed after reconciliation
 
