@@ -24,6 +24,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/codegen"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/releasesurface"
 )
 
 const providerDir = "internal/provider"
@@ -33,14 +34,12 @@ const providerDir = "internal/provider"
 // scripts/check-no-generated-files.sh. Bespoke examples that use the xcsh_ prefix are retained
 // explicitly in the surface keep set.
 var manuallyMaintained = map[string]bool{
-	"addon_service":                   true,
-	"addon_service_activation_status": true,
-	"site_bgp_status":                 true,
-	"site_upgrade_status":             true,
-	"site_registration":               true,
-	"smsv2_aws_runtime":               true,
-	"smsv2_kvm_runtime":               true,
-	"smsv2_contract":                  true,
+	"site_bgp_status":     true,
+	"site_upgrade_status": true,
+	"site_registration":   true,
+	"smsv2_aws_runtime":   true,
+	"smsv2_kvm_runtime":   true,
+	"smsv2_contract":      true,
 }
 
 var (
@@ -54,6 +53,14 @@ var (
 )
 
 func main() {
+	surface, err := releasesurface.Load("smsv2-release-surface.json")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "load release surface: %v\n", err)
+		os.Exit(1)
+	}
+	allowedResources := stringSet(surface.Resources)
+	allowedDataSources := stringSet(surface.DataSources)
+	allowedActions := stringSet(surface.Actions)
 	resFiles, _ := filepath.Glob(filepath.Join(providerDir, "*_resource.go"))
 	dsFiles, _ := filepath.Glob(filepath.Join(providerDir, "*_data_source.go"))
 	actionFiles, _ := filepath.Glob(filepath.Join(providerDir, "*_action.go"))
@@ -65,6 +72,9 @@ func main() {
 
 	for _, f := range resFiles {
 		name := strings.TrimSuffix(filepath.Base(f), "_resource.go")
+		if !allowedResources[name] {
+			continue
+		}
 		if manuallyMaintained[name] {
 			continue
 		}
@@ -99,6 +109,9 @@ func main() {
 
 	for _, f := range dsFiles {
 		name := strings.TrimSuffix(filepath.Base(f), "_data_source.go")
+		if !allowedDataSources[name] {
+			continue
+		}
 		dataSourceKeep[name] = true
 		if manuallyMaintained[name] {
 			continue
@@ -132,6 +145,9 @@ func main() {
 
 	for _, f := range actionFiles {
 		name := strings.TrimSuffix(filepath.Base(f), "_action.go")
+		if !allowedActions[name] {
+			continue
+		}
 		actionKeep[name] = true
 		rt, err := parseResourceSchema(f, name)
 		if err == nil {
@@ -154,6 +170,14 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Println("✅ All examples generated (schema-driven, from committed provider)")
+}
+
+func stringSet(values []string) map[string]bool {
+	result := make(map[string]bool, len(values))
+	for _, value := range values {
+		result[value] = true
+	}
+	return result
 }
 
 func isResponseOperationFile(path string) bool {

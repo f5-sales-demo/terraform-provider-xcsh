@@ -37,8 +37,8 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
-	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/parity"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/registration"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/releasesurface"
 	resourcePkg "github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
@@ -198,6 +198,11 @@ func main() {
 
 // processV2Specs processes v2 format specs (domain-organized files from api-specs-enriched)
 func processV2Specs(specDir string) ([]GenerationResult, int, int) {
+	releaseSurface, surfaceErr := releasesurface.Load("smsv2-release-surface.json")
+	if surfaceErr != nil {
+		fmt.Printf("SMSv2 release surface validation failed: %v\n", surfaceErr)
+		os.Exit(1)
+	}
 	var err error
 	contractJSON, err := os.ReadFile(filepath.Join(specDir, "smsv2-contract.json"))
 	if err != nil {
@@ -322,6 +327,9 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 
 		// Process each resource in the domain
 		for _, resource := range domainInfo.Resources {
+			if !releaseSurface.AllowsResource(resource.Name) && !releaseSurface.AllowsDataSource(resource.Name) {
+				continue
+			}
 			// Skip explicitly skipped resources
 			if resourcePkg.IsResourceSkipped(resource.Name, verbose) {
 				skipCount++
@@ -370,6 +378,9 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 			continue
 		}
 		for _, act := range actions {
+			if !releaseSurface.AllowsResource(act.ResourceName) {
+				continue
+			}
 			if resourcePkg.IsResourceSkipped(act.ResourceName, verbose) {
 				skipCount++
 				continue
@@ -399,6 +410,9 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 			continue
 		}
 		for _, operation := range responseOperations {
+			if !releaseSurface.AllowsDataSource(operation.Name) && !releaseSurface.AllowsAction(operation.Name) && !releaseSurface.AllowsResource(operation.Name) {
+				continue
+			}
 			if _, suppressed := suppressedImageOperations[operation.OperationID]; suppressed {
 				continue
 			}
@@ -423,11 +437,7 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("\n⏭️  Skipped %d duplicate resources across domain files\n", skipCount)
 	}
 	if len(smsv2Attributes) == 0 {
-		fmt.Println("❌ SMSv2 parity validation failed: generated securemesh_site_v2 schema was not produced")
-		os.Exit(1)
-	}
-	if err := generateSMSv2ParityMatrix(specDir, smsv2Attributes); err != nil {
-		fmt.Printf("❌ SMSv2 parity validation failed: %v\n", err)
+		fmt.Println("SMSv2 release surface failed: securemesh_site_v2 was not generated")
 		os.Exit(1)
 	}
 	smsv2Templates, err := codegen.SMSv2DataSourceTemplates(contractJSON)
@@ -443,6 +453,8 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		successCount++
 	}
 
+	results = releaseSurface.FilterResults(results)
+	successCount = len(results)
 	return results, successCount, failCount
 }
 
@@ -472,44 +484,6 @@ func processV2ResponseOperation(spec *openapi.Spec, operation openapi.ResolvedRe
 	}
 	fmt.Printf("✅ %s: %s response operation\n", operation.Name, operation.Role)
 	return result
-}
-
-func generateSMSv2ParityMatrix(specDirectory string, attrs []openapi.TerraformAttribute) error {
-	legacy, err := parity.LoadLegacy("tools/legacy-smsv2-v0.12.2.json")
-	if err != nil {
-		return err
-	}
-	current, err := parity.LoadCurrent(filepath.Join(specDirectory, "smsv2_parity_manifest.json"))
-	if err != nil {
-		return err
-	}
-	providerChoices := make([]string, 0, len(current.ChoiceGroups["spec.provider_choice"]))
-	for _, path := range current.ChoiceGroups["spec.provider_choice"] {
-		providerChoices = append(providerChoices, strings.TrimPrefix(path, "spec."))
-	}
-	if strings.Join(providerChoices, "\x00") != strings.Join(codegen.SecuremeshSiteV2ProviderChoices, "\x00") {
-		return fmt.Errorf("SMSv2 generated example variants %v do not match provider choice contract %v",
-			codegen.SecuremeshSiteV2ProviderChoices, providerChoices)
-	}
-	matrix, buildErr := parity.BuildSMSv2MatrixFromTerraform(legacy, current, attrs)
-	if matrix == nil {
-		return buildErr
-	}
-	if !dryRun {
-		data, err := json.MarshalIndent(matrix, "", "  ")
-		if err != nil {
-			return err
-		}
-		if err := os.WriteFile("tools/smsv2-parity-matrix.json", append(data, '\n'), 0o644); err != nil {
-			return err
-		}
-	}
-	if buildErr != nil {
-		return buildErr
-	}
-	fmt.Printf("📋 SMSv2 parity: %d legacy paths classified, %d current-only, %d generated gaps, zero unclassified\n",
-		matrix.ClassifiedLegacy, matrix.Classification["current_only"], matrix.Classification["generator_gap"])
-	return nil
 }
 
 // processV2Resource processes a single resource from a v2 domain spec

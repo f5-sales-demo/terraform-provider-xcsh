@@ -52,7 +52,7 @@ func TestAccHTTPLoadBalancerResource_httpsAutoCertAdvertiseCustomVirtualSite(t *
 
 	name := acctest.RandomName("tf-acc-test-lb-vsite")
 	virtualSite := acctest.RandomName("tf-acc-test-vsite")
-	namespace := acctest.RandomName("tf-acc-test-ns")
+	namespace := "system"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
@@ -467,7 +467,7 @@ func TestAccHTTPLoadBalancerResource_withOriginPool(t *testing.T) {
 			if err := acctest.CheckResourceDestroyed("xcsh_http_loadbalancer")(s); err != nil {
 				return err
 			}
-			return acctest.CheckOriginPoolDestroyed(s)
+			return acctest.CheckResourceDestroyed("xcsh_origin_pool")(s)
 		},
 		Steps: []resource.TestStep{
 			{
@@ -483,73 +483,6 @@ func TestAccHTTPLoadBalancerResource_withOriginPool(t *testing.T) {
 
 // =============================================================================
 // TEST: With WAF (app_firewall reference)
-// =============================================================================
-func TestAccHTTPLoadBalancerResource_withWAF(t *testing.T) {
-	acctest.SkipIfNotAccTest(t)
-	acctest.PreCheck(t)
-
-	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-acc-test-lb")
-
-	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:                 func() { acctest.PreCheck(t) },
-		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy: func(s *terraform.State) error {
-			if err := acctest.CheckResourceDestroyed("xcsh_http_loadbalancer")(s); err != nil {
-				return err
-			}
-			return acctest.CheckAppFirewallDestroyed(s)
-		},
-		Steps: []resource.TestStep{
-			{
-				Config: testAccHTTPLoadBalancerConfig_withWAFSystem(rName),
-				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckResourceExists(resourceName),
-				),
-			},
-		},
-	})
-}
-
-// =============================================================================
-// TEST: Full security stack (WAF + origin pool + rate limit + threat mesh)
-// =============================================================================
-func TestAccHTTPLoadBalancerResource_securityStack(t *testing.T) {
-	acctest.SkipIfNotAccTest(t)
-	acctest.PreCheck(t)
-
-	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-acc-test-lb")
-
-	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:                 func() { acctest.PreCheck(t) },
-		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy: func(s *terraform.State) error {
-			if err := acctest.CheckResourceDestroyed("xcsh_http_loadbalancer")(s); err != nil {
-				return err
-			}
-			if err := acctest.CheckAppFirewallDestroyed(s); err != nil {
-				return err
-			}
-			if err := acctest.CheckOriginPoolDestroyed(s); err != nil {
-				return err
-			}
-			return acctest.CheckHealthcheckDestroyed(s)
-		},
-		Steps: []resource.TestStep{
-			{
-				Config: testAccHTTPLoadBalancerConfig_securityStackSystem(rName),
-				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckResourceExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "default_route_pools.#", "1"),
-				),
-			},
-		},
-	})
-}
-
-// =============================================================================
-// TEST: Full lifecycle
 // =============================================================================
 func TestAccHTTPLoadBalancerResource_fullLifecycle(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
@@ -664,19 +597,9 @@ func testAccHTTPLoadBalancerConfig_liveHTTPSAutoCertVirtualSite(name, namespace,
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[2]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_virtual_site" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[3]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = %[2]q
   site_type  = "CUSTOMER_EDGE"
 
   site_selector {
@@ -687,7 +610,7 @@ resource "xcsh_virtual_site" "test" {
 resource "xcsh_http_loadbalancer" "test" {
   depends_on = [xcsh_virtual_site.test]
   name       = %[1]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = %[2]q
   domains    = ["test.example.com"]
 
   https_auto_cert {}
@@ -698,7 +621,7 @@ resource "xcsh_http_loadbalancer" "test" {
         network = "SITE_NETWORK_INSIDE_AND_OUTSIDE"
         virtual_site {
           name      = xcsh_virtual_site.test.name
-          namespace = xcsh_namespace.test.name
+          namespace = %[2]q
         }
       }
       use_default_port = {}
@@ -831,62 +754,6 @@ func TestAccHTTPLoadBalancerResource_sourceIpStickiness(t *testing.T) {
 
 // =============================================================================
 // TEST: Rate limiting with rate_limit reference
-// =============================================================================
-func TestAccHTTPLoadBalancerResource_withRateLimit(t *testing.T) {
-	acctest.SkipIfNotAccTest(t)
-	acctest.PreCheck(t)
-
-	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-acc-test-lb")
-
-	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:                 func() { acctest.PreCheck(t) },
-		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy: func(s *terraform.State) error {
-			if err := acctest.CheckResourceDestroyed("xcsh_http_loadbalancer")(s); err != nil {
-				return err
-			}
-			return acctest.CheckRateLimiterDestroyed(s)
-		},
-		Steps: []resource.TestStep{
-			{
-				Config: testAccHTTPLBConfig_withRateLimitSystem(rName),
-				Check:  acctest.CheckResourceExists(resourceName),
-			},
-		},
-	})
-}
-
-// =============================================================================
-// TEST: User identification reference
-// =============================================================================
-func TestAccHTTPLoadBalancerResource_userIdentification(t *testing.T) {
-	acctest.SkipIfNotAccTest(t)
-	acctest.PreCheck(t)
-
-	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-acc-test-lb")
-
-	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:                 func() { acctest.PreCheck(t) },
-		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy: func(s *terraform.State) error {
-			if err := acctest.CheckResourceDestroyed("xcsh_http_loadbalancer")(s); err != nil {
-				return err
-			}
-			return acctest.CheckUserIdentificationDestroyed(s)
-		},
-		Steps: []resource.TestStep{
-			{
-				Config: testAccHTTPLBConfig_userIdentificationSystem(rName),
-				Check:  acctest.CheckResourceExists(resourceName),
-			},
-		},
-	})
-}
-
-// =============================================================================
-// TEST: Do not advertise
 // =============================================================================
 func TestAccHTTPLoadBalancerResource_doNotAdvertise(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
@@ -1077,61 +944,6 @@ resource "xcsh_http_loadbalancer" "test" {
 `, name)
 }
 
-func testAccHTTPLBConfig_withRateLimitSystem(name string) string {
-	return fmt.Sprintf(`
-resource "xcsh_http_loadbalancer" "test" {
-  name      = %[1]q
-  namespace = "system"
-  domains   = ["test.example.com"]
-
-  http {
-    port = 80
-  }
-
-  rate_limit {
-    rate_limiter {
-      total_number     = 100
-      unit             = "MINUTE"
-      burst_multiplier = 10
-    }
-    no_ip_allowed_list = {}
-  }
-
-  advertise_on_public_default_vip = {}
-}
-`, name)
-}
-
-func testAccHTTPLBConfig_userIdentificationSystem(name string) string {
-	return fmt.Sprintf(`
-resource "xcsh_user_identification" "test" {
-  name      = %[1]q
-  namespace = "system"
-
-  rules {
-    client_ip = {}
-  }
-}
-
-resource "xcsh_http_loadbalancer" "test" {
-  name      = %[1]q
-  namespace = "system"
-  domains   = ["test.example.com"]
-
-  http {
-    port = 80
-  }
-
-  user_identification {
-    name      = xcsh_user_identification.test.name
-    namespace = "system"
-  }
-
-  advertise_on_public_default_vip = {}
-}
-`, name)
-}
-
 func testAccHTTPLBConfig_doNotAdvertiseSystem(name string) string {
 	return fmt.Sprintf(`
 resource "xcsh_http_loadbalancer" "test" {
@@ -1248,121 +1060,6 @@ resource "xcsh_http_loadbalancer" "test" {
     weight   = 1
     priority = 1
   }
-
-  advertise_on_public_default_vip = {}
-}
-`, name)
-}
-
-func testAccHTTPLoadBalancerConfig_withWAFSystem(name string) string {
-	return fmt.Sprintf(`
-resource "xcsh_app_firewall" "test" {
-  name      = %[1]q
-  namespace = "system"
-
-  default_detection_settings = {}
-  allow_all_response_codes = {}
-  blocking = {}
-  use_default_blocking_page = {}
-  default_bot_setting = {}
-  default_anonymization = {}
-}
-
-resource "xcsh_http_loadbalancer" "test" {
-  name      = %[1]q
-  namespace = "system"
-
-  domains = ["test.example.com"]
-
-  http {
-    port = 80
-  }
-
-  app_firewall {
-    name      = xcsh_app_firewall.test.name
-    namespace = "system"
-  }
-
-  advertise_on_public_default_vip = {}
-}
-`, name)
-}
-
-func testAccHTTPLoadBalancerConfig_securityStackSystem(name string) string {
-	return fmt.Sprintf(`
-resource "xcsh_healthcheck" "test" {
-  name      = %[1]q
-  namespace = "system"
-
-  healthy_threshold   = 3
-  unhealthy_threshold = 1
-  timeout             = 3
-  interval            = 15
-
-  http_health_check {
-    path        = "/health"
-    host_header = "example.com"
-  }
-}
-
-resource "xcsh_origin_pool" "test" {
-  name      = %[1]q
-  namespace = "system"
-  port      = 443
-
-  origin_servers {
-    public_name {
-      dns_name = "example.com"
-    }
-  }
-
-  healthcheck {
-    name      = xcsh_healthcheck.test.name
-    namespace = "system"
-  }
-
-  no_tls                = {}
-  same_as_endpoint_port = {}
-}
-
-resource "xcsh_app_firewall" "test" {
-  name      = %[1]q
-  namespace = "system"
-
-  default_detection_settings = {}
-  allow_all_response_codes = {}
-  blocking = {}
-  use_default_blocking_page = {}
-  default_bot_setting = {}
-  default_anonymization = {}
-}
-
-resource "xcsh_http_loadbalancer" "test" {
-  name      = %[1]q
-  namespace = "system"
-
-  domains = ["test.example.com"]
-
-  http {
-    port = 80
-  }
-
-  default_route_pools {
-    pool {
-      name      = xcsh_origin_pool.test.name
-      namespace = "system"
-    }
-    weight   = 1
-    priority = 1
-  }
-
-  app_firewall {
-    name      = xcsh_app_firewall.test.name
-    namespace = "system"
-  }
-
-  enable_malicious_user_detection = {}
-  enable_threat_mesh = {}
 
   advertise_on_public_default_vip = {}
 }

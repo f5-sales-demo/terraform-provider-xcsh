@@ -47,7 +47,7 @@ func TestAccVirtualSiteResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -97,7 +97,7 @@ func TestAccVirtualSiteResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 	description := "Comprehensive acceptance test virtual site"
 
@@ -150,7 +150,7 @@ func TestAccVirtualSiteResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -196,7 +196,7 @@ func TestAccVirtualSiteResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -255,7 +255,7 @@ func TestAccVirtualSiteResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -308,7 +308,7 @@ func TestAccVirtualSiteResource_updateSiteSelector(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -354,7 +354,7 @@ func TestAccVirtualSiteResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -398,7 +398,7 @@ func TestAccVirtualSiteResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -456,7 +456,7 @@ func TestAccVirtualSiteResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -502,7 +502,7 @@ func TestAccVirtualSiteResource_invalidName(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -532,7 +532,7 @@ func TestAccVirtualSiteResource_nameTooLong(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	// Create a name that exceeds the maximum length (typically 63 characters for K8s-style names)
 	longName := "tf-acc-test-this-name-is-way-too-long-and-should-fail-validation-check"
 
@@ -563,7 +563,7 @@ func TestAccVirtualSiteResource_emptyName(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -594,7 +594,7 @@ func TestAccVirtualSiteResource_requiresReplace(t *testing.T) {
 
 	rName1 := acctest.RandomName("tf-acc-test-vsite")
 	rName2 := acctest.RandomName("tf-acc-test-vsite")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_virtual_site.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -656,19 +656,9 @@ func testAccVirtualSiteResourceConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_virtual_site" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = %[1]q
 
   labels = {
     environment = "test"
@@ -688,19 +678,9 @@ func testAccVirtualSiteResourceConfig_allAttributes(nsName, name, description st
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_virtual_site" "test" {
-  depends_on  = [time_sleep.wait_for_namespace]
   name        = %[2]q
-  namespace   = xcsh_namespace.test.name
+  namespace   = %[1]q
   description = %[3]q
 
   labels = {
@@ -726,19 +706,9 @@ func testAccVirtualSiteResourceConfig_withLabels(nsName, name, environment, mana
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_virtual_site" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = %[1]q
 
   labels = {
     environment = %[3]q
@@ -758,19 +728,9 @@ func testAccVirtualSiteResourceConfig_withDescription(nsName, name, description 
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_virtual_site" "test" {
-  depends_on  = [time_sleep.wait_for_namespace]
   name        = %[2]q
-  namespace   = xcsh_namespace.test.name
+  namespace   = %[1]q
   description = %[3]q
 
   labels = {
@@ -791,19 +751,9 @@ func testAccVirtualSiteResourceConfig_withAnnotations(nsName, name, value1, valu
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_virtual_site" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = %[1]q
 
   labels = {
     environment = "test"
@@ -828,19 +778,9 @@ func testAccVirtualSiteResourceConfig_withSiteSelector(nsName, name, expression 
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_virtual_site" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = %[1]q
 
   labels = {
     environment = "test"

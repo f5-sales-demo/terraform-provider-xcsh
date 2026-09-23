@@ -32,12 +32,12 @@ func TestAccOriginPoolResource_basic(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_basicSystem(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
 					resource.TestCheckResourceAttr(resourceName, "namespace", "system"),
 					resource.TestCheckResourceAttrSet(resourceName, "id"),
@@ -70,12 +70,12 @@ func TestAccOriginPoolResource_withLabels(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_withLabelsSystem(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
 					resource.TestCheckResourceAttr(resourceName, "description", "Test origin pool"),
 					resource.TestCheckResourceAttr(resourceName, "labels.environment", "test"),
@@ -100,19 +100,19 @@ func TestAccOriginPoolResource_updateLabels(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_labelsUpdateSystem(rName, "dev"),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "labels.environment", "dev"),
 				),
 			},
 			{
 				Config: testAccOriginPoolConfig_labelsUpdateSystem(rName, "prod"),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "labels.environment", "prod"),
 				),
 			},
@@ -134,13 +134,13 @@ func TestAccOriginPoolResource_disappears(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_basicSystem(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
-					acctest.CheckOriginPoolDisappears(resourceName),
+					acctest.CheckResourceExists(resourceName),
+					acctest.CheckResourceDisappears("xcsh_origin_pool", resourceName),
 				),
 				ExpectNonEmptyPlan: true,
 			},
@@ -162,12 +162,12 @@ func TestAccOriginPoolResource_emptyPlan(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_basicSystem(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 				),
 			},
 			{
@@ -207,7 +207,7 @@ func TestAccOriginPoolResource_planChecks(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_basicSystem(rName),
@@ -250,7 +250,7 @@ func TestAccOriginPoolResource_knownValues(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_basicSystem(rName),
@@ -299,11 +299,11 @@ func TestAccOriginPoolResource_requiresReplace(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_basicSystem(rName1),
-				Check:  acctest.CheckOriginPoolExists(resourceName),
+				Check:  acctest.CheckResourceExists(resourceName),
 			},
 			{
 				Config: testAccOriginPoolConfig_basicSystem(rName2),
@@ -330,12 +330,12 @@ func TestAccOriginPoolResource_publicIp(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_publicIpSystem(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "port", "8080"),
 				),
 			},
@@ -363,12 +363,12 @@ func TestAccOriginPoolResource_multipleOrigins(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_multipleOriginsSystem(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "origin_servers.#", "2"),
 				),
 			},
@@ -386,44 +386,6 @@ func TestAccOriginPoolResource_multipleOrigins(t *testing.T) {
 // =============================================================================
 // TEST: Origin pool with healthcheck reference
 // =============================================================================
-func TestAccOriginPoolResource_withHealthcheckRef(t *testing.T) {
-	acctest.SkipIfNotAccTest(t)
-	acctest.PreCheck(t)
-
-	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-acc-test-op")
-
-	resource.ParallelTest(t, resource.TestCase{
-		PreCheck:                 func() { acctest.PreCheck(t) },
-		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy: func(s *terraform.State) error {
-			if err := acctest.CheckOriginPoolDestroyed(s); err != nil {
-				return err
-			}
-			return acctest.CheckHealthcheckDestroyed(s)
-		},
-		Steps: []resource.TestStep{
-			{
-				Config: testAccOriginPoolConfig_withHealthcheckRefSystem(rName),
-				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "healthcheck.#", "1"),
-				),
-			},
-			{
-				ResourceName:            resourceName,
-				ImportState:             true,
-				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"timeouts"},
-				ImportStateIdFunc:       testAccOriginPoolImportStateIdFunc(resourceName),
-			},
-		},
-	})
-}
-
-// =============================================================================
-// TEST: Port update
-// =============================================================================
 func TestAccOriginPoolResource_updatePort(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
@@ -434,19 +396,19 @@ func TestAccOriginPoolResource_updatePort(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_portSystem(rName, 443),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "port", "443"),
 				),
 			},
 			{
 				Config: testAccOriginPoolConfig_portSystem(rName, 8443),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "port", "8443"),
 				),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
@@ -472,12 +434,12 @@ func TestAccOriginPoolResource_fullLifecycle(t *testing.T) {
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolConfig_withLabelsSystem(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "description", "Test origin pool"),
 				),
 			},
@@ -491,7 +453,7 @@ func TestAccOriginPoolResource_fullLifecycle(t *testing.T) {
 			{
 				Config: testAccOriginPoolConfig_portSystem(rName, 8080),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "port", "8080"),
 				),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
@@ -510,7 +472,7 @@ func TestAccOriginPoolResource_fullLifecycle(t *testing.T) {
 			},
 			{
 				Config: testAccOriginPoolConfig_basicSystem(rName),
-				Check:  acctest.CheckOriginPoolExists(resourceName),
+				Check:  acctest.CheckResourceExists(resourceName),
 			},
 		},
 	})
@@ -604,43 +566,6 @@ resource "xcsh_origin_pool" "test" {
     public_name {
       dns_name = "backend2.example.com"
     }
-  }
-
-  no_tls = {}
-  same_as_endpoint_port = {}
-}
-`, name)
-}
-
-func testAccOriginPoolConfig_withHealthcheckRefSystem(name string) string {
-	return fmt.Sprintf(`
-resource "xcsh_healthcheck" "test" {
-  name      = %[1]q
-  namespace = "system"
-
-  healthy_threshold   = 3
-  unhealthy_threshold = 1
-  timeout             = 3
-  interval            = 15
-
-  tcp_health_check {}
-}
-
-resource "xcsh_origin_pool" "test" {
-  name      = %[1]q
-  namespace = "system"
-
-  port = 443
-
-  origin_servers {
-    public_name {
-      dns_name = "example.com"
-    }
-  }
-
-  healthcheck {
-    name      = xcsh_healthcheck.test.name
-    namespace = xcsh_healthcheck.test.namespace
   }
 
   no_tls = {}
@@ -749,13 +674,13 @@ func TestAccOriginPoolResource_nestedOriginServerLabels(t *testing.T) {
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		CheckDestroy:             acctest.CheckOriginPoolDestroyed,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_origin_pool"),
 		Steps: []resource.TestStep{
 			// Step 1: Create origin_pool with nested map in origin_servers.labels
 			{
 				Config: testAccOriginPoolConfig_nestedLabels(rName, "192.0.2.1", map[string]string{"env": "test", "app": "demo"}),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "port", "8080"),
 					resource.TestCheckResourceAttr(resourceName, "origin_servers.0.labels.env", "test"),
 					resource.TestCheckResourceAttr(resourceName, "origin_servers.0.labels.app", "demo"),
@@ -765,7 +690,7 @@ func TestAccOriginPoolResource_nestedOriginServerLabels(t *testing.T) {
 			{
 				Config: testAccOriginPoolConfig_nestedLabels(rName, "192.0.2.1", map[string]string{"env": "prod", "app": "demo_updated"}),
 				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckOriginPoolExists(resourceName),
+					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "port", "8080"),
 					resource.TestCheckResourceAttr(resourceName, "origin_servers.0.labels.env", "prod"),
 					resource.TestCheckResourceAttr(resourceName, "origin_servers.0.labels.app", "demo_updated"),

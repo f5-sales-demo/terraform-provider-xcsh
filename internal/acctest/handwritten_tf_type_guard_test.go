@@ -152,12 +152,12 @@ func TestHandwrittenArtifactsOnlyDeclareRegisteredTypes(t *testing.T) {
 
 	references := collectHandwrittenTypeReferences(t, root)
 
-	// Vacuity floor: the guide and example trees declare well over a hundred
-	// type names. Finding almost none means the walk or the pattern broke, and
-	// a guard that sees nothing must fail rather than wave everything through.
-	const minReferences = 50
-	if len(references) < minReferences {
-		t.Fatalf("found only %d hand-written type declarations (expected at least %d); this guard cannot be trusted", len(references), minReferences)
+	// Exact directory coverage is enforced against smsv2-release-surface.json by
+	// generate-provider-docs.sh. This guard needs only a non-empty input plus its
+	// mutation proof below; a legacy numeric floor would reject an intentional
+	// clean break merely because the public provider became smaller.
+	if len(references) == 0 {
+		t.Fatal("found no hand-written type declarations; this guard cannot be trusted")
 	}
 
 	var unregistered []string

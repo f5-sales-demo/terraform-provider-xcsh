@@ -994,7 +994,7 @@ func TestProviderWorkflowMutationsFail(t *testing.T) {
 			return strings.Replace(s, "          - real-only      # Sequential real API tests (repository-scoped ARC)", "          - unsafe-mode    # unauthorized dispatch mode", 1)
 		},
 		"changed PR path": func(s string) string {
-			return strings.Replace(s, "      - 'internal/blindfold/**'", "      - 'unsafe/**'", 1)
+			return strings.Replace(s, "      - 'internal/provider/**'", "      - 'unsafe/**'", 1)
 		},
 		"obsolete runner input": func(s string) string {
 			return strings.Replace(s, "      timeout:\n", "      runner:\n        default: ubuntu-latest\n        type: string\n      timeout:\n", 1)

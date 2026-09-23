@@ -20,6 +20,7 @@ import (
 	fwresource "github.com/hashicorp/terraform-plugin-framework/resource"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/provider"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/releasesurface"
 )
 
 // Regression guard for #1351.
@@ -86,16 +87,15 @@ func registeredTypeNames(t *testing.T) (resources, dataSources map[string]struct
 		dataSources[meta.TypeName] = struct{}{}
 	}
 
-	// Vacuity floors. The provider registers well over a hundred of each; a
-	// collapse to a handful means the reflection above stopped working, and a
-	// guard that no longer sees the universe must fail loudly rather than wave
-	// every stale reference through.
-	const minRegistered = 50
-	if len(resources) < minRegistered {
-		t.Fatalf("provider registered only %d resources (expected at least %d); this guard cannot be trusted", len(resources), minRegistered)
+	surface, err := releasesurface.Load(filepath.Join("..", "..", "smsv2-release-surface.json"))
+	if err != nil {
+		t.Fatalf("load release surface: %v", err)
 	}
-	if len(dataSources) < minRegistered {
-		t.Fatalf("provider registered only %d data sources (expected at least %d); this guard cannot be trusted", len(dataSources), minRegistered)
+	if len(resources) != len(surface.Resources) {
+		t.Fatalf("provider registered %d resources, release surface requires exactly %d", len(resources), len(surface.Resources))
+	}
+	if len(dataSources) != len(surface.DataSources) {
+		t.Fatalf("provider registered %d data sources, release surface requires exactly %d", len(dataSources), len(surface.DataSources))
 	}
 
 	return resources, dataSources

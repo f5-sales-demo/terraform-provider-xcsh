@@ -18,16 +18,6 @@ type SkipReason struct {
 // Each entry includes a documented reason and which operations to skip.
 var SkippedResources = map[string]SkipReason{
 	// ============================================================================
-	// Special Handling Required
-	// ============================================================================
-	"blindfold": {
-		Reason:       "Handled specially by provider-defined functions",
-		Category:     "special",
-		SkipGenerate: true,
-		SkipAPITest:  true,
-	},
-
-	// ============================================================================
 	// Deprecated / Excluded Resources
 	// ============================================================================
 	"dns_domain": {
@@ -167,15 +157,11 @@ var SkippedResources = map[string]SkipReason{
 // ManuallyMaintainedFiles lists files in internal/provider that are manually maintained
 // and should not be overwritten by code generation.
 var ManuallyMaintainedFiles = map[string]bool{
-	"provider.go":               true,
-	"functions_registration.go": true,
+	"provider.go": true,
 }
 
 // ManuallyMaintainedDirs lists directories that contain manually maintained code.
-var ManuallyMaintainedDirs = []string{
-	"internal/functions",
-	"internal/blindfold",
-}
+var ManuallyMaintainedDirs = []string{}
 
 // IsSkipped returns true if the resource should be skipped during code generation.
 func IsSkipped(resourceName string) bool {

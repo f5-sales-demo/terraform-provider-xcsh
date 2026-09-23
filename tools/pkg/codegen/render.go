@@ -1367,6 +1367,9 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 				sb.WriteString(fmt.Sprintf("%s\t\tComputed: true,\n", indent))
 			}
 		}
+		if attr.Sensitive {
+			sb.WriteString(fmt.Sprintf("%s\t\tSensitive: true,\n", indent))
+		}
 
 		if attr.PlanModifier != "" {
 			typeName := "String"

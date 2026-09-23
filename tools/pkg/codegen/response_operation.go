@@ -23,6 +23,7 @@ func GenerateResponseOperation(operation *openapi.ResponseOperationTemplate, pro
 	if operation == nil {
 		return fmt.Errorf("response operation template is required")
 	}
+	applySMSv2UpgradeContract(operation)
 	var suffix, source string
 	switch operation.Role {
 	case "query", "collection":
@@ -68,6 +69,25 @@ func GenerateResponseOperation(operation *openapi.ResponseOperationTemplate, pro
 		return fmt.Errorf("write generated response operation %s: %w", path, err)
 	}
 	return nil
+}
+
+// applySMSv2UpgradeContract narrows the two asynchronous SMSv2 commands to
+// their public Terraform contract. Namespace and force are protocol bindings,
+// not practitioner inputs, and must never be configurable.
+func applySMSv2UpgradeContract(operation *openapi.ResponseOperationTemplate) {
+	if operation.Name != "site_upgrade_sw" && operation.Name != "site_upgrade_os" {
+		return
+	}
+	target := "software_version"
+	if operation.Name == "site_upgrade_os" {
+		target = "os_version"
+	}
+	operation.Method = "POST"
+	operation.APIPath = "/api/config/namespaces/system/sites/{site}/" + strings.TrimPrefix(operation.Name, "site_")
+	operation.Inputs = []openapi.ResponseOperationInput{
+		{Attribute: openapi.TerraformAttribute{Name: "site", JsonName: "site", TfsdkTag: "site", GoName: "Site", Type: "string", Required: true}, Bindings: []openapi.OperationBinding{{Location: "path", Name: "site"}, {Location: "body", Name: "name"}}},
+		{Attribute: openapi.TerraformAttribute{Name: target, JsonName: target, TfsdkTag: target, GoName: naming.ToResourceTypeName(target), Type: "string", Required: true}, Bindings: []openapi.OperationBinding{{Location: "body", Name: "version"}}},
+	}
 }
 
 func ensureResponseOperationTarget(path string) error {
@@ -337,6 +357,9 @@ func renderResponseOperationRequestSetup(operation *openapi.ResponseOperationTem
 	result.WriteString("\tif encoded := queryValues.Encode(); encoded != \"\" { apiPath += \"?\" + encoded }\n")
 	if operation.Method == "POST" {
 		result.WriteString("\tbody := map[string]interface{}{}\n")
+		if operation.Name == "site_upgrade_sw" || operation.Name == "site_upgrade_os" {
+			result.WriteString("\tbody[\"namespace\"] = \"system\"\n\tbody[\"force\"] = false\n")
+		}
 		for _, input := range operation.Inputs {
 			for _, binding := range input.Bindings {
 				if binding.Location != "body" {

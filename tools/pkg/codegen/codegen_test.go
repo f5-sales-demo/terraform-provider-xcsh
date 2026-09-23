@@ -1708,6 +1708,31 @@ func TestGenerateCompanionDataSourceOmitsKnownWriteOnlySpec(t *testing.T) {
 	}
 }
 
+func TestGenerateResourcePropagatesSensitiveBlockToNestedValues(t *testing.T) {
+	t.Parallel()
+	tmpl := &openapi.ResourceTemplate{
+		Name: "securemesh_site_v2", TitleCase: "SecuremeshSiteV2",
+		Attributes: []openapi.TerraformAttribute{{
+			Name: "software_settings", GoName: "SoftwareSettings", TfsdkTag: "software_settings",
+			IsBlock: true, NestedBlockType: "single", Optional: true, Sensitive: true,
+			NestedAttributes: []openapi.TerraformAttribute{{
+				Name: "version", GoName: "Version", TfsdkTag: "version", Type: "string", Optional: true,
+			}},
+		}},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatal(err)
+	}
+	generated, err := os.ReadFile(filepath.Join(dir, "securemesh_site_v2_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(generated), "Sensitive:           true") {
+		t.Fatalf("nested software setting was not marked sensitive:\n%s", generated)
+	}
+}
+
 func TestGenerateCompanionDataSourceIsResponseAuthoritative(t *testing.T) {
 	t.Parallel()
 	attrs := []openapi.TerraformAttribute{{

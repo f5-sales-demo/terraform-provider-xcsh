@@ -111,6 +111,14 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 	// gives direct callers the same final-IR guarantee as generator orchestration
 	// and removes both stale-positive and stale-negative template state.
 	schema.RefreshResourcePlanModifierUsage(resource)
+	if resource.Name == "securemesh_site_v2" {
+		for index := range resource.Attributes {
+			if resource.Attributes[index].TfsdkTag == "software_settings" {
+				resource.Attributes[index].Sensitive = true
+			}
+		}
+	}
+	propagateNestedSensitivity(resource.Attributes, false)
 
 	// Create template with custom functions
 	funcMap := template.FuncMap{
@@ -163,6 +171,18 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 	}
 
 	return os.WriteFile(outputPath, formatted, 0644)
+}
+
+// Terraform protocol blocks cannot carry sensitivity themselves. Propagate a
+// sensitive block marker to every nested attribute so values under a
+// write-only block are still redacted from plans and diagnostics.
+func propagateNestedSensitivity(attributes []openapi.TerraformAttribute, inherited bool) {
+	for index := range attributes {
+		if inherited {
+			attributes[index].Sensitive = true
+		}
+		propagateNestedSensitivity(attributes[index].NestedAttributes, inherited || attributes[index].Sensitive)
+	}
 }
 
 // GenerateClientTypes generates the client type Go file for a single resource.

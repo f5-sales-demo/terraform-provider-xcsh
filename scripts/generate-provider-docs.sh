@@ -58,7 +58,6 @@ if [ "$validate_examples_only" = false ]; then
 
   echo "::group::Generate Terraform examples"
   go run tools/generate-examples.go
-  go run tools/generate-test-examples.go
   echo "::endgroup::"
 fi
 
@@ -122,87 +121,36 @@ validate_example() {
   fi
 }
 
-echo "::group::Validate every canonical generated example"
-# The expected total is derived from the generated tree, not written down here.
-# Every generated example directory owes exactly one canonical file, so the
-# directory count IS the expectation. A literal total is only correct until the
-# next spec release changes how many types the provider ships — this check was
-# pinned at 279 from enriched spec v2.1.207 and went stale the moment the
-# provider moved to 277, reporting a spec bump as a generation failure.
-expected_canonical_examples=0
+echo "::group::Validate exact release-surface examples"
+expected_example_dirs="$temporary_root/expected-example-dirs.txt"
+actual_example_dirs="$temporary_root/actual-example-dirs.txt"
+jq -r '
+  (.resources[] | "examples/resources/xcsh_" + .),
+  (.data_sources[] | "examples/data-sources/xcsh_" + .),
+  (.actions[] | "examples/actions/xcsh_" + .)
+' smsv2-release-surface.json | LC_ALL=C sort >"$expected_example_dirs"
+find examples/resources examples/data-sources examples/actions \
+  -mindepth 1 -maxdepth 1 -type d -print | LC_ALL=C sort >"$actual_example_dirs"
+if ! diff -u "$expected_example_dirs" "$actual_example_dirs"; then
+  fail "example directories do not exactly match smsv2-release-surface.json"
+fi
+
+validated_canonical_examples=0
 while IFS= read -r directory; do
   case $directory in
   examples/resources/*) canonical_file="$directory/resource.tf" ;;
   examples/data-sources/*) canonical_file="$directory/data-source.tf" ;;
-  *) canonical_file="$directory/action.tf" ;;
+  examples/actions/*) canonical_file="$directory/action.tf" ;;
+  *) fail "unexpected example directory ${directory}" ;;
   esac
-  [ -f "$canonical_file" ] ||
-    fail "generated example directory ${directory} has no canonical example file"
-  expected_canonical_examples=$((expected_canonical_examples + 1))
-done < <(find examples/resources examples/data-sources examples/actions \
-  -mindepth 1 -maxdepth 1 -type d -print | LC_ALL=C sort)
-
-# Vacuity floor. The provider ships well over two hundred resources and data
-# sources; a collapse to a handful means the generator or this walk broke, and a
-# coverage check that has lost sight of the tree must fail rather than pass
-# everything that remains.
-minimum_canonical_examples=200
-[ "$expected_canonical_examples" -ge "$minimum_canonical_examples" ] ||
-  fail "found only ${expected_canonical_examples} generated example directories, want at least ${minimum_canonical_examples}; the generated tree is incomplete"
-
-validated_canonical_examples=0
-while IFS= read -r example; do
-  validate_example "$example"
+  [ -f "$canonical_file" ] || fail "missing canonical example ${canonical_file}"
+  validate_example "$canonical_file"
   validated_canonical_examples=$((validated_canonical_examples + 1))
-done < <({
-  find examples/resources -mindepth 2 -maxdepth 2 -type f -name resource.tf -print
-  find examples/data-sources -mindepth 2 -maxdepth 2 -type f -name data-source.tf -print
-  find examples/actions -mindepth 2 -maxdepth 2 -type f -name action.tf -print
-} | LC_ALL=C sort)
+done <"$expected_example_dirs"
+expected_canonical_examples=$(wc -l <"$expected_example_dirs" | tr -d '[:space:]')
 [ "$validated_canonical_examples" -eq "$expected_canonical_examples" ] ||
-  fail "validated ${validated_canonical_examples} canonical examples, want ${expected_canonical_examples} (one per generated example directory)"
-echo "Validated ${validated_canonical_examples} canonical generated examples"
-echo "::endgroup::"
-
-echo "::group::Validate every named acceptance-derived example"
-# Derived the same way as the canonical count above: the named examples are
-# extracted from the acceptance suite, so their number changes whenever that
-# suite does. Requiring each listed directory to contribute at least one example
-# catches under-collection without a literal total that goes stale silently.
-validated_named_examples=0
-named_example_directories=(
-  examples/resources/xcsh_http_loadbalancer
-  examples/resources/xcsh_tcp_loadbalancer
-  examples/resources/xcsh_healthcheck
-  examples/resources/xcsh_app_firewall
-  examples/resources/xcsh_origin_pool
-  examples/resources/xcsh_rate_limiter
-  examples/resources/xcsh_service_policy
-  examples/resources/xcsh_user_identification
-  examples/resources/xcsh_malicious_user_mitigation
-)
-for directory in "${named_example_directories[@]}"; do
-  [ -d "$directory" ] ||
-    fail "named example directory ${directory} does not exist"
-  named_in_directory=$(find "$directory" -maxdepth 1 -type f -name '*.tf' \
-    ! -name resource.tf -print | wc -l | tr -d '[:space:]')
-  [ "$named_in_directory" -gt 0 ] ||
-    fail "named example directory ${directory} contributed no examples"
-done
-
-while IFS= read -r example; do
-  validate_example "$example"
-  validated_named_examples=$((validated_named_examples + 1))
-done < <(find "${named_example_directories[@]}" \
-  -maxdepth 1 -type f -name '*.tf' ! -name resource.tf -print | LC_ALL=C sort)
-
-# Vacuity floor: the acceptance suite yields several examples per listed
-# resource. Dropping to a handful means extraction broke, and a check that has
-# lost sight of its inputs must fail rather than pass the remainder.
-minimum_named_examples=40
-[ "$validated_named_examples" -ge "$minimum_named_examples" ] ||
-  fail "validated only ${validated_named_examples} named examples, want at least ${minimum_named_examples}; acceptance-derived extraction is incomplete"
-echo "Validated ${validated_named_examples} named generated examples"
+  fail "validated ${validated_canonical_examples} canonical examples, want ${expected_canonical_examples}"
+echo "Validated ${validated_canonical_examples} exact release-surface examples"
 echo "::endgroup::"
 
 if [ "$validate_examples_only" = true ]; then
@@ -232,6 +180,19 @@ if ! diff -qr "$first_pass_docs/docs" docs >"$idempotence_diff"; then
   fail "documentation transformer changed its own first-pass output"
 fi
 echo "Verified documentation transformer idempotence"
+
+expected_doc_files="$temporary_root/expected-doc-files.txt"
+actual_doc_files="$temporary_root/actual-doc-files.txt"
+jq -r '
+  (.resources[] | "docs/resources/" + . + ".md"),
+  (.data_sources[] | "docs/data-sources/" + . + ".md"),
+  (.actions[] | "docs/actions/" + . + ".md")
+' smsv2-release-surface.json | LC_ALL=C sort >"$expected_doc_files"
+find docs/resources docs/data-sources docs/actions \
+  -maxdepth 1 -type f -name '*.md' ! -name index.md -print | LC_ALL=C sort >"$actual_doc_files"
+if ! diff -u "$expected_doc_files" "$actual_doc_files"; then
+  fail "generated documentation does not exactly match smsv2-release-surface.json"
+fi
 echo "::endgroup::"
 
 # Exporting the schema is an executable contract test for the exact provider
@@ -259,6 +220,25 @@ jq -e '
   (.format_version | type == "string") and
   (.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"] | type == "object")
 ' "$schema_output" >/dev/null || fail "Terraform returned an incomplete provider schema"
+schema_resources="$temporary_root/schema-resources.txt"
+schema_data_sources="$temporary_root/schema-data-sources.txt"
+schema_actions="$temporary_root/schema-actions.txt"
+expected_resources="$temporary_root/expected-resources.txt"
+expected_data_sources="$temporary_root/expected-data-sources.txt"
+expected_actions="$temporary_root/expected-actions.txt"
+jq -r '.resources[] | "xcsh_" + .' smsv2-release-surface.json | LC_ALL=C sort >"$expected_resources"
+jq -r '.data_sources[] | "xcsh_" + .' smsv2-release-surface.json | LC_ALL=C sort >"$expected_data_sources"
+jq -r '.actions[] | "xcsh_" + .' smsv2-release-surface.json | LC_ALL=C sort >"$expected_actions"
+jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].resource_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_resources"
+jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].data_source_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_data_sources"
+jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].action_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_actions"
+diff -u "$expected_resources" "$schema_resources" || fail "installed resource schema does not match the release surface"
+diff -u "$expected_data_sources" "$schema_data_sources" || fail "installed data-source schema does not match the release surface"
+diff -u "$expected_actions" "$schema_actions" || fail "installed action schema does not match the release surface"
+jq -e '
+  .provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"] as $provider |
+  (($provider.functions // {}) | length) == 0
+' "$schema_output" >/dev/null || fail "installed provider unexpectedly exposes functions"
 echo "Exported provider schema: $(wc -c <"$schema_output" | tr -d '[:space:]') bytes"
 echo "::endgroup::"
 

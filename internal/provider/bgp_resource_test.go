@@ -20,7 +20,7 @@ func TestAccBGPResource_basic(t *testing.T) {
 	t.Skip("Skipping: bgp resource requires site infrastructure (CE/RE site) which is not available in acceptance tests")
 
 	rName := acctest.RandomName("tf-acc-test-bgp")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_bgp.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -67,19 +67,9 @@ func testAccBGPConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_bgp" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = %[1]q
 
   peers {
     metadata {

@@ -16,7 +16,7 @@ This is a community-maintained provider built from public F5 API documentation.
 | --------- | ------- |
 | terraform | >= 1.14 |
 
-~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. For function-specific requirements, see the [Functions](/docs/functions) documentation.
+~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. The SMSv2 release surface does not define provider functions.
 
 ## Authenticating to F5 Distributed Cloud
 

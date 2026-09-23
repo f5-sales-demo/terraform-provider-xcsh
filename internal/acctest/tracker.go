@@ -61,11 +61,6 @@ func (t *ResourceTracker) Track(resourceType, name, namespace string) {
 	log.Printf("[TRACKER] Registered %s: %s (namespace: %s)", resourceType, name, namespace)
 }
 
-// TrackNamespace is a convenience method for tracking namespace resources
-func (t *ResourceTracker) TrackNamespace(name string) {
-	t.Track("xcsh_namespace", name, "")
-}
-
 // TrackResource is a convenience method for tracking namespaced resources
 func (t *ResourceTracker) TrackResource(resourceType, name, namespace string) {
 	t.Track(resourceType, name, namespace)
@@ -150,14 +145,12 @@ func CleanupTracked() error {
 	deleteOrder := []string{
 		"xcsh_http_loadbalancer",
 		"xcsh_origin_pool",
-		"xcsh_healthcheck",
-		"xcsh_app_firewall",
-		"xcsh_service_policy",
-		"xcsh_ip_prefix_set",
-		"xcsh_rate_limiter",
-		"xcsh_user_identification",
-		"xcsh_malicious_user_mitigation",
-		"xcsh_namespace", // Always last
+		"xcsh_external_connector",
+		"xcsh_bgp",
+		"xcsh_virtual_site",
+		"xcsh_securemesh_site_v2",
+		"xcsh_dns_zone",
+		"xcsh_token",
 	}
 
 	for _, resourceType := range deleteOrder {
@@ -205,27 +198,22 @@ func deleteTrackedResource(ctx context.Context, c *client.Client, r TrackedResou
 	log.Printf("[CLEANUP] Deleting %s: %s (namespace: %s)", r.Type, r.Name, r.Namespace)
 
 	switch r.Type {
-	case "xcsh_namespace":
-		// Use cascade delete for namespaces (standard DELETE returns 501)
-		return c.CascadeDeleteNamespace(deleteCtx, r.Name)
 	case "xcsh_http_loadbalancer":
 		return c.DeleteHTTPLoadBalancer(deleteCtx, r.Namespace, r.Name)
 	case "xcsh_origin_pool":
 		return c.DeleteOriginPool(deleteCtx, r.Namespace, r.Name)
-	case "xcsh_healthcheck":
-		return c.DeleteHealthcheck(deleteCtx, r.Namespace, r.Name)
-	case "xcsh_app_firewall":
-		return c.DeleteAppFirewall(deleteCtx, r.Namespace, r.Name)
-	case "xcsh_service_policy":
-		return c.DeleteServicePolicy(deleteCtx, r.Namespace, r.Name)
-	case "xcsh_ip_prefix_set":
-		return c.DeleteIPPrefixSet(deleteCtx, r.Namespace, r.Name)
-	case "xcsh_rate_limiter":
-		return c.DeleteRateLimiter(deleteCtx, r.Namespace, r.Name)
-	case "xcsh_user_identification":
-		return c.DeleteUserIdentification(deleteCtx, r.Namespace, r.Name)
-	case "xcsh_malicious_user_mitigation":
-		return c.DeleteMaliciousUserMitigation(deleteCtx, r.Namespace, r.Name)
+	case "xcsh_external_connector":
+		return c.DeleteExternalConnector(deleteCtx, r.Namespace, r.Name)
+	case "xcsh_bgp":
+		return c.DeleteBGP(deleteCtx, r.Namespace, r.Name)
+	case "xcsh_virtual_site":
+		return c.DeleteVirtualSite(deleteCtx, r.Namespace, r.Name)
+	case "xcsh_securemesh_site_v2":
+		return c.DeleteSecuremeshSiteV2(deleteCtx, r.Namespace, r.Name)
+	case "xcsh_dns_zone":
+		return c.DeleteDNSZone(deleteCtx, r.Namespace, r.Name)
+	case "xcsh_token":
+		return c.DeleteToken(deleteCtx, r.Namespace, r.Name)
 	default:
 		return fmt.Errorf("unknown resource type: %s", r.Type)
 	}
