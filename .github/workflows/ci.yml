@@ -163,17 +163,18 @@ jobs:
 
       - name: Validate docs generation
         if: steps.check.outputs.needs_validation == 'true'
+        env:
+          HEAD_REF: ${{ github.head_ref }}
         run: |
           scripts/generate-provider-docs.sh
           if [ -n "$(git status --porcelain docs/ examples/ templates/)" ]; then
-            echo "::error::Generated docs/examples differ from what is committed."
-            echo "Run: scripts/generate-provider-docs.sh"
-            echo "then commit the result. Files that differ:"
             git status --porcelain docs/ examples/ templates/
-            echo "::group::Diff"
-            git --no-pager diff -- docs/ examples/ templates/
-            echo "::endgroup::"
-            exit 1
+            if [[ "$HEAD_REF" == auto-regenerate/* ]]; then
+              echo "::error::Automated regeneration PR is not reproducible."
+              git --no-pager diff -- docs/ examples/ templates/
+              exit 1
+            fi
+            echo "::notice::Source changes regenerate documentation after merge; generated files are prohibited in source PRs."
           fi
 
           echo "Documentation generation validated successfully"
