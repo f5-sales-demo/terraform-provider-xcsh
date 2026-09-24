@@ -67,9 +67,9 @@ output "upgrade_converged" {
 
 In addition to all arguments above, the following attributes are exported:
 
-<a id="eligible"></a>&#x2022; [`eligible`](#eligible) - Optional Bool<br>Whether the site is ONLINE and each selected target is installed or advertised for upgrade. Software prechecks must pass when software would change; an unchanged paired version does not block a serial software or OS upgrade
+<a id="eligible"></a>&#x2022; [`eligible`](#eligible) - Optional Bool
 
-<a id="failed-precheck-names"></a>&#x2022; [`failed_precheck_names`](#failed-precheck-names) - Optional List<br>Failed software prechecks for a newer software target; empty when the selected software version is already installed
+<a id="failed-precheck-names"></a>&#x2022; [`failed_precheck_names`](#failed-precheck-names) - Optional List
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>The ID of this resource
 
