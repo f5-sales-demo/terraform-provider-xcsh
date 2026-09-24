@@ -45,7 +45,7 @@ resource "xcsh_securemesh_site_v2" "example" {
 
 ### Metadata Argument Reference
 
-<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Securemesh Site V2. Must be unique within the namespace. Must be at most 63 characters (DNS-1035).
+<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Securemesh Site V2. Must be unique within the namespace. Must be at most 63 characters (DNS-1035)
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
 
