@@ -105,8 +105,8 @@ func (d *SiteUpgradeStatusDataSource) Schema(_ context.Context, _ datasource.Sch
 			"os_deployment_phase":          schema.StringAttribute{Computed: true},
 			"os_deployment_result":         schema.StringAttribute{Computed: true},
 			"upgradable_software_versions": schema.ListAttribute{Computed: true, ElementType: types.StringType},
-			"failed_precheck_names":        schema.ListAttribute{Computed: true, ElementType: types.StringType},
-			"eligible":                     schema.BoolAttribute{Computed: true},
+			"failed_precheck_names":        schema.ListAttribute{Computed: true, ElementType: types.StringType, MarkdownDescription: "Failed software prechecks for a newer software target; empty when the selected software version is already installed."},
+			"eligible":                     schema.BoolAttribute{Computed: true, MarkdownDescription: "Whether the site is ONLINE and each selected target is installed or advertised for upgrade. Software prechecks must pass when software would change; an unchanged paired version does not block a serial software or OS upgrade."},
 			"ready":                        schema.BoolAttribute{Computed: true, MarkdownDescription: "Whether the site is operationally ready (`ONLINE`), independent of target eligibility."},
 			"target_converged":             schema.BoolAttribute{Computed: true},
 		},
@@ -295,8 +295,11 @@ func evaluateSiteUpgradeTargets(status siteUpgradeStatus, upgradable []string, p
 	if osTarget == "" {
 		osTarget = status.OSAvailableVersion
 	}
+	softwareUnchanged := softwareTarget == status.SoftwareInstalledVersion
 	eligible := status.SiteState == "ONLINE" && softwareTarget != "" && osTarget != "" &&
-		containsString(upgradable, softwareTarget) && status.OSAvailableVersion == osTarget && prechecksPassing
+		(softwareUnchanged || containsString(upgradable, softwareTarget)) &&
+		(osTarget == status.OSInstalledVersion || osTarget == status.OSAvailableVersion) &&
+		(softwareUnchanged || prechecksPassing)
 	converged := status.SiteState == "ONLINE" &&
 		(expectedSoftware == "" || status.SoftwareInstalledVersion == expectedSoftware) &&
 		(expectedOS == "" || status.OSInstalledVersion == expectedOS)
@@ -324,13 +327,16 @@ func (d *SiteUpgradeStatusDataSource) observe(ctx context.Context, namespace, si
 	if precheckTarget == "" {
 		precheckTarget = status.SoftwareAvailableVersion
 	}
-	rawPrechecks, err := d.client.GetSMSv2PreUpgradeCheck(ctx, namespace, site, precheckTarget)
-	if err != nil {
-		return siteUpgradeSnapshot{}, fmt.Errorf("software precheck request failed")
-	}
-	failed, passing, err := extractFailedUpgradePrechecks(rawPrechecks)
-	if err != nil {
-		return siteUpgradeSnapshot{}, err
+	failed, passing := []string{}, true
+	if precheckTarget != status.SoftwareInstalledVersion {
+		rawPrechecks, precheckErr := d.client.GetSMSv2PreUpgradeCheck(ctx, namespace, site, precheckTarget)
+		if precheckErr != nil {
+			return siteUpgradeSnapshot{}, fmt.Errorf("software precheck request failed")
+		}
+		failed, passing, err = extractFailedUpgradePrechecks(rawPrechecks)
+		if err != nil {
+			return siteUpgradeSnapshot{}, err
+		}
 	}
 	progress, err := d.client.GetSMSv2UpgradeProgress(ctx, namespace, site)
 	if err != nil {

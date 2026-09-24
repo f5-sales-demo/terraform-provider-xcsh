@@ -190,6 +190,40 @@ func TestEvaluateSiteUpgradeTargetsRequiresOnlineForReadiness(t *testing.T) {
 	}
 }
 
+func TestEvaluateSiteUpgradeTargetsPermitsSerialStages(t *testing.T) {
+	baseline, err := extractSiteUpgradeStatus(upgradeSiteObservation(baselineSoftware, baselineOS, "COMPLETED"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	softwareInstalled, err := extractSiteUpgradeStatus(upgradeSiteObservation(targetSoftware, baselineOS, "COMPLETED"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	tests := []struct {
+		name          string
+		status        siteUpgradeStatus
+		advertised    []string
+		prechecksPass bool
+		software      string
+		os            string
+		eligible      bool
+	}{
+		{name: "software only with installed OS", status: baseline, advertised: []string{targetSoftware}, prechecksPass: true, software: targetSoftware, os: baselineOS, eligible: true},
+		{name: "OS only with installed software", status: softwareInstalled, advertised: []string{"crt-20260801-0205"}, prechecksPass: true, software: targetSoftware, os: targetOS, eligible: true},
+		{name: "unadvertised software", status: baseline, advertised: []string{targetSoftware}, prechecksPass: true, software: "crt-20260801-0999", os: baselineOS},
+		{name: "unavailable OS", status: softwareInstalled, advertised: []string{"crt-20260801-0205"}, prechecksPass: true, software: targetSoftware, os: "9.9999.99"},
+		{name: "failed software precheck", status: baseline, advertised: []string{targetSoftware}, software: targetSoftware, os: baselineOS},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			eligible, ready, converged := evaluateSiteUpgradeTargets(test.status, test.advertised, test.prechecksPass, test.software, test.os)
+			if eligible != test.eligible || !ready || converged {
+				t.Fatalf("eligible=%v ready=%v converged=%v, want eligible=%v ready=true converged=false", eligible, ready, converged, test.eligible)
+			}
+		})
+	}
+}
+
 func siteUpgradeReadRequest(t *testing.T, schemaResponse *datasource.SchemaResponse, wait bool, timeout int64) datasource.ReadRequest {
 	t.Helper()
 	model := SiteUpgradeStatusDataSourceModel{
@@ -282,6 +316,41 @@ func TestSiteUpgradeStatusReportsFailedPrechecksWithoutWaiting(t *testing.T) {
 	response.Diagnostics.Append(state.FailedPrecheckNames.ElementsAs(context.Background(), &failed, false)...)
 	if response.Diagnostics.HasError() || state.Eligible.ValueBool() || !state.Ready.ValueBool() || state.TargetConverged.ValueBool() || strings.Join(failed, ",") != "capacity" {
 		t.Fatalf("state=%#v failed=%v diagnostics=%v", state, failed, response.Diagnostics)
+	}
+}
+
+func TestSiteUpgradeStatusSkipsSoftwarePrecheckForOSOnly(t *testing.T) {
+	withSMSv2Capabilities(t, map[string]string{"site_upgrade": "available"})
+	precheckCalls := 0
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, request *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		switch request.URL.Path {
+		case "/api/config/namespaces/system/sites/lab-site":
+			_ = json.NewEncoder(w).Encode(upgradeSiteObservation(targetSoftware, baselineOS, "Completed"))
+		case "/api/maurice/upgradable_sw_versions":
+			_, _ = w.Write([]byte(`{"sw_versions":["crt-20260801-0205"]}`))
+		case "/api/maurice/namespaces/system/sites/lab-site/pre_upgrade_check":
+			precheckCalls++
+			http.Error(w, "the installed software is not an upgrade target", http.StatusConflict)
+		case "/api/maurice/namespaces/system/sites/lab-site/upgrade_status":
+			_, _ = w.Write([]byte(`{"upgrade_status":{"sw_upgrade_progress":{"status":"Completed"}}}`))
+		default:
+			http.NotFound(w, request)
+		}
+	}))
+	defer server.Close()
+	source := &SiteUpgradeStatusDataSource{client: client.NewClient(server.URL, "token", client.WithMaxRetries(0))}
+	schemaResponse := &datasource.SchemaResponse{}
+	source.Schema(context.Background(), datasource.SchemaRequest{}, schemaResponse)
+	response := datasource.ReadResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
+	source.Read(context.Background(), siteUpgradeReadRequest(t, schemaResponse, false, 5), &response)
+	if response.Diagnostics.HasError() || precheckCalls != 0 {
+		t.Fatalf("precheck calls=%d diagnostics=%v", precheckCalls, response.Diagnostics)
+	}
+	var state SiteUpgradeStatusDataSourceModel
+	response.Diagnostics.Append(response.State.Get(context.Background(), &state)...)
+	if response.Diagnostics.HasError() || !state.Eligible.ValueBool() || !state.Ready.ValueBool() || state.TargetConverged.ValueBool() {
+		t.Fatalf("state=%#v diagnostics=%v", state, response.Diagnostics)
 	}
 }
 
