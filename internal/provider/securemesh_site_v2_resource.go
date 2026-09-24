@@ -5389,13 +5389,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 		MarkdownDescription: "Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with security and networking controls.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
-				MarkdownDescription: "Name of the Securemesh Site V2. Must be unique within the namespace.",
+				MarkdownDescription: "Name of the Securemesh Site V2. Must be unique within the namespace. Must be at most 63 characters (DNS-1035).",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NameValidator(),
+					stringvalidator.LengthAtMost(63),
 				},
 			},
 			"namespace": schema.StringAttribute{
