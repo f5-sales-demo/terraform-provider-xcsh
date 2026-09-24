@@ -110,7 +110,7 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- range .Attributes}}
 {{- if not .IsBlock}}
 			"{{.TfsdkTag}}": schema.{{if eq .Type "string"}}String{{else if eq .Type "int64"}}Int64{{else if eq .Type "bool"}}Bool{{else if eq .Type "map"}}Map{{else if eq .Type "list"}}List{{else if eq .Type "object"}}Object{{else}}String{{end}}Attribute{
-				MarkdownDescription: "{{.Description}}",
+				MarkdownDescription: "{{.Description}}{{if and (eq $.Name "securemesh_site_v2") (eq .TfsdkTag "name")}} Must be at most 63 characters (DNS-1035).{{end}}",
 {{- if .DeprecationMessage}}
 				DeprecationMessage: "{{.DeprecationMessage}}",
 {{- end}}
@@ -153,6 +153,9 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 					validators.DomainValidator(),
 {{- else}}
 					validators.NameValidator(),
+{{- if eq $.Name "securemesh_site_v2"}}
+					stringvalidator.LengthAtMost(63),
+{{- end}}
 {{- end}}
 				},
 {{- else if eq .TfsdkTag "namespace"}}

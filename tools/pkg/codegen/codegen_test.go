@@ -1708,6 +1708,34 @@ func TestGenerateCompanionDataSourceOmitsKnownWriteOnlySpec(t *testing.T) {
 	}
 }
 
+func TestGenerateSecuremeshSiteV2NameUsesDNS1035Limit(t *testing.T) {
+	for _, resourceName := range []string{"securemesh_site_v2", "other_resource"} {
+		t.Run(resourceName, func(t *testing.T) {
+			template := &openapi.ResourceTemplate{
+				Name: resourceName, TitleCase: "NameLimitProbe",
+				Attributes: []openapi.TerraformAttribute{{
+					Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true,
+				}},
+			}
+			directory := t.TempDir()
+			if err := GenerateResourceFile(template, directory); err != nil {
+				t.Fatal(err)
+			}
+			generated, err := os.ReadFile(filepath.Join(directory, resourceName+"_resource.go"))
+			if err != nil {
+				t.Fatal(err)
+			}
+			hasLimit := strings.Contains(string(generated), "stringvalidator.LengthAtMost(63)")
+			if hasLimit != (resourceName == "securemesh_site_v2") {
+				t.Fatalf("site-specific DNS-1035 limit mismatch for %s", resourceName)
+			}
+			if strings.Contains(string(generated), "Must be at most 63 characters (DNS-1035).") != (resourceName == "securemesh_site_v2") {
+				t.Fatalf("site-specific name guidance mismatch for %s", resourceName)
+			}
+		})
+	}
+}
+
 func TestGenerateResourcePropagatesSensitiveBlockToNestedValues(t *testing.T) {
 	t.Parallel()
 	tmpl := &openapi.ResourceTemplate{
