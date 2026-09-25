@@ -1,8 +1,0 @@
-{
-  "delivery_id": "bf9864d980156415336a382883a0cb28a18400f8e1613c87b2eb4988eb38d5ed",
-  "release_tag": "v8.0.2",
-  "source_commit": "24097b28aa5d7b10f8b0c05b0c6ac879b5923ff3",
-  "spec_release_sha256": "19a05b3dab554576639f7af7de872968d5fee9cc14e87a6029a5c16ab9ba54b5",
-  "target_commit": "00f60b8792a1962b88d40377114724c61f276062",
-  "version": "8.0.2"
-}
