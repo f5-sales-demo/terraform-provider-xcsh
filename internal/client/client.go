@@ -43,13 +43,14 @@ const (
 
 // Client manages communication with the F5 Distributed Cloud API
 type Client struct {
-	BaseURL      string
-	APIToken     string
-	AuthType     AuthType
-	HTTPClient   *http.Client
-	MaxRetries   int
-	RetryWaitMin time.Duration
-	RetryWaitMax time.Duration
+	BaseURL            string
+	APIToken           string
+	AuthType           AuthType
+	HTTPClient         *http.Client
+	MaxRetries         int
+	RetryWaitMin       time.Duration
+	RetryWaitMax       time.Duration
+	missingCredentials bool
 }
 
 // ClientOption allows customizing the client
@@ -202,6 +203,15 @@ func NewClient(baseURL, apiToken string, opts ...ClientOption) *Client {
 		opt(c)
 	}
 
+	return c
+}
+
+// NewUnauthenticatedClient returns a client that rejects every API operation
+// before constructing or sending an HTTP request. It lets provider-local data
+// sources operate without credentials while keeping API-backed behavior explicit.
+func NewUnauthenticatedClient(baseURL string, opts ...ClientOption) *Client {
+	c := NewClient(baseURL, "", opts...)
+	c.missingCredentials = true
 	return c
 }
 
@@ -366,6 +376,9 @@ func cloneSingleUseHTTP1Transport(standard *http.Transport) *http.Transport {
 // Operation semantics can prohibit retries even for an HTTP GET. Credential
 // issuance is not idempotent merely because the server exposes it as GET.
 func (c *Client) doRequestWithRetry(ctx context.Context, method, path string, body interface{}, allowRetry bool) ([]byte, error) {
+	if c.missingCredentials {
+		return nil, fmt.Errorf("F5XC API credentials are required for %s %s; configure api_token, api_p12_file with p12_password, or api_cert with api_key", method, path)
+	}
 	requestClient := c.HTTPClient
 	if !allowRetry {
 		// The standard transport can transparently replay GET on a reused

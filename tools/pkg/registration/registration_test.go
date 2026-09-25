@@ -244,20 +244,30 @@ func TestGenerateProviderRegistration_StandaloneDataSources(t *testing.T) {
 			t.Errorf("standalone data source %q: expected %s in provider.go DataSources()", ds, ctor)
 		}
 
-		implPath := filepath.Join(repoRoot, "internal", "provider", ds+"_data_source.go")
-		impl, err := os.ReadFile(implPath) //nolint:gosec // fixed path derived from the allowlist
+		implementations, err := filepath.Glob(filepath.Join(repoRoot, "internal", "provider", "*_data_source.go"))
 		if err != nil {
-			t.Errorf("standalone data source %q: no hand-written implementation at %s: %v", ds, implPath, err)
-			continue
+			t.Fatal(err)
 		}
-		if !contains(string(impl), "func New"+naming.ToResourceTypeName(ds)+"DataSource(") {
-			t.Errorf("standalone data source %q: %s does not define New%sDataSource — provider.go would not compile",
-				ds, implPath, naming.ToResourceTypeName(ds))
+		constructor := "func New" + naming.ToResourceTypeName(ds) + "DataSource("
+		found := false
+		for _, implPath := range implementations {
+			impl, err := os.ReadFile(implPath) //nolint:gosec // repository-owned provider source
+			if err != nil {
+				t.Fatal(err)
+			}
+			if !contains(string(impl), constructor) {
+				continue
+			}
+			found = true
+			// Standalone files are hand-written and must never carry the
+			// generated-file header, or CleanOrphanGeneratedFiles deletes them.
+			if contains(string(impl), "DO NOT EDIT") {
+				t.Errorf("standalone data source %q: %s carries a DO NOT EDIT header and would be pruned as an orphan", ds, implPath)
+			}
+			break
 		}
-		// Standalone files are hand-written and must never carry the
-		// generated-file header, or CleanOrphanGeneratedFiles deletes them.
-		if contains(string(impl), "DO NOT EDIT") {
-			t.Errorf("standalone data source %q: %s carries a DO NOT EDIT header and would be pruned as an orphan", ds, implPath)
+		if !found {
+			t.Errorf("standalone data source %q: no hand-written implementation defines %s", ds, constructor)
 		}
 	}
 

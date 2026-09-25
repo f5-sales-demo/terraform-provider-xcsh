@@ -196,14 +196,8 @@ func (p *XCSHProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 		tflog.Info(ctx, "Configured F5XC client with API token authentication", map[string]any{"success": true, "api_url": apiURL})
 
 	default:
-		resp.Diagnostics.AddError(
-			"Missing Authentication Configuration",
-			"The provider requires authentication. Please configure one of the following:\n"+
-				"  - api_token (or XCSH_API_TOKEN environment variable) for API token authentication\n"+
-				"  - api_p12_file and p12_password (or XCSH_P12_FILE and XCSH_P12_PASSWORD environment variables) for P12 certificate authentication\n"+
-				"  - api_cert and api_key (or XCSH_CERT and XCSH_KEY environment variables) for PEM certificate authentication",
-		)
-		return
+		c = client.NewUnauthenticatedClient(apiURL)
+		tflog.Info(ctx, "Configured F5XC provider without credentials; bundled data sources remain available")
 	}
 
 	// Make the client available during DataSource and Resource type Configure methods
@@ -231,6 +225,16 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 	return []func() datasource.DataSource{
 		NewDNSZoneDataSource,
 		NewNamespaceDataSource,
+		NewNetworkBotDefenseDataSource,
+		NewNetworkCDNDataSource,
+		NewNetworkCustomerEdgeDefaultsDataSource,
+		NewNetworkCustomerEdgeEgressDataSource,
+		NewNetworkDataIntelligenceDataSource,
+		NewNetworkDnslbHealthChecksDataSource,
+		NewNetworkGlobalControllerSSOEgressDataSource,
+		NewNetworkGlobalLogReceiverDataSource,
+		NewNetworkRegionalEdgesDataSource,
+		NewNetworkSecondaryDNSZoneTransferDataSource,
 		NewSiteBGPStatusDataSource,
 		NewSiteCloudInitDataSource,
 		NewSiteImageDataSource,

@@ -36,6 +36,7 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/codegen"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/networkallowlist"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/registration"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/releasesurface"
@@ -102,6 +103,22 @@ func main() {
 		fmt.Println("🔍 DRY RUN MODE - No files will be written")
 	}
 	fmt.Println()
+
+	allowlist, err := networkallowlist.Load(
+		filepath.Join(specDir, "openapi.json"),
+		"tools/spec-release.json",
+		"tools/spec-version.txt",
+	)
+	if err != nil {
+		fmt.Printf("Network allowlist generation failed: %v\n", err)
+		os.Exit(1)
+	}
+	if !dryRun {
+		if err := networkallowlist.WriteGo(filepath.Join(outputDir, "network_allowlist_manifest_generated.go"), allowlist); err != nil {
+			fmt.Printf("Network allowlist generation failed: %v\n", err)
+			os.Exit(1)
+		}
+	}
 
 	// Detect spec version (expects v2 format)
 	specVersion := openapi.GetSpecVersion(specDir)

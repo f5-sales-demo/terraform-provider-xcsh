@@ -81,6 +81,7 @@ The `tools/` directory contains utilities for scaffolding resources from OpenAPI
 | `examples/data-sources/*/*.tf` | `generate-examples.go` | `on-merge.yml` |
 | `internal/provider/*_resource.go` | `generate-all-schemas.go` | `on-merge.yml` |
 | `internal/provider/*_data_source.go` | `generate-all-schemas.go` | `on-merge.yml` |
+| `internal/provider/network_allowlist_manifest_generated.go` | `generate-all-schemas.go` from the pinned OpenAPI extension | `on-merge.yml` |
 
 To fix an issue in generated code or documentation, update the **generator or template**, not the generated file. CI automation blocks pull requests containing manually edited generated files.
 
