@@ -54,7 +54,7 @@ assert_file_equals "$payload" "$destination"
 assert_file_equals 1 "$MOCK_SLEEP_LOG"
 
 reset_mocks
-printf 'preserve-me' > "$destination"
+printf 'preserve-me' >"$destination"
 export MOCK_GH_MODE=persistent_checksum_mismatch MOCK_GH_PAYLOAD=$payload
 set +e
 output=$("$SCRIPT" --sha256 "$expected_sha" repos/example/releases/assets/3 "$destination" 2>&1)
@@ -65,8 +65,8 @@ assert_file_equals preserve-me "$destination"
 [ "$(cat "$MOCK_GH_STATE")" = 4 ] || fail 'retry limit was not four attempts'
 [ "$(cat "$MOCK_SLEEP_LOG")" = $'1\n2\n4' ] || fail 'backoff was not 1, 2, 4 seconds'
 case "$output" in
-  *'failed after 4 attempts'*'SHA-256 mismatch'*) ;;
-  *) fail 'exhaustion diagnostic was not specific' ;;
+*'failed after 4 attempts'*'SHA-256 mismatch'*) ;;
+*) fail 'exhaustion diagnostic was not specific' ;;
 esac
 
 printf '%s\n' 'All GitHub API download retry tests passed'

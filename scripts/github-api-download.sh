@@ -12,26 +12,26 @@ expected_sha=''
 validate_json_object=false
 while [ "$#" -gt 0 ]; do
   case "$1" in
-    --accept)
-      [ "$#" -ge 2 ] || usage
-      accept=$2
-      shift 2
-      ;;
-    --json-object)
-      validate_json_object=true
-      shift
-      ;;
-    --sha256)
-      [ "$#" -ge 2 ] || usage
-      expected_sha=$2
-      shift 2
-      ;;
-    --)
-      shift
-      break
-      ;;
-    -*) usage ;;
-    *) break ;;
+  --accept)
+    [ "$#" -ge 2 ] || usage
+    accept=$2
+    shift 2
+    ;;
+  --json-object)
+    validate_json_object=true
+    shift
+    ;;
+  --sha256)
+    [ "$#" -ge 2 ] || usage
+    expected_sha=$2
+    shift 2
+    ;;
+  --)
+    shift
+    break
+    ;;
+  -*) usage ;;
+  *) break ;;
   esac
 done
 [ "$#" -eq 2 ] || usage
@@ -75,9 +75,9 @@ attempt=1
 backoff_seconds=1
 last_failure='unknown failure'
 while [ "$attempt" -le "$max_attempts" ]; do
-  : > "$candidate"
-  : > "$error_log"
-  if gh api "$endpoint" -H "Accept: ${accept}" > "$candidate" 2> "$error_log"; then
+  : >"$candidate"
+  : >"$error_log"
+  if gh api "$endpoint" -H "Accept: ${accept}" >"$candidate" 2>"$error_log"; then
     if [ "$validate_json_object" = true ] && ! jq -e 'type == "object"' "$candidate" >/dev/null 2>&1; then
       last_failure='response was not a complete JSON object'
     elif [ -n "$expected_sha" ]; then
