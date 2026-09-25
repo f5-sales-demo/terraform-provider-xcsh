@@ -1,10 +1,14 @@
 terraform {
+  required_version = ">= 1.0"
+
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
+      version = ">= 6.0.0"
     }
     xcsh = {
-      source = "f5-sales-demo/xcsh"
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 11.3.0"
     }
   }
 }

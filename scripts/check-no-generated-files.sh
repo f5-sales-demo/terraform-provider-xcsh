@@ -72,6 +72,9 @@ GENERATOR_SOURCE_PATTERNS=(
   "^tools/pkg/resource/"
   "^tools/pkg/networkallowlist/"
   "^templates/"
+  # Hand-authored allowlist examples are tfplugindocs inputs.
+  "^examples/data-sources/xcsh_network_"
+  "^examples/guides/network-allowlist-"
   "^Makefile$"
   "^\.github/workflows/ci\.yml$"
   "^internal/provider/site_registration"

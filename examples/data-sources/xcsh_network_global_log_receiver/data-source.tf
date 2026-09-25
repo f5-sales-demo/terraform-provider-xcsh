@@ -1,7 +1,10 @@
 terraform {
+  required_version = ">= 1.0"
+
   required_providers {
     xcsh = {
-      source = "f5-sales-demo/xcsh"
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 11.3.0"
     }
   }
 }

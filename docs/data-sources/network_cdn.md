@@ -15,9 +15,12 @@ CDN IPv4 networks for origin or network-firewall ingress allowlists. Values are 
 
 ```terraform
 terraform {
+  required_version = ">= 1.0"
+
   required_providers {
     xcsh = {
-      source = "f5-sales-demo/xcsh"
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 11.3.0"
     }
   }
 }
