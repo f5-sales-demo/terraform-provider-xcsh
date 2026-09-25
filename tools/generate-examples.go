@@ -34,13 +34,23 @@ const providerDir = "internal/provider"
 // scripts/check-no-generated-files.sh. Bespoke examples that use the xcsh_ prefix are retained
 // explicitly in the surface keep set.
 var manuallyMaintained = map[string]bool{
-	"smsv2_kvm_runtime_interface": true,
-	"site_bgp_status":             true,
-	"site_upgrade_status":         true,
-	"site_registration":           true,
-	"smsv2_aws_runtime":           true,
-	"smsv2_kvm_runtime":           true,
-	"smsv2_contract":              true,
+	"network_bot_defense":                  true,
+	"network_cdn":                          true,
+	"network_customer_edge_defaults":       true,
+	"network_customer_edge_egress":         true,
+	"network_data_intelligence":            true,
+	"network_dnslb_health_checks":          true,
+	"network_global_controller_sso_egress": true,
+	"network_global_log_receiver":          true,
+	"network_regional_edges":               true,
+	"network_secondary_dns_zone_transfer":  true,
+	"smsv2_kvm_runtime_interface":          true,
+	"site_bgp_status":                      true,
+	"site_upgrade_status":                  true,
+	"site_registration":                    true,
+	"smsv2_aws_runtime":                    true,
+	"smsv2_kvm_runtime":                    true,
+	"smsv2_contract":                       true,
 }
 
 var (
@@ -70,6 +80,11 @@ func main() {
 	dataSourceKeep := map[string]bool{}
 	actionKeep := map[string]bool{}
 	var generatedResources, generatedDataSources, generatedActions, failed int
+	for name := range manuallyMaintained {
+		if allowedDataSources[name] {
+			dataSourceKeep[name] = true
+		}
+	}
 
 	for _, f := range resFiles {
 		name := strings.TrimSuffix(filepath.Base(f), "_resource.go")

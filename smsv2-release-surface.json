@@ -12,6 +12,16 @@
     "dns_zone"
   ],
   "data_sources": [
+    "network_regional_edges",
+    "network_cdn",
+    "network_secondary_dns_zone_transfer",
+    "network_global_log_receiver",
+    "network_dnslb_health_checks",
+    "network_global_controller_sso_egress",
+    "network_bot_defense",
+    "network_data_intelligence",
+    "network_customer_edge_defaults",
+    "network_customer_edge_egress",
     "smsv2_contract",
     "smsv2_aws_runtime",
     "smsv2_kvm_runtime",
