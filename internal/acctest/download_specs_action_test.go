@@ -250,7 +250,7 @@ case "$*" in
   *releases/assets/209*) cat "$CONCURRENCY_FILE" ;;
   *releases/assets/210*) cat "$PARITY_FILE" ;;
   *releases/assets/211*) cat "$REMOVALS_FILE" ;;
-  *commits/v2.1.208*) printf '%s\n' "$TAG_COMMIT" ;;
+  *commits/v2.1.208*) printf '{"sha":"%s"}\n' "$TAG_COMMIT" ;;
   *releases/tags/v2.1.208*)
     bundle_sha=$(shasum -a 256 "$BUNDLE_ZIP" | awk '{print $1}')
     catalog_sha=$(shasum -a 256 "$CATALOG_FILE" | awk '{print $1}')
@@ -565,7 +565,7 @@ func runDownloadActionWithMetadata(t *testing.T, metadata []byte, resolvedCommit
 	stub := `#!/usr/bin/env bash
 case "$*" in
   *releases/tags/v2.1.208*) cat "$STUB_RELEASE_METADATA" ;;
-  *commits/v2.1.208*) printf '%s\n' "$RESOLVED_COMMIT" ;;
+  *commits/v2.1.208*) printf '{"sha":"%s"}\n' "$RESOLVED_COMMIT" ;;
   *) echo "unexpected gh invocation: $*" >&2; exit 88 ;;
 esac
 `
@@ -696,6 +696,17 @@ func writeSpecReleasePin(
 	overrides map[string]string,
 ) {
 	t.Helper()
+	helper, err := os.ReadFile(filepath.Join(testRepositoryRoot(t), "scripts", "github-api-download.sh")) //nolint:gosec // fixed repository test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	scriptsDir := filepath.Join(root, "scripts")
+	if err := os.MkdirAll(scriptsDir, 0o750); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(scriptsDir, "github-api-download.sh"), helper, 0o700); err != nil { //nolint:gosec // test helper must be executable
+		t.Fatal(err)
+	}
 	version := strings.TrimPrefix(tag, "v")
 	digests := qualifiedAssetDigests(testSpecAssetDigests(tag, overrides))
 	pin := map[string]any{

@@ -124,28 +124,12 @@ runs:
         trap 'rm -rf "$STAGING_ROOT"' EXIT
         STAGED_SPECS="${STAGING_ROOT}/specs"
         mkdir -p "$STAGED_SPECS"
+        DOWNLOAD_API="${GITHUB_WORKSPACE:-.}/scripts/github-api-download.sh"
         RELEASE_ENDPOINT="repos/${ENRICHED_REPO}/releases/tags/${RELEASE_TAG}"
         RELEASE_METADATA="${STAGING_ROOT}/release.json"
-        fetch_release_metadata() {
-          local attempt=1 candidate
-          while [ "$attempt" -le 3 ]; do
-            candidate="${STAGING_ROOT}/release-${attempt}.json"
-            if gh api "$RELEASE_ENDPOINT" > "$candidate" 2>"${candidate}.err" && \
-              jq -e 'type == "object"' "$candidate" >/dev/null 2>&1; then
-              mv "$candidate" "$RELEASE_METADATA"
-              return 0
-            fi
-            if [ "$attempt" -lt 3 ]; then
-              sleep "$attempt"
-            fi
-            attempt=$((attempt + 1))
-          done
-          echo "::error::Release metadata request did not produce a complete JSON document after 3 attempts"
-          return 1
-        }
 
         echo "Downloading verified ${RELEASE_TAG} release from ${ENRICHED_REPO}"
-        fetch_release_metadata
+        "$DOWNLOAD_API" --json-object "$RELEASE_ENDPOINT" "$RELEASE_METADATA"
         jq -e --arg tag "$RELEASE_TAG" '
           .tag_name == $tag and
           .draft == false and
@@ -155,7 +139,10 @@ runs:
           echo "::error::Spec release must have the exact tag and be final and immutable"
           exit 1
         }
-        TAG_COMMIT=$(gh api "repos/${ENRICHED_REPO}/commits/${RELEASE_TAG}" --jq '.sha')
+        COMMIT_METADATA="${STAGING_ROOT}/commit.json"
+        "$DOWNLOAD_API" --json-object \
+          "repos/${ENRICHED_REPO}/commits/${RELEASE_TAG}" "$COMMIT_METADATA"
+        TAG_COMMIT=$(jq -r '.sha // empty' "$COMMIT_METADATA")
         [[ "$TAG_COMMIT" =~ ^[0-9a-f]{40}$ ]] || {
           echo "::error::Release tag did not resolve to a full commit"
           exit 1
@@ -224,8 +211,9 @@ runs:
           echo "::error::Release must contain exactly one ${BUNDLE_NAME}"
           exit 1
         }
-        gh api "repos/${ENRICHED_REPO}/releases/assets/${ASSET_ID}" \
-          -H "Accept: application/octet-stream" > "${STAGING_ROOT}/specs.zip"
+        EXPECTED_BUNDLE_SHA=$(printf '%s' "$RECEIPT" | jq -r --arg name "$BUNDLE_NAME" '.assets[$name]')
+        "$DOWNLOAD_API" --accept application/octet-stream --sha256 "$EXPECTED_BUNDLE_SHA" \
+          "repos/${ENRICHED_REPO}/releases/assets/${ASSET_ID}" "${STAGING_ROOT}/specs.zip"
         python3 - "${STAGING_ROOT}/specs.zip" <<'PY'
         import pathlib
         import stat
@@ -268,9 +256,9 @@ runs:
             '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
             "$RELEASE_METADATA")
           [ -n "$AID" ] || { echo "::error::Release is missing ${asset}"; exit 1; }
-          gh api "repos/${ENRICHED_REPO}/releases/assets/${AID}" \
-            -H "Accept: application/octet-stream" > "${COMPANIONS}/${asset}"
           EXPECTED_SHA=$(printf '%s' "$RECEIPT" | jq -r --arg name "$asset" '.assets[$name]')
+          "$DOWNLOAD_API" --accept application/octet-stream --sha256 "$EXPECTED_SHA" \
+            "repos/${ENRICHED_REPO}/releases/assets/${AID}" "${COMPANIONS}/${asset}"
           # The receipt records "sha256:<hex>", matching GitHub's own digest field,
           # so measure into the same form rather than stripping the prefix.
           ACTUAL_SHA="sha256:$(shasum -a 256 "${COMPANIONS}/${asset}" | awk '{print $1}')"
@@ -288,7 +276,6 @@ runs:
           cp "${COMPANIONS}/${asset}" "${STAGED_SPECS}/${asset}"
         done
 
-        EXPECTED_BUNDLE_SHA=$(printf '%s' "$RECEIPT" | jq -r --arg name "$BUNDLE_NAME" '.assets[$name]')
         ACTUAL_BUNDLE_SHA="sha256:$(shasum -a 256 "${STAGING_ROOT}/specs.zip" | awk '{print $1}')"
         [ "$ACTUAL_BUNDLE_SHA" = "$EXPECTED_BUNDLE_SHA" ] || {
           echo "::error::Downloaded spec bundle differs from its publication receipt"
