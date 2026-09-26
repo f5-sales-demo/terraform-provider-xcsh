@@ -390,6 +390,9 @@ func (f *kvmRuntimeInterfaceAPIFixture) handler(w http.ResponseWriter, request *
 
 func TestSMSv2KVMRuntimeInterfaceWritesThroughOwningSite(t *testing.T) {
 	api := newKVMRuntimeInterfaceAPIFixture(t)
+	originalNodes := api.configuration["spec"].(map[string]interface{})["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+	originalInterfaces := originalNodes[0].(map[string]interface{})["interface_list"].([]interface{})
+	originalSLO := deepCopySMSv2Map(originalInterfaces[0].(map[string]interface{}))
 	api.rejectChildPUT = true
 	server := httptest.NewServer(http.HandlerFunc(api.handler))
 	defer server.Close()
@@ -419,8 +422,8 @@ func TestSMSv2KVMRuntimeInterfaceWritesThroughOwningSite(t *testing.T) {
 	interfaces := nodes[0].(map[string]interface{})["interface_list"].([]interface{})
 	slo := interfaces[0].(map[string]interface{})
 	sli := interfaces[1].(map[string]interface{})
-	if _, ok := slo["dhcp_client"]; !ok {
-		t.Fatal("owner update changed primary SLO")
+	if !reflect.DeepEqual(slo, originalSLO) {
+		t.Fatal("owner update changed the primary SLO")
 	}
 	if _, ok := sli["dhcp_client"]; ok {
 		t.Fatal("owner update left SLI on DHCP")
