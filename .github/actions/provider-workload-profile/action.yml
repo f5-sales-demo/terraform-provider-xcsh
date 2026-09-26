@@ -1,0 +1,43 @@
+name: Provider workload profile
+description: Profile one frozen provider workload with source-bound evidence
+inputs:
+  source-sha:
+    required: true
+  expected-image-digest:
+    required: true
+  runner-kind:
+    required: true
+  cache-state:
+    required: true
+  pair-id:
+    required: true
+  concurrency:
+    required: true
+  phase:
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Run profiled workload
+      shell: bash
+      env:
+        PROFILE_CACHE_STATE: ${{ inputs.cache-state }}
+        PROFILE_CONCURRENCY: ${{ inputs.concurrency }}
+        PROFILE_EXPECTED_IMAGE: ${{ inputs.expected-image-digest }}
+        PROFILE_PAIR_ID: ${{ inputs.pair-id }}
+        PROFILE_PHASE: ${{ inputs.phase }}
+        PROFILE_RUNNER_KIND: ${{ inputs.runner-kind }}
+        PROFILE_SOURCE_SHA: ${{ inputs.source-sha }}
+      run: |
+        bash .qualification-harness/scripts/run-provider-benchmark.sh \
+          "$PROFILE_SOURCE_SHA" "$PROFILE_EXPECTED_IMAGE" "$PROFILE_RUNNER_KIND" \
+          "$PROFILE_CACHE_STATE" "$PROFILE_PAIR_ID" "$PROFILE_CONCURRENCY" \
+          "$PROFILE_PHASE" "$RUNNER_TEMP/provider-workload-evidence"
+    - name: Upload workload evidence
+      if: always()
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: workload-profile-${{ inputs.runner-kind }}-${{ inputs.phase }}-p${{ inputs.concurrency }}-${{ inputs.cache-state }}-${{ inputs.pair-id }}
+        path: ${{ runner.temp }}/provider-workload-evidence
+        if-no-files-found: error
+        retention-days: 30

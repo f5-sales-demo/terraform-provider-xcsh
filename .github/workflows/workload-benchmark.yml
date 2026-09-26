@@ -1,0 +1,202 @@
+---
+name: Provider Workload Qualification
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Frozen provider source commit
+        required: true
+      expected_image_digest:
+        description: Frozen shared runner image reference
+        required: true
+      cache_state:
+        description: Cache state for this matched pair
+        required: true
+        type: choice
+        options: [cold, warm]
+      pair_id:
+        description: Matched pair number
+        required: true
+        type: choice
+        options: ['1', '2', '3', '4', '5']
+      concurrency:
+        description: Candidate Go package concurrency
+        required: true
+        type: choice
+        options: ['1', '2', '4', '8']
+      phase:
+        description: Workload phase
+        required: true
+        type: choice
+        options: [build, vet, race, provider-generation, documentation-generation, release-preflight]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: provider-qualification-${{ inputs.source_sha }}-${{ inputs.phase }}-p${{ inputs.concurrency }}-${{ inputs.cache_state }}-${{ inputs.pair_id }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate frozen experiment
+    runs-on: managed-socketless
+    outputs:
+      runner_label: ${{ steps.inputs.outputs.runner_label }}
+    steps:
+      - name: Validate immutable inputs
+        id: inputs
+        env:
+          EXPECTED_IMAGE_DIGEST: ${{ inputs.expected_image_digest }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$EXPECTED_IMAGE_DIGEST" =~ ^ghcr\.io/f5-sales-demo/self-hosted-runner@sha256:[0-9a-f]{64}$ ]]
+          echo 'runner_label=terraform-provider-xcsh-32vcpu-candidate' >> "$GITHUB_OUTPUT"
+
+  hosted-serial:
+    name: Hosted serial / ${{ inputs.phase }} / ${{ inputs.cache_state }} / pair-${{ inputs.pair_id }}
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out frozen provider source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check out provider qualification harness
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          path: .qualification-harness
+          persist-credentials: false
+          sparse-checkout: |
+            .github/actions/provider-workload-profile
+            scripts/run-provider-benchmark.sh
+            scripts/run-provider-benchmark-phase.sh
+          sparse-checkout-cone-mode: false
+      - name: Check out immutable shared profiler
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: f5-sales-demo/self-hosted-runner
+          ref: f692218c101f8814d6faf79b2e2f700bd0a29922
+          path: .runner-harness
+          persist-credentials: false
+          sparse-checkout: scripts/runner-profile.py
+          sparse-checkout-cone-mode: false
+      - name: Set up hosted Go baseline
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: 1.25.13
+          cache: false
+      - name: Set up hosted Terraform baseline
+        if: contains(fromJSON('["documentation-generation","release-preflight"]'), inputs.phase)
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: 1.16.3
+          terraform_wrapper: false
+      - name: Set up hosted documentation generator baseline
+        if: contains(fromJSON('["documentation-generation","release-preflight"]'), inputs.phase)
+        run: |
+          GOTOOLCHAIN=local go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+      - name: Download exact API specifications
+        if: inputs.phase != 'build' && inputs.phase != 'vet'
+        uses: ./.github/actions/download-api-specs
+        with:
+          token: ${{ github.token }}
+      - uses: ./.qualification-harness/.github/actions/provider-workload-profile
+        with:
+          source-sha: ${{ inputs.source_sha }}
+          expected-image-digest: ${{ inputs.expected_image_digest }}
+          runner-kind: hosted
+          cache-state: ${{ inputs.cache_state }}
+          pair-id: ${{ inputs.pair_id }}
+          concurrency: '1'
+          phase: ${{ inputs.phase }}
+
+  eks-candidate:
+    name: EKS candidate p${{ inputs.concurrency }} / ${{ inputs.phase }} / ${{ inputs.cache_state }} / pair-${{ inputs.pair_id }}
+    needs: validate
+    runs-on: ${{ needs.validate.outputs.runner_label }}
+    timeout-minutes: 90
+    steps:
+      - name: Check out frozen provider source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check out provider qualification harness
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          path: .qualification-harness
+          persist-credentials: false
+          sparse-checkout: |
+            .github/actions/provider-workload-profile
+            scripts/run-provider-benchmark.sh
+            scripts/run-provider-benchmark-phase.sh
+          sparse-checkout-cone-mode: false
+      - name: Check out immutable shared profiler
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: f5-sales-demo/self-hosted-runner
+          ref: f692218c101f8814d6faf79b2e2f700bd0a29922
+          path: .runner-harness
+          persist-credentials: false
+          sparse-checkout: scripts/runner-profile.py
+          sparse-checkout-cone-mode: false
+      - name: Download exact API specifications
+        if: inputs.phase != 'build' && inputs.phase != 'vet'
+        uses: ./.github/actions/download-api-specs
+        with:
+          token: ${{ github.token }}
+      - uses: ./.qualification-harness/.github/actions/provider-workload-profile
+        with:
+          source-sha: ${{ inputs.source_sha }}
+          expected-image-digest: ${{ inputs.expected_image_digest }}
+          runner-kind: eks
+          cache-state: ${{ inputs.cache_state }}
+          pair-id: ${{ inputs.pair_id }}
+          concurrency: ${{ inputs.concurrency }}
+          phase: ${{ inputs.phase }}
+
+  compare:
+    name: Verify matched outputs
+    needs: [hosted-serial, eks-candidate]
+    if: always()
+    runs-on: managed-socketless
+    steps:
+      - name: Require successful matched executions
+        env:
+          CANDIDATE_RESULT: ${{ needs.eks-candidate.result }}
+          HOSTED_RESULT: ${{ needs.hosted-serial.result }}
+        run: test "$HOSTED_RESULT" = success && test "$CANDIDATE_RESULT" = success
+      - name: Download matched evidence
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: workload-profile-*-${{ inputs.phase }}-*-${{ inputs.cache_state }}-${{ inputs.pair_id }}
+          path: evidence
+      - name: Require identical inventories and normalized outputs
+        run: |
+          mapfile -t manifests < <(find evidence -name output-manifest.json -type f | sort)
+          test "${#manifests[@]}" -eq 2
+          jq -s -e '
+            length == 2 and
+            (map(.source_sha) | unique | length) == 1 and
+            (map(.package_inventory_digest) | unique | length) == 1 and
+            (map(.output_digest) | unique | length) == 1 and
+            all(.[]; .exit_code == 0)
+          ' "${manifests[@]}"
+          jq -s '.' "${manifests[@]}" > matched-output-manifests.json
+      - name: Upload matched manifest
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: matched-provider-${{ inputs.phase }}-p${{ inputs.concurrency }}-${{ inputs.cache_state }}-${{ inputs.pair_id }}
+          path: matched-output-manifests.json
+          if-no-files-found: error
+          retention-days: 30
