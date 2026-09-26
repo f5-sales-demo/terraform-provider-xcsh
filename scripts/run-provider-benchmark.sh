@@ -53,14 +53,14 @@ python3 "$profiler" \
   --commit "$source_sha" \
   --image-digest "$observed_image" \
   -- "$script_dir/run-provider-benchmark-phase.sh" \
-    "$phase" "$concurrency" "$evidence_dir"
+  "$phase" "$concurrency" "$evidence_dir"
 status=$?
 set -e
 
 output_digest=$(cat "$evidence_dir/output-digest.txt" 2>/dev/null || printf 'sha256:%064d' 0)
 tmp_profile="$evidence_dir/.workload-profile.json.tmp"
 jq --arg digest "$output_digest" '.output_digest = $digest' \
-  "$evidence_dir/workload-profile.json" > "$tmp_profile"
+  "$evidence_dir/workload-profile.json" >"$tmp_profile"
 mv "$tmp_profile" "$evidence_dir/workload-profile.json"
 
 package_digest=$(sha256sum "$evidence_dir/package-inventory.txt" | awk '{print "sha256:" $1}')
@@ -88,5 +88,5 @@ jq -nS \
   --argjson tool_versions "$tool_versions" \
   --argjson exit_code "$status" \
   '{schema_version:1,source_sha:$source_sha,expected_image_digest:$expected_image_digest,observed_image_digest:$observed_image_digest,runner_kind:$runner_kind,cache_state:$cache_state,pair_id:$pair_id,phase:$phase,go_concurrency:$concurrency,tool_versions:$tool_versions,package_inventory_digest:$package_inventory_digest,output_digest:$output_digest,exit_code:$exit_code}' \
-  > "$evidence_dir/output-manifest.json"
+  >"$evidence_dir/output-manifest.json"
 exit "$status"

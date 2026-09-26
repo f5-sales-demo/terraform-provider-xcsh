@@ -4,7 +4,10 @@ set -euo pipefail
 root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 benchmark="$root/.github/workflows/workload-benchmark.yml"
 
-fail() { printf 'FAIL: %s\n' "$1" >&2; exit 1; }
+fail() {
+  printf 'FAIL: %s\n' "$1" >&2
+  exit 1
+}
 require() { grep -Fq -- "$2" "$1" || fail "$1 is missing: $2"; }
 
 require "$benchmark" 'source_sha:'
