@@ -97,9 +97,18 @@ jobs:
         # XCSH_SPEC_DIR makes TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames
         # (#1257) run rather than skip; _build-test.yml downloads the same bundle
         # so the guard also blocks on the PR, before merge.
+        #
+        # The broad provider makes internal/provider too large for concurrent,
+        # optimized test compilation on a GitHub-hosted runner. Build and vet
+        # above already use this bounded compilation posture. Keep the complete
+        # test surface while applying the same limits here so the runner is not
+        # terminated during the final package compile (#2186).
         env:
+          GOGC: "10"
+          GOMEMLIMIT: 4GiB
+          GOMAXPROCS: "1"
           XCSH_SPEC_DIR: ${{ inputs.spec-dir }}
-        run: scripts/go-retry.sh 2 go test -v ./internal/... ./tools/...
+        run: scripts/go-retry.sh 2 go test -p 1 -gcflags='all=-N -l' -v ./internal/... ./tools/...
 
       - name: Check for changes
         id: check

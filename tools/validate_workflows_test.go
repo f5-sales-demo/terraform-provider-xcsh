@@ -280,10 +280,11 @@ func TestProviderRegenerationVerificationIsMemoryBounded(t *testing.T) {
 		commands []string
 	}{
 		"_generate-provider.yml": {
-			envCount: 2,
+			envCount: 3,
 			commands: []string{
 				`go build -p 1 -gcflags='all=-N -l' -v ./...`,
 				`go vet -p 1 ./...`,
+				`go test -p 1 -gcflags='all=-N -l' -v ./internal/... ./tools/...`,
 			},
 		},
 		"on-merge.yml": {
