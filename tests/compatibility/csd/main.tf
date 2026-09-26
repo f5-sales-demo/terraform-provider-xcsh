@@ -1,4 +1,6 @@
 terraform {
+  required_version = ">= 1.0"
+
   required_providers {
     xcsh = {
       source  = "f5-sales-demo/xcsh"
@@ -9,6 +11,10 @@ terraform {
 
 data "xcsh_addon_service_activation_status" "csd" {
   addon_service = "f5xc-client-side-defense-standard"
+}
+
+output "csd_activation_status" {
+  value = data.xcsh_addon_service_activation_status.csd
 }
 
 data "xcsh_network_regional_edges" "origin_ingress" {}
