@@ -1,0 +1,22 @@
+# xcsh_api_crawler
+
+Category: API Security
+API Crawler resource
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_api_crawler" "example" {
+  name      = "example-api-crawler"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

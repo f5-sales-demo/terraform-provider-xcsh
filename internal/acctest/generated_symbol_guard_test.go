@@ -87,7 +87,7 @@ func registeredTypeNames(t *testing.T) (resources, dataSources map[string]struct
 		dataSources[meta.TypeName] = struct{}{}
 	}
 
-	surface, err := releasesurface.Load(filepath.Join("..", "..", "smsv2-release-surface.json"))
+	surface, err := releasesurface.Load(filepath.Join("..", "..", "provider-release-surface.json"))
 	if err != nil {
 		t.Fatalf("load release surface: %v", err)
 	}

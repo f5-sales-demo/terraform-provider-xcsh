@@ -1,0 +1,22 @@
+# xcsh_cdn_purge_command
+
+Category: Load Balancing
+CDN purge command specification. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_cdn_purge_command" "example" {
+  name      = "example-cdn-purge-command"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

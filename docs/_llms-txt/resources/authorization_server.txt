@@ -1,0 +1,25 @@
+# xcsh_authorization_server
+
+Category: Uncategorized
+Authorization_server creates a new object in the storage backend for metadata.namespace
+
+## Required
+
+- name
+- namespace
+- jwks_uri
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_authorization_server" "example" {
+  name      = "example-authorization-server"
+  namespace = "staging"
+
+  jwks_uri = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none

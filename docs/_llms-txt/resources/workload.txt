@@ -1,0 +1,22 @@
+# xcsh_workload
+
+Category: Uncategorized
+Workload. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_workload" "example" {
+  name      = "example-workload"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

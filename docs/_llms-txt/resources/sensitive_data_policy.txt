@@ -1,0 +1,28 @@
+# xcsh_sensitive_data_policy
+
+Category: Security
+Sensitive_data_policy creates a new object in the storage backend for metadata.namespace
+
+## Required
+
+- name
+- namespace
+
+## Server Defaults (safe to omit)
+
+- compliances
+- custom_data_types
+- disabled_predefined_data_types
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_sensitive_data_policy" "example" {
+  name      = "example-sensitive-data-policy"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

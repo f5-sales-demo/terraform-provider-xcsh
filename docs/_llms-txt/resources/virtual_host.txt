@@ -1,0 +1,22 @@
+# xcsh_virtual_host
+
+Category: Uncategorized
+Virtual host in a given namespace
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_virtual_host" "example" {
+  name      = "example-virtual-host"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

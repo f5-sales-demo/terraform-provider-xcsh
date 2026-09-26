@@ -1,0 +1,21 @@
+# xcsh_virtual_network
+
+Category: Uncategorized
+Virtual network in given namespace
+
+## Required
+
+- name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_virtual_network" "example" {
+  name      = "example-virtual-network"
+  namespace = "system"
+}
+```
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,32 @@
+# xcsh_app_firewall
+
+Category: Security
+Application Firewall
+
+## Required
+
+- name
+- namespace
+
+## Server Defaults (safe to omit)
+
+- allow_all_response_codes
+- default_anonymization
+- default_bot_setting
+- default_detection_settings
+- disable_ai_enhancements
+- monitoring
+- use_default_blocking_page
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_app_firewall" "example" {
+  name      = "example-app-firewall"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: namespace

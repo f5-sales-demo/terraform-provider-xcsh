@@ -215,9 +215,9 @@ func main() {
 
 // processV2Specs processes v2 format specs (domain-organized files from api-specs-enriched)
 func processV2Specs(specDir string) ([]GenerationResult, int, int) {
-	releaseSurface, surfaceErr := releasesurface.Load("smsv2-release-surface.json")
+	releaseSurface, surfaceErr := releasesurface.Load("provider-release-surface.json")
 	if surfaceErr != nil {
-		fmt.Printf("SMSv2 release surface validation failed: %v\n", surfaceErr)
+		fmt.Printf("Provider release surface validation failed: %v\n", surfaceErr)
 		os.Exit(1)
 	}
 	var err error
@@ -454,7 +454,7 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("\n⏭️  Skipped %d duplicate resources across domain files\n", skipCount)
 	}
 	if len(smsv2Attributes) == 0 {
-		fmt.Println("SMSv2 release surface failed: securemesh_site_v2 was not generated")
+		fmt.Println("Provider release surface failed: securemesh_site_v2 was not generated")
 		os.Exit(1)
 	}
 	smsv2Templates, err := codegen.SMSv2DataSourceTemplates(contractJSON)

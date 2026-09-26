@@ -1,0 +1,27 @@
+# xcsh_cminstance
+
+Category: Uncategorized
+App type will create the configuration in namespace metadata.namespace
+
+## Required
+
+- name
+- namespace
+- port
+- username
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_cminstance" "example" {
+  name      = "example-cminstance"
+  namespace = "staging"
+
+  port     = 1
+  username = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,22 @@
+# xcsh_forward_proxy_policy
+
+Category: Security
+Forward proxy policy specification. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_forward_proxy_policy" "example" {
+  name      = "example-forward-proxy-policy"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

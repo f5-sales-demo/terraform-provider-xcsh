@@ -1,0 +1,31 @@
+# xcsh_crl
+
+Category: Uncategorized
+Api to create crl object. configuration
+
+## Required
+
+- name
+- namespace
+- refresh_interval
+- server_address
+- server_port
+- timeout
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_crl" "example" {
+  name      = "example-crl"
+  namespace = "staging"
+
+  refresh_interval = 6
+  server_address   = "example-value"
+  server_port      = 1
+  timeout          = 1
+}
+```
+
+## Dependencies
+
+Requires: none

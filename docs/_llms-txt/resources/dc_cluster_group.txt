@@ -1,0 +1,21 @@
+# xcsh_dc_cluster_group
+
+Category: Networking
+DC Cluster group in given namespace
+
+## Required
+
+- name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_dc_cluster_group" "example" {
+  name      = "example-dc-cluster-group"
+  namespace = "system"
+}
+```
+
+## Dependencies
+
+Requires: none

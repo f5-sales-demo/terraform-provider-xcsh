@@ -91,7 +91,7 @@ The following files reside in generated directories but are maintained manually:
 
 | File | Purpose |
 | --- | --- |
-| `smsv2-release-surface.json` | Exact public resources, data sources, actions, and functions |
+| `provider-release-surface.json` | Exact public resources, data sources, actions, and functions |
 
 ## Workflow Architecture
 

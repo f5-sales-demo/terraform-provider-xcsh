@@ -1,0 +1,77 @@
+// Copyright (c) 2026 Robin Mordasiewicz. MIT License.
+
+package provider_test
+
+import (
+	"fmt"
+	"testing"
+
+	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+	"github.com/hashicorp/terraform-plugin-testing/terraform"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
+)
+
+func TestAccAppSettingResource_basic(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	// app_setting can only be created in namespaces with namespace_type: "app"
+	// Using "demo-app" which is an existing app-type namespace in the staging environment
+	resourceName := "xcsh_app_setting.test"
+	rName := acctest.RandomName("tf-acc-test-appset")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_app_setting"),
+		Steps: []resource.TestStep{
+			{
+				Config: testAccAppSettingConfig_basic(rName),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "name", rName),
+					resource.TestCheckResourceAttr(resourceName, "namespace", "demo-app"),
+					resource.TestCheckResourceAttrSet(resourceName, "id"),
+				),
+			},
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"timeouts", "app_type_settings"},
+				ImportStateIdFunc:       testAccAppSettingImportStateIdFunc(resourceName),
+			},
+		},
+	})
+}
+
+func testAccAppSettingImportStateIdFunc(resourceName string) resource.ImportStateIdFunc {
+	return func(s *terraform.State) (string, error) {
+		rs, ok := s.RootModule().Resources[resourceName]
+		if !ok {
+			return "", fmt.Errorf("resource not found: %s", resourceName)
+		}
+		namespace := rs.Primary.Attributes["namespace"]
+		name := rs.Primary.Attributes["name"]
+		return fmt.Sprintf("%s/%s", namespace, name), nil
+	}
+}
+
+func testAccAppSettingConfig_basic(name string) string {
+	// App setting requires app_type_settings with at least one app_type_ref
+	// Must be created in a namespace with namespace_type: "app" (e.g., demo-app)
+	return fmt.Sprintf(`
+resource "xcsh_app_setting" "test" {
+  name      = %[1]q
+  namespace = "demo-app"
+
+  app_type_settings {
+    app_type_ref {
+      name      = "demo-app"
+      namespace = "shared"
+    }
+  }
+}
+`, name)
+}

@@ -1,4 +1,4 @@
-// Package releasesurface loads the exact public SMSv2 provider contract.
+// Package releasesurface loads the exact public provider contract.
 package releasesurface
 
 import (
@@ -17,7 +17,7 @@ type Surface struct {
 }
 
 // FilterResults makes the public provider surface equal the manifest. It also
-// supplies read-only entries for intentionally hand-written SMSv2 data sources.
+// supplies read-only entries for intentionally hand-written data sources.
 func (s *Surface) FilterResults(results []openapi.GenerationResult) []openapi.GenerationResult {
 	kept := make(map[string]openapi.GenerationResult)
 	for _, result := range results {

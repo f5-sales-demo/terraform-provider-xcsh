@@ -1,0 +1,27 @@
+# xcsh_container_registry
+
+Category: Kubernetes
+Container image registry configuration
+
+## Required
+
+- name
+- namespace
+- registry
+- user_name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_container_registry" "example" {
+  name      = "example-container-registry"
+  namespace = "staging"
+
+  registry  = "example-value"
+  user_name = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none

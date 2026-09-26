@@ -4,8 +4,10 @@ package provider
 
 import (
 	"context"
+	"os"
 	"reflect"
 	"regexp"
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -27,8 +29,13 @@ func TestNetworkAllowlistCIDRConversionAndOrdering(t *testing.T) {
 }
 
 func TestNetworkAllowlistPinnedManifest(t *testing.T) {
-	if bundledNetworkAllowlist.APIReleaseTag != "v8.0.2" {
-		t.Fatalf("release tag = %q", bundledNetworkAllowlist.APIReleaseTag)
+	version, err := os.ReadFile("../../tools/spec-version.txt")
+	if err != nil {
+		t.Fatal(err)
+	}
+	wantReleaseTag := strings.TrimSpace(string(version))
+	if bundledNetworkAllowlist.APIReleaseTag != wantReleaseTag {
+		t.Fatalf("release tag = %q, want %q from tools/spec-version.txt", bundledNetworkAllowlist.APIReleaseTag, wantReleaseTag)
 	}
 	if bundledNetworkAllowlist.SourceSHA256 != "0bb6fd6bd561aef1ea9fbc772119d4cfea8c26cbe82d7ea6e76f9aeb03366555" {
 		t.Fatalf("source digest = %q", bundledNetworkAllowlist.SourceSHA256)

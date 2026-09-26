@@ -16,7 +16,12 @@ This is a community-maintained provider built from public F5 API documentation.
 | --------- | ------- |
 | terraform | >= 1.14 |
 
-~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. The SMSv2 release surface does not define provider functions.
+~> **Note:** This provider includes first-class actions, which require Terraform 1.14 or later. The provider does not define provider functions.
+
+## Upgrading from v9 through v11
+
+Versions v10.0.0 through v11.3.0 accidentally left broad-provider consumers without a supported path by publishing only the SMSv2-focused subset. Version v11.4.0 restores every type registered by v9.5.2 while retaining the SMSv2 and offline network allowlist additions. Upgrade with a saved plan and investigate any managed-resource change before applying; no import or state surgery is required for
+the restored type names.
 
 ## Authenticating to F5 Distributed Cloud
 

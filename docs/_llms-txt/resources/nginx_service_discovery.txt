@@ -1,0 +1,22 @@
+# xcsh_nginx_service_discovery
+
+Category: Uncategorized
+Api to create nginx service discovery object for a site or virtual site in system namespace. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_nginx_service_discovery" "example" {
+  name      = "example-nginx-service-discovery"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

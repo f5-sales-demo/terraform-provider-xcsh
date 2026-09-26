@@ -23,12 +23,23 @@ DEPRECATED — do not use: volterraedge/volterra
 
 ## Resource Categories
 
-- [Load Balancing](_llms-txt/load-balancing.txt) (2 resources): HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
-- [Networking](_llms-txt/networking.txt) (2 resources): Virtual networks, BGP, cloud connectivity, tunnels, and network interfaces
-- [Sites](_llms-txt/sites.txt) (2 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
-- [Uncategorized](_llms-txt/uncategorized.txt) (2 resources): Resources pending categorization
-- [Authentication](_llms-txt/authentication.txt) (1 resources): Authentication methods, cloud credentials, and secret management
-- [DNS](_llms-txt/dns.txt) (1 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
+- [Uncategorized](_llms-txt/uncategorized.txt) (33 resources): Resources pending categorization
+- [Security](_llms-txt/security.txt) (25 resources): WAF, bot defense, rate limiting, firewall policies, and security controls
+- [Networking](_llms-txt/networking.txt) (12 resources): Virtual networks, BGP, cloud connectivity, tunnels, and network interfaces
+- [Sites](_llms-txt/sites.txt) (9 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
+- [Load Balancing](_llms-txt/load-balancing.txt) (8 resources): HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
+- [DNS](_llms-txt/dns.txt) (6 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
+- [Kubernetes](_llms-txt/kubernetes.txt) (6 resources): Container registries, workloads, and Kubernetes integrations
+- [API Security](_llms-txt/api-security.txt) (5 resources): API definition, discovery, testing, and security controls for web APIs
+- [Authentication](_llms-txt/authentication.txt) (4 resources): Authentication methods, cloud credentials, and secret management
+- [Monitoring](_llms-txt/monitoring.txt) (4 resources): Log receivers, alert policies, alert templates, and global logging configuration
+- [VPN](_llms-txt/vpn.txt) (4 resources): VPN and IPSec configuration
+- [Certificates](_llms-txt/certificates.txt) (3 resources): TLS certificates, certificate chains, CRLs, and trusted CA lists
+- [Cloud Resources](_llms-txt/cloud-resources.txt) (3 resources): Cloud elastic IPs, address allocators, and geo-location resources
+- [Organization](_llms-txt/organization.txt) (3 resources): Namespaces, tenant configuration, and organizational settings
+- [Applications](_llms-txt/applications.txt) (2 resources): Application settings, types, discovery, and filtering
+- [BIG-IP Integration](_llms-txt/big-ip-integration.txt) (1 resources): BIG-IP proxy, data groups, and iRules integration
+- [Integrations](_llms-txt/integrations.txt) (1 resources): External integrations including code base and ticket tracking
 
 ## Data Sources
 

@@ -1,0 +1,22 @@
+# xcsh_cluster
+
+Category: Uncategorized
+Cluster will create the object in the storage backend for namespace metadata.namespace
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_cluster" "example" {
+  name      = "example-cluster"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

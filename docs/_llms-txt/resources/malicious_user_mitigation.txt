@@ -1,0 +1,26 @@
+# xcsh_malicious_user_mitigation
+
+Category: Security
+Malicious_user_mitigation creates a new object in the storage backend for metadata.namespace
+
+## Required
+
+- name
+- namespace
+
+## Server Defaults (safe to omit)
+
+- mitigation_type
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_malicious_user_mitigation" "example" {
+  name      = "example-malicious-user-mitigation"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

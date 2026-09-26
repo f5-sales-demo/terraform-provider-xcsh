@@ -1,0 +1,22 @@
+# xcsh_subnet
+
+Category: Uncategorized
+Subnet object contains configuration for an interface of a vm/pod. it is created in user or shared namespace. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_subnet" "example" {
+  name      = "example-subnet"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

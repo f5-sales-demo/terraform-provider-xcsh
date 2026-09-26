@@ -1,0 +1,25 @@
+# xcsh_securemesh_site
+
+Category: Sites
+Deploying secure mesh edge sites with distributed security
+
+## Required
+
+- name
+- namespace
+- volterra_certified_hw
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_securemesh_site" "example" {
+  name      = "example-securemesh-site"
+  namespace = "staging"
+
+  volterra_certified_hw = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none

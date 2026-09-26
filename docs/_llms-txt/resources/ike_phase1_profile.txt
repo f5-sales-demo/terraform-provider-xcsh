@@ -1,0 +1,27 @@
+# xcsh_ike_phase1_profile
+
+Category: VPN
+Ike phase1 profile specification. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_ike_phase1_profile" "example" {
+  name      = "example-ike-phase1-profile"
+  namespace = "staging"
+
+  authentication_algos = ["example-value"]
+  dh_group             = ["example-value"]
+  encryption_algos     = ["example-value"]
+  prf                  = ["example-value"]
+}
+```
+
+## Dependencies
+
+Requires: none

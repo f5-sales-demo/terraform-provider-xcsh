@@ -1,0 +1,32 @@
+# xcsh_policer
+
+Category: Uncategorized
+New policer with traffic rate limits
+
+## Required
+
+- name
+- namespace
+- burst_size
+- committed_information_rate
+
+## Server Defaults (safe to omit)
+
+- policer_mode
+- policer_type
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_policer" "example" {
+  name      = "example-policer"
+  namespace = "staging"
+
+  burst_size                 = 1
+  committed_information_rate = 1
+}
+```
+
+## Dependencies
+
+Requires: none

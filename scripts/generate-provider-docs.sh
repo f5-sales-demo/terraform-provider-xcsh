@@ -58,6 +58,7 @@ if [ "$validate_examples_only" = false ]; then
 
   echo "::group::Generate Terraform examples"
   go run tools/generate-examples.go
+  go run tools/generate-test-examples.go
   echo "::endgroup::"
 fi
 
@@ -128,11 +129,11 @@ jq -r '
   (.resources[] | "examples/resources/xcsh_" + .),
   (.data_sources[] | "examples/data-sources/xcsh_" + .),
   (.actions[] | "examples/actions/xcsh_" + .)
-' smsv2-release-surface.json | LC_ALL=C sort >"$expected_example_dirs"
+' provider-release-surface.json | LC_ALL=C sort >"$expected_example_dirs"
 find examples/resources examples/data-sources examples/actions \
   -mindepth 1 -maxdepth 1 -type d -print | LC_ALL=C sort >"$actual_example_dirs"
 if ! diff -u "$expected_example_dirs" "$actual_example_dirs"; then
-  fail "example directories do not exactly match smsv2-release-surface.json"
+  fail "example directories do not exactly match provider-release-surface.json"
 fi
 
 validated_canonical_examples=0
@@ -151,6 +152,18 @@ expected_canonical_examples=$(wc -l <"$expected_example_dirs" | tr -d '[:space:]
 [ "$validated_canonical_examples" -eq "$expected_canonical_examples" ] ||
   fail "validated ${validated_canonical_examples} canonical examples, want ${expected_canonical_examples}"
 echo "Validated ${validated_canonical_examples} exact release-surface examples"
+echo "::endgroup::"
+
+echo "::group::Validate acceptance-derived examples"
+validated_named_examples=0
+while IFS= read -r example; do
+  validate_example "$example"
+  validated_named_examples=$((validated_named_examples + 1))
+done < <(find examples/resources -mindepth 2 -maxdepth 2 -type f -name "*.tf" \
+  ! -name resource.tf -print | LC_ALL=C sort)
+[ "$validated_named_examples" -eq 76 ] ||
+  fail "validated ${validated_named_examples} acceptance-derived examples, want 76"
+echo "Validated ${validated_named_examples} acceptance-derived examples"
 echo "::endgroup::"
 
 if [ "$validate_examples_only" = true ]; then
@@ -187,11 +200,11 @@ jq -r '
   (.resources[] | "docs/resources/" + . + ".md"),
   (.data_sources[] | "docs/data-sources/" + . + ".md"),
   (.actions[] | "docs/actions/" + . + ".md")
-' smsv2-release-surface.json | LC_ALL=C sort >"$expected_doc_files"
+' provider-release-surface.json | LC_ALL=C sort >"$expected_doc_files"
 find docs/resources docs/data-sources docs/actions \
   -maxdepth 1 -type f -name '*.md' ! -name index.md -print | LC_ALL=C sort >"$actual_doc_files"
 if ! diff -u "$expected_doc_files" "$actual_doc_files"; then
-  fail "generated documentation does not exactly match smsv2-release-surface.json"
+  fail "generated documentation does not exactly match provider-release-surface.json"
 fi
 echo "::endgroup::"
 
@@ -226,9 +239,9 @@ schema_actions="$temporary_root/schema-actions.txt"
 expected_resources="$temporary_root/expected-resources.txt"
 expected_data_sources="$temporary_root/expected-data-sources.txt"
 expected_actions="$temporary_root/expected-actions.txt"
-jq -r '.resources[] | "xcsh_" + .' smsv2-release-surface.json | LC_ALL=C sort >"$expected_resources"
-jq -r '.data_sources[] | "xcsh_" + .' smsv2-release-surface.json | LC_ALL=C sort >"$expected_data_sources"
-jq -r '.actions[] | "xcsh_" + .' smsv2-release-surface.json | LC_ALL=C sort >"$expected_actions"
+jq -r '.resources[] | "xcsh_" + .' provider-release-surface.json | LC_ALL=C sort >"$expected_resources"
+jq -r '.data_sources[] | "xcsh_" + .' provider-release-surface.json | LC_ALL=C sort >"$expected_data_sources"
+jq -r '.actions[] | "xcsh_" + .' provider-release-surface.json | LC_ALL=C sort >"$expected_actions"
 jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].resource_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_resources"
 jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].data_source_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_data_sources"
 jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].action_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_actions"
@@ -239,6 +252,12 @@ jq -e '
   .provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"] as $provider |
   (($provider.functions // {}) | length) == 0
 ' "$schema_output" >/dev/null || fail "installed provider unexpectedly exposes functions"
+python3 tools/verify-provider-schema-compatibility.py \
+  --baseline tests/compatibility/v9-provider-schema/provider-schema.json.gz \
+  --candidate "$schema_output" \
+  --reviewed-replacements tests/compatibility/v9-provider-schema/reviewed-replacements.json ||
+  fail "candidate provider breaks the installed v9.5.2 compatibility contract"
+validate_example tests/compatibility/csd/main.tf
 echo "Exported provider schema: $(wc -c <"$schema_output" | tr -d '[:space:]') bytes"
 echo "::endgroup::"
 

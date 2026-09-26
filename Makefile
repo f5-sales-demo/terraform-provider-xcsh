@@ -166,6 +166,10 @@ generate-schemas:
 	@# also prunes orphan example dirs and runs terraform fmt.
 	@echo "Generating Terraform examples from provider schema..."
 	$(GO) run $(TOOLS_DIR)/generate-examples.go
+	@echo "Regenerating broad-surface data source acceptance tests..."
+	$(GO) run $(TOOLS_DIR)/generate-datasource-tests.go
+	@echo "Generating acceptance-derived Terraform examples..."
+	$(GO) run $(TOOLS_DIR)/generate-test-examples.go
 
 # Generate Terraform documentation
 docs:

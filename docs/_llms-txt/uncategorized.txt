@@ -4,5 +4,36 @@ Resources pending categorization
 
 ## Resources
 
+- [healthcheck](_llms-txt/resources/healthcheck.txt) : Healthcheck object defines method to determine if the given endpoint is...
+- [application_profiles](_llms-txt/resources/application_profiles.txt) : Application Profiles in a given namespace. If one already exists it will...
+- [authorization_server](_llms-txt/resources/authorization_server.txt) : Authorization_server creates a new object in the storage backend for...
+- [bot_infrastructure](_llms-txt/resources/bot_infrastructure.txt) : Bot Infrastructure
+- [cluster](_llms-txt/resources/cluster.txt) : Cluster will create the object in the storage backend for namespace...
+- [cminstance](_llms-txt/resources/cminstance.txt) : App type will create the configuration in namespace metadata.namespace
+- [crl](_llms-txt/resources/crl.txt) : Api to create crl object. configuration
+- [data_group](_llms-txt/resources/data_group.txt) : Data group in a given namespace. If one already exists it will give an error
+- [data_type](_llms-txt/resources/data_type.txt) : Data_type creates a new object in the storage backend for metadata.namespace
+- [discovery](_llms-txt/resources/discovery.txt) : Api to create discovery object for a site or virtual site in system...
+- [endpoint](_llms-txt/resources/endpoint.txt) : Endpoint will create the object in the storage backend for namespace...
+- [filter_set](_llms-txt/resources/filter_set.txt) : Specification
+- [fleet](_llms-txt/resources/fleet.txt) : Fleet will create a fleet object in 'system' namespace of the user
+- [irule](_llms-txt/resources/irule.txt) : IRule in a given namespace. If one already exists it will give an error
+- [mitigated_domain](_llms-txt/resources/mitigated_domain.txt) : Mitigated Domain
+- [nfv_service](_llms-txt/resources/nfv_service.txt) : New NFV service with configured parameters
+- [nginx_service_discovery](_llms-txt/resources/nginx_service_discovery.txt) : Api to create nginx service discovery object for a site or virtual site in...
+- [policer](_llms-txt/resources/policer.txt) : New policer with traffic rate limits
+- [protected_application](_llms-txt/resources/protected_application.txt) : Applications protected by Bot Defense
+- [protected_domain](_llms-txt/resources/protected_domain.txt) : Domain to protect
+- [proxy](_llms-txt/resources/proxy.txt) : Tcp loadbalancer create specification. configuration
+- [registration](_llms-txt/resources/registration.txt) : Vpm creates registration using this message, never used by users. configuration
 - [registration_approval](_llms-txt/resources/registration_approval.txt) : Request for admission approval. configuration
+- [route](_llms-txt/resources/route.txt) : Route object in a given namespace. Route object is list of route rules. Each...
+- [segment](_llms-txt/resources/segment.txt) : Segment. configuration
 - [smsv2_kvm_runtime_interface](_llms-txt/resources/smsv2_kvm_runtime_interface.txt) : Adopts one existing XC-owned KVM Secure Mesh Site v2 SLI child and manages...
+- [subnet](_llms-txt/resources/subnet.txt) : Subnet object contains configuration for an interface of a vm/pod. it is...
+- [tunnel](_llms-txt/resources/tunnel.txt) : Tunnel in a given namespace. If one already exist it will give a error
+- [user_identification](_llms-txt/resources/user_identification.txt) : User_identification creates a new object in the storage backend for...
+- [virtual_host](_llms-txt/resources/virtual_host.txt) : Virtual host in a given namespace
+- [virtual_network](_llms-txt/resources/virtual_network.txt) : Virtual network in given namespace
+- [workload](_llms-txt/resources/workload.txt) : Workload. configuration
+- [workload_flavor](_llms-txt/resources/workload_flavor.txt) : Workload_flavor

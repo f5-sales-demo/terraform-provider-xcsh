@@ -1,0 +1,22 @@
+# xcsh_authentication
+
+Category: Authentication
+Authentication resource
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_authentication" "example" {
+  name      = "example-authentication"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

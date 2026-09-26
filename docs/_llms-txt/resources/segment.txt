@@ -1,0 +1,21 @@
+# xcsh_segment
+
+Category: Uncategorized
+Segment. configuration
+
+## Required
+
+- name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_segment" "example" {
+  name      = "example-segment"
+  namespace = "system"
+}
+```
+
+## Dependencies
+
+Requires: none

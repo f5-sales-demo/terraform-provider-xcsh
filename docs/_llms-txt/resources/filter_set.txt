@@ -1,0 +1,25 @@
+# xcsh_filter_set
+
+Category: Uncategorized
+Specification
+
+## Required
+
+- name
+- namespace
+- context_key
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_filter_set" "example" {
+  name      = "example-filter-set"
+  namespace = "staging"
+
+  context_key = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none

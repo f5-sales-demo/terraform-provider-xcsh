@@ -1,0 +1,22 @@
+# xcsh_cdn_cache_rule
+
+Category: Load Balancing
+CDN loadbalancer specification. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_cdn_cache_rule" "example" {
+  name      = "example-cdn-cache-rule"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

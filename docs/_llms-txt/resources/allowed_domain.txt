@@ -1,0 +1,25 @@
+# xcsh_allowed_domain
+
+Category: Organization
+Allowed domain
+
+## Required
+
+- name
+- namespace
+- allowed_domain
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_allowed_domain" "example" {
+  name      = "example-allowed-domain"
+  namespace = "staging"
+
+  allowed_domain = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none

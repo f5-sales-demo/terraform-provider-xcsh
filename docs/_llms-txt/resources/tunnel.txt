@@ -1,0 +1,22 @@
+# xcsh_tunnel
+
+Category: Uncategorized
+Tunnel in a given namespace. If one already exist it will give a error
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_tunnel" "example" {
+  name      = "example-tunnel"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

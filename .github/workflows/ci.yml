@@ -123,7 +123,7 @@ jobs:
 
           # Every executable, dependency, version pin, and configuration input
           # to scripts/generate-provider-docs.sh must activate this gate.
-          if printf '%s\n' "$CHANGED_FILES" | grep -qE '^(internal/|tools/|templates/|scripts/generate-provider-docs\.sh$|\.terraform-version$|go\.(mod|sum)$|\.tfplugindocs(\.yml|\.yaml)?$|tfplugindocs\.(yml|yaml)$)'; then
+          if printf '%s\n' "$CHANGED_FILES" | grep -qE '^(internal/|tools/|templates/|provider-release-surface\.json$|scripts/generate-provider-docs\.sh$|\.terraform-version$|go\.(mod|sum)$|\.tfplugindocs(\.yml|\.yaml)?$|tfplugindocs\.(yml|yaml)$)'; then
             echo "needs_validation=true" >> "$GITHUB_OUTPUT"
           else
             echo "needs_validation=false" >> "$GITHUB_OUTPUT"

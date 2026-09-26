@@ -30,6 +30,7 @@ GENERATED_PATTERNS=(
 # These data sources are not auto-generated from OpenAPI specs - they provide
 # utility functionality not available in the F5 specifications
 MANUALLY_MAINTAINED_FILES=(
+  "examples/data-sources/xcsh_addon_service_activation_status/data-source.tf"
   "examples/data-sources/xcsh_network_regional_edges/data-source.tf"
   "examples/data-sources/xcsh_network_cdn/data-source.tf"
   "examples/data-sources/xcsh_network_secondary_dns_zone_transfer/data-source.tf"
@@ -72,6 +73,7 @@ GENERATOR_SOURCE_PATTERNS=(
   "^tools/pkg/resource/"
   "^tools/pkg/networkallowlist/"
   "^templates/"
+  "^provider-release-surface\.json$"
   # Hand-authored allowlist examples are tfplugindocs inputs.
   "^examples/data-sources/xcsh_network_"
   "^examples/guides/network-allowlist-"

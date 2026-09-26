@@ -1,0 +1,21 @@
+# xcsh_k8s_cluster_role
+
+Category: Kubernetes
+K8s_cluster_role will create the object in the storage backend for namespace metadata.namespace
+
+## Required
+
+- name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_k8s_cluster_role" "example" {
+  name      = "example-k8s-cluster-role"
+  namespace = "system"
+}
+```
+
+## Dependencies
+
+Requires: none

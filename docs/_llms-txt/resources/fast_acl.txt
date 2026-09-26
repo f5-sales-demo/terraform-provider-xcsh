@@ -1,0 +1,21 @@
+# xcsh_fast_acl
+
+Category: Security
+Object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to
+
+## Required
+
+- name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_fast_acl" "example" {
+  name      = "example-fast-acl"
+  namespace = "system"
+}
+```
+
+## Dependencies
+
+Requires: none

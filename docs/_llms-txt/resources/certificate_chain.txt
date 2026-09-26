@@ -1,0 +1,25 @@
+# xcsh_certificate_chain
+
+Category: Certificates
+Certificate chain configuration for TLS
+
+## Required
+
+- name
+- namespace
+- certificate_url
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_certificate_chain" "example" {
+  name      = "example-certificate-chain"
+  namespace = "staging"
+
+  certificate_url = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none
