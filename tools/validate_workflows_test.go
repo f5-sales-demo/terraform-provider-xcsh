@@ -243,6 +243,9 @@ func TestPendingDeliveryActiveClassifier(t *testing.T) {
 	if err := os.WriteFile(pending, []byte("{}\n"), 0o600); err != nil {
 		t.Fatalf("create pending delivery: %v", err)
 	}
+	if err := run("", "false"); err != nil {
+		t.Fatalf("extant unchanged pending delivery must resume generation: %v", err)
+	}
 	if err := run(pending+"\n", "false"); err != nil {
 		t.Fatalf("extant changed pending delivery must resume generation: %v", err)
 	}

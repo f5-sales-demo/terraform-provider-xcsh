@@ -19,7 +19,8 @@ false) ;;
   ;;
 esac
 
-# A changed path alone is insufficient: the durable receipt merge deletes the
-# pending file. Only an extant pending delivery may resume normal generation.
-[ -e "$pending_file" ] || exit 1
-grep -Fxq -- "$pending_file"
+# File existence is authoritative. A pending delivery must resume generation
+# even when an unrelated commit did not modify the pending marker; otherwise
+# the workflow can incorrectly authorize a direct release that the release
+# validator must reject for lacking a regeneration receipt.
+[ -e "$pending_file" ]
