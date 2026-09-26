@@ -6,3 +6,13 @@ HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing
 
 - [http_loadbalancer](_llms-txt/resources/http_loadbalancer.txt) : Load balancing HTTP/HTTPS traffic with routing and security controls
 - [origin_pool](_llms-txt/resources/origin_pool.txt) : Defining backend server pools for load balancer targets
+- [advertise_policy](_llms-txt/resources/advertise_policy.txt) : Advertise_policy object controls how and where a service represented by a...
+- [cdn_cache_rule](_llms-txt/resources/cdn_cache_rule.txt) : CDN loadbalancer specification. configuration
+- [cdn_loadbalancer](_llms-txt/resources/cdn_loadbalancer.txt) : Content delivery and edge caching with load balancing
+- [cdn_purge_command](_llms-txt/resources/cdn_purge_command.txt) : CDN purge command specification. configuration
+- [tcp_loadbalancer](_llms-txt/resources/tcp_loadbalancer.txt) : Load balancing TCP traffic across origin pools
+- [udp_loadbalancer](_llms-txt/resources/udp_loadbalancer.txt) : Load balancing UDP traffic across origin pools
+
+## Dependency Chain
+
+namespace → origin_pool → tcp_loadbalancer

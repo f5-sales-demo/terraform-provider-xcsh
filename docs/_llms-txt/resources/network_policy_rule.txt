@@ -1,0 +1,22 @@
+# xcsh_network_policy_rule
+
+Category: Security
+Network policy rule with configured parameters in specified namespace
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_network_policy_rule" "example" {
+  name      = "example-network-policy-rule"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

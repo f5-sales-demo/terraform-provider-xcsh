@@ -1,0 +1,23 @@
+# xcsh_user_identification
+
+Category: Uncategorized
+User_identification creates a new object in the storage backend for metadata.namespace
+
+## Required
+
+- name
+- namespace
+- rules
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_user_identification" "example" {
+  name      = "example-user-identification"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,24 @@
+# xcsh_address_allocator
+
+Category: Cloud Resources
+Address Allocator will create an address allocator object in 'system' namespace of the user
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_address_allocator" "example" {
+  name      = "example-address-allocator"
+  namespace = "staging"
+
+  address_pool = ["example-value"]
+}
+```
+
+## Dependencies
+
+Requires: none

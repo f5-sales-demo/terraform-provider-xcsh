@@ -1,0 +1,33 @@
+# xcsh_tcp_loadbalancer
+
+Category: Load Balancing
+Load balancing TCP traffic across origin pools
+
+## Required
+
+- name
+- namespace
+- origin_pools
+
+## Server Defaults (safe to omit)
+
+- dns_volterra_managed
+- hash_policy_choice_round_robin
+- idle_timeout
+- no_sni
+- retract_cluster
+- service_policies_from_namespace
+- tcp
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_tcp_loadbalancer" "example" {
+  name      = "example-tcp-loadbalancer"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: namespace, origin_pool

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Restored - v11.4.0
+
+- Restored every resource, data source, and action type registered by v9.5.2 while retaining the v11 SMSv2 lifecycle and offline network allowlist data sources.
+- Added an installed-schema compatibility gate and a representative CSD configuration test to prevent release-surface contractions.
+- Documented the v10.0.0 through v11.3.0 broad-provider regression. Consumers upgrading from v9 should review a saved plan and investigate every managed-resource change before applying; no state surgery is expected or supported.
+- Kept SMSv2 upgrade operations system-scoped and non-forced. Their v11 action inputs (`site`, `software_version`, and `os_version`) replace the v9 generic `namespace`, `name`, `version`, and `force` fields.
+
 ### Breaking Changes - v3.0.0 Clean Break Release
 
 This is a clean-break prerelease that requires recreating all Terraform-managed resources. This version uses F5 Distributed Cloud API v2 specifications and removes all backwards compatibility with earlier versions.

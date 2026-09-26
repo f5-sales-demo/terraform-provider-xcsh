@@ -1,0 +1,25 @@
+# xcsh_mitigated_domain
+
+Category: Uncategorized
+Mitigated Domain
+
+## Required
+
+- name
+- namespace
+- mitigated_domain
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_mitigated_domain" "example" {
+  name      = "example-mitigated-domain"
+  namespace = "staging"
+
+  mitigated_domain = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,21 @@
+# xcsh_k8s_pod_security_admission
+
+Category: Kubernetes
+K8s_pod_security_admission will create the object in the storage backend
+
+## Required
+
+- name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_k8s_pod_security_admission" "example" {
+  name      = "example-k8s-pod-security-admission"
+  namespace = "system"
+}
+```
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,22 @@
+# xcsh_protected_application
+
+Category: Uncategorized
+Applications protected by Bot Defense
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_protected_application" "example" {
+  name      = "example-protected-application"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

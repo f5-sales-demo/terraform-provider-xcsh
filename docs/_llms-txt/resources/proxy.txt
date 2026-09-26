@@ -1,0 +1,22 @@
+# xcsh_proxy
+
+Category: Uncategorized
+Tcp loadbalancer create specification. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_proxy" "example" {
+  name      = "example-proxy"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

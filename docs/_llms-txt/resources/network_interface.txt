@@ -1,0 +1,22 @@
+# xcsh_network_interface
+
+Category: Networking
+Network interface represents configuration of a network device. it is created by users in system namespace. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_network_interface" "example" {
+  name      = "example-network-interface"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

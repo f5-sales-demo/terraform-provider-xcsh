@@ -1,0 +1,22 @@
+# xcsh_ike2
+
+Category: VPN
+Ike phase2 profile specification. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_ike2" "example" {
+  name      = "example-ike2"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,23 @@
+# xcsh_waf_exclusion_policy
+
+Category: Security
+WAF exclusion policy
+
+## Required
+
+- name
+- namespace
+- waf_exclusion_rules
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_waf_exclusion_policy" "example" {
+  name      = "example-waf-exclusion-policy"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

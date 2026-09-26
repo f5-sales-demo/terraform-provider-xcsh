@@ -1,0 +1,22 @@
+# xcsh_trusted_ca_list
+
+Category: Certificates
+Trusted certificate authority list management
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_trusted_ca_list" "example" {
+  name      = "example-trusted-ca-list"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

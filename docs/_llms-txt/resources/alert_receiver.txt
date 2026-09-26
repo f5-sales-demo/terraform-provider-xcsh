@@ -1,0 +1,23 @@
+# xcsh_alert_receiver
+
+Category: Monitoring
+New Alert Receiver object
+
+## Required
+
+- name
+- namespace
+- receiver_choice
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_alert_receiver" "example" {
+  name      = "example-alert-receiver"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

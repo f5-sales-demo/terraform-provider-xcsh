@@ -34,6 +34,7 @@ const providerDir = "internal/provider"
 // scripts/check-no-generated-files.sh. Bespoke examples that use the xcsh_ prefix are retained
 // explicitly in the surface keep set.
 var manuallyMaintained = map[string]bool{
+	"addon_service_activation_status":     true,
 	"network_bot_defense":                  true,
 	"network_cdn":                          true,
 	"network_customer_edge_defaults":       true,
@@ -64,7 +65,7 @@ var (
 )
 
 func main() {
-	surface, err := releasesurface.Load("smsv2-release-surface.json")
+	surface, err := releasesurface.Load("provider-release-surface.json")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "load release surface: %v\n", err)
 		os.Exit(1)

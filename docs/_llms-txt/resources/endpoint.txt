@@ -1,0 +1,22 @@
+# xcsh_endpoint
+
+Category: Uncategorized
+Endpoint will create the object in the storage backend for namespace metadata.namespace
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_endpoint" "example" {
+  name      = "example-endpoint"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

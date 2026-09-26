@@ -1,0 +1,40 @@
+{
+  "replacements": [
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_status.namespace",
+      "replacement": "SMSv2 sites are system-scoped; v11 hardcodes the system namespace and retains site as the lookup key."
+    },
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_os.force",
+      "replacement": "The v11 action contract always sends force=false so provider-managed safety checks cannot be bypassed."
+    },
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_os.name",
+      "replacement": "The v11 action uses the required site attribute for the same API object name."
+    },
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_os.namespace",
+      "replacement": "SMSv2 sites are system-scoped; the v11 action hardcodes the system namespace."
+    },
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_os.version",
+      "replacement": "The v11 action uses the required os_version attribute to distinguish the target kind."
+    },
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_sw.force",
+      "replacement": "The v11 action contract always sends force=false so provider-managed safety checks cannot be bypassed."
+    },
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_sw.name",
+      "replacement": "The v11 action uses the required site attribute for the same API object name."
+    },
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_sw.namespace",
+      "replacement": "SMSv2 sites are system-scoped; the v11 action hardcodes the system namespace."
+    },
+    {
+      "diagnostic": "configured attribute removed: xcsh_site_upgrade_sw.version",
+      "replacement": "The v11 action uses the required software_version attribute to distinguish the target kind."
+    }
+  ]
+}

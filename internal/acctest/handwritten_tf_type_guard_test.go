@@ -152,7 +152,7 @@ func TestHandwrittenArtifactsOnlyDeclareRegisteredTypes(t *testing.T) {
 
 	references := collectHandwrittenTypeReferences(t, root)
 
-	// Exact directory coverage is enforced against smsv2-release-surface.json by
+	// Exact directory coverage is enforced against provider-release-surface.json by
 	// generate-provider-docs.sh. This guard needs only a non-empty input plus its
 	// mutation proof below; a legacy numeric floor would reject an intentional
 	// clean break merely because the public provider became smaller.

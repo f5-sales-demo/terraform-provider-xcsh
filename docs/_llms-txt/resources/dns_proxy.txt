@@ -1,0 +1,21 @@
+# xcsh_dns_proxy
+
+Category: DNS
+DNS Proxy in a given namespace. If one already exists it will give an error
+
+## Required
+
+- name
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_dns_proxy" "example" {
+  name      = "example-dns-proxy"
+  namespace = "system"
+}
+```
+
+## Dependencies
+
+Requires: none

@@ -1,0 +1,540 @@
+// Copyright (c) 2026 Robin Mordasiewicz. MIT License.
+
+package provider_test
+
+import (
+	"fmt"
+	"testing"
+
+	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+	"github.com/hashicorp/terraform-plugin-testing/plancheck"
+	"github.com/hashicorp/terraform-plugin-testing/terraform"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
+)
+
+// =============================================================================
+// TRUSTED CA LIST RESOURCE ACCEPTANCE TESTS
+//
+// These tests follow HashiCorp's acceptance testing best practices:
+// https://developer.hashicorp.com/terraform/plugin/testing/testing-patterns
+//
+// Test categories implemented:
+// 1. Basic Lifecycle Test - Create, Read, Import with namespace dependency
+// 2. All Attributes Test - Test all optional attributes
+// 3. Update Tests - Test mutable attributes (labels, annotations, description)
+//
+// Note: trusted_ca_list requires a custom namespace (cannot use "system")
+// Tests create a temporary namespace and wait for it to be ready
+//
+// Run with:
+//   TF_ACC=1 XCSH_API_URL="..." XCSH_P12_FILE="..." XCSH_P12_PASSWORD="..." \
+//   go test -v ./internal/provider/ -run TestAccTrustedCaListResource -timeout 30m
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Test 1: Basic Lifecycle Test
+// Verifies: Create, Read, Import operations with custom namespace
+// Pattern: Basic lifecycle test with namespace dependency
+// -----------------------------------------------------------------------------
+
+func TestAccTrustedCaListResource_basic(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "xcsh_trusted_ca_list.test"
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	name := acctest.RandomName("tf-acc-test-ca")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		ExternalProviders: map[string]resource.ExternalProvider{
+			"time": {Source: "hashicorp/time"},
+		},
+		Steps: []resource.TestStep{
+			// Step 1: Create trusted_ca_list with minimal configuration
+			{
+				Config: testAccTrustedCaListResourceConfig_basic(nsName, name),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "name", name),
+					resource.TestCheckResourceAttr(resourceName, "namespace", nsName),
+					resource.TestCheckResourceAttrSet(resourceName, "id"),
+				),
+			},
+			// Step 2: Import state verification
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateIdFunc:       testAccTrustedCaListResourceImportStateIdFunc(resourceName),
+				ImportStateVerifyIgnore: []string{"timeouts"},
+			},
+		},
+	})
+}
+
+// -----------------------------------------------------------------------------
+// Test 2: All Attributes Test
+// Verifies: All optional attributes (labels, annotations, description)
+// Pattern: Comprehensive attribute coverage
+// -----------------------------------------------------------------------------
+
+func TestAccTrustedCaListResource_allAttributes(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "xcsh_trusted_ca_list.test"
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	name := acctest.RandomName("tf-acc-test-ca")
+	description := "Comprehensive acceptance test trusted CA list"
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		ExternalProviders: map[string]resource.ExternalProvider{
+			"time": {Source: "hashicorp/time"},
+		},
+		Steps: []resource.TestStep{
+			{
+				Config: testAccTrustedCaListResourceConfig_allAttributes(nsName, name, description),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "name", name),
+					resource.TestCheckResourceAttr(resourceName, "namespace", nsName),
+					resource.TestCheckResourceAttr(resourceName, "description", description),
+					resource.TestCheckResourceAttr(resourceName, "labels.environment", "test"),
+					resource.TestCheckResourceAttr(resourceName, "labels.managed_by", "terraform-acceptance-test"),
+					resource.TestCheckResourceAttr(resourceName, "annotations.purpose", "acceptance-testing"),
+					resource.TestCheckResourceAttr(resourceName, "annotations.owner", "ci-cd"),
+				),
+			},
+			// Import verification for all attributes
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateIdFunc:       testAccTrustedCaListResourceImportStateIdFunc(resourceName),
+				ImportStateVerifyIgnore: []string{"timeouts", "disable"},
+			},
+		},
+	})
+}
+
+// -----------------------------------------------------------------------------
+// Test 3: Update Test - Labels
+// Verifies: In-place update of labels attribute
+// Pattern: Update test with multiple steps
+// -----------------------------------------------------------------------------
+
+func TestAccTrustedCaListResource_updateLabels(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "xcsh_trusted_ca_list.test"
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	name := acctest.RandomName("tf-acc-test-ca")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		ExternalProviders: map[string]resource.ExternalProvider{
+			"time": {Source: "hashicorp/time"},
+		},
+		Steps: []resource.TestStep{
+			// Step 1: Create with initial labels
+			{
+				Config: testAccTrustedCaListResourceConfig_withLabels(nsName, name, "test", "terraform"),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "labels.environment", "test"),
+					resource.TestCheckResourceAttr(resourceName, "labels.managed_by", "terraform"),
+				),
+			},
+			// Step 2: Update labels
+			{
+				Config: testAccTrustedCaListResourceConfig_withLabels(nsName, name, "staging", "terraform-updated"),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "labels.environment", "staging"),
+					resource.TestCheckResourceAttr(resourceName, "labels.managed_by", "terraform-updated"),
+				),
+			},
+			// Step 3: Remove all labels
+			{
+				Config: testAccTrustedCaListResourceConfig_basic(nsName, name),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckNoResourceAttr(resourceName, "labels.environment"),
+					resource.TestCheckNoResourceAttr(resourceName, "labels.managed_by"),
+				),
+			},
+		},
+	})
+}
+
+// -----------------------------------------------------------------------------
+// Test 4: Update Test - Description
+// Verifies: Update and removal of description attribute
+// Pattern: Update test for optional string attribute
+// -----------------------------------------------------------------------------
+
+func TestAccTrustedCaListResource_updateDescription(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "xcsh_trusted_ca_list.test"
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	name := acctest.RandomName("tf-acc-test-ca")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		ExternalProviders: map[string]resource.ExternalProvider{
+			"time": {Source: "hashicorp/time"},
+		},
+		Steps: []resource.TestStep{
+			// Step 1: Create without description
+			{
+				Config: testAccTrustedCaListResourceConfig_basic(nsName, name),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckNoResourceAttr(resourceName, "description"),
+				),
+			},
+			// Step 2: Add description
+			{
+				Config: testAccTrustedCaListResourceConfig_withDescription(nsName, name, "Initial description"),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "description", "Initial description"),
+				),
+			},
+			// Step 3: Update description
+			{
+				Config: testAccTrustedCaListResourceConfig_withDescription(nsName, name, "Updated description"),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "description", "Updated description"),
+				),
+			},
+			// Step 4: Remove description
+			{
+				Config: testAccTrustedCaListResourceConfig_basic(nsName, name),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+				),
+			},
+		},
+	})
+}
+
+// -----------------------------------------------------------------------------
+// Test 5: Update Test - Annotations
+// Verifies: Update and removal of annotations attribute
+// Pattern: Update test for map attribute
+// -----------------------------------------------------------------------------
+
+func TestAccTrustedCaListResource_updateAnnotations(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "xcsh_trusted_ca_list.test"
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	name := acctest.RandomName("tf-acc-test-ca")
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		ExternalProviders: map[string]resource.ExternalProvider{
+			"time": {Source: "hashicorp/time"},
+		},
+		Steps: []resource.TestStep{
+			// Step 1: Create with annotations
+			{
+				Config: testAccTrustedCaListResourceConfig_withAnnotations(nsName, name, "value1", "value2"),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "annotations.key1", "value1"),
+					resource.TestCheckResourceAttr(resourceName, "annotations.key2", "value2"),
+				),
+			},
+			// Step 2: Update annotations
+			{
+				Config: testAccTrustedCaListResourceConfig_withAnnotations(nsName, name, "updated1", "updated2"),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "annotations.key1", "updated1"),
+					resource.TestCheckResourceAttr(resourceName, "annotations.key2", "updated2"),
+				),
+			},
+			// Step 3: Remove annotations
+			{
+				Config: testAccTrustedCaListResourceConfig_basic(nsName, name),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+				),
+			},
+		},
+	})
+}
+
+// =============================================================================
+// Helper Functions
+// =============================================================================
+
+// testAccTrustedCaListResourceImportStateIdFunc returns the import ID in namespace/name format
+func testAccTrustedCaListResourceImportStateIdFunc(resourceName string) resource.ImportStateIdFunc {
+	return func(s *terraform.State) (string, error) {
+		rs, ok := s.RootModule().Resources[resourceName]
+		if !ok {
+			return "", fmt.Errorf("Not found: %s", resourceName)
+		}
+		return fmt.Sprintf("%s/%s", rs.Primary.Attributes["namespace"], rs.Primary.Attributes["name"]), nil
+	}
+}
+
+// =============================================================================
+// Test Configuration Functions
+// =============================================================================
+
+// =============================================================================
+// TEST: Empty plan (no drift)
+// =============================================================================
+func TestAccTrustedCaListResource_emptyPlan(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tcl")
+	certBase64 := acctest.MustGenerateTestCertificates().RootCABase64
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		ExternalProviders:        acctest.ExternalProviders,
+		Steps: []resource.TestStep{
+			{Config: testAccTrustedCaListResourceConfig_basicWithCert(nsName, rName, certBase64)},
+			{Config: testAccTrustedCaListResourceConfig_basicWithCert(nsName, rName, certBase64), PlanOnly: true, ExpectNonEmptyPlan: false},
+		},
+	})
+}
+
+// =============================================================================
+// TEST: Plan checks (create, update, noop)
+// =============================================================================
+func TestAccTrustedCaListResource_planChecks(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "xcsh_trusted_ca_list.test"
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tcl")
+	certBase64 := acctest.MustGenerateTestCertificates().RootCABase64
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		ExternalProviders:        acctest.ExternalProviders,
+		Steps: []resource.TestStep{
+			{
+				Config: testAccTrustedCaListResourceConfig_basicWithCert(nsName, rName, certBase64),
+				ConfigPlanChecks: resource.ConfigPlanChecks{
+					PreApply: []plancheck.PlanCheck{plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionCreate)},
+				},
+			},
+			{
+				Config: testAccTrustedCaListResourceConfig_basicWithCert(nsName, rName, certBase64),
+				ConfigPlanChecks: resource.ConfigPlanChecks{
+					PreApply: []plancheck.PlanCheck{plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionNoop)},
+				},
+			},
+		},
+	})
+}
+
+// =============================================================================
+// TEST: Full lifecycle
+// =============================================================================
+func TestAccTrustedCaListResource_fullLifecycle(t *testing.T) {
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	resourceName := "xcsh_trusted_ca_list.test"
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tcl")
+	certBase64 := acctest.MustGenerateTestCertificates().RootCABase64
+
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		ExternalProviders:        acctest.ExternalProviders,
+		Steps: []resource.TestStep{
+			{
+				Config: testAccTrustedCaListResourceConfig_basicWithCert(nsName, rName, certBase64),
+				Check:  acctest.CheckResourceExists(resourceName),
+			},
+			{
+				ResourceName:            resourceName,
+				ImportState:             true,
+				ImportStateVerify:       true,
+				ImportStateVerifyIgnore: []string{"timeouts", "disable", "description"},
+				ImportStateIdFunc:       testAccTrustedCaListResourceImportStateIdFunc(resourceName),
+			},
+			{
+				Config: testAccTrustedCaListResourceConfig_basicWithCert(nsName, rName, certBase64),
+				Check:  acctest.CheckResourceExists(resourceName),
+			},
+			{
+				Config:             testAccTrustedCaListResourceConfig_basicWithCert(nsName, rName, certBase64),
+				PlanOnly:           true,
+				ExpectNonEmptyPlan: false,
+			},
+		},
+	})
+}
+
+// =============================================================================
+// Test Configuration Functions
+// =============================================================================
+
+func testAccTrustedCaListResourceConfig_basic(nsName, name string) string {
+	return testAccTrustedCaListResourceConfig_basicWithCert(nsName, name, acctest.MustGenerateTestCertificates().RootCABase64)
+}
+
+func testAccTrustedCaListResourceConfig_basicWithCert(nsName, name, certBase64 string) string {
+	return acctest.ConfigCompose(
+		acctest.ProviderConfig(),
+		fmt.Sprintf(`
+resource "xcsh_namespace" "test" {
+  name = %[1]q
+}
+
+resource "time_sleep" "wait_for_namespace" {
+  depends_on      = [xcsh_namespace.test]
+  create_duration = "5s"
+}
+
+resource "xcsh_trusted_ca_list" "test" {
+  depends_on     = [time_sleep.wait_for_namespace]
+  name           = %[2]q
+  namespace      = xcsh_namespace.test.name
+  trusted_ca_url = "string:///%[3]s"
+}
+`, nsName, name, certBase64))
+}
+
+func testAccTrustedCaListResourceConfig_allAttributes(nsName, name, description string) string {
+	certs := acctest.MustGenerateTestCertificates()
+	return acctest.ConfigCompose(
+		acctest.ProviderConfig(),
+		fmt.Sprintf(`
+resource "xcsh_namespace" "test" {
+  name = %[1]q
+}
+
+resource "time_sleep" "wait_for_namespace" {
+  depends_on      = [xcsh_namespace.test]
+  create_duration = "5s"
+}
+
+resource "xcsh_trusted_ca_list" "test" {
+  depends_on     = [time_sleep.wait_for_namespace]
+  name           = %[2]q
+  namespace      = xcsh_namespace.test.name
+  trusted_ca_url = "string:///%[4]s"
+  description    = %[3]q
+
+  labels = {
+    environment = "test"
+    managed_by  = "terraform-acceptance-test"
+  }
+
+  annotations = {
+    purpose = "acceptance-testing"
+    owner   = "ci-cd"
+  }
+}
+`, nsName, name, description, certs.RootCABase64))
+}
+
+func testAccTrustedCaListResourceConfig_withLabels(nsName, name, environment, managedBy string) string {
+	certs := acctest.MustGenerateTestCertificates()
+	return acctest.ConfigCompose(
+		acctest.ProviderConfig(),
+		fmt.Sprintf(`
+resource "xcsh_namespace" "test" {
+  name = %[1]q
+}
+
+resource "time_sleep" "wait_for_namespace" {
+  depends_on      = [xcsh_namespace.test]
+  create_duration = "5s"
+}
+
+resource "xcsh_trusted_ca_list" "test" {
+  depends_on     = [time_sleep.wait_for_namespace]
+  name           = %[2]q
+  namespace      = xcsh_namespace.test.name
+  trusted_ca_url = "string:///%[5]s"
+
+  labels = {
+    environment = %[3]q
+    managed_by  = %[4]q
+  }
+}
+`, nsName, name, environment, managedBy, certs.RootCABase64))
+}
+
+func testAccTrustedCaListResourceConfig_withDescription(nsName, name, description string) string {
+	certs := acctest.MustGenerateTestCertificates()
+	return acctest.ConfigCompose(
+		acctest.ProviderConfig(),
+		fmt.Sprintf(`
+resource "xcsh_namespace" "test" {
+  name = %[1]q
+}
+
+resource "time_sleep" "wait_for_namespace" {
+  depends_on      = [xcsh_namespace.test]
+  create_duration = "5s"
+}
+
+resource "xcsh_trusted_ca_list" "test" {
+  depends_on     = [time_sleep.wait_for_namespace]
+  name           = %[2]q
+  namespace      = xcsh_namespace.test.name
+  trusted_ca_url = "string:///%[4]s"
+  description    = %[3]q
+}
+`, nsName, name, description, certs.RootCABase64))
+}
+
+func testAccTrustedCaListResourceConfig_withAnnotations(nsName, name, value1, value2 string) string {
+	certs := acctest.MustGenerateTestCertificates()
+	return acctest.ConfigCompose(
+		acctest.ProviderConfig(),
+		fmt.Sprintf(`
+resource "xcsh_namespace" "test" {
+  name = %[1]q
+}
+
+resource "time_sleep" "wait_for_namespace" {
+  depends_on      = [xcsh_namespace.test]
+  create_duration = "5s"
+}
+
+resource "xcsh_trusted_ca_list" "test" {
+  depends_on     = [time_sleep.wait_for_namespace]
+  name           = %[2]q
+  namespace      = xcsh_namespace.test.name
+  trusted_ca_url = "string:///%[5]s"
+
+  annotations = {
+    key1 = %[3]q
+    key2 = %[4]q
+  }
+}
+`, nsName, name, value1, value2, certs.RootCABase64))
+}
