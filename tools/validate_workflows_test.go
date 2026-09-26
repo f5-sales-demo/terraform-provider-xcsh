@@ -21,6 +21,8 @@ import (
 
 const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
+const providerCandidateRunnerLabel = "terraform-provider-xcsh-32vcpu-candidate"
+const providerCandidateRunnerExpression = "${{ needs.validate.outputs.runner_label }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
 const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
 
@@ -607,6 +609,8 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 		switch label {
 		case repositoryRunnerExpression:
 			canonical[index] = repositoryRunnerLabel
+		case providerCandidateRunnerExpression:
+			canonical[index] = providerCandidateRunnerLabel
 		case sharedSocketlessRunnerExpression:
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
 		case docsSocketlessRunnerExpression:
@@ -977,6 +981,8 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	delete(expected, "enforce-repo-settings.yml/resolve-source")
 	delete(expected, "require-linked-issue.yml/check")
 	expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
+	expected["workload-benchmark.yml/compare"] = true
+	expected["workload-benchmark.yml/validate"] = true
 	if !reflect.DeepEqual(managedSocketless, expected) {
 		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
 	}
