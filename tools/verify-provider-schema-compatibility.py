@@ -1,3 +1,4 @@
+# pylint: disable=invalid-name
 # ruff: noqa: INP001
 """Verify that a candidate provider accepts the v9.5.2 configuration contract."""
 
@@ -46,9 +47,13 @@ def compare_attributes(
             errors.append(f"configured attribute removed: {attribute_path}")
             continue
         if not is_configurable(candidate_attribute):
-            errors.append(f"configured attribute is now computed-only: {attribute_path}")
+            errors.append(
+                f"configured attribute is now computed-only: {attribute_path}"
+            )
             continue
-        if not baseline_attribute.get("required") and candidate_attribute.get("required"):
+        if not baseline_attribute.get("required") and candidate_attribute.get(
+            "required"
+        ):
             errors.append(f"optional attribute is now required: {attribute_path}")
         if baseline_attribute.get("type") != candidate_attribute.get("type"):
             errors.append(f"configured attribute type changed: {attribute_path}")
@@ -56,10 +61,16 @@ def compare_attributes(
         candidate_nested = candidate_attribute.get("nested_type")
         if baseline_nested is not None:
             if candidate_nested is None:
-                errors.append(f"nested configured attribute changed shape: {attribute_path}")
+                errors.append(
+                    f"nested configured attribute changed shape: {attribute_path}"
+                )
                 continue
-            if baseline_nested.get("nesting_mode") != candidate_nested.get("nesting_mode"):
-                errors.append(f"nested configured attribute mode changed: {attribute_path}")
+            if baseline_nested.get("nesting_mode") != candidate_nested.get(
+                "nesting_mode"
+            ):
+                errors.append(
+                    f"nested configured attribute mode changed: {attribute_path}"
+                )
             compare_attributes(
                 baseline_nested.get("attributes", {}),
                 candidate_nested.get("attributes", {}),
@@ -142,7 +153,9 @@ def main() -> int:
         }
         stale = sorted(set(reviewed) - set(errors))
         if stale:
-            errors.extend(f"reviewed replacement no longer matches: {item}" for item in stale)
+            errors.extend(
+                f"reviewed replacement no longer matches: {item}" for item in stale
+            )
         errors = [error for error in errors if error not in reviewed]
 
     counts = ", ".join(
