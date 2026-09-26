@@ -148,54 +148,94 @@ func TestSelectSMSv2KVMRuntimeInterfaceRejectsIdentityAndOwnershipDrift(t *testi
 	}
 }
 
-func TestBuildSMSv2KVMRuntimeInterfaceUpdatePreservesUnrelatedFields(t *testing.T) {
-	_, _, interfaces := kvmRuntimeInterfaceFixture()
-	item := interfaces["items"].([]interface{})[0].(map[string]interface{})
-	original := deepCopySMSv2Map(item["get_spec"].(map[string]interface{}))
-
-	request, err := buildSMSv2KVMRuntimeInterfaceUpdate(item, "10.201.0.11/24", false)
+func TestBuildSMSv2KVMParentUpdatePreservesUnrelatedFields(t *testing.T) {
+	api := newKVMRuntimeInterfaceAPIFixture(t)
+	original := deepCopySMSv2Map(api.configuration["spec"].(map[string]interface{}))
+	target := kvmRuntimeInterfaceTargetFixture()
+	target.OwnerUID = "site-uid-current"
+	request, err := buildSMSv2KVMParentUpdate(api.configuration, target, "10.201.0.11/24", false)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if request["resource_version"] != "rv-7" {
-		t.Fatalf("resource version = %#v", request["resource_version"])
+	if request["resource_version"] != "site-rv-7" {
+		t.Fatalf("parent resource version = %#v", request["resource_version"])
 	}
 	metadata := request["metadata"].(map[string]interface{})
-	if metadata["name"] != longKVMRuntimeInterfaceName || metadata["namespace"] != "system" {
-		t.Fatalf("metadata = %#v", metadata)
+	if metadata["name"] != target.Site || metadata["namespace"] != target.Namespace {
+		t.Fatalf("parent metadata = %#v", metadata)
 	}
-	ethernet := request["spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})
-	if _, ok := ethernet["dhcp_client"]; ok {
-		t.Fatal("DHCP remained in static request")
+	spec := request["spec"].(map[string]interface{})
+	if !reflect.DeepEqual(spec["platform_settings"], map[string]interface{}{"keep": true}) {
+		t.Fatal("unrelated parent settings changed")
 	}
-	if got := ethernet["static_ip"].(map[string]interface{})["node_static_ip"].(map[string]interface{})["ip_address"]; got != "10.201.0.11/24" {
+	nodes := spec["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+	interfaces := nodes[0].(map[string]interface{})["interface_list"].([]interface{})
+	slo := interfaces[0].(map[string]interface{})
+	sli := interfaces[1].(map[string]interface{})
+	if _, ok := slo["dhcp_client"]; !ok {
+		t.Fatal("primary SLO lost DHCP")
+	}
+	if _, ok := sli["dhcp_client"]; ok {
+		t.Fatal("SLI retained DHCP")
+	}
+	if got := sli["static_ip"].(map[string]interface{})["ip_address"]; got != "10.201.0.11/24" {
 		t.Fatalf("static CIDR = %#v", got)
 	}
-	if !reflect.DeepEqual(ethernet["platform_owned_extension"], map[string]interface{}{"keep": true}) {
-		t.Fatalf("unrelated field changed: %#v", ethernet["platform_owned_extension"])
-	}
-	if !reflect.DeepEqual(item["get_spec"], original) {
+	if !reflect.DeepEqual(api.configuration["spec"], original) {
 		t.Fatal("source observation was mutated")
 	}
 }
 
-func TestBuildSMSv2KVMRuntimeInterfaceUpdateRestoresDHCP(t *testing.T) {
-	_, _, interfaces := kvmRuntimeInterfaceFixture()
-	item := interfaces["items"].([]interface{})[0].(map[string]interface{})
-	ethernet := item["get_spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})
-	delete(ethernet, "dhcp_client")
-	ethernet["static_ip"] = map[string]interface{}{"node_static_ip": map[string]interface{}{"ip_address": "10.201.0.11/24"}}
-
-	request, err := buildSMSv2KVMRuntimeInterfaceUpdate(item, "", true)
+func TestBuildSMSv2KVMParentUpdateRestoresDHCP(t *testing.T) {
+	api := newKVMRuntimeInterfaceAPIFixture(t)
+	nodes := api.configuration["spec"].(map[string]interface{})["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+	interfaces := nodes[0].(map[string]interface{})["interface_list"].([]interface{})
+	sli := interfaces[1].(map[string]interface{})
+	delete(sli, "dhcp_client")
+	sli["static_ip"] = map[string]interface{}{"ip_address": "10.201.0.11/24"}
+	target := kvmRuntimeInterfaceTargetFixture()
+	target.OwnerUID = "site-uid-current"
+	request, err := buildSMSv2KVMParentUpdate(api.configuration, target, "", true)
 	if err != nil {
 		t.Fatal(err)
 	}
-	updated := request["spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})
+	updatedNodes := request["spec"].(map[string]interface{})["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+	updated := updatedNodes[0].(map[string]interface{})["interface_list"].([]interface{})[1].(map[string]interface{})
 	if _, ok := updated["static_ip"]; ok {
 		t.Fatal("static IP remained in DHCP restore request")
 	}
 	if got, ok := updated["dhcp_client"].(map[string]interface{}); !ok || len(got) != 0 {
 		t.Fatalf("DHCP marker = %#v", updated["dhcp_client"])
+	}
+}
+
+func TestBuildSMSv2KVMParentUpdateRejectsIdentityAndRoleDrift(t *testing.T) {
+	for name, mutate := range map[string]func(*kvmRuntimeInterfaceAPIFixture, *smsv2KVMRuntimeInterfaceTarget){
+		"missing version": func(api *kvmRuntimeInterfaceAPIFixture, _ *smsv2KVMRuntimeInterfaceTarget) {
+			delete(api.configuration, "resource_version")
+		},
+		"stale owner": func(_ *kvmRuntimeInterfaceAPIFixture, target *smsv2KVMRuntimeInterfaceTarget) {
+			target.OwnerUID = "other"
+		},
+		"wrong device": func(_ *kvmRuntimeInterfaceAPIFixture, target *smsv2KVMRuntimeInterfaceTarget) { target.Device = "ens3" },
+		"wrong MAC": func(_ *kvmRuntimeInterfaceAPIFixture, target *smsv2KVMRuntimeInterfaceTarget) {
+			target.ExpectedMAC = "52:54:00:20:00:12"
+		},
+		"wrong role": func(api *kvmRuntimeInterfaceAPIFixture, _ *smsv2KVMRuntimeInterfaceTarget) {
+			nodes := api.configuration["spec"].(map[string]interface{})["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+			sli := nodes[0].(map[string]interface{})["interface_list"].([]interface{})[1].(map[string]interface{})
+			sli["network_option"] = map[string]interface{}{"site_local_network": map[string]interface{}{}}
+		},
+	} {
+		t.Run(name, func(t *testing.T) {
+			api := newKVMRuntimeInterfaceAPIFixture(t)
+			target := kvmRuntimeInterfaceTargetFixture()
+			target.OwnerUID = "site-uid-current"
+			mutate(api, &target)
+			if _, err := buildSMSv2KVMParentUpdate(api.configuration, target, "10.201.0.11/24", false); err == nil {
+				t.Fatal("unsafe parent update accepted")
+			}
+		})
 	}
 }
 
@@ -221,21 +261,34 @@ func TestKVMRuntimeInterfaceDiagnosticsAreSecretFree(t *testing.T) {
 }
 
 type kvmRuntimeInterfaceAPIFixture struct {
-	t             *testing.T
-	mu            sync.Mutex
-	object        map[string]interface{}
-	missing       bool
-	methods       []string
-	lastPut       map[string]interface{}
-	putCount      int
-	postCount     int
-	deleteCount   int
-	registrations *client.RegistrationListResponse
-	configuration client.SMSv2Observation
+	t               *testing.T
+	mu              sync.Mutex
+	object          map[string]interface{}
+	missing         bool
+	methods         []string
+	lastPut         map[string]interface{}
+	putCount        int
+	parentPutCount  int
+	rejectChildPUT  bool
+	rejectParentPUT bool
+	postCount       int
+	deleteCount     int
+	registrations   *client.RegistrationListResponse
+	configuration   client.SMSv2Observation
 }
 
 func newKVMRuntimeInterfaceAPIFixture(t *testing.T) *kvmRuntimeInterfaceAPIFixture {
 	site, registrations, interfaces := kvmRuntimeInterfaceFixture()
+	site["resource_version"] = "site-rv-7"
+	site["spec"] = map[string]interface{}{
+		"platform_settings": map[string]interface{}{"keep": true},
+		"kvm": map[string]interface{}{"not_managed": map[string]interface{}{"node_list": []interface{}{
+			map[string]interface{}{"hostname": "onprem-ce-01-90607", "interface_list": []interface{}{
+				map[string]interface{}{"name": "ens3", "ethernet_interface": map[string]interface{}{"device": "ens3", "mac": "52:54:00:10:00:11"}, "network_option": map[string]interface{}{"site_local_network": map[string]interface{}{}}, "dhcp_client": map[string]interface{}{}, "is_primary": true},
+				map[string]interface{}{"name": "ens4", "ethernet_interface": map[string]interface{}{"device": "ens4", "mac": "52:54:00:20:00:11"}, "network_option": map[string]interface{}{"site_local_inside_network": map[string]interface{}{}}, "dhcp_client": map[string]interface{}{}, "is_primary": false},
+			}},
+		}}},
+	}
 	item := interfaces["items"].([]interface{})[0].(map[string]interface{})
 	return &kvmRuntimeInterfaceAPIFixture{
 		t: t, configuration: site, registrations: registrations,
@@ -270,6 +323,37 @@ func (f *kvmRuntimeInterfaceAPIFixture) handler(w http.ResponseWriter, request *
 	switch {
 	case request.Method == http.MethodGet && request.URL.Path == "/api/config/namespaces/system/securemesh_site_v2s/mcn-ce-ha-smsv2-current-kvm":
 		_ = json.NewEncoder(w).Encode(f.configuration)
+	case request.Method == http.MethodPut && request.URL.Path == "/api/config/namespaces/system/securemesh_site_v2s/mcn-ce-ha-smsv2-current-kvm":
+		var body map[string]interface{}
+		if err := json.NewDecoder(request.Body).Decode(&body); err != nil {
+			f.t.Fatalf("decode parent PUT: %v", err)
+		}
+		f.putCount++
+		f.parentPutCount++
+		f.lastPut = deepCopySMSv2Map(body)
+		if f.rejectParentPUT {
+			http.Error(w, "stale parent version", http.StatusConflict)
+			return
+		}
+		if body["resource_version"] != f.configuration["resource_version"] {
+			http.Error(w, "stale parent version", http.StatusConflict)
+			return
+		}
+		nodes := body["spec"].(map[string]interface{})["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+		interfaces := nodes[0].(map[string]interface{})["interface_list"].([]interface{})
+		sli := interfaces[1].(map[string]interface{})
+		ethernet := f.object["spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})
+		if static, ok := sli["static_ip"]; ok {
+			delete(ethernet, "dhcp_client")
+			ethernet["static_ip"] = map[string]interface{}{"node_static_ip": map[string]interface{}{"ip_address": static.(map[string]interface{})["ip_address"]}}
+		} else {
+			delete(ethernet, "static_ip")
+			ethernet["dhcp_client"] = map[string]interface{}{}
+		}
+		f.configuration["spec"] = body["spec"]
+		f.configuration["resource_version"] = "site-rv-next"
+		f.object["resource_version"] = "rv-next"
+		_ = json.NewEncoder(w).Encode(f.configuration)
 	case request.Method == http.MethodGet && request.URL.Path == "/api/register/namespaces/system/registrations_by_site/mcn-ce-ha-smsv2-current-kvm":
 		_ = json.NewEncoder(w).Encode(f.registrations)
 	case request.Method == http.MethodGet && request.URL.Path == "/api/config/namespaces/system/network_interfaces":
@@ -285,6 +369,10 @@ func (f *kvmRuntimeInterfaceAPIFixture) handler(w http.ResponseWriter, request *
 		}
 		_ = json.NewEncoder(w).Encode(f.object)
 	case request.Method == http.MethodPut && request.URL.Path == "/api/config/namespaces/system/network_interfaces/"+longKVMRuntimeInterfaceName:
+		if f.rejectChildPUT {
+			http.Error(w, "child object cannot be updated directly", http.StatusForbidden)
+			return
+		}
 		var body map[string]interface{}
 		if err := json.NewDecoder(request.Body).Decode(&body); err != nil {
 			f.t.Fatalf("decode PUT: %v", err)
@@ -297,6 +385,75 @@ func (f *kvmRuntimeInterfaceAPIFixture) handler(w http.ResponseWriter, request *
 		_ = json.NewEncoder(w).Encode(f.object)
 	default:
 		http.NotFound(w, request)
+	}
+}
+
+func TestSMSv2KVMRuntimeInterfaceWritesThroughOwningSite(t *testing.T) {
+	api := newKVMRuntimeInterfaceAPIFixture(t)
+	originalNodes := api.configuration["spec"].(map[string]interface{})["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+	originalInterfaces := originalNodes[0].(map[string]interface{})["interface_list"].([]interface{})
+	originalSLO := deepCopySMSv2Map(originalInterfaces[0].(map[string]interface{}))
+	api.rejectChildPUT = true
+	server := httptest.NewServer(http.HandlerFunc(api.handler))
+	defer server.Close()
+	providerResource := &Smsv2KVMRuntimeInterfaceResource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
+	ctx := context.Background()
+	schemaResponse := &frameworkresource.SchemaResponse{}
+	providerResource.Schema(ctx, frameworkresource.SchemaRequest{}, schemaResponse)
+	model := kvmRuntimeInterfaceModel()
+	model.InterfaceName = types.StringNull()
+	model.Hostname = types.StringNull()
+	model.Device = types.StringNull()
+	response := frameworkresource.CreateResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
+	providerResource.Create(ctx, frameworkresource.CreateRequest{Plan: tfsdk.Plan{
+		Schema: schemaResponse.Schema, Raw: responseOperationRaw(t, model, schemaResponse.Schema.Type()),
+	}}, &response)
+	if response.Diagnostics.HasError() {
+		t.Fatalf("owner update failed: %v", response.Diagnostics)
+	}
+	if api.parentPutCount != 1 || api.putCount != 1 {
+		t.Fatalf("expected one parent PUT and no child PUT: parent=%d total=%d", api.parentPutCount, api.putCount)
+	}
+	spec := api.lastPut["spec"].(map[string]interface{})
+	if !reflect.DeepEqual(spec["platform_settings"], map[string]interface{}{"keep": true}) {
+		t.Fatal("owner update discarded unrelated site settings")
+	}
+	nodes := spec["kvm"].(map[string]interface{})["not_managed"].(map[string]interface{})["node_list"].([]interface{})
+	interfaces := nodes[0].(map[string]interface{})["interface_list"].([]interface{})
+	slo := interfaces[0].(map[string]interface{})
+	sli := interfaces[1].(map[string]interface{})
+	if !reflect.DeepEqual(slo, originalSLO) {
+		t.Fatal("owner update changed the primary SLO")
+	}
+	if _, ok := sli["dhcp_client"]; ok {
+		t.Fatal("owner update left SLI on DHCP")
+	}
+	if sli["static_ip"].(map[string]interface{})["ip_address"] != "10.201.0.11/24" {
+		t.Fatal("owner update used the wrong SLI address")
+	}
+}
+
+func TestSMSv2KVMRuntimeInterfaceRejectsStaleParentVersionWithoutRetry(t *testing.T) {
+	api := newKVMRuntimeInterfaceAPIFixture(t)
+	api.rejectChildPUT = true
+	api.rejectParentPUT = true
+	server := httptest.NewServer(http.HandlerFunc(api.handler))
+	defer server.Close()
+	providerResource := &Smsv2KVMRuntimeInterfaceResource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
+	ctx := context.Background()
+	schemaResponse := &frameworkresource.SchemaResponse{}
+	providerResource.Schema(ctx, frameworkresource.SchemaRequest{}, schemaResponse)
+	model := kvmRuntimeInterfaceModel()
+	model.InterfaceName, model.Hostname, model.Device = types.StringNull(), types.StringNull(), types.StringNull()
+	response := frameworkresource.CreateResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
+	providerResource.Create(ctx, frameworkresource.CreateRequest{Plan: tfsdk.Plan{
+		Schema: schemaResponse.Schema, Raw: responseOperationRaw(t, model, schemaResponse.Schema.Type()),
+	}}, &response)
+	if !response.Diagnostics.HasError() {
+		t.Fatal("stale parent version was accepted")
+	}
+	if api.parentPutCount != 1 || api.putCount != 1 {
+		t.Fatalf("stale version retried or child written: parent=%d total=%d", api.parentPutCount, api.putCount)
 	}
 }
 
@@ -362,9 +519,8 @@ func TestSMSv2KVMRuntimeInterfaceAdoptsWithPUTReconcilesEOFAndRestoresDHCP(t *te
 	if api.putCount != 1 || api.postCount != 0 || api.deleteCount != 0 {
 		t.Fatalf("mutation counts after adoption: PUT=%d POST=%d DELETE=%d", api.putCount, api.postCount, api.deleteCount)
 	}
-	putEthernet := api.lastPut["spec"].(map[string]interface{})["ethernet_interface"].(map[string]interface{})
-	if !reflect.DeepEqual(putEthernet["platform_owned_extension"], map[string]interface{}{"keep": true}) {
-		t.Fatalf("PUT discarded platform-owned data: %#v", putEthernet)
+	if api.parentPutCount != 1 {
+		t.Fatalf("expected parent PUT, got %d", api.parentPutCount)
 	}
 	api.mu.Unlock()
 

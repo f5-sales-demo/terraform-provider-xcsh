@@ -367,38 +367,86 @@ func normalizeSMSv2KVMRuntimeInterfaceObservation(observation client.SMSv2Observ
 	return item
 }
 
-func buildSMSv2KVMRuntimeInterfaceUpdate(item map[string]interface{}, cidr string, restoreDHCP bool) (map[string]interface{}, error) {
-	name, namespace := smsv2RuntimeInterfaceItemIdentity(item)
-	spec, ok := smsv2RuntimeInterfaceSpec(item)
-	if name == "" || namespace == "" || !ok {
-		return nil, fmt.Errorf("runtime interface response is missing metadata or spec")
+func buildSMSv2KVMParentUpdate(configuration client.SMSv2Observation, target smsv2KVMRuntimeInterfaceTarget, cidr string, restoreDHCP bool) (map[string]interface{}, error) {
+	raw := map[string]interface{}(configuration)
+	metadata, metadataOK := nestedMap(raw, "metadata")
+	system, systemOK := nestedMap(raw, "system_metadata")
+	spec, specOK := nestedMap(raw, "spec")
+	version := stringField(raw, "resource_version")
+	if !metadataOK || !systemOK || !specOK || version == "" ||
+		stringField(metadata, "name") != target.Site || stringField(metadata, "namespace") != target.Namespace ||
+		stringField(system, "uid") == "" || stringField(system, "uid") != target.OwnerUID {
+		return nil, fmt.Errorf("owning Secure Mesh Site v2 identity or resource version is unavailable or changed")
 	}
-	resourceVersion := stringField(item, "resource_version")
-	if resourceVersion == "" {
-		return nil, fmt.Errorf("runtime interface response has no resource version")
+	wantedMAC, err := normalizeSMSv2MAC(target.ExpectedMAC)
+	if err != nil {
+		return nil, err
 	}
 	updatedSpec := deepCopySMSv2Map(spec)
-	ethernet, ok := nestedMap(updatedSpec, "ethernet_interface")
+	notManaged, ok := nestedMap(updatedSpec, "kvm", "not_managed")
 	if !ok {
-		return nil, fmt.Errorf("runtime interface response has no ethernet_interface spec")
+		return nil, fmt.Errorf("owning KVM site has no not_managed node configuration")
+	}
+	nodes, ok := notManaged["node_list"].([]interface{})
+	if !ok {
+		return nil, fmt.Errorf("owning KVM site has no node_list")
+	}
+	var selected map[string]interface{}
+	matches := 0
+	for _, rawNode := range nodes {
+		node, nodeOK := rawNode.(map[string]interface{})
+		if !nodeOK {
+			return nil, fmt.Errorf("owning KVM site has a malformed node")
+		}
+		if stringField(node, "hostname") != target.Hostname {
+			continue
+		}
+		interfaces, listOK := node["interface_list"].([]interface{})
+		if !listOK {
+			return nil, fmt.Errorf("owning KVM node has no interface_list")
+		}
+		for _, rawInterface := range interfaces {
+			candidate, candidateOK := rawInterface.(map[string]interface{})
+			if !candidateOK {
+				return nil, fmt.Errorf("owning KVM node has a malformed interface")
+			}
+			ethernet, ethernetOK := nestedMap(candidate, "ethernet_interface")
+			if !ethernetOK || stringField(ethernet, "device") != target.Device {
+				continue
+			}
+			mac, macErr := normalizeSMSv2MAC(stringField(ethernet, "mac"))
+			role, roleOK := nestedMap(candidate, "network_option")
+			_, sli := role["site_local_inside_network"]
+			_, slo := role["site_local_network"]
+			if macErr != nil || mac != wantedMAC || !roleOK || !sli || slo || candidate["is_primary"] == true {
+				return nil, fmt.Errorf("owning KVM interface MAC or SLI role does not match the live registration")
+			}
+			selected = candidate
+			matches++
+		}
+	}
+	if matches != 1 {
+		return nil, fmt.Errorf("expected one exact SLI in the owning KVM site; observed %d", matches)
 	}
 	if restoreDHCP {
-		delete(ethernet, "static_ip")
-		ethernet["dhcp_client"] = map[string]interface{}{}
+		delete(selected, "static_ip")
+		selected["dhcp_client"] = map[string]interface{}{}
 	} else {
-		canonical, err := canonicalKVMRuntimeInterfaceCIDR(cidr)
-		if err != nil {
-			return nil, err
+		canonical, canonicalErr := canonicalKVMRuntimeInterfaceCIDR(cidr)
+		if canonicalErr != nil {
+			return nil, canonicalErr
 		}
-		delete(ethernet, "dhcp_client")
-		ethernet["static_ip"] = map[string]interface{}{"node_static_ip": map[string]interface{}{"ip_address": canonical}}
+		delete(selected, "dhcp_client")
+		staticIP, ok := nestedMap(selected, "static_ip")
+		if !ok {
+			staticIP = map[string]interface{}{}
+			selected["static_ip"] = staticIP
+		}
+		staticIP["ip_address"] = canonical
 	}
-	metadata := map[string]interface{}{}
-	if existing, ok := nestedMap(item, "metadata"); ok {
-		metadata = deepCopySMSv2Map(existing)
-	}
-	metadata["name"], metadata["namespace"] = name, namespace
-	return map[string]interface{}{"metadata": metadata, "spec": updatedSpec, "resource_version": resourceVersion}, nil
+	return map[string]interface{}{
+		"metadata": deepCopySMSv2Map(metadata), "spec": updatedSpec, "resource_version": version,
+	}, nil
 }
 
 func currentSMSv2KVMRuntimeInterfaceCIDR(object smsv2KVMRuntimeInterfaceObject) (string, bool, error) {
@@ -467,12 +515,16 @@ func (r *Smsv2KVMRuntimeInterfaceResource) observe(ctx context.Context, target s
 }
 
 func (r *Smsv2KVMRuntimeInterfaceResource) putAndReconcile(ctx context.Context, target smsv2KVMRuntimeInterfaceTarget, object smsv2KVMRuntimeInterfaceObject, cidr string, restoreDHCP bool) (smsv2KVMRuntimeInterfaceObject, error) {
-	request, err := buildSMSv2KVMRuntimeInterfaceUpdate(object.Raw, cidr, restoreDHCP)
+	target.Name, target.Hostname, target.Device, target.OwnerUID = object.Name, object.Hostname, object.Device, object.OwnerUID
+	configuration, err := r.client.GetSMSv2Configuration(ctx, target.Namespace, target.Site)
 	if err != nil {
 		return smsv2KVMRuntimeInterfaceObject{}, err
 	}
-	target.Name, target.Hostname, target.Device, target.OwnerUID = object.Name, object.Hostname, object.Device, object.OwnerUID
-	path := fmt.Sprintf("/api/config/namespaces/%s/network_interfaces/%s", url.PathEscape(object.Namespace), url.PathEscape(object.Name))
+	request, err := buildSMSv2KVMParentUpdate(configuration, target, cidr, restoreDHCP)
+	if err != nil {
+		return smsv2KVMRuntimeInterfaceObject{}, err
+	}
+	path := fmt.Sprintf("/api/config/namespaces/%s/securemesh_site_v2s/%s", url.PathEscape(target.Namespace), url.PathEscape(target.Site))
 	var response client.SMSv2Observation
 	putErr := r.client.PutOnce(ctx, path, request, &response)
 	if putErr != nil && !isAmbiguousSMSv2KVMRuntimeInterfacePUT(putErr) {
@@ -481,7 +533,7 @@ func (r *Smsv2KVMRuntimeInterfaceResource) putAndReconcile(ctx context.Context, 
 	observed, readErr := r.observe(ctx, target)
 	if readErr != nil {
 		if putErr != nil {
-			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("runtime interface PUT outcome could not be reconciled by exact-name read: %w", putErr)
+			return smsv2KVMRuntimeInterfaceObject{}, fmt.Errorf("owning site PUT outcome could not be reconciled by exact-name read: %w", putErr)
 		}
 		return smsv2KVMRuntimeInterfaceObject{}, readErr
 	}
