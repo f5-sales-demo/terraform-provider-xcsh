@@ -338,6 +338,15 @@ func TestWireNameResourceCompiles(t *testing.T) {
 	clientDir := filepath.Join(root, "internal", "client")
 	resourceFile := filepath.Join(provDir, "zz_wire_probe_resource.go")
 	clientTypes := filepath.Join(clientDir, "zz_wire_probe_types.go")
+	// These names are reserved exclusively for this test. A previous process may
+	// have been terminated after writing them but before t.Cleanup could run;
+	// remove only those known synthetic artifacts so a controlled retry starts
+	// from a clean module tree.
+	for _, path := range []string{resourceFile, clientTypes} {
+		if err := os.Remove(path); err != nil && !os.IsNotExist(err) {
+			t.Fatalf("removing stale wire probe %s: %v", path, err)
+		}
+	}
 	for _, path := range []string{resourceFile, clientTypes} {
 		if _, err := os.Stat(path); err == nil {
 			t.Fatalf("refusing to clobber existing %s", path)
