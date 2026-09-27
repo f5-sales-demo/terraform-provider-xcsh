@@ -62,8 +62,9 @@ sed -E \
 git diff --binary --no-ext-diff | sed -E 's/index [0-9a-f]+\.\.[0-9a-f]+/index <digest>..<digest>/' \
   >"$evidence_dir/worktree-output.patch"
 {
-  sha256sum "$evidence_dir/package-inventory.txt"
-  sha256sum "$evidence_dir/normalized-output.txt"
-  sha256sum "$evidence_dir/worktree-output.patch"
+  # Hash content only: evidence paths differ across runner kinds.
+  sha256sum <"$evidence_dir/package-inventory.txt"
+  sha256sum <"$evidence_dir/normalized-output.txt"
+  sha256sum <"$evidence_dir/worktree-output.patch"
 } | sha256sum | awk '{print "sha256:" $1}' >"$evidence_dir/output-digest.txt"
 exit "$status"
