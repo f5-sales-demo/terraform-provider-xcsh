@@ -25,6 +25,9 @@ require "$root/scripts/run-provider-benchmark.sh" '"${observed_image##*@}" == "$
 require "$root/scripts/run-provider-benchmark.sh" 'export GOGC=20'
 require "$root/scripts/run-provider-benchmark.sh" 'export GOMEMLIMIT=4GiB'
 require "$root/scripts/run-provider-benchmark.sh" 'export GOMAXPROCS=1'
+require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/package-inventory.txt"'
+require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/normalized-output.txt"'
+require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/worktree-output.patch"'
 bash -n "$root/scripts/run-provider-benchmark.sh"
 bash -n "$root/scripts/run-provider-benchmark-phase.sh"
 printf 'CI performance workflow contract tests passed\n'
