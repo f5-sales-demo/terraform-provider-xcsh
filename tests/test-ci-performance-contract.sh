@@ -22,6 +22,9 @@ require "$benchmark" 'runs-on: ${{ needs.validate.outputs.runner_label }}'
 require "$root/scripts/run-provider-benchmark.sh" 'script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)'
 require "$root/scripts/run-provider-benchmark.sh" '"$script_dir/run-provider-benchmark-phase.sh"'
 require "$root/scripts/run-provider-benchmark.sh" '"${observed_image##*@}" == "${expected_image##*@}"'
+require "$root/scripts/run-provider-benchmark.sh" 'export GOGC=20'
+require "$root/scripts/run-provider-benchmark.sh" 'export GOMEMLIMIT=4GiB'
+require "$root/scripts/run-provider-benchmark.sh" 'export GOMAXPROCS=1'
 bash -n "$root/scripts/run-provider-benchmark.sh"
 bash -n "$root/scripts/run-provider-benchmark-phase.sh"
 printf 'CI performance workflow contract tests passed\n'
