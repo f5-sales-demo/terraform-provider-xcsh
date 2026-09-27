@@ -24,6 +24,13 @@ script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 mkdir -p "$evidence_dir"
 export CHECKPOINT_DISABLE=1
+# The production build gate deliberately constrains the generated-provider
+# compiler footprint on GitHub-hosted runners. Apply the same contract to both
+# benchmark sides so a candidate comparison cannot evade the bounded-memory
+# correctness gate.
+export GOGC=20
+export GOMEMLIMIT=4GiB
+export GOMAXPROCS=1
 observed_image=${RUNNER_IMAGE_DIGEST:-github-hosted}
 profiler=.runner-harness/scripts/runner-profile.py
 if [ "$runner_kind" = eks ]; then
