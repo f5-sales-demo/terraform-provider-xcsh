@@ -654,9 +654,16 @@ func TestOnMergeGeneratorStateTruthTable(t *testing.T) {
 			"PROVIDER_REQUIRED":            "true",
 			"PROVIDER_RESULT":              "success",
 			"PROVIDER_CHANGED":             "false",
+			"PROVIDER_ARTIFACT_NAME":       "provider-generation-1-1",
+			"PROVIDER_SOURCE_SHA":          strings.Repeat("a", 40),
+			"PROVIDER_DIGEST":              "sha256:" + strings.Repeat("b", 64),
 			"DOCS_REQUIRED":                "true",
 			"DOCS_RESULT":                  "success",
 			"DOCS_CHANGED":                 "false",
+			"DOCS_ARTIFACT_NAME":           "combined-generation-1-1",
+			"DOCS_SOURCE_SHA":              strings.Repeat("a", 40),
+			"DOCS_DIGEST":                  "sha256:" + strings.Repeat("c", 64),
+			"SOURCE_COMMIT":                strings.Repeat("a", 40),
 			"GITHUB_OUTPUT":                output,
 		}
 		for _, assignment := range extraEnv {
@@ -719,6 +726,26 @@ func TestOnMergeGeneratorStateTruthTable(t *testing.T) {
 		}
 		if strings.Contains(outputs, "create_pr=true") || strings.Contains(outputs, "release=true") {
 			t.Fatalf("missing changed output emitted authorization:\n%s", outputs)
+		}
+	})
+
+	t.Run("successful generator artifact must match source and digest", func(t *testing.T) {
+		for _, invalid := range []string{
+			"PROVIDER_ARTIFACT_NAME=",
+			"PROVIDER_SOURCE_SHA=" + strings.Repeat("d", 40),
+			"PROVIDER_DIGEST=not-a-digest",
+			"DOCS_ARTIFACT_NAME=",
+			"DOCS_SOURCE_SHA=" + strings.Repeat("d", 40),
+			"DOCS_DIGEST=not-a-digest",
+		} {
+			outputs, result, err := run(t, invalid)
+			if err == nil {
+				t.Fatalf("invalid artifact provenance %q passed:\n%s", invalid, outputs)
+			}
+			if strings.Contains(outputs, "create_pr=true") ||
+				strings.Contains(outputs, "release=true") {
+				t.Fatalf("invalid artifact provenance emitted authorization: %v\n%s", err, result)
+			}
 		}
 	})
 
