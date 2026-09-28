@@ -30,7 +30,7 @@ export CHECKPOINT_DISABLE=1
 # correctness gate.
 export GOGC=20
 export GOMEMLIMIT=4GiB
-export GOMAXPROCS=1
+export GOMAXPROCS="$concurrency"
 observed_image=${RUNNER_IMAGE_DIGEST:-github-hosted}
 profiler=.runner-harness/scripts/runner-profile.py
 if [ "$runner_kind" = eks ]; then
