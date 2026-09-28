@@ -20,7 +20,11 @@ script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 [[ "$runner_kind" =~ ^(hosted|eks)$ ]]
 [[ "$cache_state" =~ ^(cold|warm)$ ]]
 [[ "$pair_id" =~ ^[1-5]$ ]]
-[[ "$(git rev-parse HEAD)" = "$source_sha" ]]
+actual_source_sha=$(git rev-parse HEAD)
+if [ "$actual_source_sha" != "$source_sha" ]; then
+  echo "source SHA mismatch: expected $source_sha, observed $actual_source_sha" >&2
+  exit 1
+fi
 
 mkdir -p "$evidence_dir"
 export CHECKPOINT_DISABLE=1
@@ -34,10 +38,19 @@ export GOMAXPROCS="$concurrency"
 observed_image=${RUNNER_IMAGE_DIGEST:-github-hosted}
 profiler=.runner-harness/scripts/runner-profile.py
 if [ "$runner_kind" = eks ]; then
-  [[ "$observed_image" == "$expected_image" ||
-    "${observed_image##*@}" == "${expected_image##*@}" ]]
-  test "$(command -v runner-profile)" = /usr/local/bin/runner-profile
-  cmp -s /usr/local/bin/runner-profile "$profiler"
+  if [[ "$observed_image" != "$expected_image" &&
+    "${observed_image##*@}" != "${expected_image##*@}" ]]; then
+    echo "runner image mismatch: expected $expected_image, observed $observed_image" >&2
+    exit 1
+  fi
+  if [ "$(command -v runner-profile)" != /usr/local/bin/runner-profile ]; then
+    echo "runner-profile is not installed at the governed image path" >&2
+    exit 1
+  fi
+  if ! cmp -s /usr/local/bin/runner-profile "$profiler"; then
+    echo "image-resident runner-profile differs from the frozen harness copy" >&2
+    exit 1
+  fi
   profiler=/usr/local/bin/runner-profile
 fi
 
