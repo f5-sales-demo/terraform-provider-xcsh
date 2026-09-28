@@ -603,9 +603,16 @@ jobs:
           PROVIDER_REQUIRED: ${{ needs.detect-changes.outputs.provider-regeneration-required }}
           PROVIDER_RESULT: ${{ needs.regenerate-provider.result }}
           PROVIDER_CHANGED: ${{ needs.regenerate-provider.outputs.changed }}
+          PROVIDER_ARTIFACT_NAME: ${{ needs.regenerate-provider.outputs.generation-artifact-name }}
+          PROVIDER_SOURCE_SHA: ${{ needs.regenerate-provider.outputs.source-sha }}
+          PROVIDER_DIGEST: ${{ needs.regenerate-provider.outputs.digest }}
           DOCS_REQUIRED: ${{ needs.detect-changes.outputs.docs-regeneration-required }}
           DOCS_RESULT: ${{ needs.regenerate-docs.result }}
           DOCS_CHANGED: ${{ needs.regenerate-docs.outputs.changed }}
+          DOCS_ARTIFACT_NAME: ${{ needs.regenerate-docs.outputs.generation-artifact-name }}
+          DOCS_SOURCE_SHA: ${{ needs.regenerate-docs.outputs.source-sha }}
+          DOCS_DIGEST: ${{ needs.regenerate-docs.outputs.digest }}
+          SOURCE_COMMIT: ${{ github.sha }}
         run: |
           set -euo pipefail
           CREATE_PR=false
@@ -640,6 +647,7 @@ jobs:
 
           validate_generator() {
             local name=$1 required=$2 result=$3 changed=$4
+            local artifact_name=$5 source_sha=$6 digest=$7
             if [ "$required" = "true" ]; then
               [ "$result" = "success" ] || {
                 echo "::error::Applicable ${name} generator result is ${result:-missing}, not success"
@@ -652,6 +660,18 @@ jobs:
                   return 1
                   ;;
               esac
+              [ -n "$artifact_name" ] || {
+                echo "::error::Successful ${name} generator has no artifact name"
+                return 1
+              }
+              [ "$source_sha" = "$SOURCE_COMMIT" ] || {
+                echo "::error::Successful ${name} generator source differs from the trigger"
+                return 1
+              }
+              [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ ]] || {
+                echo "::error::Successful ${name} generator digest is malformed"
+                return 1
+              }
             else
               [ "$result" = "skipped" ] || {
                 echo "::error::Non-applicable ${name} generator result is ${result:-missing}, not skipped"
@@ -660,8 +680,11 @@ jobs:
             fi
           }
 
-          validate_generator provider "$PROVIDER_REQUIRED" "$PROVIDER_RESULT" "$PROVIDER_CHANGED"
-          validate_generator docs "$DOCS_REQUIRED" "$DOCS_RESULT" "$DOCS_CHANGED"
+          validate_generator provider "$PROVIDER_REQUIRED" "$PROVIDER_RESULT" \
+            "$PROVIDER_CHANGED" "$PROVIDER_ARTIFACT_NAME" "$PROVIDER_SOURCE_SHA" \
+            "$PROVIDER_DIGEST"
+          validate_generator docs "$DOCS_REQUIRED" "$DOCS_RESULT" \
+            "$DOCS_CHANGED" "$DOCS_ARTIFACT_NAME" "$DOCS_SOURCE_SHA" "$DOCS_DIGEST"
 
           if [ "$PENDING_DELIVERY" = "true" ] ||
              [ "$PROVIDER_CHANGED" = "true" ] || [ "$DOCS_CHANGED" = "true" ]; then
@@ -1165,6 +1188,9 @@ jobs:
           BUILD_TEST_RESULT: ${{ needs.build-test.result }}
           PROVIDER_RESULT: ${{ needs.regenerate-provider.result }}
           DOCS_RESULT: ${{ needs.regenerate-docs.result }}
+          GENERATION_ARTIFACT: ${{ needs.regenerate-docs.outputs.generation-artifact-name }}
+          GENERATION_SOURCE_SHA: ${{ needs.regenerate-docs.outputs.source-sha }}
+          GENERATION_DIGEST: ${{ needs.regenerate-docs.outputs.digest }}
           GENERATION_STATE_RESULT: ${{ needs.generation-state.result }}
           CREATE_PR_REQUIRED: ${{ needs.generation-state.outputs.create-pr }}
           RELEASE_REQUIRED: ${{ needs.generation-state.outputs.release }}
@@ -1187,6 +1213,9 @@ jobs:
             echo "| Build/Test | ${BUILD_TEST_RESULT} |"
             echo "| Provider Regenerated | ${PROVIDER_RESULT} |"
             echo "| Docs Regenerated | ${DOCS_RESULT} |"
+            echo "| Generation Artifact | ${GENERATION_ARTIFACT:-n/a} |"
+            echo "| Generation Source | ${GENERATION_SOURCE_SHA:-n/a} |"
+            echo "| Generation Digest | ${GENERATION_DIGEST:-n/a} |"
             echo "| Generator State | ${GENERATION_STATE_RESULT} |"
             echo "| Regeneration PR Created | ${PR_RESULT} |"
             echo "| Tagged/Released | ${TAG_RELEASE_RESULT} |"

@@ -79,6 +79,8 @@ require "$merge" 'needs: [detect-changes, build-test, regenerate-provider]'
 require "$merge" 'outputs.generation-artifact-name'
 require "$merge" 'Verify and apply combined generation artifact'
 require "$merge" 'needs: [detect-changes, generation-state, create-regeneration-pr]'
+require "$merge" 'Successful ${name} generator source differs from the trigger'
+require "$merge" 'Generation Digest'
 
 publisher=$(sed -n '/^  create-regeneration-pr:/,/^  # STEP 7:/p' "$merge")
 if grep -Eq 'go run tools/generate-all-schemas|go build|go vet|generate-provider-docs' <<<"$publisher"; then
