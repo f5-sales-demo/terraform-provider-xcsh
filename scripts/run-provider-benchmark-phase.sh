@@ -32,7 +32,7 @@ set +e
       ./internal/... ./tools/...
     ;;
   provider-generation)
-    go run tools/generate-all-schemas.go --spec-dir=docs/specifications/api
+    go run -p "$concurrency" tools/generate-all-schemas.go --spec-dir=docs/specifications/api
     scripts/go-retry.sh 3 go mod tidy
     ;;
   documentation-generation)

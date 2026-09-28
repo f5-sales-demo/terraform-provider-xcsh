@@ -37,6 +37,7 @@ require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_d
 require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/normalized-output.txt"'
 require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/worktree-output.patch"'
 require "$root/scripts/run-provider-benchmark-phase.sh" "s/-p [0-9]+/-p <concurrency>/g"
+require "$root/scripts/run-provider-benchmark-phase.sh" 'go run -p "$concurrency" tools/generate-all-schemas.go'
 
 # Stable PR gate with independent compute shards and explicit reusable inputs.
 require "$build" 'runner-label:'
