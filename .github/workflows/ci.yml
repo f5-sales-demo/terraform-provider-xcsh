@@ -174,7 +174,7 @@ jobs:
           steps.check.outputs.needs_validation == 'true' &&
           github.event.pull_request.head.repo.full_name != github.repository
         run: |
-          GOTOOLCHAIN=local go install +            github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
+          GOTOOLCHAIN=local go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
           echo "$(go env GOPATH)/bin" >>"$GITHUB_PATH"
 
       - name: Verify immutable Terraform toolchain

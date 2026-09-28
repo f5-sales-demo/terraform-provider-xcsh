@@ -95,7 +95,8 @@ jobs:
           profile="$RUNNER_TEMP/provider-profile/build.json"
           mkdir -p "$(dirname "$profile")"
           if command -v runner-profile >/dev/null 2>&1; then
-            runner-profile --name build --output "$profile" +              --variant "p${GO_PACKAGE_PARALLELISM}" -- +              scripts/go-retry.sh 3 go build -p "$GO_PACKAGE_PARALLELISM" -v ./...
+            command=(scripts/go-retry.sh 3 go build -p "$GO_PACKAGE_PARALLELISM" -v ./...)
+            runner-profile --name build --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- "${command[@]}"
           else
             scripts/go-retry.sh 3 go build -p "$GO_PACKAGE_PARALLELISM" -v ./...
           fi
@@ -150,7 +151,8 @@ jobs:
           profile="$RUNNER_TEMP/provider-profile/vet.json"
           mkdir -p "$(dirname "$profile")"
           if command -v runner-profile >/dev/null 2>&1; then
-            runner-profile --name vet --output "$profile" +              --variant "p${GO_PACKAGE_PARALLELISM}" -- +              scripts/go-retry.sh 3 go vet -p "$GO_PACKAGE_PARALLELISM" ./...
+            command=(scripts/go-retry.sh 3 go vet -p "$GO_PACKAGE_PARALLELISM" ./...)
+            runner-profile --name vet --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- "${command[@]}"
           else
             scripts/go-retry.sh 3 go vet -p "$GO_PACKAGE_PARALLELISM" ./...
           fi
@@ -213,10 +215,11 @@ jobs:
           set -euo pipefail
           profile="$RUNNER_TEMP/provider-profile/race.json"
           mkdir -p "$(dirname "$profile")"
+          command=(scripts/go-retry.sh 2 go test -p "$GO_PACKAGE_PARALLELISM" -timeout=30m -v -race ./internal/... ./tools/...)
           if command -v runner-profile >/dev/null 2>&1; then
-            runner-profile --name race --output "$profile" +              --variant "p${GO_PACKAGE_PARALLELISM}" -- +              scripts/go-retry.sh 2 go test -p "$GO_PACKAGE_PARALLELISM" +                -timeout=30m -v -race ./internal/... ./tools/...
+            runner-profile --name race --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- "${command[@]}"
           else
-            scripts/go-retry.sh 2 go test -p "$GO_PACKAGE_PARALLELISM" +              -timeout=30m -v -race ./internal/... ./tools/...
+            "${command[@]}"
           fi
       - name: Upload race-test profile
         if: always()
@@ -281,10 +284,11 @@ jobs:
           )
           profile="$RUNNER_TEMP/provider-profile/lint.json"
           mkdir -p "$(dirname "$profile")"
+          command=(golangci-lint run --timeout=15m "--concurrency=${GO_PACKAGE_PARALLELISM}" "${pkgs[@]}")
           if command -v runner-profile >/dev/null 2>&1; then
-            runner-profile --name lint --output "$profile" +              --variant "p${GO_PACKAGE_PARALLELISM}" -- +              golangci-lint run --timeout=15m +                --concurrency="$GO_PACKAGE_PARALLELISM" "${pkgs[@]}"
+            runner-profile --name lint --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- "${command[@]}"
           else
-            golangci-lint run --timeout=15m +              --concurrency="$GO_PACKAGE_PARALLELISM" "${pkgs[@]}"
+            "${command[@]}"
           fi
       - name: Upload lint profile
         if: always()

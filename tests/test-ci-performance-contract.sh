@@ -48,6 +48,9 @@ require "$build" "'16GiB'"
 require "$build" 'runner-profile'
 require "$build" 'retention-days: 30'
 require "$ci" 'group: ci-${{ github.event.pull_request.head.sha || github.sha }}'
+if rg -n ' \+ {6,}' "$build" "$ci" "$benchmark" >/dev/null; then
+  fail 'workflow shell blocks contain a collapsed continuation marker'
+fi
 
 bash -n "$root/scripts/run-provider-benchmark.sh"
 bash -n "$root/scripts/run-provider-benchmark-phase.sh"
