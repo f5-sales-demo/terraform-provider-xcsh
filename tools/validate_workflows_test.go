@@ -21,8 +21,9 @@ import (
 
 const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
-const providerCandidateRunnerLabel = "terraform-provider-xcsh-32vcpu-candidate"
+const providerComputeRunnerLabel = "terraform-provider-xcsh-compute"
 const providerCandidateRunnerExpression = "${{ needs.validate.outputs.runner_label }}"
+const providerComputeRunnerExpression = "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 'ubuntu-latest' || 'terraform-provider-xcsh-compute' }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
 const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
 
@@ -341,35 +342,34 @@ func TestBuildTestWorkflowBoundsCompilerMemory(t *testing.T) {
 	if err := yaml.Unmarshal(content, &workflow); err != nil {
 		t.Fatal(err)
 	}
-	for key, want := range map[string]string{
-		"GOGC":       "20",
-		"GOMEMLIMIT": "4GiB",
-		"GOMAXPROCS": "1",
-	} {
-		if got := workflow.Jobs["build"].Env[key]; got != want {
-			t.Errorf("build job %s = %q, want %q", key, got, want)
+	requiredJobs := map[string]string{
+		"build": `go build -p "$GO_PACKAGE_PARALLELISM" -v ./...`,
+		"vet":   `go vet -p "$GO_PACKAGE_PARALLELISM" ./...`,
+		"race":  `go test -p "$GO_PACKAGE_PARALLELISM" -timeout=30m -v -race ./internal/... ./tools/...`,
+	}
+	for jobID, command := range requiredJobs {
+		job := workflow.Jobs[jobID]
+		for key, fragment := range map[string]string{
+			"GOGC":       "20",
+			"GOMEMLIMIT": "16GiB",
+			"GOMAXPROCS": "inputs.go-concurrency",
+		} {
+			if got := job.Env[key]; !strings.Contains(got, fragment) {
+				t.Errorf("%s job %s = %q, want fragment %q", jobID, key, got, fragment)
+			}
 		}
-	}
-	if _, exists := workflow.Jobs["build"].Env["GOFLAGS"]; exists {
-		t.Error("build job must not serialize the independent test packages")
-	}
-	requiredCommands := map[string]string{
-		"Build": "go build -p 1 -v ./...",
-		"Vet":   "go vet -p 1 ./...",
-		"Test":  "go test -timeout=30m -v -race ./internal/... ./tools/...",
-	}
-	for _, step := range workflow.Jobs["build"].Steps {
-		want, ok := requiredCommands[step.Name]
-		if !ok {
-			continue
+		if _, exists := job.Env["GOFLAGS"]; exists {
+			t.Errorf("%s job must not serialize the independent test packages", jobID)
 		}
-		if !strings.Contains(step.Run, want) {
-			t.Errorf("%s step does not use %q: %s", step.Name, want, step.Run)
+		found := false
+		for _, step := range job.Steps {
+			if strings.Contains(step.Run, command) {
+				found = true
+			}
 		}
-		delete(requiredCommands, step.Name)
-	}
-	if len(requiredCommands) != 0 {
-		t.Errorf("build workflow is missing memory-bounded steps: %v", requiredCommands)
+		if !found {
+			t.Errorf("%s job is missing p4 command %q", jobID, command)
+		}
 	}
 }
 
@@ -377,9 +377,9 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
 	expectedImageJobs := map[string][]string{
 		"_build-test.yml/build":               {`test "$(go env GOVERSION)" = go1.25.13`},
+		"_build-test.yml/vet":                 {`test "$(go env GOVERSION)" = go1.25.13`},
+		"_build-test.yml/race":                {`test "$(go env GOVERSION)" = go1.25.13`},
 		"_build-test.yml/lint":                {`test "$(go env GOVERSION)" = go1.25.13`},
-		"_generate-docs.yml/generate":         {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
-		"_generate-provider.yml/generate":     {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.13`},
 		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
@@ -406,7 +406,9 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 		}
 		for jobID, job := range workflow.Jobs {
 			runsOn, _ := stringSlice(job["runs-on"])
-			if !slicesContain(runsOn, "managed-socketless") {
+			canonicalRunsOn := canonicalizeRunsOn(runsOn, &[]string{}, jobID)
+			if !slicesContain(canonicalRunsOn, "managed-socketless") &&
+				!slicesContain(canonicalRunsOn, providerComputeRunnerLabel) {
 				continue
 			}
 			foundManagedJob = true
@@ -416,11 +418,17 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 			}
 			jobText := string(jobBytes)
 			jobKey := filepath.Base(path) + "/" + jobID
-			if strings.Contains(jobText, "actions/setup-go@") {
+			if strings.Contains(jobText, "actions/setup-go@") &&
+				!strings.Contains(jobText, "Set up Go for fork isolation") {
 				t.Errorf("%s/%s downloads Go instead of using the immutable runner toolchain", filepath.Base(path), jobID)
 			}
 			for _, tool := range []string{"tfplugindocs", "govulncheck"} {
-				if strings.Contains(jobText, "go install") && strings.Contains(jobText, tool) {
+				forkInstall := strings.Contains(
+					jobText,
+					"Install "+tool+" for fork isolation",
+				)
+				if strings.Contains(jobText, "go install") &&
+					strings.Contains(jobText, tool) && !forkInstall {
 					t.Errorf("%s/%s installs image-resident %s at runtime", filepath.Base(path), jobID, tool)
 				}
 			}
@@ -448,6 +456,15 @@ func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 			"runs-on: ubuntu-latest",
 			"actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
 			"go-version: '1.25.13'",
+		},
+		"_generate-docs.yml": {
+			"runs-on: ubuntu-latest",
+			"actions/setup-go@",
+			"go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0",
+		},
+		"_generate-provider.yml": {
+			"runs-on: ubuntu-latest",
+			"actions/setup-go@",
 		},
 	}
 	for filename, fragments := range hostedContracts {
@@ -622,7 +639,9 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 		case repositoryRunnerExpression:
 			canonical[index] = repositoryRunnerLabel
 		case providerCandidateRunnerExpression:
-			canonical[index] = providerCandidateRunnerLabel
+			canonical[index] = providerComputeRunnerLabel
+		case providerComputeRunnerExpression:
+			canonical[index] = providerComputeRunnerLabel
 		case sharedSocketlessRunnerExpression:
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
 		case docsSocketlessRunnerExpression:
@@ -940,7 +959,8 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		for jobID, job := range workflow.Jobs {
 			runsOn, _ := stringSlice(job["runs-on"])
 			canonicalRunsOn := canonicalizeRunsOn(runsOn, &[]string{}, jobID)
-			if slicesContain(canonicalRunsOn, "managed-socketless") {
+			if slicesContain(canonicalRunsOn, "managed-socketless") ||
+				slicesContain(canonicalRunsOn, providerComputeRunnerLabel) {
 				managedSocketless[filename+"/"+jobID] = true
 			}
 			steps, _ := job["steps"].([]any)
@@ -973,6 +993,9 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		"recover-v11-4-release.yml/validate-source":       true,
 		"recover-v11-4-release.yml/receipt-spec-delivery": true,
 		"_build-test.yml/build":                           true,
+		"_build-test.yml/aggregate":                       true,
+		"_build-test.yml/vet":                             true,
+		"_build-test.yml/race":                            true,
 		"_build-test.yml/lint":                            true,
 		"_generate-docs.yml/generate":                     true,
 		"_generate-provider.yml/generate":                 true,
@@ -1003,6 +1026,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	delete(expected, "require-linked-issue.yml/check")
 	expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
 	expected["workload-benchmark.yml/compare"] = true
+	expected["workload-benchmark.yml/eks-candidate"] = true
 	expected["workload-benchmark.yml/validate"] = true
 	if !reflect.DeepEqual(managedSocketless, expected) {
 		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
@@ -1221,59 +1245,5 @@ func TestAcceptanceSummaryDownloadsNamedEvidence(t *testing.T) {
 	}
 	if len(found) != len(expected) {
 		t.Fatalf("summary artifact inventory mismatch: %v", found)
-	}
-}
-
-func TestDocsTfplugindocsMetadataVerification(t *testing.T) {
-	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_generate-docs.yml"))
-	if err != nil {
-		t.Fatal(err)
-	}
-	var workflow struct {
-		Jobs map[string]struct {
-			Steps []struct{ Name, Run string }
-		}
-	}
-	if err := yaml.Unmarshal(content, &workflow); err != nil {
-		t.Fatal(err)
-	}
-	var script string
-	for _, step := range workflow.Jobs["generate"].Steps {
-		if step.Name == "Verify image-resident tfplugindocs" {
-			script = step.Run
-		}
-	}
-	if script == "" {
-		t.Fatal("documentation workflow has no tfplugindocs verification")
-	}
-	bin := t.TempDir()
-	for name, body := range map[string]string{
-		"tfplugindocs": "#!/bin/sh\nexit 0\n",
-		"go":           "#!/bin/sh\n[ \"$1\" = version ] && [ \"$2\" = -m ] || exit 2\nprintf '/fixture/tfplugindocs: go1.25.13\\n\\tmod\\tgithub.com/hashicorp/terraform-plugin-docs\\t%s\\th1:synthetic\\n' \"$TEST_DOCS_VERSION\"\nexit \"$TEST_DOCS_EXIT\"\n",
-	} {
-		if err := os.WriteFile(filepath.Join(bin, name), []byte(body), 0o700); err != nil {
-			t.Fatal(err)
-		}
-	}
-	for _, tc := range []struct {
-		name, version, exit string
-		wantSuccess         bool
-	}{
-		{"matching tabs", "v0.25.0", "0", true},
-		{"wrong version", "v0.24.0", "0", false},
-		{"metadata command failure", "v0.25.0", "1", false},
-	} {
-		t.Run(tc.name, func(t *testing.T) {
-			cmd := exec.Command("bash", "-e", "-c", script)
-			cmd.Env = append(os.Environ(), "PATH="+bin+string(os.PathListSeparator)+os.Getenv("PATH"),
-				"TEST_DOCS_VERSION="+tc.version, "TEST_DOCS_EXIT="+tc.exit)
-			output, err := cmd.CombinedOutput()
-			if (err == nil) != tc.wantSuccess {
-				t.Fatalf("success = %v, want %v: %s", err == nil, tc.wantSuccess, output)
-			}
-			if !strings.Contains(string(output), "\tmod\tgithub.com/hashicorp/terraform-plugin-docs\t"+tc.version) {
-				t.Fatalf("original module metadata was not printed: %s", output)
-			}
-		})
 	}
 }
