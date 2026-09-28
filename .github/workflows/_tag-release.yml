@@ -30,7 +30,7 @@ concurrency:
 jobs:
   preflight:
     name: Verify Release Source Is Reproducible
-    runs-on: ubuntu-latest
+    runs-on: managed-socketless
     permissions:
       contents: read # checkout and exact public spec release download
     steps:
@@ -62,11 +62,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
-        with:
-          go-version-file: go.mod
-          cache: true
+      - name: Verify immutable Go toolchain
+        run: |
+          go version
+          test "$(go env GOVERSION)" = go1.25.13
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
@@ -74,10 +73,13 @@ jobs:
           terraform_version: 1.16.3
           terraform_wrapper: false
 
-      - name: Install pinned documentation generator
+      - name: Verify image-resident tfplugindocs
         run: |
-          GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
-          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+          set -o pipefail
+          go version -m "$(command -v tfplugindocs)" \
+            | tee /dev/stderr \
+            | tr '\t' ' ' \
+            | grep -F 'mod github.com/hashicorp/terraform-plugin-docs v0.25.0'
 
       - name: Regenerate all release-derived content
         run: |
@@ -98,7 +100,7 @@ jobs:
   tag:
     name: Resolve Immutable Version Tag
     needs: preflight
-    runs-on: ubuntu-latest
+    runs-on: managed-socketless
     # Creates the annotated version tag after proving it targets github.sha.
     permissions:
       contents: write # push the verified annotated tag
@@ -205,7 +207,7 @@ jobs:
   publish:
     name: Verify and Publish Release
     needs: tag
-    runs-on: ubuntu-latest
+    runs-on: managed-socketless
     # GoReleaser creates/repairs the draft and this job seals it after byte verification.
     permissions:
       contents: write # create/repair, verify, and publish release assets
@@ -326,12 +328,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Go
+      - name: Verify immutable Go toolchain
         if: steps.release_state.outputs.state != 'published'
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
-        with:
-          go-version-file: go.mod
-          cache: false
+        run: |
+          go version
+          test "$(go env GOVERSION)" = go1.25.13
 
       - name: Clear repairable draft releases
         if: steps.release_state.outputs.state == 'draft'

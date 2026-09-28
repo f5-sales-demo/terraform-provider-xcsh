@@ -382,6 +382,8 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 		"ci.yml/validate-mock-fixtures":       {`test "$(go env GOVERSION)" = go1.25.13`},
 		"discover-defaults.yml/discover":      {`test "$(go env GOVERSION)" = go1.25.13`},
 		"on-merge.yml/create-regeneration-pr": {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"_tag-release.yml/preflight":          {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"_tag-release.yml/publish":            {`test "$(go env GOVERSION)" = go1.25.13`},
 		"security-audit.yml/govulncheck":      {`test "$(go env GOVERSION)" = go1.25.13`, "mod golang.org/x/vuln v1.6.0"},
 	}
 	entries, err := filepath.Glob(filepath.Join(workflowDir, "*.y*ml"))
@@ -456,11 +458,6 @@ func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 			"runs-on: ubuntu-latest",
 			"actions/setup-go@",
 		},
-		"_tag-release.yml": {
-			"runs-on: ubuntu-latest",
-			"actions/setup-go@",
-			"go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0",
-		},
 	}
 	for filename, fragments := range hostedContracts {
 		content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", filename))
@@ -471,6 +468,27 @@ func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 			if !strings.Contains(string(content), fragment) {
 				t.Errorf("%s no longer preserves hosted-runner contract %q", filename, fragment)
 			}
+		}
+	}
+}
+
+func TestReleaseJobsUseManagedSocketlessARC(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_tag-release.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow workflowDocument
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	for _, jobID := range []string{"preflight", "tag", "publish"} {
+		job, ok := workflow.Jobs[jobID]
+		if !ok {
+			t.Fatalf("missing release job %s", jobID)
+		}
+		runsOn, err := stringSlice(job["runs-on"])
+		if err != nil || !reflect.DeepEqual(runsOn, canonicalManagedSocketlessRunsOn) {
+			t.Errorf("%s runs-on = %v, want %v", jobID, runsOn, canonicalManagedSocketlessRunsOn)
 		}
 	}
 }
@@ -958,6 +976,9 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		"discover-defaults.yml/discover":           true,
 		"discover-defaults.yml/summary":            true,
 		"enforce-repo-settings.yml/resolve-source": true,
+		"_tag-release.yml/preflight":              true,
+		"_tag-release.yml/tag":                    true,
+		"_tag-release.yml/publish":                true,
 		"on-merge.yml/create-regeneration-pr":      true,
 		"on-merge.yml/detect-changes":              true,
 		"on-merge.yml/generation-state":            true,
