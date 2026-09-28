@@ -65,3 +65,121 @@ jobs:
       gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
       gpg-passphrase: ${{ secrets.PASSPHRASE }}
       repository-administration-token: ${{ secrets.REPO_SYNC_TOKEN }}
+
+  # Recovery is not complete when the immutable provider package is published:
+  # the pending delivery must also be durably receipted and removed through its
+  # own governed PR. This checks out tag-bound source, never the dispatch commit.
+  receipt-spec-delivery:
+    name: Receipt Published Spec Delivery
+    environment: provider-delivery
+    needs: [validate-source, release]
+    if: |
+      needs.release.result == 'success' &&
+      needs.release.outputs.new-tag == 'v11.4.0'
+    runs-on: managed-socketless
+    permissions:
+      contents: read
+    steps:
+      - name: Require downstream-triggering token
+        env:
+          REPO_SYNC_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${REPO_SYNC_TOKEN:-}" ]; then
+            echo "::error::REPO_SYNC_TOKEN is required for delivery receipting"
+            exit 1
+          fi
+
+      - name: Checkout immutable released commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.validate-source.outputs.source_ref }}
+          fetch-depth: 0
+          fetch-tags: true
+          token: ${{ secrets.REPO_SYNC_TOKEN }}
+          persist-credentials: false
+
+      - name: Verify publication and prepare durable receipt
+        id: receipt
+        env:
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+          PROVIDER_TAG: ${{ needs.release.outputs.new-tag }}
+          RELEASED_COMMIT: ${{ needs.validate-source.outputs.source_commit }}
+          TARGET_REPOSITORY: ${{ github.repository }}
+        run: scripts/prepare-spec-delivery-receipt.sh
+
+      - name: Open receipt pull request
+        if: steps.receipt.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+          DELIVERY_ID: ${{ steps.receipt.outputs.delivery_id }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          BRANCH="spec-delivery-receipt/${DELIVERY_ID}"
+          git config user.name "f5xc-spec-delivery"
+          git config user.email "f5xc-spec-delivery@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+          REMOTE_SHA=$(git ls-remote origin "refs/heads/${BRANCH}" | awk '{print $1}')
+          git checkout -b "$BRANCH"
+          git add tools/provider-publication-receipts.json tools/spec-deliveries.json \
+            tools/spec-pending-delivery.json tools/spec-regeneration-receipt.json
+          git commit -m "chore: receipt published spec delivery"
+          if [ -n "$REMOTE_SHA" ]; then
+            git push --force-with-lease="refs/heads/${BRANCH}:${REMOTE_SHA}" origin "$BRANCH"
+          else
+            git push --force-with-lease origin "$BRANCH"
+          fi
+
+          PR_TITLE="chore: receipt published spec delivery"
+          PR_JSON=$(gh pr list --head "$BRANCH" --state all --limit 10 \
+            --json number,state,baseRefName,headRefName,title)
+          [ "$(printf '%s' "$PR_JSON" | jq 'length')" -le 1 ] || {
+            echo "::error::Multiple receipt pull requests exist for ${BRANCH}"
+            exit 1
+          }
+          PR_NUMBER=$(printf '%s' "$PR_JSON" | jq -r '.[0].number // empty')
+          if [ -z "$PR_NUMBER" ]; then
+            ISSUE_TITLE="Receipt published spec delivery ${DELIVERY_ID}"
+            ISSUE_JSON=$(gh issue list --state all --limit 100 --search "in:title ${ISSUE_TITLE}" \
+              --json number,state,title \
+              --jq ".[] | select(.title == \"${ISSUE_TITLE}\")")
+            [ "$(printf '%s' "$ISSUE_JSON" | jq -s 'length')" -le 1 ] || {
+              echo "::error::Multiple tracking issues exist for delivery ${DELIVERY_ID}"
+              exit 1
+            }
+            ISSUE_NUMBER=$(printf '%s' "$ISSUE_JSON" | jq -sr '.[0].number // empty')
+            if [ -z "$ISSUE_NUMBER" ]; then
+              ISSUE_URL=$(gh issue create --title "$ISSUE_TITLE" \
+                --body "The exact upstream spec delivery was generated and included in a completed provider release." \
+                --label automated)
+              ISSUE_NUMBER=${ISSUE_URL##*/}
+            else
+              ISSUE_STATE=$(printf '%s' "$ISSUE_JSON" | jq -sr '.[0].state')
+              if [ "$ISSUE_STATE" = "CLOSED" ]; then
+                gh issue reopen "$ISSUE_NUMBER"
+              elif [ "$ISSUE_STATE" != "OPEN" ]; then
+                echo "::error::Tracking issue has an unexpected state: ${ISSUE_STATE}"
+                exit 1
+              fi
+            fi
+            PR_BODY=$(printf '%s\n\nCloses #%s\n' \
+              "Records the durable post-publication delivery receipt." "$ISSUE_NUMBER")
+            PR_URL=$(gh pr create --base main --head "$BRANCH" --title "$PR_TITLE" --body "$PR_BODY")
+            PR_NUMBER=${PR_URL##*/}
+          else
+            PR_META=$(printf '%s' "$PR_JSON" | jq '.[0]')
+            printf '%s' "$PR_META" | jq -e --arg base main --arg head "$BRANCH" --arg title "$PR_TITLE" \
+              '.baseRefName == $base and .headRefName == $head and .title == $title' >/dev/null || {
+              echo "::error::Existing receipt pull request has the wrong identity"
+              exit 1
+            }
+            PR_STATE=$(printf '%s' "$PR_META" | jq -r '.state')
+            if [ "$PR_STATE" = "CLOSED" ]; then
+              gh pr reopen "$PR_NUMBER"
+            elif [ "$PR_STATE" != "OPEN" ]; then
+              echo "::error::Receipt pull request was merged without a durable receipt"
+              exit 1
+            fi
+          fi
+          gh pr merge "$PR_NUMBER" --auto --squash

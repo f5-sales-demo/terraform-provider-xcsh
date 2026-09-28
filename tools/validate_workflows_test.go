@@ -376,6 +376,8 @@ func TestBuildTestWorkflowBoundsCompilerMemory(t *testing.T) {
 func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
 	expectedImageJobs := map[string][]string{
+		"_build-test.yml/build":               {`test "$(go env GOVERSION)" = go1.25.13`},
+		"_build-test.yml/lint":                {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.13`},
 		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
@@ -444,10 +446,6 @@ func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 			"runs-on: ubuntu-latest",
 			"actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
 			"go-version: '1.25.13'",
-		},
-		"_build-test.yml": {
-			"runs-on: ubuntu-latest",
-			"actions/setup-go@",
 		},
 		"_generate-docs.yml": {
 			"runs-on: ubuntu-latest",
@@ -980,6 +978,9 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		"_tag-release.yml/tag":                    true,
 		"_tag-release.yml/publish":                true,
 		"recover-v11-4-release.yml/validate-source": true,
+		"recover-v11-4-release.yml/receipt-spec-delivery": true,
+		"_build-test.yml/build":                    true,
+		"_build-test.yml/lint":                     true,
 		"on-merge.yml/create-regeneration-pr":      true,
 		"on-merge.yml/detect-changes":              true,
 		"on-merge.yml/generation-state":            true,

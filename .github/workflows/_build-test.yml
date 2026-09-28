@@ -29,7 +29,10 @@ permissions: {}
 jobs:
   build:
     name: Build and Test
-    runs-on: ubuntu-latest
+    # The provider's primary CI gate must run in the managed ARC runner pool.
+    # GitHub-hosted runners have repeatedly stranded long race-test executions,
+    # leaving protected contexts unresolved and blocking governed releases.
+    runs-on: managed-socketless
     permissions:
       contents: read # checkout plus the repository-local download action
     outputs:
@@ -82,11 +85,10 @@ jobs:
           token: ${{ github.token }}
           spec-dir: ${{ env.SPEC_DIR }}
 
-      - name: Set up Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: ${{ inputs.go-version-file }}
-          cache: true
+      - name: Verify immutable Go toolchain
+        run: |
+          go version
+          test "$(go env GOVERSION)" = go1.25.13
 
       - name: Run go mod tidy
         run: |
@@ -124,7 +126,7 @@ jobs:
         # The code-generation package includes compile-level regression tests
         # that rebuild the generated provider tree. Under the bounded compiler
         # memory settings above, a healthy package can exceed Go's 10-minute
-        # default test timeout on hosted runners.
+        # default test timeout under the bounded ARC compiler budget.
         run: scripts/go-retry.sh 2 go test -timeout=30m -v -race ./internal/... ./tools/...
 
       - name: Set result
@@ -141,7 +143,7 @@ jobs:
 
   lint:
     name: Lint
-    runs-on: ubuntu-latest
+    runs-on: managed-socketless
     if: inputs.run-lint
     permissions:
       contents: read # checkout the source being linted
@@ -152,11 +154,10 @@ jobs:
           ref: ${{ inputs.ref || github.sha }}
           persist-credentials: false
 
-      - name: Set up Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: ${{ inputs.go-version-file }}
-          cache: true
+      - name: Verify immutable Go toolchain
+        run: |
+          go version
+          test "$(go env GOVERSION)" = go1.25.13
 
       - name: Install golangci-lint
         run: |
