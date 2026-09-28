@@ -979,6 +979,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		"_tag-release.yml/preflight":              true,
 		"_tag-release.yml/tag":                    true,
 		"_tag-release.yml/publish":                true,
+		"recover-v11-4-release.yml/validate-source": true,
 		"on-merge.yml/create-regeneration-pr":      true,
 		"on-merge.yml/detect-changes":              true,
 		"on-merge.yml/generation-state":            true,

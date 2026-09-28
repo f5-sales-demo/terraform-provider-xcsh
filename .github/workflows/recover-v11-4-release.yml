@@ -1,0 +1,67 @@
+name: Recover Immutable v11.4.0 Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Immutable tag to recover
+        required: true
+        default: v11.4.0
+        type: choice
+        options:
+          - v11.4.0
+
+permissions: {}
+
+concurrency:
+  group: v11-4-release-recovery
+  cancel-in-progress: false
+
+jobs:
+  validate-source:
+    name: Verify Immutable v11.4.0 Source
+    runs-on: managed-socketless
+    permissions:
+      contents: read
+    outputs:
+      source_ref: ${{ steps.source.outputs.source_ref }}
+      source_commit: ${{ steps.source.outputs.source_commit }}
+    steps:
+      - name: Require the approved recovery tag
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          set -euo pipefail
+          [ "$RELEASE_TAG" = v11.4.0 ] || exit 1
+      - name: Checkout immutable tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ inputs.release_tag }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Bind recovery to the attested source commit
+        id: source
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          EXPECTED_COMMIT: b7b66fed6dabb055422f02b6ae7f48ac3a5dffa4
+        run: |
+          set -euo pipefail
+          [ "$(git cat-file -t "$RELEASE_TAG")" = tag ] || exit 1
+          TAG_COMMIT=$(git rev-list -n 1 "$RELEASE_TAG")
+          [ "$TAG_COMMIT" = "$EXPECTED_COMMIT" ] || exit 1
+          [ "$(git rev-parse HEAD)" = "$TAG_COMMIT" ] || exit 1
+          echo "source_ref=$RELEASE_TAG" >> "$GITHUB_OUTPUT"
+          echo "source_commit=$TAG_COMMIT" >> "$GITHUB_OUTPUT"
+  release:
+    name: Publish Attested v11.4.0 Release
+    needs: validate-source
+    permissions:
+      contents: write # reusable transaction creates/releases only the attested tag
+    uses: ./.github/workflows/_tag-release.yml
+    with:
+      source_ref: ${{ needs.validate-source.outputs.source_ref }}
+      source_commit: ${{ needs.validate-source.outputs.source_commit }}
+    secrets:
+      gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+      gpg-passphrase: ${{ secrets.PASSPHRASE }}
+      repository-administration-token: ${{ secrets.REPO_SYNC_TOKEN }}

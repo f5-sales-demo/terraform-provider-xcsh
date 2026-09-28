@@ -3,6 +3,17 @@ name: Tag and Release
 
 on:
   workflow_call:
+    inputs:
+      source_ref:
+        description: Immutable Git ref whose provider source will be released
+        required: false
+        type: string
+        default: ''
+      source_commit:
+        description: Immutable commit that source_ref must identify
+        required: false
+        type: string
+        default: ''
     secrets:
       gpg-private-key:
         description: GPG private key for signing
@@ -37,9 +48,16 @@ jobs:
       - name: Checkout immutable release source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ inputs.source_ref || github.sha }}
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Verify requested immutable release source
+        env:
+          SOURCE_COMMIT: ${{ inputs.source_commit || github.sha }}
+        run: |
+          set -euo pipefail
+          [ "$(git rev-parse HEAD)" = "$SOURCE_COMMIT" ] || exit 1
 
       - name: Require immutable release policy before tagging
         env:
@@ -111,10 +129,17 @@ jobs:
       - name: Checkout immutable release commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ inputs.source_ref || github.sha }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
+
+      - name: Verify requested immutable release source
+        env:
+          SOURCE_COMMIT: ${{ inputs.source_commit || github.sha }}
+        run: |
+          set -euo pipefail
+          [ "$(git rev-parse HEAD)" = "$SOURCE_COMMIT" ] || exit 1
 
       - name: Find existing tag for this commit
         id: existing
@@ -222,7 +247,7 @@ jobs:
       - name: Verify checked-out release identity
         env:
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          TRIGGER_COMMIT: ${{ github.sha }}
+          TRIGGER_COMMIT: ${{ inputs.source_commit || github.sha }}
         run: |
           set -euo pipefail
           [ "$(git rev-parse HEAD)" = "$TRIGGER_COMMIT" ] || {
@@ -392,7 +417,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_COMMIT: ${{ inputs.source_commit || github.sha }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -426,7 +451,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_COMMIT: ${{ inputs.source_commit || github.sha }}
         run: |
           set -euo pipefail
           jq -e '.draft == true and .prerelease == false' \
@@ -451,7 +476,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_COMMIT: ${{ inputs.source_commit || github.sha }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -520,7 +545,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_COMMIT: ${{ inputs.source_commit || github.sha }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
