@@ -3,6 +3,17 @@ name: Tag and Release
 
 on:
   workflow_call:
+    inputs:
+      source_ref:
+        description: Immutable Git ref whose provider source will be released
+        required: false
+        type: string
+        default: ''
+      source_commit:
+        description: Immutable commit that source_ref must identify
+        required: false
+        type: string
+        default: ''
     secrets:
       gpg-private-key:
         description: GPG private key for signing
@@ -37,9 +48,16 @@ jobs:
       - name: Checkout immutable release source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ inputs.source_ref || github.sha }}
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Verify requested immutable release source
+        env:
+          SOURCE_COMMIT: ${{ inputs.source_commit || github.sha }}
+        run: |
+          set -euo pipefail
+          [ "$(git rev-parse HEAD)" = "$SOURCE_COMMIT" ] || exit 1
 
       - name: Require immutable release policy before tagging
         env:
@@ -111,10 +129,24 @@ jobs:
       - name: Checkout immutable release commit
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ inputs.source_ref || github.sha }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
+
+      - name: Verify requested immutable release source
+        env:
+          SOURCE_COMMIT: ${{ inputs.source_commit || github.sha }}
+        run: |
+          set -euo pipefail
+          [ "$(git rev-parse HEAD)" = "$SOURCE_COMMIT" ] || exit 1
+
+      - name: Import release tag signing key
+        id: import_tag_gpg
+        uses: crazy-max/ghaction-import-gpg@2dc316deee8e90f13e1a351ab510b4d5bc0c82cd # v7.0.0
+        with:
+          gpg_private_key: ${{ secrets.gpg-private-key }}
+          passphrase: ${{ secrets.gpg-passphrase }}
 
       - name: Find existing tag for this commit
         id: existing
@@ -129,6 +161,14 @@ jobs:
             exit 1
           }
           echo "tag=$TAGS" >> "$GITHUB_OUTPUT"
+
+      - name: Require a verifiable existing tag signature
+        if: steps.existing.outputs.tag != ''
+        env:
+          RELEASE_TAG: ${{ steps.existing.outputs.tag }}
+        run: |
+          set -euo pipefail
+          git verify-tag --raw "$RELEASE_TAG"
 
       - name: Calculate next version
         id: version
@@ -170,6 +210,7 @@ jobs:
         if: steps.existing.outputs.tag == ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_FINGERPRINT: ${{ steps.import_tag_gpg.outputs.fingerprint }}
           LATEST_TAG: ${{ steps.version.outputs.latest_tag }}
           NEW_TAG: ${{ steps.version.outputs.new_tag }}
         run: |
@@ -179,7 +220,7 @@ jobs:
           git config user.email github-actions[bot]@users.noreply.github.com
           COMMITS=$(git log "${LATEST_TAG}..HEAD" --pretty=format:'- %s' 2>/dev/null \
             || git log --pretty=format:'- %s' -10)
-          git tag -a "$NEW_TAG" -m "Release $NEW_TAG
+          git tag -s -u "$GPG_FINGERPRINT" "$NEW_TAG" -m "Release $NEW_TAG
 
           Changes since ${LATEST_TAG}:
           $COMMITS"
@@ -222,7 +263,7 @@ jobs:
       - name: Verify checked-out release identity
         env:
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          TRIGGER_COMMIT: ${{ github.sha }}
+          TRIGGER_COMMIT: ${{ inputs.source_commit || github.sha }}
         run: |
           set -euo pipefail
           [ "$(git rev-parse HEAD)" = "$TRIGGER_COMMIT" ] || {
@@ -392,7 +433,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_COMMIT: ${{ inputs.source_commit || github.sha }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -426,7 +467,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_COMMIT: ${{ inputs.source_commit || github.sha }}
         run: |
           set -euo pipefail
           jq -e '.draft == true and .prerelease == false' \
@@ -451,7 +492,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_COMMIT: ${{ inputs.source_commit || github.sha }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -520,7 +561,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-          RELEASE_COMMIT: ${{ github.sha }}
+          RELEASE_COMMIT: ${{ inputs.source_commit || github.sha }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
