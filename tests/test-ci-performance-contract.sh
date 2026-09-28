@@ -5,6 +5,9 @@ root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 benchmark="$root/.github/workflows/workload-benchmark.yml"
 build="$root/.github/workflows/_build-test.yml"
 ci="$root/.github/workflows/ci.yml"
+provider="$root/.github/workflows/_generate-provider.yml"
+docs="$root/.github/workflows/_generate-docs.yml"
+merge="$root/.github/workflows/on-merge.yml"
 
 fail() {
   printf 'FAIL: %s\n' "$1" >&2
@@ -54,7 +57,34 @@ require "$build" "'16GiB'"
 require "$build" 'runner-profile'
 require "$build" 'retention-days: 30'
 require "$ci" 'group: ci-${{ github.event.pull_request.head.ref || github.ref_name }}'
-if rg -n ' \+ {6,}' "$build" "$ci" "$benchmark" >/dev/null; then
+
+# Read-only generation jobs hand source-bound artifacts forward; the publisher
+# applies them and never performs generation or Go compilation itself.
+for workflow in "$provider" "$docs"; do
+  require "$workflow" 'runner-label:'
+  require "$workflow" 'go-concurrency:'
+  require "$workflow" 'generation-artifact-name:'
+  require "$workflow" 'source-sha:'
+  require "$workflow" 'digest:'
+  require "$workflow" 'changed:'
+  require "$workflow" 'generation-manifest.json'
+  require "$workflow" 'retention-days: 30'
+done
+require "$provider" 'provider-generation.patch'
+require "$provider" 'artifact_kind:$artifact_kind'
+require "$docs" 'provider-artifact-name:'
+require "$docs" 'combined-generation.patch'
+require "$docs" 'Verify and apply provider generation artifact'
+require "$merge" 'needs: [detect-changes, build-test, regenerate-provider]'
+require "$merge" 'outputs.generation-artifact-name'
+require "$merge" 'Verify and apply combined generation artifact'
+require "$merge" 'needs: [detect-changes, generation-state, create-regeneration-pr]'
+
+publisher=$(sed -n '/^  create-regeneration-pr:/,/^  # STEP 7:/p' "$merge")
+if grep -Eq 'go run tools/generate-all-schemas|go build|go vet|generate-provider-docs' <<<"$publisher"; then
+  fail 'create-regeneration-pr must apply the verified artifact without regeneration or compilation'
+fi
+if rg -n ' \+ {6,}' "$build" "$provider" "$docs" "$ci" "$benchmark" "$merge" >/dev/null; then
   fail 'workflow shell blocks contain a collapsed continuation marker'
 fi
 
