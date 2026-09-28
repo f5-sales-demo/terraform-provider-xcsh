@@ -52,7 +52,8 @@ jobs:
           SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
-          [[ "$EXPECTED_IMAGE_DIGEST" =~ ^ghcr\.io/f5-sales-demo/self-hosted-runner@sha256:[0-9a-f]{64}$ ]]
+          pattern='^(ghcr\.io/f5-sales-demo|f5salesdemoarcca\.azurecr\.io|[0-9]{12}\.dkr\.ecr\.us-east-1\.amazonaws\.com)/self-hosted-runner@sha256:[0-9a-f]{64}$'
+          [[ "$EXPECTED_IMAGE_DIGEST" =~ $pattern ]]
           echo 'runner_label=terraform-provider-xcsh-compute' >> "$GITHUB_OUTPUT"
 
   hosted-serial:

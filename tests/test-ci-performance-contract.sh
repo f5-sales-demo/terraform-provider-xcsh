@@ -14,6 +14,7 @@ require() { grep -Fq -- "$2" "$1" || fail "$1 is missing: $2"; }
 
 require "$benchmark" 'source_sha:'
 require "$benchmark" 'expected_image_digest:'
+require "$benchmark" 'dkr\.ecr\.us-east-1\.amazonaws\.com'
 require "$benchmark" 'cache_state:'
 require "$benchmark" 'pair_id:'
 require "$benchmark" 'concurrency:'
@@ -27,6 +28,7 @@ require "$root/scripts/run-provider-benchmark.sh" 'script_dir=$(cd "$(dirname "$
 require "$root/scripts/run-provider-benchmark.sh" '"$script_dir/run-provider-benchmark-phase.sh"'
 require "$root/scripts/run-provider-benchmark.sh" '"${observed_image##*@}" != "${expected_image##*@}"'
 require "$root/scripts/run-provider-benchmark.sh" 'runner image mismatch: expected'
+require "$root/scripts/run-provider-benchmark.sh" 'dkr\.ecr\.us-east-1\.amazonaws\.com'
 require "$root/scripts/run-provider-benchmark.sh" 'image-resident runner-profile differs'
 require "$root/scripts/run-provider-benchmark.sh" 'export GOGC=20'
 require "$root/scripts/run-provider-benchmark.sh" 'export GOMEMLIMIT=4GiB'
