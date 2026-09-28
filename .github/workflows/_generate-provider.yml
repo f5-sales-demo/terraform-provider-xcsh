@@ -24,7 +24,7 @@ permissions: {}
 jobs:
   generate:
     name: Generate Provider Code
-    runs-on: ubuntu-latest
+    runs-on: managed-socketless
     permissions:
       contents: read # checkout and download the public API-spec release
     outputs:
@@ -50,11 +50,10 @@ jobs:
           token: ${{ github.token }}
           spec-dir: ${{ inputs.spec-dir }}
 
-      - name: Set up Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version-file: 'go.mod'
-          cache: true
+      - name: Verify immutable Go toolchain
+        run: |
+          go version
+          test "$(go env GOVERSION)" = go1.25.13
 
       - name: Run code generator
         env:
