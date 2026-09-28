@@ -114,6 +114,23 @@ jobs:
         uses: ./.github/actions/download-api-specs
         with:
           token: ${{ github.token }}
+      - name: Set up Go for fork isolation
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: Set up Terraform for fork isolation
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: 1.16.3
+          terraform_wrapper: false
+      - name: Install tfplugindocs for fork isolation
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        run: |
+          GOTOOLCHAIN=local go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
+          echo "$(go env GOPATH)/bin" >>"$GITHUB_PATH"
       - name: Verify immutable generation toolchain
         run: |
           set -euo pipefail

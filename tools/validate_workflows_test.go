@@ -281,46 +281,32 @@ func TestProviderDocsGenerationBoundsCompilerMemory(t *testing.T) {
 }
 
 func TestProviderRegenerationVerificationIsMemoryBounded(t *testing.T) {
-	workflows := map[string]struct {
-		envCount int
-		commands []string
-	}{
-		"_generate-provider.yml": {
-			envCount: 3,
-			commands: []string{
-				`go build -p 1 -gcflags='all=-N -l' -v ./...`,
-				`go vet -p 1 ./...`,
-				`go test -p 1 -gcflags='all=-N -l' -v ./internal/... ./tools/...`,
-			},
-		},
-		"on-merge.yml": {
-			envCount: 2,
-			commands: []string{
-				`go build -p 1 -gcflags='all=-N -l' -v ./...`,
-				`go build -p 1 -gcflags='all=-N -l' ./...`,
-				`go vet -p 1 ./...`,
-			},
-		},
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_generate-provider.yml"))
+	if err != nil {
+		t.Fatal(err)
 	}
-	for name, contract := range workflows {
-		content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", name))
-		if err != nil {
-			t.Fatalf("read provider regeneration workflow %s: %v", name, err)
+	workflow := string(content)
+	for _, fragment := range []string{
+		"inputs.go-concurrency",
+		"'16GiB'",
+		`go build -p "$GO_PACKAGE_PARALLELISM"`,
+		`go vet -p "$GO_PACKAGE_PARALLELISM"`,
+		`go test -p "$GO_PACKAGE_PARALLELISM"`,
+		"runner-profile --name provider-generation",
+	} {
+		if !strings.Contains(workflow, fragment) {
+			t.Errorf("provider regeneration compute contract is missing %q", fragment)
 		}
-		workflow := string(content)
-		for _, fragment := range []string{
-			`GOGC: "10"`,
-			`GOMEMLIMIT: 4GiB`,
-			`GOMAXPROCS: "1"`,
-		} {
-			if count := strings.Count(workflow, fragment); count != contract.envCount {
-				t.Errorf("%s regeneration compile gates must each contain %q; found %d", name, fragment, count)
-			}
-		}
-		for _, fragment := range contract.commands {
-			if !strings.Contains(workflow, fragment) {
-				t.Errorf("%s regeneration memory contract is missing %q", name, fragment)
-			}
+	}
+	onMerge, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	publisher := strings.Split(string(onMerge), "  # STEP 7:")[0]
+	publisher = strings.Split(publisher, "  create-regeneration-pr:")[1]
+	for _, forbidden := range []string{"go run tools/generate-all-schemas", "go build", "go vet", "generate-provider-docs"} {
+		if strings.Contains(publisher, forbidden) {
+			t.Errorf("write-capable publisher repeats generated work: %q", forbidden)
 		}
 	}
 }
@@ -376,19 +362,20 @@ func TestBuildTestWorkflowBoundsCompilerMemory(t *testing.T) {
 func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
 	expectedImageJobs := map[string][]string{
-		"_build-test.yml/build":               {`test "$(go env GOVERSION)" = go1.25.13`},
-		"_build-test.yml/vet":                 {`test "$(go env GOVERSION)" = go1.25.13`},
-		"_build-test.yml/race":                {`test "$(go env GOVERSION)" = go1.25.13`},
-		"_build-test.yml/lint":                {`test "$(go env GOVERSION)" = go1.25.13`},
-		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.13`},
-		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.13`},
-		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
-		"ci.yml/validate-mock-fixtures":       {`test "$(go env GOVERSION)" = go1.25.13`},
-		"discover-defaults.yml/discover":      {`test "$(go env GOVERSION)" = go1.25.13`},
-		"on-merge.yml/create-regeneration-pr": {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
-		"_tag-release.yml/preflight":          {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
-		"_tag-release.yml/publish":            {`test "$(go env GOVERSION)" = go1.25.13`},
-		"security-audit.yml/govulncheck":      {`test "$(go env GOVERSION)" = go1.25.13`, "mod golang.org/x/vuln v1.6.0"},
+		"_build-test.yml/build":           {`test "$(go env GOVERSION)" = go1.25.13`},
+		"_build-test.yml/vet":             {`test "$(go env GOVERSION)" = go1.25.13`},
+		"_build-test.yml/race":            {`test "$(go env GOVERSION)" = go1.25.13`},
+		"_build-test.yml/lint":            {`test "$(go env GOVERSION)" = go1.25.13`},
+		"_generate-docs.yml/generate":     {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"_generate-provider.yml/generate": {`test "$(go env GOVERSION)" = go1.25.13`},
+		"acc-tests.yml/cleanup":           {`test "$(go env GOVERSION)" = go1.25.13`},
+		"acc-tests.yml/real-api-tests":    {`test "$(go env GOVERSION)" = go1.25.13`},
+		"ci.yml/validate-docs-generation": {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"ci.yml/validate-mock-fixtures":   {`test "$(go env GOVERSION)" = go1.25.13`},
+		"discover-defaults.yml/discover":  {`test "$(go env GOVERSION)" = go1.25.13`},
+		"_tag-release.yml/preflight":      {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"_tag-release.yml/publish":        {`test "$(go env GOVERSION)" = go1.25.13`},
+		"security-audit.yml/govulncheck":  {`test "$(go env GOVERSION)" = go1.25.13`, "mod golang.org/x/vuln v1.6.0"},
 	}
 	entries, err := filepath.Glob(filepath.Join(workflowDir, "*.y*ml"))
 	if err != nil {
