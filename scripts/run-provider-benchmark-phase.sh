@@ -57,6 +57,7 @@ go list -mod=readonly -f '{{.ImportPath}} {{with .Module}}{{.Path}}@{{.Version}}
   ./... | LC_ALL=C sort -u >"$evidence_dir/package-inventory.txt"
 sed -E \
   -e 's#(^|[[:space:]])/[^[:space:]]+/(_work|go-build|go/pkg/mod)/#\1<path>/#g' \
+  -e 's/-p [0-9]+/-p <concurrency>/g' \
   -e 's/[[:space:]][0-9]+(\.[0-9]+)?s$/ <duration>/' \
   "$raw_log" | LC_ALL=C sort >"$evidence_dir/normalized-output.txt"
 git diff --binary --no-ext-diff | sed -E 's/index [0-9a-f]+\.\.[0-9a-f]+/index <digest>..<digest>/' \

@@ -36,6 +36,7 @@ require "$root/scripts/run-provider-benchmark.sh" 'export GOMAXPROCS="$concurren
 require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/package-inventory.txt"'
 require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/normalized-output.txt"'
 require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/worktree-output.patch"'
+require "$root/scripts/run-provider-benchmark-phase.sh" "s/-p [0-9]+/-p <concurrency>/g"
 
 # Stable PR gate with independent compute shards and explicit reusable inputs.
 require "$build" 'runner-label:'
