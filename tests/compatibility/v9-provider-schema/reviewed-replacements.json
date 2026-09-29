@@ -1,6 +1,18 @@
 {
   "replacements": [
     {
+      "diagnostic": "configured nested block removed: xcsh_cluster.tls_parameters.cert_params.validation_params",
+      "replacement": "API specifications v9.0.0 remove this nested validation block; provider v12 applies the upstream schema removal directly without a compatibility shim."
+    },
+    {
+      "diagnostic": "configured nested block removed: xcsh_http_loadbalancer.bot_defense_advanced",
+      "replacement": "Provider v12 cleanly replaces this field with bot_defense_advanced_protection and intentionally provides no alias or state migration."
+    },
+    {
+      "diagnostic": "configured nested block removed: xcsh_secret_management_access.access_info.tls_config.cert_params.validation_params",
+      "replacement": "API specifications v9.0.0 remove this nested validation block; provider v12 applies the upstream schema removal directly without a compatibility shim."
+    },
+    {
       "diagnostic": "configured attribute removed: xcsh_site_upgrade_status.namespace",
       "replacement": "SMSv2 sites are system-scoped; v11 hardcodes the system namespace and retains site as the lookup key."
     },
