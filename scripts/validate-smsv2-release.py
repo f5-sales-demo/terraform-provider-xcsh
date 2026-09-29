@@ -743,11 +743,21 @@ def validate_platform_removal_evidence(parity: dict, path_names: list[str]) -> b
     )
 
 
-def validate_feature_removal_evidence(parity: dict, path_names: list[str]) -> bool:
-    """Validate the exact create/read evidence for the private ADN removal."""
+def validate_feature_contract(
+    parity: dict, path_names: list[str], version: str
+) -> bool:
+    """Validate the versioned private ADN and EKS contract."""
     removals = parity.get("verified_removals")
     evidence = parity.get("verified_removal_evidence")
     path = "spec.private_adn"
+    major = int(version.split(".", maxsplit=1)[0])
+    if major >= 9:
+        return (
+            removals == []
+            and evidence == {}
+            and path in path_names
+            and "spec.eks_k8s" in path_names
+        )
     if removals != [path] or not isinstance(evidence, dict) or set(evidence) != {path}:
         return False
     proof = evidence[path]
@@ -798,7 +808,7 @@ def validate_parity(parity: dict, version: str) -> None:
     segment_contract_is_valid = "spec.segment_vrf[].segment_network" in path_names
     removal_evidence_is_valid = validate_platform_removal_evidence(
         parity, path_names
-    ) and validate_feature_removal_evidence(parity, path_names)
+    ) and validate_feature_contract(parity, path_names, version)
     if not all(
         (
             identity_is_valid,
