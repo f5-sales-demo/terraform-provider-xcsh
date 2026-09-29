@@ -211,6 +211,22 @@ reject_parity_mutation unrelated-rejection '.platform_removal_evidence["spec.rse
 reject_parity_mutation unverified-normalization '.verified_removal_evidence["spec.private_adn"].absence_after_probe_verified = false'
 reject_parity_mutation retained-removal '.paths += [{path:"spec.rseries",type:"object"}] | .path_count += 1'
 
+restored="$work/v9-restored"
+mkdir "$restored"
+cp "$work"/*.json "$restored/"
+jq '.version = "9.0.0"
+  | .paths += [{path:"spec.private_adn",type:"object"},{path:"spec.eks_k8s",type:"object"}]
+  | .path_count += 2
+  | .verified_removals = []
+  | .verified_removal_evidence = {}' "$restored/smsv2_parity_manifest.json" >"$restored/parity.json"
+mv "$restored/parity.json" "$restored/smsv2_parity_manifest.json"
+jq '.version = "9.0.0"' "$restored/concurrency_contracts.json" >"$restored/concurrency.json"
+mv "$restored/concurrency.json" "$restored/concurrency_contracts.json"
+tag=v9.0.0
+refresh_manifest "$restored"
+python3 "$validator" "$restored" "$tag" "$commit"
+tag=v7.0.1
+
 schema_only="$work/schema-only"
 mkdir "$schema_only"
 cp "$work"/*.json "$schema_only/"
