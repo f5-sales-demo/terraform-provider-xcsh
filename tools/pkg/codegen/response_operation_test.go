@@ -106,6 +106,18 @@ func TestResponseOperationRetryPolicyUsesOperationRole(t *testing.T) {
 	}
 }
 
+func TestResponseOperationDeleteActionUsesExactMethod(t *testing.T) {
+	operation := responseOperationTemplate("action")
+	operation.Method = "DELETE"
+	code := renderResponseOperationInvoke(operation, "a", false)
+	if !strings.Contains(code, ".Delete(ctx, apiPath)") {
+		t.Fatalf("DELETE action did not use the exact client method: %s", code)
+	}
+	if strings.Contains(code, "body") {
+		t.Fatalf("DELETE action unexpectedly emitted a request body: %s", code)
+	}
+}
+
 func TestResponseOperationDiagnosticsDoNotRenderRawBackendErrors(t *testing.T) {
 	code := renderResponseOperationDiagnostic(responseOperationTemplate("query"))
 	if strings.Contains(code, "fmt.Sprintf") || !strings.Contains(code, "Raw API diagnostics are suppressed") {
