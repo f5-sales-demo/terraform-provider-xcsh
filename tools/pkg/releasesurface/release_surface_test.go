@@ -11,14 +11,17 @@ func TestLoadProviderReleaseSurfaceIsExact(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if got, want := len(surface.Resources), 129; got != want {
+	if got, want := len(surface.Resources), 130; got != want {
 		t.Fatalf("resources = %d, want %d", got, want)
 	}
-	if got, want := len(surface.DataSources), 169; got != want {
+	if got, want := len(surface.DataSources), 198; got != want {
 		t.Fatalf("data sources = %d, want %d", got, want)
 	}
-	if got, want := len(surface.Actions), 2; got != want {
+	if got, want := len(surface.Actions), 11; got != want {
 		t.Fatalf("actions = %d, want %d", got, want)
+	}
+	if got, want := len(surface.EphemeralResources), 2; got != want {
+		t.Fatalf("ephemeral resources = %d, want %d", got, want)
 	}
 	for _, name := range []string{"namespace", "protected_domain", "smsv2_kvm_runtime_interface"} {
 		if !slices.Contains(surface.Resources, name) {

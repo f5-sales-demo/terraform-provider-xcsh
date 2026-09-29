@@ -8,6 +8,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework/action"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
+	"github.com/hashicorp/terraform-plugin-framework/ephemeral"
 	"github.com/hashicorp/terraform-plugin-framework/function"
 	frameworkprovider "github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
@@ -24,9 +25,11 @@ func TestProviderReleaseSurfaceIsExact(t *testing.T) {
 	resources := resourceNames(t, p.Resources(context.Background()))
 	dataSources := dataSourceNames(t, p.DataSources(context.Background()))
 	actions := actionNames(t, p.Actions(context.Background()))
+	ephemeralResources := ephemeralResourceNames(t, p.EphemeralResources(context.Background()))
 	assertSurfaceNames(t, resources, prefixed(surface.Resources))
 	assertSurfaceNames(t, dataSources, prefixed(surface.DataSources))
 	assertSurfaceNames(t, actions, prefixed(surface.Actions))
+	assertSurfaceNames(t, ephemeralResources, prefixed(surface.EphemeralResources))
 
 	var functions []func() function.Function
 	if withFunctions, ok := any(p).(frameworkprovider.ProviderWithFunctions); ok {
@@ -71,6 +74,16 @@ func actionNames(t *testing.T, constructors []func() action.Action) []string {
 	for _, constructor := range constructors {
 		var response action.MetadataResponse
 		constructor().Metadata(context.Background(), action.MetadataRequest{ProviderTypeName: "xcsh"}, &response)
+		names = append(names, response.TypeName)
+	}
+	return names
+}
+func ephemeralResourceNames(t *testing.T, constructors []func() ephemeral.EphemeralResource) []string {
+	t.Helper()
+	names := make([]string, 0, len(constructors))
+	for _, constructor := range constructors {
+		var response ephemeral.MetadataResponse
+		constructor().Metadata(context.Background(), ephemeral.MetadataRequest{ProviderTypeName: "xcsh"}, &response)
 		names = append(names, response.TypeName)
 	}
 	return names
