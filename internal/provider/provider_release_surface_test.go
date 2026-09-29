@@ -30,6 +30,15 @@ func TestProviderReleaseSurfaceIsExact(t *testing.T) {
 	assertSurfaceNames(t, dataSources, prefixed(surface.DataSources))
 	assertSurfaceNames(t, actions, prefixed(surface.Actions))
 	assertSurfaceNames(t, ephemeralResources, prefixed(surface.EphemeralResources))
+	for _, constructor := range p.EphemeralResources(context.Background()) {
+		var response ephemeral.SchemaResponse
+		constructor().Schema(context.Background(), ephemeral.SchemaRequest{}, &response)
+		for name, attribute := range response.Schema.Attributes {
+			if attribute.IsComputed() && !attribute.IsSensitive() {
+				t.Errorf("ephemeral response attribute %q is not sensitive", name)
+			}
+		}
+	}
 
 	var functions []func() function.Function
 	if withFunctions, ok := any(p).(frameworkprovider.ProviderWithFunctions); ok {
