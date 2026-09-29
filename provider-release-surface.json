@@ -345,8 +345,5 @@
     "workload",
     "workload_flavor"
   ],
-  "ephemeral_resources": [
-    "artifact_registry_token",
-    "kubernetes_manifests"
-  ]
+  "ephemeral_resources": ["artifact_registry_token", "kubernetes_manifests"]
 }
