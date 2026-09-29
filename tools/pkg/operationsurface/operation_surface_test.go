@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/releasesurface"
 )
 
 func TestV9OperationSurfaceIsExact(t *testing.T) {
@@ -39,6 +40,21 @@ func TestV9OperationSurfaceIsExact(t *testing.T) {
 	}
 	if got, want := len(definitions), 41; got != want {
 		t.Fatalf("Terraform definitions = %d, want %d", got, want)
+	}
+	surface, err := releasesurface.Load(filepath.Join(root, "provider-release-surface.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, operation := range manifest.Operations {
+		allowed := map[string]bool{
+			"resource":           surface.AllowsResource(operation.Name),
+			"data_source":        surface.AllowsDataSource(operation.Name),
+			"action":             surface.AllowsAction(operation.Name),
+			"ephemeral_resource": surface.AllowsEphemeralResource(operation.Name),
+		}[operation.Kind]
+		if !allowed {
+			t.Errorf("%s %s is absent from the provider release surface", operation.Kind, operation.Name)
+		}
 	}
 }
 
