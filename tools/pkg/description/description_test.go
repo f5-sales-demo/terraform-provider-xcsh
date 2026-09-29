@@ -75,6 +75,12 @@ func TestClean(t *testing.T) {
 			expected: "A description with spaces",
 		},
 		{
+			name:     "normalizes documentation terminology",
+			desc:     "Mime content from a 3rd party system",
+			path:     "",
+			expected: "MIME content from a third-party system",
+		},
+		{
 			name:     "escapes quotes",
 			desc:     `A "quoted" description`,
 			path:     "",

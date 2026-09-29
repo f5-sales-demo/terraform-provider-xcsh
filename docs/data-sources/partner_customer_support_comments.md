@@ -84,11 +84,11 @@ An [`attachments_info`](#comments-attachments-info) block (within [`comments`](#
 
 <a id="nestedatt--comments-attachment"></a>&#x2022; [`attachment`](#nestedatt--comments-attachment) - Optional String<br>Any binary attachment (such as screenshots, plain text files, PDFs) encoded as base64 if used over HTTP
 
-<a id="nestedatt--comments-content-type"></a>&#x2022; [`content_type`](#nestedatt--comments-content-type) - Optional String<br>Mime content type of the attachment. Helps the UI to properly display the data
+<a id="nestedatt--comments-content-type"></a>&#x2022; [`content_type`](#nestedatt--comments-content-type) - Optional String<br>MIME content type of the attachment. Helps the UI to properly display the data
 
 <a id="nestedatt--comments-filename"></a>&#x2022; [`filename`](#nestedatt--comments-filename) - Optional String<br>Filename of the attachment as provided by the caller
 
-<a id="nestedatt--comments-tp-id"></a>&#x2022; [`tp_id`](#nestedatt--comments-tp-id) - Optional String<br>Optional ID as assigned by the 3rd party actually storing the data
+<a id="nestedatt--comments-tp-id"></a>&#x2022; [`tp_id`](#nestedatt--comments-tp-id) - Optional String<br>Optional ID as assigned by the third-party actually storing the data
 
 ---
 

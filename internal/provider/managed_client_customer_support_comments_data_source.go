@@ -115,7 +115,7 @@ func (d *ManagedClientCustomerSupportCommentsDataSource) Schema(ctx context.Cont
 										Computed:            true,
 									},
 									"content_type": schema.StringAttribute{
-										MarkdownDescription: "Mime content type of the attachment. Helps the UI to properly display the data.",
+										MarkdownDescription: "MIME content type of the attachment. Helps the UI to properly display the data.",
 										Computed:            true,
 									},
 									"filename": schema.StringAttribute{
@@ -123,7 +123,7 @@ func (d *ManagedClientCustomerSupportCommentsDataSource) Schema(ctx context.Cont
 										Computed:            true,
 									},
 									"tp_id": schema.StringAttribute{
-										MarkdownDescription: "Optional ID as assigned by the 3rd party actually storing the data.",
+										MarkdownDescription: "Optional ID as assigned by the third-party actually storing the data.",
 										Computed:            true,
 									},
 								},
