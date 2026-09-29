@@ -905,6 +905,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 			},
 		},
 	})
+	writeJSON("upstream-contract-changes.json", map[string]any{"version": version, "added": []any{}, "changed": []any{}, "removed": []any{}})
 	writeJSON("upstream-contract-removals.json", map[string]any{"version": version, "removals": []any{}})
 	assets := map[string]string{"smsv2-contract.json": fileSHA256(t, filepath.Join(root, "smsv2-contract.json")), "smsv2-evidence-receipt.json": fileSHA256(t, filepath.Join(root, "smsv2-evidence-receipt.json"))}
 	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-smsv2-api/v1", "contract_version": "7.0.0", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})

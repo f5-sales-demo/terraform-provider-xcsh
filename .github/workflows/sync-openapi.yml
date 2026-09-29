@@ -292,6 +292,7 @@ jobs:
             smsv2-contract.json \
             smsv2-evidence-receipt.json \
             smsv2_parity_manifest.json \
+            upstream-contract-changes.json \
             upstream-contract-removals.json | sort)
           ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
           [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
@@ -319,6 +320,7 @@ jobs:
               (.assets | keys | sort) ==
                 ["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
                  "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json", "smsv2_parity_manifest.json",
+                 "upstream-contract-changes.json",
                  "upstream-contract-removals.json"] and
               ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
             ' >/dev/null || {
@@ -373,6 +375,7 @@ jobs:
           mkdir -p "$COMPANIONS"
           for asset in api-catalog.json concurrency_contracts.json index.json minimal-export-defaults.json openapi.json \
             smsv2-contract-manifest.json smsv2-contract.json smsv2-evidence-receipt.json smsv2_parity_manifest.json \
+            upstream-contract-changes.json \
             upstream-contract-removals.json; do
             AID=$(jq -r --arg name "$asset" \
               '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \

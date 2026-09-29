@@ -379,7 +379,8 @@ case "$*" in
   *releases/assets/308*) cat "$SMSV2_EVIDENCE_FILE" ;;
   *releases/assets/309*) cat "$CONCURRENCY_FILE" ;;
   *releases/assets/310*) cat "$PARITY_FILE" ;;
-  *releases/assets/311*) cat "$REMOVALS_FILE" ;;
+  *releases/assets/311*) cat "$CHANGES_FILE" ;;
+  *releases/assets/312*) cat "$REMOVALS_FILE" ;;
   *commits/v2.1.208*) printf '%s\n' "$TAG_COMMIT" ;;
   *releases/tags/v2.1.208*)
     bundle_sha=$(shasum -a 256 "$BUNDLE_ZIP" | awk '{print $1}')
@@ -392,6 +393,7 @@ case "$*" in
     evidence_sha=$(shasum -a 256 "$SMSV2_EVIDENCE_FILE" | cut -d " " -f1)
     concurrency_sha=$(shasum -a 256 "$CONCURRENCY_FILE" | cut -d " " -f1)
     parity_sha=$(shasum -a 256 "$PARITY_FILE" | cut -d " " -f1)
+    changes_sha=$(shasum -a 256 "$CHANGES_FILE" | cut -d " " -f1)
     removals_sha=$(shasum -a 256 "$REMOVALS_FILE" | cut -d " " -f1)
     jq -cn \
       --arg bundle_sha "$bundle_sha" \
@@ -405,6 +407,7 @@ case "$*" in
       --arg evidence_sha "$evidence_sha" \
       --arg concurrency_sha "$concurrency_sha" \
       --arg parity_sha "$parity_sha" \
+      --arg changes_sha "$changes_sha" \
       --arg removals_sha "$removals_sha" '
       {tag_name: "v2.1.208", draft: false, prerelease: false, immutable: true, assets: [
         {id: 302, name: "api-catalog.json", digest: ("sha256:" + $catalog_sha)},
@@ -417,7 +420,8 @@ case "$*" in
         {id: 308, name: "smsv2-evidence-receipt.json", digest: ("sha256:" + $evidence_sha)},
         {id: 309, name: "concurrency_contracts.json", digest: ("sha256:" + $concurrency_sha)},
         {id: 310, name: "smsv2_parity_manifest.json", digest: ("sha256:" + $parity_sha)},
-        {id: 311, name: "upstream-contract-removals.json", digest: ("sha256:" + $removals_sha)}
+        {id: 311, name: "upstream-contract-changes.json", digest: ("sha256:" + $changes_sha)},
+        {id: 312, name: "upstream-contract-removals.json", digest: ("sha256:" + $removals_sha)}
       ], body: ("<!-- publication-receipt:" + ({
         assets: {
           "api-catalog.json": ("sha256:" + $catalog_sha),
@@ -430,6 +434,7 @@ case "$*" in
           "smsv2-evidence-receipt.json": ("sha256:" + $evidence_sha),
           "concurrency_contracts.json": ("sha256:" + $concurrency_sha),
           "smsv2_parity_manifest.json": ("sha256:" + $parity_sha),
+          "upstream-contract-changes.json": ("sha256:" + $changes_sha),
           "upstream-contract-removals.json": ("sha256:" + $removals_sha)
         }, commit: $commit, version: "2.1.208"
       } | tojson) + " -->")}' ;;
@@ -457,6 +462,7 @@ esac
 		"SMSV2_EVIDENCE_FILE=" + filepath.Join(tmp, "smsv2-evidence-receipt.json"),
 		"CONCURRENCY_FILE=" + filepath.Join(tmp, "concurrency_contracts.json"),
 		"PARITY_FILE=" + filepath.Join(tmp, "smsv2_parity_manifest.json"),
+		"CHANGES_FILE=" + filepath.Join(tmp, "upstream-contract-changes.json"),
 		"REMOVALS_FILE=" + filepath.Join(tmp, "upstream-contract-removals.json"),
 		"DISPATCH_TARGET_COMMIT=" + strings.Repeat("a", 40),
 		"RUNNER_TEMP=" + filepath.Join(tmp, "runner"),
