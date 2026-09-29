@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "spec_release": "v9.0.0",
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/api/config/dns/namespaces/system/dns_zone/add_cryptokey",
+      "operation_id": "ves.io.schema.dns_zone.CustomAPI.AddCryptoKey",
+      "kind": "action",
+      "name": "dns_zone_add_cryptokey"
+    },
+    {
+      "method": "POST",
+      "path": "/api/config/dns/namespaces/system/dns_zone/delete_cryptokey",
+      "operation_id": "ves.io.schema.dns_zone.CustomAPI.DeleteCryptoKey",
+      "kind": "action",
+      "name": "dns_zone_delete_cryptokey"
+    },
+    {
+      "method": "POST",
+      "path": "/api/config/dns/namespaces/system/dns_zone/edit_cryptokey",
+      "operation_id": "ves.io.schema.dns_zone.CustomAPI.EditCryptoKey",
+      "kind": "action",
+      "name": "dns_zone_edit_cryptokey"
+    },
+    {
+      "method": "POST",
+      "path": "/api/config/dns/namespaces/system/dns_zone/get_cryptokeys",
+      "operation_id": "ves.io.schema.dns_zone.CustomAPI.GetCryptoKeys",
+      "kind": "data_source",
+      "name": "dns_zone_cryptokeys"
+    },
+    {
+      "method": "POST",
+      "path": "/api/config/namespaces/{metadata.namespace}/cloud_user_accounts",
+      "operation_id": "ves.io.schema.cloud_user_account.API.Create",
+      "kind": "resource",
+      "name": "cloud_user_account"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/config/namespaces/{metadata.namespace}/cloud_user_accounts/{metadata.name}",
+      "operation_id": "ves.io.schema.cloud_user_account.API.Replace",
+      "kind": "resource",
+      "name": "cloud_user_account"
+    },
+    {
+      "method": "GET",
+      "path": "/api/config/namespaces/{namespace}/cloud_user_accounts",
+      "operation_id": "ves.io.schema.cloud_user_account.API.List",
+      "kind": "data_source",
+      "name": "cloud_user_account"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/config/namespaces/{namespace}/cloud_user_accounts/{name}",
+      "operation_id": "ves.io.schema.cloud_user_account.API.Delete",
+      "kind": "resource",
+      "name": "cloud_user_account"
+    },
+    {
+      "method": "GET",
+      "path": "/api/config/namespaces/{namespace}/cloud_user_accounts/{name}",
+      "operation_id": "ves.io.schema.cloud_user_account.API.Get",
+      "kind": "data_source",
+      "name": "cloud_user_account"
+    },
+    {
+      "method": "POST",
+      "path": "/api/config/namespaces/{namespace}/oidc_oauth_discovery",
+      "operation_id": "ves.io.schema.namespace.NamespaceCustomAPI.OIDCOAuthDiscovery",
+      "kind": "data_source",
+      "name": "oidc_oauth_discovery"
+    },
+    {
+      "method": "POST",
+      "path": "/api/config/namespaces/{namespace}/sites-signatures/update",
+      "operation_id": "ves.io.schema.site_signatures.CustomSiteSignaturesApi.UpdateSignatures",
+      "kind": "action",
+      "name": "site_signatures_update"
+    },
+    {
+      "method": "GET",
+      "path": "/api/data/namespaces/{namespace}/access/active-sessions",
+      "operation_id": "ves.io.schema.access.access_active_sessions.CustomAPI.ListActiveSessions",
+      "kind": "data_source",
+      "name": "access_active_sessions"
+    },
+    {
+      "method": "POST",
+      "path": "/api/data/namespaces/{namespace}/access/active-sessions/terminate",
+      "operation_id": "ves.io.schema.access.access_active_sessions.CustomAPI.TerminateSessions",
+      "kind": "action",
+      "name": "access_active_sessions_terminate"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/data/namespaces/{namespace}/access/active-sessions/{id}",
+      "operation_id": "ves.io.schema.access.access_active_sessions.CustomAPI.TerminateSession",
+      "kind": "action",
+      "name": "access_active_session_terminate"
+    },
+    {
+      "method": "GET",
+      "path": "/api/data/namespaces/{namespace}/access/active-sessions/{id}",
+      "operation_id": "ves.io.schema.access.access_active_sessions.CustomAPI.GetActiveSession",
+      "kind": "data_source",
+      "name": "access_active_session"
+    },
+    {
+      "method": "POST",
+      "path": "/api/data/namespaces/{namespace}/app_security/evidence",
+      "operation_id": "ves.io.schema.app_security.AppSecurityMonitoringAPI.SecurityEvidenceQuery",
+      "kind": "data_source",
+      "name": "app_security_evidence"
+    },
+    {
+      "method": "POST",
+      "path": "/api/data/namespaces/{namespace}/tmm_session/metrics",
+      "operation_id": "ves.io.schema.tmm_session.CustomAPI.TMMSessionMetrics",
+      "kind": "data_source",
+      "name": "tmm_session_metrics"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/system/device-intelligence/addon/subscribe",
+      "operation_id": "ves.io.schema.shape.device_intelligence.subscription.CustomAPI.Subscribe",
+      "kind": "action",
+      "name": "device_intelligence_subscribe"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/system/device-intelligence/addon/unsubscribe",
+      "operation_id": "ves.io.schema.shape.device_intelligence.subscription.CustomAPI.Unsubscribe",
+      "kind": "action",
+      "name": "device_intelligence_unsubscribe"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/{namespace}/analytics/devices/multi-account",
+      "operation_id": "ves.io.schema.shape.device_intelligence.CustomAPI.GetMultiAccountDevices",
+      "kind": "data_source",
+      "name": "device_intelligence_multi_account_devices"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/{namespace}/analytics/devices/risk-score-distribution",
+      "operation_id": "ves.io.schema.shape.device_intelligence.CustomAPI.GetRiskScoreDistribution",
+      "kind": "data_source",
+      "name": "device_intelligence_risk_score_distribution"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/{namespace}/analytics/summary",
+      "operation_id": "ves.io.schema.shape.device_intelligence.CustomAPI.GetSummary",
+      "kind": "data_source",
+      "name": "device_intelligence_summary"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/{namespace}/analytics/transactions/high-risk",
+      "operation_id": "ves.io.schema.shape.device_intelligence.CustomAPI.GetHighRiskTransactions",
+      "kind": "data_source",
+      "name": "device_intelligence_high_risk_transactions"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/{namespace}/devices",
+      "operation_id": "ves.io.schema.shape.device_intelligence.CustomAPI.ListDevices",
+      "kind": "data_source",
+      "name": "device_intelligence_devices"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/{namespace}/devices/{device_id}/history",
+      "operation_id": "ves.io.schema.shape.device_intelligence.CustomAPI.GetDeviceHistory",
+      "kind": "data_source",
+      "name": "device_intelligence_device_history"
+    },
+    {
+      "method": "POST",
+      "path": "/api/device-intelligence/namespaces/{namespace}/devices/{device_id}/summary",
+      "operation_id": "ves.io.schema.shape.device_intelligence.CustomAPI.GetDeviceSummary",
+      "kind": "data_source",
+      "name": "device_intelligence_device_summary"
+    },
+    {
+      "method": "GET",
+      "path": "/api/infraprotect/namespaces/{namespace}/infraprotect/mitigation/{mitigation_id}/ips/download",
+      "operation_id": "ves.io.schema.infraprotect.CustomMitigationAPI.ListMitigationIPsDownload",
+      "kind": "data_source",
+      "name": "infraprotect_mitigation_ips"
+    },
+    {
+      "method": "POST",
+      "path": "/api/infraprotect/namespaces/{namespace}/infraprotect/synchronize-configuration",
+      "operation_id": "ves.io.schema.infraprotect.CustomGeneralAPI.SynchronizeConfiguration",
+      "kind": "action",
+      "name": "infraprotect_synchronize_configuration"
+    },
+    {
+      "method": "GET",
+      "path": "/api/maurice/namespaces/system/sites/{site}/download-kubernetes-manifests",
+      "operation_id": "ves.io.schema.virtual_appliance.SoftwareVersionOsImageCustomApi.DownloadKubernetesManifests",
+      "kind": "ephemeral_resource",
+      "name": "kubernetes_manifests"
+    },
+    {
+      "method": "GET",
+      "path": "/api/shape/bot/namespaces/{namespace}/artifact-registry-token",
+      "operation_id": "ves.io.schema.shape.bot_defense.CustomAPI.GetArtifactRegistryToken",
+      "kind": "ephemeral_resource",
+      "name": "artifact_registry_token"
+    },
+    {
+      "method": "POST",
+      "path": "/api/shape/bot/namespaces/{namespace}/suggest-values",
+      "operation_id": "ves.io.schema.shape.bot_defense.CustomAPI.SuggestValues",
+      "kind": "data_source",
+      "name": "bot_suggest_values"
+    },
+    {
+      "method": "POST",
+      "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/check",
+      "operation_id": "ves.io.schema.shape.bot_defense.reporting.CustomAPI.PeerStatusCheckV2",
+      "kind": "data_source",
+      "name": "bot_peer_status"
+    },
+    {
+      "method": "POST",
+      "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/threat-types",
+      "operation_id": "ves.io.schema.shape.bot_defense.reporting.CustomAPI.PeersThreatTypesV2",
+      "kind": "data_source",
+      "name": "bot_peer_threat_types"
+    },
+    {
+      "method": "POST",
+      "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/top-good-bots",
+      "operation_id": "ves.io.schema.shape.bot_defense.reporting.CustomAPI.PeersTopGoodBotsV2",
+      "kind": "data_source",
+      "name": "bot_peer_top_good_bots"
+    },
+    {
+      "method": "POST",
+      "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/top-reason-codes",
+      "operation_id": "ves.io.schema.shape.bot_defense.reporting.CustomAPI.PeersTopReasonCodesV2",
+      "kind": "data_source",
+      "name": "bot_peer_top_reason_codes"
+    },
+    {
+      "method": "POST",
+      "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/traffic/overview",
+      "operation_id": "ves.io.schema.shape.bot_defense.reporting.CustomAPI.PeersTrafficOverviewV2",
+      "kind": "data_source",
+      "name": "bot_peer_traffic_overview"
+    },
+    {
+      "method": "GET",
+      "path": "/api/waf/attack-signatures",
+      "operation_id": "ves.io.schema.waf_signatures_changelog.WafSignaturesAPI.ListAttackSignatures",
+      "kind": "data_source",
+      "name": "waf_attack_signatures"
+    },
+    {
+      "method": "GET",
+      "path": "/api/waf/bot-signatures",
+      "operation_id": "ves.io.schema.waf_signatures_changelog.WafSignaturesAPI.ListBotSignatures",
+      "kind": "data_source",
+      "name": "waf_bot_signatures"
+    },
+    {
+      "method": "GET",
+      "path": "/api/waf/latest-signatures-version",
+      "operation_id": "ves.io.schema.waf_signatures_changelog.WafSignaturesAPI.GetLatestVersion",
+      "kind": "data_source",
+      "name": "waf_latest_signatures_version"
+    },
+    {
+      "method": "GET",
+      "path": "/api/waf/threat-campaigns",
+      "operation_id": "ves.io.schema.waf_signatures_changelog.WafSignaturesAPI.ListThreatCampaigns",
+      "kind": "data_source",
+      "name": "waf_threat_campaigns"
+    },
+    {
+      "method": "POST",
+      "path": "/api/waf/threats",
+      "operation_id": "ves.io.schema.app_security.ThreatCampaignAPI.GetThreats",
+      "kind": "data_source",
+      "name": "waf_threats"
+    },
+    {
+      "method": "GET",
+      "path": "/api/web/namespaces/system/customer_support/{name}/comments",
+      "operation_id": "ves.io.schema.customer_support.CustomAPI.GetComments",
+      "kind": "data_source",
+      "name": "customer_support_comments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/web/namespaces/system/managed_client/customer_support/{tp_id}/comments",
+      "operation_id": "ves.io.schema.tenant_management.managed_tenant.CustomerSupportCustomAPI.GetComments",
+      "kind": "data_source",
+      "name": "managed_client_customer_support_comments"
+    },
+    {
+      "method": "GET",
+      "path": "/api/web/namespaces/system/partner-management/customer_support/{tp_id}/comments",
+      "operation_id": "ves.io.schema.tenant_management.child_tenant.CustomerSupportCustomAPI.GetComments",
+      "kind": "data_source",
+      "name": "partner_customer_support_comments"
+    }
+  ]
+}

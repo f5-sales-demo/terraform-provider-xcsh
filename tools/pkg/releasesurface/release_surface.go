@@ -10,10 +10,11 @@ import (
 )
 
 type Surface struct {
-	Resources   []string `json:"resources"`
-	DataSources []string `json:"data_sources"`
-	Actions     []string `json:"actions"`
-	Functions   []string `json:"functions"`
+	Resources          []string `json:"resources"`
+	DataSources        []string `json:"data_sources"`
+	Actions            []string `json:"actions"`
+	EphemeralResources []string `json:"ephemeral_resources"`
+	Functions          []string `json:"functions"`
 }
 
 // FilterResults makes the public provider surface equal the manifest. It also
@@ -22,6 +23,8 @@ func (s *Surface) FilterResults(results []openapi.GenerationResult) []openapi.Ge
 	kept := make(map[string]openapi.GenerationResult)
 	for _, result := range results {
 		switch {
+		case result.IsEphemeral && s.AllowsEphemeralResource(result.ResourceName):
+			kept[result.ResourceName] = result
 		case result.IsTerraformAction && s.AllowsAction(result.ResourceName):
 			kept[result.ResourceName] = result
 		case result.IsReadOnly && s.AllowsDataSource(result.ResourceName):
@@ -67,7 +70,8 @@ func (s *Surface) validate() error {
 		name   string
 		values []string
 	}{
-		{"resources", s.Resources}, {"data_sources", s.DataSources}, {"actions", s.Actions}, {"functions", s.Functions},
+		{"resources", s.Resources}, {"data_sources", s.DataSources}, {"actions", s.Actions},
+		{"ephemeral_resources", s.EphemeralResources}, {"functions", s.Functions},
 	} {
 		seen := map[string]struct{}{}
 		for _, value := range group.values {
@@ -86,7 +90,10 @@ func (s *Surface) validate() error {
 func (s *Surface) AllowsResource(name string) bool   { return contains(s.Resources, name) }
 func (s *Surface) AllowsDataSource(name string) bool { return contains(s.DataSources, name) }
 func (s *Surface) AllowsAction(name string) bool     { return contains(s.Actions, name) }
-func (s *Surface) AllowsFunction(name string) bool   { return contains(s.Functions, name) }
+func (s *Surface) AllowsEphemeralResource(name string) bool {
+	return contains(s.EphemeralResources, name)
+}
+func (s *Surface) AllowsFunction(name string) bool { return contains(s.Functions, name) }
 func contains(values []string, value string) bool {
 	for _, candidate := range values {
 		if candidate == value {

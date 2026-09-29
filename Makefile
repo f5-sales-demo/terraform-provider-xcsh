@@ -131,6 +131,7 @@ download-specs:
 			smsv2-contract.json \
 			smsv2-evidence-receipt.json \
 			smsv2_parity_manifest.json \
+			upstream-contract-changes.json \
 			upstream-contract-removals.json; do \
 			ASSET_URL="https://github.com/$(ENRICHED_REPO)/releases/download/$$RELEASE_TAG/$$asset"; \
 			curl --fail --location --silent --show-error --retry 3 --retry-all-errors --connect-timeout 20 \
