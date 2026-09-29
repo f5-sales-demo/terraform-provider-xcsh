@@ -467,6 +467,9 @@ spec:
 
 ### Spec Argument Reference
 
+-> **One of the following:**
+&#x2022; <a id="default-jitter"></a>[`default_jitter`](#default-jitter) - Optional Object<br>Configuration parameter for default jitter
+
 <a id="healthy-threshold"></a>&#x2022; [`healthy_threshold`](#healthy-threshold) - Required Number<br>Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy. Recommended: `3`
 
 -> **One of the following:**
@@ -476,7 +479,7 @@ spec:
 
 <a id="interval"></a>&#x2022; [`interval`](#interval) - Required Number<br>Time interval in seconds between two healthcheck requests. Recommended: `15`
 
-<a id="jitter-percent"></a>&#x2022; [`jitter_percent`](#jitter-percent) - Optional Number  Defaults to `0`<br>Add a random amount of time as a percent value to the interval between successive healthcheck requests.  Recommended: `30` ⚙️ **Server Default**
+<a id="jitter-percent"></a>&#x2022; [`jitter_percent`](#jitter-percent) - Optional Number  Defaults to `0`<br>Specify a custom jitter value as a percentage of the health check interval. Valid values are 0 (to disable jitter) and 10 to 50.  Recommended: `30` ⚙️ **Server Default**
 
 <a id="timeout"></a>&#x2022; [`timeout`](#timeout) - Required Number<br>Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure. Recommended: `3`
 

@@ -61,7 +61,7 @@ resource "xcsh_app_type" "example" {
 
 <a id="business-logic-markup-setting"></a>&#x2022; [`business_logic_markup_setting`](#business-logic-markup-setting) - Optional Block<br>Settings specifying how API Discovery will be performed<br>See [Business Logic Markup Setting](#business-logic-markup-setting) below for details.
 
-<a id="features"></a>&#x2022; [`features`](#features) - Optional Block<br>Features. List of various AI/ML features enabled<br>See [Features](#features) below for details.
+<a id="features"></a>&#x2022; [`features`](#features) - Optional Block<br>List of various advanced security features enabled<br>See [Features](#features) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -101,8 +101,8 @@ An [`enable`](#business-logic-markup-setting-enable) block (within [`business_lo
 
 A [`features`](#features) block supports the following:
 
-<a id="features-type"></a>&#x2022; [`type`](#features-type) - Optional String  Defaults to `BUSINESS_LOGIC_MARKUP`<br>Possible values are `BUSINESS_LOGIC_MARKUP`, `TIMESERIES_ANOMALY_DETECTION`, `PER_REQ_ANOMALY_DETECTION`, `USER_BEHAVIOR_ANALYSIS`<br>[Enum: BUSINESS_LOGIC_MARKUP|TIMESERIES_ANOMALY_DETECTION|PER_REQ_ANOMALY_DETECTION|USER_BEHAVIOR_ANALYSIS] Enumeration for AI/ML features supported
-API Discovery enables generation of model for various API interactions between services of App type. Enable analysis of timeseries for various metric collected like requests, errors, latency etc. Enable anomaly detection per API request, i.e
+<a id="features-type"></a>&#x2022; [`type`](#features-type) - Optional String  Defaults to `BUSINESS_LOGIC_MARKUP`<br>Possible values are `BUSINESS_LOGIC_MARKUP`, `TIMESERIES_ANOMALY_DETECTION`, `PER_REQ_ANOMALY_DETECTION`, `USER_BEHAVIOR_ANALYSIS`<br>[Enum: BUSINESS_LOGIC_MARKUP|TIMESERIES_ANOMALY_DETECTION|PER_REQ_ANOMALY_DETECTION|USER_BEHAVIOR_ANALYSIS] Enumeration for advanced security
+features supported API Discovery enables generation of model for various API interactions between services of App type. Enable analysis of timeseries for various metric collected like requests, errors, latency etc. Enable anomaly detection per API request, i.e
 
 #### Timeouts
 

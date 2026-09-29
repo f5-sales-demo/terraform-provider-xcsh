@@ -100,6 +100,7 @@ type HealthcheckResourceModel struct {
 	Timeout            types.Int64                      `tfsdk:"timeout"`
 	UnhealthyThreshold types.Int64                      `tfsdk:"unhealthy_threshold"`
 	Annotations        types.Map                        `tfsdk:"annotations"`
+	DefaultJitter      types.Object                     `tfsdk:"default_jitter"`
 	Description        types.String                     `tfsdk:"description"`
 	Disable            types.Bool                       `tfsdk:"disable"`
 	Labels             types.Map                        `tfsdk:"labels"`
@@ -172,6 +173,11 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"default_jitter": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: default_jitter, jitter_percent; Default: default_jitter] Configuration parameter for default jitter.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -198,7 +204,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"jitter_percent": schema.Int64Attribute{
-				MarkdownDescription: "Add a random amount of time as a percent value to the interval between successive healthcheck requests. Server applies default when omitted. Recommended: `30`.",
+				MarkdownDescription: "Exclusive with [default_jitter] Specify a custom jitter value as a percentage of the health check interval. Valid values are 0 (to disable jitter) and 10 to 50. Server applies default when omitted. Recommended: `30`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
@@ -347,6 +353,14 @@ func (r *HealthcheckResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.DefaultJitter.IsNull() && !data.DefaultJitter.IsUnknown() && !data.JitterPercent.IsNull() && !data.JitterPercent.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_jitter"),
+			"Conflicting Configuration",
+			"default_jitter and jitter_percent are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -458,6 +472,9 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if !data.UnhealthyThreshold.IsNull() && !data.UnhealthyThreshold.IsUnknown() {
 		createReq.Spec["unhealthy_threshold"] = data.UnhealthyThreshold.ValueInt64()
+	}
+	if !data.DefaultJitter.IsNull() && !data.DefaultJitter.IsUnknown() {
+		createReq.Spec["default_jitter"] = map[string]interface{}{}
 	}
 	if data.HTTPHealthCheck != nil {
 		HTTPHealthCheckMap := make(map[string]interface{})
@@ -576,6 +593,13 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 		data.UnhealthyThreshold = types.Int64Value(int64(v))
 	} else {
 		data.UnhealthyThreshold = types.Int64Null()
+	}
+	if !isImport && !data.DefaultJitter.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_jitter"].(map[string]interface{}); ok {
+		data.DefaultJitter = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultJitter = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["http_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPHealthCheck != nil) {
 		data.HTTPHealthCheck = &HealthcheckHTTPHealthCheckModel{
@@ -835,6 +859,13 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 	} else {
 		data.UnhealthyThreshold = types.Int64Null()
 	}
+	if !isImport && !data.DefaultJitter.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_jitter"].(map[string]interface{}); ok {
+		data.DefaultJitter = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultJitter = types.ObjectNull(map[string]attr.Type{})
+	}
 	if blockData, ok := apiResource.Spec["http_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPHealthCheck != nil) {
 		data.HTTPHealthCheck = &HealthcheckHTTPHealthCheckModel{
 			ExpectedResponse: func() types.String {
@@ -1048,6 +1079,9 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 	if !data.UnhealthyThreshold.IsNull() && !data.UnhealthyThreshold.IsUnknown() {
 		apiResource.Spec["unhealthy_threshold"] = data.UnhealthyThreshold.ValueInt64()
 	}
+	if !data.DefaultJitter.IsNull() && !data.DefaultJitter.IsUnknown() {
+		apiResource.Spec["default_jitter"] = map[string]interface{}{}
+	}
 	if data.HTTPHealthCheck != nil {
 		HTTPHealthCheckMap := make(map[string]interface{})
 		if !data.HTTPHealthCheck.ExpectedResponse.IsNull() && !data.HTTPHealthCheck.ExpectedResponse.IsUnknown() {
@@ -1192,6 +1226,13 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 		data.UnhealthyThreshold = types.Int64Value(int64(v))
 	} else {
 		data.UnhealthyThreshold = types.Int64Null()
+	}
+	if !isImport && !data.DefaultJitter.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_jitter"].(map[string]interface{}); ok {
+		data.DefaultJitter = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultJitter = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["http_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPHealthCheck != nil) {
 		data.HTTPHealthCheck = &HealthcheckHTTPHealthCheckModel{

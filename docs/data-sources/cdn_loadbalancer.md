@@ -2014,7 +2014,7 @@ A [`no_tls`](#origin-pool-no-tls) block (within [`origin_pool`](#origin-pool)) s
 
 An [`origin_servers`](#origin-pool-origin-servers) block (within [`origin_pool`](#origin-pool)) supports the following:
 
-<a id="nestedatt--https-port"></a>&#x2022; [`port`](#nestedatt--https-port) - Optional Number<br>Origin Server Port. Port the workload can be reached on
+<a id="nestedatt--https-port"></a>&#x2022; [`port`](#nestedatt--https-port) - Optional Number<br>Port the workload can be reached on Enter a custom port only if your origin server uses a non-default port. Leave the value as 0 to automatically use 443 (TLS) or 80 (non-TLS)
 
 <a id="nestedatt--https-public-ip"></a>&#x2022; [`public_ip`](#nestedatt--https-public-ip) - Optional String<br>Specify origin server with public IP address
 

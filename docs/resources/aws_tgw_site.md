@@ -101,6 +101,8 @@ configuration for upto 7<br>See [Offline Survivability Mode](#offline-survivabil
 
 <a id="vpc-attachments"></a>&#x2022; [`vpc_attachments`](#vpc-attachments) - Optional Block<br>Spoke VPCs to be attached to the AWS TGW Site
 
+<a id="waf-signatures"></a>&#x2022; [`waf_signatures`](#waf-signatures) - Optional Block<br>Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes
+
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
@@ -877,6 +879,18 @@ An [`inside_static_routes`](#vn-config-inside-static-routes) block (within [`vn_
 
 <a id="deep-2543b9"></a>Deeply nested **Address** block collapsed for readability.
 
+#### Vn Config Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack
+
+<a id="deep-ec51a9"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Vn Config Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-da4d35"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Vn Config Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-50a326"></a>Deeply nested **IPv6** block collapsed for readability.
+
 #### Vn Config Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
 
 <a id="deep-157069"></a>Deeply nested **IPv4** block collapsed for readability.
@@ -939,6 +953,18 @@ An [`outside_static_routes`](#vn-config-outside-static-routes) block (within [`v
 
 <a id="deep-c72d9c"></a>Deeply nested **Address** block collapsed for readability.
 
+#### Vn Config Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack
+
+<a id="deep-fd1d9c"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Vn Config Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-c51a67"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Vn Config Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-efb910"></a>Deeply nested **IPv6** block collapsed for readability.
+
 #### Vn Config Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
 
 <a id="deep-8dea05"></a>Deeply nested **IPv4** block collapsed for readability.
@@ -980,6 +1006,22 @@ A [`vpc_list`](#vpc-attachments-vpc-list) block (within [`vpc_attachments`](#vpc
 <a id="vpc-attachments-vpc-list-labels"></a>&#x2022; [`labels`](#vpc-attachments-vpc-list-labels) - Optional Block<br>Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall
 
 <a id="vpc-attachments-vpc-list-vpc-id"></a>&#x2022; [`vpc_id`](#vpc-attachments-vpc-list-vpc-id) - Optional String<br>VPC ID. Information about existing VPC
+
+#### WAF Signatures
+
+A [`waf_signatures`](#waf-signatures) block supports the following:
+
+<a id="waf-signatures-automatic"></a>&#x2022; [`automatic`](#waf-signatures-automatic) - Optional Object<br>Enable this option
+
+<a id="waf-signatures-manual"></a>&#x2022; [`manual`](#waf-signatures-manual) - Optional Object<br>Enable this option
+
+#### WAF Signatures Automatic
+
+An [`automatic`](#waf-signatures-automatic) block (within [`waf_signatures`](#waf-signatures)) supports the following:
+
+#### WAF Signatures Manual
+
+A [`manual`](#waf-signatures-manual) block (within [`waf_signatures`](#waf-signatures)) supports the following:
 
 ---
 

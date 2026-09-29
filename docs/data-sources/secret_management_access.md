@@ -132,7 +132,11 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="minimum-protocol-version"></a>&#x2022; [`minimum_protocol_version`](#minimum-protocol-version) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
 
-<a id="validation-params"></a>&#x2022; [`validation_params`](#validation-params) - Optional String<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification
+<a id="skip-server-verification"></a>&#x2022; [`skip_server_verification`](#skip-server-verification) - Optional Object<br>Enable this option
+
+<a id="tls-validation-params"></a>&#x2022; [`tls_validation_params`](#tls-validation-params) - Optional String<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification
+
+<a id="volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#volterra-trusted-ca) - Optional Object<br>Configuration parameter for volterra trusted CA
 
 <a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 

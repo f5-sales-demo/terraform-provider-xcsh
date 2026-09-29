@@ -253,7 +253,11 @@ TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 
 <a id="version-d4fb25"></a>&#x2022; [`minimum_protocol_version`](#version-d4fb25) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
 
-<a id="nestedatt--endpoints-validation-params"></a>&#x2022; [`validation_params`](#nestedatt--endpoints-validation-params) - Optional String<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification
+<a id="verification-190f90"></a>&#x2022; [`skip_server_verification`](#verification-190f90) - Optional Object<br>Enable this option
+
+<a id="params-64b4dc"></a>&#x2022; [`tls_validation_params`](#params-64b4dc) - Optional String<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification
+
+<a id="trusted-ca-482b3a"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-482b3a) - Optional Object<br>Configuration parameter for volterra trusted CA
 
 #### TLS Parameters Cert Params Certificates
 
@@ -269,9 +273,13 @@ A [`certificates`](#tls-parameters-cert-params-certificates) block (within [`tls
 
 <a id="nestedatt--endpoints-uid"></a>&#x2022; [`uid`](#nestedatt--endpoints-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
-#### TLS Parameters Cert Params Validation Params
+#### TLS Parameters Cert Params Skip Server Verification
 
-A [`validation_params`](#tls-parameters-cert-params-validation-params) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
+A [`skip_server_verification`](#tls-parameters-cert-params-skip-server-verification) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
+
+#### TLS Parameters Cert Params TLS Validation Params
+
+A [`tls_validation_params`](#tls-parameters-cert-params-tls-validation-params) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
 
 <a id="verification-f9e964"></a>&#x2022; [`skip_hostname_verification`](#verification-f9e964) - Optional Bool<br>When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname
 
@@ -281,13 +289,17 @@ A [`validation_params`](#tls-parameters-cert-params-validation-params) block (wi
 
 <a id="names-a2711b"></a>&#x2022; [`verify_subject_alt_names`](#names-a2711b) - Optional List<br>List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate
 
-#### TLS Parameters Cert Params Validation Params Trusted CA
+#### TLS Parameters Cert Params TLS Validation Params Trusted CA
 
-<a id="deep-1467d3"></a>Deeply nested **CA** block collapsed for readability.
+<a id="deep-24db78"></a>Deeply nested **CA** block collapsed for readability.
 
-#### TLS Parameters Cert Params Validation Params Trusted CA Trusted CA List
+#### TLS Parameters Cert Params TLS Validation Params Trusted CA Trusted CA List
 
-<a id="deep-758090"></a>Deeply nested **List** block collapsed for readability.
+<a id="deep-2ba1df"></a>Deeply nested **List** block collapsed for readability.
+
+#### TLS Parameters Cert Params Volterra Trusted CA
+
+A [`volterra_trusted_ca`](#tls-parameters-cert-params-volterra-trusted-ca) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
 
 #### TLS Parameters Common Params
 

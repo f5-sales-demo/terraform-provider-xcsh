@@ -321,7 +321,11 @@ An [`advertise_custom`](#proxy-advertisement-advertise-custom) block (within [`p
 
 An [`advertise_where`](#where-1b1a33) block (within [`proxy_advertisement.advertise_custom`](#proxy-advertisement-advertise-custom)) supports the following:
 
+<a id="public-5e0d74"></a>&#x2022; [`advertise_dualstack_on_public`](#public-5e0d74) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise Dualstack On Public](#public-5e0d74) below.
+
 <a id="public-8c9b63"></a>&#x2022; [`advertise_on_public`](#public-8c9b63) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On Public](#public-8c9b63) below.
+
+<a id="public-b1ef78"></a>&#x2022; [`advertise_v6_on_public`](#public-b1ef78) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise V6 On Public](#public-b1ef78) below.
 
 <a id="port-ff2e8b"></a>&#x2022; [`port`](#port-ff2e8b) - Optional Number<br>Port to Listen
 
@@ -339,6 +343,14 @@ An [`advertise_where`](#where-1b1a33) block (within [`proxy_advertisement.advert
 
 <a id="service-9e6a48"></a>&#x2022; [`vk8s_service`](#service-9e6a48) - Optional Block<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network<br>See [Vk8s Service](#service-9e6a48) below.
 
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise Dualstack On Public
+
+<a id="deep-2e4c46"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise Dualstack On Public Public IP
+
+<a id="deep-2a73c6"></a>Deeply nested **IP** block collapsed for readability.
+
 #### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public
 
 <a id="deep-c7bbab"></a>Deeply nested **Public** block collapsed for readability.
@@ -346,6 +358,14 @@ An [`advertise_where`](#where-1b1a33) block (within [`proxy_advertisement.advert
 #### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public Public IP
 
 <a id="deep-3f999e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise V6 On Public
+
+<a id="deep-9a6c15"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise V6 On Public Public IP
+
+<a id="deep-766e9a"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Proxy Advertisement Advertise Custom Advertise Where Site
 

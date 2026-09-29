@@ -298,7 +298,11 @@ An [`advertise_custom`](#proxy-advertisement-advertise-custom) block (within [`p
 
 An [`advertise_where`](#proxy-advertisement-advertise-custom-advertise-where) block (within [`proxy_advertisement.advertise_custom`](#proxy-advertisement-advertise-custom)) supports the following:
 
+<a id="public-8f48f8"></a>&#x2022; [`advertise_dualstack_on_public`](#public-8f48f8) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
 <a id="public-e51174"></a>&#x2022; [`advertise_on_public`](#public-e51174) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="public-d57840"></a>&#x2022; [`advertise_v6_on_public`](#public-d57840) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
 
 <a id="nestedatt--irules--irules-port"></a>&#x2022; [`port`](#nestedatt--irules--irules-port) - Optional Number<br>Port to Listen
 
@@ -316,6 +320,14 @@ An [`advertise_where`](#proxy-advertisement-advertise-custom-advertise-where) bl
 
 <a id="nestedatt--irules--irules-vk8s-service"></a>&#x2022; [`vk8s_service`](#nestedatt--irules--irules-vk8s-service) - Optional String<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network
 
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise Dualstack On Public
+
+<a id="deep-2e4c46"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise Dualstack On Public Public IP
+
+<a id="deep-2a73c6"></a>Deeply nested **IP** block collapsed for readability.
+
 #### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public
 
 <a id="deep-c7bbab"></a>Deeply nested **Public** block collapsed for readability.
@@ -323,6 +335,14 @@ An [`advertise_where`](#proxy-advertisement-advertise-custom-advertise-where) bl
 #### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public Public IP
 
 <a id="deep-3f999e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise V6 On Public
+
+<a id="deep-9a6c15"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise V6 On Public Public IP
+
+<a id="deep-766e9a"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Proxy Advertisement Advertise Custom Advertise Where Site
 

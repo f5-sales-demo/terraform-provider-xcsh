@@ -95,9 +95,13 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="advertise-custom"></a>&#x2022; [`advertise_custom`](#advertise-custom) - Optional String<br>Defines a way to advertise a VIP on specific sites
 
+<a id="advertise-dualstack-on-public"></a>&#x2022; [`advertise_dualstack_on_public`](#advertise-dualstack-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
 <a id="advertise-on-public"></a>&#x2022; [`advertise_on_public`](#advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
 
 <a id="advertise-on-public-default-vip"></a>&#x2022; [`advertise_on_public_default_vip`](#advertise-on-public-default-vip) - Optional Object<br>Enable this option
+
+<a id="advertise-v6-on-public"></a>&#x2022; [`advertise_v6_on_public`](#advertise-v6-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
@@ -115,7 +119,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="bot-defense"></a>&#x2022; [`bot_defense`](#bot-defense) - Optional String<br>Defines various configuration OPTIONS for Bot Defense Policy
 
-<a id="bot-defense-advanced"></a>&#x2022; [`bot_defense_advanced`](#bot-defense-advanced) - Optional String<br>Configuration parameter for bot defense advanced
+<a id="bot-defense-advanced-protection"></a>&#x2022; [`bot_defense_advanced_protection`](#bot-defense-advanced-protection) - Optional String<br>Bot Defense Advanced Protection - replaces BotDefenseAdvancedType
 
 <a id="caching-policy"></a>&#x2022; [`caching_policy`](#caching-policy) - Optional String<br>Policy configuration for this feature
 
@@ -271,7 +275,11 @@ default when omitted
 
 <a id="advertise-where"></a>&#x2022; [`advertise_where`](#advertise-where) - Optional List<br>Where should this load balancer be available
 
+<a id="advertise-dualstack-on-public"></a>&#x2022; [`advertise_dualstack_on_public`](#advertise-dualstack-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
 <a id="advertise-on-public"></a>&#x2022; [`advertise_on_public`](#advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="advertise-v6-on-public"></a>&#x2022; [`advertise_v6_on_public`](#advertise-v6-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
 
 <a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Port to Listen
 
@@ -288,6 +296,22 @@ default when omitted
 <a id="virtual-site-with-vip"></a>&#x2022; [`virtual_site_with_vip`](#virtual-site-with-vip) - Optional String<br>Defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised
 
 <a id="vk8s-service"></a>&#x2022; [`vk8s_service`](#vk8s-service) - Optional String<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
 
@@ -359,6 +383,22 @@ networks
 <a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
 
 <a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
@@ -1891,6 +1931,12 @@ HTTP response status codes EmptyStatusCode response codes means it is not specif
 
 <a id="mobile-identifier"></a>&#x2022; [`mobile_identifier`](#mobile-identifier) - Optional String  Defaults to `HEADERS`<br>[Enum: HEADERS] Mobile identifier type - HEADERS: Headers Headers. The only possible value is `HEADERS`
 
+<a id="both-web-and-mobile"></a>&#x2022; [`both_web_and_mobile`](#both-web-and-mobile) - Optional String<br>Both Web & Mobile. Both Web and Mobile configuration
+
+<a id="mobile-only"></a>&#x2022; [`mobile_only`](#mobile-only) - Optional String<br>Mobile. Mobile only configuration
+
+<a id="web-only"></a>&#x2022; [`web_only`](#web-only) - Optional String<br>Web. Web only configuration
+
 <a id="disable-js-insert"></a>&#x2022; [`disable_js_insert`](#disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
 
 <a id="disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#disable-mobile-sdk) - Optional Object<br>Enable this option
@@ -2014,6 +2060,114 @@ HTTP response status codes EmptyStatusCode response codes means it is not specif
 <a id="regex-values"></a>&#x2022; [`regex_values`](#regex-values) - Optional List<br>List of regular expressions to match the input against
 
 <a id="transformers"></a>&#x2022; [`transformers`](#transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="mobile"></a>&#x2022; [`mobile`](#mobile) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="disable-js-insert"></a>&#x2022; [`disable_js_insert`](#disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
+
+<a id="js-insert-all-pages"></a>&#x2022; [`js_insert_all_pages`](#js-insert-all-pages) - Optional String<br>Insert Bot Defense JavaScript in all pages
+
+<a id="js-insert-all-pages-except"></a>&#x2022; [`js_insert_all_pages_except`](#js-insert-all-pages-except) - Optional String<br>Insert Bot Defense JavaScript in all pages with the exceptions
+
+<a id="js-insertion-rules"></a>&#x2022; [`js_insertion_rules`](#js-insertion-rules) - Optional String<br>Defines custom JavaScript insertion rules for Bot Defense Policy
+
+<a id="web"></a>&#x2022; [`web`](#web) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="javascript-location"></a>&#x2022; [`javascript_location`](#javascript-location) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+
+<a id="exclude-list"></a>&#x2022; [`exclude_list`](#exclude-list) - Optional List<br>Optional JavaScript insertions exclude list of domain and path matchers
+
+<a id="javascript-location"></a>&#x2022; [`javascript_location`](#javascript-location) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="exclude-list"></a>&#x2022; [`exclude_list`](#exclude-list) - Optional List<br>Optional JavaScript insertions exclude list of domain and path matchers
+
+<a id="rules"></a>&#x2022; [`rules`](#rules) - Optional List<br>Required list of pages to insert Bot Defense client JavaScript
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
+
+<a id="any-domain"></a>&#x2022; [`any_domain`](#any-domain) - Optional Object<br>Enable this option
+
+<a id="domain"></a>&#x2022; [`domain`](#domain) - Optional String<br>Domain name for routing and identification
+
+<a id="javascript-location"></a>&#x2022; [`javascript_location`](#javascript-location) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+
+<a id="metadata"></a>&#x2022; [`metadata`](#metadata) - Optional String<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match
+
+<a id="exact-value"></a>&#x2022; [`exact_value`](#exact-value) - Optional String<br>Exact domain name
+
+<a id="regex-value"></a>&#x2022; [`regex_value`](#regex-value) - Optional String<br>Regular Expression value for the domain name
+
+<a id="suffix-value"></a>&#x2022; [`suffix_value`](#suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Human readable description
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+<a id="path"></a>&#x2022; [`path`](#path) - Optional String<br>Exact path value to match
+
+<a id="prefix"></a>&#x2022; [`prefix`](#prefix) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+<a id="regex"></a>&#x2022; [`regex`](#regex) - Optional String<br>Regular expression of path match (e.g. The value .* will match on all paths)
 
 <a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 

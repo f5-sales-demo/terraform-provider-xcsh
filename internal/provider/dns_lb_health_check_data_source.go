@@ -94,6 +94,11 @@ func (d *DNSLBHealthCheckDataSource) Schema(ctx context.Context, req datasource.
 						MarkdownDescription: "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
 						Computed:            true,
 					},
+					"inherit_load_balancer_fqdn": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for inherit load balancer fqdn.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
 						Computed:            true,
@@ -103,7 +108,7 @@ func (d *DNSLBHealthCheckDataSource) Schema(ctx context.Context, req datasource.
 						Computed:            true,
 					},
 					"virtual_host": schema.StringAttribute{
-						MarkdownDescription: "Exclusive with [disable_virtual_host] Name of the virtual host to use for SNI.",
+						MarkdownDescription: "Exclusive with [disable_virtual_host inherit_load_balancer_fqdn] Name of the virtual host to use for SNI.",
 						Computed:            true,
 					},
 				},
@@ -125,6 +130,11 @@ func (d *DNSLBHealthCheckDataSource) Schema(ctx context.Context, req datasource.
 						MarkdownDescription: "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
 						Computed:            true,
 					},
+					"inherit_load_balancer_fqdn": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for inherit load balancer fqdn.",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
 						Computed:            true,
@@ -134,7 +144,7 @@ func (d *DNSLBHealthCheckDataSource) Schema(ctx context.Context, req datasource.
 						Computed:            true,
 					},
 					"virtual_host": schema.StringAttribute{
-						MarkdownDescription: "Exclusive with [disable_virtual_host] Name of the virtual host to use for SNI.",
+						MarkdownDescription: "Exclusive with [disable_virtual_host inherit_load_balancer_fqdn] Name of the virtual host to use for SNI.",
 						Computed:            true,
 					},
 				},
@@ -309,6 +319,15 @@ func (d *DNSLBHealthCheckDataSource) Read(ctx context.Context, req datasource.Re
 				}
 				return types.Int64Null()
 			}(),
+			InheritLoadBalancerFqdn: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+					return data.HTTPHealthCheck.InheritLoadBalancerFqdn
+				}
+				if _, ok := blockData["inherit_load_balancer_fqdn"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
 			Receive: func() types.String {
 				if v, ok := blockData["receive"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -351,6 +370,15 @@ func (d *DNSLBHealthCheckDataSource) Read(ctx context.Context, req datasource.Re
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
+			}(),
+			InheritLoadBalancerFqdn: func() types.Object {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+					return data.HTTPSHealthCheck.InheritLoadBalancerFqdn
+				}
+				if _, ok := blockData["inherit_load_balancer_fqdn"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Receive: func() types.String {
 				if v, ok := blockData["receive"].(string); ok && v != "" {

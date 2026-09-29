@@ -101,6 +101,8 @@ configuration for upto 7
 
 <a id="volterra-certified-hw"></a>&#x2022; [`volterra_certified_hw`](#volterra-certified-hw) - Required String<br>Name for generic server certified hardware to form this Secure Mesh site
 
+<a id="waf-signatures"></a>&#x2022; [`waf_signatures`](#waf-signatures) - Optional Block<br>Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes
+
 <a id="worker-nodes"></a>&#x2022; [`worker_nodes`](#worker-nodes) - Optional List<br>Worker Nodes. Names of worker nodes
 
 ### Attributes Reference
@@ -879,6 +881,22 @@ A [`timeouts`](#timeouts) block supports the following:
 <a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `30 minutes`)<br>Used when updating the resource
+
+#### WAF Signatures
+
+A [`waf_signatures`](#waf-signatures) block supports the following:
+
+<a id="waf-signatures-automatic"></a>&#x2022; [`automatic`](#waf-signatures-automatic) - Optional Object<br>Enable this option
+
+<a id="waf-signatures-manual"></a>&#x2022; [`manual`](#waf-signatures-manual) - Optional Object<br>Enable this option
+
+#### WAF Signatures Automatic
+
+An [`automatic`](#waf-signatures-automatic) block (within [`waf_signatures`](#waf-signatures)) supports the following:
+
+#### WAF Signatures Manual
+
+A [`manual`](#waf-signatures-manual) block (within [`waf_signatures`](#waf-signatures)) supports the following:
 
 ---
 

@@ -138,6 +138,34 @@ func (d *ApplicationProfilesDataSource) Schema(ctx context.Context, req datasour
 			"virtual_server": schema.SingleNestedAttribute{
 				MarkdownDescription: "Specifies configuration related to virtual server.",
 				Attributes: map[string]schema.Attribute{
+					"access_profile": schema.ListNestedAttribute{
+						MarkdownDescription: "Specifies an access policy that determines the authentication rules and access controls applied to user sessions for this virtual server.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Computed:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Computed:            true,
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
 					"address_translation": schema.SingleNestedAttribute{
 						MarkdownDescription: "Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that have the same IP address.",
 						Attributes: map[string]schema.Attribute{
@@ -1988,6 +2016,58 @@ func (d *ApplicationProfilesDataSource) Read(ctx context.Context, req datasource
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
+			AccessProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.AccessProfile.IsNull() || len(data.VirtualServer.AccessProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes})
+				}
+				var AccessProfileExisting []ApplicationProfilesVirtualServerAccessProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.AccessProfile.IsNull() && !data.VirtualServer.AccessProfile.IsUnknown() {
+					data.VirtualServer.AccessProfile.ElementsAs(ctx, &AccessProfileExisting, false)
+				}
+				if rawList, ok := blockData["access_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var AccessProfileResult []ApplicationProfilesVirtualServerAccessProfileModel
+					for AccessProfileIdx, AccessProfileItem := range rawList {
+						_ = AccessProfileIdx
+						if AccessProfileItemMap, ok := AccessProfileItem.(map[string]interface{}); ok {
+							AccessProfileResult = append(AccessProfileResult, ApplicationProfilesVirtualServerAccessProfileModel{
+								Kind: func() types.String {
+									if v, ok := AccessProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := AccessProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := AccessProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := AccessProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := AccessProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes}, AccessProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes})
+			}(),
 			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
 				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAddressTranslationModel{

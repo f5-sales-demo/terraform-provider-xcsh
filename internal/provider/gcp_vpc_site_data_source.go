@@ -61,6 +61,7 @@ type GCPVPCSiteDataSourceModel struct {
 	PrivateConnectivity      *GCPVPCSitePrivateConnectivityModel      `tfsdk:"private_connectivity"`
 	Sw                       *GCPVPCSiteSwModel                       `tfsdk:"sw"`
 	VoltstackCluster         *GCPVPCSiteVoltstackClusterModel         `tfsdk:"voltstack_cluster"`
+	WAFSignatures            *GCPVPCSiteWAFSignaturesModel            `tfsdk:"waf_signatures"`
 }
 
 func (d *GCPVPCSiteDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -540,6 +541,32 @@ func (d *GCPVPCSiteDataSource) Schema(ctx context.Context, req datasource.Schema
 														"nexthop_address": schema.SingleNestedAttribute{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
 															Attributes: map[string]schema.Attribute{
+																"dual_stack": schema.SingleNestedAttribute{
+																	MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+																	Attributes: map[string]schema.Attribute{
+																		"ipv4": schema.SingleNestedAttribute{
+																			MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+																					Computed:            true,
+																				},
+																			},
+																			Computed: true,
+																		},
+																		"ipv6": schema.SingleNestedAttribute{
+																			MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+																					Computed:            true,
+																				},
+																			},
+																			Computed: true,
+																		},
+																	},
+																	Computed: true,
+																},
 																"ipv4": schema.SingleNestedAttribute{
 																	MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 																	Attributes: map[string]schema.Attribute{
@@ -769,6 +796,32 @@ func (d *GCPVPCSiteDataSource) Schema(ctx context.Context, req datasource.Schema
 														"nexthop_address": schema.SingleNestedAttribute{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
 															Attributes: map[string]schema.Attribute{
+																"dual_stack": schema.SingleNestedAttribute{
+																	MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+																	Attributes: map[string]schema.Attribute{
+																		"ipv4": schema.SingleNestedAttribute{
+																			MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+																					Computed:            true,
+																				},
+																			},
+																			Computed: true,
+																		},
+																		"ipv6": schema.SingleNestedAttribute{
+																			MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+																					Computed:            true,
+																				},
+																			},
+																			Computed: true,
+																		},
+																	},
+																	Computed: true,
+																},
 																"ipv4": schema.SingleNestedAttribute{
 																	MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 																	Attributes: map[string]schema.Attribute{
@@ -1481,6 +1534,32 @@ func (d *GCPVPCSiteDataSource) Schema(ctx context.Context, req datasource.Schema
 														"nexthop_address": schema.SingleNestedAttribute{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
 															Attributes: map[string]schema.Attribute{
+																"dual_stack": schema.SingleNestedAttribute{
+																	MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+																	Attributes: map[string]schema.Attribute{
+																		"ipv4": schema.SingleNestedAttribute{
+																			MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+																					Computed:            true,
+																				},
+																			},
+																			Computed: true,
+																		},
+																		"ipv6": schema.SingleNestedAttribute{
+																			MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+																					Computed:            true,
+																				},
+																			},
+																			Computed: true,
+																		},
+																	},
+																	Computed: true,
+																},
 																"ipv4": schema.SingleNestedAttribute{
 																	MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 																	Attributes: map[string]schema.Attribute{
@@ -1653,6 +1732,22 @@ func (d *GCPVPCSiteDataSource) Schema(ctx context.Context, req datasource.Schema
 							},
 						},
 						Computed: true,
+					},
+				},
+				Computed: true,
+			},
+			"waf_signatures": schema.SingleNestedAttribute{
+				MarkdownDescription: "Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes.",
+				Attributes: map[string]schema.Attribute{
+					"automatic": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"manual": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Computed: true,
@@ -2409,6 +2504,39 @@ func (d *GCPVPCSiteDataSource) Read(ctx context.Context, req datasource.ReadRequ
 																	NexthopAddress: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
@@ -2773,6 +2901,39 @@ func (d *GCPVPCSiteDataSource) Read(ctx context.Context, req datasource.ReadRequ
 																	NexthopAddress: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
@@ -3863,6 +4024,39 @@ func (d *GCPVPCSiteDataSource) Read(ctx context.Context, req datasource.ReadRequ
 																	NexthopAddress: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel {
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if Ipv4Data, ok := NexthopAddressData["ipv4"].(map[string]interface{}); ok {
 																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model{
@@ -4124,6 +4318,28 @@ func (d *GCPVPCSiteDataSource) Read(ctx context.Context, req datasource.ReadRequ
 					}
 				}
 				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &GCPVPCSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

@@ -82,6 +82,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="health-check-secondary-port"></a>&#x2022; [`health_check_secondary_port`](#health-check-secondary-port) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
 
+<a id="inherit-load-balancer-fqdn"></a>&#x2022; [`inherit_load_balancer_fqdn`](#inherit-load-balancer-fqdn) - Optional Object<br>Configuration parameter for inherit load balancer fqdn
+
 <a id="receive"></a>&#x2022; [`receive`](#receive) - Optional String<br>Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax
 
 <a id="send"></a>&#x2022; [`send`](#send) - Optional String<br>Send String. HTTP payload to send to the target
@@ -93,6 +95,8 @@ In addition to all arguments above, the following attributes are exported:
 <a id="health-check-port"></a>&#x2022; [`health_check_port`](#health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
 
 <a id="health-check-secondary-port"></a>&#x2022; [`health_check_secondary_port`](#health-check-secondary-port) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
+
+<a id="inherit-load-balancer-fqdn"></a>&#x2022; [`inherit_load_balancer_fqdn`](#inherit-load-balancer-fqdn) - Optional Object<br>Configuration parameter for inherit load balancer fqdn
 
 <a id="receive"></a>&#x2022; [`receive`](#receive) - Optional String<br>Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax
 

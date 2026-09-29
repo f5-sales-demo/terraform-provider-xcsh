@@ -123,9 +123,23 @@ An [`auto`](#local-ip-ip-address-auto) block (within [`local_ip.ip_address`](#lo
 
 An [`ip_address`](#local-ip-ip-address-ip-address) block (within [`local_ip.ip_address`](#local-ip-ip-address)) supports the following:
 
+<a id="stack-12fcae"></a>&#x2022; [`dual_stack`](#stack-12fcae) - Optional Block<br>DualStackAddressType represents both IPv4 and IPv6 together<br>See [Dual Stack](#stack-12fcae) below.
+
 <a id="local-ip-ip-address-ip-address-ipv4"></a>&#x2022; [`ipv4`](#local-ip-ip-address-ip-address-ipv4) - Optional Block<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)<br>See [IPv4](#local-ip-ip-address-ip-address-ipv4) below.
 
 <a id="local-ip-ip-address-ip-address-ipv6"></a>&#x2022; [`ipv6`](#local-ip-ip-address-ip-address-ipv6) - Optional Block<br>IPv6 Address specified as hexadecimal numbers separated by ':'<br>See [IPv6](#local-ip-ip-address-ip-address-ipv6) below.
+
+#### Local IP IP Address IP Address Dual Stack
+
+<a id="deep-c0e4c4"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Local IP IP Address IP Address Dual Stack IPv4
+
+<a id="deep-56a8ef"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Local IP IP Address IP Address Dual Stack IPv6
+
+<a id="deep-de6939"></a>Deeply nested **IPv6** block collapsed for readability.
 
 #### Local IP IP Address IP Address IPv4
 
@@ -217,9 +231,31 @@ An [`endpoints`](#remote-ip-endpoints) block (within [`remote_ip`](#remote-ip)) 
 
 An [`ip`](#remote-ip-ip) block (within [`remote_ip`](#remote-ip)) supports the following:
 
+<a id="remote-ip-ip-dual-stack"></a>&#x2022; [`dual_stack`](#remote-ip-ip-dual-stack) - Optional Block<br>DualStackAddressType represents both IPv4 and IPv6 together<br>See [Dual Stack](#remote-ip-ip-dual-stack) below.
+
 <a id="remote-ip-ip-ipv4"></a>&#x2022; [`ipv4`](#remote-ip-ip-ipv4) - Optional Block<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)<br>See [IPv4](#remote-ip-ip-ipv4) below.
 
 <a id="remote-ip-ip-ipv6"></a>&#x2022; [`ipv6`](#remote-ip-ip-ipv6) - Optional Block<br>IPv6 Address specified as hexadecimal numbers separated by ':'<br>See [IPv6](#remote-ip-ip-ipv6) below.
+
+#### Remote IP IP Dual Stack
+
+A [`dual_stack`](#remote-ip-ip-dual-stack) block (within [`remote_ip.ip`](#remote-ip-ip)) supports the following:
+
+<a id="remote-ip-ip-dual-stack-ipv4"></a>&#x2022; [`ipv4`](#remote-ip-ip-dual-stack-ipv4) - Optional Block<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)<br>See [IPv4](#remote-ip-ip-dual-stack-ipv4) below.
+
+<a id="remote-ip-ip-dual-stack-ipv6"></a>&#x2022; [`ipv6`](#remote-ip-ip-dual-stack-ipv6) - Optional Block<br>IPv6 Address specified as hexadecimal numbers separated by ':'<br>See [IPv6](#remote-ip-ip-dual-stack-ipv6) below.
+
+#### Remote IP IP Dual Stack IPv4
+
+An [`ipv4`](#remote-ip-ip-dual-stack-ipv4) block (within [`remote_ip.ip.dual_stack`](#remote-ip-ip-dual-stack)) supports the following:
+
+<a id="remote-ip-ip-dual-stack-ipv4-addr"></a>&#x2022; [`addr`](#remote-ip-ip-dual-stack-ipv4-addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+#### Remote IP IP Dual Stack IPv6
+
+An [`ipv6`](#remote-ip-ip-dual-stack-ipv6) block (within [`remote_ip.ip.dual_stack`](#remote-ip-ip-dual-stack)) supports the following:
+
+<a id="remote-ip-ip-dual-stack-ipv6-addr"></a>&#x2022; [`addr`](#remote-ip-ip-dual-stack-ipv6-addr) - Optional String<br>IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
 
 #### Remote IP IP IPv4
 

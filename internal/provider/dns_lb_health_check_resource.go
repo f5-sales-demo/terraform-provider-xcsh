@@ -56,6 +56,7 @@ type DNSLBHealthCheckHTTPHealthCheckModel struct {
 	DisableVirtualHost       types.Object `tfsdk:"disable_virtual_host"`
 	HealthCheckPort          types.Int64  `tfsdk:"health_check_port"`
 	HealthCheckSecondaryPort types.Int64  `tfsdk:"health_check_secondary_port"`
+	InheritLoadBalancerFqdn  types.Object `tfsdk:"inherit_load_balancer_fqdn"`
 	Receive                  types.String `tfsdk:"receive"`
 	Send                     types.String `tfsdk:"send"`
 	VirtualHost              types.String `tfsdk:"virtual_host"`
@@ -66,6 +67,7 @@ var DNSLBHealthCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
 	"disable_virtual_host":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"health_check_port":           types.Int64Type,
 	"health_check_secondary_port": types.Int64Type,
+	"inherit_load_balancer_fqdn":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"receive":                     types.StringType,
 	"send":                        types.StringType,
 	"virtual_host":                types.StringType,
@@ -76,6 +78,7 @@ type DNSLBHealthCheckHTTPSHealthCheckModel struct {
 	DisableVirtualHost       types.Object `tfsdk:"disable_virtual_host"`
 	HealthCheckPort          types.Int64  `tfsdk:"health_check_port"`
 	HealthCheckSecondaryPort types.Int64  `tfsdk:"health_check_secondary_port"`
+	InheritLoadBalancerFqdn  types.Object `tfsdk:"inherit_load_balancer_fqdn"`
 	Receive                  types.String `tfsdk:"receive"`
 	Send                     types.String `tfsdk:"send"`
 	VirtualHost              types.String `tfsdk:"virtual_host"`
@@ -86,6 +89,7 @@ var DNSLBHealthCheckHTTPSHealthCheckModelAttrTypes = map[string]attr.Type{
 	"disable_virtual_host":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"health_check_port":           types.Int64Type,
 	"health_check_secondary_port": types.Int64Type,
+	"inherit_load_balancer_fqdn":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"receive":                     types.StringType,
 	"send":                        types.StringType,
 	"virtual_host":                types.StringType,
@@ -227,7 +231,7 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"http_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: http_health_check, https_health_check, icmp_health_check, tcp_health_check, tcp_hex_health_check, udp_health_check] Configuration parameter for http health check.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port"), validators.ConflictingObjectAttributes("disable_virtual_host", "virtual_host")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port"), validators.ConflictingObjectAttributes("disable_virtual_host", "inherit_load_balancer_fqdn"), validators.ConflictingObjectAttributes("disable_virtual_host", "virtual_host"), validators.ConflictingObjectAttributes("inherit_load_balancer_fqdn", "virtual_host")},
 
 				Attributes: map[string]schema.Attribute{
 					"disable_virtual_host": schema.ObjectAttribute{
@@ -249,6 +253,11 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 							int64validator.Between(0, 65535),
 						},
 					},
+					"inherit_load_balancer_fqdn": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for inherit load balancer fqdn.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
 						Optional:            true,
@@ -264,7 +273,7 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 						},
 					},
 					"virtual_host": schema.StringAttribute{
-						MarkdownDescription: "Exclusive with [disable_virtual_host] Name of the virtual host to use for SNI.",
+						MarkdownDescription: "Exclusive with [disable_virtual_host inherit_load_balancer_fqdn] Name of the virtual host to use for SNI.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(2048),
@@ -274,7 +283,7 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"https_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for https health check.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port"), validators.ConflictingObjectAttributes("disable_virtual_host", "virtual_host")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port"), validators.ConflictingObjectAttributes("disable_virtual_host", "inherit_load_balancer_fqdn"), validators.ConflictingObjectAttributes("disable_virtual_host", "virtual_host"), validators.ConflictingObjectAttributes("inherit_load_balancer_fqdn", "virtual_host")},
 
 				Attributes: map[string]schema.Attribute{
 					"disable_virtual_host": schema.ObjectAttribute{
@@ -296,6 +305,11 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 							int64validator.Between(0, 65535),
 						},
 					},
+					"inherit_load_balancer_fqdn": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for inherit load balancer fqdn.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
 						Optional:            true,
@@ -311,7 +325,7 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 						},
 					},
 					"virtual_host": schema.StringAttribute{
-						MarkdownDescription: "Exclusive with [disable_virtual_host] Name of the virtual host to use for SNI.",
+						MarkdownDescription: "Exclusive with [disable_virtual_host inherit_load_balancer_fqdn] Name of the virtual host to use for SNI.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(2048),
@@ -561,6 +575,9 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 		if !data.HTTPHealthCheck.HealthCheckSecondaryPort.IsNull() && !data.HTTPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 			HTTPHealthCheckMap["health_check_secondary_port"] = data.HTTPHealthCheck.HealthCheckSecondaryPort.ValueInt64()
 		}
+		if !data.HTTPHealthCheck.InheritLoadBalancerFqdn.IsNull() && !data.HTTPHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+			HTTPHealthCheckMap["inherit_load_balancer_fqdn"] = map[string]interface{}{}
+		}
 		if !data.HTTPHealthCheck.Receive.IsNull() && !data.HTTPHealthCheck.Receive.IsUnknown() {
 			HTTPHealthCheckMap["receive"] = data.HTTPHealthCheck.Receive.ValueString()
 		}
@@ -582,6 +599,9 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 		}
 		if !data.HTTPSHealthCheck.HealthCheckSecondaryPort.IsNull() && !data.HTTPSHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 			HTTPSHealthCheckMap["health_check_secondary_port"] = data.HTTPSHealthCheck.HealthCheckSecondaryPort.ValueInt64()
+		}
+		if !data.HTTPSHealthCheck.InheritLoadBalancerFqdn.IsNull() && !data.HTTPSHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+			HTTPSHealthCheckMap["inherit_load_balancer_fqdn"] = map[string]interface{}{}
 		}
 		if !data.HTTPSHealthCheck.Receive.IsNull() && !data.HTTPSHealthCheck.Receive.IsUnknown() {
 			HTTPSHealthCheckMap["receive"] = data.HTTPSHealthCheck.Receive.ValueString()
@@ -713,6 +733,15 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 				}
 				return types.Int64Null()
 			}(),
+			InheritLoadBalancerFqdn: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+					return data.HTTPHealthCheck.InheritLoadBalancerFqdn
+				}
+				if _, ok := blockData["inherit_load_balancer_fqdn"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
 			Receive: func() types.String {
 				if v, ok := blockData["receive"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -761,6 +790,15 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
+			}(),
+			InheritLoadBalancerFqdn: func() types.Object {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+					return data.HTTPSHealthCheck.InheritLoadBalancerFqdn
+				}
+				if _, ok := blockData["inherit_load_balancer_fqdn"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Receive: func() types.String {
 				if v, ok := blockData["receive"].(string); ok && v != "" {
@@ -1051,6 +1089,15 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return types.Int64Null()
 			}(),
+			InheritLoadBalancerFqdn: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+					return data.HTTPHealthCheck.InheritLoadBalancerFqdn
+				}
+				if _, ok := blockData["inherit_load_balancer_fqdn"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
 			Receive: func() types.String {
 				if v, ok := blockData["receive"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -1099,6 +1146,15 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
+			}(),
+			InheritLoadBalancerFqdn: func() types.Object {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+					return data.HTTPSHealthCheck.InheritLoadBalancerFqdn
+				}
+				if _, ok := blockData["inherit_load_balancer_fqdn"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Receive: func() types.String {
 				if v, ok := blockData["receive"].(string); ok && v != "" {
@@ -1334,6 +1390,9 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 		if !data.HTTPHealthCheck.HealthCheckSecondaryPort.IsNull() && !data.HTTPHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 			HTTPHealthCheckMap["health_check_secondary_port"] = data.HTTPHealthCheck.HealthCheckSecondaryPort.ValueInt64()
 		}
+		if !data.HTTPHealthCheck.InheritLoadBalancerFqdn.IsNull() && !data.HTTPHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+			HTTPHealthCheckMap["inherit_load_balancer_fqdn"] = map[string]interface{}{}
+		}
 		if !data.HTTPHealthCheck.Receive.IsNull() && !data.HTTPHealthCheck.Receive.IsUnknown() {
 			HTTPHealthCheckMap["receive"] = data.HTTPHealthCheck.Receive.ValueString()
 		}
@@ -1355,6 +1414,9 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 		}
 		if !data.HTTPSHealthCheck.HealthCheckSecondaryPort.IsNull() && !data.HTTPSHealthCheck.HealthCheckSecondaryPort.IsUnknown() {
 			HTTPSHealthCheckMap["health_check_secondary_port"] = data.HTTPSHealthCheck.HealthCheckSecondaryPort.ValueInt64()
+		}
+		if !data.HTTPSHealthCheck.InheritLoadBalancerFqdn.IsNull() && !data.HTTPSHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+			HTTPSHealthCheckMap["inherit_load_balancer_fqdn"] = map[string]interface{}{}
 		}
 		if !data.HTTPSHealthCheck.Receive.IsNull() && !data.HTTPSHealthCheck.Receive.IsUnknown() {
 			HTTPSHealthCheckMap["receive"] = data.HTTPSHealthCheck.Receive.ValueString()
@@ -1506,6 +1568,15 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 				}
 				return types.Int64Null()
 			}(),
+			InheritLoadBalancerFqdn: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+					return data.HTTPHealthCheck.InheritLoadBalancerFqdn
+				}
+				if _, ok := blockData["inherit_load_balancer_fqdn"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
 			Receive: func() types.String {
 				if v, ok := blockData["receive"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -1554,6 +1625,15 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 					return types.Int64Value(int64(v))
 				}
 				return types.Int64Null()
+			}(),
+			InheritLoadBalancerFqdn: func() types.Object {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.InheritLoadBalancerFqdn.IsUnknown() {
+					return data.HTTPSHealthCheck.InheritLoadBalancerFqdn
+				}
+				if _, ok := blockData["inherit_load_balancer_fqdn"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Receive: func() types.String {
 				if v, ok := blockData["receive"].(string); ok && v != "" {

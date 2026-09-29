@@ -104,7 +104,7 @@ func (d *NetworkInterfaceDataSource) Schema(ctx context.Context, req datasource.
 						AttributeTypes:      map[string]attr.Type{},
 					},
 					"mtu": schema.Int64Attribute{
-						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 						Computed:            true,
 					},
 					"node": schema.StringAttribute{
@@ -136,7 +136,7 @@ func (d *NetworkInterfaceDataSource) Schema(ctx context.Context, req datasource.
 						Computed:            true,
 					},
 					"mtu": schema.Int64Attribute{
-						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 						Computed:            true,
 					},
 					"node": schema.StringAttribute{
@@ -396,7 +396,7 @@ func (d *NetworkInterfaceDataSource) Schema(ctx context.Context, req datasource.
 						AttributeTypes:      map[string]attr.Type{},
 					},
 					"mtu": schema.Int64Attribute{
-						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 						Computed:            true,
 					},
 					"no_ipv6_address": schema.ObjectAttribute{
@@ -567,7 +567,7 @@ func (d *NetworkInterfaceDataSource) Schema(ctx context.Context, req datasource.
 				MarkdownDescription: "Configuration parameter for tunnel interface.",
 				Attributes: map[string]schema.Attribute{
 					"mtu": schema.Int64Attribute{
-						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 						Computed:            true,
 					},
 					"node": schema.StringAttribute{

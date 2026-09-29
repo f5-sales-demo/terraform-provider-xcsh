@@ -73,7 +73,7 @@ resource "xcsh_dns_proxy" "example" {
 
 <a id="proxy-advertisement"></a>&#x2022; [`proxy_advertisement`](#proxy-advertisement) - Optional Block<br>Configuration parameter for proxy advertisement<br>See [Proxy Advertisement](#proxy-advertisement) below for details.
 
-<a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
+<a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 
 <a id="transport-type"></a>&#x2022; [`transport_type`](#transport-type) - Optional String  Defaults to `UDP`<br>Possible values are `UDP`, `TCP`, `BothTCPAndUDP`<br>[Enum: UDP|TCP|BothTCPAndUDP] Transport Type - UDP: UDP - TCP: TCP - BothTCPAndUDP: Both TCP and UDP
 
@@ -291,9 +291,17 @@ A [`proxy_advertisement`](#proxy-advertisement) block supports the following:
 
 <a id="proxy-advertisement-advertise-custom"></a>&#x2022; [`advertise_custom`](#proxy-advertisement-advertise-custom) - Optional Block<br>Defines a way to advertise a VIP on specific sites<br>See [Advertise Custom](#proxy-advertisement-advertise-custom) below.
 
+<a id="public-002382"></a>&#x2022; [`advertise_dualstack_on_public`](#public-002382) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise Dualstack On Public](#public-002382) below.
+
 <a id="proxy-advertisement-advertise-on-public"></a>&#x2022; [`advertise_on_public`](#proxy-advertisement-advertise-on-public) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On Public](#proxy-advertisement-advertise-on-public) below.
 
+<a id="vip-3826b6"></a>&#x2022; [`advertise_on_public_default_dualstack_vip`](#vip-3826b6) - Optional Object<br>Enable this option
+
+<a id="vip-f08f6f"></a>&#x2022; [`advertise_on_public_default_ipv6_vip`](#vip-f08f6f) - Optional Object<br>Enable this option
+
 <a id="vip-8af300"></a>&#x2022; [`advertise_on_public_default_vip`](#vip-8af300) - Optional Object<br>Enable this option
+
+<a id="public-c755dc"></a>&#x2022; [`advertise_v6_on_public`](#public-c755dc) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise V6 On Public](#public-c755dc) below.
 
 <a id="proxy-advertisement-do-not-advertise"></a>&#x2022; [`do_not_advertise`](#proxy-advertisement-do-not-advertise) - Optional Object<br>Configuration parameter for do not advertise
 
@@ -307,7 +315,11 @@ An [`advertise_custom`](#proxy-advertisement-advertise-custom) block (within [`p
 
 An [`advertise_where`](#where-1b1a33) block (within [`proxy_advertisement.advertise_custom`](#proxy-advertisement-advertise-custom)) supports the following:
 
+<a id="public-5e0d74"></a>&#x2022; [`advertise_dualstack_on_public`](#public-5e0d74) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise Dualstack On Public](#public-5e0d74) below.
+
 <a id="public-8c9b63"></a>&#x2022; [`advertise_on_public`](#public-8c9b63) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On Public](#public-8c9b63) below.
+
+<a id="public-b1ef78"></a>&#x2022; [`advertise_v6_on_public`](#public-b1ef78) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise V6 On Public](#public-b1ef78) below.
 
 <a id="port-ff2e8b"></a>&#x2022; [`port`](#port-ff2e8b) - Optional Number<br>Port to Listen
 
@@ -325,6 +337,14 @@ An [`advertise_where`](#where-1b1a33) block (within [`proxy_advertisement.advert
 
 <a id="service-9e6a48"></a>&#x2022; [`vk8s_service`](#service-9e6a48) - Optional Block<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network<br>See [Vk8s Service](#service-9e6a48) below.
 
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise Dualstack On Public
+
+<a id="deep-2e4c46"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise Dualstack On Public Public IP
+
+<a id="deep-2a73c6"></a>Deeply nested **IP** block collapsed for readability.
+
 #### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public
 
 <a id="deep-c7bbab"></a>Deeply nested **Public** block collapsed for readability.
@@ -332,6 +352,14 @@ An [`advertise_where`](#where-1b1a33) block (within [`proxy_advertisement.advert
 #### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public Public IP
 
 <a id="deep-3f999e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise V6 On Public
+
+<a id="deep-9a6c15"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise V6 On Public Public IP
+
+<a id="deep-766e9a"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Proxy Advertisement Advertise Custom Advertise Where Site
 
@@ -396,6 +424,16 @@ SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NE
 
 <a id="deep-f1fd9e"></a>Deeply nested **Site** block collapsed for readability.
 
+#### Proxy Advertisement Advertise Dualstack On Public
+
+An [`advertise_dualstack_on_public`](#public-002382) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+<a id="public-ip-bd9af8"></a>&#x2022; [`public_ip`](#public-ip-bd9af8) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Public IP](#public-ip-bd9af8) below.
+
+#### Proxy Advertisement Advertise Dualstack On Public Public IP
+
+<a id="deep-927fd5"></a>Deeply nested **IP** block collapsed for readability.
+
 #### Proxy Advertisement Advertise On Public
 
 An [`advertise_on_public`](#proxy-advertisement-advertise-on-public) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
@@ -412,9 +450,27 @@ A [`public_ip`](#public-ip-132a4f) block (within [`proxy_advertisement.advertise
 
 <a id="tenant-90fb64"></a>&#x2022; [`tenant`](#tenant-90fb64) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Proxy Advertisement Advertise On Public Default Dualstack VIP
+
+<a id="deep-ce4738"></a>Deeply nested **VIP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise On Public Default IPv6 VIP
+
+<a id="deep-f18196"></a>Deeply nested **VIP** block collapsed for readability.
+
 #### Proxy Advertisement Advertise On Public Default VIP
 
 An [`advertise_on_public_default_vip`](#vip-8af300) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+#### Proxy Advertisement Advertise V6 On Public
+
+An [`advertise_v6_on_public`](#public-c755dc) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+<a id="public-ip-7e10c8"></a>&#x2022; [`public_ip`](#public-ip-7e10c8) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Public IP](#public-ip-7e10c8) below.
+
+#### Proxy Advertisement Advertise V6 On Public Public IP
+
+<a id="deep-cc80ca"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Proxy Advertisement Do Not Advertise
 

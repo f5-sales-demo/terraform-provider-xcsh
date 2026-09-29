@@ -1174,6 +1174,18 @@ var SecuremeshSiteSwModelAttrTypes = map[string]attr.Type{
 	"volterra_software_version": types.StringType,
 }
 
+// SecuremeshSiteWAFSignaturesModel represents waf_signatures block
+type SecuremeshSiteWAFSignaturesModel struct {
+	Automatic types.Object `tfsdk:"automatic"`
+	Manual    types.Object `tfsdk:"manual"`
+}
+
+// SecuremeshSiteWAFSignaturesModelAttrTypes defines the attribute types for SecuremeshSiteWAFSignaturesModel
+var SecuremeshSiteWAFSignaturesModelAttrTypes = map[string]attr.Type{
+	"automatic": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"manual":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
 type SecuremeshSiteResourceModel struct {
 	Name                       types.String                                   `tfsdk:"name"`
 	Namespace                  types.String                                   `tfsdk:"namespace"`
@@ -1201,6 +1213,7 @@ type SecuremeshSiteResourceModel struct {
 	OS                         *SecuremeshSiteOSModel                         `tfsdk:"os"`
 	PerformanceEnhancementMode *SecuremeshSitePerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	Sw                         *SecuremeshSiteSwModel                         `tfsdk:"sw"`
+	WAFSignatures              *SecuremeshSiteWAFSignaturesModel              `tfsdk:"waf_signatures"`
 }
 
 func (r *SecuremeshSiteResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -1793,12 +1806,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														validators.Int64RangeSetValidator(
 															validators.Int64Range{Minimum: 0, Maximum: 0},
-															validators.Int64Range{Minimum: 512, Maximum: 16384},
+															validators.Int64Range{Minimum: 512, Maximum: 9000},
 														),
 													},
 												},
@@ -1840,12 +1853,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														validators.Int64RangeSetValidator(
 															validators.Int64Range{Minimum: 0, Maximum: 0},
-															validators.Int64Range{Minimum: 512, Maximum: 16384},
+															validators.Int64Range{Minimum: 512, Maximum: 9000},
 														),
 													},
 												},
@@ -1895,12 +1908,12 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														validators.Int64RangeSetValidator(
 															validators.Int64Range{Minimum: 0, Maximum: 0},
-															validators.Int64Range{Minimum: 512, Maximum: 16384},
+															validators.Int64Range{Minimum: 512, Maximum: 9000},
 														),
 													},
 												},
@@ -3039,6 +3052,23 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(20),
 						},
+					},
+				},
+			},
+			"waf_signatures": schema.SingleNestedBlock{
+				MarkdownDescription: "Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("automatic", "manual")},
+
+				Attributes: map[string]schema.Attribute{
+					"automatic": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"manual": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -4339,6 +4369,16 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 			SwMap["volterra_software_version"] = data.Sw.VolterraSoftwareVersion.ValueString()
 		}
 		createReq.Spec["sw"] = SwMap
+	}
+	if data.WAFSignatures != nil {
+		WAFSignaturesMap := make(map[string]interface{})
+		if !data.WAFSignatures.Automatic.IsNull() && !data.WAFSignatures.Automatic.IsUnknown() {
+			WAFSignaturesMap["automatic"] = map[string]interface{}{}
+		}
+		if !data.WAFSignatures.Manual.IsNull() && !data.WAFSignatures.Manual.IsUnknown() {
+			WAFSignaturesMap["manual"] = map[string]interface{}{}
+		}
+		createReq.Spec["waf_signatures"] = WAFSignaturesMap
 	}
 	if !data.WorkerNodes.IsNull() && !data.WorkerNodes.IsUnknown() {
 		var WorkerNodesItems []string
@@ -6777,6 +6817,28 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &SecuremeshSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -9321,6 +9383,28 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &SecuremeshSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+		}
+	}
 	if v, ok := apiResource.Spec["worker_nodes"].([]interface{}); ok && (len(v) > 0 || isImport || data.WorkerNodes.IsUnknown()) {
 		worker_nodesList := make([]string, 0, len(v))
 		for _, item := range v {
@@ -10606,6 +10690,16 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 			SwMap["volterra_software_version"] = data.Sw.VolterraSoftwareVersion.ValueString()
 		}
 		apiResource.Spec["sw"] = SwMap
+	}
+	if data.WAFSignatures != nil {
+		WAFSignaturesMap := make(map[string]interface{})
+		if !data.WAFSignatures.Automatic.IsNull() && !data.WAFSignatures.Automatic.IsUnknown() {
+			WAFSignaturesMap["automatic"] = map[string]interface{}{}
+		}
+		if !data.WAFSignatures.Manual.IsNull() && !data.WAFSignatures.Manual.IsUnknown() {
+			WAFSignaturesMap["manual"] = map[string]interface{}{}
+		}
+		apiResource.Spec["waf_signatures"] = WAFSignaturesMap
 	}
 	if !data.WorkerNodes.IsNull() && !data.WorkerNodes.IsUnknown() {
 		var WorkerNodesItems []string
@@ -13071,6 +13165,28 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &SecuremeshSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

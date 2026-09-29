@@ -23,7 +23,7 @@ DEPRECATED — do not use: volterraedge/volterra
 
 ## Resource Categories
 
-- [Uncategorized](_llms-txt/uncategorized.txt) (33 resources): Resources pending categorization
+- [Uncategorized](_llms-txt/uncategorized.txt) (34 resources): Resources pending categorization
 - [Security](_llms-txt/security.txt) (25 resources): WAF, bot defense, rate limiting, firewall policies, and security controls
 - [Networking](_llms-txt/networking.txt) (12 resources): Virtual networks, BGP, cloud connectivity, tunnels, and network interfaces
 - [Sites](_llms-txt/sites.txt) (9 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups

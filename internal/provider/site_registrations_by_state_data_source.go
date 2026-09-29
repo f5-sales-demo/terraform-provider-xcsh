@@ -128,6 +128,7 @@ type SiteRegistrationsByStateItemsGetSpecInfraModel struct {
 	Timestamp        types.String                                                 `tfsdk:"timestamp"`
 	Zone             types.String                                                 `tfsdk:"zone"`
 	BondConfig       *SiteRegistrationsByStateItemsGetSpecInfraBondConfigModel    `tfsdk:"bond_config"`
+	Hugepages        types.List                                                   `tfsdk:"hugepages"`
 	HwInfo           *SiteRegistrationsByStateItemsGetSpecInfraHwInfoModel        `tfsdk:"hw_info"`
 	Interfaces       *SiteRegistrationsByStateEmptyModel                          `tfsdk:"interfaces"`
 	InternetProxy    *SiteRegistrationsByStateItemsGetSpecInfraInternetProxyModel `tfsdk:"internet_proxy"`
@@ -147,6 +148,7 @@ var SiteRegistrationsByStateItemsGetSpecInfraModelAttrTypes = map[string]attr.Ty
 	"timestamp":         types.StringType,
 	"zone":              types.StringType,
 	"bond_config":       types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsGetSpecInfraBondConfigModelAttrTypes},
+	"hugepages":         types.ListType{ElemType: types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsGetSpecInfraHugepagesModelAttrTypes}},
 	"hw_info":           types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsGetSpecInfraHwInfoModelAttrTypes},
 	"interfaces":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"internet_proxy":    types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsGetSpecInfraInternetProxyModelAttrTypes},
@@ -165,6 +167,20 @@ var SiteRegistrationsByStateItemsGetSpecInfraBondConfigModelAttrTypes = map[stri
 	"interfaces": types.ListType{ElemType: types.StringType},
 	"mode":       types.StringType,
 	"name":       types.StringType,
+}
+
+// SiteRegistrationsByStateItemsGetSpecInfraHugepagesModel represents hugepages block
+type SiteRegistrationsByStateItemsGetSpecInfraHugepagesModel struct {
+	Free     types.Int64 `tfsdk:"free"`
+	PageSize types.Int64 `tfsdk:"page_size"`
+	Total    types.Int64 `tfsdk:"total"`
+}
+
+// SiteRegistrationsByStateItemsGetSpecInfraHugepagesModelAttrTypes defines the attribute types for SiteRegistrationsByStateItemsGetSpecInfraHugepagesModel
+var SiteRegistrationsByStateItemsGetSpecInfraHugepagesModelAttrTypes = map[string]attr.Type{
+	"free":      types.Int64Type,
+	"page_size": types.Int64Type,
+	"total":     types.Int64Type,
 }
 
 // SiteRegistrationsByStateItemsGetSpecInfraHwInfoModel represents hw_info block
@@ -610,6 +626,7 @@ type SiteRegistrationsByStateItemsObjectSpecGcSpecInfraModel struct {
 	Timestamp        types.String                                                          `tfsdk:"timestamp"`
 	Zone             types.String                                                          `tfsdk:"zone"`
 	BondConfig       *SiteRegistrationsByStateItemsObjectSpecGcSpecInfraBondConfigModel    `tfsdk:"bond_config"`
+	Hugepages        types.List                                                            `tfsdk:"hugepages"`
 	HwInfo           *SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHwInfoModel        `tfsdk:"hw_info"`
 	Interfaces       *SiteRegistrationsByStateEmptyModel                                   `tfsdk:"interfaces"`
 	InternetProxy    *SiteRegistrationsByStateItemsObjectSpecGcSpecInfraInternetProxyModel `tfsdk:"internet_proxy"`
@@ -629,6 +646,7 @@ var SiteRegistrationsByStateItemsObjectSpecGcSpecInfraModelAttrTypes = map[strin
 	"timestamp":         types.StringType,
 	"zone":              types.StringType,
 	"bond_config":       types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsObjectSpecGcSpecInfraBondConfigModelAttrTypes},
+	"hugepages":         types.ListType{ElemType: types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModelAttrTypes}},
 	"hw_info":           types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHwInfoModelAttrTypes},
 	"interfaces":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"internet_proxy":    types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsObjectSpecGcSpecInfraInternetProxyModelAttrTypes},
@@ -647,6 +665,20 @@ var SiteRegistrationsByStateItemsObjectSpecGcSpecInfraBondConfigModelAttrTypes =
 	"interfaces": types.ListType{ElemType: types.StringType},
 	"mode":       types.StringType,
 	"name":       types.StringType,
+}
+
+// SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModel represents hugepages block
+type SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModel struct {
+	Free     types.Int64 `tfsdk:"free"`
+	PageSize types.Int64 `tfsdk:"page_size"`
+	Total    types.Int64 `tfsdk:"total"`
+}
+
+// SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModelAttrTypes defines the attribute types for SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModel
+var SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModelAttrTypes = map[string]attr.Type{
+	"free":      types.Int64Type,
+	"page_size": types.Int64Type,
+	"total":     types.Int64Type,
 }
 
 // SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHwInfoModel represents hw_info block
@@ -1377,6 +1409,26 @@ func (d *SiteRegistrationsByStateDataSource) Schema(ctx context.Context, req dat
 												stringvalidator.RegexMatches(regexp.MustCompile(`^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`), ""),
 											},
 										},
+										"hugepages": schema.ListNestedAttribute{
+											MarkdownDescription: "Hugepage settings for CE on K8s SMV2 site.",
+											NestedObject: schema.NestedAttributeObject{
+												Attributes: map[string]schema.Attribute{
+													"free": schema.Int64Attribute{
+														MarkdownDescription: "Free Hugepages. Total number of free hugepages present.",
+														Computed:            true,
+													},
+													"page_size": schema.Int64Attribute{
+														MarkdownDescription: "Hugepage Size. Size of each hugepage.",
+														Computed:            true,
+													},
+													"total": schema.Int64Attribute{
+														MarkdownDescription: "Total Hugepages. Total number of hugepages present.",
+														Computed:            true,
+													},
+												},
+											},
+											Computed: true,
+										},
 										"hw_info": schema.SingleNestedAttribute{
 											MarkdownDescription: "OsInfo holds information about host OS and HW.",
 											Attributes: map[string]schema.Attribute{
@@ -1849,10 +1901,10 @@ func (d *SiteRegistrationsByStateDataSource) Schema(ctx context.Context, req dat
 											Computed:            true,
 										},
 										"provider_ref": schema.StringAttribute{
-											MarkdownDescription: "[Enum: UNKNOWN|AWS|GOOGLE|AZURE|VMWARE|KVM|OTHER|VOLTERRA|IBMCLOUD|UNKNOWN_K8S|AWS_K8S|GCP_K8S|AZURE_K8S|VMWARE_K8S|KVM_K8S|OTHER_K8S|VOLTERRA_K8S|IBMCLOUD_K8S|F5OS|RSERIES|OCI|NUTANIX|OPENSTACK|EQUINIX|OPENSHIFT_VIRTUALIZATION] Infrastructure provider enum for registration. It describes where is instance running. Provider was not detected AWS cloud instance Google cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was not identified by system. Possible values are `UNKNOWN`, `AWS`, `GOOGLE`, `AZURE`, `VMWARE`, `KVM`, `OTHER`, `VOLTERRA`, `IBMCLOUD`, `UNKNOWN_K8S`, `AWS_K8S`, `GCP_K8S`, `AZURE_K8S`, `VMWARE_K8S`, `KVM_K8S`, `OTHER_K8S`, `VOLTERRA_K8S`, `IBMCLOUD_K8S`, `F5OS`, `RSERIES`, `OCI`, `NUTANIX`, `OPENSTACK`, `EQUINIX`, `OPENSHIFT_VIRTUALIZATION`.",
+											MarkdownDescription: "[Enum: UNKNOWN|AWS|GOOGLE|AZURE|VMWARE|KVM|OTHER|VOLTERRA|IBMCLOUD|UNKNOWN_K8S|AWS_K8S|GCP_K8S|AZURE_K8S|VMWARE_K8S|KVM_K8S|OTHER_K8S|VOLTERRA_K8S|IBMCLOUD_K8S|F5OS|RSERIES|OCI|NUTANIX|OPENSTACK|EQUINIX|OPENSHIFT_VIRTUALIZATION|KUBERNETES] Infrastructure provider enum for registration. It describes where is instance running. Provider was not detected AWS cloud instance Google cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was not identified by system. Possible values are `UNKNOWN`, `AWS`, `GOOGLE`, `AZURE`, `VMWARE`, `KVM`, `OTHER`, `VOLTERRA`, `IBMCLOUD`, `UNKNOWN_K8S`, `AWS_K8S`, `GCP_K8S`, `AZURE_K8S`, `VMWARE_K8S`, `KVM_K8S`, `OTHER_K8S`, `VOLTERRA_K8S`, `IBMCLOUD_K8S`, `F5OS`, `RSERIES`, `OCI`, `NUTANIX`, `OPENSTACK`, `EQUINIX`, `OPENSHIFT_VIRTUALIZATION`, `KUBERNETES`.",
 											Computed:            true,
 											Validators: []validator.String{
-												stringvalidator.OneOf("UNKNOWN", "AWS", "GOOGLE", "AZURE", "VMWARE", "KVM", "OTHER", "VOLTERRA", "IBMCLOUD", "UNKNOWN_K8S", "AWS_K8S", "GCP_K8S", "AZURE_K8S", "VMWARE_K8S", "KVM_K8S", "OTHER_K8S", "VOLTERRA_K8S", "IBMCLOUD_K8S", "F5OS", "RSERIES", "OCI", "NUTANIX", "OPENSTACK", "EQUINIX", "OPENSHIFT_VIRTUALIZATION"),
+												stringvalidator.OneOf("UNKNOWN", "AWS", "GOOGLE", "AZURE", "VMWARE", "KVM", "OTHER", "VOLTERRA", "IBMCLOUD", "UNKNOWN_K8S", "AWS_K8S", "GCP_K8S", "AZURE_K8S", "VMWARE_K8S", "KVM_K8S", "OTHER_K8S", "VOLTERRA_K8S", "IBMCLOUD_K8S", "F5OS", "RSERIES", "OCI", "NUTANIX", "OPENSTACK", "EQUINIX", "OPENSHIFT_VIRTUALIZATION", "KUBERNETES"),
 											},
 										},
 										"sw_info": schema.SingleNestedAttribute{
@@ -2119,6 +2171,26 @@ func (d *SiteRegistrationsByStateDataSource) Schema(ctx context.Context, req dat
 																stringvalidator.LengthBetween(1, 1024),
 																stringvalidator.RegexMatches(regexp.MustCompile(`^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`), ""),
 															},
+														},
+														"hugepages": schema.ListNestedAttribute{
+															MarkdownDescription: "Hugepage settings for CE on K8s SMV2 site.",
+															NestedObject: schema.NestedAttributeObject{
+																Attributes: map[string]schema.Attribute{
+																	"free": schema.Int64Attribute{
+																		MarkdownDescription: "Free Hugepages. Total number of free hugepages present.",
+																		Computed:            true,
+																	},
+																	"page_size": schema.Int64Attribute{
+																		MarkdownDescription: "Hugepage Size. Size of each hugepage.",
+																		Computed:            true,
+																	},
+																	"total": schema.Int64Attribute{
+																		MarkdownDescription: "Total Hugepages. Total number of hugepages present.",
+																		Computed:            true,
+																	},
+																},
+															},
+															Computed: true,
 														},
 														"hw_info": schema.SingleNestedAttribute{
 															MarkdownDescription: "OsInfo holds information about host OS and HW.",
@@ -2592,10 +2664,10 @@ func (d *SiteRegistrationsByStateDataSource) Schema(ctx context.Context, req dat
 															Computed:            true,
 														},
 														"provider_ref": schema.StringAttribute{
-															MarkdownDescription: "[Enum: UNKNOWN|AWS|GOOGLE|AZURE|VMWARE|KVM|OTHER|VOLTERRA|IBMCLOUD|UNKNOWN_K8S|AWS_K8S|GCP_K8S|AZURE_K8S|VMWARE_K8S|KVM_K8S|OTHER_K8S|VOLTERRA_K8S|IBMCLOUD_K8S|F5OS|RSERIES|OCI|NUTANIX|OPENSTACK|EQUINIX|OPENSHIFT_VIRTUALIZATION] Infrastructure provider enum for registration. It describes where is instance running. Provider was not detected AWS cloud instance Google cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was not identified by system. Possible values are `UNKNOWN`, `AWS`, `GOOGLE`, `AZURE`, `VMWARE`, `KVM`, `OTHER`, `VOLTERRA`, `IBMCLOUD`, `UNKNOWN_K8S`, `AWS_K8S`, `GCP_K8S`, `AZURE_K8S`, `VMWARE_K8S`, `KVM_K8S`, `OTHER_K8S`, `VOLTERRA_K8S`, `IBMCLOUD_K8S`, `F5OS`, `RSERIES`, `OCI`, `NUTANIX`, `OPENSTACK`, `EQUINIX`, `OPENSHIFT_VIRTUALIZATION`.",
+															MarkdownDescription: "[Enum: UNKNOWN|AWS|GOOGLE|AZURE|VMWARE|KVM|OTHER|VOLTERRA|IBMCLOUD|UNKNOWN_K8S|AWS_K8S|GCP_K8S|AZURE_K8S|VMWARE_K8S|KVM_K8S|OTHER_K8S|VOLTERRA_K8S|IBMCLOUD_K8S|F5OS|RSERIES|OCI|NUTANIX|OPENSTACK|EQUINIX|OPENSHIFT_VIRTUALIZATION|KUBERNETES] Infrastructure provider enum for registration. It describes where is instance running. Provider was not detected AWS cloud instance Google cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was not identified by system. Possible values are `UNKNOWN`, `AWS`, `GOOGLE`, `AZURE`, `VMWARE`, `KVM`, `OTHER`, `VOLTERRA`, `IBMCLOUD`, `UNKNOWN_K8S`, `AWS_K8S`, `GCP_K8S`, `AZURE_K8S`, `VMWARE_K8S`, `KVM_K8S`, `OTHER_K8S`, `VOLTERRA_K8S`, `IBMCLOUD_K8S`, `F5OS`, `RSERIES`, `OCI`, `NUTANIX`, `OPENSTACK`, `EQUINIX`, `OPENSHIFT_VIRTUALIZATION`, `KUBERNETES`.",
 															Computed:            true,
 															Validators: []validator.String{
-																stringvalidator.OneOf("UNKNOWN", "AWS", "GOOGLE", "AZURE", "VMWARE", "KVM", "OTHER", "VOLTERRA", "IBMCLOUD", "UNKNOWN_K8S", "AWS_K8S", "GCP_K8S", "AZURE_K8S", "VMWARE_K8S", "KVM_K8S", "OTHER_K8S", "VOLTERRA_K8S", "IBMCLOUD_K8S", "F5OS", "RSERIES", "OCI", "NUTANIX", "OPENSTACK", "EQUINIX", "OPENSHIFT_VIRTUALIZATION"),
+																stringvalidator.OneOf("UNKNOWN", "AWS", "GOOGLE", "AZURE", "VMWARE", "KVM", "OTHER", "VOLTERRA", "IBMCLOUD", "UNKNOWN_K8S", "AWS_K8S", "GCP_K8S", "AZURE_K8S", "VMWARE_K8S", "KVM_K8S", "OTHER_K8S", "VOLTERRA_K8S", "IBMCLOUD_K8S", "F5OS", "RSERIES", "OCI", "NUTANIX", "OPENSTACK", "EQUINIX", "OPENSHIFT_VIRTUALIZATION", "KUBERNETES"),
 															},
 														},
 														"sw_info": schema.SingleNestedAttribute{
@@ -3320,6 +3392,46 @@ func (d *SiteRegistrationsByStateDataSource) Read(ctx context.Context, req datas
 													return types.StringValue(v)
 												}
 												return types.StringNull()
+											}(),
+											Hugepages: func() types.List {
+												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && (existingItemsItems[listIdx].GetSpec.Infra.Hugepages.IsNull() || len(existingItemsItems[listIdx].GetSpec.Infra.Hugepages.Elements()) == 0) {
+													return types.ListNull(types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsGetSpecInfraHugepagesModelAttrTypes})
+												}
+												var HugepagesExisting []SiteRegistrationsByStateItemsGetSpecInfraHugepagesModel
+												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Infra != nil && !existingItemsItems[listIdx].GetSpec.Infra.Hugepages.IsNull() && !existingItemsItems[listIdx].GetSpec.Infra.Hugepages.IsUnknown() {
+													existingItemsItems[listIdx].GetSpec.Infra.Hugepages.ElementsAs(ctx, &HugepagesExisting, false)
+												}
+												if rawList, ok := InfraData["hugepages"].([]interface{}); ok && len(rawList) > 0 {
+													var HugepagesResult []SiteRegistrationsByStateItemsGetSpecInfraHugepagesModel
+													for HugepagesIdx, HugepagesItem := range rawList {
+														_ = HugepagesIdx
+														if HugepagesItemMap, ok := HugepagesItem.(map[string]interface{}); ok {
+															HugepagesResult = append(HugepagesResult, SiteRegistrationsByStateItemsGetSpecInfraHugepagesModel{
+																Free: func() types.Int64 {
+																	if v, ok := HugepagesItemMap["free"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+																PageSize: func() types.Int64 {
+																	if v, ok := HugepagesItemMap["page_size"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+																Total: func() types.Int64 {
+																	if v, ok := HugepagesItemMap["total"].(float64); ok && v != 0 {
+																		return types.Int64Value(int64(v))
+																	}
+																	return types.Int64Null()
+																}(),
+															})
+														}
+													}
+													listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsGetSpecInfraHugepagesModelAttrTypes}, HugepagesResult)
+													return listVal
+												}
+												return types.ListNull(types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsGetSpecInfraHugepagesModelAttrTypes})
 											}(),
 											HwInfo: func() *SiteRegistrationsByStateItemsGetSpecInfraHwInfoModel {
 												if HwInfoData, ok := InfraData["hw_info"].(map[string]interface{}); ok {
@@ -4305,6 +4417,46 @@ func (d *SiteRegistrationsByStateDataSource) Read(ctx context.Context, req datas
 																			return types.StringValue(v)
 																		}
 																		return types.StringNull()
+																	}(),
+																	Hugepages: func() types.List {
+																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && (existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.Hugepages.IsNull() || len(existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.Hugepages.Elements()) == 0) {
+																			return types.ListNull(types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModelAttrTypes})
+																		}
+																		var HugepagesExisting []SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModel
+																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Infra != nil && !existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.Hugepages.IsNull() && !existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.Hugepages.IsUnknown() {
+																			existingItemsItems[listIdx].Object.Spec.GcSpec.Infra.Hugepages.ElementsAs(ctx, &HugepagesExisting, false)
+																		}
+																		if rawList, ok := InfraData["hugepages"].([]interface{}); ok && len(rawList) > 0 {
+																			var HugepagesResult []SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModel
+																			for HugepagesIdx, HugepagesItem := range rawList {
+																				_ = HugepagesIdx
+																				if HugepagesItemMap, ok := HugepagesItem.(map[string]interface{}); ok {
+																					HugepagesResult = append(HugepagesResult, SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModel{
+																						Free: func() types.Int64 {
+																							if v, ok := HugepagesItemMap["free"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																						PageSize: func() types.Int64 {
+																							if v, ok := HugepagesItemMap["page_size"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																						Total: func() types.Int64 {
+																							if v, ok := HugepagesItemMap["total"].(float64); ok && v != 0 {
+																								return types.Int64Value(int64(v))
+																							}
+																							return types.Int64Null()
+																						}(),
+																					})
+																				}
+																			}
+																			listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModelAttrTypes}, HugepagesResult)
+																			return listVal
+																		}
+																		return types.ListNull(types.ObjectType{AttrTypes: SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHugepagesModelAttrTypes})
 																	}(),
 																	HwInfo: func() *SiteRegistrationsByStateItemsObjectSpecGcSpecInfraHwInfoModel {
 																		if HwInfoData, ok := InfraData["hw_info"].(map[string]interface{}); ok {

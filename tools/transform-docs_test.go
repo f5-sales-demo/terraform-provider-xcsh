@@ -148,7 +148,7 @@ func TestSecuremeshSiteV2DocumentationIsExhaustiveAndCurrent(t *testing.T) {
 		`namespace = "system"`,
 		"[`aws`]", "[`azure`]", "[`baremetal`]", "[`equinix`]", "[`gcp`]",
 		"[`kvm`]", "[`nutanix`]", "[`oci`]", "[`openshift_virtualization`]",
-		"[`openstack`]", "[`vmware`]", "[`segment_network`]", "[`is_management`]",
+		"[`openstack`]", "[`vmware`]", "[`eks_k8s`]", "[`private_adn`]", "[`segment_network`]", "[`is_management`]",
 		"[`is_primary`]", "[`disable_ha`](#disable-ha) - Optional Object",
 	} {
 		if !strings.Contains(document, required) {
@@ -157,7 +157,7 @@ func TestSecuremeshSiteV2DocumentationIsExhaustiveAndCurrent(t *testing.T) {
 	}
 
 	for _, removed := range []string{
-		"resource_version", "private_adn", "[`rseries`]", `<a id="log-receiver"></a>`,
+		"resource_version", "[`rseries`]", `<a id="log-receiver"></a>`,
 	} {
 		if strings.Contains(document, removed) {
 			t.Errorf("SecureMesh v2 documentation contains removed field %q", removed)

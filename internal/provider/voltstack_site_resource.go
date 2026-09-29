@@ -2584,28 +2584,32 @@ var VoltstackSiteLocalControlPlaneBGPConfigModelAttrTypes = map[string]attr.Type
 
 // VoltstackSiteLocalControlPlaneBGPConfigPeersModel represents peers block
 type VoltstackSiteLocalControlPlaneBGPConfigPeersModel struct {
-	BfdDisabled         types.Object                                                      `tfsdk:"bfd_disabled"`
-	DisableSpec         types.Object                                                      `tfsdk:"disable_spec"`
-	Label               types.String                                                      `tfsdk:"label"`
-	PassiveModeDisabled types.Object                                                      `tfsdk:"passive_mode_disabled"`
-	PassiveModeEnabled  types.Object                                                      `tfsdk:"passive_mode_enabled"`
-	BfdEnabled          *VoltstackSiteLocalControlPlaneBGPConfigPeersBfdEnabledModel      `tfsdk:"bfd_enabled"`
-	External            *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel        `tfsdk:"external"`
-	Metadata            *VoltstackSiteLocalControlPlaneBGPConfigPeersMetadataModel        `tfsdk:"metadata"`
-	RoutingPolicies     *VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesModel `tfsdk:"routing_policies"`
+	BfdDisabled          types.Object                                                      `tfsdk:"bfd_disabled"`
+	DisableSpec          types.Object                                                      `tfsdk:"disable_spec"`
+	EbgpMultihopDisabled types.Object                                                      `tfsdk:"ebgp_multihop_disabled"`
+	EbgpMultihopEnabled  types.Object                                                      `tfsdk:"ebgp_multihop_enabled"`
+	Label                types.String                                                      `tfsdk:"label"`
+	PassiveModeDisabled  types.Object                                                      `tfsdk:"passive_mode_disabled"`
+	PassiveModeEnabled   types.Object                                                      `tfsdk:"passive_mode_enabled"`
+	BfdEnabled           *VoltstackSiteLocalControlPlaneBGPConfigPeersBfdEnabledModel      `tfsdk:"bfd_enabled"`
+	External             *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel        `tfsdk:"external"`
+	Metadata             *VoltstackSiteLocalControlPlaneBGPConfigPeersMetadataModel        `tfsdk:"metadata"`
+	RoutingPolicies      *VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesModel `tfsdk:"routing_policies"`
 }
 
 // VoltstackSiteLocalControlPlaneBGPConfigPeersModelAttrTypes defines the attribute types for VoltstackSiteLocalControlPlaneBGPConfigPeersModel
 var VoltstackSiteLocalControlPlaneBGPConfigPeersModelAttrTypes = map[string]attr.Type{
-	"bfd_disabled":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"disable_spec":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"label":                 types.StringType,
-	"passive_mode_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"passive_mode_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"bfd_enabled":           types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersBfdEnabledModelAttrTypes},
-	"external":              types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModelAttrTypes},
-	"metadata":              types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersMetadataModelAttrTypes},
-	"routing_policies":      types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesModelAttrTypes},
+	"bfd_disabled":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_spec":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ebgp_multihop_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ebgp_multihop_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"label":                  types.StringType,
+	"passive_mode_disabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"passive_mode_enabled":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"bfd_enabled":            types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersBfdEnabledModelAttrTypes},
+	"external":               types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModelAttrTypes},
+	"metadata":               types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersMetadataModelAttrTypes},
+	"routing_policies":       types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersRoutingPoliciesModelAttrTypes},
 }
 
 // VoltstackSiteLocalControlPlaneBGPConfigPeersBfdEnabledModel represents bfd_enabled block
@@ -2908,6 +2912,18 @@ var VoltstackSiteUsbPolicyModelAttrTypes = map[string]attr.Type{
 	"tenant":    types.StringType,
 }
 
+// VoltstackSiteWAFSignaturesModel represents waf_signatures block
+type VoltstackSiteWAFSignaturesModel struct {
+	Automatic types.Object `tfsdk:"automatic"`
+	Manual    types.Object `tfsdk:"manual"`
+}
+
+// VoltstackSiteWAFSignaturesModelAttrTypes defines the attribute types for VoltstackSiteWAFSignaturesModel
+var VoltstackSiteWAFSignaturesModelAttrTypes = map[string]attr.Type{
+	"automatic": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"manual":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
 type VoltstackSiteResourceModel struct {
 	Name                     types.String                                `tfsdk:"name"`
 	Namespace                types.String                                `tfsdk:"namespace"`
@@ -2951,6 +2967,7 @@ type VoltstackSiteResourceModel struct {
 	SriovInterfaces          *VoltstackSiteSriovInterfacesModel          `tfsdk:"sriov_interfaces"`
 	Sw                       *VoltstackSiteSwModel                       `tfsdk:"sw"`
 	UsbPolicy                *VoltstackSiteUsbPolicyModel                `tfsdk:"usb_policy"`
+	WAFSignatures            *VoltstackSiteWAFSignaturesModel            `tfsdk:"waf_signatures"`
 }
 
 func (r *VoltstackSiteResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -3650,12 +3667,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														validators.Int64RangeSetValidator(
 															validators.Int64Range{Minimum: 0, Maximum: 0},
-															validators.Int64Range{Minimum: 512, Maximum: 16384},
+															validators.Int64Range{Minimum: 512, Maximum: 9000},
 														),
 													},
 												},
@@ -3697,12 +3714,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														validators.Int64RangeSetValidator(
 															validators.Int64Range{Minimum: 0, Maximum: 0},
-															validators.Int64Range{Minimum: 512, Maximum: 16384},
+															validators.Int64Range{Minimum: 512, Maximum: 9000},
 														),
 													},
 												},
@@ -3752,12 +3769,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														validators.Int64RangeSetValidator(
 															validators.Int64Range{Minimum: 0, Maximum: 0},
-															validators.Int64Range{Minimum: 512, Maximum: 16384},
+															validators.Int64Range{Minimum: 512, Maximum: 9000},
 														),
 													},
 												},
@@ -4175,12 +4192,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 											Attributes: map[string]schema.Attribute{
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														validators.Int64RangeSetValidator(
 															validators.Int64Range{Minimum: 0, Maximum: 0},
-															validators.Int64Range{Minimum: 512, Maximum: 16384},
+															validators.Int64Range{Minimum: 512, Maximum: 9000},
 														),
 													},
 												},
@@ -6452,12 +6469,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Optional:            true,
 													Validators: []validator.Int64{
 														validators.Int64RangeSetValidator(
 															validators.Int64Range{Minimum: 0, Maximum: 0},
-															validators.Int64Range{Minimum: 512, Maximum: 16384},
+															validators.Int64Range{Minimum: 512, Maximum: 9000},
 														),
 													},
 												},
@@ -7011,7 +7028,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"peers": schema.ListNestedBlock{
 								MarkdownDescription: "Peers. BGP parameters for peer.",
-								Validators:          []validator.List{validators.ConflictingListObjectAttributes("bfd_disabled", "bfd_enabled"), validators.ConflictingListObjectAttributes("disable_spec", "routing_policies"), validators.ConflictingListObjectAttributes("passive_mode_disabled", "passive_mode_enabled")},
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("bfd_disabled", "bfd_enabled"), validators.ConflictingListObjectAttributes("disable_spec", "routing_policies"), validators.ConflictingListObjectAttributes("ebgp_multihop_disabled", "ebgp_multihop_enabled"), validators.ConflictingListObjectAttributes("passive_mode_disabled", "passive_mode_enabled")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"bfd_disabled": schema.ObjectAttribute{
@@ -7020,6 +7037,16 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											AttributeTypes:      map[string]attr.Type{},
 										},
 										"disable_spec": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ebgp_multihop_disabled": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ebgp_multihop_enabled": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
 											Optional:            true,
 											AttributeTypes:      map[string]attr.Type{},
@@ -7537,6 +7564,23 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
 						},
+					},
+				},
+			},
+			"waf_signatures": schema.SingleNestedBlock{
+				MarkdownDescription: "Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("automatic", "manual")},
+
+				Attributes: map[string]schema.Attribute{
+					"automatic": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"manual": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -10259,6 +10303,12 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !PeersItem.DisableSpec.IsNull() && !PeersItem.DisableSpec.IsUnknown() {
 							PeersItemMap["disable"] = map[string]interface{}{}
 						}
+						if !PeersItem.EbgpMultihopDisabled.IsNull() && !PeersItem.EbgpMultihopDisabled.IsUnknown() {
+							PeersItemMap["ebgp_multihop_disabled"] = map[string]interface{}{}
+						}
+						if !PeersItem.EbgpMultihopEnabled.IsNull() && !PeersItem.EbgpMultihopEnabled.IsUnknown() {
+							PeersItemMap["ebgp_multihop_enabled"] = map[string]interface{}{}
+						}
 						if PeersItem.External != nil {
 							LocalControlPlaneBGPConfigPeersExternalMap := make(map[string]interface{})
 							if !PeersItem.External.Address.IsNull() && !PeersItem.External.Address.IsUnknown() {
@@ -10568,6 +10618,16 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 			UsbPolicyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
 		}
 		createReq.Spec["usb_policy"] = UsbPolicyMap
+	}
+	if data.WAFSignatures != nil {
+		WAFSignaturesMap := make(map[string]interface{})
+		if !data.WAFSignatures.Automatic.IsNull() && !data.WAFSignatures.Automatic.IsUnknown() {
+			WAFSignaturesMap["automatic"] = map[string]interface{}{}
+		}
+		if !data.WAFSignatures.Manual.IsNull() && !data.WAFSignatures.Manual.IsUnknown() {
+			WAFSignaturesMap["manual"] = map[string]interface{}{}
+		}
+		createReq.Spec["waf_signatures"] = WAFSignaturesMap
 	}
 	if !data.WorkerNodes.IsNull() && !data.WorkerNodes.IsUnknown() {
 		var WorkerNodesItems []string
@@ -15955,6 +16015,24 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return types.ObjectNull(map[string]attr.Type{})
 											}(),
+											EbgpMultihopDisabled: func() types.Object {
+												if !isImport && len(PeersExisting) > PeersIdx && !PeersExisting[PeersIdx].EbgpMultihopDisabled.IsUnknown() {
+													return PeersExisting[PeersIdx].EbgpMultihopDisabled
+												}
+												if _, ok := PeersItemMap["ebgp_multihop_disabled"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											EbgpMultihopEnabled: func() types.Object {
+												if !isImport && len(PeersExisting) > PeersIdx && !PeersExisting[PeersIdx].EbgpMultihopEnabled.IsUnknown() {
+													return PeersExisting[PeersIdx].EbgpMultihopEnabled
+												}
+												if _, ok := PeersItemMap["ebgp_multihop_enabled"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
 											External: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel {
 												if ExternalData, ok := PeersItemMap["external"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel{
@@ -16643,6 +16721,28 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &VoltstackSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -22133,6 +22233,24 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return types.ObjectNull(map[string]attr.Type{})
 											}(),
+											EbgpMultihopDisabled: func() types.Object {
+												if !isImport && len(PeersExisting) > PeersIdx && !PeersExisting[PeersIdx].EbgpMultihopDisabled.IsUnknown() {
+													return PeersExisting[PeersIdx].EbgpMultihopDisabled
+												}
+												if _, ok := PeersItemMap["ebgp_multihop_disabled"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											EbgpMultihopEnabled: func() types.Object {
+												if !isImport && len(PeersExisting) > PeersIdx && !PeersExisting[PeersIdx].EbgpMultihopEnabled.IsUnknown() {
+													return PeersExisting[PeersIdx].EbgpMultihopEnabled
+												}
+												if _, ok := PeersItemMap["ebgp_multihop_enabled"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
 											External: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel {
 												if ExternalData, ok := PeersItemMap["external"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel{
@@ -22821,6 +22939,28 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &VoltstackSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -25510,6 +25650,12 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !PeersItem.DisableSpec.IsNull() && !PeersItem.DisableSpec.IsUnknown() {
 							PeersItemMap["disable"] = map[string]interface{}{}
 						}
+						if !PeersItem.EbgpMultihopDisabled.IsNull() && !PeersItem.EbgpMultihopDisabled.IsUnknown() {
+							PeersItemMap["ebgp_multihop_disabled"] = map[string]interface{}{}
+						}
+						if !PeersItem.EbgpMultihopEnabled.IsNull() && !PeersItem.EbgpMultihopEnabled.IsUnknown() {
+							PeersItemMap["ebgp_multihop_enabled"] = map[string]interface{}{}
+						}
 						if PeersItem.External != nil {
 							LocalControlPlaneBGPConfigPeersExternalMap := make(map[string]interface{})
 							if !PeersItem.External.Address.IsNull() && !PeersItem.External.Address.IsUnknown() {
@@ -25819,6 +25965,16 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 			UsbPolicyMap["namespace"] = data.UsbPolicy.Namespace.ValueString()
 		}
 		apiResource.Spec["usb_policy"] = UsbPolicyMap
+	}
+	if data.WAFSignatures != nil {
+		WAFSignaturesMap := make(map[string]interface{})
+		if !data.WAFSignatures.Automatic.IsNull() && !data.WAFSignatures.Automatic.IsUnknown() {
+			WAFSignaturesMap["automatic"] = map[string]interface{}{}
+		}
+		if !data.WAFSignatures.Manual.IsNull() && !data.WAFSignatures.Manual.IsUnknown() {
+			WAFSignaturesMap["manual"] = map[string]interface{}{}
+		}
+		apiResource.Spec["waf_signatures"] = WAFSignaturesMap
 	}
 	if !data.WorkerNodes.IsNull() && !data.WorkerNodes.IsUnknown() {
 		var WorkerNodesItems []string
@@ -31233,6 +31389,24 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return types.ObjectNull(map[string]attr.Type{})
 											}(),
+											EbgpMultihopDisabled: func() types.Object {
+												if !isImport && len(PeersExisting) > PeersIdx && !PeersExisting[PeersIdx].EbgpMultihopDisabled.IsUnknown() {
+													return PeersExisting[PeersIdx].EbgpMultihopDisabled
+												}
+												if _, ok := PeersItemMap["ebgp_multihop_disabled"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											EbgpMultihopEnabled: func() types.Object {
+												if !isImport && len(PeersExisting) > PeersIdx && !PeersExisting[PeersIdx].EbgpMultihopEnabled.IsUnknown() {
+													return PeersExisting[PeersIdx].EbgpMultihopEnabled
+												}
+												if _, ok := PeersItemMap["ebgp_multihop_enabled"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
 											External: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel {
 												if ExternalData, ok := PeersItemMap["external"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel{
@@ -31921,6 +32095,28 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &VoltstackSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

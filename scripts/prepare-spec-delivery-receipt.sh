@@ -158,6 +158,7 @@ jq -e --slurpfile pending "$pending" '
     "smsv2-contract.json",
     "smsv2-evidence-receipt.json",
     "smsv2_parity_manifest.json",
+    "upstream-contract-changes.json",
     "upstream-contract-removals.json"
   ] and
   ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)

@@ -305,7 +305,11 @@ func (catalog *OperationCatalog) ResponseOperationsForSpec(spec *Spec) ([]Resolv
 			if !present {
 				continue
 			}
-			if _, ok := spec.Components.Schemas[operation.ResponseSchema]; !ok {
+			if operation.ResponseSchema == "" {
+				if operation.Role != "action" {
+					return nil, fmt.Errorf("%s operation %s response schema is required", operation.Role, operation.OperationID)
+				}
+			} else if _, ok := spec.Components.Schemas[operation.ResponseSchema]; !ok {
 				return nil, fmt.Errorf("%s operation %s response schema %q is absent", operation.Role, operation.OperationID, operation.ResponseSchema)
 			}
 			if operation.RequestSchema != "" {

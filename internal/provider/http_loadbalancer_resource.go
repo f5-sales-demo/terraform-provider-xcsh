@@ -91,28 +91,56 @@ var HTTPLoadBalancerAdvertiseCustomModelAttrTypes = map[string]attr.Type{
 
 // HTTPLoadBalancerAdvertiseCustomAdvertiseWhereModel represents advertise_where block
 type HTTPLoadBalancerAdvertiseCustomAdvertiseWhereModel struct {
-	Port               types.Int64                                                           `tfsdk:"port"`
-	PortRanges         types.String                                                          `tfsdk:"port_ranges"`
-	UseDefaultPort     types.Object                                                          `tfsdk:"use_default_port"`
-	AdvertiseOnPublic  *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel  `tfsdk:"advertise_on_public"`
-	Site               *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel               `tfsdk:"site"`
-	VirtualNetwork     *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel     `tfsdk:"virtual_network"`
-	VirtualSite        *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel        `tfsdk:"virtual_site"`
-	VirtualSiteWithVIP *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel `tfsdk:"virtual_site_with_vip"`
-	Vk8sService        *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel        `tfsdk:"vk8s_service"`
+	Port                       types.Int64                                                                   `tfsdk:"port"`
+	PortRanges                 types.String                                                                  `tfsdk:"port_ranges"`
+	UseDefaultPort             types.Object                                                                  `tfsdk:"use_default_port"`
+	AdvertiseDualstackOnPublic *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel `tfsdk:"advertise_dualstack_on_public"`
+	AdvertiseOnPublic          *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel          `tfsdk:"advertise_on_public"`
+	AdvertiseV6OnPublic        *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel        `tfsdk:"advertise_v6_on_public"`
+	Site                       *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel                       `tfsdk:"site"`
+	VirtualNetwork             *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel             `tfsdk:"virtual_network"`
+	VirtualSite                *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel                `tfsdk:"virtual_site"`
+	VirtualSiteWithVIP         *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel         `tfsdk:"virtual_site_with_vip"`
+	Vk8sService                *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel                `tfsdk:"vk8s_service"`
 }
 
 // HTTPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseCustomAdvertiseWhereModel
 var HTTPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes = map[string]attr.Type{
-	"port":                  types.Int64Type,
-	"port_ranges":           types.StringType,
-	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"advertise_on_public":   types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
-	"site":                  types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
-	"virtual_network":       types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
-	"virtual_site":          types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
-	"virtual_site_with_vip": types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
-	"vk8s_service":          types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModelAttrTypes},
+	"port":                          types.Int64Type,
+	"port_ranges":                   types.StringType,
+	"use_default_port":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advertise_dualstack_on_public": types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes},
+	"advertise_on_public":           types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
+	"advertise_v6_on_public":        types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes},
+	"site":                          types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
+	"virtual_network":               types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
+	"virtual_site":                  types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
+	"virtual_site_with_vip":         types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
+	"vk8s_service":                  types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModelAttrTypes},
+}
+
+// HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel represents advertise_dualstack_on_public block
+type HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel struct {
+	PublicIP *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel
+var HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes},
+}
+
+// HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel represents public_ip block
+type HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel
+var HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
 }
 
 // HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel represents advertise_on_public block
@@ -134,6 +162,30 @@ type HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel
 
 // HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel
 var HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel represents advertise_v6_on_public block
+type HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel struct {
+	PublicIP *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel
+var HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes},
+}
+
+// HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel represents public_ip block
+type HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel
+var HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
@@ -293,6 +345,30 @@ var HTTPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteModelAttr
 	"tenant":    types.StringType,
 }
 
+// HTTPLoadBalancerAdvertiseDualstackOnPublicModel represents advertise_dualstack_on_public block
+type HTTPLoadBalancerAdvertiseDualstackOnPublicModel struct {
+	PublicIP *HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// HTTPLoadBalancerAdvertiseDualstackOnPublicModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseDualstackOnPublicModel
+var HTTPLoadBalancerAdvertiseDualstackOnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModelAttrTypes},
+}
+
+// HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel represents public_ip block
+type HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel
+var HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
 // HTTPLoadBalancerAdvertiseOnPublicModel represents advertise_on_public block
 type HTTPLoadBalancerAdvertiseOnPublicModel struct {
 	PublicIP *HTTPLoadBalancerAdvertiseOnPublicPublicIPModel `tfsdk:"public_ip"`
@@ -312,6 +388,30 @@ type HTTPLoadBalancerAdvertiseOnPublicPublicIPModel struct {
 
 // HTTPLoadBalancerAdvertiseOnPublicPublicIPModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseOnPublicPublicIPModel
 var HTTPLoadBalancerAdvertiseOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// HTTPLoadBalancerAdvertiseV6OnPublicModel represents advertise_v6_on_public block
+type HTTPLoadBalancerAdvertiseV6OnPublicModel struct {
+	PublicIP *HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// HTTPLoadBalancerAdvertiseV6OnPublicModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseV6OnPublicModel
+var HTTPLoadBalancerAdvertiseV6OnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModelAttrTypes},
+}
+
+// HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel represents public_ip block
+type HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModelAttrTypes defines the attribute types for HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel
+var HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
@@ -3559,307 +3659,581 @@ var HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsWebMobileModelAttrTypes
 	"mobile_identifier": types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedModel represents bot_defense_advanced block
-type HTTPLoadBalancerBotDefenseAdvancedModel struct {
-	DisableJsInsert        types.Object                                                   `tfsdk:"disable_js_insert"`
-	DisableMobileSdk       types.Object                                                   `tfsdk:"disable_mobile_sdk"`
-	JsInsertAllPages       *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel       `tfsdk:"js_insert_all_pages"`
-	JsInsertAllPagesExcept *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel `tfsdk:"js_insert_all_pages_except"`
-	JsInsertionRules       *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel       `tfsdk:"js_insertion_rules"`
-	Mobile                 *HTTPLoadBalancerBotDefenseAdvancedMobileModel                 `tfsdk:"mobile"`
-	MobileSdkConfig        *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel        `tfsdk:"mobile_sdk_config"`
-	Web                    *HTTPLoadBalancerBotDefenseAdvancedWebModel                    `tfsdk:"web"`
+// HTTPLoadBalancerBotDefenseAdvancedProtectionModel represents bot_defense_advanced_protection block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionModel struct {
+	BothWebAndMobile *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel `tfsdk:"both_web_and_mobile"`
+	MobileOnly       *HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel       `tfsdk:"mobile_only"`
+	WebOnly          *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel          `tfsdk:"web_only"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedModel
-var HTTPLoadBalancerBotDefenseAdvancedModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionModelAttrTypes = map[string]attr.Type{
+	"both_web_and_mobile": types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModelAttrTypes},
+	"mobile_only":         types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModelAttrTypes},
+	"web_only":            types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModelAttrTypes},
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel represents both_web_and_mobile block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel struct {
+	DisableJsInsert        types.Object                                                                             `tfsdk:"disable_js_insert"`
+	DisableMobileSdk       types.Object                                                                             `tfsdk:"disable_mobile_sdk"`
+	JsInsertAllPages       *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel       `tfsdk:"js_insert_all_pages"`
+	JsInsertAllPagesExcept *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel `tfsdk:"js_insert_all_pages_except"`
+	JsInsertionRules       *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel       `tfsdk:"js_insertion_rules"`
+	Mobile                 *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel                 `tfsdk:"mobile"`
+	MobileSdkConfig        *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel        `tfsdk:"mobile_sdk_config"`
+	Web                    *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel                    `tfsdk:"web"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModelAttrTypes = map[string]attr.Type{
 	"disable_js_insert":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_mobile_sdk":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"js_insert_all_pages":        types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModelAttrTypes},
-	"js_insert_all_pages_except": types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModelAttrTypes},
-	"js_insertion_rules":         types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModelAttrTypes},
-	"mobile":                     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileModelAttrTypes},
-	"mobile_sdk_config":          types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModelAttrTypes},
-	"web":                        types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedWebModelAttrTypes},
+	"js_insert_all_pages":        types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModelAttrTypes},
+	"js_insert_all_pages_except": types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModelAttrTypes},
+	"js_insertion_rules":         types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModelAttrTypes},
+	"mobile":                     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModelAttrTypes},
+	"mobile_sdk_config":          types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModelAttrTypes},
+	"web":                        types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModelAttrTypes},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel represents js_insert_all_pages block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel represents js_insert_all_pages block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel struct {
 	JavascriptLocation types.String `tfsdk:"javascript_location"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModelAttrTypes = map[string]attr.Type{
 	"javascript_location": types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel represents js_insert_all_pages_except block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel represents js_insert_all_pages_except block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel struct {
 	JavascriptLocation types.String `tfsdk:"javascript_location"`
 	ExcludeList        types.List   `tfsdk:"exclude_list"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModelAttrTypes = map[string]attr.Type{
 	"javascript_location": types.StringType,
-	"exclude_list":        types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes}},
+	"exclude_list":        types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes}},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel represents exclude_list block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel struct {
-	AnyDomain types.Object                                                                      `tfsdk:"any_domain"`
-	Domain    *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel   `tfsdk:"domain"`
-	Metadata  *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel `tfsdk:"metadata"`
-	Path      *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel     `tfsdk:"path"`
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel represents exclude_list block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel struct {
+	AnyDomain types.Object                                                                                                `tfsdk:"any_domain"`
+	Domain    *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel   `tfsdk:"domain"`
+	Metadata  *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel `tfsdk:"metadata"`
+	Path      *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel     `tfsdk:"path"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes = map[string]attr.Type{
 	"any_domain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"domain":     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModelAttrTypes},
-	"metadata":   types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes},
-	"path":       types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModelAttrTypes},
+	"domain":     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModelAttrTypes},
+	"metadata":   types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes},
+	"path":       types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModelAttrTypes},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel represents domain block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel represents domain block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel struct {
 	ExactValue  types.String `tfsdk:"exact_value"`
 	RegexValue  types.String `tfsdk:"regex_value"`
 	SuffixValue types.String `tfsdk:"suffix_value"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModelAttrTypes = map[string]attr.Type{
 	"exact_value":  types.StringType,
 	"regex_value":  types.StringType,
 	"suffix_value": types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel represents metadata block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel represents metadata block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel struct {
 	DescriptionSpec types.String `tfsdk:"description_spec"`
 	Name            types.String `tfsdk:"name"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes = map[string]attr.Type{
 	"description_spec": types.StringType,
 	"name":             types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel represents path block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel represents path block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel struct {
 	Path   types.String `tfsdk:"path"`
 	Prefix types.String `tfsdk:"prefix"`
 	Regex  types.String `tfsdk:"regex"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModelAttrTypes = map[string]attr.Type{
 	"path":   types.StringType,
 	"prefix": types.StringType,
 	"regex":  types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel represents js_insertion_rules block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel represents js_insertion_rules block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel struct {
 	ExcludeList types.List `tfsdk:"exclude_list"`
 	Rules       types.List `tfsdk:"rules"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModelAttrTypes = map[string]attr.Type{
-	"exclude_list": types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes}},
-	"rules":        types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes}},
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModelAttrTypes = map[string]attr.Type{
+	"exclude_list": types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes}},
+	"rules":        types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes}},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel represents exclude_list block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel struct {
-	AnyDomain types.Object                                                                `tfsdk:"any_domain"`
-	Domain    *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel   `tfsdk:"domain"`
-	Metadata  *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel `tfsdk:"metadata"`
-	Path      *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel     `tfsdk:"path"`
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel represents exclude_list block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel struct {
+	AnyDomain types.Object                                                                                          `tfsdk:"any_domain"`
+	Domain    *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel   `tfsdk:"domain"`
+	Metadata  *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel `tfsdk:"metadata"`
+	Path      *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel     `tfsdk:"path"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes = map[string]attr.Type{
 	"any_domain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"domain":     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModelAttrTypes},
-	"metadata":   types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModelAttrTypes},
-	"path":       types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModelAttrTypes},
+	"domain":     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModelAttrTypes},
+	"metadata":   types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModelAttrTypes},
+	"path":       types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModelAttrTypes},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel represents domain block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel represents domain block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel struct {
 	ExactValue  types.String `tfsdk:"exact_value"`
 	RegexValue  types.String `tfsdk:"regex_value"`
 	SuffixValue types.String `tfsdk:"suffix_value"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModelAttrTypes = map[string]attr.Type{
 	"exact_value":  types.StringType,
 	"regex_value":  types.StringType,
 	"suffix_value": types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel represents metadata block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel represents metadata block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel struct {
 	DescriptionSpec types.String `tfsdk:"description_spec"`
 	Name            types.String `tfsdk:"name"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModelAttrTypes = map[string]attr.Type{
 	"description_spec": types.StringType,
 	"name":             types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel represents path block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel represents path block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel struct {
 	Path   types.String `tfsdk:"path"`
 	Prefix types.String `tfsdk:"prefix"`
 	Regex  types.String `tfsdk:"regex"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModelAttrTypes = map[string]attr.Type{
 	"path":   types.StringType,
 	"prefix": types.StringType,
 	"regex":  types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel represents rules block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel struct {
-	AnyDomain          types.Object                                                          `tfsdk:"any_domain"`
-	JavascriptLocation types.String                                                          `tfsdk:"javascript_location"`
-	Domain             *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel   `tfsdk:"domain"`
-	Metadata           *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel `tfsdk:"metadata"`
-	Path               *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel     `tfsdk:"path"`
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel represents rules block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel struct {
+	AnyDomain          types.Object                                                                                    `tfsdk:"any_domain"`
+	JavascriptLocation types.String                                                                                    `tfsdk:"javascript_location"`
+	Domain             *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel   `tfsdk:"domain"`
+	Metadata           *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel `tfsdk:"metadata"`
+	Path               *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel     `tfsdk:"path"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes = map[string]attr.Type{
 	"any_domain":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"javascript_location": types.StringType,
-	"domain":              types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModelAttrTypes},
-	"metadata":            types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModelAttrTypes},
-	"path":                types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModelAttrTypes},
+	"domain":              types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModelAttrTypes},
+	"metadata":            types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModelAttrTypes},
+	"path":                types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModelAttrTypes},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel represents domain block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel represents domain block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel struct {
 	ExactValue  types.String `tfsdk:"exact_value"`
 	RegexValue  types.String `tfsdk:"regex_value"`
 	SuffixValue types.String `tfsdk:"suffix_value"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModelAttrTypes = map[string]attr.Type{
 	"exact_value":  types.StringType,
 	"regex_value":  types.StringType,
 	"suffix_value": types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel represents metadata block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel represents metadata block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel struct {
 	DescriptionSpec types.String `tfsdk:"description_spec"`
 	Name            types.String `tfsdk:"name"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModelAttrTypes = map[string]attr.Type{
 	"description_spec": types.StringType,
 	"name":             types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel represents path block
-type HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel represents path block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel struct {
 	Path   types.String `tfsdk:"path"`
 	Prefix types.String `tfsdk:"prefix"`
 	Regex  types.String `tfsdk:"regex"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel
-var HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModelAttrTypes = map[string]attr.Type{
 	"path":   types.StringType,
 	"prefix": types.StringType,
 	"regex":  types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileModel represents mobile block
-type HTTPLoadBalancerBotDefenseAdvancedMobileModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel represents mobile block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel struct {
 	Name      types.String `tfsdk:"name"`
 	Namespace types.String `tfsdk:"namespace"`
 	Tenant    types.String `tfsdk:"tenant"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedMobileModel
-var HTTPLoadBalancerBotDefenseAdvancedMobileModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel represents mobile_sdk_config block
-type HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel struct {
-	MobileIdentifier *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel `tfsdk:"mobile_identifier"`
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel represents mobile_sdk_config block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel struct {
+	MobileIdentifier *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel `tfsdk:"mobile_identifier"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel
-var HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModelAttrTypes = map[string]attr.Type{
-	"mobile_identifier": types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModelAttrTypes},
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModelAttrTypes = map[string]attr.Type{
+	"mobile_identifier": types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModelAttrTypes},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel represents mobile_identifier block
-type HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel represents mobile_identifier block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel struct {
 	Headers types.List `tfsdk:"headers"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel
-var HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModelAttrTypes = map[string]attr.Type{
-	"headers": types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}},
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModelAttrTypes = map[string]attr.Type{
+	"headers": types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel represents headers block
-type HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel struct {
-	CheckNotPresent types.Object                                                                       `tfsdk:"check_not_present"`
-	CheckPresent    types.Object                                                                       `tfsdk:"check_present"`
-	Name            types.String                                                                       `tfsdk:"name"`
-	Item            *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel `tfsdk:"item"`
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel represents headers block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel struct {
+	CheckNotPresent types.Object                                                                                                 `tfsdk:"check_not_present"`
+	CheckPresent    types.Object                                                                                                 `tfsdk:"check_present"`
+	Name            types.String                                                                                                 `tfsdk:"name"`
+	Item            *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel `tfsdk:"item"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-var HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes = map[string]attr.Type{
 	"check_not_present": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"check_present":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"name":              types.StringType,
-	"item":              types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModelAttrTypes},
+	"item":              types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModelAttrTypes},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel represents item block
-type HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel represents item block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel struct {
 	ExactValues  types.List `tfsdk:"exact_values"`
 	RegexValues  types.List `tfsdk:"regex_values"`
 	Transformers types.List `tfsdk:"transformers"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel
-var HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModelAttrTypes = map[string]attr.Type{
 	"exact_values": types.ListType{ElemType: types.StringType},
 	"regex_values": types.ListType{ElemType: types.StringType},
 	"transformers": types.ListType{ElemType: types.StringType},
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedWebModel represents web block
-type HTTPLoadBalancerBotDefenseAdvancedWebModel struct {
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel represents web block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel struct {
 	Name      types.String `tfsdk:"name"`
 	Namespace types.String `tfsdk:"namespace"`
 	Tenant    types.String `tfsdk:"tenant"`
 }
 
-// HTTPLoadBalancerBotDefenseAdvancedWebModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedWebModel
-var HTTPLoadBalancerBotDefenseAdvancedWebModelAttrTypes = map[string]attr.Type{
+// HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel represents mobile_only block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel struct {
+	Mobile *HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel `tfsdk:"mobile"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModelAttrTypes = map[string]attr.Type{
+	"mobile": types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModelAttrTypes},
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel represents mobile block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel represents web_only block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel struct {
+	DisableJsInsert        types.Object                                                                    `tfsdk:"disable_js_insert"`
+	JsInsertAllPages       *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel       `tfsdk:"js_insert_all_pages"`
+	JsInsertAllPagesExcept *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel `tfsdk:"js_insert_all_pages_except"`
+	JsInsertionRules       *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel       `tfsdk:"js_insertion_rules"`
+	Web                    *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel                    `tfsdk:"web"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModelAttrTypes = map[string]attr.Type{
+	"disable_js_insert":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"js_insert_all_pages":        types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModelAttrTypes},
+	"js_insert_all_pages_except": types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModelAttrTypes},
+	"js_insertion_rules":         types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModelAttrTypes},
+	"web":                        types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModelAttrTypes},
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel represents js_insert_all_pages block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel struct {
+	JavascriptLocation types.String `tfsdk:"javascript_location"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModelAttrTypes = map[string]attr.Type{
+	"javascript_location": types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel represents js_insert_all_pages_except block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel struct {
+	JavascriptLocation types.String `tfsdk:"javascript_location"`
+	ExcludeList        types.List   `tfsdk:"exclude_list"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModelAttrTypes = map[string]attr.Type{
+	"javascript_location": types.StringType,
+	"exclude_list":        types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes}},
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel represents exclude_list block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel struct {
+	AnyDomain types.Object                                                                                       `tfsdk:"any_domain"`
+	Domain    *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel   `tfsdk:"domain"`
+	Metadata  *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel `tfsdk:"metadata"`
+	Path      *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel     `tfsdk:"path"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes = map[string]attr.Type{
+	"any_domain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"domain":     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModelAttrTypes},
+	"metadata":   types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes},
+	"path":       types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModelAttrTypes},
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel represents domain block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel struct {
+	ExactValue  types.String `tfsdk:"exact_value"`
+	RegexValue  types.String `tfsdk:"regex_value"`
+	SuffixValue types.String `tfsdk:"suffix_value"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModelAttrTypes = map[string]attr.Type{
+	"exact_value":  types.StringType,
+	"regex_value":  types.StringType,
+	"suffix_value": types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel represents metadata block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel struct {
+	DescriptionSpec types.String `tfsdk:"description_spec"`
+	Name            types.String `tfsdk:"name"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModelAttrTypes = map[string]attr.Type{
+	"description_spec": types.StringType,
+	"name":             types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel represents path block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel struct {
+	Path   types.String `tfsdk:"path"`
+	Prefix types.String `tfsdk:"prefix"`
+	Regex  types.String `tfsdk:"regex"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModelAttrTypes = map[string]attr.Type{
+	"path":   types.StringType,
+	"prefix": types.StringType,
+	"regex":  types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel represents js_insertion_rules block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel struct {
+	ExcludeList types.List `tfsdk:"exclude_list"`
+	Rules       types.List `tfsdk:"rules"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModelAttrTypes = map[string]attr.Type{
+	"exclude_list": types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes}},
+	"rules":        types.ListType{ElemType: types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes}},
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel represents exclude_list block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel struct {
+	AnyDomain types.Object                                                                                 `tfsdk:"any_domain"`
+	Domain    *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel   `tfsdk:"domain"`
+	Metadata  *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel `tfsdk:"metadata"`
+	Path      *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel     `tfsdk:"path"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes = map[string]attr.Type{
+	"any_domain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"domain":     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModelAttrTypes},
+	"metadata":   types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModelAttrTypes},
+	"path":       types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModelAttrTypes},
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel represents domain block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel struct {
+	ExactValue  types.String `tfsdk:"exact_value"`
+	RegexValue  types.String `tfsdk:"regex_value"`
+	SuffixValue types.String `tfsdk:"suffix_value"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModelAttrTypes = map[string]attr.Type{
+	"exact_value":  types.StringType,
+	"regex_value":  types.StringType,
+	"suffix_value": types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel represents metadata block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel struct {
+	DescriptionSpec types.String `tfsdk:"description_spec"`
+	Name            types.String `tfsdk:"name"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModelAttrTypes = map[string]attr.Type{
+	"description_spec": types.StringType,
+	"name":             types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel represents path block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel struct {
+	Path   types.String `tfsdk:"path"`
+	Prefix types.String `tfsdk:"prefix"`
+	Regex  types.String `tfsdk:"regex"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModelAttrTypes = map[string]attr.Type{
+	"path":   types.StringType,
+	"prefix": types.StringType,
+	"regex":  types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel represents rules block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel struct {
+	AnyDomain          types.Object                                                                           `tfsdk:"any_domain"`
+	JavascriptLocation types.String                                                                           `tfsdk:"javascript_location"`
+	Domain             *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel   `tfsdk:"domain"`
+	Metadata           *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel `tfsdk:"metadata"`
+	Path               *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel     `tfsdk:"path"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes = map[string]attr.Type{
+	"any_domain":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"javascript_location": types.StringType,
+	"domain":              types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModelAttrTypes},
+	"metadata":            types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModelAttrTypes},
+	"path":                types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModelAttrTypes},
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel represents domain block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel struct {
+	ExactValue  types.String `tfsdk:"exact_value"`
+	RegexValue  types.String `tfsdk:"regex_value"`
+	SuffixValue types.String `tfsdk:"suffix_value"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModelAttrTypes = map[string]attr.Type{
+	"exact_value":  types.StringType,
+	"regex_value":  types.StringType,
+	"suffix_value": types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel represents metadata block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel struct {
+	DescriptionSpec types.String `tfsdk:"description_spec"`
+	Name            types.String `tfsdk:"name"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModelAttrTypes = map[string]attr.Type{
+	"description_spec": types.StringType,
+	"name":             types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel represents path block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel struct {
+	Path   types.String `tfsdk:"path"`
+	Prefix types.String `tfsdk:"prefix"`
+	Regex  types.String `tfsdk:"regex"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModelAttrTypes = map[string]attr.Type{
+	"path":   types.StringType,
+	"prefix": types.StringType,
+	"regex":  types.StringType,
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel represents web block
+type HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel
+var HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
@@ -9332,7 +9706,9 @@ type HTTPLoadBalancerResourceModel struct {
 	Timeouts                      timeouts.Value                                     `tfsdk:"timeouts"`
 	ActiveServicePolicies         *HTTPLoadBalancerActiveServicePoliciesModel        `tfsdk:"active_service_policies"`
 	AdvertiseCustom               *HTTPLoadBalancerAdvertiseCustomModel              `tfsdk:"advertise_custom"`
+	AdvertiseDualstackOnPublic    *HTTPLoadBalancerAdvertiseDualstackOnPublicModel   `tfsdk:"advertise_dualstack_on_public"`
 	AdvertiseOnPublic             *HTTPLoadBalancerAdvertiseOnPublicModel            `tfsdk:"advertise_on_public"`
+	AdvertiseV6OnPublic           *HTTPLoadBalancerAdvertiseV6OnPublicModel          `tfsdk:"advertise_v6_on_public"`
 	APIProtectionRules            *HTTPLoadBalancerAPIProtectionRulesModel           `tfsdk:"api_protection_rules"`
 	APIRateLimit                  *HTTPLoadBalancerAPIRateLimitModel                 `tfsdk:"api_rate_limit"`
 	APISpecification              *HTTPLoadBalancerAPISpecificationModel             `tfsdk:"api_specification"`
@@ -9340,7 +9716,7 @@ type HTTPLoadBalancerResourceModel struct {
 	AppFirewall                   *HTTPLoadBalancerAppFirewallModel                  `tfsdk:"app_firewall"`
 	BlockedClients                types.List                                         `tfsdk:"blocked_clients"`
 	BotDefense                    *HTTPLoadBalancerBotDefenseModel                   `tfsdk:"bot_defense"`
-	BotDefenseAdvanced            *HTTPLoadBalancerBotDefenseAdvancedModel           `tfsdk:"bot_defense_advanced"`
+	BotDefenseAdvancedProtection  *HTTPLoadBalancerBotDefenseAdvancedProtectionModel `tfsdk:"bot_defense_advanced_protection"`
 	CachingPolicy                 *HTTPLoadBalancerCachingPolicyModel                `tfsdk:"caching_policy"`
 	CaptchaChallenge              *HTTPLoadBalancerCaptchaChallengeModel             `tfsdk:"captcha_challenge"`
 	ClientSideDefense             *HTTPLoadBalancerClientSideDefenseModel            `tfsdk:"client_side_defense"`
@@ -9714,14 +10090,14 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"advertise_custom": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: advertise_custom, advertise_on_public, advertise_on_public_default_vip, do_not_advertise; Default: advertise_on_public_default_vip] Defines a way to advertise a VIP on specific sites.",
+				MarkdownDescription: "[OneOf: advertise_custom, advertise_dualstack_on_public, advertise_on_public, advertise_on_public_default_vip, advertise_v6_on_public, do_not_advertise; Default: advertise_on_public_default_vip] Defines a way to advertise a VIP on specific sites.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("advertise_where")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
 						MarkdownDescription: "Where should this load balancer be available.",
-						Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "advertise_on_public"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "advertise_v6_on_public"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("advertise_on_public", "advertise_v6_on_public"), validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -9745,7 +10121,81 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								},
 							},
 							Blocks: map[string]schema.Block{
+								"advertise_dualstack_on_public": schema.SingleNestedBlock{
+									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+									Attributes:          map[string]schema.Attribute{},
+									Blocks: map[string]schema.Block{
+										"public_ip": schema.SingleNestedBlock{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthBetween(1, 128),
+													},
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Optional:            true,
+													Computed:            true,
+													PlanModifiers: []planmodifier.String{
+														stringplanmodifier.UseStateForUnknown(),
+													},
+													Validators: []validator.String{
+														stringvalidator.LengthBetween(1, 63),
+													},
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthAtMost(64),
+													},
+												},
+											},
+										},
+									},
+								},
 								"advertise_on_public": schema.SingleNestedBlock{
+									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+									Attributes:          map[string]schema.Attribute{},
+									Blocks: map[string]schema.Block{
+										"public_ip": schema.SingleNestedBlock{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthBetween(1, 128),
+													},
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Optional:            true,
+													Computed:            true,
+													PlanModifiers: []planmodifier.String{
+														stringplanmodifier.UseStateForUnknown(),
+													},
+													Validators: []validator.String{
+														stringvalidator.LengthBetween(1, 63),
+													},
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthAtMost(64),
+													},
+												},
+											},
+										},
+									},
+								},
+								"advertise_v6_on_public": schema.SingleNestedBlock{
 									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -10072,7 +10522,83 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 					},
 				},
 			},
+			"advertise_dualstack_on_public": schema.SingleNestedBlock{
+				MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+
+				Attributes: map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"public_ip": schema.SingleNestedBlock{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Optional:            true,
+								Validators: []validator.String{
+									stringvalidator.LengthBetween(1, 128),
+								},
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Optional:            true,
+								Computed:            true,
+								PlanModifiers: []planmodifier.String{
+									stringplanmodifier.UseStateForUnknown(),
+								},
+								Validators: []validator.String{
+									stringvalidator.LengthBetween(1, 63),
+								},
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+								Validators: []validator.String{
+									stringvalidator.LengthAtMost(64),
+								},
+							},
+						},
+					},
+				},
+			},
 			"advertise_on_public": schema.SingleNestedBlock{
+				MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+
+				Attributes: map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"public_ip": schema.SingleNestedBlock{
+						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+						Attributes: map[string]schema.Attribute{
+							"name": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+								Optional:            true,
+								Validators: []validator.String{
+									stringvalidator.LengthBetween(1, 128),
+								},
+							},
+							"namespace": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+								Optional:            true,
+								Computed:            true,
+								PlanModifiers: []planmodifier.String{
+									stringplanmodifier.UseStateForUnknown(),
+								},
+								Validators: []validator.String{
+									stringvalidator.LengthBetween(1, 63),
+								},
+							},
+							"tenant": schema.StringAttribute{
+								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+								Computed:            true,
+								Validators: []validator.String{
+									stringvalidator.LengthAtMost(64),
+								},
+							},
+						},
+					},
+				},
+			},
+			"advertise_v6_on_public": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
 
 				Attributes: map[string]schema.Attribute{},
@@ -13921,7 +14447,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"bot_defense": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: bot_defense, bot_defense_advanced, disable_bot_defense; Default: disable_bot_defense] Defines various configuration OPTIONS for Bot Defense Policy.",
+				MarkdownDescription: "[OneOf: bot_defense, bot_defense_advanced_protection, disable_bot_defense; Default: disable_bot_defense] Defines various configuration OPTIONS for Bot Defense Policy.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_cors_support", "enable_cors_support")},
 
 				Attributes: map[string]schema.Attribute{
@@ -14953,418 +15479,326 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 					},
 				},
 			},
-			"bot_defense_advanced": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for bot defense advanced.",
-				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_js_insert", "js_insert_all_pages"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insert_all_pages_except"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insertion_rules"), validators.ConflictingObjectAttributes("disable_mobile_sdk", "mobile_sdk_config"), validators.ConflictingObjectAttributes("js_insert_all_pages", "js_insert_all_pages_except"), validators.ConflictingObjectAttributes("js_insert_all_pages", "js_insertion_rules"), validators.ConflictingObjectAttributes("js_insert_all_pages_except", "js_insertion_rules")},
+			"bot_defense_advanced_protection": schema.SingleNestedBlock{
+				MarkdownDescription: "Bot Defense Advanced Protection - replaces BotDefenseAdvancedType.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("both_web_and_mobile", "mobile_only"), validators.ConflictingObjectAttributes("both_web_and_mobile", "web_only"), validators.ConflictingObjectAttributes("mobile_only", "web_only")},
 
-				Attributes: map[string]schema.Attribute{
-					"disable_js_insert": schema.ObjectAttribute{
-						MarkdownDescription: "Configuration parameter for disable js insert.",
-						Optional:            true,
-						AttributeTypes:      map[string]attr.Type{},
-					},
-					"disable_mobile_sdk": schema.ObjectAttribute{
-						MarkdownDescription: "Enable this option",
-						Optional:            true,
-						AttributeTypes:      map[string]attr.Type{},
-					},
-				},
+				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"js_insert_all_pages": schema.SingleNestedBlock{
-						MarkdownDescription: "Insert Bot Defense JavaScript in all pages.",
+					"both_web_and_mobile": schema.SingleNestedBlock{
+						MarkdownDescription: "Both Web & Mobile. Both Web and Mobile configuration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_js_insert", "js_insert_all_pages"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insert_all_pages_except"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insertion_rules"), validators.ConflictingObjectAttributes("disable_mobile_sdk", "mobile_sdk_config"), validators.ConflictingObjectAttributes("js_insert_all_pages", "js_insert_all_pages_except"), validators.ConflictingObjectAttributes("js_insert_all_pages", "js_insertion_rules"), validators.ConflictingObjectAttributes("js_insert_all_pages_except", "js_insertion_rules")},
 						Attributes: map[string]schema.Attribute{
-							"javascript_location": schema.StringAttribute{
-								MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+							"disable_js_insert": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable js insert.",
 								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
-								},
+								AttributeTypes:      map[string]attr.Type{},
 							},
-						},
-					},
-					"js_insert_all_pages_except": schema.SingleNestedBlock{
-						MarkdownDescription: "Insert Bot Defense JavaScript in all pages with the exceptions.",
-						Attributes: map[string]schema.Attribute{
-							"javascript_location": schema.StringAttribute{
-								MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+							"disable_mobile_sdk": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
 								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
-								},
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"exclude_list": schema.ListNestedBlock{
-								MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
-								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
-								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{
-										"any_domain": schema.ObjectAttribute{
-											MarkdownDescription: "Enable this option",
-											Optional:            true,
-											AttributeTypes:      map[string]attr.Type{},
-										},
-									},
-									Blocks: map[string]schema.Block{
-										"domain": schema.SingleNestedBlock{
-											MarkdownDescription: "Domain name for routing and identification.",
-											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
-											Attributes: map[string]schema.Attribute{
-												"exact_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"regex_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"suffix_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-											},
-										},
-										"metadata": schema.SingleNestedBlock{
-											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
-											Attributes: map[string]schema.Attribute{
-												"description_spec": schema.StringAttribute{
-													MarkdownDescription: "Description. Human readable description.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthAtMost(256),
-													},
-												},
-												"name": schema.StringAttribute{
-													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
-													},
-												},
-											},
-										},
-										"path": schema.SingleNestedBlock{
-											MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
-											Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
-											Attributes: map[string]schema.Attribute{
-												"path": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"prefix": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthAtMost(256),
-													},
-												},
-												"regex": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-											},
+							"js_insert_all_pages": schema.SingleNestedBlock{
+								MarkdownDescription: "Insert Bot Defense JavaScript in all pages.",
+								Attributes: map[string]schema.Attribute{
+									"javascript_location": schema.StringAttribute{
+										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
 										},
 									},
 								},
 							},
-						},
-					},
-					"js_insertion_rules": schema.SingleNestedBlock{
-						MarkdownDescription: "Defines custom JavaScript insertion rules for Bot Defense Policy.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"exclude_list": schema.ListNestedBlock{
-								MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
-								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
-								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{
-										"any_domain": schema.ObjectAttribute{
-											MarkdownDescription: "Enable this option",
-											Optional:            true,
-											AttributeTypes:      map[string]attr.Type{},
-										},
-									},
-									Blocks: map[string]schema.Block{
-										"domain": schema.SingleNestedBlock{
-											MarkdownDescription: "Domain name for routing and identification.",
-											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
-											Attributes: map[string]schema.Attribute{
-												"exact_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"regex_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"suffix_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-											},
-										},
-										"metadata": schema.SingleNestedBlock{
-											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
-											Attributes: map[string]schema.Attribute{
-												"description_spec": schema.StringAttribute{
-													MarkdownDescription: "Description. Human readable description.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthAtMost(256),
-													},
-												},
-												"name": schema.StringAttribute{
-													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
-													},
-												},
-											},
-										},
-										"path": schema.SingleNestedBlock{
-											MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
-											Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
-											Attributes: map[string]schema.Attribute{
-												"path": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"prefix": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthAtMost(256),
-													},
-												},
-												"regex": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-											},
+							"js_insert_all_pages_except": schema.SingleNestedBlock{
+								MarkdownDescription: "Insert Bot Defense JavaScript in all pages with the exceptions.",
+								Attributes: map[string]schema.Attribute{
+									"javascript_location": schema.StringAttribute{
+										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
 										},
 									},
 								},
-							},
-							"rules": schema.ListNestedBlock{
-								MarkdownDescription: "Required list of pages to insert Bot Defense client JavaScript.",
-								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
-								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{
-										"any_domain": schema.ObjectAttribute{
-											MarkdownDescription: "Enable this option",
-											Optional:            true,
-											AttributeTypes:      map[string]attr.Type{},
-										},
-										"javascript_location": schema.StringAttribute{
-											MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
-											Optional:            true,
-											Validators: []validator.String{
-												stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
-											},
-										},
-									},
-									Blocks: map[string]schema.Block{
-										"domain": schema.SingleNestedBlock{
-											MarkdownDescription: "Domain name for routing and identification.",
-											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
-											Attributes: map[string]schema.Attribute{
-												"exact_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"regex_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"suffix_value": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-											},
-										},
-										"metadata": schema.SingleNestedBlock{
-											MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
-											Attributes: map[string]schema.Attribute{
-												"description_spec": schema.StringAttribute{
-													MarkdownDescription: "Description. Human readable description.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthAtMost(256),
-													},
-												},
-												"name": schema.StringAttribute{
-													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
-													},
-												},
-											},
-										},
-										"path": schema.SingleNestedBlock{
-											MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
-											Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
-											Attributes: map[string]schema.Attribute{
-												"path": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-												"prefix": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthAtMost(256),
-													},
-												},
-												"regex": schema.StringAttribute{
-													MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
-													Optional:            true,
-													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-					"mobile": schema.SingleNestedBlock{
-						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
-						Attributes: map[string]schema.Attribute{
-							"name": schema.StringAttribute{
-								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 128),
-								},
-							},
-							"namespace": schema.StringAttribute{
-								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
-								Optional:            true,
-								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
-								},
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 63),
-								},
-							},
-							"tenant": schema.StringAttribute{
-								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Computed:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthAtMost(64),
-								},
-							},
-						},
-					},
-					"mobile_sdk_config": schema.SingleNestedBlock{
-						MarkdownDescription: "Mobile Request Identifier Headers. Mobile Request Identifier Headers.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"mobile_identifier": schema.SingleNestedBlock{
-								MarkdownDescription: "Mobile Traffic Identifier. Mobile traffic identifier type.",
-								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
-									"headers": schema.ListNestedBlock{
-										MarkdownDescription: "Headers that can be used to identify mobile traffic.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
+									"exclude_list": schema.ListNestedBlock{
+										MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
-												"check_not_present": schema.ObjectAttribute{
-													MarkdownDescription: "Configuration parameter for check not present.",
+												"any_domain": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
 													Optional:            true,
 													AttributeTypes:      map[string]attr.Type{},
 												},
-												"check_present": schema.ObjectAttribute{
-													MarkdownDescription: "Configuration parameter for check present.",
+											},
+											Blocks: map[string]schema.Block{
+												"domain": schema.SingleNestedBlock{
+													MarkdownDescription: "Domain name for routing and identification.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
+													Attributes: map[string]schema.Attribute{
+														"exact_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"regex_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"suffix_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+												"metadata": schema.SingleNestedBlock{
+													MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+													Attributes: map[string]schema.Attribute{
+														"description_spec": schema.StringAttribute{
+															MarkdownDescription: "Description. Human readable description.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+													},
+												},
+												"path": schema.SingleNestedBlock{
+													MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
+													Attributes: map[string]schema.Attribute{
+														"path": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"prefix": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"regex": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+							"js_insertion_rules": schema.SingleNestedBlock{
+								MarkdownDescription: "Defines custom JavaScript insertion rules for Bot Defense Policy.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"exclude_list": schema.ListNestedBlock{
+										MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
+										NestedObject: schema.NestedBlockObject{
+											Attributes: map[string]schema.Attribute{
+												"any_domain": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
 													Optional:            true,
 													AttributeTypes:      map[string]attr.Type{},
 												},
-												"name": schema.StringAttribute{
-													MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
+											},
+											Blocks: map[string]schema.Block{
+												"domain": schema.SingleNestedBlock{
+													MarkdownDescription: "Domain name for routing and identification.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
+													Attributes: map[string]schema.Attribute{
+														"exact_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"regex_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"suffix_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+												"metadata": schema.SingleNestedBlock{
+													MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+													Attributes: map[string]schema.Attribute{
+														"description_spec": schema.StringAttribute{
+															MarkdownDescription: "Description. Human readable description.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+													},
+												},
+												"path": schema.SingleNestedBlock{
+													MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
+													Attributes: map[string]schema.Attribute{
+														"path": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"prefix": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"regex": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+									"rules": schema.ListNestedBlock{
+										MarkdownDescription: "Required list of pages to insert Bot Defense client JavaScript.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
+										NestedObject: schema.NestedBlockObject{
+											Attributes: map[string]schema.Attribute{
+												"any_domain": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"javascript_location": schema.StringAttribute{
+													MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
+														stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
 													},
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"item": schema.SingleNestedBlock{
-													MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+												"domain": schema.SingleNestedBlock{
+													MarkdownDescription: "Domain name for routing and identification.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 													Attributes: map[string]schema.Attribute{
-														"exact_values": schema.ListAttribute{
-															MarkdownDescription: "List of exact values to match the input against.",
+														"exact_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
 															Optional:            true,
-															ElementType:         types.StringType,
-															Validators: []validator.List{
-																listvalidator.SizeAtMost(64),
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
 															},
 														},
-														"regex_values": schema.ListAttribute{
-															MarkdownDescription: "List of regular expressions to match the input against.",
+														"regex_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
 															Optional:            true,
-															ElementType:         types.StringType,
-															Validators: []validator.List{
-																listvalidator.SizeAtMost(16),
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
 															},
 														},
-														"transformers": schema.ListAttribute{
-															MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+														"suffix_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
 															Optional:            true,
-															ElementType:         types.StringType,
-															Validators: []validator.List{
-																listvalidator.SizeAtMost(9),
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+												"metadata": schema.SingleNestedBlock{
+													MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+													Attributes: map[string]schema.Attribute{
+														"description_spec": schema.StringAttribute{
+															MarkdownDescription: "Description. Human readable description.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+													},
+												},
+												"path": schema.SingleNestedBlock{
+													MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
+													Attributes: map[string]schema.Attribute{
+														"path": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"prefix": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"regex": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
 															},
 														},
 													},
@@ -15374,35 +15808,522 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 							},
+							"mobile": schema.SingleNestedBlock{
+								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+								Attributes: map[string]schema.Attribute{
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 128),
+										},
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Optional:            true,
+										Computed:            true,
+										PlanModifiers: []planmodifier.String{
+											stringplanmodifier.UseStateForUnknown(),
+										},
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 63),
+										},
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthAtMost(64),
+										},
+									},
+								},
+							},
+							"mobile_sdk_config": schema.SingleNestedBlock{
+								MarkdownDescription: "Mobile Request Identifier Headers. Mobile Request Identifier Headers.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"mobile_identifier": schema.SingleNestedBlock{
+										MarkdownDescription: "Mobile Traffic Identifier. Mobile traffic identifier type.",
+										Attributes:          map[string]schema.Attribute{},
+										Blocks: map[string]schema.Block{
+											"headers": schema.ListNestedBlock{
+												MarkdownDescription: "Headers that can be used to identify mobile traffic.",
+												Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
+												NestedObject: schema.NestedBlockObject{
+													Attributes: map[string]schema.Attribute{
+														"check_not_present": schema.ObjectAttribute{
+															MarkdownDescription: "Configuration parameter for check not present.",
+															Optional:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"check_present": schema.ObjectAttribute{
+															MarkdownDescription: "Configuration parameter for check present.",
+															Optional:            true,
+															AttributeTypes:      map[string]attr.Type{},
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+													},
+													Blocks: map[string]schema.Block{
+														"item": schema.SingleNestedBlock{
+															MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
+															Attributes: map[string]schema.Attribute{
+																"exact_values": schema.ListAttribute{
+																	MarkdownDescription: "List of exact values to match the input against.",
+																	Optional:            true,
+																	ElementType:         types.StringType,
+																	Validators: []validator.List{
+																		listvalidator.SizeAtMost(64),
+																	},
+																},
+																"regex_values": schema.ListAttribute{
+																	MarkdownDescription: "List of regular expressions to match the input against.",
+																	Optional:            true,
+																	ElementType:         types.StringType,
+																	Validators: []validator.List{
+																		listvalidator.SizeAtMost(16),
+																	},
+																},
+																"transformers": schema.ListAttribute{
+																	MarkdownDescription: "[Enum: LOWER_CASE|UPPER_CASE|BASE64_DECODE|NORMALIZE_PATH|REMOVE_WHITESPACE|URL_DECODE|TRIM_LEFT|TRIM_RIGHT|TRIM] Ordered list of transformers (starting from index 0) to be applied to the path before matching. Possible values are `LOWER_CASE`, `UPPER_CASE`, `BASE64_DECODE`, `NORMALIZE_PATH`, `REMOVE_WHITESPACE`, `URL_DECODE`, `TRIM_LEFT`, `TRIM_RIGHT`, `TRIM`.",
+																	Optional:            true,
+																	ElementType:         types.StringType,
+																	Validators: []validator.List{
+																		listvalidator.SizeAtMost(9),
+																	},
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+							"web": schema.SingleNestedBlock{
+								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+								Attributes: map[string]schema.Attribute{
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 128),
+										},
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Optional:            true,
+										Computed:            true,
+										PlanModifiers: []planmodifier.String{
+											stringplanmodifier.UseStateForUnknown(),
+										},
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 63),
+										},
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthAtMost(64),
+										},
+									},
+								},
+							},
 						},
 					},
-					"web": schema.SingleNestedBlock{
-						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+					"mobile_only": schema.SingleNestedBlock{
+						MarkdownDescription: "Mobile. Mobile only configuration.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"mobile": schema.SingleNestedBlock{
+								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+								Attributes: map[string]schema.Attribute{
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 128),
+										},
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Optional:            true,
+										Computed:            true,
+										PlanModifiers: []planmodifier.String{
+											stringplanmodifier.UseStateForUnknown(),
+										},
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 63),
+										},
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthAtMost(64),
+										},
+									},
+								},
+							},
+						},
+					},
+					"web_only": schema.SingleNestedBlock{
+						MarkdownDescription: "Web. Web only configuration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_js_insert", "js_insert_all_pages"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insert_all_pages_except"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insertion_rules"), validators.ConflictingObjectAttributes("js_insert_all_pages", "js_insert_all_pages_except"), validators.ConflictingObjectAttributes("js_insert_all_pages", "js_insertion_rules"), validators.ConflictingObjectAttributes("js_insert_all_pages_except", "js_insertion_rules")},
 						Attributes: map[string]schema.Attribute{
-							"name": schema.StringAttribute{
-								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+							"disable_js_insert": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable js insert.",
 								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 128),
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Blocks: map[string]schema.Block{
+							"js_insert_all_pages": schema.SingleNestedBlock{
+								MarkdownDescription: "Insert Bot Defense JavaScript in all pages.",
+								Attributes: map[string]schema.Attribute{
+									"javascript_location": schema.StringAttribute{
+										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
+										},
+									},
 								},
 							},
-							"namespace": schema.StringAttribute{
-								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
-								Optional:            true,
-								Computed:            true,
-								PlanModifiers: []planmodifier.String{
-									stringplanmodifier.UseStateForUnknown(),
+							"js_insert_all_pages_except": schema.SingleNestedBlock{
+								MarkdownDescription: "Insert Bot Defense JavaScript in all pages with the exceptions.",
+								Attributes: map[string]schema.Attribute{
+									"javascript_location": schema.StringAttribute{
+										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
+										},
+									},
 								},
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 63),
+								Blocks: map[string]schema.Block{
+									"exclude_list": schema.ListNestedBlock{
+										MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
+										NestedObject: schema.NestedBlockObject{
+											Attributes: map[string]schema.Attribute{
+												"any_domain": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Blocks: map[string]schema.Block{
+												"domain": schema.SingleNestedBlock{
+													MarkdownDescription: "Domain name for routing and identification.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
+													Attributes: map[string]schema.Attribute{
+														"exact_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"regex_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"suffix_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+												"metadata": schema.SingleNestedBlock{
+													MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+													Attributes: map[string]schema.Attribute{
+														"description_spec": schema.StringAttribute{
+															MarkdownDescription: "Description. Human readable description.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+													},
+												},
+												"path": schema.SingleNestedBlock{
+													MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
+													Attributes: map[string]schema.Attribute{
+														"path": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"prefix": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"regex": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+											},
+										},
+									},
 								},
 							},
-							"tenant": schema.StringAttribute{
-								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-								Computed:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthAtMost(64),
+							"js_insertion_rules": schema.SingleNestedBlock{
+								MarkdownDescription: "Defines custom JavaScript insertion rules for Bot Defense Policy.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"exclude_list": schema.ListNestedBlock{
+										MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
+										NestedObject: schema.NestedBlockObject{
+											Attributes: map[string]schema.Attribute{
+												"any_domain": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Blocks: map[string]schema.Block{
+												"domain": schema.SingleNestedBlock{
+													MarkdownDescription: "Domain name for routing and identification.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
+													Attributes: map[string]schema.Attribute{
+														"exact_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"regex_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"suffix_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+												"metadata": schema.SingleNestedBlock{
+													MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+													Attributes: map[string]schema.Attribute{
+														"description_spec": schema.StringAttribute{
+															MarkdownDescription: "Description. Human readable description.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+													},
+												},
+												"path": schema.SingleNestedBlock{
+													MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
+													Attributes: map[string]schema.Attribute{
+														"path": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"prefix": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"regex": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+									"rules": schema.ListNestedBlock{
+										MarkdownDescription: "Required list of pages to insert Bot Defense client JavaScript.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
+										NestedObject: schema.NestedBlockObject{
+											Attributes: map[string]schema.Attribute{
+												"any_domain": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"javascript_location": schema.StringAttribute{
+													MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
+													},
+												},
+											},
+											Blocks: map[string]schema.Block{
+												"domain": schema.SingleNestedBlock{
+													MarkdownDescription: "Domain name for routing and identification.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
+													Attributes: map[string]schema.Attribute{
+														"exact_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"regex_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value suffix_value] Regular Expression value for the domain name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"suffix_value": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [exact_value regex_value] Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+												"metadata": schema.SingleNestedBlock{
+													MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+													Attributes: map[string]schema.Attribute{
+														"description_spec": schema.StringAttribute{
+															MarkdownDescription: "Description. Human readable description.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"name": schema.StringAttribute{
+															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+													},
+												},
+												"path": schema.SingleNestedBlock{
+													MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
+													Attributes: map[string]schema.Attribute{
+														"path": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+														"prefix": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path regex] Path prefix to match (e.g. The value / will match on all paths)",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(256),
+															},
+														},
+														"regex": schema.StringAttribute{
+															MarkdownDescription: "Exclusive with [path prefix] Regular expression of path match (e.g. The value .* will match on all paths).",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 256),
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+							"web": schema.SingleNestedBlock{
+								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+								Attributes: map[string]schema.Attribute{
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 128),
+										},
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Optional:            true,
+										Computed:            true,
+										PlanModifiers: []planmodifier.String{
+											stringplanmodifier.UseStateForUnknown(),
+										},
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 63),
+										},
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthAtMost(64),
+										},
+									},
 								},
 							},
 						},
@@ -24235,6 +25156,20 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				var AdvertiseWhereList []map[string]interface{}
 				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 					AdvertiseWhereItemMap := make(map[string]interface{})
+					if AdvertiseWhereItem.AdvertiseDualstackOnPublic != nil {
+						AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP != nil {
+							AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+							}
+							AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_dualstack_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap
+					}
 					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
 						AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
@@ -24248,6 +25183,20 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
+					}
+					if AdvertiseWhereItem.AdvertiseV6OnPublic != nil {
+						AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP != nil {
+							AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+							}
+							AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_v6_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap
 					}
 					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -24372,6 +25321,20 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["advertise_custom"] = AdvertiseCustomMap
 	}
+	if data.AdvertiseDualstackOnPublic != nil {
+		AdvertiseDualstackOnPublicMap := make(map[string]interface{})
+		if data.AdvertiseDualstackOnPublic.PublicIP != nil {
+			AdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+			if !data.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !data.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+				AdvertiseDualstackOnPublicPublicIPMap["name"] = data.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+			}
+			if !data.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+				AdvertiseDualstackOnPublicPublicIPMap["namespace"] = data.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+			}
+			AdvertiseDualstackOnPublicMap["public_ip"] = AdvertiseDualstackOnPublicPublicIPMap
+		}
+		createReq.Spec["advertise_dualstack_on_public"] = AdvertiseDualstackOnPublicMap
+	}
 	if data.AdvertiseOnPublic != nil {
 		AdvertiseOnPublicMap := make(map[string]interface{})
 		if data.AdvertiseOnPublic.PublicIP != nil {
@@ -24388,6 +25351,20 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 	}
 	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 		createReq.Spec["advertise_on_public_default_vip"] = map[string]interface{}{}
+	}
+	if data.AdvertiseV6OnPublic != nil {
+		AdvertiseV6OnPublicMap := make(map[string]interface{})
+		if data.AdvertiseV6OnPublic.PublicIP != nil {
+			AdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+			if !data.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !data.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+				AdvertiseV6OnPublicPublicIPMap["name"] = data.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+			}
+			if !data.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+				AdvertiseV6OnPublicPublicIPMap["namespace"] = data.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+			}
+			AdvertiseV6OnPublicMap["public_ip"] = AdvertiseV6OnPublicPublicIPMap
+		}
+		createReq.Spec["advertise_v6_on_public"] = AdvertiseV6OnPublicMap
 	}
 	if data.APIProtectionRules != nil {
 		APIProtectionRulesMap := make(map[string]interface{})
@@ -27810,270 +28787,482 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["bot_defense"] = BotDefenseMap
 	}
-	if data.BotDefenseAdvanced != nil {
-		BotDefenseAdvancedMap := make(map[string]interface{})
-		if !data.BotDefenseAdvanced.DisableJsInsert.IsNull() && !data.BotDefenseAdvanced.DisableJsInsert.IsUnknown() {
-			BotDefenseAdvancedMap["disable_js_insert"] = map[string]interface{}{}
-		}
-		if !data.BotDefenseAdvanced.DisableMobileSdk.IsNull() && !data.BotDefenseAdvanced.DisableMobileSdk.IsUnknown() {
-			BotDefenseAdvancedMap["disable_mobile_sdk"] = map[string]interface{}{}
-		}
-		if data.BotDefenseAdvanced.JsInsertAllPages != nil {
-			BotDefenseAdvancedJsInsertAllPagesMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.JsInsertAllPages.JavascriptLocation.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPages.JavascriptLocation.IsUnknown() {
-				BotDefenseAdvancedJsInsertAllPagesMap["javascript_location"] = data.BotDefenseAdvanced.JsInsertAllPages.JavascriptLocation.ValueString()
+	if data.BotDefenseAdvancedProtection != nil {
+		BotDefenseAdvancedProtectionMap := make(map[string]interface{})
+		if data.BotDefenseAdvancedProtection.BothWebAndMobile != nil {
+			BotDefenseAdvancedProtectionBothWebAndMobileMap := make(map[string]interface{})
+			if !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert.IsUnknown() {
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["disable_js_insert"] = map[string]interface{}{}
 			}
-			BotDefenseAdvancedMap["js_insert_all_pages"] = BotDefenseAdvancedJsInsertAllPagesMap
-		}
-		if data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil {
-			BotDefenseAdvancedJsInsertAllPagesExceptMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
-				var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-				diags := data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
-				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range ExcludeListElems {
-						ExcludeListItemMap := make(map[string]interface{})
-						if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
-						}
-						if ExcludeListItem.Domain != nil {
-							BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							BotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = BotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
-					}
-					BotDefenseAdvancedJsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
+			if !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk.IsUnknown() {
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["disable_mobile_sdk"] = map[string]interface{}{}
+			}
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages.JavascriptLocation.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages.JavascriptLocation.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesMap["javascript_location"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages.JavascriptLocation.ValueString()
 				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["js_insert_all_pages"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesMap
 			}
-			if !data.BotDefenseAdvanced.JsInsertAllPagesExcept.JavascriptLocation.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.JavascriptLocation.IsUnknown() {
-				BotDefenseAdvancedJsInsertAllPagesExceptMap["javascript_location"] = data.BotDefenseAdvanced.JsInsertAllPagesExcept.JavascriptLocation.ValueString()
-			}
-			BotDefenseAdvancedMap["js_insert_all_pages_except"] = BotDefenseAdvancedJsInsertAllPagesExceptMap
-		}
-		if data.BotDefenseAdvanced.JsInsertionRules != nil {
-			BotDefenseAdvancedJsInsertionRulesMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsUnknown() {
-				var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-				diags := data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
-				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range ExcludeListElems {
-						ExcludeListItemMap := make(map[string]interface{})
-						if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
-						}
-						if ExcludeListItem.Domain != nil {
-							BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							BotDefenseAdvancedJsInsertionRulesExcludeListMetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = BotDefenseAdvancedJsInsertionRulesExcludeListMetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							BotDefenseAdvancedJsInsertionRulesExcludeListPathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = BotDefenseAdvancedJsInsertionRulesExcludeListPathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
-					}
-					BotDefenseAdvancedJsInsertionRulesMap["exclude_list"] = ExcludeListList
-				}
-			}
-			if !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsUnknown() {
-				var RulesElems []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-				diags := data.BotDefenseAdvanced.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
-				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
-					var RulesList []map[string]interface{}
-					for _, RulesItem := range RulesElems {
-						RulesItemMap := make(map[string]interface{})
-						if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
-							RulesItemMap["any_domain"] = map[string]interface{}{}
-						}
-						if RulesItem.Domain != nil {
-							BotDefenseAdvancedJsInsertionRulesRulesDomainMap := make(map[string]interface{})
-							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesDomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
-							}
-							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesDomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
-							}
-							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesDomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
-							}
-							RulesItemMap["domain"] = BotDefenseAdvancedJsInsertionRulesRulesDomainMap
-						}
-						if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
-							RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
-						}
-						if RulesItem.Metadata != nil {
-							BotDefenseAdvancedJsInsertionRulesRulesMetadataMap := make(map[string]interface{})
-							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
-							}
-							RulesItemMap["metadata"] = BotDefenseAdvancedJsInsertionRulesRulesMetadataMap
-						}
-						if RulesItem.Path != nil {
-							BotDefenseAdvancedJsInsertionRulesRulesPathMap := make(map[string]interface{})
-							if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesPathMap["path"] = RulesItem.Path.Path.ValueString()
-							}
-							if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesPathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
-							}
-							if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesPathMap["regex"] = RulesItem.Path.Regex.ValueString()
-							}
-							RulesItemMap["path"] = BotDefenseAdvancedJsInsertionRulesRulesPathMap
-						}
-						RulesList = append(RulesList, RulesItemMap)
-					}
-					BotDefenseAdvancedJsInsertionRulesMap["rules"] = RulesList
-				}
-			}
-			BotDefenseAdvancedMap["js_insertion_rules"] = BotDefenseAdvancedJsInsertionRulesMap
-		}
-		if data.BotDefenseAdvanced.Mobile != nil {
-			BotDefenseAdvancedMobileMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.Mobile.Name.IsNull() && !data.BotDefenseAdvanced.Mobile.Name.IsUnknown() {
-				BotDefenseAdvancedMobileMap["name"] = data.BotDefenseAdvanced.Mobile.Name.ValueString()
-			}
-			if !data.BotDefenseAdvanced.Mobile.Namespace.IsNull() && !data.BotDefenseAdvanced.Mobile.Namespace.IsUnknown() {
-				BotDefenseAdvancedMobileMap["namespace"] = data.BotDefenseAdvanced.Mobile.Namespace.ValueString()
-			}
-			BotDefenseAdvancedMap["mobile"] = BotDefenseAdvancedMobileMap
-		}
-		if data.BotDefenseAdvanced.MobileSdkConfig != nil {
-			BotDefenseAdvancedMobileSdkConfigMap := make(map[string]interface{})
-			if data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil {
-				BotDefenseAdvancedMobileSdkConfigMobileIdentifierMap := make(map[string]interface{})
-				if !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
-					var HeadersElems []HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-					diags := data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+					var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+					diags := data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
 					resp.Diagnostics.Append(diags...)
-					if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range HeadersElems {
-							HeadersItemMap := make(map[string]interface{})
-							if !HeadersItem.CheckNotPresent.IsNull() && !HeadersItem.CheckNotPresent.IsUnknown() {
-								HeadersItemMap["check_not_present"] = map[string]interface{}{}
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
 							}
-							if !HeadersItem.CheckPresent.IsNull() && !HeadersItem.CheckPresent.IsUnknown() {
-								HeadersItemMap["check_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.Item != nil {
-								BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap := make(map[string]interface{})
-								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									resp.Diagnostics.Append(diags...)
-									if !diags.HasError() {
-										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["exact_values"] = ExactValuesItems
-									}
+							if ExcludeListItem.Domain != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
 								}
-								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									resp.Diagnostics.Append(diags...)
-									if !diags.HasError() {
-										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["regex_values"] = RegexValuesItems
-									}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
 								}
-								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									resp.Diagnostics.Append(diags...)
-									if !diags.HasError() {
-										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["transformers"] = TransformersItems
-									}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
 								}
-								HeadersItemMap["item"] = BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap
+								ExcludeListItemMap["domain"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap
 							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+							if ExcludeListItem.Metadata != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataMap
 							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							if ExcludeListItem.Path != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						BotDefenseAdvancedMobileSdkConfigMobileIdentifierMap["headers"] = HeadersList
+						BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 					}
 				}
-				BotDefenseAdvancedMobileSdkConfigMap["mobile_identifier"] = BotDefenseAdvancedMobileSdkConfigMobileIdentifierMap
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.JavascriptLocation.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.JavascriptLocation.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptMap["javascript_location"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.JavascriptLocation.ValueString()
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["js_insert_all_pages_except"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptMap
 			}
-			BotDefenseAdvancedMap["mobile_sdk_config"] = BotDefenseAdvancedMobileSdkConfigMap
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsUnknown() {
+					var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+					diags := data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						}
+						BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesMap["exclude_list"] = ExcludeListList
+					}
+				}
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsUnknown() {
+					var RulesElems []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+					diags := data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+						var RulesList []map[string]interface{}
+						for _, RulesItem := range RulesElems {
+							RulesItemMap := make(map[string]interface{})
+							if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
+								RulesItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if RulesItem.Domain != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap := make(map[string]interface{})
+								if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+								}
+								if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+								}
+								if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+								}
+								RulesItemMap["domain"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap
+							}
+							if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
+								RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
+							}
+							if RulesItem.Metadata != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataMap := make(map[string]interface{})
+								if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+								}
+								RulesItemMap["metadata"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataMap
+							}
+							if RulesItem.Path != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap := make(map[string]interface{})
+								if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap["path"] = RulesItem.Path.Path.ValueString()
+								}
+								if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
+								}
+								if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap["regex"] = RulesItem.Path.Regex.ValueString()
+								}
+								RulesItemMap["path"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap
+							}
+							RulesList = append(RulesList, RulesItemMap)
+						}
+						BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesMap["rules"] = RulesList
+					}
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["js_insertion_rules"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesMap
+			}
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileMobileMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Name.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Name.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileMobileMap["name"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Name.ValueString()
+				}
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Namespace.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Namespace.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileMobileMap["namespace"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Namespace.ValueString()
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["mobile"] = BotDefenseAdvancedProtectionBothWebAndMobileMobileMap
+			}
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMap := make(map[string]interface{})
+				if data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil {
+					BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierMap := make(map[string]interface{})
+					if !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+						var HeadersElems []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+						diags := data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if !HeadersItem.CheckNotPresent.IsNull() && !HeadersItem.CheckNotPresent.IsUnknown() {
+									HeadersItemMap["check_not_present"] = map[string]interface{}{}
+								}
+								if !HeadersItem.CheckPresent.IsNull() && !HeadersItem.CheckPresent.IsUnknown() {
+									HeadersItemMap["check_present"] = map[string]interface{}{}
+								}
+								if HeadersItem.Item != nil {
+									BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap := make(map[string]interface{})
+									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+										var ExactValuesItems []string
+										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap["exact_values"] = ExactValuesItems
+										}
+									}
+									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+										var RegexValuesItems []string
+										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap["regex_values"] = RegexValuesItems
+										}
+									}
+									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+										var TransformersItems []string
+										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap["transformers"] = TransformersItems
+										}
+									}
+									HeadersItemMap["item"] = BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
+							}
+							BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierMap["headers"] = HeadersList
+						}
+					}
+					BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMap["mobile_identifier"] = BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierMap
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["mobile_sdk_config"] = BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMap
+			}
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.Web != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileWebMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Name.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Name.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileWebMap["name"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Name.ValueString()
+				}
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Namespace.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Namespace.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileWebMap["namespace"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Namespace.ValueString()
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["web"] = BotDefenseAdvancedProtectionBothWebAndMobileWebMap
+			}
+			BotDefenseAdvancedProtectionMap["both_web_and_mobile"] = BotDefenseAdvancedProtectionBothWebAndMobileMap
 		}
-		if data.BotDefenseAdvanced.Web != nil {
-			BotDefenseAdvancedWebMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.Web.Name.IsNull() && !data.BotDefenseAdvanced.Web.Name.IsUnknown() {
-				BotDefenseAdvancedWebMap["name"] = data.BotDefenseAdvanced.Web.Name.ValueString()
+		if data.BotDefenseAdvancedProtection.MobileOnly != nil {
+			BotDefenseAdvancedProtectionMobileOnlyMap := make(map[string]interface{})
+			if data.BotDefenseAdvancedProtection.MobileOnly.Mobile != nil {
+				BotDefenseAdvancedProtectionMobileOnlyMobileMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Name.IsNull() && !data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Name.IsUnknown() {
+					BotDefenseAdvancedProtectionMobileOnlyMobileMap["name"] = data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Name.ValueString()
+				}
+				if !data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Namespace.IsNull() && !data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Namespace.IsUnknown() {
+					BotDefenseAdvancedProtectionMobileOnlyMobileMap["namespace"] = data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Namespace.ValueString()
+				}
+				BotDefenseAdvancedProtectionMobileOnlyMap["mobile"] = BotDefenseAdvancedProtectionMobileOnlyMobileMap
 			}
-			if !data.BotDefenseAdvanced.Web.Namespace.IsNull() && !data.BotDefenseAdvanced.Web.Namespace.IsUnknown() {
-				BotDefenseAdvancedWebMap["namespace"] = data.BotDefenseAdvanced.Web.Namespace.ValueString()
-			}
-			BotDefenseAdvancedMap["web"] = BotDefenseAdvancedWebMap
+			BotDefenseAdvancedProtectionMap["mobile_only"] = BotDefenseAdvancedProtectionMobileOnlyMap
 		}
-		createReq.Spec["bot_defense_advanced"] = BotDefenseAdvancedMap
+		if data.BotDefenseAdvancedProtection.WebOnly != nil {
+			BotDefenseAdvancedProtectionWebOnlyMap := make(map[string]interface{})
+			if !data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert.IsUnknown() {
+				BotDefenseAdvancedProtectionWebOnlyMap["disable_js_insert"] = map[string]interface{}{}
+			}
+			if data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages != nil {
+				BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages.JavascriptLocation.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages.JavascriptLocation.IsUnknown() {
+					BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesMap["javascript_location"] = data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages.JavascriptLocation.ValueString()
+				}
+				BotDefenseAdvancedProtectionWebOnlyMap["js_insert_all_pages"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesMap
+			}
+			if data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil {
+				BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+					var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+					diags := data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						}
+						BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
+					}
+				}
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.JavascriptLocation.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.JavascriptLocation.IsUnknown() {
+					BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptMap["javascript_location"] = data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.JavascriptLocation.ValueString()
+				}
+				BotDefenseAdvancedProtectionWebOnlyMap["js_insert_all_pages_except"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptMap
+			}
+			if data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil {
+				BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsUnknown() {
+					var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+					diags := data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						}
+						BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesMap["exclude_list"] = ExcludeListList
+					}
+				}
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsUnknown() {
+					var RulesElems []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+					diags := data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+						var RulesList []map[string]interface{}
+						for _, RulesItem := range RulesElems {
+							RulesItemMap := make(map[string]interface{})
+							if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
+								RulesItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if RulesItem.Domain != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap := make(map[string]interface{})
+								if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+								}
+								if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+								}
+								if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+								}
+								RulesItemMap["domain"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap
+							}
+							if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
+								RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
+							}
+							if RulesItem.Metadata != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataMap := make(map[string]interface{})
+								if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+								}
+								RulesItemMap["metadata"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataMap
+							}
+							if RulesItem.Path != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap := make(map[string]interface{})
+								if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap["path"] = RulesItem.Path.Path.ValueString()
+								}
+								if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
+								}
+								if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap["regex"] = RulesItem.Path.Regex.ValueString()
+								}
+								RulesItemMap["path"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap
+							}
+							RulesList = append(RulesList, RulesItemMap)
+						}
+						BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesMap["rules"] = RulesList
+					}
+				}
+				BotDefenseAdvancedProtectionWebOnlyMap["js_insertion_rules"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesMap
+			}
+			if data.BotDefenseAdvancedProtection.WebOnly.Web != nil {
+				BotDefenseAdvancedProtectionWebOnlyWebMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.WebOnly.Web.Name.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.Web.Name.IsUnknown() {
+					BotDefenseAdvancedProtectionWebOnlyWebMap["name"] = data.BotDefenseAdvancedProtection.WebOnly.Web.Name.ValueString()
+				}
+				if !data.BotDefenseAdvancedProtection.WebOnly.Web.Namespace.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.Web.Namespace.IsUnknown() {
+					BotDefenseAdvancedProtectionWebOnlyWebMap["namespace"] = data.BotDefenseAdvancedProtection.WebOnly.Web.Namespace.ValueString()
+				}
+				BotDefenseAdvancedProtectionWebOnlyMap["web"] = BotDefenseAdvancedProtectionWebOnlyWebMap
+			}
+			BotDefenseAdvancedProtectionMap["web_only"] = BotDefenseAdvancedProtectionWebOnlyMap
+		}
+		createReq.Spec["bot_defense_advanced_protection"] = BotDefenseAdvancedProtectionMap
 	}
 	if data.CachingPolicy != nil {
 		CachingPolicyMap := make(map[string]interface{})
@@ -33376,12 +34565,76 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, HTTPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+								AdvertiseDualstackOnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+									if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								AdvertiseOnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AdvertiseV6OnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+									if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 														Name: func() types.String {
 															if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -33684,6 +34937,35 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["advertise_dualstack_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseDualstackOnPublic != nil) {
+		data.AdvertiseDualstackOnPublic = &HTTPLoadBalancerAdvertiseDualstackOnPublicModel{
+			PublicIP: func() *HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel {
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
 	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
 		data.AdvertiseOnPublic = &HTTPLoadBalancerAdvertiseOnPublicModel{
 			PublicIP: func() *HTTPLoadBalancerAdvertiseOnPublicPublicIPModel {
@@ -33719,6 +35001,35 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 	} else {
 		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["advertise_v6_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseV6OnPublic != nil) {
+		data.AdvertiseV6OnPublic = &HTTPLoadBalancerAdvertiseV6OnPublicModel{
+			PublicIP: func() *HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel {
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["api_protection_rules"].(map[string]interface{}); ok && (isImport || data.APIProtectionRules != nil) {
 		data.APIProtectionRules = &HTTPLoadBalancerAPIProtectionRulesModel{
@@ -40874,505 +42185,537 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
-	if blockData, ok := apiResource.Spec["bot_defense_advanced"].(map[string]interface{}); ok && (isImport || data.BotDefenseAdvanced != nil) {
-		data.BotDefenseAdvanced = &HTTPLoadBalancerBotDefenseAdvancedModel{
-			DisableJsInsert: func() types.Object {
-				if !isImport && data.BotDefenseAdvanced != nil && !data.BotDefenseAdvanced.DisableJsInsert.IsUnknown() {
-					return data.BotDefenseAdvanced.DisableJsInsert
-				}
-				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-				}
-				return types.ObjectNull(map[string]attr.Type{})
-			}(),
-			DisableMobileSdk: func() types.Object {
-				if !isImport && data.BotDefenseAdvanced != nil && !data.BotDefenseAdvanced.DisableMobileSdk.IsUnknown() {
-					return data.BotDefenseAdvanced.DisableMobileSdk
-				}
-				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-				}
-				return types.ObjectNull(map[string]attr.Type{})
-			}(),
-			JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPages != nil {
-					return data.BotDefenseAdvanced.JsInsertAllPages
-				}
-				if JsInsertAllPagesData, ok := blockData["js_insert_all_pages"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel{
-						JavascriptLocation: func() types.String {
-							if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
-								return types.StringValue(v)
+	if blockData, ok := apiResource.Spec["bot_defense_advanced_protection"].(map[string]interface{}); ok && (isImport || data.BotDefenseAdvancedProtection != nil) {
+		data.BotDefenseAdvancedProtection = &HTTPLoadBalancerBotDefenseAdvancedProtectionModel{
+			BothWebAndMobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel {
+				if BothWebAndMobileData, ok := blockData["both_web_and_mobile"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel{
+						DisableJsInsert: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert
 							}
-							return types.StringNull()
+							if _, ok := BothWebAndMobileData["disable_js_insert"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-					}
-				}
-				return nil
-			}(),
-			JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil {
-					return data.BotDefenseAdvanced.JsInsertAllPagesExcept
-				}
-				if JsInsertAllPagesExceptData, ok := blockData["js_insert_all_pages_except"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel{
-						ExcludeList: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes})
+						DisableMobileSdk: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk
 							}
-							var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							if _, ok := BothWebAndMobileData["disable_mobile_sdk"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
-								var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-								for ExcludeListIdx, ExcludeListItem := range rawList {
-									_ = ExcludeListIdx
-									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
-										ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
-													return ExcludeListExisting[ExcludeListIdx].AnyDomain
-												}
-												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel {
-												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel {
-												if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel {
-												if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes})
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JavascriptLocation: func() types.String {
-							if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
-								return types.StringValue(v)
+						JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages
 							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil {
-					return data.BotDefenseAdvanced.JsInsertionRules
-				}
-				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel{
-						ExcludeList: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && (data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes})
-							}
-							var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
-							}
-							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
-								var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-								for ExcludeListIdx, ExcludeListItem := range rawList {
-									_ = ExcludeListIdx
-									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
-										ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
-													return ExcludeListExisting[ExcludeListIdx].AnyDomain
-												}
-												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel {
-												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel {
-												if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel {
-												if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes})
-						}(),
-						Rules: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && (data.BotDefenseAdvanced.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvanced.JsInsertionRules.Rules.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes})
-							}
-							var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
-							}
-							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
-								var RulesResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-								for RulesIdx, RulesItem := range rawList {
-									_ = RulesIdx
-									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
-										RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
-													return RulesExisting[RulesIdx].AnyDomain
-												}
-												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel {
-												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											JavascriptLocation: func() types.String {
-												if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel {
-												if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel {
-												if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes}, RulesResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes})
-						}(),
-					}
-				}
-				return nil
-			}(),
-			Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedMobileModel {
-				if MobileData, ok := blockData["mobile"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedMobileModel{
-						Name: func() types.String {
-							if v, ok := MobileData["name"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Namespace: func() types.String {
-							if v, ok := MobileData["namespace"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Tenant: func() types.String {
-							if v, ok := MobileData["tenant"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			MobileSdkConfig: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil {
-					return data.BotDefenseAdvanced.MobileSdkConfig
-				}
-				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel{
-						MobileIdentifier: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil {
-								return data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier
-							}
-							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel{
-									Headers: func() types.List {
-										if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
-											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+							if JsInsertAllPagesData, ok := BothWebAndMobileData["js_insert_all_pages"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel{
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
 										}
-										var HeadersExisting []HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-										if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
-											data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept
+							}
+							if JsInsertAllPagesExceptData, ok := BothWebAndMobileData["js_insert_all_pages_except"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes})
 										}
-										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
-											var HeadersResult []HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-											for HeadersIdx, HeadersItem := range rawList {
-												_ = HeadersIdx
-												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
-													HeadersResult = append(HeadersResult, HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel{
-														CheckNotPresent: func() types.Object {
-															if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
-																return HeadersExisting[HeadersIdx].CheckNotPresent
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
 															}
-															if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
 															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														CheckPresent: func() types.Object {
-															if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
-																return HeadersExisting[HeadersIdx].CheckPresent
-															}
-															if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-															}
-															return types.ObjectNull(map[string]attr.Type{})
-														}(),
-														Item: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel {
-															if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel{
-																	ExactValues: func() types.List {
-																		if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
-																	RegexValues: func() types.List {
-																		if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
-																	Transformers: func() types.List {
-																		if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
 																}
 															}
 															return nil
 														}(),
-														Name: func() types.String {
-															if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
-																return types.StringValue(v)
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
 															}
-															return types.StringNull()
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
 														}(),
 													})
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
 											return listVal
 										}
-										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes})
+									}(),
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules
+							}
+							if JsInsertionRulesData, ok := BothWebAndMobileData["js_insertion_rules"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes})
+									}(),
+									Rules: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
+											var RulesResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
+												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+													RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
+																return RulesExisting[RulesIdx].AnyDomain
+															}
+															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel {
+															if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														JavascriptLocation: func() types.String {
+															if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel {
+															if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel {
+															if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel {
+							if MobileData, ok := BothWebAndMobileData["mobile"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel{
+									Name: func() types.String {
+										if v, ok := MobileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := MobileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := MobileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						MobileSdkConfig: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig
+							}
+							if MobileSdkConfigData, ok := BothWebAndMobileData["mobile_sdk_config"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel{
+									MobileIdentifier: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil {
+											return data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier
+										}
+										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
+											return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel{
+												Headers: func() types.List {
+													if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+													}
+													var HeadersExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+													if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+														data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+													}
+													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
+														var HeadersResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+														for HeadersIdx, HeadersItem := range rawList {
+															_ = HeadersIdx
+															if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+																HeadersResult = append(HeadersResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel{
+																	CheckNotPresent: func() types.Object {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
+																			return HeadersExisting[HeadersIdx].CheckNotPresent
+																		}
+																		if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	CheckPresent: func() types.Object {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
+																			return HeadersExisting[HeadersIdx].CheckPresent
+																		}
+																		if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	Item: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel {
+																		if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
+																			return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel{
+																				ExactValues: func() types.List {
+																					if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																				RegexValues: func() types.List {
+																					if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																				Transformers: func() types.List {
+																					if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Web: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel {
+							if WebData, ok := BothWebAndMobileData["web"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel{
+									Name: func() types.String {
+										if v, ok := WebData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := WebData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := WebData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
 									}(),
 								}
 							}
@@ -41382,26 +42725,422 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				}
 				return nil
 			}(),
-			Web: func() *HTTPLoadBalancerBotDefenseAdvancedWebModel {
-				if WebData, ok := blockData["web"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedWebModel{
-						Name: func() types.String {
-							if v, ok := WebData["name"].(string); ok && v != "" {
-								return types.StringValue(v)
+			MobileOnly: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel {
+				if MobileOnlyData, ok := blockData["mobile_only"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel{
+						Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel {
+							if MobileData, ok := MobileOnlyData["mobile"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel{
+									Name: func() types.String {
+										if v, ok := MobileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := MobileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := MobileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
 							}
-							return types.StringNull()
+							return nil
 						}(),
-						Namespace: func() types.String {
-							if v, ok := WebData["namespace"].(string); ok && v != "" {
-								return types.StringValue(v)
+					}
+				}
+				return nil
+			}(),
+			WebOnly: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel {
+				if WebOnlyData, ok := blockData["web_only"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel{
+						DisableJsInsert: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && !data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert
 							}
-							return types.StringNull()
+							if _, ok := WebOnlyData["disable_js_insert"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Tenant: func() types.String {
-							if v, ok := WebData["tenant"].(string); ok && v != "" {
-								return types.StringValue(v)
+						JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages
 							}
-							return types.StringNull()
+							if JsInsertAllPagesData, ok := WebOnlyData["js_insert_all_pages"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel{
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept
+							}
+							if JsInsertAllPagesExceptData, ok := WebOnlyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+									}(),
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules
+							}
+							if JsInsertionRulesData, ok := WebOnlyData["js_insertion_rules"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes})
+									}(),
+									Rules: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
+											var RulesResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
+												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+													RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
+																return RulesExisting[RulesIdx].AnyDomain
+															}
+															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel {
+															if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														JavascriptLocation: func() types.String {
+															if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel {
+															if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel {
+															if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Web: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel {
+							if WebData, ok := WebOnlyData["web"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel{
+									Name: func() types.String {
+										if v, ok := WebData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := WebData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := WebData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -53134,12 +54873,76 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, HTTPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+								AdvertiseDualstackOnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+									if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								AdvertiseOnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AdvertiseV6OnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+									if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 														Name: func() types.String {
 															if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -53442,6 +55245,35 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["advertise_dualstack_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseDualstackOnPublic != nil) {
+		data.AdvertiseDualstackOnPublic = &HTTPLoadBalancerAdvertiseDualstackOnPublicModel{
+			PublicIP: func() *HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel {
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
 	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
 		data.AdvertiseOnPublic = &HTTPLoadBalancerAdvertiseOnPublicModel{
 			PublicIP: func() *HTTPLoadBalancerAdvertiseOnPublicPublicIPModel {
@@ -53477,6 +55309,35 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 	} else {
 		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["advertise_v6_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseV6OnPublic != nil) {
+		data.AdvertiseV6OnPublic = &HTTPLoadBalancerAdvertiseV6OnPublicModel{
+			PublicIP: func() *HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel {
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["api_protection_rules"].(map[string]interface{}); ok && (isImport || data.APIProtectionRules != nil) {
 		data.APIProtectionRules = &HTTPLoadBalancerAPIProtectionRulesModel{
@@ -60632,505 +62493,537 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
-	if blockData, ok := apiResource.Spec["bot_defense_advanced"].(map[string]interface{}); ok && (isImport || data.BotDefenseAdvanced != nil) {
-		data.BotDefenseAdvanced = &HTTPLoadBalancerBotDefenseAdvancedModel{
-			DisableJsInsert: func() types.Object {
-				if !isImport && data.BotDefenseAdvanced != nil && !data.BotDefenseAdvanced.DisableJsInsert.IsUnknown() {
-					return data.BotDefenseAdvanced.DisableJsInsert
-				}
-				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-				}
-				return types.ObjectNull(map[string]attr.Type{})
-			}(),
-			DisableMobileSdk: func() types.Object {
-				if !isImport && data.BotDefenseAdvanced != nil && !data.BotDefenseAdvanced.DisableMobileSdk.IsUnknown() {
-					return data.BotDefenseAdvanced.DisableMobileSdk
-				}
-				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-				}
-				return types.ObjectNull(map[string]attr.Type{})
-			}(),
-			JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPages != nil {
-					return data.BotDefenseAdvanced.JsInsertAllPages
-				}
-				if JsInsertAllPagesData, ok := blockData["js_insert_all_pages"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel{
-						JavascriptLocation: func() types.String {
-							if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
-								return types.StringValue(v)
+	if blockData, ok := apiResource.Spec["bot_defense_advanced_protection"].(map[string]interface{}); ok && (isImport || data.BotDefenseAdvancedProtection != nil) {
+		data.BotDefenseAdvancedProtection = &HTTPLoadBalancerBotDefenseAdvancedProtectionModel{
+			BothWebAndMobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel {
+				if BothWebAndMobileData, ok := blockData["both_web_and_mobile"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel{
+						DisableJsInsert: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert
 							}
-							return types.StringNull()
+							if _, ok := BothWebAndMobileData["disable_js_insert"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-					}
-				}
-				return nil
-			}(),
-			JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil {
-					return data.BotDefenseAdvanced.JsInsertAllPagesExcept
-				}
-				if JsInsertAllPagesExceptData, ok := blockData["js_insert_all_pages_except"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel{
-						ExcludeList: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes})
+						DisableMobileSdk: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk
 							}
-							var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							if _, ok := BothWebAndMobileData["disable_mobile_sdk"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
-								var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-								for ExcludeListIdx, ExcludeListItem := range rawList {
-									_ = ExcludeListIdx
-									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
-										ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
-													return ExcludeListExisting[ExcludeListIdx].AnyDomain
-												}
-												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel {
-												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel {
-												if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel {
-												if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes})
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JavascriptLocation: func() types.String {
-							if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
-								return types.StringValue(v)
+						JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages
 							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil {
-					return data.BotDefenseAdvanced.JsInsertionRules
-				}
-				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel{
-						ExcludeList: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && (data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes})
-							}
-							var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
-							}
-							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
-								var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-								for ExcludeListIdx, ExcludeListItem := range rawList {
-									_ = ExcludeListIdx
-									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
-										ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
-													return ExcludeListExisting[ExcludeListIdx].AnyDomain
-												}
-												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel {
-												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel {
-												if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel {
-												if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes})
-						}(),
-						Rules: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && (data.BotDefenseAdvanced.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvanced.JsInsertionRules.Rules.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes})
-							}
-							var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
-							}
-							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
-								var RulesResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-								for RulesIdx, RulesItem := range rawList {
-									_ = RulesIdx
-									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
-										RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
-													return RulesExisting[RulesIdx].AnyDomain
-												}
-												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel {
-												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											JavascriptLocation: func() types.String {
-												if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel {
-												if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel {
-												if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes}, RulesResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes})
-						}(),
-					}
-				}
-				return nil
-			}(),
-			Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedMobileModel {
-				if MobileData, ok := blockData["mobile"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedMobileModel{
-						Name: func() types.String {
-							if v, ok := MobileData["name"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Namespace: func() types.String {
-							if v, ok := MobileData["namespace"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Tenant: func() types.String {
-							if v, ok := MobileData["tenant"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			MobileSdkConfig: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil {
-					return data.BotDefenseAdvanced.MobileSdkConfig
-				}
-				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel{
-						MobileIdentifier: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil {
-								return data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier
-							}
-							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel{
-									Headers: func() types.List {
-										if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
-											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+							if JsInsertAllPagesData, ok := BothWebAndMobileData["js_insert_all_pages"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel{
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
 										}
-										var HeadersExisting []HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-										if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
-											data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept
+							}
+							if JsInsertAllPagesExceptData, ok := BothWebAndMobileData["js_insert_all_pages_except"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes})
 										}
-										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
-											var HeadersResult []HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-											for HeadersIdx, HeadersItem := range rawList {
-												_ = HeadersIdx
-												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
-													HeadersResult = append(HeadersResult, HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel{
-														CheckNotPresent: func() types.Object {
-															if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
-																return HeadersExisting[HeadersIdx].CheckNotPresent
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
 															}
-															if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
 															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														CheckPresent: func() types.Object {
-															if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
-																return HeadersExisting[HeadersIdx].CheckPresent
-															}
-															if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-															}
-															return types.ObjectNull(map[string]attr.Type{})
-														}(),
-														Item: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel {
-															if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel{
-																	ExactValues: func() types.List {
-																		if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
-																	RegexValues: func() types.List {
-																		if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
-																	Transformers: func() types.List {
-																		if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
 																}
 															}
 															return nil
 														}(),
-														Name: func() types.String {
-															if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
-																return types.StringValue(v)
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
 															}
-															return types.StringNull()
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
 														}(),
 													})
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
 											return listVal
 										}
-										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes})
+									}(),
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules
+							}
+							if JsInsertionRulesData, ok := BothWebAndMobileData["js_insertion_rules"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes})
+									}(),
+									Rules: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
+											var RulesResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
+												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+													RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
+																return RulesExisting[RulesIdx].AnyDomain
+															}
+															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel {
+															if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														JavascriptLocation: func() types.String {
+															if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel {
+															if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel {
+															if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel {
+							if MobileData, ok := BothWebAndMobileData["mobile"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel{
+									Name: func() types.String {
+										if v, ok := MobileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := MobileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := MobileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						MobileSdkConfig: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig
+							}
+							if MobileSdkConfigData, ok := BothWebAndMobileData["mobile_sdk_config"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel{
+									MobileIdentifier: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil {
+											return data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier
+										}
+										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
+											return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel{
+												Headers: func() types.List {
+													if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+													}
+													var HeadersExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+													if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+														data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+													}
+													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
+														var HeadersResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+														for HeadersIdx, HeadersItem := range rawList {
+															_ = HeadersIdx
+															if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+																HeadersResult = append(HeadersResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel{
+																	CheckNotPresent: func() types.Object {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
+																			return HeadersExisting[HeadersIdx].CheckNotPresent
+																		}
+																		if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	CheckPresent: func() types.Object {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
+																			return HeadersExisting[HeadersIdx].CheckPresent
+																		}
+																		if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	Item: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel {
+																		if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
+																			return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel{
+																				ExactValues: func() types.List {
+																					if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																				RegexValues: func() types.List {
+																					if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																				Transformers: func() types.List {
+																					if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Web: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel {
+							if WebData, ok := BothWebAndMobileData["web"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel{
+									Name: func() types.String {
+										if v, ok := WebData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := WebData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := WebData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
 									}(),
 								}
 							}
@@ -61140,26 +63033,422 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return nil
 			}(),
-			Web: func() *HTTPLoadBalancerBotDefenseAdvancedWebModel {
-				if WebData, ok := blockData["web"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedWebModel{
-						Name: func() types.String {
-							if v, ok := WebData["name"].(string); ok && v != "" {
-								return types.StringValue(v)
+			MobileOnly: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel {
+				if MobileOnlyData, ok := blockData["mobile_only"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel{
+						Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel {
+							if MobileData, ok := MobileOnlyData["mobile"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel{
+									Name: func() types.String {
+										if v, ok := MobileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := MobileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := MobileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
 							}
-							return types.StringNull()
+							return nil
 						}(),
-						Namespace: func() types.String {
-							if v, ok := WebData["namespace"].(string); ok && v != "" {
-								return types.StringValue(v)
+					}
+				}
+				return nil
+			}(),
+			WebOnly: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel {
+				if WebOnlyData, ok := blockData["web_only"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel{
+						DisableJsInsert: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && !data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert
 							}
-							return types.StringNull()
+							if _, ok := WebOnlyData["disable_js_insert"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Tenant: func() types.String {
-							if v, ok := WebData["tenant"].(string); ok && v != "" {
-								return types.StringValue(v)
+						JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages
 							}
-							return types.StringNull()
+							if JsInsertAllPagesData, ok := WebOnlyData["js_insert_all_pages"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel{
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept
+							}
+							if JsInsertAllPagesExceptData, ok := WebOnlyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+									}(),
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules
+							}
+							if JsInsertionRulesData, ok := WebOnlyData["js_insertion_rules"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes})
+									}(),
+									Rules: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
+											var RulesResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
+												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+													RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
+																return RulesExisting[RulesIdx].AnyDomain
+															}
+															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel {
+															if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														JavascriptLocation: func() types.String {
+															if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel {
+															if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel {
+															if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Web: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel {
+							if WebData, ok := WebOnlyData["web"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel{
+									Name: func() types.String {
+										if v, ok := WebData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := WebData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := WebData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -72838,6 +75127,20 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				var AdvertiseWhereList []map[string]interface{}
 				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 					AdvertiseWhereItemMap := make(map[string]interface{})
+					if AdvertiseWhereItem.AdvertiseDualstackOnPublic != nil {
+						AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP != nil {
+							AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+							}
+							AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_dualstack_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap
+					}
 					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
 						AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
@@ -72851,6 +75154,20 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
+					}
+					if AdvertiseWhereItem.AdvertiseV6OnPublic != nil {
+						AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP != nil {
+							AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+							}
+							AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_v6_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap
 					}
 					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -72975,6 +75292,20 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["advertise_custom"] = AdvertiseCustomMap
 	}
+	if data.AdvertiseDualstackOnPublic != nil {
+		AdvertiseDualstackOnPublicMap := make(map[string]interface{})
+		if data.AdvertiseDualstackOnPublic.PublicIP != nil {
+			AdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+			if !data.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !data.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+				AdvertiseDualstackOnPublicPublicIPMap["name"] = data.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+			}
+			if !data.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+				AdvertiseDualstackOnPublicPublicIPMap["namespace"] = data.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+			}
+			AdvertiseDualstackOnPublicMap["public_ip"] = AdvertiseDualstackOnPublicPublicIPMap
+		}
+		apiResource.Spec["advertise_dualstack_on_public"] = AdvertiseDualstackOnPublicMap
+	}
 	if data.AdvertiseOnPublic != nil {
 		AdvertiseOnPublicMap := make(map[string]interface{})
 		if data.AdvertiseOnPublic.PublicIP != nil {
@@ -72991,6 +75322,20 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	}
 	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 		apiResource.Spec["advertise_on_public_default_vip"] = map[string]interface{}{}
+	}
+	if data.AdvertiseV6OnPublic != nil {
+		AdvertiseV6OnPublicMap := make(map[string]interface{})
+		if data.AdvertiseV6OnPublic.PublicIP != nil {
+			AdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+			if !data.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !data.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+				AdvertiseV6OnPublicPublicIPMap["name"] = data.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+			}
+			if !data.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+				AdvertiseV6OnPublicPublicIPMap["namespace"] = data.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+			}
+			AdvertiseV6OnPublicMap["public_ip"] = AdvertiseV6OnPublicPublicIPMap
+		}
+		apiResource.Spec["advertise_v6_on_public"] = AdvertiseV6OnPublicMap
 	}
 	if data.APIProtectionRules != nil {
 		APIProtectionRulesMap := make(map[string]interface{})
@@ -76413,270 +78758,482 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["bot_defense"] = BotDefenseMap
 	}
-	if data.BotDefenseAdvanced != nil {
-		BotDefenseAdvancedMap := make(map[string]interface{})
-		if !data.BotDefenseAdvanced.DisableJsInsert.IsNull() && !data.BotDefenseAdvanced.DisableJsInsert.IsUnknown() {
-			BotDefenseAdvancedMap["disable_js_insert"] = map[string]interface{}{}
-		}
-		if !data.BotDefenseAdvanced.DisableMobileSdk.IsNull() && !data.BotDefenseAdvanced.DisableMobileSdk.IsUnknown() {
-			BotDefenseAdvancedMap["disable_mobile_sdk"] = map[string]interface{}{}
-		}
-		if data.BotDefenseAdvanced.JsInsertAllPages != nil {
-			BotDefenseAdvancedJsInsertAllPagesMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.JsInsertAllPages.JavascriptLocation.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPages.JavascriptLocation.IsUnknown() {
-				BotDefenseAdvancedJsInsertAllPagesMap["javascript_location"] = data.BotDefenseAdvanced.JsInsertAllPages.JavascriptLocation.ValueString()
+	if data.BotDefenseAdvancedProtection != nil {
+		BotDefenseAdvancedProtectionMap := make(map[string]interface{})
+		if data.BotDefenseAdvancedProtection.BothWebAndMobile != nil {
+			BotDefenseAdvancedProtectionBothWebAndMobileMap := make(map[string]interface{})
+			if !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert.IsUnknown() {
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["disable_js_insert"] = map[string]interface{}{}
 			}
-			BotDefenseAdvancedMap["js_insert_all_pages"] = BotDefenseAdvancedJsInsertAllPagesMap
-		}
-		if data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil {
-			BotDefenseAdvancedJsInsertAllPagesExceptMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
-				var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-				diags := data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
-				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range ExcludeListElems {
-						ExcludeListItemMap := make(map[string]interface{})
-						if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
-						}
-						if ExcludeListItem.Domain != nil {
-							BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = BotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							BotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = BotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = BotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
-					}
-					BotDefenseAdvancedJsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
+			if !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk.IsUnknown() {
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["disable_mobile_sdk"] = map[string]interface{}{}
+			}
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages.JavascriptLocation.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages.JavascriptLocation.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesMap["javascript_location"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages.JavascriptLocation.ValueString()
 				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["js_insert_all_pages"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesMap
 			}
-			if !data.BotDefenseAdvanced.JsInsertAllPagesExcept.JavascriptLocation.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.JavascriptLocation.IsUnknown() {
-				BotDefenseAdvancedJsInsertAllPagesExceptMap["javascript_location"] = data.BotDefenseAdvanced.JsInsertAllPagesExcept.JavascriptLocation.ValueString()
-			}
-			BotDefenseAdvancedMap["js_insert_all_pages_except"] = BotDefenseAdvancedJsInsertAllPagesExceptMap
-		}
-		if data.BotDefenseAdvanced.JsInsertionRules != nil {
-			BotDefenseAdvancedJsInsertionRulesMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsUnknown() {
-				var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-				diags := data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
-				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
-					var ExcludeListList []map[string]interface{}
-					for _, ExcludeListItem := range ExcludeListElems {
-						ExcludeListItemMap := make(map[string]interface{})
-						if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
-							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
-						}
-						if ExcludeListItem.Domain != nil {
-							BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap := make(map[string]interface{})
-							if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
-							}
-							if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
-							}
-							ExcludeListItemMap["domain"] = BotDefenseAdvancedJsInsertionRulesExcludeListDomainMap
-						}
-						if ExcludeListItem.Metadata != nil {
-							BotDefenseAdvancedJsInsertionRulesExcludeListMetadataMap := make(map[string]interface{})
-							if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
-							}
-							ExcludeListItemMap["metadata"] = BotDefenseAdvancedJsInsertionRulesExcludeListMetadataMap
-						}
-						if ExcludeListItem.Path != nil {
-							BotDefenseAdvancedJsInsertionRulesExcludeListPathMap := make(map[string]interface{})
-							if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
-							}
-							if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
-							}
-							if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
-							}
-							ExcludeListItemMap["path"] = BotDefenseAdvancedJsInsertionRulesExcludeListPathMap
-						}
-						ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
-					}
-					BotDefenseAdvancedJsInsertionRulesMap["exclude_list"] = ExcludeListList
-				}
-			}
-			if !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsUnknown() {
-				var RulesElems []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-				diags := data.BotDefenseAdvanced.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
-				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
-					var RulesList []map[string]interface{}
-					for _, RulesItem := range RulesElems {
-						RulesItemMap := make(map[string]interface{})
-						if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
-							RulesItemMap["any_domain"] = map[string]interface{}{}
-						}
-						if RulesItem.Domain != nil {
-							BotDefenseAdvancedJsInsertionRulesRulesDomainMap := make(map[string]interface{})
-							if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesDomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
-							}
-							if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesDomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
-							}
-							if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesDomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
-							}
-							RulesItemMap["domain"] = BotDefenseAdvancedJsInsertionRulesRulesDomainMap
-						}
-						if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
-							RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
-						}
-						if RulesItem.Metadata != nil {
-							BotDefenseAdvancedJsInsertionRulesRulesMetadataMap := make(map[string]interface{})
-							if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
-							}
-							if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
-							}
-							RulesItemMap["metadata"] = BotDefenseAdvancedJsInsertionRulesRulesMetadataMap
-						}
-						if RulesItem.Path != nil {
-							BotDefenseAdvancedJsInsertionRulesRulesPathMap := make(map[string]interface{})
-							if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesPathMap["path"] = RulesItem.Path.Path.ValueString()
-							}
-							if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesPathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
-							}
-							if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
-								BotDefenseAdvancedJsInsertionRulesRulesPathMap["regex"] = RulesItem.Path.Regex.ValueString()
-							}
-							RulesItemMap["path"] = BotDefenseAdvancedJsInsertionRulesRulesPathMap
-						}
-						RulesList = append(RulesList, RulesItemMap)
-					}
-					BotDefenseAdvancedJsInsertionRulesMap["rules"] = RulesList
-				}
-			}
-			BotDefenseAdvancedMap["js_insertion_rules"] = BotDefenseAdvancedJsInsertionRulesMap
-		}
-		if data.BotDefenseAdvanced.Mobile != nil {
-			BotDefenseAdvancedMobileMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.Mobile.Name.IsNull() && !data.BotDefenseAdvanced.Mobile.Name.IsUnknown() {
-				BotDefenseAdvancedMobileMap["name"] = data.BotDefenseAdvanced.Mobile.Name.ValueString()
-			}
-			if !data.BotDefenseAdvanced.Mobile.Namespace.IsNull() && !data.BotDefenseAdvanced.Mobile.Namespace.IsUnknown() {
-				BotDefenseAdvancedMobileMap["namespace"] = data.BotDefenseAdvanced.Mobile.Namespace.ValueString()
-			}
-			BotDefenseAdvancedMap["mobile"] = BotDefenseAdvancedMobileMap
-		}
-		if data.BotDefenseAdvanced.MobileSdkConfig != nil {
-			BotDefenseAdvancedMobileSdkConfigMap := make(map[string]interface{})
-			if data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil {
-				BotDefenseAdvancedMobileSdkConfigMobileIdentifierMap := make(map[string]interface{})
-				if !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
-					var HeadersElems []HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-					diags := data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+					var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+					diags := data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
 					resp.Diagnostics.Append(diags...)
-					if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
-						var HeadersList []map[string]interface{}
-						for _, HeadersItem := range HeadersElems {
-							HeadersItemMap := make(map[string]interface{})
-							if !HeadersItem.CheckNotPresent.IsNull() && !HeadersItem.CheckNotPresent.IsUnknown() {
-								HeadersItemMap["check_not_present"] = map[string]interface{}{}
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
 							}
-							if !HeadersItem.CheckPresent.IsNull() && !HeadersItem.CheckPresent.IsUnknown() {
-								HeadersItemMap["check_present"] = map[string]interface{}{}
-							}
-							if HeadersItem.Item != nil {
-								BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap := make(map[string]interface{})
-								if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
-									var ExactValuesItems []string
-									diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
-									resp.Diagnostics.Append(diags...)
-									if !diags.HasError() {
-										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["exact_values"] = ExactValuesItems
-									}
+							if ExcludeListItem.Domain != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
 								}
-								if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
-									var RegexValuesItems []string
-									diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
-									resp.Diagnostics.Append(diags...)
-									if !diags.HasError() {
-										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["regex_values"] = RegexValuesItems
-									}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
 								}
-								if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
-									var TransformersItems []string
-									diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
-									resp.Diagnostics.Append(diags...)
-									if !diags.HasError() {
-										BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap["transformers"] = TransformersItems
-									}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
 								}
-								HeadersItemMap["item"] = BotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemMap
+								ExcludeListItemMap["domain"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainMap
 							}
-							if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
-								HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+							if ExcludeListItem.Metadata != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataMap
 							}
-							HeadersList = append(HeadersList, HeadersItemMap)
+							if ExcludeListItem.Path != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
 						}
-						BotDefenseAdvancedMobileSdkConfigMobileIdentifierMap["headers"] = HeadersList
+						BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
 					}
 				}
-				BotDefenseAdvancedMobileSdkConfigMap["mobile_identifier"] = BotDefenseAdvancedMobileSdkConfigMobileIdentifierMap
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.JavascriptLocation.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.JavascriptLocation.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptMap["javascript_location"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.JavascriptLocation.ValueString()
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["js_insert_all_pages_except"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptMap
 			}
-			BotDefenseAdvancedMap["mobile_sdk_config"] = BotDefenseAdvancedMobileSdkConfigMap
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsUnknown() {
+					var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+					diags := data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						}
+						BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesMap["exclude_list"] = ExcludeListList
+					}
+				}
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsUnknown() {
+					var RulesElems []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+					diags := data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+						var RulesList []map[string]interface{}
+						for _, RulesItem := range RulesElems {
+							RulesItemMap := make(map[string]interface{})
+							if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
+								RulesItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if RulesItem.Domain != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap := make(map[string]interface{})
+								if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+								}
+								if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+								}
+								if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+								}
+								RulesItemMap["domain"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainMap
+							}
+							if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
+								RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
+							}
+							if RulesItem.Metadata != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataMap := make(map[string]interface{})
+								if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+								}
+								RulesItemMap["metadata"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataMap
+							}
+							if RulesItem.Path != nil {
+								BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap := make(map[string]interface{})
+								if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap["path"] = RulesItem.Path.Path.ValueString()
+								}
+								if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
+								}
+								if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap["regex"] = RulesItem.Path.Regex.ValueString()
+								}
+								RulesItemMap["path"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathMap
+							}
+							RulesList = append(RulesList, RulesItemMap)
+						}
+						BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesMap["rules"] = RulesList
+					}
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["js_insertion_rules"] = BotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesMap
+			}
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileMobileMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Name.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Name.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileMobileMap["name"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Name.ValueString()
+				}
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Namespace.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Namespace.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileMobileMap["namespace"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.Mobile.Namespace.ValueString()
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["mobile"] = BotDefenseAdvancedProtectionBothWebAndMobileMobileMap
+			}
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMap := make(map[string]interface{})
+				if data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil {
+					BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierMap := make(map[string]interface{})
+					if !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+						var HeadersElems []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+						diags := data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersElems, false)
+						resp.Diagnostics.Append(diags...)
+						if !resp.Diagnostics.HasError() && len(HeadersElems) > 0 {
+							var HeadersList []map[string]interface{}
+							for _, HeadersItem := range HeadersElems {
+								HeadersItemMap := make(map[string]interface{})
+								if !HeadersItem.CheckNotPresent.IsNull() && !HeadersItem.CheckNotPresent.IsUnknown() {
+									HeadersItemMap["check_not_present"] = map[string]interface{}{}
+								}
+								if !HeadersItem.CheckPresent.IsNull() && !HeadersItem.CheckPresent.IsUnknown() {
+									HeadersItemMap["check_present"] = map[string]interface{}{}
+								}
+								if HeadersItem.Item != nil {
+									BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap := make(map[string]interface{})
+									if !HeadersItem.Item.ExactValues.IsNull() && !HeadersItem.Item.ExactValues.IsUnknown() {
+										var ExactValuesItems []string
+										diags := HeadersItem.Item.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap["exact_values"] = ExactValuesItems
+										}
+									}
+									if !HeadersItem.Item.RegexValues.IsNull() && !HeadersItem.Item.RegexValues.IsUnknown() {
+										var RegexValuesItems []string
+										diags := HeadersItem.Item.RegexValues.ElementsAs(ctx, &RegexValuesItems, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap["regex_values"] = RegexValuesItems
+										}
+									}
+									if !HeadersItem.Item.Transformers.IsNull() && !HeadersItem.Item.Transformers.IsUnknown() {
+										var TransformersItems []string
+										diags := HeadersItem.Item.Transformers.ElementsAs(ctx, &TransformersItems, false)
+										resp.Diagnostics.Append(diags...)
+										if !diags.HasError() {
+											BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap["transformers"] = TransformersItems
+										}
+									}
+									HeadersItemMap["item"] = BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemMap
+								}
+								if !HeadersItem.Name.IsNull() && !HeadersItem.Name.IsUnknown() {
+									HeadersItemMap["name"] = HeadersItem.Name.ValueString()
+								}
+								HeadersList = append(HeadersList, HeadersItemMap)
+							}
+							BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierMap["headers"] = HeadersList
+						}
+					}
+					BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMap["mobile_identifier"] = BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierMap
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["mobile_sdk_config"] = BotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMap
+			}
+			if data.BotDefenseAdvancedProtection.BothWebAndMobile.Web != nil {
+				BotDefenseAdvancedProtectionBothWebAndMobileWebMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Name.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Name.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileWebMap["name"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Name.ValueString()
+				}
+				if !data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Namespace.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Namespace.IsUnknown() {
+					BotDefenseAdvancedProtectionBothWebAndMobileWebMap["namespace"] = data.BotDefenseAdvancedProtection.BothWebAndMobile.Web.Namespace.ValueString()
+				}
+				BotDefenseAdvancedProtectionBothWebAndMobileMap["web"] = BotDefenseAdvancedProtectionBothWebAndMobileWebMap
+			}
+			BotDefenseAdvancedProtectionMap["both_web_and_mobile"] = BotDefenseAdvancedProtectionBothWebAndMobileMap
 		}
-		if data.BotDefenseAdvanced.Web != nil {
-			BotDefenseAdvancedWebMap := make(map[string]interface{})
-			if !data.BotDefenseAdvanced.Web.Name.IsNull() && !data.BotDefenseAdvanced.Web.Name.IsUnknown() {
-				BotDefenseAdvancedWebMap["name"] = data.BotDefenseAdvanced.Web.Name.ValueString()
+		if data.BotDefenseAdvancedProtection.MobileOnly != nil {
+			BotDefenseAdvancedProtectionMobileOnlyMap := make(map[string]interface{})
+			if data.BotDefenseAdvancedProtection.MobileOnly.Mobile != nil {
+				BotDefenseAdvancedProtectionMobileOnlyMobileMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Name.IsNull() && !data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Name.IsUnknown() {
+					BotDefenseAdvancedProtectionMobileOnlyMobileMap["name"] = data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Name.ValueString()
+				}
+				if !data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Namespace.IsNull() && !data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Namespace.IsUnknown() {
+					BotDefenseAdvancedProtectionMobileOnlyMobileMap["namespace"] = data.BotDefenseAdvancedProtection.MobileOnly.Mobile.Namespace.ValueString()
+				}
+				BotDefenseAdvancedProtectionMobileOnlyMap["mobile"] = BotDefenseAdvancedProtectionMobileOnlyMobileMap
 			}
-			if !data.BotDefenseAdvanced.Web.Namespace.IsNull() && !data.BotDefenseAdvanced.Web.Namespace.IsUnknown() {
-				BotDefenseAdvancedWebMap["namespace"] = data.BotDefenseAdvanced.Web.Namespace.ValueString()
-			}
-			BotDefenseAdvancedMap["web"] = BotDefenseAdvancedWebMap
+			BotDefenseAdvancedProtectionMap["mobile_only"] = BotDefenseAdvancedProtectionMobileOnlyMap
 		}
-		apiResource.Spec["bot_defense_advanced"] = BotDefenseAdvancedMap
+		if data.BotDefenseAdvancedProtection.WebOnly != nil {
+			BotDefenseAdvancedProtectionWebOnlyMap := make(map[string]interface{})
+			if !data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert.IsUnknown() {
+				BotDefenseAdvancedProtectionWebOnlyMap["disable_js_insert"] = map[string]interface{}{}
+			}
+			if data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages != nil {
+				BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages.JavascriptLocation.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages.JavascriptLocation.IsUnknown() {
+					BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesMap["javascript_location"] = data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages.JavascriptLocation.ValueString()
+				}
+				BotDefenseAdvancedProtectionWebOnlyMap["js_insert_all_pages"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesMap
+			}
+			if data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil {
+				BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+					var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+					diags := data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						}
+						BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptMap["exclude_list"] = ExcludeListList
+					}
+				}
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.JavascriptLocation.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.JavascriptLocation.IsUnknown() {
+					BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptMap["javascript_location"] = data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.JavascriptLocation.ValueString()
+				}
+				BotDefenseAdvancedProtectionWebOnlyMap["js_insert_all_pages_except"] = BotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptMap
+			}
+			if data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil {
+				BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsUnknown() {
+					var ExcludeListElems []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+					diags := data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(ExcludeListElems) > 0 {
+						var ExcludeListList []map[string]interface{}
+						for _, ExcludeListItem := range ExcludeListElems {
+							ExcludeListItemMap := make(map[string]interface{})
+							if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
+								ExcludeListItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if ExcludeListItem.Domain != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap := make(map[string]interface{})
+								if !ExcludeListItem.Domain.ExactValue.IsNull() && !ExcludeListItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap["exact_value"] = ExcludeListItem.Domain.ExactValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.RegexValue.IsNull() && !ExcludeListItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap["regex_value"] = ExcludeListItem.Domain.RegexValue.ValueString()
+								}
+								if !ExcludeListItem.Domain.SuffixValue.IsNull() && !ExcludeListItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap["suffix_value"] = ExcludeListItem.Domain.SuffixValue.ValueString()
+								}
+								ExcludeListItemMap["domain"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainMap
+							}
+							if ExcludeListItem.Metadata != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataMap := make(map[string]interface{})
+								if !ExcludeListItem.Metadata.DescriptionSpec.IsNull() && !ExcludeListItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataMap["description"] = ExcludeListItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !ExcludeListItem.Metadata.Name.IsNull() && !ExcludeListItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataMap["name"] = ExcludeListItem.Metadata.Name.ValueString()
+								}
+								ExcludeListItemMap["metadata"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataMap
+							}
+							if ExcludeListItem.Path != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap := make(map[string]interface{})
+								if !ExcludeListItem.Path.Path.IsNull() && !ExcludeListItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap["path"] = ExcludeListItem.Path.Path.ValueString()
+								}
+								if !ExcludeListItem.Path.Prefix.IsNull() && !ExcludeListItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap["prefix"] = ExcludeListItem.Path.Prefix.ValueString()
+								}
+								if !ExcludeListItem.Path.Regex.IsNull() && !ExcludeListItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap["regex"] = ExcludeListItem.Path.Regex.ValueString()
+								}
+								ExcludeListItemMap["path"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathMap
+							}
+							ExcludeListList = append(ExcludeListList, ExcludeListItemMap)
+						}
+						BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesMap["exclude_list"] = ExcludeListList
+					}
+				}
+				if !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsUnknown() {
+					var RulesElems []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+					diags := data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.ElementsAs(ctx, &RulesElems, false)
+					resp.Diagnostics.Append(diags...)
+					if !resp.Diagnostics.HasError() && len(RulesElems) > 0 {
+						var RulesList []map[string]interface{}
+						for _, RulesItem := range RulesElems {
+							RulesItemMap := make(map[string]interface{})
+							if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
+								RulesItemMap["any_domain"] = map[string]interface{}{}
+							}
+							if RulesItem.Domain != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap := make(map[string]interface{})
+								if !RulesItem.Domain.ExactValue.IsNull() && !RulesItem.Domain.ExactValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap["exact_value"] = RulesItem.Domain.ExactValue.ValueString()
+								}
+								if !RulesItem.Domain.RegexValue.IsNull() && !RulesItem.Domain.RegexValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap["regex_value"] = RulesItem.Domain.RegexValue.ValueString()
+								}
+								if !RulesItem.Domain.SuffixValue.IsNull() && !RulesItem.Domain.SuffixValue.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap["suffix_value"] = RulesItem.Domain.SuffixValue.ValueString()
+								}
+								RulesItemMap["domain"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainMap
+							}
+							if !RulesItem.JavascriptLocation.IsNull() && !RulesItem.JavascriptLocation.IsUnknown() {
+								RulesItemMap["javascript_location"] = RulesItem.JavascriptLocation.ValueString()
+							}
+							if RulesItem.Metadata != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataMap := make(map[string]interface{})
+								if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+								}
+								if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+								}
+								RulesItemMap["metadata"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataMap
+							}
+							if RulesItem.Path != nil {
+								BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap := make(map[string]interface{})
+								if !RulesItem.Path.Path.IsNull() && !RulesItem.Path.Path.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap["path"] = RulesItem.Path.Path.ValueString()
+								}
+								if !RulesItem.Path.Prefix.IsNull() && !RulesItem.Path.Prefix.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap["prefix"] = RulesItem.Path.Prefix.ValueString()
+								}
+								if !RulesItem.Path.Regex.IsNull() && !RulesItem.Path.Regex.IsUnknown() {
+									BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap["regex"] = RulesItem.Path.Regex.ValueString()
+								}
+								RulesItemMap["path"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathMap
+							}
+							RulesList = append(RulesList, RulesItemMap)
+						}
+						BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesMap["rules"] = RulesList
+					}
+				}
+				BotDefenseAdvancedProtectionWebOnlyMap["js_insertion_rules"] = BotDefenseAdvancedProtectionWebOnlyJsInsertionRulesMap
+			}
+			if data.BotDefenseAdvancedProtection.WebOnly.Web != nil {
+				BotDefenseAdvancedProtectionWebOnlyWebMap := make(map[string]interface{})
+				if !data.BotDefenseAdvancedProtection.WebOnly.Web.Name.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.Web.Name.IsUnknown() {
+					BotDefenseAdvancedProtectionWebOnlyWebMap["name"] = data.BotDefenseAdvancedProtection.WebOnly.Web.Name.ValueString()
+				}
+				if !data.BotDefenseAdvancedProtection.WebOnly.Web.Namespace.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.Web.Namespace.IsUnknown() {
+					BotDefenseAdvancedProtectionWebOnlyWebMap["namespace"] = data.BotDefenseAdvancedProtection.WebOnly.Web.Namespace.ValueString()
+				}
+				BotDefenseAdvancedProtectionWebOnlyMap["web"] = BotDefenseAdvancedProtectionWebOnlyWebMap
+			}
+			BotDefenseAdvancedProtectionMap["web_only"] = BotDefenseAdvancedProtectionWebOnlyMap
+		}
+		apiResource.Spec["bot_defense_advanced_protection"] = BotDefenseAdvancedProtectionMap
 	}
 	if data.CachingPolicy != nil {
 		CachingPolicyMap := make(map[string]interface{})
@@ -82006,12 +84563,76 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, HTTPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+								AdvertiseDualstackOnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+									if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								AdvertiseOnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AdvertiseV6OnPublic: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+									if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+										return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+											PublicIP: func() *HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &HTTPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 														Name: func() types.String {
 															if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -82314,6 +84935,35 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["advertise_dualstack_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseDualstackOnPublic != nil) {
+		data.AdvertiseDualstackOnPublic = &HTTPLoadBalancerAdvertiseDualstackOnPublicModel{
+			PublicIP: func() *HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel {
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerAdvertiseDualstackOnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
 	if blockData, ok := apiResource.Spec["advertise_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseOnPublic != nil) {
 		data.AdvertiseOnPublic = &HTTPLoadBalancerAdvertiseOnPublicModel{
 			PublicIP: func() *HTTPLoadBalancerAdvertiseOnPublicPublicIPModel {
@@ -82349,6 +84999,35 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 	} else {
 		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
+	}
+	if blockData, ok := apiResource.Spec["advertise_v6_on_public"].(map[string]interface{}); ok && (isImport || data.AdvertiseV6OnPublic != nil) {
+		data.AdvertiseV6OnPublic = &HTTPLoadBalancerAdvertiseV6OnPublicModel{
+			PublicIP: func() *HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel {
+				if PublicIPData, ok := blockData["public_ip"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerAdvertiseV6OnPublicPublicIPModel{
+						Name: func() types.String {
+							if v, ok := PublicIPData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Namespace: func() types.String {
+							if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Tenant: func() types.String {
+							if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["api_protection_rules"].(map[string]interface{}); ok && (isImport || data.APIProtectionRules != nil) {
 		data.APIProtectionRules = &HTTPLoadBalancerAPIProtectionRulesModel{
@@ -89504,505 +92183,537 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
-	if blockData, ok := apiResource.Spec["bot_defense_advanced"].(map[string]interface{}); ok && (isImport || data.BotDefenseAdvanced != nil) {
-		data.BotDefenseAdvanced = &HTTPLoadBalancerBotDefenseAdvancedModel{
-			DisableJsInsert: func() types.Object {
-				if !isImport && data.BotDefenseAdvanced != nil && !data.BotDefenseAdvanced.DisableJsInsert.IsUnknown() {
-					return data.BotDefenseAdvanced.DisableJsInsert
-				}
-				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-				}
-				return types.ObjectNull(map[string]attr.Type{})
-			}(),
-			DisableMobileSdk: func() types.Object {
-				if !isImport && data.BotDefenseAdvanced != nil && !data.BotDefenseAdvanced.DisableMobileSdk.IsUnknown() {
-					return data.BotDefenseAdvanced.DisableMobileSdk
-				}
-				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-				}
-				return types.ObjectNull(map[string]attr.Type{})
-			}(),
-			JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPages != nil {
-					return data.BotDefenseAdvanced.JsInsertAllPages
-				}
-				if JsInsertAllPagesData, ok := blockData["js_insert_all_pages"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesModel{
-						JavascriptLocation: func() types.String {
-							if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
-								return types.StringValue(v)
+	if blockData, ok := apiResource.Spec["bot_defense_advanced_protection"].(map[string]interface{}); ok && (isImport || data.BotDefenseAdvancedProtection != nil) {
+		data.BotDefenseAdvancedProtection = &HTTPLoadBalancerBotDefenseAdvancedProtectionModel{
+			BothWebAndMobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel {
+				if BothWebAndMobileData, ok := blockData["both_web_and_mobile"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileModel{
+						DisableJsInsert: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableJsInsert
 							}
-							return types.StringNull()
+							if _, ok := BothWebAndMobileData["disable_js_insert"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-					}
-				}
-				return nil
-			}(),
-			JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil {
-					return data.BotDefenseAdvanced.JsInsertAllPagesExcept
-				}
-				if JsInsertAllPagesExceptData, ok := blockData["js_insert_all_pages_except"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptModel{
-						ExcludeList: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes})
+						DisableMobileSdk: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.DisableMobileSdk
 							}
-							var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+							if _, ok := BothWebAndMobileData["disable_mobile_sdk"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
-								var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel
-								for ExcludeListIdx, ExcludeListItem := range rawList {
-									_ = ExcludeListIdx
-									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
-										ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
-													return ExcludeListExisting[ExcludeListIdx].AnyDomain
-												}
-												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel {
-												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel {
-												if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel {
-												if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertAllPagesExceptExcludeListModelAttrTypes})
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JavascriptLocation: func() types.String {
-							if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
-								return types.StringValue(v)
+						JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPages
 							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil {
-					return data.BotDefenseAdvanced.JsInsertionRules
-				}
-				if JsInsertionRulesData, ok := blockData["js_insertion_rules"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesModel{
-						ExcludeList: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && (data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes})
-							}
-							var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
-							}
-							if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
-								var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel
-								for ExcludeListIdx, ExcludeListItem := range rawList {
-									_ = ExcludeListIdx
-									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
-										ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
-													return ExcludeListExisting[ExcludeListIdx].AnyDomain
-												}
-												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel {
-												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel {
-												if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel {
-												if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesExcludeListModelAttrTypes})
-						}(),
-						Rules: func() types.List {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && (data.BotDefenseAdvanced.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvanced.JsInsertionRules.Rules.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes})
-							}
-							var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.JsInsertionRules != nil && !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvanced.JsInsertionRules.Rules.IsUnknown() {
-								data.BotDefenseAdvanced.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
-							}
-							if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
-								var RulesResult []HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel
-								for RulesIdx, RulesItem := range rawList {
-									_ = RulesIdx
-									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
-										RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModel{
-											AnyDomain: func() types.Object {
-												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
-													return RulesExisting[RulesIdx].AnyDomain
-												}
-												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-												}
-												return types.ObjectNull(map[string]attr.Type{})
-											}(),
-											Domain: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel {
-												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesDomainModel{
-														ExactValue: func() types.String {
-															if v, ok := DomainData["exact_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														RegexValue: func() types.String {
-															if v, ok := DomainData["regex_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														SuffixValue: func() types.String {
-															if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											JavascriptLocation: func() types.String {
-												if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
-													return types.StringValue(v)
-												}
-												return types.StringNull()
-											}(),
-											Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel {
-												if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesMetadataModel{
-														DescriptionSpec: func() types.String {
-															if v, ok := MetadataData["description"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Name: func() types.String {
-															if v, ok := MetadataData["name"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-											Path: func() *HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel {
-												if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
-													return &HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesPathModel{
-														Path: func() types.String {
-															if v, ok := PathData["path"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Prefix: func() types.String {
-															if v, ok := PathData["prefix"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-														Regex: func() types.String {
-															if v, ok := PathData["regex"].(string); ok && v != "" {
-																return types.StringValue(v)
-															}
-															return types.StringNull()
-														}(),
-													}
-												}
-												return nil
-											}(),
-										})
-									}
-								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes}, RulesResult)
-								return listVal
-							}
-							return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedJsInsertionRulesRulesModelAttrTypes})
-						}(),
-					}
-				}
-				return nil
-			}(),
-			Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedMobileModel {
-				if MobileData, ok := blockData["mobile"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedMobileModel{
-						Name: func() types.String {
-							if v, ok := MobileData["name"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Namespace: func() types.String {
-							if v, ok := MobileData["namespace"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Tenant: func() types.String {
-							if v, ok := MobileData["tenant"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			MobileSdkConfig: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel {
-				if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil {
-					return data.BotDefenseAdvanced.MobileSdkConfig
-				}
-				if MobileSdkConfigData, ok := blockData["mobile_sdk_config"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigModel{
-						MobileIdentifier: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel {
-							if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil {
-								return data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier
-							}
-							if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
-								return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierModel{
-									Headers: func() types.List {
-										if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
-											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+							if JsInsertAllPagesData, ok := BothWebAndMobileData["js_insert_all_pages"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesModel{
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
 										}
-										var HeadersExisting []HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-										if !isImport && data.BotDefenseAdvanced != nil && data.BotDefenseAdvanced.MobileSdkConfig != nil && data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
-											data.BotDefenseAdvanced.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept
+							}
+							if JsInsertAllPagesExceptData, ok := BothWebAndMobileData["js_insert_all_pages_except"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes})
 										}
-										if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
-											var HeadersResult []HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel
-											for HeadersIdx, HeadersItem := range rawList {
-												_ = HeadersIdx
-												if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
-													HeadersResult = append(HeadersResult, HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModel{
-														CheckNotPresent: func() types.Object {
-															if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
-																return HeadersExisting[HeadersIdx].CheckNotPresent
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
 															}
-															if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
 																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
 															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														CheckPresent: func() types.Object {
-															if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
-																return HeadersExisting[HeadersIdx].CheckPresent
-															}
-															if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
-															}
-															return types.ObjectNull(map[string]attr.Type{})
-														}(),
-														Item: func() *HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel {
-															if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersItemModel{
-																	ExactValues: func() types.List {
-																		if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
-																	RegexValues: func() types.List {
-																		if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
-																	Transformers: func() types.List {
-																		if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
-																			var items []string
-																			for _, item := range v {
-																				if s, ok := item.(string); ok {
-																					items = append(items, s)
-																				}
-																			}
-																			listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-																			resp.Diagnostics.Append(diags...)
-																			return listVal
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
 																		}
-																		return types.ListNull(types.StringType)
+																		return types.StringNull()
 																	}(),
 																}
 															}
 															return nil
 														}(),
-														Name: func() types.String {
-															if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
-																return types.StringValue(v)
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
 															}
-															return types.StringNull()
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
 														}(),
 													})
 												}
 											}
-											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
 											return listVal
 										}
-										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertAllPagesExceptExcludeListModelAttrTypes})
+									}(),
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules
+							}
+							if JsInsertionRulesData, ok := BothWebAndMobileData["js_insertion_rules"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesExcludeListModelAttrTypes})
+									}(),
+									Rules: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefenseAdvancedProtection.BothWebAndMobile.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
+											var RulesResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
+												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+													RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
+																return RulesExisting[RulesIdx].AnyDomain
+															}
+															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel {
+															if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														JavascriptLocation: func() types.String {
+															if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel {
+															if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel {
+															if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileJsInsertionRulesRulesModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel {
+							if MobileData, ok := BothWebAndMobileData["mobile"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileModel{
+									Name: func() types.String {
+										if v, ok := MobileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := MobileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := MobileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						MobileSdkConfig: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil {
+								return data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig
+							}
+							if MobileSdkConfigData, ok := BothWebAndMobileData["mobile_sdk_config"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigModel{
+									MobileIdentifier: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil {
+											return data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier
+										}
+										if MobileIdentifierData, ok := MobileSdkConfigData["mobile_identifier"].(map[string]interface{}); ok {
+											return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierModel{
+												Headers: func() types.List {
+													if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil && (data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsNull() || len(data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+													}
+													var HeadersExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+													if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig != nil && data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier != nil && !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsNull() && !data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.IsUnknown() {
+														data.BotDefenseAdvancedProtection.BothWebAndMobile.MobileSdkConfig.MobileIdentifier.Headers.ElementsAs(ctx, &HeadersExisting, false)
+													}
+													if rawList, ok := MobileIdentifierData["headers"].([]interface{}); ok && len(rawList) > 0 {
+														var HeadersResult []HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel
+														for HeadersIdx, HeadersItem := range rawList {
+															_ = HeadersIdx
+															if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
+																HeadersResult = append(HeadersResult, HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModel{
+																	CheckNotPresent: func() types.Object {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
+																			return HeadersExisting[HeadersIdx].CheckNotPresent
+																		}
+																		if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	CheckPresent: func() types.Object {
+																		if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
+																			return HeadersExisting[HeadersIdx].CheckPresent
+																		}
+																		if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+																		}
+																		return types.ObjectNull(map[string]attr.Type{})
+																	}(),
+																	Item: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel {
+																		if ItemData, ok := HeadersItemMap["item"].(map[string]interface{}); ok {
+																			return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersItemModel{
+																				ExactValues: func() types.List {
+																					if v, ok := ItemData["exact_values"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																				RegexValues: func() types.List {
+																					if v, ok := ItemData["regex_values"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																				Transformers: func() types.List {
+																					if v, ok := ItemData["transformers"].([]interface{}); ok && len(v) > 0 {
+																						var items []string
+																						for _, item := range v {
+																							if s, ok := item.(string); ok {
+																								items = append(items, s)
+																							}
+																						}
+																						listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+																						resp.Diagnostics.Append(diags...)
+																						return listVal
+																					}
+																					return types.ListNull(types.StringType)
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := HeadersItemMap["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																})
+															}
+														}
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes}, HeadersResult)
+														return listVal
+													}
+													return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileMobileSdkConfigMobileIdentifierHeadersModelAttrTypes})
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Web: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel {
+							if WebData, ok := BothWebAndMobileData["web"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionBothWebAndMobileWebModel{
+									Name: func() types.String {
+										if v, ok := WebData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := WebData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := WebData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
 									}(),
 								}
 							}
@@ -90012,26 +92723,422 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				}
 				return nil
 			}(),
-			Web: func() *HTTPLoadBalancerBotDefenseAdvancedWebModel {
-				if WebData, ok := blockData["web"].(map[string]interface{}); ok {
-					return &HTTPLoadBalancerBotDefenseAdvancedWebModel{
-						Name: func() types.String {
-							if v, ok := WebData["name"].(string); ok && v != "" {
-								return types.StringValue(v)
+			MobileOnly: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel {
+				if MobileOnlyData, ok := blockData["mobile_only"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyModel{
+						Mobile: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel {
+							if MobileData, ok := MobileOnlyData["mobile"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionMobileOnlyMobileModel{
+									Name: func() types.String {
+										if v, ok := MobileData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := MobileData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := MobileData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
 							}
-							return types.StringNull()
+							return nil
 						}(),
-						Namespace: func() types.String {
-							if v, ok := WebData["namespace"].(string); ok && v != "" {
-								return types.StringValue(v)
+					}
+				}
+				return nil
+			}(),
+			WebOnly: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel {
+				if WebOnlyData, ok := blockData["web_only"].(map[string]interface{}); ok {
+					return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyModel{
+						DisableJsInsert: func() types.Object {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && !data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert.IsUnknown() {
+								return data.BotDefenseAdvancedProtection.WebOnly.DisableJsInsert
 							}
-							return types.StringNull()
+							if _, ok := WebOnlyData["disable_js_insert"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Tenant: func() types.String {
-							if v, ok := WebData["tenant"].(string); ok && v != "" {
-								return types.StringValue(v)
+						JsInsertAllPages: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPages
 							}
-							return types.StringNull()
+							if JsInsertAllPagesData, ok := WebOnlyData["js_insert_all_pages"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesModel{
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertAllPagesExcept: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept
+							}
+							if JsInsertAllPagesExceptData, ok := WebOnlyData["js_insert_all_pages_except"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertAllPagesExcept.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertAllPagesExceptData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertAllPagesExceptExcludeListModelAttrTypes})
+									}(),
+									JavascriptLocation: func() types.String {
+										if v, ok := JsInsertAllPagesExceptData["javascript_location"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+						JsInsertionRules: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel {
+							if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil {
+								return data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules
+							}
+							if JsInsertionRulesData, ok := WebOnlyData["js_insertion_rules"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesModel{
+									ExcludeList: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes})
+										}
+										var ExcludeListExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.ExcludeList.ElementsAs(ctx, &ExcludeListExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["exclude_list"].([]interface{}); ok && len(rawList) > 0 {
+											var ExcludeListResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel
+											for ExcludeListIdx, ExcludeListItem := range rawList {
+												_ = ExcludeListIdx
+												if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
+													ExcludeListResult = append(ExcludeListResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
+																return ExcludeListExisting[ExcludeListIdx].AnyDomain
+															}
+															if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel {
+															if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel {
+															if MetadataData, ok := ExcludeListItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel {
+															if PathData, ok := ExcludeListItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes}, ExcludeListResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesExcludeListModelAttrTypes})
+									}(),
+									Rules: func() types.List {
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && (data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsNull() || len(data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.Elements()) == 0) {
+											return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes})
+										}
+										var RulesExisting []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+										if !isImport && data.BotDefenseAdvancedProtection != nil && data.BotDefenseAdvancedProtection.WebOnly != nil && data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules != nil && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsNull() && !data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.IsUnknown() {
+											data.BotDefenseAdvancedProtection.WebOnly.JsInsertionRules.Rules.ElementsAs(ctx, &RulesExisting, false)
+										}
+										if rawList, ok := JsInsertionRulesData["rules"].([]interface{}); ok && len(rawList) > 0 {
+											var RulesResult []HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel
+											for RulesIdx, RulesItem := range rawList {
+												_ = RulesIdx
+												if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
+													RulesResult = append(RulesResult, HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModel{
+														AnyDomain: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
+																return RulesExisting[RulesIdx].AnyDomain
+															}
+															if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+															}
+															return types.ObjectNull(map[string]attr.Type{})
+														}(),
+														Domain: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel {
+															if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesDomainModel{
+																	ExactValue: func() types.String {
+																		if v, ok := DomainData["exact_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	RegexValue: func() types.String {
+																		if v, ok := DomainData["regex_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	SuffixValue: func() types.String {
+																		if v, ok := DomainData["suffix_value"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														JavascriptLocation: func() types.String {
+															if v, ok := RulesItemMap["javascript_location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Metadata: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel {
+															if MetadataData, ok := RulesItemMap["metadata"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesMetadataModel{
+																	DescriptionSpec: func() types.String {
+																		if v, ok := MetadataData["description"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Name: func() types.String {
+																		if v, ok := MetadataData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+														Path: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel {
+															if PathData, ok := RulesItemMap["path"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesPathModel{
+																	Path: func() types.String {
+																		if v, ok := PathData["path"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Prefix: func() types.String {
+																		if v, ok := PathData["prefix"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Regex: func() types.String {
+																		if v, ok := PathData["regex"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													})
+												}
+											}
+											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes}, RulesResult)
+											return listVal
+										}
+										return types.ListNull(types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyJsInsertionRulesRulesModelAttrTypes})
+									}(),
+								}
+							}
+							return nil
+						}(),
+						Web: func() *HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel {
+							if WebData, ok := WebOnlyData["web"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerBotDefenseAdvancedProtectionWebOnlyWebModel{
+									Name: func() types.String {
+										if v, ok := WebData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := WebData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := WebData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}

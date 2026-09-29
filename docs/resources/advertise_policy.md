@@ -62,6 +62,11 @@ resource "xcsh_advertise_policy" "example" {
 <a id="address"></a>&#x2022; [`address`](#address) - Optional String  Specified in the site<br>Optional. VIP to advertise. This VIP can be either V4/V6 address You can not specify this if where contains a site or virtual site of type REGIONAL_EDGE or public network If not specified and 'where' is specified with site or virtual site option, inside_vip or outside_vip
 
 -> **One of the following:**
+&#x2022; <a id="dualstack"></a>[`dualstack`](#dualstack) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="ipv4"></a>[`ipv4`](#ipv4) - Optional Object<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+<br><br>&#x2022; <a id="ipv6"></a>[`ipv6`](#ipv6) - Optional Object<br>IPv6 address in colon-separated hexadecimal format
+
+-> **One of the following:**
 &#x2022; <a id="port"></a>[`port`](#port) - Optional Number<br>Port to advertise
 <br><br>&#x2022; <a id="port-ranges"></a>[`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
 

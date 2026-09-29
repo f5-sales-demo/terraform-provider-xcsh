@@ -185,17 +185,26 @@ func TestExtractResponseOperationSchemaRejectsUnsupportedShape(t *testing.T) {
 	}
 }
 
-func TestExtractResponseOperationSchemaRejectsNestedRequestInput(t *testing.T) {
+func TestExtractResponseOperationSchemaAcceptsNestedRequestInput(t *testing.T) {
 	spec := responseOperationProbeSpec()
 	request := spec.Components.Schemas["probeRequest"]
 	request.Properties["nested"] = openapi.Schema{Type: "object", Properties: map[string]openapi.Schema{"value": {Type: "string"}}}
 	spec.Components.Schemas["probeRequest"] = request
-	_, err := ExtractResponseOperationSchema(spec, openapi.ResolvedResponseOperation{
+	result, err := ExtractResponseOperationSchema(spec, openapi.ResolvedResponseOperation{
 		Name: "probe_action", Role: "action", Method: "POST", Path: "/api/register/namespaces/{namespace}/probe",
 		OperationID: "ves.io.schema.probe.CustomAPI.List", RequestSchema: "probeRequest", ResponseSchema: "probeResponse",
 	})
-	if err == nil || !strings.Contains(err.Error(), "unsupported body shape") {
+	if err != nil {
 		t.Fatalf("nested request error = %v", err)
+	}
+	found := false
+	for _, input := range result.Inputs {
+		if input.Attribute.TfsdkTag == "nested" && input.Attribute.IsBlock {
+			found = true
+		}
+	}
+	if !found {
+		t.Fatalf("nested request input was not preserved: %+v", result.Inputs)
 	}
 }
 

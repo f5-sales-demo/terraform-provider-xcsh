@@ -87,6 +87,8 @@ A [`http_health_check`](#http-health-check) block supports the following:
 
 <a id="port-d66aae"></a>&#x2022; [`health_check_secondary_port`](#port-d66aae) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
 
+<a id="fqdn-79d617"></a>&#x2022; [`inherit_load_balancer_fqdn`](#fqdn-79d617) - Optional Object<br>Configuration parameter for inherit load balancer fqdn
+
 <a id="http-health-check-receive"></a>&#x2022; [`receive`](#http-health-check-receive) - Optional String<br>Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax
 
 <a id="http-health-check-send"></a>&#x2022; [`send`](#http-health-check-send) - Optional String<br>Send String. HTTP payload to send to the target
@@ -96,6 +98,10 @@ A [`http_health_check`](#http-health-check) block supports the following:
 #### HTTP Health Check Disable Virtual Host
 
 A [`disable_virtual_host`](#http-health-check-disable-virtual-host) block (within [`http_health_check`](#http-health-check)) supports the following:
+
+#### HTTP Health Check Inherit Load Balancer Fqdn
+
+An [`inherit_load_balancer_fqdn`](#fqdn-79d617) block (within [`http_health_check`](#http-health-check)) supports the following:
 
 #### HTTPS Health Check
 
@@ -107,6 +113,8 @@ A [`https_health_check`](#https-health-check) block supports the following:
 
 <a id="port-4b56cd"></a>&#x2022; [`health_check_secondary_port`](#port-4b56cd) - Optional Number<br>Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass
 
+<a id="fqdn-f4561d"></a>&#x2022; [`inherit_load_balancer_fqdn`](#fqdn-f4561d) - Optional Object<br>Configuration parameter for inherit load balancer fqdn
+
 <a id="https-health-check-receive"></a>&#x2022; [`receive`](#https-health-check-receive) - Optional String<br>Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax
 
 <a id="https-health-check-send"></a>&#x2022; [`send`](#https-health-check-send) - Optional String<br>Send String. HTTP payload to send to the target
@@ -116,6 +124,10 @@ A [`https_health_check`](#https-health-check) block supports the following:
 #### HTTPS Health Check Disable Virtual Host
 
 A [`disable_virtual_host`](#https-health-check-disable-virtual-host) block (within [`https_health_check`](#https-health-check)) supports the following:
+
+#### HTTPS Health Check Inherit Load Balancer Fqdn
+
+An [`inherit_load_balancer_fqdn`](#fqdn-f4561d) block (within [`https_health_check`](#https-health-check)) supports the following:
 
 #### ICMP Health Check
 

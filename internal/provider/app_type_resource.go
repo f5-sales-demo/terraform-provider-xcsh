@@ -191,12 +191,12 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 				},
 			},
 			"features": schema.ListNestedBlock{
-				MarkdownDescription: "Features. List of various AI/ML features enabled.",
+				MarkdownDescription: "List of various advanced security features enabled.",
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"type": schema.StringAttribute{
-							MarkdownDescription: "[Enum: BUSINESS_LOGIC_MARKUP|TIMESERIES_ANOMALY_DETECTION|PER_REQ_ANOMALY_DETECTION|USER_BEHAVIOR_ANALYSIS] Enumeration for AI/ML features supported API Discovery enables generation of model for various API interactions between services of App type. Enable analysis of timeseries for various metric collected like requests, errors, latency etc. Enable anomaly detection per API request, i.e. Possible values are `BUSINESS_LOGIC_MARKUP`, `TIMESERIES_ANOMALY_DETECTION`, `PER_REQ_ANOMALY_DETECTION`, `USER_BEHAVIOR_ANALYSIS`. Defaults to `BUSINESS_LOGIC_MARKUP`.",
+							MarkdownDescription: "[Enum: BUSINESS_LOGIC_MARKUP|TIMESERIES_ANOMALY_DETECTION|PER_REQ_ANOMALY_DETECTION|USER_BEHAVIOR_ANALYSIS] Enumeration for advanced security features supported API Discovery enables generation of model for various API interactions between services of App type. Enable analysis of timeseries for various metric collected like requests, errors, latency etc. Enable anomaly detection per API request, i.e. Possible values are `BUSINESS_LOGIC_MARKUP`, `TIMESERIES_ANOMALY_DETECTION`, `PER_REQ_ANOMALY_DETECTION`, `USER_BEHAVIOR_ANALYSIS`. Defaults to `BUSINESS_LOGIC_MARKUP`.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.OneOf("BUSINESS_LOGIC_MARKUP", "TIMESERIES_ANOMALY_DETECTION", "PER_REQ_ANOMALY_DETECTION", "USER_BEHAVIOR_ANALYSIS"),

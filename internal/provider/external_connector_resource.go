@@ -229,14 +229,48 @@ var ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModelAttrTypes = map[stri
 
 // ExternalConnectorIpsecIKEParametersRmIPAddressModel represents rm_ip_address block
 type ExternalConnectorIpsecIKEParametersRmIPAddressModel struct {
-	Ipv4 *ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model `tfsdk:"ipv4"`
-	Ipv6 *ExternalConnectorIpsecIKEParametersRmIPAddressIpv6Model `tfsdk:"ipv6"`
+	DualStack *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel `tfsdk:"dual_stack"`
+	Ipv4      *ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model      `tfsdk:"ipv4"`
+	Ipv6      *ExternalConnectorIpsecIKEParametersRmIPAddressIpv6Model      `tfsdk:"ipv6"`
 }
 
 // ExternalConnectorIpsecIKEParametersRmIPAddressModelAttrTypes defines the attribute types for ExternalConnectorIpsecIKEParametersRmIPAddressModel
 var ExternalConnectorIpsecIKEParametersRmIPAddressModelAttrTypes = map[string]attr.Type{
-	"ipv4": types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersRmIPAddressIpv4ModelAttrTypes},
-	"ipv6": types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersRmIPAddressIpv6ModelAttrTypes},
+	"dual_stack": types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModelAttrTypes},
+	"ipv4":       types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersRmIPAddressIpv4ModelAttrTypes},
+	"ipv6":       types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersRmIPAddressIpv6ModelAttrTypes},
+}
+
+// ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel represents dual_stack block
+type ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel struct {
+	Ipv4 *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model `tfsdk:"ipv4"`
+	Ipv6 *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model `tfsdk:"ipv6"`
+}
+
+// ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModelAttrTypes defines the attribute types for ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel
+var ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModelAttrTypes = map[string]attr.Type{
+	"ipv4": types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4ModelAttrTypes},
+	"ipv6": types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6ModelAttrTypes},
+}
+
+// ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model represents ipv4 block
+type ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4ModelAttrTypes defines the attribute types for ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model
+var ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
+}
+
+// ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model represents ipv6 block
+type ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6ModelAttrTypes defines the attribute types for ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model
+var ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
 }
 
 // ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model represents ipv4 block
@@ -665,9 +699,41 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"rm_ip_address": schema.SingleNestedBlock{
 								MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
-								Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("dual_stack", "ipv4"), validators.ConflictingObjectAttributes("dual_stack", "ipv6"), validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
+									"dual_stack": schema.SingleNestedBlock{
+										MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+										Attributes:          map[string]schema.Attribute{},
+										Blocks: map[string]schema.Block{
+											"ipv4": schema.SingleNestedBlock{
+												MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+												Attributes: map[string]schema.Attribute{
+													"addr": schema.StringAttribute{
+														MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+														Optional:            true,
+														Validators: []validator.String{
+															stringvalidator.LengthAtMost(1024),
+															validators.IPv4Validator(),
+														},
+													},
+												},
+											},
+											"ipv6": schema.SingleNestedBlock{
+												MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+												Attributes: map[string]schema.Attribute{
+													"addr": schema.StringAttribute{
+														MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+														Optional:            true,
+														Validators: []validator.String{
+															stringvalidator.LengthAtMost(1024),
+															validators.IPv6Validator(),
+														},
+													},
+												},
+											},
+										},
+									},
 									"ipv4": schema.SingleNestedBlock{
 										MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 										Attributes: map[string]schema.Attribute{
@@ -1064,6 +1130,24 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 			}
 			if data.Ipsec.IKEParameters.RmIPAddress != nil {
 				IpsecIKEParametersRmIPAddressMap := make(map[string]interface{})
+				if data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil {
+					IpsecIKEParametersRmIPAddressDualStackMap := make(map[string]interface{})
+					if data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4 != nil {
+						IpsecIKEParametersRmIPAddressDualStackIpv4Map := make(map[string]interface{})
+						if !data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4.Addr.IsUnknown() {
+							IpsecIKEParametersRmIPAddressDualStackIpv4Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4.Addr.ValueString()
+						}
+						IpsecIKEParametersRmIPAddressDualStackMap["ipv4"] = IpsecIKEParametersRmIPAddressDualStackIpv4Map
+					}
+					if data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6 != nil {
+						IpsecIKEParametersRmIPAddressDualStackIpv6Map := make(map[string]interface{})
+						if !data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6.Addr.IsUnknown() {
+							IpsecIKEParametersRmIPAddressDualStackIpv6Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6.Addr.ValueString()
+						}
+						IpsecIKEParametersRmIPAddressDualStackMap["ipv6"] = IpsecIKEParametersRmIPAddressDualStackIpv6Map
+					}
+					IpsecIKEParametersRmIPAddressMap["dual_stack"] = IpsecIKEParametersRmIPAddressDualStackMap
+				}
 				if data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
 					IpsecIKEParametersRmIPAddressIpv4Map := make(map[string]interface{})
 					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsUnknown() {
@@ -1494,6 +1578,48 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							if RmIPAddressData, ok := IKEParametersData["rm_ip_address"].(map[string]interface{}); ok {
 								return &ExternalConnectorIpsecIKEParametersRmIPAddressModel{
+									DualStack: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel {
+										if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil {
+											return data.Ipsec.IKEParameters.RmIPAddress.DualStack
+										}
+										if DualStackData, ok := RmIPAddressData["dual_stack"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel{
+												Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model {
+													if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4 != nil {
+														return data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4
+													}
+													if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+														return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model{
+															Addr: func() types.String {
+																if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												Ipv6: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model {
+													if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6 != nil {
+														return data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6
+													}
+													if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+														return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model{
+															Addr: func() types.String {
+																if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
 									Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model {
 										if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
 											return data.Ipsec.IKEParameters.RmIPAddress.Ipv4
@@ -2140,6 +2266,48 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 							}
 							if RmIPAddressData, ok := IKEParametersData["rm_ip_address"].(map[string]interface{}); ok {
 								return &ExternalConnectorIpsecIKEParametersRmIPAddressModel{
+									DualStack: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel {
+										if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil {
+											return data.Ipsec.IKEParameters.RmIPAddress.DualStack
+										}
+										if DualStackData, ok := RmIPAddressData["dual_stack"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel{
+												Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model {
+													if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4 != nil {
+														return data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4
+													}
+													if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+														return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model{
+															Addr: func() types.String {
+																if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												Ipv6: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model {
+													if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6 != nil {
+														return data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6
+													}
+													if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+														return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model{
+															Addr: func() types.String {
+																if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
 									Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model {
 										if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
 											return data.Ipsec.IKEParameters.RmIPAddress.Ipv4
@@ -2582,6 +2750,24 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 			}
 			if data.Ipsec.IKEParameters.RmIPAddress != nil {
 				IpsecIKEParametersRmIPAddressMap := make(map[string]interface{})
+				if data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil {
+					IpsecIKEParametersRmIPAddressDualStackMap := make(map[string]interface{})
+					if data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4 != nil {
+						IpsecIKEParametersRmIPAddressDualStackIpv4Map := make(map[string]interface{})
+						if !data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4.Addr.IsUnknown() {
+							IpsecIKEParametersRmIPAddressDualStackIpv4Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4.Addr.ValueString()
+						}
+						IpsecIKEParametersRmIPAddressDualStackMap["ipv4"] = IpsecIKEParametersRmIPAddressDualStackIpv4Map
+					}
+					if data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6 != nil {
+						IpsecIKEParametersRmIPAddressDualStackIpv6Map := make(map[string]interface{})
+						if !data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6.Addr.IsUnknown() {
+							IpsecIKEParametersRmIPAddressDualStackIpv6Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6.Addr.ValueString()
+						}
+						IpsecIKEParametersRmIPAddressDualStackMap["ipv6"] = IpsecIKEParametersRmIPAddressDualStackIpv6Map
+					}
+					IpsecIKEParametersRmIPAddressMap["dual_stack"] = IpsecIKEParametersRmIPAddressDualStackMap
+				}
 				if data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
 					IpsecIKEParametersRmIPAddressIpv4Map := make(map[string]interface{})
 					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsUnknown() {
@@ -3032,6 +3218,48 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							if RmIPAddressData, ok := IKEParametersData["rm_ip_address"].(map[string]interface{}); ok {
 								return &ExternalConnectorIpsecIKEParametersRmIPAddressModel{
+									DualStack: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel {
+										if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil {
+											return data.Ipsec.IKEParameters.RmIPAddress.DualStack
+										}
+										if DualStackData, ok := RmIPAddressData["dual_stack"].(map[string]interface{}); ok {
+											return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackModel{
+												Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model {
+													if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4 != nil {
+														return data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv4
+													}
+													if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+														return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv4Model{
+															Addr: func() types.String {
+																if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												Ipv6: func() *ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model {
+													if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack != nil && data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6 != nil {
+														return data.Ipsec.IKEParameters.RmIPAddress.DualStack.Ipv6
+													}
+													if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+														return &ExternalConnectorIpsecIKEParametersRmIPAddressDualStackIpv6Model{
+															Addr: func() types.String {
+																if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
 									Ipv4: func() *ExternalConnectorIpsecIKEParametersRmIPAddressIpv4Model {
 										if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.RmIPAddress != nil && data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
 											return data.Ipsec.IKEParameters.RmIPAddress.Ipv4

@@ -98,6 +98,7 @@ type ApplicationProfilesVirtualServerModel struct {
 	ConnectionLimit              types.Int64                                                        `tfsdk:"connection_limit"`
 	ConnectionRateLimit          types.Int64                                                        `tfsdk:"connection_rate_limit"`
 	VsScore                      types.Int64                                                        `tfsdk:"vs_score"`
+	AccessProfile                types.List                                                         `tfsdk:"access_profile"`
 	AddressTranslation           *ApplicationProfilesVirtualServerAddressTranslationModel           `tfsdk:"address_translation"`
 	AutoLastHop                  *ApplicationProfilesVirtualServerAutoLastHopModel                  `tfsdk:"auto_last_hop"`
 	ClonePoolClient              types.List                                                         `tfsdk:"clone_pool_client"`
@@ -127,6 +128,7 @@ var ApplicationProfilesVirtualServerModelAttrTypes = map[string]attr.Type{
 	"connection_limit":                 types.Int64Type,
 	"connection_rate_limit":            types.Int64Type,
 	"vs_score":                         types.Int64Type,
+	"access_profile":                   types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes}},
 	"address_translation":              types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAddressTranslationModelAttrTypes},
 	"auto_last_hop":                    types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAutoLastHopModelAttrTypes},
 	"clone_pool_client":                types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerClonePoolClientModelAttrTypes}},
@@ -149,6 +151,24 @@ var ApplicationProfilesVirtualServerModelAttrTypes = map[string]attr.Type{
 	"tcp":                              types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPModelAttrTypes},
 	"udp":                              types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPModelAttrTypes},
 	"virtual_server_state":             types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerVirtualServerStateModelAttrTypes},
+}
+
+// ApplicationProfilesVirtualServerAccessProfileModel represents access_profile block
+type ApplicationProfilesVirtualServerAccessProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerAccessProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerAccessProfileModel
+var ApplicationProfilesVirtualServerAccessProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
 }
 
 // ApplicationProfilesVirtualServerAddressTranslationModel represents address_translation block
@@ -1543,6 +1563,41 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 				},
 				Blocks: map[string]schema.Block{
+					"access_profile": schema.ListNestedBlock{
+						MarkdownDescription: "Specifies an access policy that determines the authentication rules and access controls applied to user sessions for this virtual server.",
+						NestedObject: schema.NestedBlockObject{
+							Attributes: map[string]schema.Attribute{
+								"kind": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+									Computed:            true,
+								},
+								"name": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+									Optional:            true,
+								},
+								"namespace": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+									Optional:            true,
+									Computed:            true,
+									PlanModifiers: []planmodifier.String{
+										stringplanmodifier.UseStateForUnknown(),
+									},
+									Validators: []validator.String{
+										stringvalidator.LengthBetween(1, 63),
+										stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+									},
+								},
+								"tenant": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+									Computed:            true,
+								},
+								"uid": schema.StringAttribute{
+									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+									Computed:            true,
+								},
+							},
+						},
+					},
 					"address_translation": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that have the same IP address.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("address_translation_disable", "address_translation_enable")},
@@ -3753,6 +3808,25 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 	}
 	if data.VirtualServer != nil {
 		VirtualServerMap := make(map[string]interface{})
+		if !data.VirtualServer.AccessProfile.IsNull() && !data.VirtualServer.AccessProfile.IsUnknown() {
+			var AccessProfileElems []ApplicationProfilesVirtualServerAccessProfileModel
+			diags := data.VirtualServer.AccessProfile.ElementsAs(ctx, &AccessProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AccessProfileElems) > 0 {
+				var AccessProfileList []map[string]interface{}
+				for _, AccessProfileItem := range AccessProfileElems {
+					AccessProfileItemMap := make(map[string]interface{})
+					if !AccessProfileItem.Name.IsNull() && !AccessProfileItem.Name.IsUnknown() {
+						AccessProfileItemMap["name"] = AccessProfileItem.Name.ValueString()
+					}
+					if !AccessProfileItem.Namespace.IsNull() && !AccessProfileItem.Namespace.IsUnknown() {
+						AccessProfileItemMap["namespace"] = AccessProfileItem.Namespace.ValueString()
+					}
+					AccessProfileList = append(AccessProfileList, AccessProfileItemMap)
+				}
+				VirtualServerMap["access_profile"] = AccessProfileList
+			}
+		}
 		if data.VirtualServer.AddressTranslation != nil {
 			VirtualServerAddressTranslationMap := make(map[string]interface{})
 			if !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsNull() && !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsUnknown() {
@@ -5025,6 +5099,58 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
+			AccessProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.AccessProfile.IsNull() || len(data.VirtualServer.AccessProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes})
+				}
+				var AccessProfileExisting []ApplicationProfilesVirtualServerAccessProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.AccessProfile.IsNull() && !data.VirtualServer.AccessProfile.IsUnknown() {
+					data.VirtualServer.AccessProfile.ElementsAs(ctx, &AccessProfileExisting, false)
+				}
+				if rawList, ok := blockData["access_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var AccessProfileResult []ApplicationProfilesVirtualServerAccessProfileModel
+					for AccessProfileIdx, AccessProfileItem := range rawList {
+						_ = AccessProfileIdx
+						if AccessProfileItemMap, ok := AccessProfileItem.(map[string]interface{}); ok {
+							AccessProfileResult = append(AccessProfileResult, ApplicationProfilesVirtualServerAccessProfileModel{
+								Kind: func() types.String {
+									if v, ok := AccessProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := AccessProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := AccessProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := AccessProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := AccessProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes}, AccessProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes})
+			}(),
 			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
 					return data.VirtualServer.AddressTranslation
@@ -8345,6 +8471,58 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
+			AccessProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.AccessProfile.IsNull() || len(data.VirtualServer.AccessProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes})
+				}
+				var AccessProfileExisting []ApplicationProfilesVirtualServerAccessProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.AccessProfile.IsNull() && !data.VirtualServer.AccessProfile.IsUnknown() {
+					data.VirtualServer.AccessProfile.ElementsAs(ctx, &AccessProfileExisting, false)
+				}
+				if rawList, ok := blockData["access_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var AccessProfileResult []ApplicationProfilesVirtualServerAccessProfileModel
+					for AccessProfileIdx, AccessProfileItem := range rawList {
+						_ = AccessProfileIdx
+						if AccessProfileItemMap, ok := AccessProfileItem.(map[string]interface{}); ok {
+							AccessProfileResult = append(AccessProfileResult, ApplicationProfilesVirtualServerAccessProfileModel{
+								Kind: func() types.String {
+									if v, ok := AccessProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := AccessProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := AccessProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := AccessProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := AccessProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes}, AccessProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes})
+			}(),
 			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
 					return data.VirtualServer.AddressTranslation
@@ -11570,6 +11748,25 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	}
 	if data.VirtualServer != nil {
 		VirtualServerMap := make(map[string]interface{})
+		if !data.VirtualServer.AccessProfile.IsNull() && !data.VirtualServer.AccessProfile.IsUnknown() {
+			var AccessProfileElems []ApplicationProfilesVirtualServerAccessProfileModel
+			diags := data.VirtualServer.AccessProfile.ElementsAs(ctx, &AccessProfileElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(AccessProfileElems) > 0 {
+				var AccessProfileList []map[string]interface{}
+				for _, AccessProfileItem := range AccessProfileElems {
+					AccessProfileItemMap := make(map[string]interface{})
+					if !AccessProfileItem.Name.IsNull() && !AccessProfileItem.Name.IsUnknown() {
+						AccessProfileItemMap["name"] = AccessProfileItem.Name.ValueString()
+					}
+					if !AccessProfileItem.Namespace.IsNull() && !AccessProfileItem.Namespace.IsUnknown() {
+						AccessProfileItemMap["namespace"] = AccessProfileItem.Namespace.ValueString()
+					}
+					AccessProfileList = append(AccessProfileList, AccessProfileItemMap)
+				}
+				VirtualServerMap["access_profile"] = AccessProfileList
+			}
+		}
 		if data.VirtualServer.AddressTranslation != nil {
 			VirtualServerAddressTranslationMap := make(map[string]interface{})
 			if !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsNull() && !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsUnknown() {
@@ -12862,6 +13059,58 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
+			AccessProfile: func() types.List {
+				if !isImport && data.VirtualServer != nil && (data.VirtualServer.AccessProfile.IsNull() || len(data.VirtualServer.AccessProfile.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes})
+				}
+				var AccessProfileExisting []ApplicationProfilesVirtualServerAccessProfileModel
+				if !isImport && data.VirtualServer != nil && !data.VirtualServer.AccessProfile.IsNull() && !data.VirtualServer.AccessProfile.IsUnknown() {
+					data.VirtualServer.AccessProfile.ElementsAs(ctx, &AccessProfileExisting, false)
+				}
+				if rawList, ok := blockData["access_profile"].([]interface{}); ok && len(rawList) > 0 {
+					var AccessProfileResult []ApplicationProfilesVirtualServerAccessProfileModel
+					for AccessProfileIdx, AccessProfileItem := range rawList {
+						_ = AccessProfileIdx
+						if AccessProfileItemMap, ok := AccessProfileItem.(map[string]interface{}); ok {
+							AccessProfileResult = append(AccessProfileResult, ApplicationProfilesVirtualServerAccessProfileModel{
+								Kind: func() types.String {
+									if v, ok := AccessProfileItemMap["kind"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Name: func() types.String {
+									if v, ok := AccessProfileItemMap["name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Namespace: func() types.String {
+									if v, ok := AccessProfileItemMap["namespace"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Tenant: func() types.String {
+									if v, ok := AccessProfileItemMap["tenant"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								Uid: func() types.String {
+									if v, ok := AccessProfileItemMap["uid"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes}, AccessProfileResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerAccessProfileModelAttrTypes})
+			}(),
 			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
 				if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
 					return data.VirtualServer.AddressTranslation

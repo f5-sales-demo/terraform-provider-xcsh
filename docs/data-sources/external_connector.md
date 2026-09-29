@@ -220,9 +220,23 @@ A [`responder`](#ipsec-ike-parameters-responder) block (within [`ipsec.ike_param
 
 A [`rm_ip_address`](#ipsec-ike-parameters-rm-ip-address) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
 
+<a id="nestedatt--ipsec-dual-stack"></a>&#x2022; [`dual_stack`](#nestedatt--ipsec-dual-stack) - Optional String<br>DualStackAddressType represents both IPv4 and IPv6 together
+
 <a id="nestedatt--ipsec-ipv4"></a>&#x2022; [`ipv4`](#nestedatt--ipsec-ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
 
 <a id="nestedatt--ipsec-ipv6"></a>&#x2022; [`ipv6`](#nestedatt--ipsec-ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+#### Ipsec IKE Parameters Rm IP Address Dual Stack
+
+<a id="deep-1ee474"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Ipsec IKE Parameters Rm IP Address Dual Stack IPv4
+
+<a id="deep-cbcd18"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ipsec IKE Parameters Rm IP Address Dual Stack IPv6
+
+<a id="deep-0a40e7"></a>Deeply nested **IPv6** block collapsed for readability.
 
 #### Ipsec IKE Parameters Rm IP Address IPv4
 

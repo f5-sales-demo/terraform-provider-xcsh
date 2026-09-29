@@ -720,7 +720,7 @@ func isEmptyBlockField(name string) bool {
 		"user_identification":             true,
 		"app_firewall":                    true, // reference block with name/namespace
 		"bot_defense":                     true,
-		"bot_defense_advanced":            true,
+		"bot_defense_advanced_protection": true,
 		"headers":                         true, // map
 		"request_headers_to_remove":       true, // list
 	}

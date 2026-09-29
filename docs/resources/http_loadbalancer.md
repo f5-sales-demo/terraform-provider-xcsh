@@ -532,8 +532,10 @@ spec:
 
 -> **One of the following:**
 &#x2022; <a id="advertise-custom"></a>[`advertise_custom`](#advertise-custom) - Optional Block<br>Defines a way to advertise a VIP on specific sites<br>See [Advertise Custom](#advertise-custom) below for details.
+<br><br>&#x2022; <a id="advertise-dualstack-on-public"></a>[`advertise_dualstack_on_public`](#advertise-dualstack-on-public) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise Dualstack On Public](#advertise-dualstack-on-public) below for details.
 <br><br>&#x2022; <a id="advertise-on-public"></a>[`advertise_on_public`](#advertise-on-public) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On Public](#advertise-on-public) below for details.
 <br><br>&#x2022; <a id="advertise-on-public-default-vip"></a>[`advertise_on_public_default_vip`](#advertise-on-public-default-vip) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="advertise-v6-on-public"></a>[`advertise_v6_on_public`](#advertise-v6-on-public) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise V6 On Public](#advertise-v6-on-public) below for details.
 
 <a id="api-protection-rules"></a>&#x2022; [`api_protection_rules`](#api-protection-rules) - Optional Block<br>API Protection Rules. API Protection Rules<br>See [API Protection Rules](#api-protection-rules) below for details.
 
@@ -554,7 +556,7 @@ spec:
 
 -> **One of the following:**
 &#x2022; <a id="bot-defense"></a>[`bot_defense`](#bot-defense) - Optional Block<br>Defines various configuration OPTIONS for Bot Defense Policy
-<br><br>&#x2022; <a id="bot-defense-advanced"></a>[`bot_defense_advanced`](#bot-defense-advanced) - Optional Block<br>Configuration parameter for bot defense advanced
+<br><br>&#x2022; <a id="bot-defense-advanced-protection"></a>[`bot_defense_advanced_protection`](#bot-defense-advanced-protection) - Optional Block<br>Bot Defense Advanced Protection - replaces BotDefenseAdvancedType
 
 -> **One of the following:**
 &#x2022; <a id="caching-policy"></a>[`caching_policy`](#caching-policy) - Optional Block<br>Policy configuration for this feature
@@ -733,7 +735,11 @@ An [`advertise_custom`](#advertise-custom) block supports the following:
 
 An [`advertise_where`](#advertise-custom-advertise-where) block (within [`advertise_custom`](#advertise-custom)) supports the following:
 
+<a id="public-0dcbcc"></a>&#x2022; [`advertise_dualstack_on_public`](#public-0dcbcc) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise Dualstack On Public](#public-0dcbcc) below.
+
 <a id="public-618a99"></a>&#x2022; [`advertise_on_public`](#public-618a99) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On Public](#public-618a99) below.
+
+<a id="public-f74e53"></a>&#x2022; [`advertise_v6_on_public`](#public-f74e53) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise V6 On Public](#public-f74e53) below.
 
 <a id="advertise-custom-advertise-where-port"></a>&#x2022; [`port`](#advertise-custom-advertise-where-port) - Optional Number<br>Port to Listen
 
@@ -751,6 +757,14 @@ An [`advertise_where`](#advertise-custom-advertise-where) block (within [`advert
 
 <a id="service-1fdc7a"></a>&#x2022; [`vk8s_service`](#service-1fdc7a) - Optional Block<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network<br>See [Vk8s Service](#service-1fdc7a) below.
 
+#### Advertise Custom Advertise Where Advertise Dualstack On Public
+
+<a id="deep-e27ec5"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Advertise Custom Advertise Where Advertise Dualstack On Public Public IP
+
+<a id="deep-a5ced3"></a>Deeply nested **IP** block collapsed for readability.
+
 #### Advertise Custom Advertise Where Advertise On Public
 
 An [`advertise_on_public`](#public-618a99) block (within [`advertise_custom.advertise_where`](#advertise-custom-advertise-where)) supports the following:
@@ -760,6 +774,14 @@ An [`advertise_on_public`](#public-618a99) block (within [`advertise_custom.adve
 #### Advertise Custom Advertise Where Advertise On Public Public IP
 
 <a id="deep-032ffb"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Advertise Custom Advertise Where Advertise V6 On Public
+
+<a id="deep-97128b"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Advertise Custom Advertise Where Advertise V6 On Public Public IP
+
+<a id="deep-7c6cff"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Advertise Custom Advertise Where Site
 
@@ -855,6 +877,22 @@ A [`site`](#site-ec8d32) block (within [`advertise_custom.advertise_where.vk8s_s
 
 <a id="deep-e5d00e"></a>Deeply nested **Site** block collapsed for readability.
 
+#### Advertise Dualstack On Public
+
+An [`advertise_dualstack_on_public`](#advertise-dualstack-on-public) block supports the following:
+
+<a id="advertise-dualstack-on-public-public-ip"></a>&#x2022; [`public_ip`](#advertise-dualstack-on-public-public-ip) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Public IP](#advertise-dualstack-on-public-public-ip) below.
+
+#### Advertise Dualstack On Public Public IP
+
+A [`public_ip`](#advertise-dualstack-on-public-public-ip) block (within [`advertise_dualstack_on_public`](#advertise-dualstack-on-public)) supports the following:
+
+<a id="name-86c0c9"></a>&#x2022; [`name`](#name-86c0c9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-de983d"></a>&#x2022; [`namespace`](#namespace-de983d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant-36dd87"></a>&#x2022; [`tenant`](#tenant-36dd87) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
 #### Advertise On Public
 
 An [`advertise_on_public`](#advertise-on-public) block supports the following:
@@ -874,6 +912,22 @@ A [`public_ip`](#advertise-on-public-public-ip) block (within [`advertise_on_pub
 #### Advertise On Public Default VIP
 
 An [`advertise_on_public_default_vip`](#advertise-on-public-default-vip) block supports the following:
+
+#### Advertise V6 On Public
+
+An [`advertise_v6_on_public`](#advertise-v6-on-public) block supports the following:
+
+<a id="advertise-v6-on-public-public-ip"></a>&#x2022; [`public_ip`](#advertise-v6-on-public-public-ip) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Public IP](#advertise-v6-on-public-public-ip) below.
+
+#### Advertise V6 On Public Public IP
+
+A [`public_ip`](#advertise-v6-on-public-public-ip) block (within [`advertise_v6_on_public`](#advertise-v6-on-public)) supports the following:
+
+<a id="advertise-v6-on-public-public-ip-name"></a>&#x2022; [`name`](#advertise-v6-on-public-public-ip-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-bde87d"></a>&#x2022; [`namespace`](#namespace-bde87d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="advertise-v6-on-public-public-ip-tenant"></a>&#x2022; [`tenant`](#advertise-v6-on-public-public-ip-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### API Protection Rules
 
@@ -2726,168 +2780,247 @@ A [`web`](#web-a33d3d) block (within [`bot_defense.policy.protected_app_endpoint
 
 <a id="deep-ee5137"></a>Deeply nested **Mobile** block collapsed for readability.
 
-#### Bot Defense Advanced
+#### Bot Defense Advanced Protection
 
-A [`bot_defense_advanced`](#bot-defense-advanced) block supports the following:
+A [`bot_defense_advanced_protection`](#bot-defense-advanced-protection) block supports the following:
 
-<a id="bot-defense-advanced-disable-js-insert"></a>&#x2022; [`disable_js_insert`](#bot-defense-advanced-disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
+<a id="mobile-1a7acd"></a>&#x2022; [`both_web_and_mobile`](#mobile-1a7acd) - Optional Block<br>Both Web & Mobile. Both Web and Mobile configuration<br>See [Both Web And Mobile](#mobile-1a7acd) below.
 
-<a id="bot-defense-advanced-disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#bot-defense-advanced-disable-mobile-sdk) - Optional Object<br>Enable this option
+<a id="only-89f35a"></a>&#x2022; [`mobile_only`](#only-89f35a) - Optional Block<br>Mobile. Mobile only configuration<br>See [Mobile Only](#only-89f35a) below.
 
-<a id="pages-27f3ea"></a>&#x2022; [`js_insert_all_pages`](#pages-27f3ea) - Optional Block<br>Insert Bot Defense JavaScript in all pages<br>See [Js Insert All Pages](#pages-27f3ea) below.
+<a id="only-065c37"></a>&#x2022; [`web_only`](#only-065c37) - Optional Block<br>Web. Web only configuration<br>See [Web Only](#only-065c37) below.
 
-<a id="except-cd2acd"></a>&#x2022; [`js_insert_all_pages_except`](#except-cd2acd) - Optional Block<br>Insert Bot Defense JavaScript in all pages with the exceptions<br>See [Js Insert All Pages Except](#except-cd2acd) below.
+#### Bot Defense Advanced Protection Both Web And Mobile
 
-<a id="bot-defense-advanced-js-insertion-rules"></a>&#x2022; [`js_insertion_rules`](#bot-defense-advanced-js-insertion-rules) - Optional Block<br>Defines custom JavaScript insertion rules for Bot Defense Policy<br>See [Js Insertion Rules](#bot-defense-advanced-js-insertion-rules) below.
+<a id="deep-0c3af9"></a>Deeply nested **Mobile** block collapsed for readability.
 
-<a id="bot-defense-advanced-mobile"></a>&#x2022; [`mobile`](#bot-defense-advanced-mobile) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Mobile](#bot-defense-advanced-mobile) below.
+#### Bot Defense Advanced Protection Both Web And Mobile Disable Js Insert
 
-<a id="bot-defense-advanced-mobile-sdk-config"></a>&#x2022; [`mobile_sdk_config`](#bot-defense-advanced-mobile-sdk-config) - Optional Block<br>Mobile Request Identifier Headers. Mobile Request Identifier Headers<br>See [Mobile SDK Config](#bot-defense-advanced-mobile-sdk-config) below.
+<a id="deep-dcf65e"></a>Deeply nested **Insert** block collapsed for readability.
 
-<a id="bot-defense-advanced-web"></a>&#x2022; [`web`](#bot-defense-advanced-web) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Web](#bot-defense-advanced-web) below.
+#### Bot Defense Advanced Protection Both Web And Mobile Disable Mobile SDK
 
-#### Bot Defense Advanced Disable Js Insert
+<a id="deep-0f95ed"></a>Deeply nested **SDK** block collapsed for readability.
 
-A [`disable_js_insert`](#bot-defense-advanced-disable-js-insert) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insert All Pages
 
-#### Bot Defense Advanced Disable Mobile SDK
+<a id="deep-b14abe"></a>Deeply nested **Pages** block collapsed for readability.
 
-A [`disable_mobile_sdk`](#bot-defense-advanced-disable-mobile-sdk) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insert All Pages Except
 
-#### Bot Defense Advanced Js Insert All Pages
+<a id="deep-1fb52f"></a>Deeply nested **Except** block collapsed for readability.
 
-A [`js_insert_all_pages`](#pages-27f3ea) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insert All Pages Except Exclude List
 
-<a id="location-f54ccc"></a>&#x2022; [`javascript_location`](#location-f54ccc) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="deep-4acd4c"></a>Deeply nested **List** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insert All Pages Except
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insert All Pages Except Exclude List Any Domain
 
-<a id="deep-5cdaa3"></a>Deeply nested **Except** block collapsed for readability.
+<a id="deep-9b1076"></a>Deeply nested **Domain** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insert All Pages Except Exclude List
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insert All Pages Except Exclude List Domain
 
-<a id="deep-19163b"></a>Deeply nested **List** block collapsed for readability.
+<a id="deep-3297dd"></a>Deeply nested **Domain** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insert All Pages Except Exclude List Any Domain
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insert All Pages Except Exclude List Metadata
 
-<a id="deep-5e67e1"></a>Deeply nested **Domain** block collapsed for readability.
+<a id="deep-d0f4e5"></a>Deeply nested **Metadata** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insert All Pages Except Exclude List Domain
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insert All Pages Except Exclude List Path
 
-<a id="deep-10a658"></a>Deeply nested **Domain** block collapsed for readability.
+<a id="deep-19e727"></a>Deeply nested **Path** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insert All Pages Except Exclude List Metadata
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules
 
-<a id="deep-b603fd"></a>Deeply nested **Metadata** block collapsed for readability.
+<a id="deep-5360b8"></a>Deeply nested **Rules** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insert All Pages Except Exclude List Path
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Exclude List
 
-<a id="deep-f29bea"></a>Deeply nested **Path** block collapsed for readability.
+<a id="deep-5efb46"></a>Deeply nested **List** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insertion Rules
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Exclude List Any Domain
 
-A [`js_insertion_rules`](#bot-defense-advanced-js-insertion-rules) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
+<a id="deep-9798ec"></a>Deeply nested **Domain** block collapsed for readability.
 
-<a id="list-efb443"></a>&#x2022; [`exclude_list`](#list-efb443) - Optional Block<br>Optional JavaScript insertions exclude list of domain and path matchers<br>See [Exclude List](#list-efb443) below.
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Exclude List Domain
 
-<a id="rules-24e5a0"></a>&#x2022; [`rules`](#rules-24e5a0) - Optional Block<br>Required list of pages to insert Bot Defense client JavaScript<br>See [Rules](#rules-24e5a0) below.
+<a id="deep-01dfd3"></a>Deeply nested **Domain** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insertion Rules Exclude List
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Exclude List Metadata
 
-<a id="deep-658a1f"></a>Deeply nested **List** block collapsed for readability.
+<a id="deep-63a3b8"></a>Deeply nested **Metadata** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insertion Rules Exclude List Any Domain
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Exclude List Path
 
-<a id="deep-126538"></a>Deeply nested **Domain** block collapsed for readability.
+<a id="deep-d96b2e"></a>Deeply nested **Path** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insertion Rules Exclude List Domain
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Rules
 
-<a id="deep-af9c74"></a>Deeply nested **Domain** block collapsed for readability.
+<a id="deep-5e8657"></a>Deeply nested **Rules** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insertion Rules Exclude List Metadata
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Rules Any Domain
 
-<a id="deep-29f8b7"></a>Deeply nested **Metadata** block collapsed for readability.
+<a id="deep-bb2dbb"></a>Deeply nested **Domain** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insertion Rules Exclude List Path
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Rules Domain
 
-<a id="deep-b98dbe"></a>Deeply nested **Path** block collapsed for readability.
+<a id="deep-5788a7"></a>Deeply nested **Domain** block collapsed for readability.
 
-#### Bot Defense Advanced Js Insertion Rules Rules
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Rules Metadata
 
-A [`rules`](#rules-24e5a0) block (within [`bot_defense_advanced.js_insertion_rules`](#bot-defense-advanced-js-insertion-rules)) supports the following:
+<a id="deep-4e57d8"></a>Deeply nested **Metadata** block collapsed for readability.
 
-<a id="domain-bd13eb"></a>&#x2022; [`any_domain`](#domain-bd13eb) - Optional Object<br>Enable this option
+#### Bot Defense Advanced Protection Both Web And Mobile Js Insertion Rules Rules Path
 
-<a id="domain-ff2f2e"></a>&#x2022; [`domain`](#domain-ff2f2e) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-ff2f2e) below.
+<a id="deep-3a72de"></a>Deeply nested **Path** block collapsed for readability.
 
-<a id="location-20f540"></a>&#x2022; [`javascript_location`](#location-20f540) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+#### Bot Defense Advanced Protection Both Web And Mobile Mobile
 
-<a id="metadata-43c6ee"></a>&#x2022; [`metadata`](#metadata-43c6ee) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
-[Metadata](#metadata-43c6ee) below.
+<a id="deep-5e1502"></a>Deeply nested **Mobile** block collapsed for readability.
 
-<a id="path-a4408d"></a>&#x2022; [`path`](#path-a4408d) - Optional Block<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match<br>See [Path](#path-a4408d) below.
+#### Bot Defense Advanced Protection Both Web And Mobile Mobile SDK Config
 
-#### Bot Defense Advanced Js Insertion Rules Rules Any Domain
+<a id="deep-a383a8"></a>Deeply nested **Config** block collapsed for readability.
 
-<a id="deep-7685de"></a>Deeply nested **Domain** block collapsed for readability.
+#### Bot Defense Advanced Protection Both Web And Mobile Mobile SDK Config Mobile Identifier
 
-#### Bot Defense Advanced Js Insertion Rules Rules Domain
+<a id="deep-fb0179"></a>Deeply nested **Identifier** block collapsed for readability.
 
-<a id="deep-879809"></a>Deeply nested **Domain** block collapsed for readability.
+#### Bot Defense Advanced Protection Both Web And Mobile Mobile SDK Config Mobile Identifier Headers
 
-#### Bot Defense Advanced Js Insertion Rules Rules Metadata
+<a id="deep-ff8e50"></a>Deeply nested **Headers** block collapsed for readability.
 
-<a id="deep-b2bae1"></a>Deeply nested **Metadata** block collapsed for readability.
+#### Bot Defense Advanced Protection Both Web And Mobile Mobile SDK Config Mobile Identifier Headers Check Not Present
 
-#### Bot Defense Advanced Js Insertion Rules Rules Path
+<a id="deep-6c4c94"></a>Deeply nested **Present** block collapsed for readability.
 
-<a id="deep-f7389d"></a>Deeply nested **Path** block collapsed for readability.
+#### Bot Defense Advanced Protection Both Web And Mobile Mobile SDK Config Mobile Identifier Headers Check Present
 
-#### Bot Defense Advanced Mobile
+<a id="deep-e56ed6"></a>Deeply nested **Present** block collapsed for readability.
 
-A [`mobile`](#bot-defense-advanced-mobile) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
+#### Bot Defense Advanced Protection Both Web And Mobile Mobile SDK Config Mobile Identifier Headers Item
 
-<a id="bot-defense-advanced-mobile-name"></a>&#x2022; [`name`](#bot-defense-advanced-mobile-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+<a id="deep-e9b7d5"></a>Deeply nested **Item** block collapsed for readability.
 
-<a id="bot-defense-advanced-mobile-namespace"></a>&#x2022; [`namespace`](#bot-defense-advanced-mobile-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+#### Bot Defense Advanced Protection Both Web And Mobile Web
 
-<a id="bot-defense-advanced-mobile-tenant"></a>&#x2022; [`tenant`](#bot-defense-advanced-mobile-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+<a id="deep-b69bbe"></a>Deeply nested **Web** block collapsed for readability.
 
-#### Bot Defense Advanced Mobile SDK Config
+#### Bot Defense Advanced Protection Mobile Only
 
-A [`mobile_sdk_config`](#bot-defense-advanced-mobile-sdk-config) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
+A [`mobile_only`](#only-89f35a) block (within [`bot_defense_advanced_protection`](#bot-defense-advanced-protection)) supports the following:
 
-<a id="identifier-163438"></a>&#x2022; [`mobile_identifier`](#identifier-163438) - Optional Block<br>Mobile Traffic Identifier. Mobile traffic identifier type<br>See [Mobile Identifier](#identifier-163438) below.
+<a id="mobile-31bf2b"></a>&#x2022; [`mobile`](#mobile-31bf2b) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Mobile](#mobile-31bf2b) below.
 
-#### Bot Defense Advanced Mobile SDK Config Mobile Identifier
+#### Bot Defense Advanced Protection Mobile Only Mobile
 
-<a id="deep-7534d7"></a>Deeply nested **Identifier** block collapsed for readability.
+A [`mobile`](#mobile-31bf2b) block (within [`bot_defense_advanced_protection.mobile_only`](#only-89f35a)) supports the following:
 
-#### Bot Defense Advanced Mobile SDK Config Mobile Identifier Headers
+<a id="name-cb2902"></a>&#x2022; [`name`](#name-cb2902) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
-<a id="deep-ebb057"></a>Deeply nested **Headers** block collapsed for readability.
+<a id="namespace-3a322d"></a>&#x2022; [`namespace`](#namespace-3a322d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
-#### Bot Defense Advanced Mobile SDK Config Mobile Identifier Headers Check Not Present
+<a id="tenant-3aa3a9"></a>&#x2022; [`tenant`](#tenant-3aa3a9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
-<a id="deep-8944f2"></a>Deeply nested **Present** block collapsed for readability.
+#### Bot Defense Advanced Protection Web Only
 
-#### Bot Defense Advanced Mobile SDK Config Mobile Identifier Headers Check Present
+A [`web_only`](#only-065c37) block (within [`bot_defense_advanced_protection`](#bot-defense-advanced-protection)) supports the following:
 
-<a id="deep-4761b3"></a>Deeply nested **Present** block collapsed for readability.
+<a id="insert-a77f48"></a>&#x2022; [`disable_js_insert`](#insert-a77f48) - Optional Object<br>Configuration parameter for disable js insert
 
-#### Bot Defense Advanced Mobile SDK Config Mobile Identifier Headers Item
+<a id="pages-df3522"></a>&#x2022; [`js_insert_all_pages`](#pages-df3522) - Optional Block<br>Insert Bot Defense JavaScript in all pages<br>See [Js Insert All Pages](#pages-df3522) below.
 
-<a id="deep-93f916"></a>Deeply nested **Item** block collapsed for readability.
+<a id="except-e355ec"></a>&#x2022; [`js_insert_all_pages_except`](#except-e355ec) - Optional Block<br>Insert Bot Defense JavaScript in all pages with the exceptions<br>See [Js Insert All Pages Except](#except-e355ec) below.
 
-#### Bot Defense Advanced Web
+<a id="rules-b3773a"></a>&#x2022; [`js_insertion_rules`](#rules-b3773a) - Optional Block<br>Defines custom JavaScript insertion rules for Bot Defense Policy<br>See [Js Insertion Rules](#rules-b3773a) below.
 
-A [`web`](#bot-defense-advanced-web) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
+<a id="web-c78747"></a>&#x2022; [`web`](#web-c78747) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Web](#web-c78747) below.
 
-<a id="bot-defense-advanced-web-name"></a>&#x2022; [`name`](#bot-defense-advanced-web-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+#### Bot Defense Advanced Protection Web Only Disable Js Insert
 
-<a id="bot-defense-advanced-web-namespace"></a>&#x2022; [`namespace`](#bot-defense-advanced-web-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+<a id="deep-f110f7"></a>Deeply nested **Insert** block collapsed for readability.
 
-<a id="bot-defense-advanced-web-tenant"></a>&#x2022; [`tenant`](#bot-defense-advanced-web-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+#### Bot Defense Advanced Protection Web Only Js Insert All Pages
+
+<a id="deep-9500e6"></a>Deeply nested **Pages** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insert All Pages Except
+
+<a id="deep-06ab09"></a>Deeply nested **Except** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insert All Pages Except Exclude List
+
+<a id="deep-5a30b2"></a>Deeply nested **List** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insert All Pages Except Exclude List Any Domain
+
+<a id="deep-5cfabb"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insert All Pages Except Exclude List Domain
+
+<a id="deep-be7749"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insert All Pages Except Exclude List Metadata
+
+<a id="deep-df1851"></a>Deeply nested **Metadata** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insert All Pages Except Exclude List Path
+
+<a id="deep-711cee"></a>Deeply nested **Path** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules
+
+<a id="deep-9ec9ec"></a>Deeply nested **Rules** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Exclude List
+
+<a id="deep-a24bbb"></a>Deeply nested **List** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Exclude List Any Domain
+
+<a id="deep-dd22e1"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Exclude List Domain
+
+<a id="deep-15ffcf"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Exclude List Metadata
+
+<a id="deep-72f766"></a>Deeply nested **Metadata** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Exclude List Path
+
+<a id="deep-6c6021"></a>Deeply nested **Path** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Rules
+
+<a id="deep-b60e2b"></a>Deeply nested **Rules** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Rules Any Domain
+
+<a id="deep-e889f1"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Rules Domain
+
+<a id="deep-7af39d"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Rules Metadata
+
+<a id="deep-043b82"></a>Deeply nested **Metadata** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Js Insertion Rules Rules Path
+
+<a id="deep-f83863"></a>Deeply nested **Path** block collapsed for readability.
+
+#### Bot Defense Advanced Protection Web Only Web
+
+A [`web`](#web-c78747) block (within [`bot_defense_advanced_protection.web_only`](#only-065c37)) supports the following:
+
+<a id="name-b3f856"></a>&#x2022; [`name`](#name-b3f856) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-61460d"></a>&#x2022; [`namespace`](#namespace-61460d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant-95eeee"></a>&#x2022; [`tenant`](#tenant-95eeee) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### Caching Policy
 

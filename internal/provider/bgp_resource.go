@@ -53,28 +53,32 @@ type BGPEmptyModel struct {
 
 // BGPPeersModel represents peers block
 type BGPPeersModel struct {
-	BfdDisabled         types.Object                  `tfsdk:"bfd_disabled"`
-	DisableSpec         types.Object                  `tfsdk:"disable_spec"`
-	Label               types.String                  `tfsdk:"label"`
-	PassiveModeDisabled types.Object                  `tfsdk:"passive_mode_disabled"`
-	PassiveModeEnabled  types.Object                  `tfsdk:"passive_mode_enabled"`
-	BfdEnabled          *BGPPeersBfdEnabledModel      `tfsdk:"bfd_enabled"`
-	External            *BGPPeersExternalModel        `tfsdk:"external"`
-	Metadata            *BGPPeersMetadataModel        `tfsdk:"metadata"`
-	RoutingPolicies     *BGPPeersRoutingPoliciesModel `tfsdk:"routing_policies"`
+	BfdDisabled          types.Object                  `tfsdk:"bfd_disabled"`
+	DisableSpec          types.Object                  `tfsdk:"disable_spec"`
+	EbgpMultihopDisabled types.Object                  `tfsdk:"ebgp_multihop_disabled"`
+	EbgpMultihopEnabled  types.Object                  `tfsdk:"ebgp_multihop_enabled"`
+	Label                types.String                  `tfsdk:"label"`
+	PassiveModeDisabled  types.Object                  `tfsdk:"passive_mode_disabled"`
+	PassiveModeEnabled   types.Object                  `tfsdk:"passive_mode_enabled"`
+	BfdEnabled           *BGPPeersBfdEnabledModel      `tfsdk:"bfd_enabled"`
+	External             *BGPPeersExternalModel        `tfsdk:"external"`
+	Metadata             *BGPPeersMetadataModel        `tfsdk:"metadata"`
+	RoutingPolicies      *BGPPeersRoutingPoliciesModel `tfsdk:"routing_policies"`
 }
 
 // BGPPeersModelAttrTypes defines the attribute types for BGPPeersModel
 var BGPPeersModelAttrTypes = map[string]attr.Type{
-	"bfd_disabled":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"disable_spec":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"label":                 types.StringType,
-	"passive_mode_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"passive_mode_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"bfd_enabled":           types.ObjectType{AttrTypes: BGPPeersBfdEnabledModelAttrTypes},
-	"external":              types.ObjectType{AttrTypes: BGPPeersExternalModelAttrTypes},
-	"metadata":              types.ObjectType{AttrTypes: BGPPeersMetadataModelAttrTypes},
-	"routing_policies":      types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesModelAttrTypes},
+	"bfd_disabled":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_spec":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ebgp_multihop_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ebgp_multihop_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"label":                  types.StringType,
+	"passive_mode_disabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"passive_mode_enabled":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"bfd_enabled":            types.ObjectType{AttrTypes: BGPPeersBfdEnabledModelAttrTypes},
+	"external":               types.ObjectType{AttrTypes: BGPPeersExternalModelAttrTypes},
+	"metadata":               types.ObjectType{AttrTypes: BGPPeersMetadataModelAttrTypes},
+	"routing_policies":       types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesModelAttrTypes},
 }
 
 // BGPPeersBfdEnabledModel represents bfd_enabled block
@@ -462,7 +466,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			}),
 			"peers": schema.ListNestedBlock{
 				MarkdownDescription: "Peers. List of peers.",
-				Validators:          []validator.List{validators.ConflictingListObjectAttributes("bfd_disabled", "bfd_enabled"), validators.ConflictingListObjectAttributes("disable_spec", "routing_policies"), validators.ConflictingListObjectAttributes("passive_mode_disabled", "passive_mode_enabled")},
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("bfd_disabled", "bfd_enabled"), validators.ConflictingListObjectAttributes("disable_spec", "routing_policies"), validators.ConflictingListObjectAttributes("ebgp_multihop_disabled", "ebgp_multihop_enabled"), validators.ConflictingListObjectAttributes("passive_mode_disabled", "passive_mode_enabled")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -472,6 +476,16 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 							AttributeTypes:      map[string]attr.Type{},
 						},
 						"disable_spec": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ebgp_multihop_disabled": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ebgp_multihop_enabled": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
 							Optional:            true,
 							AttributeTypes:      map[string]attr.Type{},
@@ -1155,6 +1169,12 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 				if !PeersItem.DisableSpec.IsNull() && !PeersItem.DisableSpec.IsUnknown() {
 					PeersItemMap["disable"] = map[string]interface{}{}
 				}
+				if !PeersItem.EbgpMultihopDisabled.IsNull() && !PeersItem.EbgpMultihopDisabled.IsUnknown() {
+					PeersItemMap["ebgp_multihop_disabled"] = map[string]interface{}{}
+				}
+				if !PeersItem.EbgpMultihopEnabled.IsNull() && !PeersItem.EbgpMultihopEnabled.IsUnknown() {
+					PeersItemMap["ebgp_multihop_enabled"] = map[string]interface{}{}
+				}
 				if PeersItem.External != nil {
 					PeersExternalMap := make(map[string]interface{})
 					if !PeersItem.External.Address.IsNull() && !PeersItem.External.Address.IsUnknown() {
@@ -1550,6 +1570,24 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 							return existingPeersItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					EbgpMultihopDisabled: func() types.Object {
+						if !isImport && len(existingPeersItems) > listIdx && !existingPeersItems[listIdx].EbgpMultihopDisabled.IsUnknown() {
+							return existingPeersItems[listIdx].EbgpMultihopDisabled
+						}
+						if _, ok := itemMap["ebgp_multihop_disabled"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					EbgpMultihopEnabled: func() types.Object {
+						if !isImport && len(existingPeersItems) > listIdx && !existingPeersItems[listIdx].EbgpMultihopEnabled.IsUnknown() {
+							return existingPeersItems[listIdx].EbgpMultihopEnabled
+						}
+						if _, ok := itemMap["ebgp_multihop_enabled"].(map[string]interface{}); ok {
 							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
 						return types.ObjectNull(map[string]attr.Type{})
@@ -2450,6 +2488,24 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 						}
 						return types.ObjectNull(map[string]attr.Type{})
 					}(),
+					EbgpMultihopDisabled: func() types.Object {
+						if !isImport && len(existingPeersItems) > listIdx && !existingPeersItems[listIdx].EbgpMultihopDisabled.IsUnknown() {
+							return existingPeersItems[listIdx].EbgpMultihopDisabled
+						}
+						if _, ok := itemMap["ebgp_multihop_disabled"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					EbgpMultihopEnabled: func() types.Object {
+						if !isImport && len(existingPeersItems) > listIdx && !existingPeersItems[listIdx].EbgpMultihopEnabled.IsUnknown() {
+							return existingPeersItems[listIdx].EbgpMultihopEnabled
+						}
+						if _, ok := itemMap["ebgp_multihop_enabled"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
 					External: func() *BGPPeersExternalModel {
 						if ExternalData, ok := itemMap["external"].(map[string]interface{}); ok {
 							return &BGPPeersExternalModel{
@@ -3272,6 +3328,12 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 				if !PeersItem.DisableSpec.IsNull() && !PeersItem.DisableSpec.IsUnknown() {
 					PeersItemMap["disable"] = map[string]interface{}{}
 				}
+				if !PeersItem.EbgpMultihopDisabled.IsNull() && !PeersItem.EbgpMultihopDisabled.IsUnknown() {
+					PeersItemMap["ebgp_multihop_disabled"] = map[string]interface{}{}
+				}
+				if !PeersItem.EbgpMultihopEnabled.IsNull() && !PeersItem.EbgpMultihopEnabled.IsUnknown() {
+					PeersItemMap["ebgp_multihop_enabled"] = map[string]interface{}{}
+				}
 				if PeersItem.External != nil {
 					PeersExternalMap := make(map[string]interface{})
 					if !PeersItem.External.Address.IsNull() && !PeersItem.External.Address.IsUnknown() {
@@ -3687,6 +3749,24 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							return existingPeersItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					EbgpMultihopDisabled: func() types.Object {
+						if !isImport && len(existingPeersItems) > listIdx && !existingPeersItems[listIdx].EbgpMultihopDisabled.IsUnknown() {
+							return existingPeersItems[listIdx].EbgpMultihopDisabled
+						}
+						if _, ok := itemMap["ebgp_multihop_disabled"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					EbgpMultihopEnabled: func() types.Object {
+						if !isImport && len(existingPeersItems) > listIdx && !existingPeersItems[listIdx].EbgpMultihopEnabled.IsUnknown() {
+							return existingPeersItems[listIdx].EbgpMultihopEnabled
+						}
+						if _, ok := itemMap["ebgp_multihop_enabled"].(map[string]interface{}); ok {
 							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
 						return types.ObjectNull(map[string]attr.Type{})

@@ -60,7 +60,9 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
 
-<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>IP address. IP address for this object
+<a id="ip"></a>&#x2022; [`ip`](#ip) - Optional String<br>IPv4 address for this object. An empty string indicates no IPv4 address is configured
+
+<a id="ipv6"></a>&#x2022; [`ipv6`](#ipv6) - Optional String<br>IPv6 address for this object. An empty string indicates no IPv6 address is configured
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
 

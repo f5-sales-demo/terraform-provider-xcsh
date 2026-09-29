@@ -139,6 +139,8 @@ A [`timeouts`](#timeouts) block supports the following:
 
 A [`virtual_server`](#virtual-server) block supports the following:
 
+<a id="virtual-server-access-profile"></a>&#x2022; [`access_profile`](#virtual-server-access-profile) - Optional Block<br>Specifies an access policy that determines the authentication rules and access controls applied to user sessions for this virtual server<br>See [Access Profile](#virtual-server-access-profile) below.
+
 <a id="virtual-server-address-translation"></a>&#x2022; [`address_translation`](#virtual-server-address-translation) - Optional Block<br>Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that have the
 same IP address<br>See [Address Translation](#virtual-server-address-translation) below.
 
@@ -195,6 +197,20 @@ server to load balance<br>See [Port Translation](#virtual-server-port-translatio
 <a id="virtual-server-virtual-server-state"></a>&#x2022; [`virtual_server_state`](#virtual-server-virtual-server-state) - Optional Block<br>Displays the current state on the object<br>See [Virtual Server State](#virtual-server-virtual-server-state) below.
 
 <a id="virtual-server-vs-score"></a>&#x2022; [`vs_score`](#virtual-server-vs-score) - Optional Number<br>Specifies the virtual server score in percent. Global Traffic Manager (GTM) can rely on this value to load balance traffic in a proportional manner. The , meaning that no additional metric is applied for the virtual server
+
+#### Virtual Server Access Profile
+
+An [`access_profile`](#virtual-server-access-profile) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="virtual-server-access-profile-name"></a>&#x2022; [`name`](#virtual-server-access-profile-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="virtual-server-access-profile-namespace"></a>&#x2022; [`namespace`](#virtual-server-access-profile-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="virtual-server-access-profile-kind"></a>&#x2022; [`kind`](#virtual-server-access-profile-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="virtual-server-access-profile-tenant"></a>&#x2022; [`tenant`](#virtual-server-access-profile-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="virtual-server-access-profile-uid"></a>&#x2022; [`uid`](#virtual-server-access-profile-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Virtual Server Address Translation
 

@@ -236,18 +236,23 @@ jq -e '
 schema_resources="$temporary_root/schema-resources.txt"
 schema_data_sources="$temporary_root/schema-data-sources.txt"
 schema_actions="$temporary_root/schema-actions.txt"
+schema_ephemeral_resources="$temporary_root/schema-ephemeral-resources.txt"
 expected_resources="$temporary_root/expected-resources.txt"
 expected_data_sources="$temporary_root/expected-data-sources.txt"
 expected_actions="$temporary_root/expected-actions.txt"
+expected_ephemeral_resources="$temporary_root/expected-ephemeral-resources.txt"
 jq -r '.resources[] | "xcsh_" + .' provider-release-surface.json | LC_ALL=C sort >"$expected_resources"
 jq -r '.data_sources[] | "xcsh_" + .' provider-release-surface.json | LC_ALL=C sort >"$expected_data_sources"
 jq -r '.actions[] | "xcsh_" + .' provider-release-surface.json | LC_ALL=C sort >"$expected_actions"
+jq -r '.ephemeral_resources[] | "xcsh_" + .' provider-release-surface.json | LC_ALL=C sort >"$expected_ephemeral_resources"
 jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].resource_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_resources"
 jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].data_source_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_data_sources"
 jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].action_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_actions"
+jq -r '.provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"].ephemeral_resource_schemas | keys[]' "$schema_output" | LC_ALL=C sort >"$schema_ephemeral_resources"
 diff -u "$expected_resources" "$schema_resources" || fail "installed resource schema does not match the release surface"
 diff -u "$expected_data_sources" "$schema_data_sources" || fail "installed data-source schema does not match the release surface"
 diff -u "$expected_actions" "$schema_actions" || fail "installed action schema does not match the release surface"
+diff -u "$expected_ephemeral_resources" "$schema_ephemeral_resources" || fail "installed ephemeral-resource schema does not match the release surface"
 jq -e '
   .provider_schemas["registry.terraform.io/f5-sales-demo/xcsh"] as $provider |
   (($provider.functions // {}) | length) == 0

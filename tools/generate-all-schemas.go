@@ -38,6 +38,7 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/networkallowlist"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/operationsurface"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/registration"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/releasesurface"
 	resourcePkg "github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
@@ -188,9 +189,10 @@ func main() {
 			}
 			if r.Success {
 				generatedFiles[r.ResourceName] = registration.GeneratedFileSet{
-					Resource:   !r.IsReadOnly && !r.IsTerraformAction,
-					DataSource: !r.IsAction && !r.IsTerraformAction,
+					Resource:   !r.IsReadOnly && !r.IsTerraformAction && !r.IsEphemeral,
+					DataSource: !r.IsAction && !r.IsTerraformAction && !r.IsEphemeral,
 					Action:     r.IsTerraformAction,
+					Ephemeral:  r.IsEphemeral,
 					Client:     !r.IsResponseOperation,
 				}
 			}
@@ -267,6 +269,15 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("❌ Concurrency inventory version check failed: %v\n", err)
 		os.Exit(1)
 	}
+	if _, err := operationsurface.LoadAndApply(
+		"operation-surface.json",
+		filepath.Join(specDir, "upstream-contract-changes.json"),
+		expectedVersion,
+		operationCatalog,
+	); err != nil {
+		fmt.Printf("❌ Operation surface validation failed: %v\n", err)
+		os.Exit(1)
+	}
 	// Build global maps from index.json for metadata enrichment
 	resourceTierMap = openapi.BuildResourceTierMap(index)
 	resourceDependencyMap = openapi.BuildResourceDependencyMap(index)
@@ -304,6 +315,7 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	// Track processed resources to avoid duplicates across domain files
 	// Some resources (like service_policy) appear in multiple domain specs
 	processedResources := make(map[string]bool)
+	processedResponseOperations := make(map[string]string)
 	var smsv2Attributes []openapi.TerraformAttribute
 
 	// Build a map of domain metadata from index for quick lookup
@@ -373,6 +385,7 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 			if result.Success {
 				successCount++
 			} else if result.Error != "" {
+				fmt.Printf("   ❌ %s: %s\n", resource.Name, result.Error)
 				failCount++
 			}
 		}
@@ -383,6 +396,7 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		// does not produce. Guard names against the already-processed set.
 		actionSpec, aerr := parseOpenAPISpec(domainFile)
 		if aerr != nil {
+			fmt.Printf("   ❌ Parse response-operation spec: %v\n", aerr)
 			results = append(results, GenerationResult{ResourceName: domainName, Success: false, Error: aerr.Error()})
 			failCount++
 			continue
@@ -415,6 +429,7 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 			if result.Success {
 				successCount++
 			} else if result.Error != "" {
+				fmt.Printf("   ❌ %s: %s\n", act.ResourceName, result.Error)
 				failCount++
 			}
 		}
@@ -427,23 +442,35 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 			continue
 		}
 		for _, operation := range responseOperations {
-			if !releaseSurface.AllowsDataSource(operation.Name) && !releaseSurface.AllowsAction(operation.Name) && !releaseSurface.AllowsResource(operation.Name) {
+			if !releaseSurface.AllowsDataSource(operation.Name) && !releaseSurface.AllowsAction(operation.Name) &&
+				!releaseSurface.AllowsResource(operation.Name) && !releaseSurface.AllowsEphemeralResource(operation.Name) {
 				continue
 			}
 			if _, suppressed := suppressedImageOperations[operation.OperationID]; suppressed {
 				continue
 			}
+			if priorOperationID := processedResponseOperations[operation.Name]; priorOperationID != "" {
+				if priorOperationID == operation.OperationID {
+					continue
+				}
+				results = append(results, GenerationResult{ResourceName: operation.Name, Success: false, Error: "Terraform response-operation name maps to multiple operation IDs"})
+				failCount++
+				continue
+			}
 			if processedResources[operation.Name] {
+				fmt.Printf("   ❌ %s: Terraform response-operation name collides with another generated surface\n", operation.Name)
 				results = append(results, GenerationResult{ResourceName: operation.Name, Success: false, Error: "Terraform response-operation name collides with another generated surface"})
 				failCount++
 				continue
 			}
 			processedResources[operation.Name] = true
+			processedResponseOperations[operation.Name] = operation.OperationID
 			result := processV2ResponseOperation(actionSpec, operation)
 			results = append(results, result)
 			if result.Success {
 				successCount++
 			} else if result.Error != "" {
+				fmt.Printf("   ❌ %s: %s\n", operation.Name, result.Error)
 				failCount++
 			}
 		}
@@ -496,6 +523,8 @@ func processV2ResponseOperation(spec *openapi.Spec, operation openapi.ResolvedRe
 		result.IsAction = true // resource-only; no data-source companion
 	case "action":
 		result.IsTerraformAction = true
+	case "ephemeral":
+		result.IsEphemeral = true
 	default:
 		return GenerationResult{ResourceName: operation.Name, Success: false, Error: fmt.Sprintf("unsupported response-operation role %q", operation.Role)}
 	}

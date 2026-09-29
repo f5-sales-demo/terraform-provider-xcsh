@@ -587,11 +587,15 @@ A [`signature_selection_setting`](#setting-306450) block (within [`detection_set
 
 <a id="settings-067018"></a>&#x2022; [`default_attack_type_settings`](#settings-067018) - Optional Object<br>Configuration parameter for default attack type settings
 
+<a id="setting-78d713"></a>&#x2022; [`default_signature_setting`](#setting-78d713) - Optional Object<br>Configuration parameter for default signature setting
+
 <a id="signatures-38e545"></a>&#x2022; [`high_medium_accuracy_signatures`](#signatures-38e545) - Optional Object<br>Configuration parameter for high medium accuracy signatures
 
 <a id="signatures-b902f3"></a>&#x2022; [`high_medium_low_accuracy_signatures`](#signatures-b902f3) - Optional Object<br>Configuration parameter for high medium low accuracy signatures
 
 <a id="signatures-a0c47d"></a>&#x2022; [`only_high_accuracy_signatures`](#signatures-a0c47d) - Optional Object<br>Configuration parameter for only high accuracy signatures
+
+<a id="accuracy-2bf166"></a>&#x2022; [`signature_settings_by_accuracy`](#accuracy-2bf166) - Optional Block<br>Configuration of WAF Signature Protection<br>See [Signature Settings By Accuracy](#accuracy-2bf166) below.
 
 #### Detection Settings Signature Selection Setting Attack Type Settings
 
@@ -600,6 +604,10 @@ A [`signature_selection_setting`](#setting-306450) block (within [`detection_set
 #### Detection Settings Signature Selection Setting Default Attack Type Settings
 
 <a id="deep-21eef1"></a>Deeply nested **Settings** block collapsed for readability.
+
+#### Detection Settings Signature Selection Setting Default Signature Setting
+
+<a id="deep-8780a1"></a>Deeply nested **Setting** block collapsed for readability.
 
 #### Detection Settings Signature Selection Setting High Medium Accuracy Signatures
 
@@ -612,6 +620,10 @@ A [`signature_selection_setting`](#setting-306450) block (within [`detection_set
 #### Detection Settings Signature Selection Setting Only High Accuracy Signatures
 
 <a id="deep-d0101f"></a>Deeply nested **Signatures** block collapsed for readability.
+
+#### Detection Settings Signature Selection Setting Signature Settings By Accuracy
+
+<a id="deep-138f59"></a>Deeply nested **Accuracy** block collapsed for readability.
 
 #### Detection Settings Stage New And Updated Signatures
 

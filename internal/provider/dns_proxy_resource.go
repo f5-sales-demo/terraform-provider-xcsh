@@ -340,18 +340,26 @@ var DNSProxyProtocolInspectionModelAttrTypes = map[string]attr.Type{
 
 // DNSProxyProxyAdvertisementModel represents proxy_advertisement block
 type DNSProxyProxyAdvertisementModel struct {
-	AdvertiseOnPublicDefaultVIP types.Object                                      `tfsdk:"advertise_on_public_default_vip"`
-	DoNotAdvertise              types.Object                                      `tfsdk:"do_not_advertise"`
-	AdvertiseCustom             *DNSProxyProxyAdvertisementAdvertiseCustomModel   `tfsdk:"advertise_custom"`
-	AdvertiseOnPublic           *DNSProxyProxyAdvertisementAdvertiseOnPublicModel `tfsdk:"advertise_on_public"`
+	AdvertiseOnPublicDefaultDualstackVIP types.Object                                               `tfsdk:"advertise_on_public_default_dualstack_vip"`
+	AdvertiseOnPublicDefaultIpv6VIP      types.Object                                               `tfsdk:"advertise_on_public_default_ipv6_vip"`
+	AdvertiseOnPublicDefaultVIP          types.Object                                               `tfsdk:"advertise_on_public_default_vip"`
+	DoNotAdvertise                       types.Object                                               `tfsdk:"do_not_advertise"`
+	AdvertiseCustom                      *DNSProxyProxyAdvertisementAdvertiseCustomModel            `tfsdk:"advertise_custom"`
+	AdvertiseDualstackOnPublic           *DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel `tfsdk:"advertise_dualstack_on_public"`
+	AdvertiseOnPublic                    *DNSProxyProxyAdvertisementAdvertiseOnPublicModel          `tfsdk:"advertise_on_public"`
+	AdvertiseV6OnPublic                  *DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel        `tfsdk:"advertise_v6_on_public"`
 }
 
 // DNSProxyProxyAdvertisementModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementModel
 var DNSProxyProxyAdvertisementModelAttrTypes = map[string]attr.Type{
-	"advertise_on_public_default_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"do_not_advertise":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"advertise_custom":                types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomModelAttrTypes},
-	"advertise_on_public":             types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseOnPublicModelAttrTypes},
+	"advertise_on_public_default_dualstack_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advertise_on_public_default_ipv6_vip":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advertise_on_public_default_vip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"do_not_advertise":                          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advertise_custom":                          types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomModelAttrTypes},
+	"advertise_dualstack_on_public":             types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModelAttrTypes},
+	"advertise_on_public":                       types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseOnPublicModelAttrTypes},
+	"advertise_v6_on_public":                    types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseV6OnPublicModelAttrTypes},
 }
 
 // DNSProxyProxyAdvertisementAdvertiseCustomModel represents advertise_custom block
@@ -366,28 +374,56 @@ var DNSProxyProxyAdvertisementAdvertiseCustomModelAttrTypes = map[string]attr.Ty
 
 // DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel represents advertise_where block
 type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel struct {
-	Port               types.Int64                                                                     `tfsdk:"port"`
-	PortRanges         types.String                                                                    `tfsdk:"port_ranges"`
-	UseDefaultPort     types.Object                                                                    `tfsdk:"use_default_port"`
-	AdvertiseOnPublic  *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel  `tfsdk:"advertise_on_public"`
-	Site               *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel               `tfsdk:"site"`
-	VirtualNetwork     *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel     `tfsdk:"virtual_network"`
-	VirtualSite        *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel        `tfsdk:"virtual_site"`
-	VirtualSiteWithVIP *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel `tfsdk:"virtual_site_with_vip"`
-	Vk8sService        *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel        `tfsdk:"vk8s_service"`
+	Port                       types.Int64                                                                             `tfsdk:"port"`
+	PortRanges                 types.String                                                                            `tfsdk:"port_ranges"`
+	UseDefaultPort             types.Object                                                                            `tfsdk:"use_default_port"`
+	AdvertiseDualstackOnPublic *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel `tfsdk:"advertise_dualstack_on_public"`
+	AdvertiseOnPublic          *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel          `tfsdk:"advertise_on_public"`
+	AdvertiseV6OnPublic        *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel        `tfsdk:"advertise_v6_on_public"`
+	Site                       *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel                       `tfsdk:"site"`
+	VirtualNetwork             *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel             `tfsdk:"virtual_network"`
+	VirtualSite                *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel                `tfsdk:"virtual_site"`
+	VirtualSiteWithVIP         *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel         `tfsdk:"virtual_site_with_vip"`
+	Vk8sService                *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModel                `tfsdk:"vk8s_service"`
 }
 
 // DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
 var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes = map[string]attr.Type{
-	"port":                  types.Int64Type,
-	"port_ranges":           types.StringType,
-	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"advertise_on_public":   types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
-	"site":                  types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
-	"virtual_network":       types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
-	"virtual_site":          types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
-	"virtual_site_with_vip": types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
-	"vk8s_service":          types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModelAttrTypes},
+	"port":                          types.Int64Type,
+	"port_ranges":                   types.StringType,
+	"use_default_port":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advertise_dualstack_on_public": types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes},
+	"advertise_on_public":           types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
+	"advertise_v6_on_public":        types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes},
+	"site":                          types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
+	"virtual_network":               types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
+	"virtual_site":                  types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
+	"virtual_site_with_vip":         types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
+	"vk8s_service":                  types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceModelAttrTypes},
+}
+
+// DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel represents advertise_dualstack_on_public block
+type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel struct {
+	PublicIP *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel
+var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes},
+}
+
+// DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel represents public_ip block
+type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel
+var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
 }
 
 // DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel represents advertise_on_public block
@@ -409,6 +445,30 @@ type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPub
 
 // DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel
 var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel represents advertise_v6_on_public block
+type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel struct {
+	PublicIP *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel
+var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes},
+}
+
+// DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel represents public_ip block
+type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel
+var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
@@ -568,6 +628,30 @@ var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSit
 	"tenant":    types.StringType,
 }
 
+// DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel represents advertise_dualstack_on_public block
+type DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel struct {
+	PublicIP *DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel
+var DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModelAttrTypes},
+}
+
+// DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel represents public_ip block
+type DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel
+var DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
 // DNSProxyProxyAdvertisementAdvertiseOnPublicModel represents advertise_on_public block
 type DNSProxyProxyAdvertisementAdvertiseOnPublicModel struct {
 	PublicIP *DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel `tfsdk:"public_ip"`
@@ -587,6 +671,30 @@ type DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel struct {
 
 // DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModel
 var DNSProxyProxyAdvertisementAdvertiseOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel represents advertise_v6_on_public block
+type DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel struct {
+	PublicIP *DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// DNSProxyProxyAdvertisementAdvertiseV6OnPublicModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel
+var DNSProxyProxyAdvertisementAdvertiseV6OnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModelAttrTypes},
+}
+
+// DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel represents public_ip block
+type DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel
+var DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
@@ -1143,9 +1251,19 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"proxy_advertisement": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for proxy advertisement.",
-				Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_custom", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_on_public", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public_default_vip", "do_not_advertise")},
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_custom", "advertise_dualstack_on_public"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public_default_dualstack_vip"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public_default_ipv6_vip"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_v6_on_public"), validators.ConflictingObjectAttributes("advertise_custom", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_dualstack_on_public", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_dualstack_on_public", "advertise_on_public_default_dualstack_vip"), validators.ConflictingObjectAttributes("advertise_dualstack_on_public", "advertise_on_public_default_ipv6_vip"), validators.ConflictingObjectAttributes("advertise_dualstack_on_public", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_dualstack_on_public", "advertise_v6_on_public"), validators.ConflictingObjectAttributes("advertise_dualstack_on_public", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public", "advertise_on_public_default_dualstack_vip"), validators.ConflictingObjectAttributes("advertise_on_public", "advertise_on_public_default_ipv6_vip"), validators.ConflictingObjectAttributes("advertise_on_public", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_on_public", "advertise_v6_on_public"), validators.ConflictingObjectAttributes("advertise_on_public", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public_default_dualstack_vip", "advertise_on_public_default_ipv6_vip"), validators.ConflictingObjectAttributes("advertise_on_public_default_dualstack_vip", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_on_public_default_dualstack_vip", "advertise_v6_on_public"), validators.ConflictingObjectAttributes("advertise_on_public_default_dualstack_vip", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public_default_ipv6_vip", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_on_public_default_ipv6_vip", "advertise_v6_on_public"), validators.ConflictingObjectAttributes("advertise_on_public_default_ipv6_vip", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public_default_vip", "advertise_v6_on_public"), validators.ConflictingObjectAttributes("advertise_on_public_default_vip", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_v6_on_public", "do_not_advertise")},
 
 				Attributes: map[string]schema.Attribute{
+					"advertise_on_public_default_dualstack_vip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"advertise_on_public_default_ipv6_vip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"advertise_on_public_default_vip": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
 						Optional:            true,
@@ -1165,7 +1283,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
 								MarkdownDescription: "Where should this load balancer be available.",
-								Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "advertise_on_public"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "advertise_v6_on_public"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("advertise_on_public", "advertise_v6_on_public"), validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
@@ -1189,7 +1307,81 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 									},
 									Blocks: map[string]schema.Block{
+										"advertise_dualstack_on_public": schema.SingleNestedBlock{
+											MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+											Attributes:          map[string]schema.Attribute{},
+											Blocks: map[string]schema.Block{
+												"public_ip": schema.SingleNestedBlock{
+													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+													Attributes: map[string]schema.Attribute{
+														"name": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 128),
+															},
+														},
+														"namespace": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+															Optional:            true,
+															Computed:            true,
+															PlanModifiers: []planmodifier.String{
+																stringplanmodifier.UseStateForUnknown(),
+															},
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+														"tenant": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+															Computed:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(64),
+															},
+														},
+													},
+												},
+											},
+										},
 										"advertise_on_public": schema.SingleNestedBlock{
+											MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+											Attributes:          map[string]schema.Attribute{},
+											Blocks: map[string]schema.Block{
+												"public_ip": schema.SingleNestedBlock{
+													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+													Attributes: map[string]schema.Attribute{
+														"name": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 128),
+															},
+														},
+														"namespace": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+															Optional:            true,
+															Computed:            true,
+															PlanModifiers: []planmodifier.String{
+																stringplanmodifier.UseStateForUnknown(),
+															},
+															Validators: []validator.String{
+																stringvalidator.LengthBetween(1, 63),
+															},
+														},
+														"tenant": schema.StringAttribute{
+															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+															Computed:            true,
+															Validators: []validator.String{
+																stringvalidator.LengthAtMost(64),
+															},
+														},
+													},
+												},
+											},
+										},
+										"advertise_v6_on_public": schema.SingleNestedBlock{
 											MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -1516,7 +1708,81 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 						},
 					},
+					"advertise_dualstack_on_public": schema.SingleNestedBlock{
+						MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"public_ip": schema.SingleNestedBlock{
+								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+								Attributes: map[string]schema.Attribute{
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 128),
+										},
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Optional:            true,
+										Computed:            true,
+										PlanModifiers: []planmodifier.String{
+											stringplanmodifier.UseStateForUnknown(),
+										},
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 63),
+										},
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthAtMost(64),
+										},
+									},
+								},
+							},
+						},
+					},
 					"advertise_on_public": schema.SingleNestedBlock{
+						MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"public_ip": schema.SingleNestedBlock{
+								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+								Attributes: map[string]schema.Attribute{
+									"name": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 128),
+										},
+									},
+									"namespace": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+										Optional:            true,
+										Computed:            true,
+										PlanModifiers: []planmodifier.String{
+											stringplanmodifier.UseStateForUnknown(),
+										},
+										Validators: []validator.String{
+											stringvalidator.LengthBetween(1, 63),
+										},
+									},
+									"tenant": schema.StringAttribute{
+										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+										Computed:            true,
+										Validators: []validator.String{
+											stringvalidator.LengthAtMost(64),
+										},
+									},
+								},
+							},
+						},
+					},
+					"advertise_v6_on_public": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
@@ -1935,6 +2201,20 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 					var AdvertiseWhereList []map[string]interface{}
 					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 						AdvertiseWhereItemMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseDualstackOnPublic != nil {
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap := make(map[string]interface{})
+							if AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP != nil {
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+								}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap
+							}
+							AdvertiseWhereItemMap["advertise_dualstack_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap
+						}
 						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
 							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
@@ -1948,6 +2228,20 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
 							AdvertiseWhereItemMap["advertise_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
+						}
+						if AdvertiseWhereItem.AdvertiseV6OnPublic != nil {
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap := make(map[string]interface{})
+							if AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP != nil {
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+								}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap
+							}
+							AdvertiseWhereItemMap["advertise_v6_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap
 						}
 						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -2072,6 +2366,20 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 			}
 			ProxyAdvertisementMap["advertise_custom"] = ProxyAdvertisementAdvertiseCustomMap
 		}
+		if data.ProxyAdvertisement.AdvertiseDualstackOnPublic != nil {
+			ProxyAdvertisementAdvertiseDualstackOnPublicMap := make(map[string]interface{})
+			if data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP != nil {
+				ProxyAdvertisementAdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+				if !data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+					ProxyAdvertisementAdvertiseDualstackOnPublicPublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+				}
+				if !data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+					ProxyAdvertisementAdvertiseDualstackOnPublicPublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+				}
+				ProxyAdvertisementAdvertiseDualstackOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseDualstackOnPublicPublicIPMap
+			}
+			ProxyAdvertisementMap["advertise_dualstack_on_public"] = ProxyAdvertisementAdvertiseDualstackOnPublicMap
+		}
 		if data.ProxyAdvertisement.AdvertiseOnPublic != nil {
 			ProxyAdvertisementAdvertiseOnPublicMap := make(map[string]interface{})
 			if data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP != nil {
@@ -2086,8 +2394,28 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 			}
 			ProxyAdvertisementMap["advertise_on_public"] = ProxyAdvertisementAdvertiseOnPublicMap
 		}
+		if !data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP.IsUnknown() {
+			ProxyAdvertisementMap["advertise_on_public_default_dualstack_vip"] = map[string]interface{}{}
+		}
+		if !data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP.IsUnknown() {
+			ProxyAdvertisementMap["advertise_on_public_default_ipv6_vip"] = map[string]interface{}{}
+		}
 		if !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 			ProxyAdvertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
+		}
+		if data.ProxyAdvertisement.AdvertiseV6OnPublic != nil {
+			ProxyAdvertisementAdvertiseV6OnPublicMap := make(map[string]interface{})
+			if data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP != nil {
+				ProxyAdvertisementAdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+				if !data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+					ProxyAdvertisementAdvertiseV6OnPublicPublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+				}
+				if !data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+					ProxyAdvertisementAdvertiseV6OnPublicPublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+				}
+				ProxyAdvertisementAdvertiseV6OnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseV6OnPublicPublicIPMap
+			}
+			ProxyAdvertisementMap["advertise_v6_on_public"] = ProxyAdvertisementAdvertiseV6OnPublicMap
 		}
 		if !data.ProxyAdvertisement.DoNotAdvertise.IsNull() && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
@@ -2680,12 +3008,76 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									_ = AdvertiseWhereIdx
 									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseDualstackOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+												if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											AdvertiseV6OnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+												if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 																	Name: func() types.String {
 																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -2990,6 +3382,38 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				return nil
 			}(),
+			AdvertiseDualstackOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel {
+				if AdvertiseDualstackOnPublicData, ok := blockData["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
 			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
 				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
@@ -3022,6 +3446,24 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				return nil
 			}(),
+			AdvertiseOnPublicDefaultDualstackVIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP.IsUnknown() {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP
+				}
+				if _, ok := blockData["advertise_on_public_default_dualstack_vip"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			AdvertiseOnPublicDefaultIpv6VIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP.IsUnknown() {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP
+				}
+				if _, ok := blockData["advertise_on_public_default_ipv6_vip"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
 			AdvertiseOnPublicDefaultVIP: func() types.Object {
 				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
@@ -3030,6 +3472,38 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			AdvertiseV6OnPublic: func() *DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel {
+				if AdvertiseV6OnPublicData, ok := blockData["advertise_v6_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
 			}(),
 			DoNotAdvertise: func() types.Object {
 				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
@@ -3722,12 +4196,76 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 									_ = AdvertiseWhereIdx
 									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseDualstackOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+												if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											AdvertiseV6OnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+												if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 																	Name: func() types.String {
 																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -4032,6 +4570,38 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				}
 				return nil
 			}(),
+			AdvertiseDualstackOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel {
+				if AdvertiseDualstackOnPublicData, ok := blockData["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
 			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
 				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
@@ -4064,6 +4634,24 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				}
 				return nil
 			}(),
+			AdvertiseOnPublicDefaultDualstackVIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP.IsUnknown() {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP
+				}
+				if _, ok := blockData["advertise_on_public_default_dualstack_vip"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			AdvertiseOnPublicDefaultIpv6VIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP.IsUnknown() {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP
+				}
+				if _, ok := blockData["advertise_on_public_default_ipv6_vip"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
 			AdvertiseOnPublicDefaultVIP: func() types.Object {
 				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
@@ -4072,6 +4660,38 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			AdvertiseV6OnPublic: func() *DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel {
+				if AdvertiseV6OnPublicData, ok := blockData["advertise_v6_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
 			}(),
 			DoNotAdvertise: func() types.Object {
 				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
@@ -4437,6 +5057,20 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 					var AdvertiseWhereList []map[string]interface{}
 					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 						AdvertiseWhereItemMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseDualstackOnPublic != nil {
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap := make(map[string]interface{})
+							if AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP != nil {
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+								}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap
+							}
+							AdvertiseWhereItemMap["advertise_dualstack_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap
+						}
 						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
 							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
@@ -4450,6 +5084,20 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
 							AdvertiseWhereItemMap["advertise_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
+						}
+						if AdvertiseWhereItem.AdvertiseV6OnPublic != nil {
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap := make(map[string]interface{})
+							if AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP != nil {
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+								if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+								}
+								if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+								}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap
+							}
+							AdvertiseWhereItemMap["advertise_v6_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap
 						}
 						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -4574,6 +5222,20 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 			}
 			ProxyAdvertisementMap["advertise_custom"] = ProxyAdvertisementAdvertiseCustomMap
 		}
+		if data.ProxyAdvertisement.AdvertiseDualstackOnPublic != nil {
+			ProxyAdvertisementAdvertiseDualstackOnPublicMap := make(map[string]interface{})
+			if data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP != nil {
+				ProxyAdvertisementAdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+				if !data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+					ProxyAdvertisementAdvertiseDualstackOnPublicPublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+				}
+				if !data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+					ProxyAdvertisementAdvertiseDualstackOnPublicPublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+				}
+				ProxyAdvertisementAdvertiseDualstackOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseDualstackOnPublicPublicIPMap
+			}
+			ProxyAdvertisementMap["advertise_dualstack_on_public"] = ProxyAdvertisementAdvertiseDualstackOnPublicMap
+		}
 		if data.ProxyAdvertisement.AdvertiseOnPublic != nil {
 			ProxyAdvertisementAdvertiseOnPublicMap := make(map[string]interface{})
 			if data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP != nil {
@@ -4588,8 +5250,28 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 			}
 			ProxyAdvertisementMap["advertise_on_public"] = ProxyAdvertisementAdvertiseOnPublicMap
 		}
+		if !data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP.IsUnknown() {
+			ProxyAdvertisementMap["advertise_on_public_default_dualstack_vip"] = map[string]interface{}{}
+		}
+		if !data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP.IsUnknown() {
+			ProxyAdvertisementMap["advertise_on_public_default_ipv6_vip"] = map[string]interface{}{}
+		}
 		if !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 			ProxyAdvertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
+		}
+		if data.ProxyAdvertisement.AdvertiseV6OnPublic != nil {
+			ProxyAdvertisementAdvertiseV6OnPublicMap := make(map[string]interface{})
+			if data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP != nil {
+				ProxyAdvertisementAdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+				if !data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+					ProxyAdvertisementAdvertiseV6OnPublicPublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+				}
+				if !data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+					ProxyAdvertisementAdvertiseV6OnPublicPublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+				}
+				ProxyAdvertisementAdvertiseV6OnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseV6OnPublicPublicIPMap
+			}
+			ProxyAdvertisementMap["advertise_v6_on_public"] = ProxyAdvertisementAdvertiseV6OnPublicMap
 		}
 		if !data.ProxyAdvertisement.DoNotAdvertise.IsNull() && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
@@ -5209,12 +5891,76 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									_ = AdvertiseWhereIdx
 									if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 										AdvertiseWhereResult = append(AdvertiseWhereResult, DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel{
+											AdvertiseDualstackOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+												if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
 											AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 												if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 															if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+																	Name: func() types.String {
+																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Namespace: func() types.String {
+																		if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																	Tenant: func() types.String {
+																		if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																			return types.StringValue(v)
+																		}
+																		return types.StringNull()
+																	}(),
+																}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											AdvertiseV6OnPublic: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+												if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+														PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+															if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+																return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 																	Name: func() types.String {
 																		if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -5519,6 +6265,38 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				return nil
 			}(),
+			AdvertiseDualstackOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel {
+				if AdvertiseDualstackOnPublicData, ok := blockData["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseDualstackOnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
 			AdvertiseOnPublic: func() *DNSProxyProxyAdvertisementAdvertiseOnPublicModel {
 				if AdvertiseOnPublicData, ok := blockData["advertise_on_public"].(map[string]interface{}); ok {
 					return &DNSProxyProxyAdvertisementAdvertiseOnPublicModel{
@@ -5551,6 +6329,24 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				return nil
 			}(),
+			AdvertiseOnPublicDefaultDualstackVIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP.IsUnknown() {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultDualstackVIP
+				}
+				if _, ok := blockData["advertise_on_public_default_dualstack_vip"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			AdvertiseOnPublicDefaultIpv6VIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP.IsUnknown() {
+					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultIpv6VIP
+				}
+				if _, ok := blockData["advertise_on_public_default_ipv6_vip"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
 			AdvertiseOnPublicDefaultVIP: func() types.Object {
 				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
@@ -5559,6 +6355,38 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			AdvertiseV6OnPublic: func() *DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel {
+				if AdvertiseV6OnPublicData, ok := blockData["advertise_v6_on_public"].(map[string]interface{}); ok {
+					return &DNSProxyProxyAdvertisementAdvertiseV6OnPublicModel{
+						PublicIP: func() *DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel {
+							if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+								return &DNSProxyProxyAdvertisementAdvertiseV6OnPublicPublicIPModel{
+									Name: func() types.String {
+										if v, ok := PublicIPData["name"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Namespace: func() types.String {
+										if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									Tenant: func() types.String {
+										if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
 			}(),
 			DoNotAdvertise: func() types.Object {
 				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {

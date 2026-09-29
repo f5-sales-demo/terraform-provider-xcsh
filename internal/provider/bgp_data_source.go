@@ -106,6 +106,16 @@ func (d *BGPDataSource) Schema(ctx context.Context, req datasource.SchemaRequest
 							Computed:            true,
 							AttributeTypes:      map[string]attr.Type{},
 						},
+						"ebgp_multihop_disabled": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ebgp_multihop_enabled": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Computed:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 						"external": schema.SingleNestedAttribute{
 							MarkdownDescription: "External BGP Peer. External BGP Peer parameters.",
 							Attributes: map[string]schema.Attribute{
@@ -623,6 +633,24 @@ func (d *BGPDataSource) Read(ctx context.Context, req datasource.ReadRequest, re
 							return existingPeersItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					EbgpMultihopDisabled: func() types.Object {
+						if !isImport && len(existingPeersItems) > listIdx && !existingPeersItems[listIdx].EbgpMultihopDisabled.IsUnknown() {
+							return existingPeersItems[listIdx].EbgpMultihopDisabled
+						}
+						if _, ok := itemMap["ebgp_multihop_disabled"].(map[string]interface{}); ok {
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+						}
+						return types.ObjectNull(map[string]attr.Type{})
+					}(),
+					EbgpMultihopEnabled: func() types.Object {
+						if !isImport && len(existingPeersItems) > listIdx && !existingPeersItems[listIdx].EbgpMultihopEnabled.IsUnknown() {
+							return existingPeersItems[listIdx].EbgpMultihopEnabled
+						}
+						if _, ok := itemMap["ebgp_multihop_enabled"].(map[string]interface{}); ok {
 							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
 						return types.ObjectNull(map[string]attr.Type{})

@@ -120,7 +120,8 @@ jq -e '
     ("f5xc-api-specs-" + .release_tag + ".zip"),
     "index.json", "minimal-export-defaults.json", "openapi.json",
     "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json",
-    "smsv2_parity_manifest.json", "upstream-contract-removals.json"
+    "smsv2_parity_manifest.json", "upstream-contract-changes.json",
+    "upstream-contract-removals.json"
   ] and
   ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
 ' "$pin" >/dev/null || fail "spec release pin is malformed"

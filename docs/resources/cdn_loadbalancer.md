@@ -2534,7 +2534,7 @@ A [`no_tls`](#origin-pool-no-tls) block (within [`origin_pool`](#origin-pool)) s
 
 An [`origin_servers`](#origin-pool-origin-servers) block (within [`origin_pool`](#origin-pool)) supports the following:
 
-<a id="origin-pool-origin-servers-port"></a>&#x2022; [`port`](#origin-pool-origin-servers-port) - Optional Number<br>Origin Server Port. Port the workload can be reached on
+<a id="origin-pool-origin-servers-port"></a>&#x2022; [`port`](#origin-pool-origin-servers-port) - Optional Number<br>Port the workload can be reached on Enter a custom port only if your origin server uses a non-default port. Leave the value as 0 to automatically use 443 (TLS) or 80 (non-TLS)
 
 <a id="origin-pool-origin-servers-public-ip"></a>&#x2022; [`public_ip`](#origin-pool-origin-servers-public-ip) - Optional Block<br>Specify origin server with public IP address<br>See [Public IP](#origin-pool-origin-servers-public-ip) below.
 

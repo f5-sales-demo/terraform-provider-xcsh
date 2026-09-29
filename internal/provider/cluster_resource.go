@@ -195,11 +195,13 @@ var ClusterTLSParametersModelAttrTypes = map[string]attr.Type{
 
 // ClusterTLSParametersCertParamsModel represents cert_params block
 type ClusterTLSParametersCertParamsModel struct {
-	CipherSuites           types.List                                           `tfsdk:"cipher_suites"`
-	MaximumProtocolVersion types.String                                         `tfsdk:"maximum_protocol_version"`
-	MinimumProtocolVersion types.String                                         `tfsdk:"minimum_protocol_version"`
-	Certificates           types.List                                           `tfsdk:"certificates"`
-	ValidationParams       *ClusterTLSParametersCertParamsValidationParamsModel `tfsdk:"validation_params"`
+	CipherSuites           types.List                                              `tfsdk:"cipher_suites"`
+	MaximumProtocolVersion types.String                                            `tfsdk:"maximum_protocol_version"`
+	MinimumProtocolVersion types.String                                            `tfsdk:"minimum_protocol_version"`
+	SkipServerVerification types.Object                                            `tfsdk:"skip_server_verification"`
+	VolterraTrustedCA      types.Object                                            `tfsdk:"volterra_trusted_ca"`
+	Certificates           types.List                                              `tfsdk:"certificates"`
+	TLSValidationParams    *ClusterTLSParametersCertParamsTLSValidationParamsModel `tfsdk:"tls_validation_params"`
 }
 
 // ClusterTLSParametersCertParamsModelAttrTypes defines the attribute types for ClusterTLSParametersCertParamsModel
@@ -207,8 +209,10 @@ var ClusterTLSParametersCertParamsModelAttrTypes = map[string]attr.Type{
 	"cipher_suites":            types.ListType{ElemType: types.StringType},
 	"maximum_protocol_version": types.StringType,
 	"minimum_protocol_version": types.StringType,
+	"skip_server_verification": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"volterra_trusted_ca":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"certificates":             types.ListType{ElemType: types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsCertificatesModelAttrTypes}},
-	"validation_params":        types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsModelAttrTypes},
+	"tls_validation_params":    types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsModelAttrTypes},
 }
 
 // ClusterTLSParametersCertParamsCertificatesModel represents certificates block
@@ -229,34 +233,34 @@ var ClusterTLSParametersCertParamsCertificatesModelAttrTypes = map[string]attr.T
 	"uid":       types.StringType,
 }
 
-// ClusterTLSParametersCertParamsValidationParamsModel represents validation_params block
-type ClusterTLSParametersCertParamsValidationParamsModel struct {
-	SkipHostnameVerification types.Bool                                                    `tfsdk:"skip_hostname_verification"`
-	TrustedCAURL             types.String                                                  `tfsdk:"trusted_ca_url"`
-	VerifySubjectAltNames    types.List                                                    `tfsdk:"verify_subject_alt_names"`
-	TrustedCA                *ClusterTLSParametersCertParamsValidationParamsTrustedCAModel `tfsdk:"trusted_ca"`
+// ClusterTLSParametersCertParamsTLSValidationParamsModel represents tls_validation_params block
+type ClusterTLSParametersCertParamsTLSValidationParamsModel struct {
+	SkipHostnameVerification types.Bool                                                       `tfsdk:"skip_hostname_verification"`
+	TrustedCAURL             types.String                                                     `tfsdk:"trusted_ca_url"`
+	VerifySubjectAltNames    types.List                                                       `tfsdk:"verify_subject_alt_names"`
+	TrustedCA                *ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel `tfsdk:"trusted_ca"`
 }
 
-// ClusterTLSParametersCertParamsValidationParamsModelAttrTypes defines the attribute types for ClusterTLSParametersCertParamsValidationParamsModel
-var ClusterTLSParametersCertParamsValidationParamsModelAttrTypes = map[string]attr.Type{
+// ClusterTLSParametersCertParamsTLSValidationParamsModelAttrTypes defines the attribute types for ClusterTLSParametersCertParamsTLSValidationParamsModel
+var ClusterTLSParametersCertParamsTLSValidationParamsModelAttrTypes = map[string]attr.Type{
 	"skip_hostname_verification": types.BoolType,
 	"trusted_ca_url":             types.StringType,
 	"verify_subject_alt_names":   types.ListType{ElemType: types.StringType},
-	"trusted_ca":                 types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCAModelAttrTypes},
+	"trusted_ca":                 types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModelAttrTypes},
 }
 
-// ClusterTLSParametersCertParamsValidationParamsTrustedCAModel represents trusted_ca block
-type ClusterTLSParametersCertParamsValidationParamsTrustedCAModel struct {
+// ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel represents trusted_ca block
+type ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel struct {
 	TrustedCAList types.List `tfsdk:"trusted_ca_list"`
 }
 
-// ClusterTLSParametersCertParamsValidationParamsTrustedCAModelAttrTypes defines the attribute types for ClusterTLSParametersCertParamsValidationParamsTrustedCAModel
-var ClusterTLSParametersCertParamsValidationParamsTrustedCAModelAttrTypes = map[string]attr.Type{
-	"trusted_ca_list": types.ListType{ElemType: types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}},
+// ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModelAttrTypes defines the attribute types for ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel
+var ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModelAttrTypes = map[string]attr.Type{
+	"trusted_ca_list": types.ListType{ElemType: types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes}},
 }
 
-// ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel represents trusted_ca_list block
-type ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel struct {
+// ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel represents trusted_ca_list block
+type ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel struct {
 	Kind      types.String `tfsdk:"kind"`
 	Name      types.String `tfsdk:"name"`
 	Namespace types.String `tfsdk:"namespace"`
@@ -264,8 +268,8 @@ type ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel s
 	Uid       types.String `tfsdk:"uid"`
 }
 
-// ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes defines the attribute types for ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-var ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes = map[string]attr.Type{
+// ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes defines the attribute types for ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
+var ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes = map[string]attr.Type{
 	"kind":      types.StringType,
 	"name":      types.StringType,
 	"namespace": types.StringType,
@@ -872,7 +876,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Blocks: map[string]schema.Block{
 					"cert_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Certificate Parameters for authentication, TLS ciphers, and trust store.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("skip_server_verification", "tls_validation_params"), validators.ConflictingObjectAttributes("skip_server_verification", "volterra_trusted_ca"), validators.ConflictingObjectAttributes("tls_validation_params", "volterra_trusted_ca")},
 						Attributes: map[string]schema.Attribute{
 							"cipher_suites": schema.ListAttribute{
 								MarkdownDescription: "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256..",
@@ -892,6 +896,16 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 								Validators: []validator.String{
 									stringvalidator.OneOf("TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"),
 								},
+							},
+							"skip_server_verification": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"volterra_trusted_ca": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for volterra trusted ca.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -930,7 +944,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 									},
 								},
 							},
-							"validation_params": schema.SingleNestedBlock{
+							"tls_validation_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 								Attributes: map[string]schema.Attribute{
@@ -1540,16 +1554,19 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			if !data.TLSParameters.CertParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CertParams.MinimumProtocolVersion.IsUnknown() {
 				TLSParametersCertParamsMap["minimum_protocol_version"] = data.TLSParameters.CertParams.MinimumProtocolVersion.ValueString()
 			}
-			if data.TLSParameters.CertParams.ValidationParams != nil {
-				TLSParametersCertParamsValidationParamsMap := make(map[string]interface{})
-				if !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-					TLSParametersCertParamsValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+			if !data.TLSParameters.CertParams.SkipServerVerification.IsNull() && !data.TLSParameters.CertParams.SkipServerVerification.IsUnknown() {
+				TLSParametersCertParamsMap["skip_server_verification"] = map[string]interface{}{}
+			}
+			if data.TLSParameters.CertParams.TLSValidationParams != nil {
+				TLSParametersCertParamsTLSValidationParamsMap := make(map[string]interface{})
+				if !data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.IsUnknown() {
+					TLSParametersCertParamsTLSValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.ValueBool()
 				}
-				if data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil {
-					TLSParametersCertParamsValidationParamsTrustedCAMap := make(map[string]interface{})
-					if !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
-						var TrustedCAListElems []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-						diags := data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+				if data.TLSParameters.CertParams.TLSValidationParams.TrustedCA != nil {
+					TLSParametersCertParamsTLSValidationParamsTrustedCAMap := make(map[string]interface{})
+					if !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+						var TrustedCAListElems []ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
+						diags := data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
 						resp.Diagnostics.Append(diags...)
 						if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
 							var TrustedCAListList []map[string]interface{}
@@ -1563,23 +1580,26 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
-							TLSParametersCertParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							TLSParametersCertParamsTLSValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 						}
 					}
-					TLSParametersCertParamsValidationParamsMap["trusted_ca"] = TLSParametersCertParamsValidationParamsTrustedCAMap
+					TLSParametersCertParamsTLSValidationParamsMap["trusted_ca"] = TLSParametersCertParamsTLSValidationParamsTrustedCAMap
 				}
-				if !data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.IsUnknown() {
-					TLSParametersCertParamsValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.ValueString()
+				if !data.TLSParameters.CertParams.TLSValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCAURL.IsUnknown() {
+					TLSParametersCertParamsTLSValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CertParams.TLSValidationParams.TrustedCAURL.ValueString()
 				}
-				if !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+				if !data.TLSParameters.CertParams.TLSValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
-					diags := data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					diags := data.TLSParameters.CertParams.TLSValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
-						TLSParametersCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						TLSParametersCertParamsTLSValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
 				}
-				TLSParametersCertParamsMap["validation_params"] = TLSParametersCertParamsValidationParamsMap
+				TLSParametersCertParamsMap["tls_validation_params"] = TLSParametersCertParamsTLSValidationParamsMap
+			}
+			if !data.TLSParameters.CertParams.VolterraTrustedCA.IsNull() && !data.TLSParameters.CertParams.VolterraTrustedCA.IsUnknown() {
+				TLSParametersCertParamsMap["volterra_trusted_ca"] = map[string]interface{}{}
 			}
 			TLSParametersMap["cert_params"] = TLSParametersCertParamsMap
 		}
@@ -2216,35 +2236,44 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							}
 							return types.StringNull()
 						}(),
-						ValidationParams: func() *ClusterTLSParametersCertParamsValidationParamsModel {
-							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
-								return &ClusterTLSParametersCertParamsValidationParamsModel{
+						SkipServerVerification: func() types.Object {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.SkipServerVerification.IsUnknown() {
+								return data.TLSParameters.CertParams.SkipServerVerification
+							}
+							if _, ok := CertParamsData["skip_server_verification"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TLSValidationParams: func() *ClusterTLSParametersCertParamsTLSValidationParamsModel {
+							if TLSValidationParamsData, ok := CertParamsData["tls_validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCertParamsTLSValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
-										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-											return data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && !data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification
 										}
-										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+										if v, ok := TLSValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
-									TrustedCA: func() *ClusterTLSParametersCertParamsValidationParamsTrustedCAModel {
-										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
-											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
+									TrustedCA: func() *ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := TLSValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
-													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
-														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && data.TLSParameters.CertParams.TLSValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes})
 													}
-													var TrustedCAListExisting []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
-														data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													var TrustedCAListExisting []ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && data.TLSParameters.CertParams.TLSValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
 													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
-														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+														var TrustedCAListResult []ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
 														for TrustedCAListIdx, TrustedCAListItem := range rawList {
 															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
-																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
 																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -2278,23 +2307,23 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 																})
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
 														return listVal
 													}
-													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes})
 												}(),
 											}
 										}
 										return nil
 									}(),
 									TrustedCAURL: func() types.String {
-										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+										if v, ok := TLSValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
 									}(),
 									VerifySubjectAltNames: func() types.List {
-										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+										if v, ok := TLSValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
 											var items []string
 											for _, item := range v {
 												if s, ok := item.(string); ok {
@@ -2310,6 +2339,15 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 								}
 							}
 							return nil
+						}(),
+						VolterraTrustedCA: func() types.Object {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.VolterraTrustedCA.IsUnknown() {
+								return data.TLSParameters.CertParams.VolterraTrustedCA
+							}
+							if _, ok := CertParamsData["volterra_trusted_ca"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -3234,35 +3272,44 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 							}
 							return types.StringNull()
 						}(),
-						ValidationParams: func() *ClusterTLSParametersCertParamsValidationParamsModel {
-							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
-								return &ClusterTLSParametersCertParamsValidationParamsModel{
+						SkipServerVerification: func() types.Object {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.SkipServerVerification.IsUnknown() {
+								return data.TLSParameters.CertParams.SkipServerVerification
+							}
+							if _, ok := CertParamsData["skip_server_verification"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TLSValidationParams: func() *ClusterTLSParametersCertParamsTLSValidationParamsModel {
+							if TLSValidationParamsData, ok := CertParamsData["tls_validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCertParamsTLSValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
-										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-											return data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && !data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification
 										}
-										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+										if v, ok := TLSValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
-									TrustedCA: func() *ClusterTLSParametersCertParamsValidationParamsTrustedCAModel {
-										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
-											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
+									TrustedCA: func() *ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := TLSValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
-													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
-														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && data.TLSParameters.CertParams.TLSValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes})
 													}
-													var TrustedCAListExisting []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
-														data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													var TrustedCAListExisting []ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && data.TLSParameters.CertParams.TLSValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
 													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
-														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+														var TrustedCAListResult []ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
 														for TrustedCAListIdx, TrustedCAListItem := range rawList {
 															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
-																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
 																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -3296,23 +3343,23 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 																})
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
 														return listVal
 													}
-													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes})
 												}(),
 											}
 										}
 										return nil
 									}(),
 									TrustedCAURL: func() types.String {
-										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+										if v, ok := TLSValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
 									}(),
 									VerifySubjectAltNames: func() types.List {
-										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+										if v, ok := TLSValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
 											var items []string
 											for _, item := range v {
 												if s, ok := item.(string); ok {
@@ -3328,6 +3375,15 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 								}
 							}
 							return nil
+						}(),
+						VolterraTrustedCA: func() types.Object {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.VolterraTrustedCA.IsUnknown() {
+								return data.TLSParameters.CertParams.VolterraTrustedCA
+							}
+							if _, ok := CertParamsData["volterra_trusted_ca"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -3974,16 +4030,19 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			if !data.TLSParameters.CertParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CertParams.MinimumProtocolVersion.IsUnknown() {
 				TLSParametersCertParamsMap["minimum_protocol_version"] = data.TLSParameters.CertParams.MinimumProtocolVersion.ValueString()
 			}
-			if data.TLSParameters.CertParams.ValidationParams != nil {
-				TLSParametersCertParamsValidationParamsMap := make(map[string]interface{})
-				if !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-					TLSParametersCertParamsValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+			if !data.TLSParameters.CertParams.SkipServerVerification.IsNull() && !data.TLSParameters.CertParams.SkipServerVerification.IsUnknown() {
+				TLSParametersCertParamsMap["skip_server_verification"] = map[string]interface{}{}
+			}
+			if data.TLSParameters.CertParams.TLSValidationParams != nil {
+				TLSParametersCertParamsTLSValidationParamsMap := make(map[string]interface{})
+				if !data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.IsUnknown() {
+					TLSParametersCertParamsTLSValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.ValueBool()
 				}
-				if data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil {
-					TLSParametersCertParamsValidationParamsTrustedCAMap := make(map[string]interface{})
-					if !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
-						var TrustedCAListElems []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-						diags := data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
+				if data.TLSParameters.CertParams.TLSValidationParams.TrustedCA != nil {
+					TLSParametersCertParamsTLSValidationParamsTrustedCAMap := make(map[string]interface{})
+					if !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+						var TrustedCAListElems []ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
+						diags := data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
 						resp.Diagnostics.Append(diags...)
 						if !resp.Diagnostics.HasError() && len(TrustedCAListElems) > 0 {
 							var TrustedCAListList []map[string]interface{}
@@ -3997,23 +4056,26 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
-							TLSParametersCertParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							TLSParametersCertParamsTLSValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 						}
 					}
-					TLSParametersCertParamsValidationParamsMap["trusted_ca"] = TLSParametersCertParamsValidationParamsTrustedCAMap
+					TLSParametersCertParamsTLSValidationParamsMap["trusted_ca"] = TLSParametersCertParamsTLSValidationParamsTrustedCAMap
 				}
-				if !data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.IsUnknown() {
-					TLSParametersCertParamsValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CertParams.ValidationParams.TrustedCAURL.ValueString()
+				if !data.TLSParameters.CertParams.TLSValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCAURL.IsUnknown() {
+					TLSParametersCertParamsTLSValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CertParams.TLSValidationParams.TrustedCAURL.ValueString()
 				}
-				if !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
+				if !data.TLSParameters.CertParams.TLSValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
-					diags := data.TLSParameters.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
+					diags := data.TLSParameters.CertParams.TLSValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 					resp.Diagnostics.Append(diags...)
 					if !diags.HasError() {
-						TLSParametersCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						TLSParametersCertParamsTLSValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
 				}
-				TLSParametersCertParamsMap["validation_params"] = TLSParametersCertParamsValidationParamsMap
+				TLSParametersCertParamsMap["tls_validation_params"] = TLSParametersCertParamsTLSValidationParamsMap
+			}
+			if !data.TLSParameters.CertParams.VolterraTrustedCA.IsNull() && !data.TLSParameters.CertParams.VolterraTrustedCA.IsUnknown() {
+				TLSParametersCertParamsMap["volterra_trusted_ca"] = map[string]interface{}{}
 			}
 			TLSParametersMap["cert_params"] = TLSParametersCertParamsMap
 		}
@@ -4719,35 +4781,44 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							}
 							return types.StringNull()
 						}(),
-						ValidationParams: func() *ClusterTLSParametersCertParamsValidationParamsModel {
-							if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
-								return &ClusterTLSParametersCertParamsValidationParamsModel{
+						SkipServerVerification: func() types.Object {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.SkipServerVerification.IsUnknown() {
+								return data.TLSParameters.CertParams.SkipServerVerification
+							}
+							if _, ok := CertParamsData["skip_server_verification"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						TLSValidationParams: func() *ClusterTLSParametersCertParamsTLSValidationParamsModel {
+							if TLSValidationParamsData, ok := CertParamsData["tls_validation_params"].(map[string]interface{}); ok {
+								return &ClusterTLSParametersCertParamsTLSValidationParamsModel{
 									SkipHostnameVerification: func() types.Bool {
-										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && !data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-											return data.TLSParameters.CertParams.ValidationParams.SkipHostnameVerification
+										if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && !data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification.IsUnknown() {
+											return data.TLSParameters.CertParams.TLSValidationParams.SkipHostnameVerification
 										}
-										if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+										if v, ok := TLSValidationParamsData["skip_hostname_verification"].(bool); ok {
 											return types.BoolValue(v)
 										}
 										return types.BoolNull()
 									}(),
-									TrustedCA: func() *ClusterTLSParametersCertParamsValidationParamsTrustedCAModel {
-										if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
-											return &ClusterTLSParametersCertParamsValidationParamsTrustedCAModel{
+									TrustedCA: func() *ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel {
+										if TrustedCAData, ok := TLSValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+											return &ClusterTLSParametersCertParamsTLSValidationParamsTrustedCAModel{
 												TrustedCAList: func() types.List {
-													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
-														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && data.TLSParameters.CertParams.TLSValidationParams.TrustedCA != nil && (data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+														return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes})
 													}
-													var TrustedCAListExisting []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
-													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.ValidationParams != nil && data.TLSParameters.CertParams.ValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
-														data.TLSParameters.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+													var TrustedCAListExisting []ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
+													if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && data.TLSParameters.CertParams.TLSValidationParams != nil && data.TLSParameters.CertParams.TLSValidationParams.TrustedCA != nil && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+														data.TLSParameters.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
 													}
 													if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
-														var TrustedCAListResult []ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel
+														var TrustedCAListResult []ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel
 														for TrustedCAListIdx, TrustedCAListItem := range rawList {
 															_ = TrustedCAListIdx
 															if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
-																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModel{
+																TrustedCAListResult = append(TrustedCAListResult, ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModel{
 																	Kind: func() types.String {
 																		if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -4781,23 +4852,23 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 																})
 															}
 														}
-														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+														listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
 														return listVal
 													}
-													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+													return types.ListNull(types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes})
 												}(),
 											}
 										}
 										return nil
 									}(),
 									TrustedCAURL: func() types.String {
-										if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+										if v, ok := TLSValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
 									}(),
 									VerifySubjectAltNames: func() types.List {
-										if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+										if v, ok := TLSValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
 											var items []string
 											for _, item := range v {
 												if s, ok := item.(string); ok {
@@ -4813,6 +4884,15 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 								}
 							}
 							return nil
+						}(),
+						VolterraTrustedCA: func() types.Object {
+							if !isImport && data.TLSParameters != nil && data.TLSParameters.CertParams != nil && !data.TLSParameters.CertParams.VolterraTrustedCA.IsUnknown() {
+								return data.TLSParameters.CertParams.VolterraTrustedCA
+							}
+							if _, ok := CertParamsData["volterra_trusted_ca"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}

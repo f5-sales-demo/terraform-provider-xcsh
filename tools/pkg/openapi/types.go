@@ -431,6 +431,8 @@ type GenerationResult struct {
 	// IsTerraformAction distinguishes Terraform 1.14+ first-class actions from
 	// the older create-once action-style resources represented by IsAction.
 	IsTerraformAction bool
+	// IsEphemeral marks a secret-bearing operation whose result must never enter state.
+	IsEphemeral bool
 	// IsResponseOperation marks a catalog-owned non-CRUD surface. These surfaces
 	// own no generated client type file because they decode through the common
 	// response-operation IR.

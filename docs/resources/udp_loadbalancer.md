@@ -128,7 +128,11 @@ An [`advertise_custom`](#advertise-custom) block supports the following:
 
 An [`advertise_where`](#advertise-custom-advertise-where) block (within [`advertise_custom`](#advertise-custom)) supports the following:
 
+<a id="public-0dcbcc"></a>&#x2022; [`advertise_dualstack_on_public`](#public-0dcbcc) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise Dualstack On Public](#public-0dcbcc) below.
+
 <a id="public-618a99"></a>&#x2022; [`advertise_on_public`](#public-618a99) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On Public](#public-618a99) below.
+
+<a id="public-f74e53"></a>&#x2022; [`advertise_v6_on_public`](#public-f74e53) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise V6 On Public](#public-f74e53) below.
 
 <a id="advertise-custom-advertise-where-port"></a>&#x2022; [`port`](#advertise-custom-advertise-where-port) - Optional Number<br>Port to Listen
 
@@ -146,6 +150,14 @@ An [`advertise_where`](#advertise-custom-advertise-where) block (within [`advert
 
 <a id="service-1fdc7a"></a>&#x2022; [`vk8s_service`](#service-1fdc7a) - Optional Block<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network<br>See [Vk8s Service](#service-1fdc7a) below.
 
+#### Advertise Custom Advertise Where Advertise Dualstack On Public
+
+<a id="deep-e27ec5"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Advertise Custom Advertise Where Advertise Dualstack On Public Public IP
+
+<a id="deep-a5ced3"></a>Deeply nested **IP** block collapsed for readability.
+
 #### Advertise Custom Advertise Where Advertise On Public
 
 An [`advertise_on_public`](#public-618a99) block (within [`advertise_custom.advertise_where`](#advertise-custom-advertise-where)) supports the following:
@@ -155,6 +167,14 @@ An [`advertise_on_public`](#public-618a99) block (within [`advertise_custom.adve
 #### Advertise Custom Advertise Where Advertise On Public Public IP
 
 <a id="deep-032ffb"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Advertise Custom Advertise Where Advertise V6 On Public
+
+<a id="deep-97128b"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Advertise Custom Advertise Where Advertise V6 On Public Public IP
+
+<a id="deep-7c6cff"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Advertise Custom Advertise Where Site
 

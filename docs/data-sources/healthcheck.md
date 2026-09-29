@@ -89,6 +89,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
+<a id="default-jitter"></a>&#x2022; [`default_jitter`](#default-jitter) - Optional Object<br>Configuration parameter for default jitter
+
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Healthcheck
 
 <a id="healthy-threshold"></a>&#x2022; [`healthy_threshold`](#healthy-threshold) - Optional Number<br>Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy. Recommended: `3`
@@ -99,7 +101,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="interval"></a>&#x2022; [`interval`](#interval) - Optional Number<br>Time interval in seconds between two healthcheck requests. Recommended: `15`
 
-<a id="jitter-percent"></a>&#x2022; [`jitter_percent`](#jitter-percent) - Optional Number  Defaults to `0`<br>Add a random amount of time as a percent value to the interval between successive healthcheck requests.  Recommended: `30` ⚙️ **Server Default**
+<a id="jitter-percent"></a>&#x2022; [`jitter_percent`](#jitter-percent) - Optional Number  Defaults to `0`<br>Specify a custom jitter value as a percentage of the health check interval. Valid values are 0 (to disable jitter) and 10 to 50.  Recommended: `30` ⚙️ **Server Default**
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 

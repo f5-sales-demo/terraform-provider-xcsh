@@ -84,7 +84,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="monitor-disabled"></a>&#x2022; [`monitor_disabled`](#monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="mtu"></a>&#x2022; [`mtu`](#mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu"></a>&#x2022; [`mtu`](#mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000
 
 <a id="node"></a>&#x2022; [`node`](#node) - Optional String<br>Configuration will apply to a device on the given node of the site
 
@@ -96,7 +96,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="device"></a>&#x2022; [`device`](#device) - Optional String<br>Name of the device for which interface is configured
 
-<a id="mtu"></a>&#x2022; [`mtu`](#mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu"></a>&#x2022; [`mtu`](#mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000
 
 <a id="node"></a>&#x2022; [`node`](#node) - Optional String<br>Configuration will apply to a device on the given node of the site
 
@@ -116,7 +116,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="monitor-disabled"></a>&#x2022; [`monitor_disabled`](#monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="mtu"></a>&#x2022; [`mtu`](#mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu"></a>&#x2022; [`mtu`](#mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000
 
 <a id="no-ipv6-address"></a>&#x2022; [`no_ipv6_address`](#no-ipv6-address) - Optional Object<br>Enable this option
 
@@ -264,7 +264,7 @@ DHCP pool list are used for IP Address allocation Address ranges in DHCP pool li
 
 <a id="vlan-id"></a>&#x2022; [`vlan_id`](#vlan-id) - Optional Number<br>VLAN ID. VLAN ID
 
-<a id="mtu"></a>&#x2022; [`mtu`](#mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu"></a>&#x2022; [`mtu`](#mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000
 
 <a id="node"></a>&#x2022; [`node`](#node) - Optional String<br>Configuration will apply to a given device on the given node
 

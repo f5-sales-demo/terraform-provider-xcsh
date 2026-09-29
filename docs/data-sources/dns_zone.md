@@ -93,7 +93,7 @@ A [`primary`](#primary) block supports the following:
 
 <a id="parameters-d65f3c"></a>&#x2022; [`default_soa_parameters`](#parameters-d65f3c) - Optional Object<br>Configuration parameter for default soa parameters
 
-<a id="nestedatt--primary-dnssec-mode"></a>&#x2022; [`dnssec_mode`](#nestedatt--primary-dnssec-mode) - Optional String<br>Disable
+<a id="nestedatt--primary-dnssec-mode"></a>&#x2022; [`dnssec_mode`](#nestedatt--primary-dnssec-mode) - Optional String<br>DNSSEC Mode
 
 <a id="nestedatt--primary-rr-set-group"></a>&#x2022; [`rr_set_group`](#nestedatt--primary-rr-set-group) - Optional List<br>Create and manage set groups, and resource record sets within them, x-VES-I/O-managed set is managed by F5
 

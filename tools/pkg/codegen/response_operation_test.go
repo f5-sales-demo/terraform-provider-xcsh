@@ -54,7 +54,7 @@ func TestGeneratedResponseOperationsCompile(t *testing.T) {
 	}
 	t.Cleanup(func() { _ = os.RemoveAll(providerDir) })
 
-	roles := []string{"query", "collection", "issuance", "action"}
+	roles := []string{"query", "collection", "issuance", "action", "ephemeral"}
 	for index, role := range roles {
 		operation := responseOperationTemplate(role)
 		operation.ResponseFields = []openapi.ResponseField{{Name: "secret", Type: "string", Required: true, MinLength: 1}}
@@ -106,6 +106,18 @@ func TestResponseOperationRetryPolicyUsesOperationRole(t *testing.T) {
 	}
 }
 
+func TestResponseOperationDeleteActionUsesExactMethod(t *testing.T) {
+	operation := responseOperationTemplate("action")
+	operation.Method = "DELETE"
+	code := renderResponseOperationInvoke(operation, "a", false)
+	if !strings.Contains(code, ".Delete(ctx, apiPath)") {
+		t.Fatalf("DELETE action did not use the exact client method: %s", code)
+	}
+	if strings.Contains(code, "body") {
+		t.Fatalf("DELETE action unexpectedly emitted a request body: %s", code)
+	}
+}
+
 func TestResponseOperationDiagnosticsDoNotRenderRawBackendErrors(t *testing.T) {
 	code := renderResponseOperationDiagnostic(responseOperationTemplate("query"))
 	if strings.Contains(code, "fmt.Sprintf") || !strings.Contains(code, "Raw API diagnostics are suppressed") {
@@ -153,6 +165,7 @@ func TestGenerateResponseOperationEveryRole(t *testing.T) {
 		{role: "collection", suffix: "_data_source.go", marker: "datasource.DataSource"},
 		{role: "issuance", suffix: "_resource.go", marker: "resource.Resource"},
 		{role: "action", suffix: "_action.go", marker: "action.Action"},
+		{role: "ephemeral", suffix: "_ephemeral_resource.go", marker: "ephemeral.EphemeralResource"},
 	} {
 		t.Run(test.role, func(t *testing.T) {
 			dir := t.TempDir()
@@ -192,6 +205,11 @@ func TestGenerateResponseOperationEveryRole(t *testing.T) {
 				}
 				if !strings.Contains(text, `AddError("Update Not Supported"`) {
 					t.Error("generated issuance is missing the canonical fail-closed update stub")
+				}
+			}
+			if test.role == "ephemeral" {
+				if !strings.Contains(text, "resp.Result.Set") || strings.Contains(text, "resp.State.Set") {
+					t.Error("generated ephemeral resource must return only ephemeral result data")
 				}
 			}
 			if test.role != "action" && (!strings.Contains(text, "Sensitive:") || !strings.Contains(text, "true")) {

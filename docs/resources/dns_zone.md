@@ -87,7 +87,7 @@ A [`primary`](#primary) block supports the following:
 
 <a id="primary-default-soa-parameters"></a>&#x2022; [`default_soa_parameters`](#primary-default-soa-parameters) - Optional Object<br>Configuration parameter for default soa parameters
 
-<a id="primary-dnssec-mode"></a>&#x2022; [`dnssec_mode`](#primary-dnssec-mode) - Optional Block<br>Disable<br>See [Dnssec Mode](#primary-dnssec-mode) below.
+<a id="primary-dnssec-mode"></a>&#x2022; [`dnssec_mode`](#primary-dnssec-mode) - Optional Block<br>DNSSEC Mode<br>See [Dnssec Mode](#primary-dnssec-mode) below.
 
 <a id="primary-rr-set-group"></a>&#x2022; [`rr_set_group`](#primary-rr-set-group) - Optional Block<br>Create and manage set groups, and resource record sets within them, x-VES-I/O-managed set is managed by F5<br>See [Rr Set Group](#primary-rr-set-group) below.
 

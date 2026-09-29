@@ -233,6 +233,7 @@ func TestDownloadSpecsActionUsesPinnedReleaseAndRetainsCatalog(t *testing.T) {
 		"smsv2-contract.json":             smsv2Assets["smsv2-contract.json"],
 		"smsv2-evidence-receipt.json":     smsv2Assets["smsv2-evidence-receipt.json"],
 		"smsv2_parity_manifest.json":      smsv2Assets["smsv2_parity_manifest.json"],
+		"upstream-contract-changes.json":  smsv2Assets["upstream-contract-changes.json"],
 		"upstream-contract-removals.json": smsv2Assets["upstream-contract-removals.json"],
 	})
 	logPath := filepath.Join(tmp, "gh.log")
@@ -249,7 +250,8 @@ case "$*" in
   *releases/assets/208*) cat "$SMSV2_EVIDENCE_FILE" ;;
   *releases/assets/209*) cat "$CONCURRENCY_FILE" ;;
   *releases/assets/210*) cat "$PARITY_FILE" ;;
-  *releases/assets/211*) cat "$REMOVALS_FILE" ;;
+  *releases/assets/211*) cat "$CHANGES_FILE" ;;
+  *releases/assets/212*) cat "$REMOVALS_FILE" ;;
   *commits/v2.1.208*) printf '{"sha":"%s"}\n' "$TAG_COMMIT" ;;
   *releases/tags/v2.1.208*)
     bundle_sha=$(shasum -a 256 "$BUNDLE_ZIP" | awk '{print $1}')
@@ -262,6 +264,7 @@ case "$*" in
     evidence_sha=$(shasum -a 256 "$SMSV2_EVIDENCE_FILE" | cut -d " " -f1)
     concurrency_sha=$(shasum -a 256 "$CONCURRENCY_FILE" | cut -d " " -f1)
     parity_sha=$(shasum -a 256 "$PARITY_FILE" | cut -d " " -f1)
+    changes_sha=$(shasum -a 256 "$CHANGES_FILE" | cut -d " " -f1)
     removals_sha=$(shasum -a 256 "$REMOVALS_FILE" | cut -d " " -f1)
     jq -cn \
       --arg bundle_sha "$bundle_sha" \
@@ -275,6 +278,7 @@ case "$*" in
       --arg evidence_sha "$evidence_sha" \
       --arg concurrency_sha "$concurrency_sha" \
       --arg parity_sha "$parity_sha" \
+      --arg changes_sha "$changes_sha" \
       --arg removals_sha "$removals_sha" '
       {tag_name: "v2.1.208", draft: false, prerelease: false, immutable: true, assets: [
         {id: 202, name: "api-catalog.json", digest: ("sha256:" + $catalog_sha)},
@@ -287,7 +291,8 @@ case "$*" in
         {id: 208, name: "smsv2-evidence-receipt.json", digest: ("sha256:" + $evidence_sha)},
         {id: 209, name: "concurrency_contracts.json", digest: ("sha256:" + $concurrency_sha)},
         {id: 210, name: "smsv2_parity_manifest.json", digest: ("sha256:" + $parity_sha)},
-        {id: 211, name: "upstream-contract-removals.json", digest: ("sha256:" + $removals_sha)}
+        {id: 211, name: "upstream-contract-changes.json", digest: ("sha256:" + $changes_sha)},
+        {id: 212, name: "upstream-contract-removals.json", digest: ("sha256:" + $removals_sha)}
       ], body: ("<!-- publication-receipt:" + ({
         assets: {
           "api-catalog.json": ("sha256:" + $catalog_sha),
@@ -300,6 +305,7 @@ case "$*" in
           "smsv2-evidence-receipt.json": ("sha256:" + $evidence_sha),
           "concurrency_contracts.json": ("sha256:" + $concurrency_sha),
           "smsv2_parity_manifest.json": ("sha256:" + $parity_sha),
+          "upstream-contract-changes.json": ("sha256:" + $changes_sha),
           "upstream-contract-removals.json": ("sha256:" + $removals_sha)
         }, commit: $commit, version: "2.1.208"
       } | tojson) + " -->")}' ;;
@@ -328,6 +334,7 @@ esac
 		"SMSV2_EVIDENCE_FILE=" + filepath.Join(tmp, "smsv2-evidence-receipt.json"),
 		"CONCURRENCY_FILE=" + filepath.Join(tmp, "concurrency_contracts.json"),
 		"PARITY_FILE=" + filepath.Join(tmp, "smsv2_parity_manifest.json"),
+		"CHANGES_FILE=" + filepath.Join(tmp, "upstream-contract-changes.json"),
 		"REMOVALS_FILE=" + filepath.Join(tmp, "upstream-contract-removals.json"),
 		"TAG_COMMIT=" + tagCommit,
 	}
@@ -370,6 +377,7 @@ esac
 		"smsv2-contract.json":             smsv2Assets["smsv2-contract.json"],
 		"smsv2-evidence-receipt.json":     smsv2Assets["smsv2-evidence-receipt.json"],
 		"smsv2_parity_manifest.json":      smsv2Assets["smsv2_parity_manifest.json"],
+		"upstream-contract-changes.json":  smsv2Assets["upstream-contract-changes.json"],
 		"upstream-contract-removals.json": smsv2Assets["upstream-contract-removals.json"],
 	})
 	sentinel := filepath.Join(specDir, "existing-bundle-must-survive")
@@ -617,6 +625,7 @@ func testSpecReleaseMetadata(
 		"smsv2-contract.json",
 		"smsv2-evidence-receipt.json",
 		"smsv2_parity_manifest.json",
+		"upstream-contract-changes.json",
 		"upstream-contract-removals.json",
 	}
 	assets := make([]map[string]any, 0, len(names))
@@ -662,6 +671,7 @@ func testSpecAssetDigests(tag string, overrides map[string]string) map[string]st
 		"smsv2-contract.json":             strings.Repeat("0", 64),
 		"smsv2-evidence-receipt.json":     strings.Repeat("0", 64),
 		"smsv2_parity_manifest.json":      strings.Repeat("0", 64),
+		"upstream-contract-changes.json":  strings.Repeat("0", 64),
 		"upstream-contract-removals.json": strings.Repeat("0", 64),
 	}
 	for name, digest := range overrides {
@@ -910,7 +920,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 	assets := map[string]string{"smsv2-contract.json": fileSHA256(t, filepath.Join(root, "smsv2-contract.json")), "smsv2-evidence-receipt.json": fileSHA256(t, filepath.Join(root, "smsv2-evidence-receipt.json"))}
 	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-smsv2-api/v1", "contract_version": "7.0.0", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
 	assets["smsv2-contract-manifest.json"] = fileSHA256(t, filepath.Join(root, "smsv2-contract-manifest.json"))
-	for _, name := range []string{"concurrency_contracts.json", "smsv2_parity_manifest.json", "upstream-contract-removals.json"} {
+	for _, name := range []string{"concurrency_contracts.json", "smsv2_parity_manifest.json", "upstream-contract-changes.json", "upstream-contract-removals.json"} {
 		assets[name] = fileSHA256(t, filepath.Join(root, name))
 	}
 	return assets

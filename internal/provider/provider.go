@@ -9,6 +9,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework/action"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
+	"github.com/hashicorp/terraform-plugin-framework/ephemeral"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
@@ -22,6 +23,7 @@ import (
 // Ensure XCSHProvider satisfies various provider interfaces.
 var _ provider.Provider = &XCSHProvider{}
 var _ provider.ProviderWithActions = &XCSHProvider{}
+var _ provider.ProviderWithEphemeralResources = &XCSHProvider{}
 
 // XCSHProvider defines the provider implementation.
 type XCSHProvider struct {
@@ -204,6 +206,7 @@ func (p *XCSHProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 	resp.DataSourceData = c
 	resp.ResourceData = c
 	resp.ActionData = c
+	resp.EphemeralResourceData = c
 }
 
 func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource {
@@ -245,6 +248,7 @@ func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource
 		NewCloudCredentialsResource,
 		NewCloudElasticIPResource,
 		NewCloudLinkResource,
+		NewCloudUserAccountResource,
 		NewClusterResource,
 		NewCminstanceResource,
 		NewCodeBaseIntegrationResource,
@@ -348,6 +352,8 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewAPITestingDataSource,
 		NewAWSTGWSiteDataSource,
 		NewAWSVPCSiteDataSource,
+		NewAccessActiveSessionDataSource,
+		NewAccessActiveSessionsDataSource,
 		NewAddonServiceActivationStatusDataSource,
 		NewAddonServiceDataSource,
 		NewAddressAllocatorDataSource,
@@ -359,6 +365,7 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewAllowedDomainDataSource,
 		NewAppAPIGroupDataSource,
 		NewAppFirewallDataSource,
+		NewAppSecurityEvidenceDataSource,
 		NewAppSettingDataSource,
 		NewAppTypeDataSource,
 		NewApplicationProfilesDataSource,
@@ -376,6 +383,12 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewBotEndpointPolicyDataSource,
 		NewBotInfrastructureDataSource,
 		NewBotNetworkPolicyDataSource,
+		NewBotPeerStatusDataSource,
+		NewBotPeerThreatTypesDataSource,
+		NewBotPeerTopGoodBotsDataSource,
+		NewBotPeerTopReasonCodesDataSource,
+		NewBotPeerTrafficOverviewDataSource,
+		NewBotSuggestValuesDataSource,
 		NewCDNCacheRuleDataSource,
 		NewCDNLoadBalancerDataSource,
 		NewCDNPurgeCommandDataSource,
@@ -388,19 +401,29 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewCloudElasticIPDataSource,
 		NewCloudLinkDataSource,
 		NewCloudRegionDataSource,
+		NewCloudUserAccountDataSource,
 		NewClusterDataSource,
 		NewCminstanceDataSource,
 		NewCodeBaseIntegrationDataSource,
 		NewContainerRegistryDataSource,
+		NewCustomerSupportCommentsDataSource,
 		NewDNSComplianceChecksDataSource,
 		NewDNSLBHealthCheckDataSource,
 		NewDNSLBPoolDataSource,
 		NewDNSLoadBalancerDataSource,
 		NewDNSProxyDataSource,
+		NewDNSZoneCryptokeysDataSource,
 		NewDNSZoneDataSource,
 		NewDataGroupDataSource,
 		NewDataTypeDataSource,
 		NewDcClusterGroupDataSource,
+		NewDeviceIntelligenceDeviceHistoryDataSource,
+		NewDeviceIntelligenceDeviceSummaryDataSource,
+		NewDeviceIntelligenceDevicesDataSource,
+		NewDeviceIntelligenceHighRiskTransactionsDataSource,
+		NewDeviceIntelligenceMultiAccountDevicesDataSource,
+		NewDeviceIntelligenceRiskScoreDistributionDataSource,
+		NewDeviceIntelligenceSummaryDataSource,
 		NewDiscoveryDataSource,
 		NewEndpointDataSource,
 		NewEnhancedFirewallPolicyDataSource,
@@ -422,6 +445,7 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewIPPrefixSetDataSource,
 		NewIke1DataSource,
 		NewIke2DataSource,
+		NewInfraprotectMitigationIpsDataSource,
 		NewIruleDataSource,
 		NewK8SClusterDataSource,
 		NewK8SClusterRoleBindingDataSource,
@@ -431,6 +455,7 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewLmaRegionDataSource,
 		NewLogReceiverDataSource,
 		NewMaliciousUserMitigationDataSource,
+		NewManagedClientCustomerSupportCommentsDataSource,
 		NewMitigatedDomainDataSource,
 		NewNATPolicyDataSource,
 		NewNamespaceDataSource,
@@ -456,7 +481,9 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewNginxInstanceDataSource,
 		NewNginxServerDataSource,
 		NewNginxServiceDiscoveryDataSource,
+		NewOIDCOauthDiscoveryDataSource,
 		NewOriginPoolDataSource,
+		NewPartnerCustomerSupportCommentsDataSource,
 		NewPolicerDataSource,
 		NewPolicyBasedRoutingDataSource,
 		NewProtectedApplicationDataSource,
@@ -497,6 +524,7 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewTCPLoadBalancerDataSource,
 		NewTenantConfigurationDataSource,
 		NewThirdPartyApplicationDataSource,
+		NewTmmSessionMetricsDataSource,
 		NewTokenDataSource,
 		NewTrustedCAListDataSource,
 		NewTunnelDataSource,
@@ -508,7 +536,12 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewVirtualNetworkDataSource,
 		NewVirtualSiteDataSource,
 		NewVoltstackSiteDataSource,
+		NewWAFAttackSignaturesDataSource,
+		NewWAFBotSignaturesDataSource,
 		NewWAFExclusionPolicyDataSource,
+		NewWAFLatestSignaturesVersionDataSource,
+		NewWAFThreatCampaignsDataSource,
+		NewWAFThreatsDataSource,
 		NewWorkloadDataSource,
 		NewWorkloadFlavorDataSource,
 	}
@@ -516,8 +549,24 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 
 func (p *XCSHProvider) Actions(ctx context.Context) []func() action.Action {
 	return []func() action.Action{
+		NewAccessActiveSessionTerminateAction,
+		NewAccessActiveSessionsTerminateAction,
+		NewDNSZoneAddCryptokeyAction,
+		NewDNSZoneDeleteCryptokeyAction,
+		NewDNSZoneEditCryptokeyAction,
+		NewDeviceIntelligenceSubscribeAction,
+		NewDeviceIntelligenceUnsubscribeAction,
+		NewInfraprotectSynchronizeConfigurationAction,
+		NewSiteSignaturesUpdateAction,
 		NewSiteUpgradeOSAction,
 		NewSiteUpgradeSwAction,
+	}
+}
+
+func (p *XCSHProvider) EphemeralResources(ctx context.Context) []func() ephemeral.EphemeralResource {
+	return []func() ephemeral.EphemeralResource{
+		NewArtifactRegistryTokenEphemeralResource,
+		NewKubernetesManifestsEphemeralResource,
 	}
 }
 

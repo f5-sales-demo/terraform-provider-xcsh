@@ -57,6 +57,8 @@ func Clean(desc string, fieldPath string) string {
 	// Normalize whitespace
 	desc = regexp.MustCompile(`[\n\r]+`).ReplaceAllString(desc, " ")
 	desc = regexp.MustCompile(`\s+`).ReplaceAllString(desc, " ")
+	desc = regexp.MustCompile(`\bMime\b`).ReplaceAllString(desc, "MIME")
+	desc = regexp.MustCompile(`(?i)\b3rd party\b`).ReplaceAllString(desc, "third-party")
 	// Avoid the ambiguous possessive rejected by the documentation terminology
 	// rules while preserving the meaning of protobuf Any type URL descriptions.
 	desc = strings.ReplaceAll(desc, "the URL's path", "the URL path")

@@ -106,14 +106,48 @@ var TunnelLocalIPIPAddressModelAttrTypes = map[string]attr.Type{
 
 // TunnelLocalIPIPAddressIPAddressModel represents ip_address block
 type TunnelLocalIPIPAddressIPAddressModel struct {
-	Ipv4 *TunnelLocalIPIPAddressIPAddressIpv4Model `tfsdk:"ipv4"`
-	Ipv6 *TunnelLocalIPIPAddressIPAddressIpv6Model `tfsdk:"ipv6"`
+	DualStack *TunnelLocalIPIPAddressIPAddressDualStackModel `tfsdk:"dual_stack"`
+	Ipv4      *TunnelLocalIPIPAddressIPAddressIpv4Model      `tfsdk:"ipv4"`
+	Ipv6      *TunnelLocalIPIPAddressIPAddressIpv6Model      `tfsdk:"ipv6"`
 }
 
 // TunnelLocalIPIPAddressIPAddressModelAttrTypes defines the attribute types for TunnelLocalIPIPAddressIPAddressModel
 var TunnelLocalIPIPAddressIPAddressModelAttrTypes = map[string]attr.Type{
-	"ipv4": types.ObjectType{AttrTypes: TunnelLocalIPIPAddressIPAddressIpv4ModelAttrTypes},
-	"ipv6": types.ObjectType{AttrTypes: TunnelLocalIPIPAddressIPAddressIpv6ModelAttrTypes},
+	"dual_stack": types.ObjectType{AttrTypes: TunnelLocalIPIPAddressIPAddressDualStackModelAttrTypes},
+	"ipv4":       types.ObjectType{AttrTypes: TunnelLocalIPIPAddressIPAddressIpv4ModelAttrTypes},
+	"ipv6":       types.ObjectType{AttrTypes: TunnelLocalIPIPAddressIPAddressIpv6ModelAttrTypes},
+}
+
+// TunnelLocalIPIPAddressIPAddressDualStackModel represents dual_stack block
+type TunnelLocalIPIPAddressIPAddressDualStackModel struct {
+	Ipv4 *TunnelLocalIPIPAddressIPAddressDualStackIpv4Model `tfsdk:"ipv4"`
+	Ipv6 *TunnelLocalIPIPAddressIPAddressDualStackIpv6Model `tfsdk:"ipv6"`
+}
+
+// TunnelLocalIPIPAddressIPAddressDualStackModelAttrTypes defines the attribute types for TunnelLocalIPIPAddressIPAddressDualStackModel
+var TunnelLocalIPIPAddressIPAddressDualStackModelAttrTypes = map[string]attr.Type{
+	"ipv4": types.ObjectType{AttrTypes: TunnelLocalIPIPAddressIPAddressDualStackIpv4ModelAttrTypes},
+	"ipv6": types.ObjectType{AttrTypes: TunnelLocalIPIPAddressIPAddressDualStackIpv6ModelAttrTypes},
+}
+
+// TunnelLocalIPIPAddressIPAddressDualStackIpv4Model represents ipv4 block
+type TunnelLocalIPIPAddressIPAddressDualStackIpv4Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// TunnelLocalIPIPAddressIPAddressDualStackIpv4ModelAttrTypes defines the attribute types for TunnelLocalIPIPAddressIPAddressDualStackIpv4Model
+var TunnelLocalIPIPAddressIPAddressDualStackIpv4ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
+}
+
+// TunnelLocalIPIPAddressIPAddressDualStackIpv6Model represents ipv6 block
+type TunnelLocalIPIPAddressIPAddressDualStackIpv6Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// TunnelLocalIPIPAddressIPAddressDualStackIpv6ModelAttrTypes defines the attribute types for TunnelLocalIPIPAddressIPAddressDualStackIpv6Model
+var TunnelLocalIPIPAddressIPAddressDualStackIpv6ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
 }
 
 // TunnelLocalIPIPAddressIPAddressIpv4Model represents ipv4 block
@@ -232,14 +266,48 @@ var TunnelRemoteIPEndpointsModelAttrTypes = map[string]attr.Type{
 
 // TunnelRemoteIPIPModel represents ip block
 type TunnelRemoteIPIPModel struct {
-	Ipv4 *TunnelRemoteIPIPIpv4Model `tfsdk:"ipv4"`
-	Ipv6 *TunnelRemoteIPIPIpv6Model `tfsdk:"ipv6"`
+	DualStack *TunnelRemoteIPIPDualStackModel `tfsdk:"dual_stack"`
+	Ipv4      *TunnelRemoteIPIPIpv4Model      `tfsdk:"ipv4"`
+	Ipv6      *TunnelRemoteIPIPIpv6Model      `tfsdk:"ipv6"`
 }
 
 // TunnelRemoteIPIPModelAttrTypes defines the attribute types for TunnelRemoteIPIPModel
 var TunnelRemoteIPIPModelAttrTypes = map[string]attr.Type{
-	"ipv4": types.ObjectType{AttrTypes: TunnelRemoteIPIPIpv4ModelAttrTypes},
-	"ipv6": types.ObjectType{AttrTypes: TunnelRemoteIPIPIpv6ModelAttrTypes},
+	"dual_stack": types.ObjectType{AttrTypes: TunnelRemoteIPIPDualStackModelAttrTypes},
+	"ipv4":       types.ObjectType{AttrTypes: TunnelRemoteIPIPIpv4ModelAttrTypes},
+	"ipv6":       types.ObjectType{AttrTypes: TunnelRemoteIPIPIpv6ModelAttrTypes},
+}
+
+// TunnelRemoteIPIPDualStackModel represents dual_stack block
+type TunnelRemoteIPIPDualStackModel struct {
+	Ipv4 *TunnelRemoteIPIPDualStackIpv4Model `tfsdk:"ipv4"`
+	Ipv6 *TunnelRemoteIPIPDualStackIpv6Model `tfsdk:"ipv6"`
+}
+
+// TunnelRemoteIPIPDualStackModelAttrTypes defines the attribute types for TunnelRemoteIPIPDualStackModel
+var TunnelRemoteIPIPDualStackModelAttrTypes = map[string]attr.Type{
+	"ipv4": types.ObjectType{AttrTypes: TunnelRemoteIPIPDualStackIpv4ModelAttrTypes},
+	"ipv6": types.ObjectType{AttrTypes: TunnelRemoteIPIPDualStackIpv6ModelAttrTypes},
+}
+
+// TunnelRemoteIPIPDualStackIpv4Model represents ipv4 block
+type TunnelRemoteIPIPDualStackIpv4Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// TunnelRemoteIPIPDualStackIpv4ModelAttrTypes defines the attribute types for TunnelRemoteIPIPDualStackIpv4Model
+var TunnelRemoteIPIPDualStackIpv4ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
+}
+
+// TunnelRemoteIPIPDualStackIpv6Model represents ipv6 block
+type TunnelRemoteIPIPDualStackIpv6Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// TunnelRemoteIPIPDualStackIpv6ModelAttrTypes defines the attribute types for TunnelRemoteIPIPDualStackIpv6Model
+var TunnelRemoteIPIPDualStackIpv6ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
 }
 
 // TunnelRemoteIPIPIpv4Model represents ipv4 block
@@ -409,9 +477,41 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 						Blocks: map[string]schema.Block{
 							"ip_address": schema.SingleNestedBlock{
 								MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
-								Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("dual_stack", "ipv4"), validators.ConflictingObjectAttributes("dual_stack", "ipv6"), validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
+									"dual_stack": schema.SingleNestedBlock{
+										MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+										Attributes:          map[string]schema.Attribute{},
+										Blocks: map[string]schema.Block{
+											"ipv4": schema.SingleNestedBlock{
+												MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+												Attributes: map[string]schema.Attribute{
+													"addr": schema.StringAttribute{
+														MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+														Optional:            true,
+														Validators: []validator.String{
+															stringvalidator.LengthAtMost(1024),
+															validators.IPv4Validator(),
+														},
+													},
+												},
+											},
+											"ipv6": schema.SingleNestedBlock{
+												MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+												Attributes: map[string]schema.Attribute{
+													"addr": schema.StringAttribute{
+														MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+														Optional:            true,
+														Validators: []validator.String{
+															stringvalidator.LengthAtMost(1024),
+															validators.IPv6Validator(),
+														},
+													},
+												},
+											},
+										},
+									},
 									"ipv4": schema.SingleNestedBlock{
 										MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 										Attributes: map[string]schema.Attribute{
@@ -542,9 +642,41 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 					},
 					"ip": schema.SingleNestedBlock{
 						MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
-						Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("dual_stack", "ipv4"), validators.ConflictingObjectAttributes("dual_stack", "ipv6"), validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
+							"dual_stack": schema.SingleNestedBlock{
+								MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"ipv4": schema.SingleNestedBlock{
+										MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+										Attributes: map[string]schema.Attribute{
+											"addr": schema.StringAttribute{
+												MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+												Optional:            true,
+												Validators: []validator.String{
+													stringvalidator.LengthAtMost(1024),
+													validators.IPv4Validator(),
+												},
+											},
+										},
+									},
+									"ipv6": schema.SingleNestedBlock{
+										MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+										Attributes: map[string]schema.Attribute{
+											"addr": schema.StringAttribute{
+												MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+												Optional:            true,
+												Validators: []validator.String{
+													stringvalidator.LengthAtMost(1024),
+													validators.IPv6Validator(),
+												},
+											},
+										},
+									},
+								},
+							},
 							"ipv4": schema.SingleNestedBlock{
 								MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 								Attributes: map[string]schema.Attribute{
@@ -733,6 +865,24 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 			}
 			if data.LocalIP.IPAddress.IPAddress != nil {
 				LocalIPIPAddressIPAddressMap := make(map[string]interface{})
+				if data.LocalIP.IPAddress.IPAddress.DualStack != nil {
+					LocalIPIPAddressIPAddressDualStackMap := make(map[string]interface{})
+					if data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4 != nil {
+						LocalIPIPAddressIPAddressDualStackIpv4Map := make(map[string]interface{})
+						if !data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4.Addr.IsUnknown() {
+							LocalIPIPAddressIPAddressDualStackIpv4Map["addr"] = data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4.Addr.ValueString()
+						}
+						LocalIPIPAddressIPAddressDualStackMap["ipv4"] = LocalIPIPAddressIPAddressDualStackIpv4Map
+					}
+					if data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6 != nil {
+						LocalIPIPAddressIPAddressDualStackIpv6Map := make(map[string]interface{})
+						if !data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6.Addr.IsUnknown() {
+							LocalIPIPAddressIPAddressDualStackIpv6Map["addr"] = data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6.Addr.ValueString()
+						}
+						LocalIPIPAddressIPAddressDualStackMap["ipv6"] = LocalIPIPAddressIPAddressDualStackIpv6Map
+					}
+					LocalIPIPAddressIPAddressMap["dual_stack"] = LocalIPIPAddressIPAddressDualStackMap
+				}
 				if data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
 					LocalIPIPAddressIPAddressIpv4Map := make(map[string]interface{})
 					if !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsUnknown() {
@@ -812,6 +962,24 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 		}
 		if data.RemoteIP.IP != nil {
 			RemoteIPIPMap := make(map[string]interface{})
+			if data.RemoteIP.IP.DualStack != nil {
+				RemoteIPIPDualStackMap := make(map[string]interface{})
+				if data.RemoteIP.IP.DualStack.Ipv4 != nil {
+					RemoteIPIPDualStackIpv4Map := make(map[string]interface{})
+					if !data.RemoteIP.IP.DualStack.Ipv4.Addr.IsNull() && !data.RemoteIP.IP.DualStack.Ipv4.Addr.IsUnknown() {
+						RemoteIPIPDualStackIpv4Map["addr"] = data.RemoteIP.IP.DualStack.Ipv4.Addr.ValueString()
+					}
+					RemoteIPIPDualStackMap["ipv4"] = RemoteIPIPDualStackIpv4Map
+				}
+				if data.RemoteIP.IP.DualStack.Ipv6 != nil {
+					RemoteIPIPDualStackIpv6Map := make(map[string]interface{})
+					if !data.RemoteIP.IP.DualStack.Ipv6.Addr.IsNull() && !data.RemoteIP.IP.DualStack.Ipv6.Addr.IsUnknown() {
+						RemoteIPIPDualStackIpv6Map["addr"] = data.RemoteIP.IP.DualStack.Ipv6.Addr.ValueString()
+					}
+					RemoteIPIPDualStackMap["ipv6"] = RemoteIPIPDualStackIpv6Map
+				}
+				RemoteIPIPMap["dual_stack"] = RemoteIPIPDualStackMap
+			}
 			if data.RemoteIP.IP.Ipv4 != nil {
 				RemoteIPIPIpv4Map := make(map[string]interface{})
 				if !data.RemoteIP.IP.Ipv4.Addr.IsNull() && !data.RemoteIP.IP.Ipv4.Addr.IsUnknown() {
@@ -954,6 +1122,48 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 							}
 							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressIPAddressModel{
+									DualStack: func() *TunnelLocalIPIPAddressIPAddressDualStackModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil {
+											return data.LocalIP.IPAddress.IPAddress.DualStack
+										}
+										if DualStackData, ok := IPAddressData["dual_stack"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressDualStackModel{
+												Ipv4: func() *TunnelLocalIPIPAddressIPAddressDualStackIpv4Model {
+													if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil && data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4 != nil {
+														return data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4
+													}
+													if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+														return &TunnelLocalIPIPAddressIPAddressDualStackIpv4Model{
+															Addr: func() types.String {
+																if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												Ipv6: func() *TunnelLocalIPIPAddressIPAddressDualStackIpv6Model {
+													if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil && data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6 != nil {
+														return data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6
+													}
+													if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+														return &TunnelLocalIPIPAddressIPAddressDualStackIpv6Model{
+															Addr: func() types.String {
+																if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
 									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
 										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
 											return data.LocalIP.IPAddress.IPAddress.Ipv4
@@ -1134,6 +1344,48 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 				}
 				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPIPModel{
+						DualStack: func() *TunnelRemoteIPIPDualStackModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil {
+								return data.RemoteIP.IP.DualStack
+							}
+							if DualStackData, ok := IPData["dual_stack"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPDualStackModel{
+									Ipv4: func() *TunnelRemoteIPIPDualStackIpv4Model {
+										if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil && data.RemoteIP.IP.DualStack.Ipv4 != nil {
+											return data.RemoteIP.IP.DualStack.Ipv4
+										}
+										if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+											return &TunnelRemoteIPIPDualStackIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *TunnelRemoteIPIPDualStackIpv6Model {
+										if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil && data.RemoteIP.IP.DualStack.Ipv6 != nil {
+											return data.RemoteIP.IP.DualStack.Ipv6
+										}
+										if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+											return &TunnelRemoteIPIPDualStackIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
 							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv4 != nil {
 								return data.RemoteIP.IP.Ipv4
@@ -1390,6 +1642,48 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 							}
 							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressIPAddressModel{
+									DualStack: func() *TunnelLocalIPIPAddressIPAddressDualStackModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil {
+											return data.LocalIP.IPAddress.IPAddress.DualStack
+										}
+										if DualStackData, ok := IPAddressData["dual_stack"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressDualStackModel{
+												Ipv4: func() *TunnelLocalIPIPAddressIPAddressDualStackIpv4Model {
+													if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil && data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4 != nil {
+														return data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4
+													}
+													if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+														return &TunnelLocalIPIPAddressIPAddressDualStackIpv4Model{
+															Addr: func() types.String {
+																if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												Ipv6: func() *TunnelLocalIPIPAddressIPAddressDualStackIpv6Model {
+													if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil && data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6 != nil {
+														return data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6
+													}
+													if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+														return &TunnelLocalIPIPAddressIPAddressDualStackIpv6Model{
+															Addr: func() types.String {
+																if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
 									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
 										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
 											return data.LocalIP.IPAddress.IPAddress.Ipv4
@@ -1570,6 +1864,48 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 				}
 				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPIPModel{
+						DualStack: func() *TunnelRemoteIPIPDualStackModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil {
+								return data.RemoteIP.IP.DualStack
+							}
+							if DualStackData, ok := IPData["dual_stack"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPDualStackModel{
+									Ipv4: func() *TunnelRemoteIPIPDualStackIpv4Model {
+										if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil && data.RemoteIP.IP.DualStack.Ipv4 != nil {
+											return data.RemoteIP.IP.DualStack.Ipv4
+										}
+										if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+											return &TunnelRemoteIPIPDualStackIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *TunnelRemoteIPIPDualStackIpv6Model {
+										if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil && data.RemoteIP.IP.DualStack.Ipv6 != nil {
+											return data.RemoteIP.IP.DualStack.Ipv6
+										}
+										if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+											return &TunnelRemoteIPIPDualStackIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
 							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv4 != nil {
 								return data.RemoteIP.IP.Ipv4
@@ -1739,6 +2075,24 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 			}
 			if data.LocalIP.IPAddress.IPAddress != nil {
 				LocalIPIPAddressIPAddressMap := make(map[string]interface{})
+				if data.LocalIP.IPAddress.IPAddress.DualStack != nil {
+					LocalIPIPAddressIPAddressDualStackMap := make(map[string]interface{})
+					if data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4 != nil {
+						LocalIPIPAddressIPAddressDualStackIpv4Map := make(map[string]interface{})
+						if !data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4.Addr.IsUnknown() {
+							LocalIPIPAddressIPAddressDualStackIpv4Map["addr"] = data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4.Addr.ValueString()
+						}
+						LocalIPIPAddressIPAddressDualStackMap["ipv4"] = LocalIPIPAddressIPAddressDualStackIpv4Map
+					}
+					if data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6 != nil {
+						LocalIPIPAddressIPAddressDualStackIpv6Map := make(map[string]interface{})
+						if !data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6.Addr.IsUnknown() {
+							LocalIPIPAddressIPAddressDualStackIpv6Map["addr"] = data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6.Addr.ValueString()
+						}
+						LocalIPIPAddressIPAddressDualStackMap["ipv6"] = LocalIPIPAddressIPAddressDualStackIpv6Map
+					}
+					LocalIPIPAddressIPAddressMap["dual_stack"] = LocalIPIPAddressIPAddressDualStackMap
+				}
 				if data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
 					LocalIPIPAddressIPAddressIpv4Map := make(map[string]interface{})
 					if !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsUnknown() {
@@ -1818,6 +2172,24 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 		}
 		if data.RemoteIP.IP != nil {
 			RemoteIPIPMap := make(map[string]interface{})
+			if data.RemoteIP.IP.DualStack != nil {
+				RemoteIPIPDualStackMap := make(map[string]interface{})
+				if data.RemoteIP.IP.DualStack.Ipv4 != nil {
+					RemoteIPIPDualStackIpv4Map := make(map[string]interface{})
+					if !data.RemoteIP.IP.DualStack.Ipv4.Addr.IsNull() && !data.RemoteIP.IP.DualStack.Ipv4.Addr.IsUnknown() {
+						RemoteIPIPDualStackIpv4Map["addr"] = data.RemoteIP.IP.DualStack.Ipv4.Addr.ValueString()
+					}
+					RemoteIPIPDualStackMap["ipv4"] = RemoteIPIPDualStackIpv4Map
+				}
+				if data.RemoteIP.IP.DualStack.Ipv6 != nil {
+					RemoteIPIPDualStackIpv6Map := make(map[string]interface{})
+					if !data.RemoteIP.IP.DualStack.Ipv6.Addr.IsNull() && !data.RemoteIP.IP.DualStack.Ipv6.Addr.IsUnknown() {
+						RemoteIPIPDualStackIpv6Map["addr"] = data.RemoteIP.IP.DualStack.Ipv6.Addr.ValueString()
+					}
+					RemoteIPIPDualStackMap["ipv6"] = RemoteIPIPDualStackIpv6Map
+				}
+				RemoteIPIPMap["dual_stack"] = RemoteIPIPDualStackMap
+			}
 			if data.RemoteIP.IP.Ipv4 != nil {
 				RemoteIPIPIpv4Map := make(map[string]interface{})
 				if !data.RemoteIP.IP.Ipv4.Addr.IsNull() && !data.RemoteIP.IP.Ipv4.Addr.IsUnknown() {
@@ -1987,6 +2359,48 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 							}
 							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressIPAddressModel{
+									DualStack: func() *TunnelLocalIPIPAddressIPAddressDualStackModel {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil {
+											return data.LocalIP.IPAddress.IPAddress.DualStack
+										}
+										if DualStackData, ok := IPAddressData["dual_stack"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressDualStackModel{
+												Ipv4: func() *TunnelLocalIPIPAddressIPAddressDualStackIpv4Model {
+													if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil && data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4 != nil {
+														return data.LocalIP.IPAddress.IPAddress.DualStack.Ipv4
+													}
+													if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+														return &TunnelLocalIPIPAddressIPAddressDualStackIpv4Model{
+															Addr: func() types.String {
+																if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												Ipv6: func() *TunnelLocalIPIPAddressIPAddressDualStackIpv6Model {
+													if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.DualStack != nil && data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6 != nil {
+														return data.LocalIP.IPAddress.IPAddress.DualStack.Ipv6
+													}
+													if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+														return &TunnelLocalIPIPAddressIPAddressDualStackIpv6Model{
+															Addr: func() types.String {
+																if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
 									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
 										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil && data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
 											return data.LocalIP.IPAddress.IPAddress.Ipv4
@@ -2167,6 +2581,48 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 				}
 				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPIPModel{
+						DualStack: func() *TunnelRemoteIPIPDualStackModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil {
+								return data.RemoteIP.IP.DualStack
+							}
+							if DualStackData, ok := IPData["dual_stack"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPDualStackModel{
+									Ipv4: func() *TunnelRemoteIPIPDualStackIpv4Model {
+										if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil && data.RemoteIP.IP.DualStack.Ipv4 != nil {
+											return data.RemoteIP.IP.DualStack.Ipv4
+										}
+										if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+											return &TunnelRemoteIPIPDualStackIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *TunnelRemoteIPIPDualStackIpv6Model {
+										if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.DualStack != nil && data.RemoteIP.IP.DualStack.Ipv6 != nil {
+											return data.RemoteIP.IP.DualStack.Ipv6
+										}
+										if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+											return &TunnelRemoteIPIPDualStackIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
 							if !isImport && data.RemoteIP != nil && data.RemoteIP.IP != nil && data.RemoteIP.IP.Ipv4 != nil {
 								return data.RemoteIP.IP.Ipv4

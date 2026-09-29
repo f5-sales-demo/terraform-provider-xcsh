@@ -31,8 +31,11 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 	if spec == nil {
 		return nil, fmt.Errorf("response operation %q requires an OpenAPI spec", operation.Name)
 	}
-	if operation.Name == "" || operation.Role == "" || operation.Path == "" || operation.OperationID == "" || operation.ResponseSchema == "" {
-		return nil, fmt.Errorf("response operation is missing a name, role, path, operation ID, or response schema")
+	if operation.Name == "" || operation.Role == "" || operation.Path == "" || operation.OperationID == "" {
+		return nil, fmt.Errorf("response operation is missing a name, role, path, or operation ID")
+	}
+	if operation.ResponseSchema == "" && operation.Role != "action" {
+		return nil, fmt.Errorf("response operation %s is missing a response schema", operation.Name)
 	}
 	pathValue, ok := spec.Paths[operation.Path]
 	if !ok {
@@ -64,6 +67,18 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 			if !ok || name == "" {
 				return nil, fmt.Errorf("response operation %s has an invalid required field", operation.Name)
 			}
+			// Metadata requirements describe the backing object identity. Custom
+			// operation request schemas expose their concrete names (for example
+			// zone_name), so they are not standalone Terraform inputs.
+			if strings.HasPrefix(name, "metadata.") {
+				continue
+			}
+			for _, prefix := range []string{"path.", "query.", "body."} {
+				name = strings.TrimPrefix(name, prefix)
+			}
+			if separator := strings.IndexByte(name, '.'); separator >= 0 {
+				name = name[:separator]
+			}
 			required[name] = true
 		}
 	}
@@ -79,7 +94,7 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 		if attr.ConversionError != "" {
 			return fmt.Errorf("response operation %s input %q: %s", operation.Name, name, attr.ConversionError)
 		}
-		if attr.IsBlock || !supportedResponseOperationInput(attr) {
+		if !supportedResponseOperationInput(attr) {
 			return fmt.Errorf("response operation %s input %q has unsupported %s shape", operation.Name, name, location)
 		}
 		// Operation inputs are practitioner configuration, never response-owned
@@ -185,23 +200,39 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 		}
 	}
 
-	response, ok := spec.Components.Schemas[operation.ResponseSchema]
-	if !ok {
-		return nil, fmt.Errorf("response operation %s response schema %q is absent", operation.Name, operation.ResponseSchema)
-	}
-	responseAttrs, err := responseOperationAttributes(spec, operation.Name, response)
-	if err != nil {
-		return nil, err
-	}
-	responseFields, err := responseOperationFields(response, spec)
-	if err != nil {
-		return nil, err
-	}
-	for _, attr := range responseAttrs {
-		if input := inputsByTag[attr.TfsdkTag]; input != nil {
-			return nil, fmt.Errorf("response operation %s input %q collides with response attribute %q", operation.Name, input.Attribute.Name, attr.Name)
+	response := openapi.Schema{Type: "object"}
+	var responseAttrs []openapi.TerraformAttribute
+	var responseFields []openapi.ResponseField
+	var err error
+	if operation.ResponseSchema != "" {
+		var ok bool
+		response, ok = spec.Components.Schemas[operation.ResponseSchema]
+		if !ok {
+			return nil, fmt.Errorf("response operation %s response schema %q is absent", operation.Name, operation.ResponseSchema)
+		}
+		responseAttrs, err = responseOperationAttributes(spec, operation.Name, response)
+		if err != nil {
+			return nil, err
+		}
+		if operation.Role == "ephemeral" {
+			markResponseAttributesSensitive(responseAttrs)
+		}
+		responseFields, err = responseOperationFields(response, spec)
+		if err != nil {
+			return nil, err
 		}
 	}
+	filteredResponseAttrs := responseAttrs[:0]
+	for _, attr := range responseAttrs {
+		if input := inputsByTag[attr.TfsdkTag]; input != nil {
+			if input.Attribute.Type != attr.Type {
+				return nil, fmt.Errorf("response operation %s input %q collides with incompatible response attribute %q", operation.Name, input.Attribute.Name, attr.Name)
+			}
+			continue
+		}
+		filteredResponseAttrs = append(filteredResponseAttrs, attr)
+	}
+	responseAttrs = filteredResponseAttrs
 
 	inputs := make([]openapi.ResponseOperationInput, 0, len(inputsByTag))
 	for _, input := range inputsByTag {
@@ -237,6 +268,13 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 		ResponseIsScalar: response.Type != "object", Prerequisites: operation.Prerequisites,
 		ResponseFields: responseFields,
 	}, nil
+}
+
+func markResponseAttributesSensitive(attributes []openapi.TerraformAttribute) {
+	for index := range attributes {
+		attributes[index].Sensitive = true
+		markResponseAttributesSensitive(attributes[index].NestedAttributes)
+	}
 }
 
 func responseOperationFields(response openapi.Schema, spec *openapi.Spec) ([]openapi.ResponseField, error) {
@@ -282,6 +320,9 @@ func responseOperationFields(response openapi.Schema, spec *openapi.Spec) ([]ope
 }
 
 func supportedResponseOperationInput(attribute openapi.TerraformAttribute) bool {
+	if attribute.IsBlock {
+		return true
+	}
 	switch attribute.Type {
 	case "string", "int64", "bool":
 		return true

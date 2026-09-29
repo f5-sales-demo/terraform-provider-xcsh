@@ -2321,7 +2321,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 						},
 					},
 					"dnssec_mode": schema.SingleNestedBlock{
-						MarkdownDescription: "Disable",
+						MarkdownDescription: "DNSSEC Mode.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 						Attributes: map[string]schema.Attribute{
 							"disable_spec": schema.ObjectAttribute{

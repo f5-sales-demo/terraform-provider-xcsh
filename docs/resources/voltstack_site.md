@@ -137,6 +137,8 @@ configuration for upto 7
 
 <a id="volterra-certified-hw"></a>&#x2022; [`volterra_certified_hw`](#volterra-certified-hw) - Required String<br>Name for generic server certified hardware to form this App Stack site
 
+<a id="waf-signatures"></a>&#x2022; [`waf_signatures`](#waf-signatures) - Optional Block<br>Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes
+
 <a id="worker-nodes"></a>&#x2022; [`worker_nodes`](#worker-nodes) - Optional List<br>Worker Nodes. Names of worker nodes
 
 ### Attributes Reference
@@ -1387,6 +1389,10 @@ A [`peers`](#local-control-plane-bgp-config-peers) block (within [`local_control
 
 <a id="spec-0b89f5"></a>&#x2022; [`disable_spec`](#spec-0b89f5) - Optional Object<br>Enable this option
 
+<a id="disabled-219f10"></a>&#x2022; [`ebgp_multihop_disabled`](#disabled-219f10) - Optional Object<br>Enable this option
+
+<a id="enabled-09de9a"></a>&#x2022; [`ebgp_multihop_enabled`](#enabled-09de9a) - Optional Object<br>Enable this option
+
 <a id="external-a31b05"></a>&#x2022; [`external`](#external-a31b05) - Optional Block<br>External BGP Peer. External BGP Peer parameters<br>See [External](#external-a31b05) below.
 
 <a id="label-83d47a"></a>&#x2022; [`label`](#label-83d47a) - Optional String<br>Label. Specify whether this peer should be
@@ -1411,6 +1417,14 @@ A [`peers`](#local-control-plane-bgp-config-peers) block (within [`local_control
 #### Local Control Plane BGP Config Peers Disable Spec
 
 <a id="deep-7b8d42"></a>Deeply nested **Spec** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers Ebgp Multihop Disabled
+
+<a id="deep-fc7b68"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers Ebgp Multihop Enabled
+
+<a id="deep-cca487"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Local Control Plane BGP Config Peers External
 
@@ -1675,6 +1689,22 @@ An [`usb_policy`](#usb-policy) block supports the following:
 <a id="usb-policy-namespace"></a>&#x2022; [`namespace`](#usb-policy-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="usb-policy-tenant"></a>&#x2022; [`tenant`](#usb-policy-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### WAF Signatures
+
+A [`waf_signatures`](#waf-signatures) block supports the following:
+
+<a id="waf-signatures-automatic"></a>&#x2022; [`automatic`](#waf-signatures-automatic) - Optional Object<br>Enable this option
+
+<a id="waf-signatures-manual"></a>&#x2022; [`manual`](#waf-signatures-manual) - Optional Object<br>Enable this option
+
+#### WAF Signatures Automatic
+
+An [`automatic`](#waf-signatures-automatic) block (within [`waf_signatures`](#waf-signatures)) supports the following:
+
+#### WAF Signatures Manual
+
+A [`manual`](#waf-signatures-manual) block (within [`waf_signatures`](#waf-signatures)) supports the following:
 
 ---
 

@@ -133,6 +133,8 @@ configuration for upto 7
 
 <a id="voltstack-cluster-ar"></a>&#x2022; [`voltstack_cluster_ar`](#voltstack-cluster-ar) - Optional String<br>App Stack Cluster of single interface Azure nodes
 
+<a id="waf-signatures"></a>&#x2022; [`waf_signatures`](#waf-signatures) - Optional String<br>Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes
+
 <a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
 
 <a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
@@ -602,6 +604,18 @@ An [`inside_static_routes`](#ingress-egress-gw-inside-static-routes) block (with
 
 <a id="deep-6b64ce"></a>Deeply nested **Address** block collapsed for readability.
 
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack
+
+<a id="deep-de0155"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-f238df"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-5460ac"></a>Deeply nested **IPv6** block collapsed for readability.
+
 #### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
 
 <a id="deep-3b45f1"></a>Deeply nested **IPv4** block collapsed for readability.
@@ -679,6 +693,18 @@ An [`outside_static_routes`](#ingress-egress-gw-outside-static-routes) block (wi
 #### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address
 
 <a id="deep-f33e18"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack
+
+<a id="deep-b9c955"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-ba44c0"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-c773f6"></a>Deeply nested **IPv6** block collapsed for readability.
 
 #### Ingress Egress Gw Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
 
@@ -1054,6 +1080,18 @@ An [`inside_static_routes`](#ingress-egress-gw-ar-inside-static-routes) block (w
 
 <a id="deep-b3f69a"></a>Deeply nested **Address** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack
+
+<a id="deep-210211"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-f9891a"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-ef06d1"></a>Deeply nested **IPv6** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Inside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
 
 <a id="deep-c5d876"></a>Deeply nested **IPv4** block collapsed for readability.
@@ -1185,6 +1223,18 @@ An [`outside_static_routes`](#ingress-egress-gw-ar-outside-static-routes) block 
 #### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address
 
 <a id="deep-ad9b56"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack
+
+<a id="deep-2f3d94"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-08f783"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-9b507d"></a>Deeply nested **IPv6** block collapsed for readability.
 
 #### Ingress Egress Gw Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
 
@@ -1812,6 +1862,18 @@ An [`outside_static_routes`](#voltstack-cluster-outside-static-routes) block (wi
 
 <a id="deep-fe330c"></a>Deeply nested **Address** block collapsed for readability.
 
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack
+
+<a id="deep-0b12d1"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-0123b6"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-d864c1"></a>Deeply nested **IPv6** block collapsed for readability.
+
 #### Voltstack Cluster Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
 
 <a id="deep-f7834a"></a>Deeply nested **IPv4** block collapsed for readability.
@@ -2092,6 +2154,18 @@ An [`outside_static_routes`](#voltstack-cluster-ar-outside-static-routes) block 
 
 <a id="deep-ae52ed"></a>Deeply nested **Address** block collapsed for readability.
 
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack
+
+<a id="deep-9722cb"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-4985ff"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-6f559b"></a>Deeply nested **IPv6** block collapsed for readability.
+
 #### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Nexthop Nexthop Address IPv4
 
 <a id="deep-77e9bc"></a>Deeply nested **IPv4** block collapsed for readability.
@@ -2129,6 +2203,22 @@ A [`storage_class_list`](#voltstack-cluster-ar-storage-class-list) block (within
 #### Voltstack Cluster Ar Storage Class List Storage Classes
 
 <a id="deep-865f74"></a>Deeply nested **Classes** block collapsed for readability.
+
+#### WAF Signatures
+
+A [`waf_signatures`](#waf-signatures) block supports the following:
+
+<a id="nestedatt--vnet-automatic"></a>&#x2022; [`automatic`](#nestedatt--vnet-automatic) - Optional Object<br>Enable this option
+
+<a id="nestedatt--vnet-manual"></a>&#x2022; [`manual`](#nestedatt--vnet-manual) - Optional Object<br>Enable this option
+
+#### WAF Signatures Automatic
+
+An [`automatic`](#waf-signatures-automatic) block (within [`waf_signatures`](#waf-signatures)) supports the following:
+
+#### WAF Signatures Manual
+
+A [`manual`](#waf-signatures-manual) block (within [`waf_signatures`](#waf-signatures)) supports the following:
 
 ---
 

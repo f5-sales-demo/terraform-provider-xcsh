@@ -25,12 +25,13 @@
       "name": "Uncategorized",
       "slug": "uncategorized",
       "description": "Resources pending categorization",
-      "resource_count": 33,
+      "resource_count": 34,
       "resources": [
         "healthcheck",
         "application_profiles",
         "authorization_server",
         "bot_infrastructure",
+        "cloud_user_account",
         "cluster",
         "cminstance",
         "crl",
@@ -315,6 +316,20 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_bot_infrastructure.example namespace/name"
+    },
+    {
+      "name": "cloud_user_account",
+      "category": "uncategorized",
+      "description": "Cloud user account object create specifications. configuration",
+      "required": ["name", "namespace"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/cloud_user_account.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_cloud_user_account.example namespace/name"
     },
     {
       "name": "cluster",

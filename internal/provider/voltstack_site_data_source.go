@@ -69,6 +69,7 @@ type VoltstackSiteDataSourceModel struct {
 	SriovInterfaces          *VoltstackSiteSriovInterfacesModel          `tfsdk:"sriov_interfaces"`
 	Sw                       *VoltstackSiteSwModel                       `tfsdk:"sw"`
 	UsbPolicy                *VoltstackSiteUsbPolicyModel                `tfsdk:"usb_policy"`
+	WAFSignatures            *VoltstackSiteWAFSignaturesModel            `tfsdk:"waf_signatures"`
 }
 
 func (d *VoltstackSiteDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -453,7 +454,7 @@ func (d *VoltstackSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Computed:            true,
 												},
 												"node": schema.StringAttribute{
@@ -485,7 +486,7 @@ func (d *VoltstackSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 													Computed:            true,
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Computed:            true,
 												},
 												"node": schema.StringAttribute{
@@ -749,7 +750,7 @@ func (d *VoltstackSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Computed:            true,
 												},
 												"no_ipv6_address": schema.ObjectAttribute{
@@ -876,7 +877,7 @@ func (d *VoltstackSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 											MarkdownDescription: "Configuration parameter for tunnel interface.",
 											Attributes: map[string]schema.Attribute{
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Computed:            true,
 												},
 												"node": schema.StringAttribute{
@@ -2929,7 +2930,7 @@ func (d *VoltstackSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Computed:            true,
 												},
 												"no_ipv6_address": schema.ObjectAttribute{
@@ -3215,6 +3216,16 @@ func (d *VoltstackSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 											Computed: true,
 										},
 										"disable_spec": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ebgp_multihop_disabled": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ebgp_multihop_enabled": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
 											Computed:            true,
 											AttributeTypes:      map[string]attr.Type{},
@@ -3627,6 +3638,22 @@ func (d *VoltstackSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 					"tenant": schema.StringAttribute{
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
 						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"waf_signatures": schema.SingleNestedAttribute{
+				MarkdownDescription: "Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes.",
+				Attributes: map[string]schema.Attribute{
+					"automatic": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"manual": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Computed: true,
@@ -8664,6 +8691,24 @@ func (d *VoltstackSiteDataSource) Read(ctx context.Context, req datasource.ReadR
 												}
 												return types.ObjectNull(map[string]attr.Type{})
 											}(),
+											EbgpMultihopDisabled: func() types.Object {
+												if !isImport && len(PeersExisting) > PeersIdx && !PeersExisting[PeersIdx].EbgpMultihopDisabled.IsUnknown() {
+													return PeersExisting[PeersIdx].EbgpMultihopDisabled
+												}
+												if _, ok := PeersItemMap["ebgp_multihop_disabled"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
+											EbgpMultihopEnabled: func() types.Object {
+												if !isImport && len(PeersExisting) > PeersIdx && !PeersExisting[PeersIdx].EbgpMultihopEnabled.IsUnknown() {
+													return PeersExisting[PeersIdx].EbgpMultihopEnabled
+												}
+												if _, ok := PeersItemMap["ebgp_multihop_enabled"].(map[string]interface{}); ok {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+												}
+												return types.ObjectNull(map[string]attr.Type{})
+											}(),
 											External: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel {
 												if ExternalData, ok := PeersItemMap["external"].(map[string]interface{}); ok {
 													return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModel{
@@ -9328,6 +9373,28 @@ func (d *VoltstackSiteDataSource) Read(ctx context.Context, req datasource.ReadR
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &VoltstackSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

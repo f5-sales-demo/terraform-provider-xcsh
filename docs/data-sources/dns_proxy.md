@@ -273,9 +273,17 @@ A [`proxy_advertisement`](#proxy-advertisement) block supports the following:
 
 <a id="nestedatt--irules-advertise-custom"></a>&#x2022; [`advertise_custom`](#nestedatt--irules-advertise-custom) - Optional String<br>Defines a way to advertise a VIP on specific sites
 
+<a id="public-80dfd0"></a>&#x2022; [`advertise_dualstack_on_public`](#public-80dfd0) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
 <a id="nestedatt--irules-advertise-on-public"></a>&#x2022; [`advertise_on_public`](#nestedatt--irules-advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
 
+<a id="vip-8c9041"></a>&#x2022; [`advertise_on_public_default_dualstack_vip`](#vip-8c9041) - Optional Object<br>Enable this option
+
+<a id="vip-567f05"></a>&#x2022; [`advertise_on_public_default_ipv6_vip`](#vip-567f05) - Optional Object<br>Enable this option
+
 <a id="vip-defe98"></a>&#x2022; [`advertise_on_public_default_vip`](#vip-defe98) - Optional Object<br>Enable this option
+
+<a id="public-49fd90"></a>&#x2022; [`advertise_v6_on_public`](#public-49fd90) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
 
 <a id="nestedatt--irules-do-not-advertise"></a>&#x2022; [`do_not_advertise`](#nestedatt--irules-do-not-advertise) - Optional Object<br>Configuration parameter for do not advertise
 
@@ -289,7 +297,11 @@ An [`advertise_custom`](#proxy-advertisement-advertise-custom) block (within [`p
 
 An [`advertise_where`](#proxy-advertisement-advertise-custom-advertise-where) block (within [`proxy_advertisement.advertise_custom`](#proxy-advertisement-advertise-custom)) supports the following:
 
+<a id="public-80dfd0"></a>&#x2022; [`advertise_dualstack_on_public`](#public-80dfd0) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
 <a id="nestedatt--irules-advertise-on-public"></a>&#x2022; [`advertise_on_public`](#nestedatt--irules-advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="public-49fd90"></a>&#x2022; [`advertise_v6_on_public`](#public-49fd90) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
 
 <a id="nestedatt--irules-port"></a>&#x2022; [`port`](#nestedatt--irules-port) - Optional Number<br>Port to Listen
 
@@ -307,6 +319,14 @@ An [`advertise_where`](#proxy-advertisement-advertise-custom-advertise-where) bl
 
 <a id="nestedatt--irules-vk8s-service"></a>&#x2022; [`vk8s_service`](#nestedatt--irules-vk8s-service) - Optional String<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network
 
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise Dualstack On Public
+
+<a id="deep-2e4c46"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise Dualstack On Public Public IP
+
+<a id="deep-2a73c6"></a>Deeply nested **IP** block collapsed for readability.
+
 #### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public
 
 <a id="deep-c7bbab"></a>Deeply nested **Public** block collapsed for readability.
@@ -314,6 +334,14 @@ An [`advertise_where`](#proxy-advertisement-advertise-custom-advertise-where) bl
 #### Proxy Advertisement Advertise Custom Advertise Where Advertise On Public Public IP
 
 <a id="deep-3f999e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise V6 On Public
+
+<a id="deep-9a6c15"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Advertise V6 On Public Public IP
+
+<a id="deep-766e9a"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Proxy Advertisement Advertise Custom Advertise Where Site
 
@@ -378,6 +406,16 @@ A [`site`](#proxy-advertisement-advertise-custom-advertise-where-site) block (wi
 
 <a id="deep-f1fd9e"></a>Deeply nested **Site** block collapsed for readability.
 
+#### Proxy Advertisement Advertise Dualstack On Public
+
+An [`advertise_dualstack_on_public`](#proxy-advertisement-advertise-dualstack-on-public) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+<a id="nestedatt--irules-public-ip"></a>&#x2022; [`public_ip`](#nestedatt--irules-public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+#### Proxy Advertisement Advertise Dualstack On Public Public IP
+
+<a id="deep-927fd5"></a>Deeply nested **IP** block collapsed for readability.
+
 #### Proxy Advertisement Advertise On Public
 
 An [`advertise_on_public`](#proxy-advertisement-advertise-on-public) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
@@ -394,9 +432,27 @@ A [`public_ip`](#proxy-advertisement-advertise-on-public-public-ip) block (withi
 
 <a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Proxy Advertisement Advertise On Public Default Dualstack VIP
+
+<a id="deep-ce4738"></a>Deeply nested **VIP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise On Public Default IPv6 VIP
+
+<a id="deep-f18196"></a>Deeply nested **VIP** block collapsed for readability.
+
 #### Proxy Advertisement Advertise On Public Default VIP
 
 An [`advertise_on_public_default_vip`](#proxy-advertisement-advertise-on-public-default-vip) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+#### Proxy Advertisement Advertise V6 On Public
+
+An [`advertise_v6_on_public`](#proxy-advertisement-advertise-v6-on-public) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+<a id="nestedatt--irules-public-ip"></a>&#x2022; [`public_ip`](#nestedatt--irules-public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+#### Proxy Advertisement Advertise V6 On Public Public IP
+
+<a id="deep-cc80ca"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Proxy Advertisement Do Not Advertise
 
