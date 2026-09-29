@@ -97,6 +97,8 @@ access
 
 <a id="dns-ntp-config"></a>&#x2022; [`dns_ntp_config`](#dns-ntp-config) - Optional String<br>Specify DNS and NTP servers that will be used by the nodes in this Customer Edge site
 
+<a id="eks-k8s"></a>&#x2022; [`eks_k8s`](#eks-k8s) - Optional String<br>Kubernetes Provider Type. Kubernetes Provider Type
+
 <a id="enable-advanced-delivery"></a>&#x2022; [`enable_advanced_delivery`](#enable-advanced-delivery) - Optional Object<br>Configuration parameter for enable advanced delivery
 
 <a id="enable-ha"></a>&#x2022; [`enable_ha`](#enable-ha) - Optional Object<br>Enable this option
@@ -149,6 +151,8 @@ configuration for upto 7
 <a id="openstack"></a>&#x2022; [`openstack`](#openstack) - Optional String<br>Openstack Provider Type. Openstack Provider Type
 
 <a id="performance-enhancement-mode"></a>&#x2022; [`performance_enhancement_mode`](#performance-enhancement-mode) - Optional String<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default
+
+<a id="private-adn"></a>&#x2022; [`private_adn`](#private-adn) - Optional String<br>X-required Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support
 
 <a id="re-select"></a>&#x2022; [`re_select`](#re-select) - Optional String<br>Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s)
 
@@ -251,7 +255,7 @@ An [`interface_list`](#aws-not-managed-node-list-interface-list) block (within [
 
 <a id="nestedatt--aws-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--aws-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--aws-mtu"></a>&#x2022; [`mtu`](#nestedatt--aws-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--aws-mtu"></a>&#x2022; [`mtu`](#nestedatt--aws-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--aws-name"></a>&#x2022; [`name`](#nestedatt--aws-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -492,7 +496,7 @@ An [`interface_list`](#azure-not-managed-node-list-interface-list) block (within
 
 <a id="nestedatt--azure-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--azure-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--azure-mtu"></a>&#x2022; [`mtu`](#nestedatt--azure-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--azure-mtu"></a>&#x2022; [`mtu`](#nestedatt--azure-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--azure-name"></a>&#x2022; [`name`](#nestedatt--azure-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -733,7 +737,7 @@ An [`interface_list`](#baremetal-not-managed-node-list-interface-list) block (wi
 
 <a id="nestedatt--baremetal-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--baremetal-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--baremetal-mtu"></a>&#x2022; [`mtu`](#nestedatt--baremetal-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--baremetal-mtu"></a>&#x2022; [`mtu`](#nestedatt--baremetal-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--baremetal-name"></a>&#x2022; [`name`](#nestedatt--baremetal-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -1089,6 +1093,232 @@ A [`f5_dns_default`](#dns-ntp-config-f5-dns-default) block (within [`dns_ntp_con
 
 A [`f5_ntp_default`](#dns-ntp-config-f5-ntp-default) block (within [`dns_ntp_config`](#dns-ntp-config)) supports the following:
 
+#### Eks K8S
+
+An [`eks_k8s`](#eks-k8s) block supports the following:
+
+<a id="nestedatt--baremetal-deployment-size"></a>&#x2022; [`deployment_size`](#nestedatt--baremetal-deployment-size) - Optional String  Defaults to `KUBERNETES_DEPLOYMENT_SIZE_MEDIUM`<br>Possible values are `KUBERNETES_DEPLOYMENT_SIZE_MEDIUM`, `KUBERNETES_DEPLOYMENT_SIZE_LARGE`<br>[Enum: KUBERNETES_DEPLOYMENT_SIZE_MEDIUM|KUBERNETES_DEPLOYMENT_SIZE_LARGE] Enum for Kubernetes deployment size OPTIONS
+
+- KUBERNETES_DEPLOYMENT_SIZE_MEDIUM: Medium Medium deployment size with moderate resource requirements (8 vCPU, 32 GB memory). Suitable for most deployments. - KUBERNETES_DEPLOYMENT_SIZE_LARGE: Large Large deployment size with higher resource
+
+<a id="affinity-1fea95"></a>&#x2022; [`disable_anti_affinity`](#affinity-1fea95) - Optional Object<br>Configuration parameter for disable anti affinity
+
+<a id="affinity-907040"></a>&#x2022; [`enable_anti_affinity`](#affinity-907040) - Optional String<br>Configuration for pod anti-affinity scheduling rules. Define multiple rules to control how different applications/components are distributed across your Kubernetes cluster
+
+<a id="nestedatt--baremetal-labels"></a>&#x2022; [`labels`](#nestedatt--baremetal-labels) - Optional Map<br>Add labels to control which Kubernetes nodes the VPM and related pods (etcd, VER, prometheus) are deployed to. Specify label key-value pairs that match the labels on your Kubernetes nodes. This uses Kubernetes nodeSelector to schedule pods only on nodes with matching labels
+
+<a id="nestedatt--baremetal-not-managed"></a>&#x2022; [`not_managed`](#nestedatt--baremetal-not-managed) - Optional String<br>Section will show nodes associated with this site
+
+#### Eks K8S Disable Anti Affinity
+
+A [`disable_anti_affinity`](#eks-k8s-disable-anti-affinity) block (within [`eks_k8s`](#eks-k8s)) supports the following:
+
+#### Eks K8S Enable Anti Affinity
+
+An [`enable_anti_affinity`](#eks-k8s-enable-anti-affinity) block (within [`eks_k8s`](#eks-k8s)) supports the following:
+
+<a id="nestedatt--baremetal-rules"></a>&#x2022; [`rules`](#nestedatt--baremetal-rules) - Optional List<br>Define one or more anti-affinity rules. Each rule specifies which pods (by labels) should be distributed across which topology domains
+
+#### Eks K8S Enable Anti Affinity Rules
+
+A [`rules`](#eks-k8s-enable-anti-affinity-rules) block (within [`eks_k8s.enable_anti_affinity`](#eks-k8s-enable-anti-affinity)) supports the following:
+
+<a id="nestedatt--baremetal-label-key"></a>&#x2022; [`label_key`](#nestedatt--baremetal-label-key) - Optional String<br>Specify the label key of the customer pods that CE pods should avoid being co-scheduled with. Combined with the label value below, this identifies the target pods
+
+<a id="nestedatt--baremetal-label-value"></a>&#x2022; [`label_value`](#nestedatt--baremetal-label-value) - Optional String<br>Specify the label value that, together with the label key, identifies the customer pods to avoid
+
+<a id="nestedatt--baremetal-topology-keys"></a>&#x2022; [`topology_keys`](#nestedatt--baremetal-topology-keys) - Optional List<br>Specify one or more node label keys that define the scope of avoidance. For each topology key (e.g., Kubernetes.I/O/hostname), CE pods will avoid nodes whose topology value matches a node already running a pod with the above specified label
+
+#### Eks K8S Not Managed
+
+A [`not_managed`](#eks-k8s-not-managed) block (within [`eks_k8s`](#eks-k8s)) supports the following:
+
+<a id="nestedatt--baremetal-node-list"></a>&#x2022; [`node_list`](#nestedatt--baremetal-node-list) - Optional List<br>Section will show nodes associated with this site
+
+#### Eks K8S Not Managed Node List
+
+A [`node_list`](#eks-k8s-not-managed-node-list) block (within [`eks_k8s.not_managed`](#eks-k8s-not-managed)) supports the following:
+
+<a id="nestedatt--baremetal-hostname"></a>&#x2022; [`hostname`](#nestedatt--baremetal-hostname) - Optional String<br>Hostname. Hostname for this Node
+
+<a id="nestedatt--baremetal-interface-list"></a>&#x2022; [`interface_list`](#nestedatt--baremetal-interface-list) - Optional List<br>Manage interfaces belonging to this node
+
+<a id="nestedatt--baremetal-public-ip"></a>&#x2022; [`public_ip`](#nestedatt--baremetal-public-ip) - Optional String<br>Public IP. Public IP for this Node
+
+<a id="nestedatt--baremetal-type"></a>&#x2022; [`type`](#nestedatt--baremetal-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
+
+#### Eks K8S Not Managed Node List Interface List
+
+<a id="deep-4dd68d"></a>Deeply nested **List** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Bond Interface
+
+<a id="deep-445a6a"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-798f35"></a>Deeply nested **Backup** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Bond Interface Lacp
+
+<a id="deep-dea48c"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Client
+
+<a id="deep-0d5f41"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server
+
+<a id="deep-7fb36a"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-ace322"></a>Deeply nested **End** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-9caab7"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-1439be"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-0cb053"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-2cf7d9"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-8ad805"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-85eeac"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-24d8f2"></a>Deeply nested **Map** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Ethernet Interface
+
+<a id="deep-5aa182"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config
+
+<a id="deep-5a5d0c"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-a35655"></a>Deeply nested **Host** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router
+
+<a id="deep-cb7c26"></a>Deeply nested **Router** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config
+
+<a id="deep-6dbd71"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Configured List
+
+<a id="deep-85b4bc"></a>Deeply nested **List** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS
+
+<a id="deep-7e8626"></a>Deeply nested **DNS** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-4840d3"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-4c1f89"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful
+
+<a id="deep-eaf890"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-12ac5b"></a>Deeply nested **End** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-8bad84"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
+
+<a id="deep-aa3fde"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks Pools
+
+<a id="deep-5b94f1"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful Interface IP Map
+
+<a id="deep-23c792"></a>Deeply nested **Map** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Monitor
+
+<a id="deep-5bfab5"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-745c1b"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Network Option
+
+<a id="deep-9d7709"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-5a75c8"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-31f261"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-6a86f2"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-b1224b"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-d99141"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-4e7ef9"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Static IP
+
+<a id="deep-e12525"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Static IPv6 Address
+
+<a id="deep-fa5587"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Static IPv6 Address Cluster Static IP
+
+<a id="deep-f6cf79"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Static IPv6 Address Node Static IP
+
+<a id="deep-fafee3"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List VLAN Interface
+
+<a id="deep-8f2f03"></a>Deeply nested **Interface** block collapsed for readability.
+
 #### Enable Advanced Delivery
 
 An [`enable_advanced_delivery`](#enable-advanced-delivery) block supports the following:
@@ -1159,7 +1389,7 @@ An [`interface_list`](#equinix-not-managed-node-list-interface-list) block (with
 
 <a id="nestedatt--equinix-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--equinix-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--equinix-mtu"></a>&#x2022; [`mtu`](#nestedatt--equinix-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--equinix-mtu"></a>&#x2022; [`mtu`](#nestedatt--equinix-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--equinix-name"></a>&#x2022; [`name`](#nestedatt--equinix-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -1404,7 +1634,7 @@ An [`interface_list`](#gcp-not-managed-node-list-interface-list) block (within [
 
 <a id="nestedatt--gcp-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--gcp-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--gcp-mtu"></a>&#x2022; [`mtu`](#nestedatt--gcp-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--gcp-mtu"></a>&#x2022; [`mtu`](#nestedatt--gcp-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--gcp-name"></a>&#x2022; [`name`](#nestedatt--gcp-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -1645,7 +1875,7 @@ An [`interface_list`](#kvm-not-managed-node-list-interface-list) block (within [
 
 <a id="nestedatt--kvm-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--kvm-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--kvm-mtu"></a>&#x2022; [`mtu`](#nestedatt--kvm-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--kvm-mtu"></a>&#x2022; [`mtu`](#nestedatt--kvm-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--kvm-name"></a>&#x2022; [`name`](#nestedatt--kvm-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -2124,7 +2354,7 @@ An [`interface_list`](#nutanix-not-managed-node-list-interface-list) block (with
 
 <a id="nestedatt--nutanix-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--nutanix-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--nutanix-mtu"></a>&#x2022; [`mtu`](#nestedatt--nutanix-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--nutanix-mtu"></a>&#x2022; [`mtu`](#nestedatt--nutanix-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--nutanix-name"></a>&#x2022; [`name`](#nestedatt--nutanix-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -2365,7 +2595,7 @@ An [`interface_list`](#oci-not-managed-node-list-interface-list) block (within [
 
 <a id="nestedatt--oci-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--oci-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--oci-mtu"></a>&#x2022; [`mtu`](#nestedatt--oci-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--oci-mtu"></a>&#x2022; [`mtu`](#nestedatt--oci-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--oci-name"></a>&#x2022; [`name`](#nestedatt--oci-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -2818,7 +3048,7 @@ An [`interface_list`](#openstack-not-managed-node-list-interface-list) block (wi
 
 <a id="nestedatt--openstack-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--openstack-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--openstack-mtu"></a>&#x2022; [`mtu`](#nestedatt--openstack-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--openstack-mtu"></a>&#x2022; [`mtu`](#nestedatt--openstack-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--openstack-name"></a>&#x2022; [`name`](#nestedatt--openstack-name) - Optional String<br>Interface Name. Name of this Interface
 
@@ -3049,6 +3279,12 @@ A [`perf_mode_l7_enhanced`](#performance-enhancement-mode-perf-mode-l7-enhanced)
 
 <a id="deep-b16dbd"></a>Deeply nested **Enabled** block collapsed for readability.
 
+#### Private Adn
+
+A [`private_adn`](#private-adn) block supports the following:
+
+<a id="nestedatt--openstack-private-adn"></a>&#x2022; [`private_adn`](#nestedatt--openstack-private-adn) - Optional String<br>Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support
+
 #### RE Select
 
 A [`re_select`](#re-select) block supports the following:
@@ -3278,7 +3514,7 @@ An [`interface_list`](#vmware-not-managed-node-list-interface-list) block (withi
 
 <a id="nestedatt--vmware-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#nestedatt--vmware-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="nestedatt--vmware-mtu"></a>&#x2022; [`mtu`](#nestedatt--vmware-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="nestedatt--vmware-mtu"></a>&#x2022; [`mtu`](#nestedatt--vmware-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="nestedatt--vmware-name"></a>&#x2022; [`name`](#nestedatt--vmware-name) - Optional String<br>Interface Name. Name of this Interface
 

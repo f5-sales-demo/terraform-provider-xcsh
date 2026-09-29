@@ -99,6 +99,8 @@ configuration for upto 7
 
 <a id="volterra-certified-hw"></a>&#x2022; [`volterra_certified_hw`](#volterra-certified-hw) - Optional String<br>Name for generic server certified hardware to form this Secure Mesh site
 
+<a id="waf-signatures"></a>&#x2022; [`waf_signatures`](#waf-signatures) - Optional String<br>Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes
+
 <a id="worker-nodes"></a>&#x2022; [`worker_nodes`](#worker-nodes) - Optional List<br>Worker Nodes. Names of worker nodes
 
 <a id="blocked-service"></a>&#x2022; [`blocked_service`](#blocked-service) - Optional List<br>Disable Node Local Services. Blocking or denial configuration
@@ -823,6 +825,22 @@ A [`sw`](#sw) block supports the following:
 #### Sw Default Sw Version
 
 A [`default_sw_version`](#sw-default-sw-version) block (within [`sw`](#sw)) supports the following:
+
+#### WAF Signatures
+
+A [`waf_signatures`](#waf-signatures) block supports the following:
+
+<a id="nestedatt--sw-automatic"></a>&#x2022; [`automatic`](#nestedatt--sw-automatic) - Optional Object<br>Enable this option
+
+<a id="nestedatt--sw-manual"></a>&#x2022; [`manual`](#nestedatt--sw-manual) - Optional Object<br>Enable this option
+
+#### WAF Signatures Automatic
+
+An [`automatic`](#waf-signatures-automatic) block (within [`waf_signatures`](#waf-signatures)) supports the following:
+
+#### WAF Signatures Manual
+
+A [`manual`](#waf-signatures-manual) block (within [`waf_signatures`](#waf-signatures)) supports the following:
 
 ---
 

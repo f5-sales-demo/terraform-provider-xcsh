@@ -843,9 +843,19 @@ is only one local interface on the virtual network. Use the specified address as
 
 <a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
+<a id="dual-stack"></a>&#x2022; [`dual_stack`](#dual-stack) - Optional String<br>DualStackAddressType represents both IPv4 and IPv6 together
+
 <a id="ipv4"></a>&#x2022; [`ipv4`](#ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
 
 <a id="ipv6"></a>&#x2022; [`ipv6`](#ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+<a id="ipv4"></a>&#x2022; [`ipv4`](#ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+
+<a id="ipv6"></a>&#x2022; [`ipv6`](#ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+<a id="addr"></a>&#x2022; [`addr`](#addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+<a id="addr"></a>&#x2022; [`addr`](#addr) - Optional String<br>IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
 
 <a id="addr"></a>&#x2022; [`addr`](#addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
 

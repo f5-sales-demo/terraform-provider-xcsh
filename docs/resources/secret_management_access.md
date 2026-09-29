@@ -164,7 +164,11 @@ A [`cert_params`](#access-info-tls-config-cert-params) block (within [`access_in
 
 <a id="version-0f4479"></a>&#x2022; [`minimum_protocol_version`](#version-0f4479) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
 
-<a id="params-e516d2"></a>&#x2022; [`validation_params`](#params-e516d2) - Optional Block<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification<br>See [Validation Params](#params-e516d2) below.
+<a id="verification-1a7d59"></a>&#x2022; [`skip_server_verification`](#verification-1a7d59) - Optional Object<br>Enable this option
+
+<a id="params-ec3bd0"></a>&#x2022; [`tls_validation_params`](#params-ec3bd0) - Optional Block<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification<br>See [TLS Validation Params](#params-ec3bd0) below.
+
+<a id="trusted-ca-3bf754"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-3bf754) - Optional Object<br>Configuration parameter for volterra trusted CA
 
 #### Access Info TLS Config Cert Params Certificates
 
@@ -180,17 +184,25 @@ A [`certificates`](#certificates-817e4b) block (within [`access_info.tls_config.
 
 <a id="uid-9b9cc6"></a>&#x2022; [`uid`](#uid-9b9cc6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
-#### Access Info TLS Config Cert Params Validation Params
+#### Access Info TLS Config Cert Params Skip Server Verification
 
-<a id="deep-8ef178"></a>Deeply nested **Params** block collapsed for readability.
+<a id="deep-5bacae"></a>Deeply nested **Verification** block collapsed for readability.
 
-#### Access Info TLS Config Cert Params Validation Params Trusted CA
+#### Access Info TLS Config Cert Params TLS Validation Params
 
-<a id="deep-59d04e"></a>Deeply nested **CA** block collapsed for readability.
+<a id="deep-a0059d"></a>Deeply nested **Params** block collapsed for readability.
 
-#### Access Info TLS Config Cert Params Validation Params Trusted CA Trusted CA List
+#### Access Info TLS Config Cert Params TLS Validation Params Trusted CA
 
-<a id="deep-8ac832"></a>Deeply nested **List** block collapsed for readability.
+<a id="deep-20f5f6"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Access Info TLS Config Cert Params TLS Validation Params Trusted CA Trusted CA List
+
+<a id="deep-9302ec"></a>Deeply nested **List** block collapsed for readability.
+
+#### Access Info TLS Config Cert Params Volterra Trusted CA
+
+<a id="deep-3f8cd2"></a>Deeply nested **CA** block collapsed for readability.
 
 #### Access Info TLS Config Common Params
 

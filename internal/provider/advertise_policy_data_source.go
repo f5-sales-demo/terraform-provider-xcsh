@@ -35,6 +35,9 @@ type AdvertisePolicyDataSourceModel struct {
 	Description   types.String                       `tfsdk:"description"`
 	Labels        types.Map                          `tfsdk:"labels"`
 	Annotations   types.Map                          `tfsdk:"annotations"`
+	Dualstack     types.Object                       `tfsdk:"dualstack"`
+	Ipv4          types.Object                       `tfsdk:"ipv4"`
+	Ipv6          types.Object                       `tfsdk:"ipv6"`
 	Address       types.String                       `tfsdk:"address"`
 	Port          types.Int64                        `tfsdk:"port"`
 	PortRanges    types.String                       `tfsdk:"port_ranges"`
@@ -78,6 +81,21 @@ func (d *AdvertisePolicyDataSource) Schema(ctx context.Context, req datasource.S
 				MarkdownDescription: "Annotations applied to this resource.",
 				Computed:            true,
 				ElementType:         types.StringType,
+			},
+			"dualstack": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: dualstack, ipv4, ipv6] Enable this option",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"ipv4": schema.ObjectAttribute{
+				MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"ipv6": schema.ObjectAttribute{
+				MarkdownDescription: "IPv6 address in colon-separated hexadecimal format.",
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"public_ip": schema.ListNestedAttribute{
 				MarkdownDescription: "Optional. Public VIP to advertise This field is mutually exclusive with where and address fields.",
@@ -510,6 +528,27 @@ func (d *AdvertisePolicyDataSource) Read(ctx context.Context, req datasource.Rea
 	}
 	apiResource := resource
 	isImport := true
+	if !isImport && !data.Dualstack.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["dualstack"].(map[string]interface{}); ok {
+		data.Dualstack = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Dualstack = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.Ipv4.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["ipv4"].(map[string]interface{}); ok {
+		data.Ipv4 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Ipv4 = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.Ipv6.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["ipv6"].(map[string]interface{}); ok {
+		data.Ipv6 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Ipv6 = types.ObjectNull(map[string]attr.Type{})
+	}
 	if !isImport && (data.PublicIP.IsNull() || len(data.PublicIP.Elements()) == 0) {
 		data.PublicIP = types.ListNull(types.ObjectType{AttrTypes: AdvertisePolicyPublicIPModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["public_ip"].([]interface{}); ok && len(listData) > 0 {

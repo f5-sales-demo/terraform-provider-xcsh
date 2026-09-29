@@ -100,6 +100,8 @@ An [`irules`](#irules) block supports the following:
 
 A [`virtual_server`](#virtual-server) block supports the following:
 
+<a id="nestedatt--irules-access-profile"></a>&#x2022; [`access_profile`](#nestedatt--irules-access-profile) - Optional List<br>Specifies an access policy that determines the authentication rules and access controls applied to user sessions for this virtual server
+
 <a id="nestedatt--irules-address-translation"></a>&#x2022; [`address_translation`](#nestedatt--irules-address-translation) - Optional String<br>Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that
 have the same IP address
 
@@ -153,6 +155,20 @@ virtual server to load balance
 <a id="nestedatt--irules-virtual-server-state"></a>&#x2022; [`virtual_server_state`](#nestedatt--irules-virtual-server-state) - Optional String<br>Displays the current state on the object
 
 <a id="nestedatt--irules-vs-score"></a>&#x2022; [`vs_score`](#nestedatt--irules-vs-score) - Optional Number<br>Specifies the virtual server score in percent. Global Traffic Manager (GTM) can rely on this value to load balance traffic in a proportional manner. The , meaning that no additional metric is applied for the virtual server
+
+#### Virtual Server Access Profile
+
+An [`access_profile`](#virtual-server-access-profile) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="nestedatt--irules-kind"></a>&#x2022; [`kind`](#nestedatt--irules-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--irules-name"></a>&#x2022; [`name`](#nestedatt--irules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--irules-namespace"></a>&#x2022; [`namespace`](#nestedatt--irules-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--irules-tenant"></a>&#x2022; [`tenant`](#nestedatt--irules-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--irules-uid"></a>&#x2022; [`uid`](#nestedatt--irules-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Virtual Server Address Translation
 

@@ -62,7 +62,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the AppType
 
-<a id="features"></a>&#x2022; [`features`](#features) - Optional List<br>Features. List of various AI/ML features enabled
+<a id="features"></a>&#x2022; [`features`](#features) - Optional List<br>List of various advanced security features enabled
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 
@@ -83,7 +83,7 @@ In addition to all arguments above, the following attributes are exported:
 A [`features`](#features) block supports the following:
 
 <a id="nestedatt--features-type"></a>&#x2022; [`type`](#nestedatt--features-type) - Optional String  Defaults to `BUSINESS_LOGIC_MARKUP`<br>Possible values are `BUSINESS_LOGIC_MARKUP`, `TIMESERIES_ANOMALY_DETECTION`, `PER_REQ_ANOMALY_DETECTION`, `USER_BEHAVIOR_ANALYSIS`<br>[Enum: BUSINESS_LOGIC_MARKUP|TIMESERIES_ANOMALY_DETECTION|PER_REQ_ANOMALY_DETECTION|USER_BEHAVIOR_ANALYSIS] Enumeration for
-AI/ML features supported API Discovery enables generation of model for various API interactions between services of App type. Enable analysis of timeseries for various metric collected like requests, errors, latency etc. Enable anomaly detection per API request, i.e
+advanced security features supported API Discovery enables generation of model for various API interactions between services of App type. Enable analysis of timeseries for various metric collected like requests, errors, latency etc. Enable anomaly detection per API request, i.e
 
 ---
 

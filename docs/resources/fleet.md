@@ -933,6 +933,18 @@ An [`interface`](#interface-4faa73) block (within [`storage_static_routes.storag
 
 <a id="deep-78e751"></a>Deeply nested **Address** block collapsed for readability.
 
+#### Storage Static Routes Storage Routes Nexthop Nexthop Address Dual Stack
+
+<a id="deep-04aaaa"></a>Deeply nested **Stack** block collapsed for readability.
+
+#### Storage Static Routes Storage Routes Nexthop Nexthop Address Dual Stack IPv4
+
+<a id="deep-7ccdd0"></a>Deeply nested **IPv4** block collapsed for readability.
+
+#### Storage Static Routes Storage Routes Nexthop Nexthop Address Dual Stack IPv6
+
+<a id="deep-aa283a"></a>Deeply nested **IPv6** block collapsed for readability.
+
 #### Storage Static Routes Storage Routes Nexthop Nexthop Address IPv4
 
 <a id="deep-4918e8"></a>Deeply nested **IPv4** block collapsed for readability.

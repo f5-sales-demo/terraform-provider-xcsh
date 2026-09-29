@@ -281,7 +281,11 @@ A [`cert_params`](#tls-parameters-cert-params) block (within [`tls_parameters`](
 
 <a id="version-e15b41"></a>&#x2022; [`minimum_protocol_version`](#version-e15b41) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
 
-<a id="params-0d9f11"></a>&#x2022; [`validation_params`](#params-0d9f11) - Optional Block<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification<br>See [Validation Params](#params-0d9f11) below.
+<a id="verification-192783"></a>&#x2022; [`skip_server_verification`](#verification-192783) - Optional Object<br>Enable this option
+
+<a id="params-afac35"></a>&#x2022; [`tls_validation_params`](#params-afac35) - Optional Block<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification<br>See [TLS Validation Params](#params-afac35) below.
+
+<a id="trusted-ca-da5fae"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-da5fae) - Optional Object<br>Configuration parameter for volterra trusted CA
 
 #### TLS Parameters Cert Params Certificates
 
@@ -297,25 +301,33 @@ A [`certificates`](#tls-parameters-cert-params-certificates) block (within [`tls
 
 <a id="uid-29a359"></a>&#x2022; [`uid`](#uid-29a359) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
-#### TLS Parameters Cert Params Validation Params
+#### TLS Parameters Cert Params Skip Server Verification
 
-A [`validation_params`](#params-0d9f11) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
+A [`skip_server_verification`](#verification-192783) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
 
-<a id="verification-29bce9"></a>&#x2022; [`skip_hostname_verification`](#verification-29bce9) - Optional Bool<br>When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname
+#### TLS Parameters Cert Params TLS Validation Params
 
-<a id="trusted-ca-91d5d8"></a>&#x2022; [`trusted_ca`](#trusted-ca-91d5d8) - Optional Block<br>Root CA Certificate Reference. Reference to Root CA Certificate<br>See [Trusted CA](#trusted-ca-91d5d8) below.
+A [`tls_validation_params`](#params-afac35) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
 
-<a id="url-03ea65"></a>&#x2022; [`trusted_ca_url`](#url-03ea65) - Optional String<br>Inline Root CA Certificate
+<a id="verification-4a355a"></a>&#x2022; [`skip_hostname_verification`](#verification-4a355a) - Optional Bool<br>When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname
 
-<a id="names-4c662c"></a>&#x2022; [`verify_subject_alt_names`](#names-4c662c) - Optional List<br>List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate
+<a id="trusted-ca-1c56c5"></a>&#x2022; [`trusted_ca`](#trusted-ca-1c56c5) - Optional Block<br>Root CA Certificate Reference. Reference to Root CA Certificate<br>See [Trusted CA](#trusted-ca-1c56c5) below.
 
-#### TLS Parameters Cert Params Validation Params Trusted CA
+<a id="url-39dea1"></a>&#x2022; [`trusted_ca_url`](#url-39dea1) - Optional String<br>Inline Root CA Certificate
 
-<a id="deep-1467d3"></a>Deeply nested **CA** block collapsed for readability.
+<a id="names-5e1748"></a>&#x2022; [`verify_subject_alt_names`](#names-5e1748) - Optional List<br>List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate
 
-#### TLS Parameters Cert Params Validation Params Trusted CA Trusted CA List
+#### TLS Parameters Cert Params TLS Validation Params Trusted CA
 
-<a id="deep-758090"></a>Deeply nested **List** block collapsed for readability.
+<a id="deep-24db78"></a>Deeply nested **CA** block collapsed for readability.
+
+#### TLS Parameters Cert Params TLS Validation Params Trusted CA Trusted CA List
+
+<a id="deep-2ba1df"></a>Deeply nested **List** block collapsed for readability.
+
+#### TLS Parameters Cert Params Volterra Trusted CA
+
+A [`volterra_trusted_ca`](#trusted-ca-da5fae) block (within [`tls_parameters.cert_params`](#tls-parameters-cert-params)) supports the following:
 
 #### TLS Parameters Common Params
 

@@ -123,6 +123,32 @@ func (d *TunnelDataSource) Schema(ctx context.Context, req datasource.SchemaRequ
 							"ip_address": schema.SingleNestedAttribute{
 								MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
 								Attributes: map[string]schema.Attribute{
+									"dual_stack": schema.SingleNestedAttribute{
+										MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+										Attributes: map[string]schema.Attribute{
+											"ipv4": schema.SingleNestedAttribute{
+												MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+												Attributes: map[string]schema.Attribute{
+													"addr": schema.StringAttribute{
+														MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+														Computed:            true,
+													},
+												},
+												Computed: true,
+											},
+											"ipv6": schema.SingleNestedAttribute{
+												MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+												Attributes: map[string]schema.Attribute{
+													"addr": schema.StringAttribute{
+														MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+														Computed:            true,
+													},
+												},
+												Computed: true,
+											},
+										},
+										Computed: true,
+									},
 									"ipv4": schema.SingleNestedAttribute{
 										MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 										Attributes: map[string]schema.Attribute{
@@ -242,6 +268,32 @@ func (d *TunnelDataSource) Schema(ctx context.Context, req datasource.SchemaRequ
 					"ip": schema.SingleNestedAttribute{
 						MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
 						Attributes: map[string]schema.Attribute{
+							"dual_stack": schema.SingleNestedAttribute{
+								MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+								Attributes: map[string]schema.Attribute{
+									"ipv4": schema.SingleNestedAttribute{
+										MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+										Attributes: map[string]schema.Attribute{
+											"addr": schema.StringAttribute{
+												MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+												Computed:            true,
+											},
+										},
+										Computed: true,
+									},
+									"ipv6": schema.SingleNestedAttribute{
+										MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+										Attributes: map[string]schema.Attribute{
+											"addr": schema.StringAttribute{
+												MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+												Computed:            true,
+											},
+										},
+										Computed: true,
+									},
+								},
+								Computed: true,
+							},
 							"ipv4": schema.SingleNestedAttribute{
 								MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 								Attributes: map[string]schema.Attribute{
@@ -420,6 +472,39 @@ func (d *TunnelDataSource) Read(ctx context.Context, req datasource.ReadRequest,
 						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
 							if IPAddressData, ok := IPAddressData["ip_address"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressIPAddressModel{
+									DualStack: func() *TunnelLocalIPIPAddressIPAddressDualStackModel {
+										if DualStackData, ok := IPAddressData["dual_stack"].(map[string]interface{}); ok {
+											return &TunnelLocalIPIPAddressIPAddressDualStackModel{
+												Ipv4: func() *TunnelLocalIPIPAddressIPAddressDualStackIpv4Model {
+													if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+														return &TunnelLocalIPIPAddressIPAddressDualStackIpv4Model{
+															Addr: func() types.String {
+																if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+												Ipv6: func() *TunnelLocalIPIPAddressIPAddressDualStackIpv6Model {
+													if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+														return &TunnelLocalIPIPAddressIPAddressDualStackIpv6Model{
+															Addr: func() types.String {
+																if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																	return types.StringValue(v)
+																}
+																return types.StringNull()
+															}(),
+														}
+													}
+													return nil
+												}(),
+											}
+										}
+										return nil
+									}(),
 									Ipv4: func() *TunnelLocalIPIPAddressIPAddressIpv4Model {
 										if Ipv4Data, ok := IPAddressData["ipv4"].(map[string]interface{}); ok {
 											return &TunnelLocalIPIPAddressIPAddressIpv4Model{
@@ -573,6 +658,39 @@ func (d *TunnelDataSource) Read(ctx context.Context, req datasource.ReadRequest,
 			IP: func() *TunnelRemoteIPIPModel {
 				if IPData, ok := blockData["ip"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPIPModel{
+						DualStack: func() *TunnelRemoteIPIPDualStackModel {
+							if DualStackData, ok := IPData["dual_stack"].(map[string]interface{}); ok {
+								return &TunnelRemoteIPIPDualStackModel{
+									Ipv4: func() *TunnelRemoteIPIPDualStackIpv4Model {
+										if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+											return &TunnelRemoteIPIPDualStackIpv4Model{
+												Addr: func() types.String {
+													if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+									Ipv6: func() *TunnelRemoteIPIPDualStackIpv6Model {
+										if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+											return &TunnelRemoteIPIPDualStackIpv6Model{
+												Addr: func() types.String {
+													if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+														return types.StringValue(v)
+													}
+													return types.StringNull()
+												}(),
+											}
+										}
+										return nil
+									}(),
+								}
+							}
+							return nil
+						}(),
 						Ipv4: func() *TunnelRemoteIPIPIpv4Model {
 							if Ipv4Data, ok := IPData["ipv4"].(map[string]interface{}); ok {
 								return &TunnelRemoteIPIPIpv4Model{

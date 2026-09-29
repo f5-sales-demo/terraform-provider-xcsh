@@ -10697,7 +10697,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
-									MarkdownDescription: "Origin Server Port. Port the workload can be reached on.",
+									MarkdownDescription: "Port the workload can be reached on Enter a custom port only if your origin server uses a non-default port. Leave the value as 0 to automatically use 443 (TLS) or 80 (non-TLS).",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(0, 65535),

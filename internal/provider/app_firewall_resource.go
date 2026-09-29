@@ -193,20 +193,24 @@ var AppFirewallDetectionSettingsBotProtectionSettingModelAttrTypes = map[string]
 
 // AppFirewallDetectionSettingsSignatureSelectionSettingModel represents signature_selection_setting block
 type AppFirewallDetectionSettingsSignatureSelectionSettingModel struct {
-	DefaultAttackTypeSettings       types.Object                                                                  `tfsdk:"default_attack_type_settings"`
-	HighMediumAccuracySignatures    types.Object                                                                  `tfsdk:"high_medium_accuracy_signatures"`
-	HighMediumLowAccuracySignatures types.Object                                                                  `tfsdk:"high_medium_low_accuracy_signatures"`
-	OnlyHighAccuracySignatures      types.Object                                                                  `tfsdk:"only_high_accuracy_signatures"`
-	AttackTypeSettings              *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel `tfsdk:"attack_type_settings"`
+	DefaultAttackTypeSettings       types.Object                                                                           `tfsdk:"default_attack_type_settings"`
+	DefaultSignatureSetting         types.Object                                                                           `tfsdk:"default_signature_setting"`
+	HighMediumAccuracySignatures    types.Object                                                                           `tfsdk:"high_medium_accuracy_signatures"`
+	HighMediumLowAccuracySignatures types.Object                                                                           `tfsdk:"high_medium_low_accuracy_signatures"`
+	OnlyHighAccuracySignatures      types.Object                                                                           `tfsdk:"only_high_accuracy_signatures"`
+	AttackTypeSettings              *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel          `tfsdk:"attack_type_settings"`
+	SignatureSettingsByAccuracy     *AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel `tfsdk:"signature_settings_by_accuracy"`
 }
 
 // AppFirewallDetectionSettingsSignatureSelectionSettingModelAttrTypes defines the attribute types for AppFirewallDetectionSettingsSignatureSelectionSettingModel
 var AppFirewallDetectionSettingsSignatureSelectionSettingModelAttrTypes = map[string]attr.Type{
 	"default_attack_type_settings":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_signature_setting":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"high_medium_accuracy_signatures":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"high_medium_low_accuracy_signatures": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"only_high_accuracy_signatures":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"attack_type_settings":                types.ObjectType{AttrTypes: AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModelAttrTypes},
+	"signature_settings_by_accuracy":      types.ObjectType{AttrTypes: AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModelAttrTypes},
 }
 
 // AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel represents attack_type_settings block
@@ -217,6 +221,20 @@ type AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsMode
 // AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModelAttrTypes defines the attribute types for AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel
 var AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModelAttrTypes = map[string]attr.Type{
 	"disabled_attack_types": types.ListType{ElemType: types.StringType},
+}
+
+// AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel represents signature_settings_by_accuracy block
+type AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel struct {
+	HighAccuracyAction   types.String `tfsdk:"high_accuracy_action"`
+	LowAccuracyAction    types.String `tfsdk:"low_accuracy_action"`
+	MediumAccuracyAction types.String `tfsdk:"medium_accuracy_action"`
+}
+
+// AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModelAttrTypes defines the attribute types for AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel
+var AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModelAttrTypes = map[string]attr.Type{
+	"high_accuracy_action":   types.StringType,
+	"low_accuracy_action":    types.StringType,
+	"medium_accuracy_action": types.StringType,
 }
 
 // AppFirewallDetectionSettingsStageNewAndUpdatedSignaturesModel represents stage_new_and_updated_signatures block
@@ -624,10 +642,15 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"signature_selection_setting": schema.SingleNestedBlock{
 						MarkdownDescription: "Attack Signatures are patterns that identify attacks on a web application and its components.",
-						Validators:          []validator.Object{validators.ConflictingObjectAttributes("attack_type_settings", "default_attack_type_settings"), validators.ConflictingObjectAttributes("high_medium_accuracy_signatures", "high_medium_low_accuracy_signatures"), validators.ConflictingObjectAttributes("high_medium_accuracy_signatures", "only_high_accuracy_signatures"), validators.ConflictingObjectAttributes("high_medium_low_accuracy_signatures", "only_high_accuracy_signatures")},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("attack_type_settings", "default_attack_type_settings"), validators.ConflictingObjectAttributes("default_signature_setting", "signature_settings_by_accuracy"), validators.ConflictingObjectAttributes("high_medium_accuracy_signatures", "high_medium_low_accuracy_signatures"), validators.ConflictingObjectAttributes("high_medium_accuracy_signatures", "only_high_accuracy_signatures"), validators.ConflictingObjectAttributes("high_medium_low_accuracy_signatures", "only_high_accuracy_signatures")},
 						Attributes: map[string]schema.Attribute{
 							"default_attack_type_settings": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for default attack type settings.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"default_signature_setting": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for default signature setting.",
 								Optional:            true,
 								AttributeTypes:      map[string]attr.Type{},
 							},
@@ -658,6 +681,32 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 										ElementType:         types.StringType,
 										Validators: []validator.List{
 											listvalidator.SizeAtMost(22),
+										},
+									},
+								},
+							},
+							"signature_settings_by_accuracy": schema.SingleNestedBlock{
+								MarkdownDescription: "Configuration of WAF Signature Protection.",
+								Attributes: map[string]schema.Attribute{
+									"high_accuracy_action": schema.StringAttribute{
+										MarkdownDescription: "[Enum: SIG_BLOCK|SIG_REPORT|SIG_IGNORE] Action to be performed on the request Log and block Log only Disable detection. Possible values are `SIG_BLOCK`, `SIG_REPORT`, `SIG_IGNORE`. Defaults to `SIG_BLOCK`.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.OneOf("SIG_BLOCK", "SIG_REPORT", "SIG_IGNORE"),
+										},
+									},
+									"low_accuracy_action": schema.StringAttribute{
+										MarkdownDescription: "[Enum: SIG_BLOCK|SIG_REPORT|SIG_IGNORE] Action to be performed on the request Log and block Log only Disable detection. Possible values are `SIG_BLOCK`, `SIG_REPORT`, `SIG_IGNORE`. Defaults to `SIG_BLOCK`.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.OneOf("SIG_BLOCK", "SIG_REPORT", "SIG_IGNORE"),
+										},
+									},
+									"medium_accuracy_action": schema.StringAttribute{
+										MarkdownDescription: "[Enum: SIG_BLOCK|SIG_REPORT|SIG_IGNORE] Action to be performed on the request Log and block Log only Disable detection. Possible values are `SIG_BLOCK`, `SIG_REPORT`, `SIG_IGNORE`. Defaults to `SIG_BLOCK`.",
+										Optional:            true,
+										Validators: []validator.String{
+											stringvalidator.OneOf("SIG_BLOCK", "SIG_REPORT", "SIG_IGNORE"),
 										},
 									},
 								},
@@ -696,6 +745,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 						Attributes: map[string]schema.Attribute{
 							"disabled_violation_types": schema.ListAttribute{
 								MarkdownDescription: "[Enum: VIOL_NONE|VIOL_FILETYPE|VIOL_METHOD|VIOL_MANDATORY_HEADER|VIOL_HTTP_RESPONSE_STATUS|VIOL_REQUEST_MAX_LENGTH|VIOL_FILE_UPLOAD|VIOL_FILE_UPLOAD_IN_BODY|VIOL_XML_MALFORMED|VIOL_JSON_MALFORMED|VIOL_ASM_COOKIE_MODIFIED|VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS|VIOL_HTTP_PROTOCOL_BAD_HOST_HEADER_VALUE|VIOL_HTTP_PROTOCOL_UNPARSABLE_REQUEST_CONTENT|VIOL_HTTP_PROTOCOL_NULL_IN_REQUEST|VIOL_HTTP_PROTOCOL_BAD_HTTP_VERSION|VIOL_HTTP_PROTOCOL_SEVERAL_CONTENT_LENGTH_HEADERS|VIOL_EVASION_DIRECTORY_TRAVERSALS|VIOL_MALFORMED_REQUEST|VIOL_EVASION_MULTIPLE_DECODING|VIOL_DATA_GUARD|VIOL_EVASION_APACHE_WHITESPACE|VIOL_COOKIE_MODIFIED|VIOL_EVASION_IIS_UNICODE_CODEPOINTS|VIOL_EVASION_IIS_BACKSLASHES|VIOL_EVASION_PERCENT_U_DECODING|VIOL_EVASION_BARE_BYTE_DECODING|VIOL_EVASION_BAD_UNESCAPE|VIOL_HTTP_PROTOCOL_BODY_IN_GET_OR_HEAD_REQUEST|VIOL_ENCODING|VIOL_COOKIE_MALFORMED|VIOL_GRAPHQL_FORMAT|VIOL_GRAPHQL_MALFORMED|VIOL_GRAPHQL_INTROSPECTION_QUERY] Disabled Violations. List of violations to be excluded. Possible values are `VIOL_NONE`, `VIOL_FILETYPE`, `VIOL_METHOD`, `VIOL_MANDATORY_HEADER`, `VIOL_HTTP_RESPONSE_STATUS`, `VIOL_REQUEST_MAX_LENGTH`, `VIOL_FILE_UPLOAD`, `VIOL_FILE_UPLOAD_IN_BODY`, `VIOL_XML_MALFORMED`, `VIOL_JSON_MALFORMED`, `VIOL_ASM_COOKIE_MODIFIED`, `VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS`, `VIOL_HTTP_PROTOCOL_BAD_HOST_HEADER_VALUE`, `VIOL_HTTP_PROTOCOL_UNPARSABLE_REQUEST_CONTENT`, `VIOL_HTTP_PROTOCOL_NULL_IN_REQUEST`, `VIOL_HTTP_PROTOCOL_BAD_HTTP_VERSION`, `VIOL_HTTP_PROTOCOL_SEVERAL_CONTENT_LENGTH_HEADERS`, `VIOL_EVASION_DIRECTORY_TRAVERSALS`, `VIOL_MALFORMED_REQUEST`, `VIOL_EVASION_MULTIPLE_DECODING`, `VIOL_DATA_GUARD`, `VIOL_EVASION_APACHE_WHITESPACE`, `VIOL_COOKIE_MODIFIED`, `VIOL_EVASION_IIS_UNICODE_CODEPOINTS`, `VIOL_EVASION_IIS_BACKSLASHES`, `VIOL_EVASION_PERCENT_U_DECODING`, `VIOL_EVASION_BARE_BYTE_DECODING`, `VIOL_EVASION_BAD_UNESCAPE`, `VIOL_HTTP_PROTOCOL_BODY_IN_GET_OR_HEAD_REQUEST`, `VIOL_ENCODING`, `VIOL_COOKIE_MALFORMED`, `VIOL_GRAPHQL_FORMAT`, `VIOL_GRAPHQL_MALFORMED`, `VIOL_GRAPHQL_INTROSPECTION_QUERY`. Defaults to `VIOL_NONE`.",
+								DeprecationMessage:  "Deprecated",
 								Optional:            true,
 								ElementType:         types.StringType,
 								Validators: []validator.List{
@@ -1024,6 +1074,9 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["default_attack_type_settings"] = map[string]interface{}{}
 			}
+			if !data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting.IsUnknown() {
+				DetectionSettingsSignatureSelectionSettingMap["default_signature_setting"] = map[string]interface{}{}
+			}
 			if !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["high_medium_accuracy_signatures"] = map[string]interface{}{}
 			}
@@ -1032,6 +1085,19 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			}
 			if !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["only_high_accuracy_signatures"] = map[string]interface{}{}
+			}
+			if data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy != nil {
+				DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap := make(map[string]interface{})
+				if !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.HighAccuracyAction.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.HighAccuracyAction.IsUnknown() {
+					DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap["high_accuracy_action"] = data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.HighAccuracyAction.ValueString()
+				}
+				if !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.LowAccuracyAction.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.LowAccuracyAction.IsUnknown() {
+					DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap["low_accuracy_action"] = data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.LowAccuracyAction.ValueString()
+				}
+				if !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.MediumAccuracyAction.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.MediumAccuracyAction.IsUnknown() {
+					DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap["medium_accuracy_action"] = data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.MediumAccuracyAction.ValueString()
+				}
+				DetectionSettingsSignatureSelectionSettingMap["signature_settings_by_accuracy"] = DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap
 			}
 			DetectionSettingsMap["signature_selection_setting"] = DetectionSettingsSignatureSelectionSettingMap
 		}
@@ -1424,6 +1490,15 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 							}
 							return types.ObjectNull(map[string]attr.Type{})
 						}(),
+						DefaultSignatureSetting: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting.IsUnknown() {
+								return data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting
+							}
+							if _, ok := SignatureSelectionSettingData["default_signature_setting"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
 						HighMediumAccuracySignatures: func() types.Object {
 							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
@@ -1450,6 +1525,34 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
 							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						SignatureSettingsByAccuracy: func() *AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy
+							}
+							if SignatureSettingsByAccuracyData, ok := SignatureSelectionSettingData["signature_settings_by_accuracy"].(map[string]interface{}); ok {
+								return &AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel{
+									HighAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["high_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									LowAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["low_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MediumAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["medium_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -2043,6 +2146,15 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 							}
 							return types.ObjectNull(map[string]attr.Type{})
 						}(),
+						DefaultSignatureSetting: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting.IsUnknown() {
+								return data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting
+							}
+							if _, ok := SignatureSelectionSettingData["default_signature_setting"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
 						HighMediumAccuracySignatures: func() types.Object {
 							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
@@ -2069,6 +2181,34 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
 							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						SignatureSettingsByAccuracy: func() *AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy
+							}
+							if SignatureSettingsByAccuracyData, ok := SignatureSelectionSettingData["signature_settings_by_accuracy"].(map[string]interface{}); ok {
+								return &AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel{
+									HighAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["high_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									LowAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["low_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MediumAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["medium_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -2494,6 +2634,9 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["default_attack_type_settings"] = map[string]interface{}{}
 			}
+			if !data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting.IsUnknown() {
+				DetectionSettingsSignatureSelectionSettingMap["default_signature_setting"] = map[string]interface{}{}
+			}
 			if !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["high_medium_accuracy_signatures"] = map[string]interface{}{}
 			}
@@ -2502,6 +2645,19 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 			if !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["only_high_accuracy_signatures"] = map[string]interface{}{}
+			}
+			if data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy != nil {
+				DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap := make(map[string]interface{})
+				if !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.HighAccuracyAction.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.HighAccuracyAction.IsUnknown() {
+					DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap["high_accuracy_action"] = data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.HighAccuracyAction.ValueString()
+				}
+				if !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.LowAccuracyAction.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.LowAccuracyAction.IsUnknown() {
+					DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap["low_accuracy_action"] = data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.LowAccuracyAction.ValueString()
+				}
+				if !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.MediumAccuracyAction.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.MediumAccuracyAction.IsUnknown() {
+					DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap["medium_accuracy_action"] = data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.MediumAccuracyAction.ValueString()
+				}
+				DetectionSettingsSignatureSelectionSettingMap["signature_settings_by_accuracy"] = DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyMap
 			}
 			DetectionSettingsMap["signature_selection_setting"] = DetectionSettingsSignatureSelectionSettingMap
 		}
@@ -2914,6 +3070,15 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 							}
 							return types.ObjectNull(map[string]attr.Type{})
 						}(),
+						DefaultSignatureSetting: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting.IsUnknown() {
+								return data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting
+							}
+							if _, ok := SignatureSelectionSettingData["default_signature_setting"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
 						HighMediumAccuracySignatures: func() types.Object {
 							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
@@ -2940,6 +3105,34 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
 							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						SignatureSettingsByAccuracy: func() *AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy != nil {
+								return data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy
+							}
+							if SignatureSettingsByAccuracyData, ok := SignatureSelectionSettingData["signature_settings_by_accuracy"].(map[string]interface{}); ok {
+								return &AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel{
+									HighAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["high_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									LowAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["low_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MediumAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["medium_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}

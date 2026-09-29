@@ -501,14 +501,48 @@ var GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteN
 
 // GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel represents nexthop_address block
 type GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel struct {
-	Ipv4 *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model `tfsdk:"ipv4"`
-	Ipv6 *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model `tfsdk:"ipv6"`
+	DualStack *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel `tfsdk:"dual_stack"`
+	Ipv4      *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model      `tfsdk:"ipv4"`
+	Ipv6      *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model      `tfsdk:"ipv6"`
 }
 
 // GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel
 var GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModelAttrTypes = map[string]attr.Type{
-	"ipv4": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4ModelAttrTypes},
-	"ipv6": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6ModelAttrTypes},
+	"dual_stack": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes},
+	"ipv4":       types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4ModelAttrTypes},
+	"ipv6":       types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6ModelAttrTypes},
+}
+
+// GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel represents dual_stack block
+type GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel struct {
+	Ipv4 *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model `tfsdk:"ipv4"`
+	Ipv6 *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model `tfsdk:"ipv6"`
+}
+
+// GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel
+var GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes = map[string]attr.Type{
+	"ipv4": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes},
+	"ipv6": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes},
+}
+
+// GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model represents ipv4 block
+type GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model
+var GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
+}
+
+// GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model represents ipv6 block
+type GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model
+var GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
 }
 
 // GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model represents ipv4 block
@@ -707,14 +741,48 @@ var GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRoute
 
 // GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel represents nexthop_address block
 type GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel struct {
-	Ipv4 *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model `tfsdk:"ipv4"`
-	Ipv6 *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model `tfsdk:"ipv6"`
+	DualStack *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel `tfsdk:"dual_stack"`
+	Ipv4      *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model      `tfsdk:"ipv4"`
+	Ipv6      *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model      `tfsdk:"ipv6"`
 }
 
 // GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel
 var GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModelAttrTypes = map[string]attr.Type{
-	"ipv4": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4ModelAttrTypes},
-	"ipv6": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6ModelAttrTypes},
+	"dual_stack": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes},
+	"ipv4":       types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4ModelAttrTypes},
+	"ipv6":       types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6ModelAttrTypes},
+}
+
+// GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel represents dual_stack block
+type GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel struct {
+	Ipv4 *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model `tfsdk:"ipv4"`
+	Ipv6 *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model `tfsdk:"ipv6"`
+}
+
+// GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel
+var GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes = map[string]attr.Type{
+	"ipv4": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes},
+	"ipv6": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes},
+}
+
+// GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model represents ipv4 block
+type GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model
+var GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
+}
+
+// GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model represents ipv6 block
+type GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model
+var GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
 }
 
 // GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model represents ipv4 block
@@ -1371,14 +1439,48 @@ var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRout
 
 // GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel represents nexthop_address block
 type GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel struct {
-	Ipv4 *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model `tfsdk:"ipv4"`
-	Ipv6 *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model `tfsdk:"ipv6"`
+	DualStack *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel `tfsdk:"dual_stack"`
+	Ipv4      *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model      `tfsdk:"ipv4"`
+	Ipv6      *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Model      `tfsdk:"ipv6"`
 }
 
 // GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel
 var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModelAttrTypes = map[string]attr.Type{
-	"ipv4": types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4ModelAttrTypes},
-	"ipv6": types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6ModelAttrTypes},
+	"dual_stack": types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes},
+	"ipv4":       types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4ModelAttrTypes},
+	"ipv6":       types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6ModelAttrTypes},
+}
+
+// GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel represents dual_stack block
+type GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel struct {
+	Ipv4 *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model `tfsdk:"ipv4"`
+	Ipv6 *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model `tfsdk:"ipv6"`
+}
+
+// GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel
+var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModelAttrTypes = map[string]attr.Type{
+	"ipv4": types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes},
+	"ipv6": types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes},
+}
+
+// GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model represents ipv4 block
+type GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model
+var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
+}
+
+// GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model represents ipv6 block
+type GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model
+var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
 }
 
 // GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model represents ipv4 block
@@ -1527,6 +1629,18 @@ var GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes = map
 	"storage_class_name":    types.StringType,
 }
 
+// GCPVPCSiteWAFSignaturesModel represents waf_signatures block
+type GCPVPCSiteWAFSignaturesModel struct {
+	Automatic types.Object `tfsdk:"automatic"`
+	Manual    types.Object `tfsdk:"manual"`
+}
+
+// GCPVPCSiteWAFSignaturesModelAttrTypes defines the attribute types for GCPVPCSiteWAFSignaturesModel
+var GCPVPCSiteWAFSignaturesModelAttrTypes = map[string]attr.Type{
+	"automatic": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"manual":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
 type GCPVPCSiteResourceModel struct {
 	Name                     types.String                             `tfsdk:"name"`
 	Namespace                types.String                             `tfsdk:"namespace"`
@@ -1562,6 +1676,7 @@ type GCPVPCSiteResourceModel struct {
 	PrivateConnectivity      *GCPVPCSitePrivateConnectivityModel      `tfsdk:"private_connectivity"`
 	Sw                       *GCPVPCSiteSwModel                       `tfsdk:"sw"`
 	VoltstackCluster         *GCPVPCSiteVoltstackClusterModel         `tfsdk:"voltstack_cluster"`
+	WAFSignatures            *GCPVPCSiteWAFSignaturesModel            `tfsdk:"waf_signatures"`
 }
 
 func (r *GCPVPCSiteResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -2331,9 +2446,41 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
-															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("dual_stack", "ipv4"), validators.ConflictingObjectAttributes("dual_stack", "ipv6"), validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
+																"dual_stack": schema.SingleNestedBlock{
+																	MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+																	Attributes:          map[string]schema.Attribute{},
+																	Blocks: map[string]schema.Block{
+																		"ipv4": schema.SingleNestedBlock{
+																			MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+																					Optional:            true,
+																					Validators: []validator.String{
+																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
+																					},
+																				},
+																			},
+																		},
+																		"ipv6": schema.SingleNestedBlock{
+																			MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+																					Optional:            true,
+																					Validators: []validator.String{
+																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv6Validator(),
+																					},
+																				},
+																			},
+																		},
+																	},
+																},
 																"ipv4": schema.SingleNestedBlock{
 																	MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 																	Attributes: map[string]schema.Attribute{
@@ -2578,9 +2725,41 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
-															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("dual_stack", "ipv4"), validators.ConflictingObjectAttributes("dual_stack", "ipv6"), validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
+																"dual_stack": schema.SingleNestedBlock{
+																	MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+																	Attributes:          map[string]schema.Attribute{},
+																	Blocks: map[string]schema.Block{
+																		"ipv4": schema.SingleNestedBlock{
+																			MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+																					Optional:            true,
+																					Validators: []validator.String{
+																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
+																					},
+																				},
+																			},
+																		},
+																		"ipv6": schema.SingleNestedBlock{
+																			MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+																					Optional:            true,
+																					Validators: []validator.String{
+																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv6Validator(),
+																					},
+																				},
+																			},
+																		},
+																	},
+																},
 																"ipv4": schema.SingleNestedBlock{
 																	MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 																	Attributes: map[string]schema.Attribute{
@@ -3505,9 +3684,41 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
-															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("dual_stack", "ipv4"), validators.ConflictingObjectAttributes("dual_stack", "ipv6"), validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
+																"dual_stack": schema.SingleNestedBlock{
+																	MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+																	Attributes:          map[string]schema.Attribute{},
+																	Blocks: map[string]schema.Block{
+																		"ipv4": schema.SingleNestedBlock{
+																			MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+																					Optional:            true,
+																					Validators: []validator.String{
+																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
+																					},
+																				},
+																			},
+																		},
+																		"ipv6": schema.SingleNestedBlock{
+																			MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+																			Attributes: map[string]schema.Attribute{
+																				"addr": schema.StringAttribute{
+																					MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+																					Optional:            true,
+																					Validators: []validator.String{
+																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv6Validator(),
+																					},
+																				},
+																			},
+																		},
+																	},
+																},
 																"ipv4": schema.SingleNestedBlock{
 																	MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 																	Attributes: map[string]schema.Attribute{
@@ -3694,6 +3905,23 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 						},
+					},
+				},
+			},
+			"waf_signatures": schema.SingleNestedBlock{
+				MarkdownDescription: "Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("automatic", "manual")},
+
+				Attributes: map[string]schema.Attribute{
+					"automatic": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"manual": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -4206,6 +4434,24 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
+									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap := make(map[string]interface{})
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsUnknown() {
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.ValueString()
+											}
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map
+										}
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsUnknown() {
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.ValueString()
+											}
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map
+										}
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["dual_stack"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap
+									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
@@ -4381,6 +4627,24 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
+									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap := make(map[string]interface{})
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsUnknown() {
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.ValueString()
+											}
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map
+										}
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsUnknown() {
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.ValueString()
+											}
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map
+										}
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["dual_stack"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap
+									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
@@ -4896,6 +5160,24 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
+									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap := make(map[string]interface{})
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsUnknown() {
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.ValueString()
+											}
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map
+										}
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsUnknown() {
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.ValueString()
+											}
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map
+										}
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["dual_stack"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap
+									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
@@ -5034,6 +5316,16 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			VoltstackClusterMap["storage_class_list"] = VoltstackClusterStorageClassListMap
 		}
 		createReq.Spec["voltstack_cluster"] = VoltstackClusterMap
+	}
+	if data.WAFSignatures != nil {
+		WAFSignaturesMap := make(map[string]interface{})
+		if !data.WAFSignatures.Automatic.IsNull() && !data.WAFSignatures.Automatic.IsUnknown() {
+			WAFSignaturesMap["automatic"] = map[string]interface{}{}
+		}
+		if !data.WAFSignatures.Manual.IsNull() && !data.WAFSignatures.Manual.IsUnknown() {
+			WAFSignaturesMap["manual"] = map[string]interface{}{}
+		}
+		createReq.Spec["waf_signatures"] = WAFSignaturesMap
 	}
 	if !data.Address.IsNull() && !data.Address.IsUnknown() {
 		createReq.Spec["address"] = data.Address.ValueString()
@@ -5776,6 +6068,48 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -6176,6 +6510,48 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -7344,6 +7720,48 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -7638,6 +8056,28 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 				}
 				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &GCPVPCSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -8478,6 +8918,48 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -8878,6 +9360,48 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -10046,6 +10570,48 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -10340,6 +10906,28 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 					}
 				}
 				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &GCPVPCSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -10823,6 +11411,24 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
 									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
+									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap := make(map[string]interface{})
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsUnknown() {
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.ValueString()
+											}
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map
+										}
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsUnknown() {
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.ValueString()
+											}
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map
+										}
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["dual_stack"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap
+									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
@@ -10998,6 +11604,24 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
 									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
+									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap := make(map[string]interface{})
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsUnknown() {
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.ValueString()
+											}
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map
+										}
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsUnknown() {
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.ValueString()
+											}
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map
+										}
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["dual_stack"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap
+									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
@@ -11513,6 +12137,24 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
 									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
+									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap := make(map[string]interface{})
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsUnknown() {
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.ValueString()
+											}
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Map
+										}
+										if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map := make(map[string]interface{})
+											if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsUnknown() {
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.ValueString()
+											}
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Map
+										}
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["dual_stack"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackMap
+									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
@@ -11651,6 +12293,16 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			VoltstackClusterMap["storage_class_list"] = VoltstackClusterStorageClassListMap
 		}
 		apiResource.Spec["voltstack_cluster"] = VoltstackClusterMap
+	}
+	if data.WAFSignatures != nil {
+		WAFSignaturesMap := make(map[string]interface{})
+		if !data.WAFSignatures.Automatic.IsNull() && !data.WAFSignatures.Automatic.IsUnknown() {
+			WAFSignaturesMap["automatic"] = map[string]interface{}{}
+		}
+		if !data.WAFSignatures.Manual.IsNull() && !data.WAFSignatures.Manual.IsUnknown() {
+			WAFSignaturesMap["manual"] = map[string]interface{}{}
+		}
+		apiResource.Spec["waf_signatures"] = WAFSignaturesMap
 	}
 	if !data.Address.IsNull() && !data.Address.IsUnknown() {
 		apiResource.Spec["address"] = data.Address.ValueString()
@@ -12427,6 +13079,48 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -12827,6 +13521,48 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -13995,6 +14731,48 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 																		}
 																		if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 																			return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressModel{
+																				DualStack: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel {
+																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil {
+																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack
+																					}
+																					if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																						return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackModel{
+																							Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv4
+																								}
+																								if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv4Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																							Ipv6: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model {
+																								if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																									return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.DualStack.Ipv6
+																								}
+																								if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																									return &GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressDualStackIpv6Model{
+																										Addr: func() types.String {
+																											if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																												return types.StringValue(v)
+																											}
+																											return types.StringNull()
+																										}(),
+																									}
+																								}
+																								return nil
+																							}(),
+																						}
+																					}
+																					return nil
+																				}(),
 																				Ipv4: func() *GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Model {
 																					if !isImport && len(StaticRouteListExisting) > StaticRouteListIdx && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress != nil && StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
 																						return StaticRouteListExisting[StaticRouteListIdx].CustomStaticRoute.Nexthop.NexthopAddress.Ipv4
@@ -14289,6 +15067,28 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 				}
 				return nil
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &GCPVPCSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

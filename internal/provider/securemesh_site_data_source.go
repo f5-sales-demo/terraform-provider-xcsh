@@ -53,6 +53,7 @@ type SecuremeshSiteDataSourceModel struct {
 	OS                         *SecuremeshSiteOSModel                         `tfsdk:"os"`
 	PerformanceEnhancementMode *SecuremeshSitePerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	Sw                         *SecuremeshSiteSwModel                         `tfsdk:"sw"`
+	WAFSignatures              *SecuremeshSiteWAFSignaturesModel              `tfsdk:"waf_signatures"`
 }
 
 func (d *SecuremeshSiteDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -410,7 +411,7 @@ func (d *SecuremeshSiteDataSource) Schema(ctx context.Context, req datasource.Sc
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Computed:            true,
 												},
 												"node": schema.StringAttribute{
@@ -442,7 +443,7 @@ func (d *SecuremeshSiteDataSource) Schema(ctx context.Context, req datasource.Sc
 													Computed:            true,
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Computed:            true,
 												},
 												"node": schema.StringAttribute{
@@ -706,7 +707,7 @@ func (d *SecuremeshSiteDataSource) Schema(ctx context.Context, req datasource.Sc
 													AttributeTypes:      map[string]attr.Type{},
 												},
 												"mtu": schema.Int64Attribute{
-													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 													Computed:            true,
 												},
 												"no_ipv6_address": schema.ObjectAttribute{
@@ -1449,6 +1450,22 @@ func (d *SecuremeshSiteDataSource) Schema(ctx context.Context, req datasource.Sc
 					"volterra_software_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
 						Computed:            true,
+					},
+				},
+				Computed: true,
+			},
+			"waf_signatures": schema.SingleNestedAttribute{
+				MarkdownDescription: "Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes.",
+				Attributes: map[string]schema.Attribute{
+					"automatic": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"manual": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Computed:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Computed: true,
@@ -3825,6 +3842,28 @@ func (d *SecuremeshSiteDataSource) Read(ctx context.Context, req datasource.Read
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+		}
+	}
+	if blockData, ok := apiResource.Spec["waf_signatures"].(map[string]interface{}); ok && (isImport || data.WAFSignatures != nil) {
+		data.WAFSignatures = &SecuremeshSiteWAFSignaturesModel{
+			Automatic: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Automatic.IsUnknown() {
+					return data.WAFSignatures.Automatic
+				}
+				if _, ok := blockData["automatic"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
+			}(),
+			Manual: func() types.Object {
+				if !isImport && data.WAFSignatures != nil && !data.WAFSignatures.Manual.IsUnknown() {
+					return data.WAFSignatures.Manual
+				}
+				if _, ok := blockData["manual"].(map[string]interface{}); ok {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+				}
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

@@ -1441,14 +1441,48 @@ var FleetStorageStaticRoutesStorageRoutesNexthopInterfaceModelAttrTypes = map[st
 
 // FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel represents nexthop_address block
 type FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel struct {
-	Ipv4 *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model `tfsdk:"ipv4"`
-	Ipv6 *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model `tfsdk:"ipv6"`
+	DualStack *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel `tfsdk:"dual_stack"`
+	Ipv4      *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model      `tfsdk:"ipv4"`
+	Ipv6      *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6Model      `tfsdk:"ipv6"`
 }
 
 // FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModelAttrTypes defines the attribute types for FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel
 var FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModelAttrTypes = map[string]attr.Type{
-	"ipv4": types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4ModelAttrTypes},
-	"ipv6": types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6ModelAttrTypes},
+	"dual_stack": types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModelAttrTypes},
+	"ipv4":       types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4ModelAttrTypes},
+	"ipv6":       types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv6ModelAttrTypes},
+}
+
+// FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel represents dual_stack block
+type FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel struct {
+	Ipv4 *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model `tfsdk:"ipv4"`
+	Ipv6 *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model `tfsdk:"ipv6"`
+}
+
+// FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModelAttrTypes defines the attribute types for FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel
+var FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModelAttrTypes = map[string]attr.Type{
+	"ipv4": types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4ModelAttrTypes},
+	"ipv6": types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6ModelAttrTypes},
+}
+
+// FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model represents ipv4 block
+type FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4ModelAttrTypes defines the attribute types for FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model
+var FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
+}
+
+// FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model represents ipv6 block
+type FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model struct {
+	Addr types.String `tfsdk:"addr"`
+}
+
+// FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6ModelAttrTypes defines the attribute types for FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model
+var FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6ModelAttrTypes = map[string]attr.Type{
+	"addr": types.StringType,
 }
 
 // FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model represents ipv4 block
@@ -3966,9 +4000,41 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"nexthop_address": schema.SingleNestedBlock{
 											MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
-											Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("dual_stack", "ipv4"), validators.ConflictingObjectAttributes("dual_stack", "ipv6"), validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
+												"dual_stack": schema.SingleNestedBlock{
+													MarkdownDescription: "DualStackAddressType represents both IPv4 and IPv6 together.",
+													Attributes:          map[string]schema.Attribute{},
+													Blocks: map[string]schema.Block{
+														"ipv4": schema.SingleNestedBlock{
+															MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
+															Attributes: map[string]schema.Attribute{
+																"addr": schema.StringAttribute{
+																	MarkdownDescription: "IPv4 Address in string form with dot-decimal notation.",
+																	Optional:            true,
+																	Validators: []validator.String{
+																		stringvalidator.LengthAtMost(1024),
+																		validators.IPv4Validator(),
+																	},
+																},
+															},
+														},
+														"ipv6": schema.SingleNestedBlock{
+															MarkdownDescription: "IPv6 Address specified as hexadecimal numbers separated by ':'.",
+															Attributes: map[string]schema.Attribute{
+																"addr": schema.StringAttribute{
+																	MarkdownDescription: "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.",
+																	Optional:            true,
+																	Validators: []validator.String{
+																		stringvalidator.LengthAtMost(1024),
+																		validators.IPv6Validator(),
+																	},
+																},
+															},
+														},
+													},
+												},
 												"ipv4": schema.SingleNestedBlock{
 													MarkdownDescription: "IPv4 address in dotted decimal notation (e.g., 192.0.2.1).",
 													Attributes: map[string]schema.Attribute{
@@ -5619,6 +5685,24 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						if StorageRoutesItem.Nexthop.NexthopAddress != nil {
 							StorageStaticRoutesStorageRoutesNexthopNexthopAddressMap := make(map[string]interface{})
+							if StorageRoutesItem.Nexthop.NexthopAddress.DualStack != nil {
+								StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackMap := make(map[string]interface{})
+								if StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+									StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Map := make(map[string]interface{})
+									if !StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsUnknown() {
+										StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Map["addr"] = StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.ValueString()
+									}
+									StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackMap["ipv4"] = StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Map
+								}
+								if StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+									StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Map := make(map[string]interface{})
+									if !StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsUnknown() {
+										StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Map["addr"] = StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.ValueString()
+									}
+									StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackMap["ipv6"] = StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Map
+								}
+								StorageStaticRoutesStorageRoutesNexthopNexthopAddressMap["dual_stack"] = StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackMap
+							}
 							if StorageRoutesItem.Nexthop.NexthopAddress.Ipv4 != nil {
 								StorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 								if !StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
@@ -8672,6 +8756,48 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
+														DualStack: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack
+															}
+															if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel{
+																	Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model {
+																		if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																			return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv4
+																		}
+																		if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																			return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model{
+																				Addr: func() types.String {
+																					if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model {
+																		if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																			return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv6
+																		}
+																		if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																			return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model{
+																				Addr: func() types.String {
+																					if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
 														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
 															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4 != nil {
 																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4
@@ -11901,6 +12027,48 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												}
 												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
+														DualStack: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack
+															}
+															if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel{
+																	Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model {
+																		if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																			return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv4
+																		}
+																		if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																			return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model{
+																				Addr: func() types.String {
+																					if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model {
+																		if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																			return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv6
+																		}
+																		if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																			return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model{
+																				Addr: func() types.String {
+																					if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
 														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
 															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4 != nil {
 																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4
@@ -13538,6 +13706,24 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						if StorageRoutesItem.Nexthop.NexthopAddress != nil {
 							StorageStaticRoutesStorageRoutesNexthopNexthopAddressMap := make(map[string]interface{})
+							if StorageRoutesItem.Nexthop.NexthopAddress.DualStack != nil {
+								StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackMap := make(map[string]interface{})
+								if StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+									StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Map := make(map[string]interface{})
+									if !StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.IsUnknown() {
+										StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Map["addr"] = StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv4.Addr.ValueString()
+									}
+									StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackMap["ipv4"] = StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Map
+								}
+								if StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+									StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Map := make(map[string]interface{})
+									if !StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.IsUnknown() {
+										StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Map["addr"] = StorageRoutesItem.Nexthop.NexthopAddress.DualStack.Ipv6.Addr.ValueString()
+									}
+									StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackMap["ipv6"] = StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Map
+								}
+								StorageStaticRoutesStorageRoutesNexthopNexthopAddressMap["dual_stack"] = StorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackMap
+							}
 							if StorageRoutesItem.Nexthop.NexthopAddress.Ipv4 != nil {
 								StorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 								if !StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StorageRoutesItem.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
@@ -16632,6 +16818,48 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												if NexthopAddressData, ok := NexthopData["nexthop_address"].(map[string]interface{}); ok {
 													return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressModel{
+														DualStack: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel {
+															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil {
+																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack
+															}
+															if DualStackData, ok := NexthopAddressData["dual_stack"].(map[string]interface{}); ok {
+																return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackModel{
+																	Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model {
+																		if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv4 != nil {
+																			return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv4
+																		}
+																		if Ipv4Data, ok := DualStackData["ipv4"].(map[string]interface{}); ok {
+																			return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv4Model{
+																				Addr: func() types.String {
+																					if v, ok := Ipv4Data["addr"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																	Ipv6: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model {
+																		if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv6 != nil {
+																			return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.DualStack.Ipv6
+																		}
+																		if Ipv6Data, ok := DualStackData["ipv6"].(map[string]interface{}); ok {
+																			return &FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressDualStackIpv6Model{
+																				Addr: func() types.String {
+																					if v, ok := Ipv6Data["addr"].(string); ok && v != "" {
+																						return types.StringValue(v)
+																					}
+																					return types.StringNull()
+																				}(),
+																			}
+																		}
+																		return nil
+																	}(),
+																}
+															}
+															return nil
+														}(),
 														Ipv4: func() *FleetStorageStaticRoutesStorageRoutesNexthopNexthopAddressIpv4Model {
 															if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx && StorageRoutesExisting[StorageRoutesIdx].Nexthop != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress != nil && StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4 != nil {
 																return StorageRoutesExisting[StorageRoutesIdx].Nexthop.NexthopAddress.Ipv4

@@ -94,9 +94,19 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="virtual-network-type"></a>&#x2022; [`virtual_network_type`](#virtual-network-type) - Optional String<br>Different types of virtual networks understood by the system
 
+<a id="dual-stack"></a>&#x2022; [`dual_stack`](#dual-stack) - Optional String<br>DualStackAddressType represents both IPv4 and IPv6 together
+
 <a id="ipv4"></a>&#x2022; [`ipv4`](#ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
 
 <a id="ipv6"></a>&#x2022; [`ipv6`](#ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+<a id="ipv4"></a>&#x2022; [`ipv4`](#ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+
+<a id="ipv6"></a>&#x2022; [`ipv6`](#ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+<a id="addr"></a>&#x2022; [`addr`](#addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+<a id="addr"></a>&#x2022; [`addr`](#addr) - Optional String<br>IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
 
 <a id="addr"></a>&#x2022; [`addr`](#addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
 
@@ -170,9 +180,31 @@ An [`endpoints`](#remote-ip-endpoints-endpoints) block (within [`remote_ip.endpo
 
 An [`ip`](#remote-ip-ip) block (within [`remote_ip`](#remote-ip)) supports the following:
 
+<a id="nestedatt--params--ipsec-dual-stack"></a>&#x2022; [`dual_stack`](#nestedatt--params--ipsec-dual-stack) - Optional String<br>DualStackAddressType represents both IPv4 and IPv6 together
+
 <a id="nestedatt--params--ipsec-ipv4"></a>&#x2022; [`ipv4`](#nestedatt--params--ipsec-ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
 
 <a id="nestedatt--params--ipsec-ipv6"></a>&#x2022; [`ipv6`](#nestedatt--params--ipsec-ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+#### Remote IP IP Dual Stack
+
+A [`dual_stack`](#remote-ip-ip-dual-stack) block (within [`remote_ip.ip`](#remote-ip-ip)) supports the following:
+
+<a id="nestedatt--params--ipsec-ipv4"></a>&#x2022; [`ipv4`](#nestedatt--params--ipsec-ipv4) - Optional String<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+
+<a id="nestedatt--params--ipsec-ipv6"></a>&#x2022; [`ipv6`](#nestedatt--params--ipsec-ipv6) - Optional String<br>IPv6 Address specified as hexadecimal numbers separated by ':'
+
+#### Remote IP IP Dual Stack IPv4
+
+An [`ipv4`](#remote-ip-ip-dual-stack-ipv4) block (within [`remote_ip.ip.dual_stack`](#remote-ip-ip-dual-stack)) supports the following:
+
+<a id="nestedatt--params--ipsec-addr"></a>&#x2022; [`addr`](#nestedatt--params--ipsec-addr) - Optional String<br>IPv4 Address in string form with dot-decimal notation
+
+#### Remote IP IP Dual Stack IPv6
+
+An [`ipv6`](#remote-ip-ip-dual-stack-ipv6) block (within [`remote_ip.ip.dual_stack`](#remote-ip-ip-dual-stack)) supports the following:
+
+<a id="nestedatt--params--ipsec-addr"></a>&#x2022; [`addr`](#nestedatt--params--ipsec-addr) - Optional String<br>IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
 
 #### Remote IP IP IPv4
 

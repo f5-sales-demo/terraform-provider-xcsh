@@ -153,7 +153,11 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="advertise-where"></a>&#x2022; [`advertise_where`](#advertise-where) - Optional List<br>Where should this load balancer be available
 
+<a id="advertise-dualstack-on-public"></a>&#x2022; [`advertise_dualstack_on_public`](#advertise-dualstack-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
 <a id="advertise-on-public"></a>&#x2022; [`advertise_on_public`](#advertise-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
+
+<a id="advertise-v6-on-public"></a>&#x2022; [`advertise_v6_on_public`](#advertise-v6-on-public) - Optional String<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available
 
 <a id="port"></a>&#x2022; [`port`](#port) - Optional Number<br>Port to Listen
 
@@ -170,6 +174,22 @@ In addition to all arguments above, the following attributes are exported:
 <a id="virtual-site-with-vip"></a>&#x2022; [`virtual_site_with_vip`](#virtual-site-with-vip) - Optional String<br>Defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised
 
 <a id="vk8s-service"></a>&#x2022; [`vk8s_service`](#vk8s-service) - Optional String<br>Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+
+<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
 

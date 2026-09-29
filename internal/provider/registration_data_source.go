@@ -116,6 +116,26 @@ func (d *RegistrationDataSource) Schema(ctx context.Context, req datasource.Sche
 						MarkdownDescription: "Must be unique in entire cluster and same as OS settings. '.' (dots) are not allowed in hostname.",
 						Computed:            true,
 					},
+					"hugepages": schema.ListNestedAttribute{
+						MarkdownDescription: "Hugepage settings for CE on K8s SMV2 site.",
+						NestedObject: schema.NestedAttributeObject{
+							Attributes: map[string]schema.Attribute{
+								"free": schema.Int64Attribute{
+									MarkdownDescription: "Free Hugepages. Total number of free hugepages present.",
+									Computed:            true,
+								},
+								"page_size": schema.Int64Attribute{
+									MarkdownDescription: "Hugepage Size. Size of each hugepage.",
+									Computed:            true,
+								},
+								"total": schema.Int64Attribute{
+									MarkdownDescription: "Total Hugepages. Total number of hugepages present.",
+									Computed:            true,
+								},
+							},
+						},
+						Computed: true,
+					},
 					"hw_info": schema.SingleNestedAttribute{
 						MarkdownDescription: "OsInfo holds information about host OS and HW.",
 						Attributes: map[string]schema.Attribute{
@@ -545,7 +565,7 @@ func (d *RegistrationDataSource) Schema(ctx context.Context, req datasource.Sche
 						Computed:            true,
 					},
 					"provider_ref": schema.StringAttribute{
-						MarkdownDescription: "[Enum: UNKNOWN|AWS|GOOGLE|AZURE|VMWARE|KVM|OTHER|VOLTERRA|IBMCLOUD|UNKNOWN_K8S|AWS_K8S|GCP_K8S|AZURE_K8S|VMWARE_K8S|KVM_K8S|OTHER_K8S|VOLTERRA_K8S|IBMCLOUD_K8S|F5OS|RSERIES|OCI|NUTANIX|OPENSTACK|EQUINIX|OPENSHIFT_VIRTUALIZATION] Infrastructure provider enum for registration. It describes where is instance running. Provider was not detected AWS cloud instance Google cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was not identified by system. Possible values are `UNKNOWN`, `AWS`, `GOOGLE`, `AZURE`, `VMWARE`, `KVM`, `OTHER`, `VOLTERRA`, `IBMCLOUD`, `UNKNOWN_K8S`, `AWS_K8S`, `GCP_K8S`, `AZURE_K8S`, `VMWARE_K8S`, `KVM_K8S`, `OTHER_K8S`, `VOLTERRA_K8S`, `IBMCLOUD_K8S`, `F5OS`, `RSERIES`, `OCI`, `NUTANIX`, `OPENSTACK`, `EQUINIX`, `OPENSHIFT_VIRTUALIZATION`.",
+						MarkdownDescription: "[Enum: UNKNOWN|AWS|GOOGLE|AZURE|VMWARE|KVM|OTHER|VOLTERRA|IBMCLOUD|UNKNOWN_K8S|AWS_K8S|GCP_K8S|AZURE_K8S|VMWARE_K8S|KVM_K8S|OTHER_K8S|VOLTERRA_K8S|IBMCLOUD_K8S|F5OS|RSERIES|OCI|NUTANIX|OPENSTACK|EQUINIX|OPENSHIFT_VIRTUALIZATION|KUBERNETES] Infrastructure provider enum for registration. It describes where is instance running. Provider was not detected AWS cloud instance Google cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was not identified by system. Possible values are `UNKNOWN`, `AWS`, `GOOGLE`, `AZURE`, `VMWARE`, `KVM`, `OTHER`, `VOLTERRA`, `IBMCLOUD`, `UNKNOWN_K8S`, `AWS_K8S`, `GCP_K8S`, `AZURE_K8S`, `VMWARE_K8S`, `KVM_K8S`, `OTHER_K8S`, `VOLTERRA_K8S`, `IBMCLOUD_K8S`, `F5OS`, `RSERIES`, `OCI`, `NUTANIX`, `OPENSTACK`, `EQUINIX`, `OPENSHIFT_VIRTUALIZATION`, `KUBERNETES`.",
 						Computed:            true,
 					},
 					"sw_info": schema.SingleNestedAttribute{
@@ -752,6 +772,46 @@ func (d *RegistrationDataSource) Read(ctx context.Context, req datasource.ReadRe
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+			Hugepages: func() types.List {
+				if !isImport && data.Infra != nil && (data.Infra.Hugepages.IsNull() || len(data.Infra.Hugepages.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: RegistrationInfraHugepagesModelAttrTypes})
+				}
+				var HugepagesExisting []RegistrationInfraHugepagesModel
+				if !isImport && data.Infra != nil && !data.Infra.Hugepages.IsNull() && !data.Infra.Hugepages.IsUnknown() {
+					data.Infra.Hugepages.ElementsAs(ctx, &HugepagesExisting, false)
+				}
+				if rawList, ok := blockData["hugepages"].([]interface{}); ok && len(rawList) > 0 {
+					var HugepagesResult []RegistrationInfraHugepagesModel
+					for HugepagesIdx, HugepagesItem := range rawList {
+						_ = HugepagesIdx
+						if HugepagesItemMap, ok := HugepagesItem.(map[string]interface{}); ok {
+							HugepagesResult = append(HugepagesResult, RegistrationInfraHugepagesModel{
+								Free: func() types.Int64 {
+									if v, ok := HugepagesItemMap["free"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								PageSize: func() types.Int64 {
+									if v, ok := HugepagesItemMap["page_size"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+								Total: func() types.Int64 {
+									if v, ok := HugepagesItemMap["total"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RegistrationInfraHugepagesModelAttrTypes}, HugepagesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: RegistrationInfraHugepagesModelAttrTypes})
 			}(),
 			HwInfo: func() *RegistrationInfraHwInfoModel {
 				if HwInfoData, ok := blockData["hw_info"].(map[string]interface{}); ok {

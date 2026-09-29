@@ -73,6 +73,7 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 &#x2022; <a id="aws"></a>[`aws`](#aws) - Optional Block<br>AWS Provider Type. AWS Provider Type<br>See [AWS](#aws) below for details.
 <br><br>&#x2022; <a id="azure"></a>[`azure`](#azure) - Optional Block<br>Azure Provider Type. Azure Provider Type<br>See [Azure](#azure) below for details.
 <br><br>&#x2022; <a id="baremetal"></a>[`baremetal`](#baremetal) - Optional Block<br>Baremetal Provider Type. Baremetal Provider Type
+<br><br>&#x2022; <a id="eks-k8s"></a>[`eks_k8s`](#eks-k8s) - Optional Block<br>Kubernetes Provider Type. Kubernetes Provider Type
 <br><br>&#x2022; <a id="equinix"></a>[`equinix`](#equinix) - Optional Block<br>Equinix Provider Type. Equinix Provider Type
 <br><br>&#x2022; <a id="gcp"></a>[`gcp`](#gcp) - Optional Block<br>GCP Provider Type. GCP Provider Type
 <br><br>&#x2022; <a id="kvm"></a>[`kvm`](#kvm) - Optional Block<br>KVM Provider Type. KVM Provider Type
@@ -89,6 +90,7 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 -> **One of the following:**
 &#x2022; <a id="custom-proxy"></a>[`custom_proxy`](#custom-proxy) - Optional Block<br>Configuration parameter for custom proxy
 <br><br>&#x2022; <a id="f5-proxy"></a>[`f5_proxy`](#f5-proxy) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="private-adn"></a>[`private_adn`](#private-adn) - Optional Block<br>X-required Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support
 
 -> **One of the following:**
 &#x2022; <a id="custom-proxy-bypass"></a>[`custom_proxy_bypass`](#custom-proxy-bypass) - Optional Block<br>Configuration parameter for custom proxy bypass
@@ -276,7 +278,7 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 <a id="disabled-428eab"></a>&#x2022; [`monitor_disabled`](#disabled-428eab) - Optional Object<br>Enable this option
 
-<a id="mtu-9ea6fa"></a>&#x2022; [`mtu`](#mtu-9ea6fa) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-9ea6fa"></a>&#x2022; [`mtu`](#mtu-9ea6fa) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-7539f0"></a>&#x2022; [`name`](#name-7539f0) - Optional String<br>Interface Name. Name of this Interface
 
@@ -517,7 +519,7 @@ An [`interface_list`](#list-f42e50) block (within [`azure.not_managed.node_list`
 
 <a id="disabled-7aa1a9"></a>&#x2022; [`monitor_disabled`](#disabled-7aa1a9) - Optional Object<br>Enable this option
 
-<a id="mtu-bfeae5"></a>&#x2022; [`mtu`](#mtu-bfeae5) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-bfeae5"></a>&#x2022; [`mtu`](#mtu-bfeae5) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-34ce39"></a>&#x2022; [`name`](#name-34ce39) - Optional String<br>Interface Name. Name of this Interface
 
@@ -758,7 +760,7 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 
 <a id="disabled-1756b3"></a>&#x2022; [`monitor_disabled`](#disabled-1756b3) - Optional Object<br>Enable this option
 
-<a id="mtu-2d7f6c"></a>&#x2022; [`mtu`](#mtu-2d7f6c) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-2d7f6c"></a>&#x2022; [`mtu`](#mtu-2d7f6c) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-8c8a3d"></a>&#x2022; [`name`](#name-8c8a3d) - Optional String<br>Interface Name. Name of this Interface
 
@@ -1118,6 +1120,231 @@ A [`f5_dns_default`](#dns-ntp-config-f5-dns-default) block (within [`dns_ntp_con
 
 A [`f5_ntp_default`](#dns-ntp-config-f5-ntp-default) block (within [`dns_ntp_config`](#dns-ntp-config)) supports the following:
 
+#### Eks K8S
+
+An [`eks_k8s`](#eks-k8s) block supports the following:
+
+<a id="eks-k8s-deployment-size"></a>&#x2022; [`deployment_size`](#eks-k8s-deployment-size) - Optional String  Defaults to `KUBERNETES_DEPLOYMENT_SIZE_MEDIUM`<br>Possible values are `KUBERNETES_DEPLOYMENT_SIZE_MEDIUM`, `KUBERNETES_DEPLOYMENT_SIZE_LARGE`<br>[Enum: KUBERNETES_DEPLOYMENT_SIZE_MEDIUM|KUBERNETES_DEPLOYMENT_SIZE_LARGE] Enum for Kubernetes deployment size OPTIONS -
+KUBERNETES_DEPLOYMENT_SIZE_MEDIUM: Medium Medium deployment size with moderate resource requirements (8 vCPU, 32 GB memory). Suitable for most deployments. - KUBERNETES_DEPLOYMENT_SIZE_LARGE: Large Large deployment size with higher resource
+
+<a id="eks-k8s-disable-anti-affinity"></a>&#x2022; [`disable_anti_affinity`](#eks-k8s-disable-anti-affinity) - Optional Object<br>Configuration parameter for disable anti affinity
+
+<a id="eks-k8s-enable-anti-affinity"></a>&#x2022; [`enable_anti_affinity`](#eks-k8s-enable-anti-affinity) - Optional Block<br>Configuration for pod anti-affinity scheduling rules. Define multiple rules to control how different applications/components are distributed across your Kubernetes cluster<br>See [Enable Anti Affinity](#eks-k8s-enable-anti-affinity) below.
+
+<a id="eks-k8s-labels"></a>&#x2022; [`labels`](#eks-k8s-labels) - Optional Map<br>Add labels to control which Kubernetes nodes the VPM and related pods (etcd, VER, prometheus) are deployed to. Specify label key-value pairs that match the labels on your Kubernetes nodes. This uses Kubernetes nodeSelector to schedule pods only on nodes with matching labels
+
+<a id="eks-k8s-not-managed"></a>&#x2022; [`not_managed`](#eks-k8s-not-managed) - Optional Block<br>Section will show nodes associated with this site<br>See [Not Managed](#eks-k8s-not-managed) below.
+
+#### Eks K8S Disable Anti Affinity
+
+A [`disable_anti_affinity`](#eks-k8s-disable-anti-affinity) block (within [`eks_k8s`](#eks-k8s)) supports the following:
+
+#### Eks K8S Enable Anti Affinity
+
+An [`enable_anti_affinity`](#eks-k8s-enable-anti-affinity) block (within [`eks_k8s`](#eks-k8s)) supports the following:
+
+<a id="eks-k8s-enable-anti-affinity-rules"></a>&#x2022; [`rules`](#eks-k8s-enable-anti-affinity-rules) - Optional Block<br>Define one or more anti-affinity rules. Each rule specifies which pods (by labels) should be distributed across which topology domains<br>See [Rules](#eks-k8s-enable-anti-affinity-rules) below.
+
+#### Eks K8S Enable Anti Affinity Rules
+
+A [`rules`](#eks-k8s-enable-anti-affinity-rules) block (within [`eks_k8s.enable_anti_affinity`](#eks-k8s-enable-anti-affinity)) supports the following:
+
+<a id="key-663c5c"></a>&#x2022; [`label_key`](#key-663c5c) - Optional String<br>Specify the label key of the customer pods that CE pods should avoid being co-scheduled with. Combined with the label value below, this identifies the target pods
+
+<a id="value-4da931"></a>&#x2022; [`label_value`](#value-4da931) - Optional String<br>Specify the label value that, together with the label key, identifies the customer pods to avoid
+
+<a id="keys-3f5436"></a>&#x2022; [`topology_keys`](#keys-3f5436) - Optional List<br>Specify one or more node label keys that define the scope of avoidance. For each topology key (e.g., Kubernetes.I/O/hostname), CE pods will avoid nodes whose topology value matches a node already running a pod with the above specified label
+
+#### Eks K8S Not Managed
+
+A [`not_managed`](#eks-k8s-not-managed) block (within [`eks_k8s`](#eks-k8s)) supports the following:
+
+<a id="eks-k8s-not-managed-node-list"></a>&#x2022; [`node_list`](#eks-k8s-not-managed-node-list) - Optional Block<br>Section will show nodes associated with this site<br>See [Node List](#eks-k8s-not-managed-node-list) below.
+
+#### Eks K8S Not Managed Node List
+
+A [`node_list`](#eks-k8s-not-managed-node-list) block (within [`eks_k8s.not_managed`](#eks-k8s-not-managed)) supports the following:
+
+<a id="eks-k8s-not-managed-node-list-hostname"></a>&#x2022; [`hostname`](#eks-k8s-not-managed-node-list-hostname) - Optional String<br>Hostname. Hostname for this Node
+
+<a id="list-c3cf1a"></a>&#x2022; [`interface_list`](#list-c3cf1a) - Optional Block<br>Manage interfaces belonging to this node<br>See [Interface List](#list-c3cf1a) below.
+
+<a id="eks-k8s-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#eks-k8s-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
+
+<a id="eks-k8s-not-managed-node-list-type"></a>&#x2022; [`type`](#eks-k8s-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
+
+#### Eks K8S Not Managed Node List Interface List
+
+<a id="deep-4dd68d"></a>Deeply nested **List** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Bond Interface
+
+<a id="deep-445a6a"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-798f35"></a>Deeply nested **Backup** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Bond Interface Lacp
+
+<a id="deep-dea48c"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Client
+
+<a id="deep-0d5f41"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server
+
+<a id="deep-7fb36a"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-ace322"></a>Deeply nested **End** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-9caab7"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-1439be"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-0cb053"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-2cf7d9"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-8ad805"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-85eeac"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-24d8f2"></a>Deeply nested **Map** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Ethernet Interface
+
+<a id="deep-5aa182"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config
+
+<a id="deep-5a5d0c"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-a35655"></a>Deeply nested **Host** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router
+
+<a id="deep-cb7c26"></a>Deeply nested **Router** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config
+
+<a id="deep-6dbd71"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Configured List
+
+<a id="deep-85b4bc"></a>Deeply nested **List** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS
+
+<a id="deep-7e8626"></a>Deeply nested **DNS** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-4840d3"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-4c1f89"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful
+
+<a id="deep-eaf890"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-12ac5b"></a>Deeply nested **End** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-8bad84"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
+
+<a id="deep-aa3fde"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks Pools
+
+<a id="deep-5b94f1"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List IPv6 Auto Config Router Stateful Interface IP Map
+
+<a id="deep-23c792"></a>Deeply nested **Map** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Monitor
+
+<a id="deep-5bfab5"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-745c1b"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Network Option
+
+<a id="deep-9d7709"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-5a75c8"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-31f261"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-6a86f2"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-b1224b"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-d99141"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-4e7ef9"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Static IP
+
+<a id="deep-e12525"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Static IPv6 Address
+
+<a id="deep-fa5587"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Static IPv6 Address Cluster Static IP
+
+<a id="deep-f6cf79"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List Static IPv6 Address Node Static IP
+
+<a id="deep-fafee3"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Eks K8S Not Managed Node List Interface List VLAN Interface
+
+<a id="deep-8f2f03"></a>Deeply nested **Interface** block collapsed for readability.
+
 #### Enable Advanced Delivery
 
 An [`enable_advanced_delivery`](#enable-advanced-delivery) block supports the following:
@@ -1184,7 +1411,7 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 
 <a id="disabled-5d3350"></a>&#x2022; [`monitor_disabled`](#disabled-5d3350) - Optional Object<br>Enable this option
 
-<a id="mtu-80c067"></a>&#x2022; [`mtu`](#mtu-80c067) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-80c067"></a>&#x2022; [`mtu`](#mtu-80c067) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-5f1c00"></a>&#x2022; [`name`](#name-5f1c00) - Optional String<br>Interface Name. Name of this Interface
 
@@ -1429,7 +1656,7 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 
 <a id="disabled-33388b"></a>&#x2022; [`monitor_disabled`](#disabled-33388b) - Optional Object<br>Enable this option
 
-<a id="mtu-46e579"></a>&#x2022; [`mtu`](#mtu-46e579) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-46e579"></a>&#x2022; [`mtu`](#mtu-46e579) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-fc5cd2"></a>&#x2022; [`name`](#name-fc5cd2) - Optional String<br>Interface Name. Name of this Interface
 
@@ -1670,7 +1897,7 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 
 <a id="disabled-2ad250"></a>&#x2022; [`monitor_disabled`](#disabled-2ad250) - Optional Object<br>Enable this option
 
-<a id="mtu-d603a1"></a>&#x2022; [`mtu`](#mtu-d603a1) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-d603a1"></a>&#x2022; [`mtu`](#mtu-d603a1) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-4d7867"></a>&#x2022; [`name`](#name-4d7867) - Optional String<br>Interface Name. Name of this Interface
 
@@ -2149,7 +2376,7 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 
 <a id="disabled-1b5f4c"></a>&#x2022; [`monitor_disabled`](#disabled-1b5f4c) - Optional Object<br>Enable this option
 
-<a id="mtu-9286d4"></a>&#x2022; [`mtu`](#mtu-9286d4) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-9286d4"></a>&#x2022; [`mtu`](#mtu-9286d4) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-f9abff"></a>&#x2022; [`name`](#name-f9abff) - Optional String<br>Interface Name. Name of this Interface
 
@@ -2390,7 +2617,7 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 
 <a id="disabled-773f90"></a>&#x2022; [`monitor_disabled`](#disabled-773f90) - Optional Object<br>Enable this option
 
-<a id="mtu-314a9f"></a>&#x2022; [`mtu`](#mtu-314a9f) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-314a9f"></a>&#x2022; [`mtu`](#mtu-314a9f) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-600128"></a>&#x2022; [`name`](#name-600128) - Optional String<br>Interface Name. Name of this Interface
 
@@ -2843,7 +3070,7 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 
 <a id="disabled-7cde43"></a>&#x2022; [`monitor_disabled`](#disabled-7cde43) - Optional Object<br>Enable this option
 
-<a id="mtu-12e85c"></a>&#x2022; [`mtu`](#mtu-12e85c) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-12e85c"></a>&#x2022; [`mtu`](#mtu-12e85c) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-a4611b"></a>&#x2022; [`name`](#name-a4611b) - Optional String<br>Interface Name. Name of this Interface
 
@@ -3078,6 +3305,12 @@ A [`perf_mode_l7_enhanced`](#enhanced-38f174) block (within [`performance_enhanc
 
 <a id="deep-b16dbd"></a>Deeply nested **Enabled** block collapsed for readability.
 
+#### Private Adn
+
+A [`private_adn`](#private-adn) block supports the following:
+
+<a id="private-adn-private-adn"></a>&#x2022; [`private_adn`](#private-adn-private-adn) - Optional String<br>Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support
+
 #### RE Select
 
 A [`re_select`](#re-select) block supports the following:
@@ -3235,6 +3468,8 @@ A [`software_settings`](#software-settings) block supports the following:
 
 <a id="software-settings-sw"></a>&#x2022; [`sw`](#software-settings-sw) - Optional Block<br>Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions<br>See [Sw](#software-settings-sw) below.
 
+<a id="software-settings-waf-signatures"></a>&#x2022; [`waf_signatures`](#software-settings-waf-signatures) - Optional Block<br>Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied manually. Refer to release notes for details about available Signatures update modes<br>See [WAF Signatures](#software-settings-waf-signatures) below.
+
 #### Software Settings OS
 
 An [`os`](#software-settings-os) block (within [`software_settings`](#software-settings)) supports the following:
@@ -3258,6 +3493,22 @@ A [`sw`](#software-settings-sw) block (within [`software_settings`](#software-se
 #### Software Settings Sw Default Sw Version
 
 A [`default_sw_version`](#software-settings-sw-default-sw-version) block (within [`software_settings.sw`](#software-settings-sw)) supports the following:
+
+#### Software Settings WAF Signatures
+
+A [`waf_signatures`](#software-settings-waf-signatures) block (within [`software_settings`](#software-settings)) supports the following:
+
+<a id="automatic-d8e7fa"></a>&#x2022; [`automatic`](#automatic-d8e7fa) - Optional Object<br>Enable this option
+
+<a id="software-settings-waf-signatures-manual"></a>&#x2022; [`manual`](#software-settings-waf-signatures-manual) - Optional Object<br>Enable this option
+
+#### Software Settings WAF Signatures Automatic
+
+An [`automatic`](#automatic-d8e7fa) block (within [`software_settings.waf_signatures`](#software-settings-waf-signatures)) supports the following:
+
+#### Software Settings WAF Signatures Manual
+
+A [`manual`](#software-settings-waf-signatures-manual) block (within [`software_settings.waf_signatures`](#software-settings-waf-signatures)) supports the following:
 
 #### Timeouts
 
@@ -3347,7 +3598,7 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 
 <a id="disabled-3f7207"></a>&#x2022; [`monitor_disabled`](#disabled-3f7207) - Optional Object<br>Enable this option
 
-<a id="mtu-2aef73"></a>&#x2022; [`mtu`](#mtu-2aef73) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="mtu-2aef73"></a>&#x2022; [`mtu`](#mtu-2aef73) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 8000
 
 <a id="name-4830d8"></a>&#x2022; [`name`](#name-4830d8) - Optional String<br>Interface Name. Name of this Interface
 

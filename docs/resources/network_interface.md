@@ -90,7 +90,7 @@ A [`dedicated_interface`](#dedicated-interface) block supports the following:
 
 <a id="dedicated-interface-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#dedicated-interface-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="dedicated-interface-mtu"></a>&#x2022; [`mtu`](#dedicated-interface-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="dedicated-interface-mtu"></a>&#x2022; [`mtu`](#dedicated-interface-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000
 
 <a id="dedicated-interface-node"></a>&#x2022; [`node`](#dedicated-interface-node) - Optional String<br>Configuration will apply to a device on the given node of the site
 
@@ -126,7 +126,7 @@ A [`dedicated_management_interface`](#dedicated-management-interface) block supp
 
 <a id="dedicated-management-interface-device"></a>&#x2022; [`device`](#dedicated-management-interface-device) - Optional String<br>Name of the device for which interface is configured
 
-<a id="dedicated-management-interface-mtu"></a>&#x2022; [`mtu`](#dedicated-management-interface-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="dedicated-management-interface-mtu"></a>&#x2022; [`mtu`](#dedicated-management-interface-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000
 
 <a id="dedicated-management-interface-node"></a>&#x2022; [`node`](#dedicated-management-interface-node) - Optional String<br>Configuration will apply to a device on the given node of the site
 
@@ -154,7 +154,7 @@ An [`ethernet_interface`](#ethernet-interface) block supports the following:
 
 <a id="ethernet-interface-monitor-disabled"></a>&#x2022; [`monitor_disabled`](#ethernet-interface-monitor-disabled) - Optional Object<br>Enable this option
 
-<a id="ethernet-interface-mtu"></a>&#x2022; [`mtu`](#ethernet-interface-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="ethernet-interface-mtu"></a>&#x2022; [`mtu`](#ethernet-interface-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000
 
 <a id="ethernet-interface-no-ipv6-address"></a>&#x2022; [`no_ipv6_address`](#ethernet-interface-no-ipv6-address) - Optional Object<br>Enable this option
 
@@ -465,7 +465,7 @@ A [`timeouts`](#timeouts) block supports the following:
 
 A [`tunnel_interface`](#tunnel-interface) block supports the following:
 
-<a id="tunnel-interface-mtu"></a>&#x2022; [`mtu`](#tunnel-interface-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
+<a id="tunnel-interface-mtu"></a>&#x2022; [`mtu`](#tunnel-interface-mtu) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000
 
 <a id="tunnel-interface-node"></a>&#x2022; [`node`](#tunnel-interface-node) - Optional String<br>Configuration will apply to a given device on the given node
 

@@ -90,28 +90,56 @@ var TCPLoadBalancerAdvertiseCustomModelAttrTypes = map[string]attr.Type{
 
 // TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel represents advertise_where block
 type TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel struct {
-	Port               types.Int64                                                          `tfsdk:"port"`
-	PortRanges         types.String                                                         `tfsdk:"port_ranges"`
-	UseDefaultPort     types.Object                                                         `tfsdk:"use_default_port"`
-	AdvertiseOnPublic  *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel  `tfsdk:"advertise_on_public"`
-	Site               *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel               `tfsdk:"site"`
-	VirtualNetwork     *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel     `tfsdk:"virtual_network"`
-	VirtualSite        *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel        `tfsdk:"virtual_site"`
-	VirtualSiteWithVIP *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel `tfsdk:"virtual_site_with_vip"`
-	Vk8sService        *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel        `tfsdk:"vk8s_service"`
+	Port                       types.Int64                                                                  `tfsdk:"port"`
+	PortRanges                 types.String                                                                 `tfsdk:"port_ranges"`
+	UseDefaultPort             types.Object                                                                 `tfsdk:"use_default_port"`
+	AdvertiseDualstackOnPublic *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel `tfsdk:"advertise_dualstack_on_public"`
+	AdvertiseOnPublic          *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel          `tfsdk:"advertise_on_public"`
+	AdvertiseV6OnPublic        *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel        `tfsdk:"advertise_v6_on_public"`
+	Site                       *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel                       `tfsdk:"site"`
+	VirtualNetwork             *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel             `tfsdk:"virtual_network"`
+	VirtualSite                *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel                `tfsdk:"virtual_site"`
+	VirtualSiteWithVIP         *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel         `tfsdk:"virtual_site_with_vip"`
+	Vk8sService                *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModel                `tfsdk:"vk8s_service"`
 }
 
 // TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes defines the attribute types for TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel
 var TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes = map[string]attr.Type{
-	"port":                  types.Int64Type,
-	"port_ranges":           types.StringType,
-	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"advertise_on_public":   types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
-	"site":                  types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
-	"virtual_network":       types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
-	"virtual_site":          types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
-	"virtual_site_with_vip": types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
-	"vk8s_service":          types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModelAttrTypes},
+	"port":                          types.Int64Type,
+	"port_ranges":                   types.StringType,
+	"use_default_port":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advertise_dualstack_on_public": types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes},
+	"advertise_on_public":           types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
+	"advertise_v6_on_public":        types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes},
+	"site":                          types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
+	"virtual_network":               types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
+	"virtual_site":                  types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
+	"virtual_site_with_vip":         types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
+	"vk8s_service":                  types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVk8sServiceModelAttrTypes},
+}
+
+// TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel represents advertise_dualstack_on_public block
+type TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel struct {
+	PublicIP *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes defines the attribute types for TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel
+var TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes},
+}
+
+// TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel represents public_ip block
+type TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes defines the attribute types for TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel
+var TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
 }
 
 // TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel represents advertise_on_public block
@@ -133,6 +161,30 @@ type TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel 
 
 // TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModelAttrTypes defines the attribute types for TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel
 var TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel represents advertise_v6_on_public block
+type TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel struct {
+	PublicIP *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel `tfsdk:"public_ip"`
+}
+
+// TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes defines the attribute types for TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel
+var TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModelAttrTypes = map[string]attr.Type{
+	"public_ip": types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes},
+}
+
+// TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel represents public_ip block
+type TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes defines the attribute types for TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel
+var TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModelAttrTypes = map[string]attr.Type{
 	"name":      types.StringType,
 	"namespace": types.StringType,
 	"tenant":    types.StringType,
@@ -1057,7 +1109,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
 						MarkdownDescription: "Where should this load balancer be available.",
-						Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "advertise_on_public"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "advertise_v6_on_public"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_dualstack_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("advertise_on_public", "advertise_v6_on_public"), validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_v6_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -1081,7 +1133,81 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 							},
 							Blocks: map[string]schema.Block{
+								"advertise_dualstack_on_public": schema.SingleNestedBlock{
+									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+									Attributes:          map[string]schema.Attribute{},
+									Blocks: map[string]schema.Block{
+										"public_ip": schema.SingleNestedBlock{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthBetween(1, 128),
+													},
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Optional:            true,
+													Computed:            true,
+													PlanModifiers: []planmodifier.String{
+														stringplanmodifier.UseStateForUnknown(),
+													},
+													Validators: []validator.String{
+														stringvalidator.LengthBetween(1, 63),
+													},
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthAtMost(64),
+													},
+												},
+											},
+										},
+									},
+								},
 								"advertise_on_public": schema.SingleNestedBlock{
+									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+									Attributes:          map[string]schema.Attribute{},
+									Blocks: map[string]schema.Block{
+										"public_ip": schema.SingleNestedBlock{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthBetween(1, 128),
+													},
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Optional:            true,
+													Computed:            true,
+													PlanModifiers: []planmodifier.String{
+														stringplanmodifier.UseStateForUnknown(),
+													},
+													Validators: []validator.String{
+														stringvalidator.LengthBetween(1, 63),
+													},
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthAtMost(64),
+													},
+												},
+											},
+										},
+									},
+								},
+								"advertise_v6_on_public": schema.SingleNestedBlock{
 									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -2407,6 +2533,20 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				var AdvertiseWhereList []map[string]interface{}
 				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 					AdvertiseWhereItemMap := make(map[string]interface{})
+					if AdvertiseWhereItem.AdvertiseDualstackOnPublic != nil {
+						AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP != nil {
+							AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+							}
+							AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_dualstack_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap
+					}
 					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
 						AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
@@ -2420,6 +2560,20 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
+					}
+					if AdvertiseWhereItem.AdvertiseV6OnPublic != nil {
+						AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP != nil {
+							AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+							}
+							AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_v6_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap
 					}
 					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -3106,12 +3260,76 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+								AdvertiseDualstackOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+									if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AdvertiseV6OnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+									if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 														Name: func() types.String {
 															if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -4646,12 +4864,76 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+								AdvertiseDualstackOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+									if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AdvertiseV6OnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+									if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 														Name: func() types.String {
 															if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -6122,6 +6404,20 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				var AdvertiseWhereList []map[string]interface{}
 				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 					AdvertiseWhereItemMap := make(map[string]interface{})
+					if AdvertiseWhereItem.AdvertiseDualstackOnPublic != nil {
+						AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP != nil {
+							AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseDualstackOnPublic.PublicIP.Namespace.ValueString()
+							}
+							AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_dualstack_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicMap
+					}
 					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
 						AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
@@ -6135,6 +6431,20 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
 						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
+					}
+					if AdvertiseWhereItem.AdvertiseV6OnPublic != nil {
+						AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap := make(map[string]interface{})
+						if AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP != nil {
+							AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap := make(map[string]interface{})
+							if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Name.ValueString()
+							}
+							if !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.IsUnknown() {
+								AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseV6OnPublic.PublicIP.Namespace.ValueString()
+							}
+							AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPMap
+						}
+						AdvertiseWhereItemMap["advertise_v6_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicMap
 					}
 					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -6869,12 +7179,76 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+								AdvertiseDualstackOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+									if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AdvertiseV6OnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+									if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 														Name: func() types.String {
 															if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																return types.StringValue(v)

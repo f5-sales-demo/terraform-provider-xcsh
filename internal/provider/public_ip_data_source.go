@@ -58,6 +58,7 @@ type PublicIPDataSourceModel struct {
 	Labels       types.Map    `tfsdk:"labels"`
 	Annotations  types.Map    `tfsdk:"annotations"`
 	IP           types.String `tfsdk:"ip"`
+	Ipv6         types.String `tfsdk:"ipv6"`
 	VirtualSites types.List   `tfsdk:"virtual_sites"`
 }
 
@@ -96,7 +97,11 @@ func (d *PublicIPDataSource) Schema(ctx context.Context, req datasource.SchemaRe
 				ElementType:         types.StringType,
 			},
 			"ip": schema.StringAttribute{
-				MarkdownDescription: "IP address. IP address for this object.",
+				MarkdownDescription: "IPv4 address for this object. An empty string indicates no IPv4 address is configured.",
+				Computed:            true,
+			},
+			"ipv6": schema.StringAttribute{
+				MarkdownDescription: "IPv6 address for this object. An empty string indicates no IPv6 address is configured.",
 				Computed:            true,
 			},
 			"virtual_sites": schema.ListNestedAttribute{
@@ -195,6 +200,11 @@ func (d *PublicIPDataSource) Read(ctx context.Context, req datasource.ReadReques
 		data.IP = types.StringValue(v)
 	} else {
 		data.IP = types.StringNull()
+	}
+	if v, ok := apiResource.Spec["ipv6"].(string); ok && v != "" {
+		data.Ipv6 = types.StringValue(v)
+	} else {
+		data.Ipv6 = types.StringNull()
 	}
 	if !isImport && (data.VirtualSites.IsNull() || len(data.VirtualSites.Elements()) == 0) {
 		data.VirtualSites = types.ListNull(types.ObjectType{AttrTypes: PublicIPVirtualSitesModelAttrTypes})

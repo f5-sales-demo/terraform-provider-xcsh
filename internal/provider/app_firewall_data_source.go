@@ -253,6 +253,11 @@ func (d *AppFirewallDataSource) Schema(ctx context.Context, req datasource.Schem
 								Computed:            true,
 								AttributeTypes:      map[string]attr.Type{},
 							},
+							"default_signature_setting": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for default signature setting.",
+								Computed:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"high_medium_accuracy_signatures": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for high medium accuracy signatures.",
 								Computed:            true,
@@ -267,6 +272,24 @@ func (d *AppFirewallDataSource) Schema(ctx context.Context, req datasource.Schem
 								MarkdownDescription: "Configuration parameter for only high accuracy signatures.",
 								Computed:            true,
 								AttributeTypes:      map[string]attr.Type{},
+							},
+							"signature_settings_by_accuracy": schema.SingleNestedAttribute{
+								MarkdownDescription: "Configuration of WAF Signature Protection.",
+								Attributes: map[string]schema.Attribute{
+									"high_accuracy_action": schema.StringAttribute{
+										MarkdownDescription: "[Enum: SIG_BLOCK|SIG_REPORT|SIG_IGNORE] Action to be performed on the request Log and block Log only Disable detection. Possible values are `SIG_BLOCK`, `SIG_REPORT`, `SIG_IGNORE`. Defaults to `SIG_BLOCK`.",
+										Computed:            true,
+									},
+									"low_accuracy_action": schema.StringAttribute{
+										MarkdownDescription: "[Enum: SIG_BLOCK|SIG_REPORT|SIG_IGNORE] Action to be performed on the request Log and block Log only Disable detection. Possible values are `SIG_BLOCK`, `SIG_REPORT`, `SIG_IGNORE`. Defaults to `SIG_BLOCK`.",
+										Computed:            true,
+									},
+									"medium_accuracy_action": schema.StringAttribute{
+										MarkdownDescription: "[Enum: SIG_BLOCK|SIG_REPORT|SIG_IGNORE] Action to be performed on the request Log and block Log only Disable detection. Possible values are `SIG_BLOCK`, `SIG_REPORT`, `SIG_IGNORE`. Defaults to `SIG_BLOCK`.",
+										Computed:            true,
+									},
+								},
+								Computed: true,
 							},
 						},
 						Computed: true,
@@ -712,6 +735,15 @@ func (d *AppFirewallDataSource) Read(ctx context.Context, req datasource.ReadReq
 							}
 							return types.ObjectNull(map[string]attr.Type{})
 						}(),
+						DefaultSignatureSetting: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting.IsUnknown() {
+								return data.DetectionSettings.SignatureSelectionSetting.DefaultSignatureSetting
+							}
+							if _, ok := SignatureSelectionSettingData["default_signature_setting"].(map[string]interface{}); ok {
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+							}
+							return types.ObjectNull(map[string]attr.Type{})
+						}(),
 						HighMediumAccuracySignatures: func() types.Object {
 							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
@@ -738,6 +770,31 @@ func (d *AppFirewallDataSource) Read(ctx context.Context, req datasource.ReadReq
 								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
 							return types.ObjectNull(map[string]attr.Type{})
+						}(),
+						SignatureSettingsByAccuracy: func() *AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel {
+							if SignatureSettingsByAccuracyData, ok := SignatureSelectionSettingData["signature_settings_by_accuracy"].(map[string]interface{}); ok {
+								return &AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel{
+									HighAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["high_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									LowAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["low_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+									MediumAccuracyAction: func() types.String {
+										if v, ok := SignatureSettingsByAccuracyData["medium_accuracy_action"].(string); ok && v != "" {
+											return types.StringValue(v)
+										}
+										return types.StringNull()
+									}(),
+								}
+							}
+							return nil
 						}(),
 					}
 				}

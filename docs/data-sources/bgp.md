@@ -90,6 +90,10 @@ A [`peers`](#peers) block supports the following:
 
 <a id="nestedatt--peers-disable-spec"></a>&#x2022; [`disable_spec`](#nestedatt--peers-disable-spec) - Optional Object<br>Enable this option
 
+<a id="nestedatt--peers-ebgp-multihop-disabled"></a>&#x2022; [`ebgp_multihop_disabled`](#nestedatt--peers-ebgp-multihop-disabled) - Optional Object<br>Enable this option
+
+<a id="nestedatt--peers-ebgp-multihop-enabled"></a>&#x2022; [`ebgp_multihop_enabled`](#nestedatt--peers-ebgp-multihop-enabled) - Optional Object<br>Enable this option
+
 <a id="nestedatt--peers-external"></a>&#x2022; [`external`](#nestedatt--peers-external) - Optional String<br>External BGP Peer. External BGP Peer parameters
 
 <a id="nestedatt--peers-label"></a>&#x2022; [`label`](#nestedatt--peers-label) - Optional String<br>Label. Specify whether this peer should be
@@ -120,6 +124,14 @@ A [`bfd_enabled`](#peers-bfd-enabled) block (within [`peers`](#peers)) supports 
 #### Peers Disable Spec
 
 A [`disable_spec`](#peers-disable-spec) block (within [`peers`](#peers)) supports the following:
+
+#### Peers Ebgp Multihop Disabled
+
+An [`ebgp_multihop_disabled`](#peers-ebgp-multihop-disabled) block (within [`peers`](#peers)) supports the following:
+
+#### Peers Ebgp Multihop Enabled
+
+An [`ebgp_multihop_enabled`](#peers-ebgp-multihop-enabled) block (within [`peers`](#peers)) supports the following:
 
 #### Peers External
 

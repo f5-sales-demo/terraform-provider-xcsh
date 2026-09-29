@@ -129,7 +129,55 @@ func (d *TCPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.S
 						MarkdownDescription: "Where should this load balancer be available.",
 						NestedObject: schema.NestedAttributeObject{
 							Attributes: map[string]schema.Attribute{
+								"advertise_dualstack_on_public": schema.SingleNestedAttribute{
+									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+									Attributes: map[string]schema.Attribute{
+										"public_ip": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
 								"advertise_on_public": schema.SingleNestedAttribute{
+									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
+									Attributes: map[string]schema.Attribute{
+										"public_ip": schema.SingleNestedAttribute{
+											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+											Attributes: map[string]schema.Attribute{
+												"name": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+													Computed:            true,
+												},
+												"namespace": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+													Computed:            true,
+												},
+												"tenant": schema.StringAttribute{
+													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+													Computed:            true,
+												},
+											},
+											Computed: true,
+										},
+									},
+									Computed: true,
+								},
+								"advertise_v6_on_public": schema.SingleNestedAttribute{
 									MarkdownDescription: "Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
 									Attributes: map[string]schema.Attribute{
 										"public_ip": schema.SingleNestedAttribute{
@@ -1122,12 +1170,76 @@ func (d *TCPLoadBalancerDataSource) Read(ctx context.Context, req datasource.Rea
 						_ = AdvertiseWhereIdx
 						if AdvertiseWhereItemMap, ok := AdvertiseWhereItem.(map[string]interface{}); ok {
 							AdvertiseWhereResult = append(AdvertiseWhereResult, TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel{
+								AdvertiseDualstackOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel {
+									if AdvertiseDualstackOnPublicData, ok := AdvertiseWhereItemMap["advertise_dualstack_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseDualstackOnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseDualstackOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
 								AdvertiseOnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel {
 									if AdvertiseOnPublicData, ok := AdvertiseWhereItemMap["advertise_on_public"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel{
 											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel {
 												if PublicIPData, ok := AdvertiseOnPublicData["public_ip"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPModel{
+														Name: func() types.String {
+															if v, ok := PublicIPData["name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Namespace: func() types.String {
+															if v, ok := PublicIPData["namespace"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Tenant: func() types.String {
+															if v, ok := PublicIPData["tenant"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+										}
+									}
+									return nil
+								}(),
+								AdvertiseV6OnPublic: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel {
+									if AdvertiseV6OnPublicData, ok := AdvertiseWhereItemMap["advertise_v6_on_public"].(map[string]interface{}); ok {
+										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicModel{
+											PublicIP: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel {
+												if PublicIPData, ok := AdvertiseV6OnPublicData["public_ip"].(map[string]interface{}); ok {
+													return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseV6OnPublicPublicIPModel{
 														Name: func() types.String {
 															if v, ok := PublicIPData["name"].(string); ok && v != "" {
 																return types.StringValue(v)

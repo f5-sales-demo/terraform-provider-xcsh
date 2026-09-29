@@ -629,12 +629,12 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						AttributeTypes:      map[string]attr.Type{},
 					},
 					"mtu": schema.Int64Attribute{
-						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							validators.Int64RangeSetValidator(
 								validators.Int64Range{Minimum: 0, Maximum: 0},
-								validators.Int64Range{Minimum: 512, Maximum: 16384},
+								validators.Int64Range{Minimum: 512, Maximum: 9000},
 							),
 						},
 					},
@@ -677,12 +677,12 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						},
 					},
 					"mtu": schema.Int64Attribute{
-						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							validators.Int64RangeSetValidator(
 								validators.Int64Range{Minimum: 0, Maximum: 0},
-								validators.Int64Range{Minimum: 512, Maximum: 16384},
+								validators.Int64Range{Minimum: 512, Maximum: 9000},
 							),
 						},
 					},
@@ -733,12 +733,12 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 						AttributeTypes:      map[string]attr.Type{},
 					},
 					"mtu": schema.Int64Attribute{
-						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							validators.Int64RangeSetValidator(
 								validators.Int64Range{Minimum: 0, Maximum: 0},
-								validators.Int64Range{Minimum: 512, Maximum: 16384},
+								validators.Int64Range{Minimum: 512, Maximum: 9000},
 							),
 						},
 					},
@@ -1220,12 +1220,12 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 
 				Attributes: map[string]schema.Attribute{
 					"mtu": schema.Int64Attribute{
-						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
+						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							validators.Int64RangeSetValidator(
 								validators.Int64Range{Minimum: 0, Maximum: 0},
-								validators.Int64Range{Minimum: 512, Maximum: 16384},
+								validators.Int64Range{Minimum: 512, Maximum: 9000},
 							),
 						},
 					},

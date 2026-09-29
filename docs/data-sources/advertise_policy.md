@@ -62,7 +62,13 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the AdvertisePolicy
 
+<a id="dualstack"></a>&#x2022; [`dualstack`](#dualstack) - Optional Object<br>Enable this option
+
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
+
+<a id="ipv4"></a>&#x2022; [`ipv4`](#ipv4) - Optional Object<br>IPv4 address in dotted decimal notation (e.g., 192.0.2.1)
+
+<a id="ipv6"></a>&#x2022; [`ipv6`](#ipv6) - Optional Object<br>IPv6 address in colon-separated hexadecimal format
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
@@ -80,86 +86,127 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="where"></a>&#x2022; [`where`](#where) - Optional String<br>NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules \* Direct reference to virtual_network object \* Site local network when referring to site object \* All site local
 
-<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
-<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
-
-<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
-
-<a id="client-certificate-optional"></a>&#x2022; [`client_certificate_optional`](#client-certificate-optional) - Optional Object<br>Enable this option
-
-<a id="client-certificate-required"></a>&#x2022; [`client_certificate_required`](#client-certificate-required) - Optional Object<br>Enable this option
-
-<a id="common-params"></a>&#x2022; [`common_params`](#common-params) - Optional String<br>Information of different aspects for TLS authentication related to ciphers, certificates and trust store
-
-<a id="no-client-certificate"></a>&#x2022; [`no_client_certificate`](#no-client-certificate) - Optional Object<br>Enable this option
-
-<a id="xfcc-header-elements"></a>&#x2022; [`xfcc_header_elements`](#xfcc-header-elements) - Optional List  Defaults to `XFCC_NONE`<br>Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`<br>[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are
-defined, the header will not be added
-
-<a id="cipher-suites"></a>&#x2022; [`cipher_suites`](#cipher-suites) - Optional List<br>The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-
-<a id="maximum-protocol-version"></a>&#x2022; [`maximum_protocol_version`](#maximum-protocol-version) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
-
-<a id="minimum-protocol-version"></a>&#x2022; [`minimum_protocol_version`](#minimum-protocol-version) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
-
-<a id="tls-certificates"></a>&#x2022; [`tls_certificates`](#tls-certificates) - Optional List<br>TLS Certificates. Set of TLS certificates
-
-<a id="validation-params"></a>&#x2022; [`validation_params`](#validation-params) - Optional String<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification
-
-<a id="certificate-url"></a>&#x2022; [`certificate_url`](#certificate-url) - Optional String<br>TLS certificate. Certificate or certificate chain in PEM format including the PEM headers
-
-<a id="custom-hash-algorithms"></a>&#x2022; [`custom_hash_algorithms`](#custom-hash-algorithms) - Optional String<br>Specifies the hash algorithms to be used
-
-<a id="description-spec"></a>&#x2022; [`description_spec`](#description-spec) - Optional String<br>Description. Description for the certificate
-
-<a id="disable-ocsp-stapling"></a>&#x2022; [`disable_ocsp_stapling`](#disable-ocsp-stapling) - Optional Object<br>Configuration parameter for disable OCSP stapling
-
-<a id="private-key"></a>&#x2022; [`private_key`](#private-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
-
-<a id="use-system-defaults"></a>&#x2022; [`use_system_defaults`](#use-system-defaults) - Optional Object<br>Configuration parameter for use system defaults
-
-<a id="hash-algorithms"></a>&#x2022; [`hash_algorithms`](#hash-algorithms) - Optional List  Defaults to `INVALID_HASH_ALGORITHM`<br>Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`<br>[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used
-
-<a id="blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#blindfold-secret-info) - Optional String<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management
-
-<a id="clear-secret-info"></a>&#x2022; [`clear_secret_info`](#clear-secret-info) - Optional String<br>ClearSecretInfoType specifies information about the Secret that is not encrypted
-
-<a id="decryption-provider"></a>&#x2022; [`decryption_provider`](#decryption-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
-
-<a id="location"></a>&#x2022; [`location`](#location) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
-
-<a id="store-provider"></a>&#x2022; [`store_provider`](#store-provider) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
-
-<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
-
-<a id="url"></a>&#x2022; [`url`](#url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
-
-<a id="skip-hostname-verification"></a>&#x2022; [`skip_hostname_verification`](#skip-hostname-verification) - Optional Bool<br>When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname
-
-<a id="trusted-ca"></a>&#x2022; [`trusted_ca`](#trusted-ca) - Optional String<br>Root CA Certificate Reference. Reference to Root CA Certificate
-
-<a id="trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#trusted-ca-url) - Optional String<br>Inline Root CA Certificate
-
-<a id="verify-subject-alt-names"></a>&#x2022; [`verify_subject_alt_names`](#verify-subject-alt-names) - Optional List<br>List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate
-
-<a id="trusted-ca-list"></a>&#x2022; [`trusted_ca_list`](#trusted-ca-list) - Optional List<br>Root CA Certificate Reference. Reference to Root CA Certificate
-
-<a id="kind"></a>&#x2022; [`kind`](#kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
-<a id="name"></a>&#x2022; [`name`](#name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="tenant"></a>&#x2022; [`tenant`](#tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
-
-<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
-
 ---
+
+#### IPv6
+
+An [`ipv6`](#ipv6) block supports the following:
+
+#### Public IP
+
+A [`public_ip`](#public-ip) block supports the following:
+
+<a id="nestedatt--ipv6-kind"></a>&#x2022; [`kind`](#nestedatt--ipv6-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="nestedatt--ipv6-name"></a>&#x2022; [`name`](#nestedatt--ipv6-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="nestedatt--ipv6-namespace"></a>&#x2022; [`namespace`](#nestedatt--ipv6-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="nestedatt--ipv6-tenant"></a>&#x2022; [`tenant`](#nestedatt--ipv6-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="nestedatt--ipv6-uid"></a>&#x2022; [`uid`](#nestedatt--ipv6-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### TLS Parameters
+
+A [`tls_parameters`](#tls-parameters) block supports the following:
+
+<a id="optional-e7f020"></a>&#x2022; [`client_certificate_optional`](#optional-e7f020) - Optional Object<br>Enable this option
+
+<a id="required-df6d0f"></a>&#x2022; [`client_certificate_required`](#required-df6d0f) - Optional Object<br>Enable this option
+
+<a id="nestedatt--ipv6-common-params"></a>&#x2022; [`common_params`](#nestedatt--ipv6-common-params) - Optional String<br>Information of different aspects for TLS authentication related to ciphers, certificates and trust store
+
+<a id="nestedatt--ipv6-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#nestedatt--ipv6-no-client-certificate) - Optional Object<br>Enable this option
+
+<a id="nestedatt--ipv6-xfcc-header-elements"></a>&#x2022; [`xfcc_header_elements`](#nestedatt--ipv6-xfcc-header-elements) - Optional List  Defaults to `XFCC_NONE`<br>Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`<br>[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS
+enabled connections. If none are defined, the header will not be added
+
+#### TLS Parameters Client Certificate Optional
+
+A [`client_certificate_optional`](#tls-parameters-client-certificate-optional) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Client Certificate Required
+
+A [`client_certificate_required`](#tls-parameters-client-certificate-required) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Common Params
+
+A [`common_params`](#tls-parameters-common-params) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+<a id="nestedatt--ipv6-cipher-suites"></a>&#x2022; [`cipher_suites`](#nestedatt--ipv6-cipher-suites) - Optional List<br>The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+<a id="version-aaf4bb"></a>&#x2022; [`maximum_protocol_version`](#version-aaf4bb) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
+
+<a id="version-904345"></a>&#x2022; [`minimum_protocol_version`](#version-904345) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
+
+<a id="nestedatt--ipv6-tls-certificates"></a>&#x2022; [`tls_certificates`](#nestedatt--ipv6-tls-certificates) - Optional List<br>TLS Certificates. Set of TLS certificates
+
+<a id="nestedatt--ipv6-validation-params"></a>&#x2022; [`validation_params`](#nestedatt--ipv6-validation-params) - Optional String<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification
+
+#### TLS Parameters Common Params TLS Certificates
+
+A [`tls_certificates`](#tls-parameters-common-params-tls-certificates) block (within [`tls_parameters.common_params`](#tls-parameters-common-params)) supports the following:
+
+<a id="nestedatt--ipv6-certificate-url"></a>&#x2022; [`certificate_url`](#nestedatt--ipv6-certificate-url) - Optional String<br>TLS certificate. Certificate or certificate chain in PEM format including the PEM headers
+
+<a id="nestedatt--ipv6-custom-hash-algorithms"></a>&#x2022; [`custom_hash_algorithms`](#nestedatt--ipv6-custom-hash-algorithms) - Optional String<br>Specifies the hash algorithms to be used
+
+<a id="nestedatt--ipv6-description-spec"></a>&#x2022; [`description_spec`](#nestedatt--ipv6-description-spec) - Optional String<br>Description. Description for the certificate
+
+<a id="nestedatt--ipv6-disable-ocsp-stapling"></a>&#x2022; [`disable_ocsp_stapling`](#nestedatt--ipv6-disable-ocsp-stapling) - Optional Object<br>Configuration parameter for disable OCSP stapling
+
+<a id="nestedatt--ipv6-private-key"></a>&#x2022; [`private_key`](#nestedatt--ipv6-private-key) - Optional String<br>SecretType is used in an object to indicate a sensitive/confidential field
+
+<a id="nestedatt--ipv6-use-system-defaults"></a>&#x2022; [`use_system_defaults`](#nestedatt--ipv6-use-system-defaults) - Optional Object<br>Configuration parameter for use system defaults
+
+#### TLS Parameters Common Params TLS Certificates Custom Hash Algorithms
+
+<a id="deep-2bb8e0"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Disable OCSP Stapling
+
+<a id="deep-4477da"></a>Deeply nested **Stapling** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Private Key
+
+<a id="deep-9d0eb1"></a>Deeply nested **Key** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Private Key Blindfold Secret Info
+
+<a id="deep-188353"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Private Key Clear Secret Info
+
+<a id="deep-fbf9ed"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Use System Defaults
+
+<a id="deep-82b16e"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### TLS Parameters Common Params Validation Params
+
+A [`validation_params`](#tls-parameters-common-params-validation-params) block (within [`tls_parameters.common_params`](#tls-parameters-common-params)) supports the following:
+
+<a id="verification-e8c955"></a>&#x2022; [`skip_hostname_verification`](#verification-e8c955) - Optional Bool<br>When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname
+
+<a id="nestedatt--ipv6-trusted-ca"></a>&#x2022; [`trusted_ca`](#nestedatt--ipv6-trusted-ca) - Optional String<br>Root CA Certificate Reference. Reference to Root CA Certificate
+
+<a id="nestedatt--ipv6-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#nestedatt--ipv6-trusted-ca-url) - Optional String<br>Inline Root CA Certificate
+
+<a id="names-dfe902"></a>&#x2022; [`verify_subject_alt_names`](#names-dfe902) - Optional List<br>List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate
+
+#### TLS Parameters Common Params Validation Params Trusted CA
+
+<a id="deep-79bc8f"></a>Deeply nested **CA** block collapsed for readability.
+
+#### TLS Parameters Common Params Validation Params Trusted CA Trusted CA List
+
+<a id="deep-7e09ed"></a>Deeply nested **List** block collapsed for readability.
+
+#### TLS Parameters No Client Certificate
+
+A [`no_client_certificate`](#tls-parameters-no-client-certificate) block (within [`tls_parameters`](#tls-parameters)) supports the following:
 
 #### Where
 

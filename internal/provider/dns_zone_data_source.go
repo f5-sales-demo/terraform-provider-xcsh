@@ -704,7 +704,7 @@ func (d *DNSZoneDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 						AttributeTypes:      map[string]attr.Type{},
 					},
 					"dnssec_mode": schema.SingleNestedAttribute{
-						MarkdownDescription: "Disable",
+						MarkdownDescription: "DNSSEC Mode.",
 						Attributes: map[string]schema.Attribute{
 							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",

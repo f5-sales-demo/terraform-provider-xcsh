@@ -214,7 +214,12 @@ func (d *SecretManagementAccessDataSource) Schema(ctx context.Context, req datas
 										MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
 										Computed:            true,
 									},
-									"validation_params": schema.SingleNestedAttribute{
+									"skip_server_verification": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"tls_validation_params": schema.SingleNestedAttribute{
 										MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
 										Attributes: map[string]schema.Attribute{
 											"skip_hostname_verification": schema.BoolAttribute{
@@ -266,6 +271,11 @@ func (d *SecretManagementAccessDataSource) Schema(ctx context.Context, req datas
 											},
 										},
 										Computed: true,
+									},
+									"volterra_trusted_ca": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for volterra trusted ca.",
+										Computed:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 								Computed: true,
@@ -963,32 +973,41 @@ func (d *SecretManagementAccessDataSource) Read(ctx context.Context, req datasou
 										}
 										return types.StringNull()
 									}(),
-									ValidationParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel {
-										if ValidationParamsData, ok := CertParamsData["validation_params"].(map[string]interface{}); ok {
-											return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsModel{
+									SkipServerVerification: func() types.Object {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && !data.AccessInfo.TLSConfig.CertParams.SkipServerVerification.IsUnknown() {
+											return data.AccessInfo.TLSConfig.CertParams.SkipServerVerification
+										}
+										if _, ok := CertParamsData["skip_server_verification"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
+									}(),
+									TLSValidationParams: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsModel {
+										if TLSValidationParamsData, ok := CertParamsData["tls_validation_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsModel{
 												SkipHostnameVerification: func() types.Bool {
-													if v, ok := ValidationParamsData["skip_hostname_verification"].(bool); ok {
+													if v, ok := TLSValidationParamsData["skip_hostname_verification"].(bool); ok {
 														return types.BoolValue(v)
 													}
 													return types.BoolNull()
 												}(),
-												TrustedCA: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel {
-													if TrustedCAData, ok := ValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
-														return &SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCAModel{
+												TrustedCA: func() *SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsTrustedCAModel {
+													if TrustedCAData, ok := TLSValidationParamsData["trusted_ca"].(map[string]interface{}); ok {
+														return &SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsTrustedCAModel{
 															TrustedCAList: func() types.List {
-																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil && (data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
-																	return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.TLSValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.TLSValidationParams.TrustedCA != nil && (data.AccessInfo.TLSConfig.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() || len(data.AccessInfo.TLSConfig.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.Elements()) == 0) {
+																	return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes})
 																}
-																var TrustedCAListExisting []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
-																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
-																	data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
+																var TrustedCAListExisting []SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsTrustedCATrustedCAListModel
+																if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && data.AccessInfo.TLSConfig.CertParams.TLSValidationParams != nil && data.AccessInfo.TLSConfig.CertParams.TLSValidationParams.TrustedCA != nil && !data.AccessInfo.TLSConfig.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
+																	data.AccessInfo.TLSConfig.CertParams.TLSValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListExisting, false)
 																}
 																if rawList, ok := TrustedCAData["trusted_ca_list"].([]interface{}); ok && len(rawList) > 0 {
-																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
+																	var TrustedCAListResult []SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsTrustedCATrustedCAListModel
 																	for TrustedCAListIdx, TrustedCAListItem := range rawList {
 																		_ = TrustedCAListIdx
 																		if TrustedCAListItemMap, ok := TrustedCAListItem.(map[string]interface{}); ok {
-																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel{
+																			TrustedCAListResult = append(TrustedCAListResult, SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsTrustedCATrustedCAListModel{
 																				Kind: func() types.String {
 																					if v, ok := TrustedCAListItemMap["kind"].(string); ok && v != "" {
 																						return types.StringValue(v)
@@ -1022,23 +1041,23 @@ func (d *SecretManagementAccessDataSource) Read(ctx context.Context, req datasou
 																			})
 																		}
 																	}
-																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
+																	listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes}, TrustedCAListResult)
 																	return listVal
 																}
-																return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes})
+																return types.ListNull(types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsTLSValidationParamsTrustedCATrustedCAListModelAttrTypes})
 															}(),
 														}
 													}
 													return nil
 												}(),
 												TrustedCAURL: func() types.String {
-													if v, ok := ValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
+													if v, ok := TLSValidationParamsData["trusted_ca_url"].(string); ok && v != "" {
 														return types.StringValue(v)
 													}
 													return types.StringNull()
 												}(),
 												VerifySubjectAltNames: func() types.List {
-													if v, ok := ValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
+													if v, ok := TLSValidationParamsData["verify_subject_alt_names"].([]interface{}); ok && len(v) > 0 {
 														var items []string
 														for _, item := range v {
 															if s, ok := item.(string); ok {
@@ -1054,6 +1073,15 @@ func (d *SecretManagementAccessDataSource) Read(ctx context.Context, req datasou
 											}
 										}
 										return nil
+									}(),
+									VolterraTrustedCA: func() types.Object {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && data.AccessInfo.TLSConfig.CertParams != nil && !data.AccessInfo.TLSConfig.CertParams.VolterraTrustedCA.IsUnknown() {
+											return data.AccessInfo.TLSConfig.CertParams.VolterraTrustedCA
+										}
+										if _, ok := CertParamsData["volterra_trusted_ca"].(map[string]interface{}); ok {
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+										}
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}

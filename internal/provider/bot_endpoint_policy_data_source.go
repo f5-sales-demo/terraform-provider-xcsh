@@ -47,6 +47,8 @@ var BotEndpointPolicyCookiesModelAttrTypes = map[string]attr.Type{
 // BotEndpointPolicyEndpointPolicyContentModel represents endpoint_policy_content block
 type BotEndpointPolicyEndpointPolicyContentModel struct {
 	JsDownloadPath           types.String                                                         `tfsdk:"js_download_path"`
+	TelemetryPrefix          types.String                                                         `tfsdk:"telemetry_prefix"`
+	MobileConfigFetchPaths   *BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModel   `tfsdk:"mobile_config_fetch_paths"`
 	ProtectedMobileEndpoints *BotEndpointPolicyEndpointPolicyContentProtectedMobileEndpointsModel `tfsdk:"protected_mobile_endpoints"`
 	ProtectedWebEndpoints    *BotEndpointPolicyEndpointPolicyContentProtectedWebEndpointsModel    `tfsdk:"protected_web_endpoints"`
 }
@@ -54,8 +56,24 @@ type BotEndpointPolicyEndpointPolicyContentModel struct {
 // BotEndpointPolicyEndpointPolicyContentModelAttrTypes defines the attribute types for BotEndpointPolicyEndpointPolicyContentModel
 var BotEndpointPolicyEndpointPolicyContentModelAttrTypes = map[string]attr.Type{
 	"js_download_path":           types.StringType,
+	"telemetry_prefix":           types.StringType,
+	"mobile_config_fetch_paths":  types.ObjectType{AttrTypes: BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModelAttrTypes},
 	"protected_mobile_endpoints": types.ObjectType{AttrTypes: BotEndpointPolicyEndpointPolicyContentProtectedMobileEndpointsModelAttrTypes},
 	"protected_web_endpoints":    types.ObjectType{AttrTypes: BotEndpointPolicyEndpointPolicyContentProtectedWebEndpointsModelAttrTypes},
+}
+
+// BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModel represents mobile_config_fetch_paths block
+type BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModel struct {
+	PathAndroid     types.String `tfsdk:"path_android"`
+	PathIos         types.String `tfsdk:"path_ios"`
+	UnavailableText types.String `tfsdk:"unavailable_text"`
+}
+
+// BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModelAttrTypes defines the attribute types for BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModel
+var BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModelAttrTypes = map[string]attr.Type{
+	"path_android":     types.StringType,
+	"path_ios":         types.StringType,
+	"unavailable_text": types.StringType,
 }
 
 // BotEndpointPolicyEndpointPolicyContentProtectedMobileEndpointsModel represents protected_mobile_endpoints block
@@ -7189,6 +7207,24 @@ func (d *BotEndpointPolicyDataSource) Schema(ctx context.Context, req datasource
 					"js_download_path": schema.StringAttribute{
 						MarkdownDescription: "Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths.",
 						Computed:            true,
+					},
+					"mobile_config_fetch_paths": schema.SingleNestedAttribute{
+						MarkdownDescription: "Android and iOS mobile SDK config fetch paths.",
+						Attributes: map[string]schema.Attribute{
+							"path_android": schema.StringAttribute{
+								MarkdownDescription: "Android mobile client will fetch F5 Client mobile configuration SDK from this path. This path must not conflict with any other website/mobile/application paths.",
+								Computed:            true,
+							},
+							"path_ios": schema.StringAttribute{
+								MarkdownDescription: "IOS mobile client will fetch F5 Client mobile configuration SDK from this path. This path must not conflict with any other website/mobile/application paths.",
+								Computed:            true,
+							},
+							"unavailable_text": schema.StringAttribute{
+								MarkdownDescription: "Certain mobile policies rely on older mobile components.",
+								Computed:            true,
+							},
+						},
+						Computed: true,
 					},
 					"protected_mobile_endpoints": schema.SingleNestedAttribute{
 						MarkdownDescription: "Protected Mobile Endpoints. Protected Mobile Endpoints List.",
@@ -14738,6 +14774,10 @@ func (d *BotEndpointPolicyDataSource) Schema(ctx context.Context, req datasource
 						},
 						Computed: true,
 					},
+					"telemetry_prefix": schema.StringAttribute{
+						MarkdownDescription: "Defines a set of headers used to detect signals based on telemetry prefix.",
+						Computed:            true,
+					},
 				},
 				Computed: true,
 			},
@@ -14856,6 +14896,31 @@ func (d *BotEndpointPolicyDataSource) Read(ctx context.Context, req datasource.R
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+			MobileConfigFetchPaths: func() *BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModel {
+				if MobileConfigFetchPathsData, ok := blockData["mobile_config_fetch_paths"].(map[string]interface{}); ok {
+					return &BotEndpointPolicyEndpointPolicyContentMobileConfigFetchPathsModel{
+						PathAndroid: func() types.String {
+							if v, ok := MobileConfigFetchPathsData["path_android"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						PathIos: func() types.String {
+							if v, ok := MobileConfigFetchPathsData["path_ios"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						UnavailableText: func() types.String {
+							if v, ok := MobileConfigFetchPathsData["unavailable_text"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
 			}(),
 			ProtectedMobileEndpoints: func() *BotEndpointPolicyEndpointPolicyContentProtectedMobileEndpointsModel {
 				if ProtectedMobileEndpointsData, ok := blockData["protected_mobile_endpoints"].(map[string]interface{}); ok {
@@ -27493,6 +27558,12 @@ func (d *BotEndpointPolicyDataSource) Read(ctx context.Context, req datasource.R
 					}
 				}
 				return nil
+			}(),
+			TelemetryPrefix: func() types.String {
+				if v, ok := blockData["telemetry_prefix"].(string); ok && v != "" {
+					return types.StringValue(v)
+				}
+				return types.StringNull()
 			}(),
 		}
 	}

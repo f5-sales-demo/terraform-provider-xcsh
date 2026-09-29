@@ -86,9 +86,23 @@ An [`endpoint_policy_content`](#endpoint-policy-content) block supports the foll
 
 <a id="nestedatt--cookies-js-download-path"></a>&#x2022; [`js_download_path`](#nestedatt--cookies-js-download-path) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths
 
+<a id="paths-946c94"></a>&#x2022; [`mobile_config_fetch_paths`](#paths-946c94) - Optional String<br>Android and iOS mobile SDK config fetch paths
+
 <a id="endpoints-63eb62"></a>&#x2022; [`protected_mobile_endpoints`](#endpoints-63eb62) - Optional String<br>Protected Mobile Endpoints. Protected Mobile Endpoints List
 
 <a id="endpoints-986676"></a>&#x2022; [`protected_web_endpoints`](#endpoints-986676) - Optional String<br>Protected Web Endpoints. Protected Web Endpoints List
+
+<a id="nestedatt--cookies-telemetry-prefix"></a>&#x2022; [`telemetry_prefix`](#nestedatt--cookies-telemetry-prefix) - Optional String<br>Defines a set of headers used to detect signals based on telemetry prefix
+
+#### Endpoint Policy Content Mobile Config Fetch Paths
+
+A [`mobile_config_fetch_paths`](#endpoint-policy-content-mobile-config-fetch-paths) block (within [`endpoint_policy_content`](#endpoint-policy-content)) supports the following:
+
+<a id="nestedatt--cookies-path-android"></a>&#x2022; [`path_android`](#nestedatt--cookies-path-android) - Optional String<br>Android mobile client will fetch F5 Client mobile configuration SDK from this path. This path must not conflict with any other website/mobile/application paths
+
+<a id="nestedatt--cookies-path-ios"></a>&#x2022; [`path_ios`](#nestedatt--cookies-path-ios) - Optional String<br>iOS mobile client will fetch F5 Client mobile configuration SDK from this path. This path must not conflict with any other website/mobile/application paths
+
+<a id="nestedatt--cookies-unavailable-text"></a>&#x2022; [`unavailable_text`](#nestedatt--cookies-unavailable-text) - Optional String<br>Certain mobile policies rely on older mobile components
 
 #### Endpoint Policy Content Protected Mobile Endpoints
 
