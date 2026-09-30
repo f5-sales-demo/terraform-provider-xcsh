@@ -138,9 +138,12 @@ class CollectionTests(unittest.TestCase):
             )
             reference = collection.pages[collection.coverage["large"]["document_id"]]
             body = collection.body(reference)
-            self.assertIn(description, body)
+            self.assertIn(
+                " ".join(DOCS.description_markdown(description).split()),
+                " ".join(body.split()),
+            )
             self.assertGreater(len(body.encode()), 8192)
-            self.assertIn(sentinel, body)
+            self.assertIn(DOCS.description_markdown(sentinel), body)
 
     def test_ids_are_content_independent_and_preserve_full_path(self):
         path = ("repeated", "repeated", "long_schema_identifier")
