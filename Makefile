@@ -194,18 +194,8 @@ normalize-minimum-configs:
 normalize-network-examples:
 	$(GO) run $(TOOLS_DIR)/normalize-network-examples.go
 
-# Generate llms.txt hierarchy (L0 + L1 category + L2 per-resource)
-llms-txt:
-	@echo "Generating llms.txt hierarchy..."
-	$(GO) run $(TOOLS_DIR)/generate-llms-txt.go
-	@# json.MarshalIndent output is not biome-formatted; format the index so the
-	@# committed file matches the biome-check gate (pre-commit + super-linter).
-	@if command -v biome >/dev/null 2>&1; then \
-		biome format --write docs/terraform-llms-index.json >/dev/null && echo "Formatted docs/terraform-llms-index.json with biome"; \
-	else \
-		echo "WARNING: biome not found — run 'biome format --write docs/terraform-llms-index.json' before committing"; \
-	fi
-	@echo "llms.txt hierarchy generation complete"
+# Regenerate complete collections and AI indexes from the exact provider.
+llms-txt: docs
 
 # Clean build artifacts
 clean:

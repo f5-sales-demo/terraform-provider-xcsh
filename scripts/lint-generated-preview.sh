@@ -39,8 +39,8 @@ GO_GENERATORS=(
 
 # Generator tools that produce documentation/examples requiring linting
 DOC_GENERATORS=(
-  "tools/transform-docs.go"
   "tools/generate-examples.go"
+  "tools/generate-doc-collections.py"
 )
 
 # Track what needs to be linted
@@ -375,37 +375,12 @@ if [ "$LINT_DOCS" = true ]; then
   fi
   echo "      ✅ Examples generated"
 
-  # Step 2: Run tfplugindocs
-  echo "   📝 Running tfplugindocs..."
-  if ! TFPLUGINDOCS_OUTPUT=$($TFPLUGINDOCS generate 2>&1); then
-    echo -e "${RED}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${RED}║                  ❌ TFPLUGINDOCS GENERATION FAILED                            ║${NC}"
-    echo -e "${RED}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
-    echo ""
-    echo -e "${YELLOW}Generator output:${NC}"
-    echo "$TFPLUGINDOCS_OUTPUT"
-    echo ""
-    echo -e "${CYAN}tfplugindocs failed. This may be due to schema issues in the provider.${NC}"
+  # The production pipeline exports the exact installed schema and builds
+  # canonical collections plus their Registry projections.
+  if ! scripts/generate-provider-docs.sh; then
+    echo "Complete provider documentation generation failed" >&2
     exit 1
   fi
-  echo "      ✅ tfplugindocs completed"
-
-  # Step 3: Run transform-docs.go
-  echo "   📝 Running transform-docs.go..."
-  if ! TRANSFORM_OUTPUT=$(go run "${TOOLS_DIR}/transform-docs.go" 2>&1); then
-    echo -e "${RED}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${RED}║                  ❌ DOC TRANSFORMATION FAILED                                 ║${NC}"
-    echo -e "${RED}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
-    echo ""
-    echo -e "${YELLOW}Generator output:${NC}"
-    echo "$TRANSFORM_OUTPUT"
-    echo ""
-    echo -e "${CYAN}The doc transformer failed. Fix before committing.${NC}"
-    echo -e "${CYAN}File: ${BOLD}${TOOLS_DIR}/transform-docs.go${NC}"
-    exit 1
-  fi
-  echo "      ✅ Doc transformation completed"
-  echo ""
 
   # Run markdown linting on generated docs
   echo "🔍 Running markdownlint on generated documentation..."
