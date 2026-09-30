@@ -60,6 +60,7 @@ jobs:
       digest: ${{ steps.artifact.outputs.digest }}
       changed: ${{ steps.artifact.outputs.docs_changed }}
     env:
+      PROVIDER_FORK_ISOLATION: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository }}
       GOGC: '20'
       GOMEMLIMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && '4GiB' || '16GiB' }}
       GOMAXPROCS: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 1 || inputs.go-concurrency }}
