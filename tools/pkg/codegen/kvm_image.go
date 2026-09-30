@@ -5,11 +5,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"go/format"
-	"os"
 	"path/filepath"
 	"reflect"
 	"regexp"
 	"text/template"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/generatedfile"
 )
 
 // Exact supported semantics bind this implementation to the source-owned join.
@@ -91,7 +92,7 @@ func generateKVMImageDataSource(image map[string]any, outputDir string) error {
 	if err != nil {
 		return fmt.Errorf("format KVM image data source: %w", err)
 	}
-	return os.WriteFile(path, formatted, 0o644)
+	return generatedfile.WriteFile(path, formatted, 0o644)
 }
 
 const kvmImageDataSourceTemplate = `// Code generated from the immutable SMSv2 KVM image contract. DO NOT EDIT.

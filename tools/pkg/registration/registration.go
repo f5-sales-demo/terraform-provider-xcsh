@@ -13,6 +13,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/generatedfile"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
@@ -472,7 +473,7 @@ func New(version string) func() provider.Provider {
 		formatted = []byte(providerContent)
 	}
 
-	if err := os.WriteFile(providerPath, formatted, 0644); err != nil {
+	if err := generatedfile.WriteFile(providerPath, formatted, 0644); err != nil {
 		fmt.Printf("❌ Error writing provider.go: %v\n", err)
 		return
 	}

@@ -13,6 +13,7 @@ import (
 
 	"golang.org/x/tools/imports"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/generatedfile"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
@@ -67,7 +68,7 @@ func GenerateResponseOperation(operation *openapi.ResponseOperationTemplate, pro
 	if err != nil {
 		return fmt.Errorf("format generated response operation %s: %w", path, err)
 	}
-	if err := os.WriteFile(path, formatted, 0o644); err != nil {
+	if err := generatedfile.WriteFile(path, formatted, 0o644); err != nil {
 		return fmt.Errorf("write generated response operation %s: %w", path, err)
 	}
 	return nil

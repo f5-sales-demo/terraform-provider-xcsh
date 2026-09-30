@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/generatedfile"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
@@ -224,7 +225,7 @@ func WriteResourceExample(rt *openapi.ResourceTemplate, resourceName, examplesRo
 	if err := os.MkdirAll(dir, 0o755); err != nil {
 		return err
 	}
-	return os.WriteFile(filepath.Join(dir, "resource.tf"), []byte(RenderResourceExampleHCL(rt, resourceName, namespaceVal)), 0o644)
+	return generatedfile.WriteFile(filepath.Join(dir, "resource.tf"), []byte(RenderResourceExampleHCL(rt, resourceName, namespaceVal)), 0o644)
 }
 
 // WriteDataSourceExample writes examples/data-sources/xcsh_<name>/data-source.tf.
@@ -233,7 +234,7 @@ func WriteDataSourceExample(resourceName, examplesRoot, namespaceVal string) err
 	if err := os.MkdirAll(dir, 0o755); err != nil {
 		return err
 	}
-	return os.WriteFile(filepath.Join(dir, "data-source.tf"), []byte(RenderDataSourceExampleHCL(resourceName, namespaceVal)), 0o644)
+	return generatedfile.WriteFile(filepath.Join(dir, "data-source.tf"), []byte(RenderDataSourceExampleHCL(resourceName, namespaceVal)), 0o644)
 }
 
 // WriteResponseOperationExample writes the canonical example for a response
@@ -257,7 +258,7 @@ func WriteResponseOperationExample(rt *openapi.ResourceTemplate, resourceName, e
 	if err := os.MkdirAll(dir, 0o755); err != nil {
 		return err
 	}
-	return os.WriteFile(filepath.Join(dir, filename), []byte(RenderResponseOperationExampleHCL(rt, resourceName, surface)), 0o644)
+	return generatedfile.WriteFile(filepath.Join(dir, filename), []byte(RenderResponseOperationExampleHCL(rt, resourceName, surface)), 0o644)
 }
 
 func humanizeResourceName(name string) string {
