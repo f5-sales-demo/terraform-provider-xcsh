@@ -1,0 +1,63 @@
+---
+page_title: "virtual_server.immediate_action_on_service_down"
+subcategory: ""
+description: "virtual_server.immediate_action_on_service_down for xcsh_application_profiles."
+xcsh_docs: {"aliases": [], "body_bytes": 3261, "body_sha256": "sha256:3ad1313d2a46628710e92e9f454f2a776b707f7018e69467ff29df2ad3dcfc55", "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:immediate_action_on_service_down", "child_ids": ["xcsh-docs:data-sources:application_profiles:properties:virtual_server:immediate_action_on_service_down:immediate_action_on_service_down_drop", "xcsh-docs:data-sources:application_profiles:properties:virtual_server:immediate_action_on_service_down:immediate_action_on_service_down_none", "xcsh-docs:data-sources:application_profiles:properties:virtual_server:immediate_action_on_service_down:immediate_action_on_service_down_reset"], "collection_id": "xcsh-docs:data-sources:application_profiles:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:immediate_action_on_service_down", "parent_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server", "path": "docs/guides/data-sources--application_profiles--properties--virtual_server--immediate_action_on_service_down.md", "provider_name": "application_profiles", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "properties", "schema_path": ["virtual_server", "immediate_action_on_service_down"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/immediate_action_on_service_down/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "virtual_server.immediate_action_on_service_down for xcsh_application_profiles.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["application_profilesCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# virtual_server.immediate_action_on_service_down
+
+Breadcrumbs:
+
+- [xcsh_application_profiles](../data-sources/application_profiles.md)
+- [Property reference](data-sources--application_profiles--reference.md)
+- [virtual_server](data-sources--application_profiles--properties--virtual_server.md)
+- virtual_server.immediate_action_on_service_down
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+Specifies the immediate action the BIG-IP system should respond with upon the receipt of the initial
+client's SYN packet, if the availability status of the virtual server is Offline or Unavailable.
+This is supported for the virtual server of Standard type and TCP protocol. The default is None.
+
+Upstream description:
+
+Specifies the immediate action the BIG-IP system should respond with upon the receipt of the initial
+client's SYN packet, if the availability status of the virtual server is Offline or Unavailable.
+This is supported for the virtual server of Standard type and TCP protocol. The default is None.
+None: Specifies that the system takes no immediate action if the virtual server is reported Offline
+or Unavailable. Reset: Specifies that the system resets the connections when the virtual server is
+reported Offline or Unavailable. Drop: Specifies that the system drops the connections when the
+virtual server is reported Offline or Unavailable.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-immediate_action_on_service_down_choice": "[\"immediate_action_on_service_down_drop\",\"immediate_action_on_service_down_none\",\"immediate_action_on_service_down_reset\"]"
+}
+```
+
+## Direct properties
+
+- [immediate_action_on_service_down_drop](data-sources--application_profiles--properties--virtual_server--immediate_action_on_service_down--immediate_action_on_service_down_drop.md): complete subsection reference.
+
+- [immediate_action_on_service_down_none](data-sources--application_profiles--properties--virtual_server--immediate_action_on_service_down--immediate_action_on_service_down_none.md): complete subsection reference.
+
+- [immediate_action_on_service_down_reset](data-sources--application_profiles--properties--virtual_server--immediate_action_on_service_down--immediate_action_on_service_down_reset.md): complete subsection reference.
+
+## Next pages
+
+- [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_drop](data-sources--application_profiles--properties--virtual_server--immediate_action_on_service_down--immediate_action_on_service_down_drop.md)
+- [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_none](data-sources--application_profiles--properties--virtual_server--immediate_action_on_service_down--immediate_action_on_service_down_none.md)
+- [virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_reset](data-sources--application_profiles--properties--virtual_server--immediate_action_on_service_down--immediate_action_on_service_down_reset.md)
+- [virtual_server](data-sources--application_profiles--properties--virtual_server.md)
+- [xcsh_application_profiles](../data-sources/application_profiles.md)

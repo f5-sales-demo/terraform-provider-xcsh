@@ -1,0 +1,50 @@
+---
+page_title: "Data source"
+subcategory: ""
+description: "Data source for xcsh_waf_exclusion_policy."
+xcsh_docs: {"aliases": [], "body_bytes": 1282, "body_sha256": "sha256:b3ecc5c831607888cff1171c1bd94db322f398fd16c64e6b7ec1907f75bcdca3", "child_ids": [], "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection", "completeness": "complete", "evidence": {"attribution": "Schema-derived minimal configuration validated with the checked-out provider.", "outcome": "valid configuration", "sha256": "sha256:e7c1c87b69af9a5626274b0968e5e1ac1658731a6d77764810ad0bd8f60e1d5e", "source_path": "examples/data-sources/xcsh_waf_exclusion_policy/data-source.tf", "validation": "terraform validate"}, "id": "xcsh-docs:data-sources:waf_exclusion_policy:example:data-source", "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:examples", "path": "documentation/data-sources/waf_exclusion_policy/examples/data-source/index.md", "provider_name": "waf_exclusion_policy", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "example", "schema_path": ["data-source"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/examples/data-source/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Data source for xcsh_waf_exclusion_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["waf_exclusion_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# Data source
+
+Breadcrumbs:
+
+- [xcsh_waf_exclusion_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/)
+- [Examples](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/examples/)
+- Data source
+
+Schema-derived minimal configuration validated with the checked-out provider.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/data-sources/xcsh_waf_exclusion_policy/data-source.tf`; digest `sha256:e7c1c87b69af9a5626274b0968e5e1ac1658731a6d77764810ad0bd8f60e1d5e`.
+
+```terraform
+# WAFExclusionPolicy Data Source Example
+
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+# Look up an existing WAFExclusionPolicy by name
+data "xcsh_waf_exclusion_policy" "example" {
+  name      = "example-waf-exclusion-policy"
+  namespace = "staging"
+}
+
+output "waf_exclusion_policy_id" {
+  value = data.xcsh_waf_exclusion_policy.example.id
+}
+```
+
+## Next pages
+
+- [Examples](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/examples/)
+- [xcsh_waf_exclusion_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/)

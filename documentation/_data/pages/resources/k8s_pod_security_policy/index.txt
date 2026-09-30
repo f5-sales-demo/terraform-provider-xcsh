@@ -1,0 +1,56 @@
+---
+page_title: "xcsh_k8s_pod_security_policy"
+subcategory: ""
+description: "xcsh_k8s_pod_security_policy for xcsh_k8s_pod_security_policy."
+xcsh_docs: {"aliases": [], "body_bytes": 1665, "body_sha256": "sha256:a836c6999be620c7e30bcda0f465b3d7e9c4d370e1588a0066ec0f41dda8ffd3", "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:reference", "xcsh-docs:resources:k8s_pod_security_policy:examples", "xcsh-docs:resources:k8s_pod_security_policy:import", "xcsh-docs:resources:k8s_pod_security_policy:timeouts"], "collection_id": "xcsh-docs:resources:k8s_pod_security_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_pod_security_policy:fundamentals", "parent_id": null, "path": "documentation/resources/k8s_pod_security_policy/index.md", "provider_name": "k8s_pod_security_policy", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_pod_security_policy for xcsh_k8s_pod_security_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_pod_security_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# xcsh_k8s_pod_security_policy
+
+Breadcrumbs:
+
+- xcsh_k8s_pod_security_policy
+
+Manages k8s\_pod\_security\_policy will create the object in the storage backend for namespace
+metadata.namespace in F5 Distributed Cloud.
+
+## Prerequisites
+
+Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
+
+## Minimal configuration
+
+Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
+
+```terraform
+# K8SPodSecurityPolicy Resource Example
+# Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.
+
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+# Basic K8SPodSecurityPolicy configuration
+resource "xcsh_k8s_pod_security_policy" "example" {
+  name      = "example-k8s-pod-security-policy"
+  namespace = "staging"
+}
+```
+
+## Root configuration
+
+Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
+
+## Next pages
+
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_pod_security_policy/properties/)
+- [Examples](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_pod_security_policy/examples/)
+- [Import](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_pod_security_policy/lifecycle/import/)
+- [Timeouts](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_pod_security_policy/lifecycle/timeouts/)

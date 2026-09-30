@@ -1,0 +1,61 @@
+---
+page_title: "tcp"
+subcategory: "Load Balancing"
+description: "tcp for xcsh_tcp_loadbalancer."
+xcsh_docs: {"aliases": [], "body_bytes": 1226, "body_sha256": "sha256:09a29b7ed2b45bf97c110e32ac528ec53259aa36f1b46225f0c79557268cbdac", "canonical_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tcp", "child_ids": [], "collection_id": "xcsh-docs:resources:tcp_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:tcp_loadbalancer:properties:tcp", "parent_id": "xcsh-docs:resources:tcp_loadbalancer:reference", "path": "docs/guides/resources--tcp_loadbalancer--properties--tcp.md", "provider_name": "tcp_loadbalancer", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "publishing_destination": "registry", "role": "properties", "schema_path": ["tcp"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/properties/tcp/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "tcp for xcsh_tcp_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tcp_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# tcp
+
+Breadcrumbs:
+
+- [xcsh_tcp_loadbalancer](../resources/tcp_loadbalancer.md)
+- [Property reference](resources--tcp_loadbalancer--reference.md)
+- tcp
+
+<a id="section"></a>
+
+Type: `["object", {}]`. Optional, Computed.
+
+\[OneOf: tcp, tls\_tcp, tls\_tcp\_auto\_cert\] Enable this option. Defaults to \`map\[\]\`. Server
+applies default when omitted.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [tcp](resources--tcp_loadbalancer--properties--tcp.md#section)
+- [tls_tcp](resources--tcp_loadbalancer--properties--tls_tcp.md#section)
+- [tls_tcp_auto_cert](resources--tcp_loadbalancer--properties--tls_tcp_auto_cert.md#section)
+
+Select alternatives according to the provider validators above.
+
+Terraform syntax:
+
+```terraform
+tcp = {}
+```
+
+## Direct properties
+
+This is an empty object or choice marker. It has no direct properties.
+
+## Next pages
+
+- [Property reference](resources--tcp_loadbalancer--reference.md)
+- [xcsh_tcp_loadbalancer](../resources/tcp_loadbalancer.md)

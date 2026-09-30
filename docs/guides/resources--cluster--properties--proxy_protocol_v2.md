@@ -1,0 +1,52 @@
+---
+page_title: "proxy_protocol_v2"
+subcategory: ""
+description: "proxy_protocol_v2 for xcsh_cluster."
+xcsh_docs: {"aliases": [], "body_bytes": 785, "body_sha256": "sha256:15d0ae9e032ffbed8e351d70ca3174ff47d974607f68d9ce9bc4887d4fe69734", "canonical_id": "xcsh-docs:resources:cluster:properties:proxy_protocol_v2", "child_ids": [], "collection_id": "xcsh-docs:resources:cluster:collection", "completeness": "complete", "id": "xcsh-docs:resources:cluster:properties:proxy_protocol_v2", "parent_id": "xcsh-docs:resources:cluster:reference", "path": "docs/guides/resources--cluster--properties--proxy_protocol_v2.md", "provider_name": "cluster", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "publishing_destination": "registry", "role": "properties", "schema_path": ["proxy_protocol_v2"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/proxy_protocol_v2/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "proxy_protocol_v2 for xcsh_cluster.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["clusterCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# proxy_protocol_v2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../resources/cluster.md)
+- [Property reference](resources--cluster--reference.md)
+- proxy_protocol_v2
+
+<a id="section"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for proxy protocol v2.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+proxy_protocol_v2 = {}
+```
+
+## Direct properties
+
+This is an empty object or choice marker. It has no direct properties.
+
+## Next pages
+
+- [Property reference](resources--cluster--reference.md)
+- [xcsh_cluster](../resources/cluster.md)

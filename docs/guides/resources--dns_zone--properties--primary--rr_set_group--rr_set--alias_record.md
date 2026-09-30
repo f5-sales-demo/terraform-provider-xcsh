@@ -1,0 +1,105 @@
+---
+page_title: "primary.rr_set_group.rr_set.alias_record"
+subcategory: "DNS"
+description: "primary.rr_set_group.rr_set.alias_record for xcsh_dns_zone."
+xcsh_docs: {"aliases": [], "body_bytes": 2154, "body_sha256": "sha256:0f57b31e86957edcf0c372e845554f5841c08f22d12c7f64876333d2080a83cf", "canonical_id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:alias_record", "child_ids": [], "collection_id": "xcsh-docs:resources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:alias_record", "parent_id": "xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set", "path": "docs/guides/resources--dns_zone--properties--primary--rr_set_group--rr_set--alias_record.md", "provider_name": "dns_zone", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "publishing_destination": "registry", "role": "properties", "schema_path": ["primary", "rr_set_group", "rr_set", "alias_record"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_zone/properties/primary/rr_set_group/rr_set/alias_record/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "primary.rr_set_group.rr_set.alias_record for xcsh_dns_zone.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# primary.rr_set_group.rr_set.alias_record
+
+Breadcrumbs:
+
+- [xcsh_dns_zone](../resources/dns_zone.md)
+- [Property reference](resources--dns_zone--reference.md)
+- [primary](resources--dns_zone--properties--primary.md)
+- [primary.rr_set_group](resources--dns_zone--properties--primary--rr_set_group.md)
+- [primary.rr_set_group.rr_set](resources--dns_zone--properties--primary--rr_set_group--rr_set.md)
+- primary.rr_set_group.rr_set.alias_record
+
+<a id="section"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for alias record.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+alias_record {
+  # Configure direct properties listed below.
+}
+```
+
+## Direct properties
+
+<a id="schema-primary--rr_set_group--rr_set--alias_record--value"></a>
+
+### value property
+
+Type: `"string"`. Optional.
+
+Domain. A valid domain name, for example: example.com.
+
+Upstream description:
+
+A valid domain name, for example: example.com.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(255),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 255,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 255,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "255"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "255"
+  }
+}
+```
+
+## Next pages
+
+- [primary.rr_set_group.rr_set](resources--dns_zone--properties--primary--rr_set_group--rr_set.md)
+- [xcsh_dns_zone](../resources/dns_zone.md)

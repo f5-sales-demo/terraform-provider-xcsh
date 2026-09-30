@@ -1,0 +1,68 @@
+---
+page_title: "origin_servers.consul_service.snat_pool"
+subcategory: "Load Balancing"
+description: "origin_servers.consul_service.snat_pool for xcsh_origin_pool."
+xcsh_docs: {"aliases": [], "body_bytes": 1845, "body_sha256": "sha256:5ee7e6241de4db9ad451641eb5fe78360103e81745762438cd26a9c5b252f24e", "canonical_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool", "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool:no_snat_pool", "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool:snat_pool"], "collection_id": "xcsh-docs:resources:origin_pool:collection", "completeness": "complete", "id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool", "parent_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service", "path": "docs/guides/resources--origin_pool--properties--origin_servers--consul_service--snat_pool.md", "provider_name": "origin_pool", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "publishing_destination": "registry", "role": "properties", "schema_path": ["origin_servers", "consul_service", "snat_pool"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/properties/origin_servers/consul_service/snat_pool/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "origin_servers.consul_service.snat_pool for xcsh_origin_pool.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["origin_poolCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# origin_servers.consul_service.snat_pool
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md)
+- [Property reference](resources--origin_pool--reference.md)
+- [origin_servers](resources--origin_pool--properties--origin_servers.md)
+- [origin_servers.consul_service](resources--origin_pool--properties--origin_servers--consul_service.md)
+- origin_servers.consul_service.snat_pool
+
+<a id="section"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+SNAT Pool. SNAT Pool configuration.
+
+Upstream description:
+
+SNAT Pool configuration.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool",
+    "snat_pool")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-snat_pool_choice": "[\"no_snat_pool\",\"snat_pool\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+snat_pool {
+  # Configure direct properties listed below.
+}
+```
+
+## Direct properties
+
+- [no_snat_pool](resources--origin_pool--properties--origin_servers--consul_service--snat_pool--no_snat_pool.md): complete subsection reference.
+
+- [snat_pool](resources--origin_pool--properties--origin_servers--consul_service--snat_pool--snat_pool.md): complete subsection reference.
+
+## Next pages
+
+- [origin_servers.consul_service.snat_pool.no_snat_pool](resources--origin_pool--properties--origin_servers--consul_service--snat_pool--no_snat_pool.md)
+- [origin_servers.consul_service.snat_pool.snat_pool](resources--origin_pool--properties--origin_servers--consul_service--snat_pool--snat_pool.md)
+- [origin_servers.consul_service](resources--origin_pool--properties--origin_servers--consul_service.md)
+- [xcsh_origin_pool](../resources/origin_pool.md)
