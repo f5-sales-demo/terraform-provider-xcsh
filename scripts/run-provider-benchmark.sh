@@ -36,6 +36,7 @@ export CHECKPOINT_DISABLE=1
 export GOGC=20
 export GOMEMLIMIT=4GiB
 export GOMAXPROCS="$concurrency"
+export GOFLAGS="-p=$concurrency"
 observed_image=${RUNNER_IMAGE_DIGEST:-github-hosted}
 profiler=.runner-harness/scripts/runner-profile.py
 if [ "$runner_kind" = eks ]; then
@@ -59,12 +60,17 @@ if [ "$cache_state" = cold ]; then
   export GOCACHE="$RUNNER_TEMP/go-build-cold-${pair_id}-${phase}-${concurrency}"
   export GOMODCACHE="$RUNNER_TEMP/go-mod-cold-${pair_id}-${phase}-${concurrency}"
 else
+  GOCACHE=$(go env GOCACHE)
+  GOMODCACHE=$(go env GOMODCACHE)
+  export GOCACHE GOMODCACHE
   go mod download
   go test -run '^$' -p "$concurrency" ./internal/... ./tools/... >/dev/null
 fi
 
 set +e
-python3 "$profiler" \
+python3 "$script_dir/profile_provider_runtime.py" \
+  "$evidence_dir" "$source_sha" "$observed_image" "$cache_state" "$concurrency" -- \
+  python3 "$profiler" \
   --name "$phase" \
   --output "$evidence_dir/workload-profile.json" \
   --cache-state "$cache_state" \

@@ -36,6 +36,8 @@ require "$root/scripts/run-provider-benchmark.sh" 'image-resident runner-profile
 require "$root/scripts/run-provider-benchmark.sh" 'export GOGC=20'
 require "$root/scripts/run-provider-benchmark.sh" 'export GOMEMLIMIT=4GiB'
 require "$root/scripts/run-provider-benchmark.sh" 'export GOMAXPROCS="$concurrency"'
+require "$root/scripts/run-provider-benchmark.sh" 'export GOFLAGS="-p=$concurrency"'
+require "$benchmark" 'scripts/profile_provider_runtime.py'
 require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/package-inventory.txt"'
 require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/normalized-output.txt"'
 require "$root/scripts/run-provider-benchmark-phase.sh" 'sha256sum <"$evidence_dir/worktree-output.patch"'
@@ -94,4 +96,5 @@ fi
 
 bash -n "$root/scripts/run-provider-benchmark.sh"
 bash -n "$root/scripts/run-provider-benchmark-phase.sh"
+python3 "$root/tests/test_provider_benchmark.py"
 printf 'CI performance workflow contract tests passed\n'
