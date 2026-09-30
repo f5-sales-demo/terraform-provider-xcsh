@@ -34,7 +34,7 @@ const providerDir = "internal/provider"
 // scripts/check-no-generated-files.sh. Bespoke examples that use the xcsh_ prefix are retained
 // explicitly in the surface keep set.
 var manuallyMaintained = map[string]bool{
-	"addon_service_activation_status":     true,
+	"addon_service_activation_status":      true,
 	"network_bot_defense":                  true,
 	"network_cdn":                          true,
 	"network_customer_edge_defaults":       true,
@@ -176,6 +176,18 @@ func main() {
 			continue
 		}
 		generatedActions++
+	}
+
+	for _, name := range surface.EphemeralResources {
+		f := filepath.Join(providerDir, name+"_ephemeral_resource.go")
+		rt, err := parseResourceSchema(f, name)
+		if err == nil {
+			err = codegen.WriteResponseOperationExample(rt, name, "examples", "ephemeral_resource")
+		}
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "ephemeral example %s: %v\n", name, err)
+			failed++
+		}
 	}
 
 	pruneOrphanExampleDirs(resourceKeep, dataSourceKeep, actionKeep)

@@ -204,11 +204,11 @@ jobs:
           else
             scripts/generate-provider-docs.sh
           fi
-          if [ -n "$(git status --porcelain docs/ examples/ templates/)" ]; then
-            git status --porcelain docs/ examples/ templates/
+          if [ -n "$(git status --porcelain docs/ documentation/ examples/ templates/)" ]; then
+            git status --porcelain docs/ documentation/ examples/ templates/
             if [[ "$HEAD_REF" == auto-regenerate/* ]]; then
               echo "::error::Automated regeneration PR is not reproducible."
-              git --no-pager diff -- docs/ examples/ templates/
+              git --no-pager diff -- docs/ documentation/ examples/ templates/
               exit 1
             fi
             echo "::notice::Source changes regenerate documentation after merge; generated files are prohibited in source PRs."

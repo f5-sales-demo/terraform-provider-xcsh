@@ -177,7 +177,7 @@ jobs:
           mkdir -p "$artifact_dir"
           source_sha=$(git rev-parse HEAD)
           docs_changed=false
-          if [ -n "$(git status --porcelain docs/ examples/ templates/)" ]; then
+          if [ -n "$(git status --porcelain docs/ documentation/ examples/ templates/)" ]; then
             docs_changed=true
           fi
           git add -A

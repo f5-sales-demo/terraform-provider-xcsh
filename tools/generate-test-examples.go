@@ -126,8 +126,10 @@ func renderExamples(testDir, outputDir string) ([]generatedExample, error) {
 			if _, exists := seenPaths[outPath]; exists {
 				return nil, fmt.Errorf("multiple acceptance helpers generate %s", outPath)
 			}
-			header := fmt.Sprintf("# %s — Verified Configuration Example\n# This configuration is extracted from acceptance tests\n# and verified against the live F5 XC API.\n\n",
-				toHumanName(ex.Name))
+			header := fmt.Sprintf("# %s — Acceptance-test-derived Configuration\n# Extracted from an acceptance test helper.\n# No new live API validation is claimed.\n\n", toHumanName(ex.Name))
+			if strings.Contains(strings.ToLower(ex.Name), "conflict") {
+				header = fmt.Sprintf("# %s — Negative Configuration Example\n# Acceptance-test-derived conflict fixture; not a successful configuration.\n\n", toHumanName(ex.Name))
+			}
 
 			cleaned := cleanConfig(ex.Name, ex.Config)
 			if cleaned == "" {
