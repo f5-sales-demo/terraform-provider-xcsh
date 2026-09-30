@@ -17,7 +17,8 @@ evidence_dir=$3
 mkdir -p "$evidence_dir"
 raw_log="$evidence_dir/workload.log"
 set +e
-{
+(
+  set -e
   case "$phase" in
   build)
     scripts/go-retry.sh 3 go build -p "$concurrency" ./...
@@ -49,7 +50,7 @@ set +e
     exit 2
     ;;
   esac
-} > >(tee "$raw_log") 2>&1
+) > >(tee "$raw_log") 2>&1
 status=$?
 set -e
 
@@ -60,7 +61,25 @@ sed -E \
   -e 's/-p [0-9]+/-p <concurrency>/g' \
   -e 's/[[:space:]][0-9]+(\.[0-9]+)?s$/ <duration>/' \
   "$raw_log" | LC_ALL=C sort >"$evidence_dir/normalized-output.txt"
-git diff --binary --no-ext-diff | sed -E 's/index [0-9a-f]+\.\.[0-9a-f]+/index <digest>..<digest>/' \
+# Snapshot the entire generated output against HEAD without changing the real
+# index. A normal git diff omits newly generated files. Harness checkouts are
+# measurement inputs, so they must not become provider output.
+(
+  temporary_index=$(mktemp)
+  trap 'rm -f "$temporary_index"' EXIT
+  export GIT_INDEX_FILE="$temporary_index"
+  git read-tree HEAD
+  paths=(. ':!.qualification-harness' ':!.runner-harness')
+  repository_root=$(git rev-parse --show-toplevel)
+  evidence_root=$(git -C "$evidence_dir" rev-parse --show-toplevel 2>/dev/null || true)
+  if [ "$evidence_root" = "$repository_root" ]; then
+    evidence_prefix=$(git -C "$evidence_dir" rev-parse --show-prefix)
+    test -n "$evidence_prefix"
+    paths+=(":(exclude,literal)${evidence_prefix%/}")
+  fi
+  git add -A -- "${paths[@]}"
+  git diff --cached HEAD --binary --no-ext-diff
+) | sed -E 's/index [0-9a-f]+\.\.[0-9a-f]+/index <digest>..<digest>/' \
   >"$evidence_dir/worktree-output.patch"
 {
   # Hash content only: evidence paths differ across runner kinds.
