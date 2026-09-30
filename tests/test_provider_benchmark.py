@@ -40,6 +40,9 @@ if [ "$1" = env ]; then
   esac
 elif [ "$1" = list ]; then
   echo 'example.test/provider example.test/provider@v1.0.0'
+elif [ "$1" = run ] && [ "${ADD_GENERATED_FILE:-false}" = true ]; then
+  mkdir -p internal/provider
+  printf '%s\n' synthetic-new-output >internal/provider/new_output.go
 elif [ "$1" = run ] && [ "${FAIL_FIRST_GENERATOR:-false}" = true ]; then
   exit 7
 elif [ "$1" = mod ] && [ "${FAIL_FIRST_GENERATOR:-false}" = true ]; then
@@ -326,6 +329,39 @@ raise SystemExit(status)
                 )
                 assert result.returncode != 0, result.stdout + result.stderr
                 assert not later.exists(), "phase continued after failed generation"
+
+    def test_new_generated_output_is_included_without_mutating_index(self):
+        evidence = self.repo / "new-output-evidence"
+        self.write(self.repo / ".qualification-harness/new-input.txt", "harness-only\n")
+        self.write(self.repo / ".runner-harness/new-input.txt", "harness-only\n")
+        staged_before = subprocess.check_output(  # noqa: S603 - fixed Git fixture
+            [self.executable("git"), "write-tree"], cwd=self.repo, text=True
+        )
+        result = subprocess.run(  # noqa: S603 - fixed local phase fixture
+            [
+                self.executable("bash"),
+                str(self.repo / "scripts/run-provider-benchmark-phase.sh"),
+                "provider-generation",
+                "4",
+                str(evidence),
+            ],
+            cwd=self.repo,
+            env=self.env | {"ADD_GENERATED_FILE": "true"},
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        assert result.returncode == 0, result.stdout + result.stderr
+        patch_text = (evidence / "worktree-output.patch").read_text()
+        assert "new_output.go" in patch_text
+        assert "+synthetic-new-output" in patch_text
+        assert ".qualification-harness" not in patch_text
+        assert ".runner-harness" not in patch_text
+        assert "new-output-evidence" not in patch_text
+        staged_after = subprocess.check_output(  # noqa: S603 - fixed Git fixture
+            [self.executable("git"), "write-tree"], cwd=self.repo, text=True
+        )
+        assert staged_before == staged_after
 
 
 if __name__ == "__main__":
