@@ -889,7 +889,7 @@ def validate(pages, collections, outputs):
                 raise ValueError(f"invalid property destination: {path}")
 
 
-def generate(root, schema_path, constraints_path, canonical_only=False):
+def generate(root, schema_path, constraints_path):
     schema_bytes = Path(schema_path).read_bytes()
     provider = json.loads(schema_bytes)["provider_schemas"][PROVIDER]
     # Canonical JSON digest ignores Terraform map iteration ordering.
@@ -928,9 +928,27 @@ def generate(root, schema_path, constraints_path, canonical_only=False):
                 )
                 outputs[page["path"]] = frontmatter(page, body, collection.category)
                 pages.append(page)
-    if not canonical_only:
-        outputs.update(registry_project(pages, categories))
-    validate(pages, collections, outputs)
+    outputs.update(registry_project(pages, categories))
+    provider_index = (root / "templates/index.md.tmpl").read_text(encoding="utf-8")
+    provider_example = (root / "examples/provider/provider.tf").read_text(
+        encoding="utf-8"
+    )
+    provider_index = provider_index.replace(
+        '{{ tffile "examples/provider/provider.tf" }}',
+        "```terraform\n" + provider_example.rstrip() + "\n```",
+    )
+    outputs["docs/index.md"] = provider_index
+    for guide in sorted((root / "templates/guides").glob("*.md")):
+        outputs["docs/guides/" + guide.name] = guide.read_text(encoding="utf-8")
+    reference_outputs = {
+        path: content
+        for path, content in outputs.items()
+        if path != "docs/index.md"
+        and not (
+            path.startswith("docs/guides/") and "--" not in PurePosixPath(path).name
+        )
+    }
+    validate(pages, collections, reference_outputs)
     entries = [
         {
             k: v
@@ -1097,13 +1115,8 @@ def main():
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--schema", type=Path, required=True)
     parser.add_argument("--constraints", type=Path, required=True)
-    parser.add_argument(
-        "--canonical-only",
-        action="store_true",
-        help="Verify canonical pages while Registry naming is unresolved",
-    )
     args = parser.parse_args()
-    generate(args.root, args.schema, args.constraints, args.canonical_only)
+    generate(args.root, args.schema, args.constraints)
 
 
 if __name__ == "__main__":

@@ -153,6 +153,54 @@ class CollectionTests(unittest.TestCase):
             identifier, DOCS.stable_id("data-sources", "fixture", "properties", path)
         )
 
+    def test_long_registry_filename_preserves_identifier(self):
+        page = {
+            "provider_type": "resources",
+            "provider_name": "fixture",
+            "role": "properties",
+            "schema_path": ["long_contextual_subsection_name"] * 12,
+            "id": DOCS.stable_id(
+                "resources",
+                "fixture",
+                "properties",
+                ("long_contextual_subsection_name",) * 12,
+            ),
+        }
+        projected = DOCS.projection_name(page)
+        self.assertLess(len((projected + ".md").encode()), 255)
+        self.assertEqual(projected, DOCS.projection_name(page))
+        self.assertIn("long_contextual_subsection_name", page["id"])
+
+    def test_registry_semantic_subdivision_preserves_rows(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            collection = self.collection(
+                Path(tmp),
+                {"attributes": {"name": {"type": "string", "optional": True}}},
+            )
+            pages = list(collection.pages.values())
+            for page in pages:
+                page["body"] = collection.body(page)
+            reference = collection.pages[
+                DOCS.stable_id("resources", "fixture", "reference")
+            ]
+            rows = [
+                f"| `field_{i}` | Complete contextual reference {chr(120) * 200} |\n"
+                for i in range(3000)
+            ]
+            reference["body"] += (
+                "\n## All schema paths\n\n| Schema path | Complete reference |\n| --- | --- |\n"
+                + "".join(rows)
+            )
+            outputs = DOCS.registry_project(pages, {reference["collection_id"]: ""})
+            parts = [
+                text for path, text in outputs.items() if "reference--part-" in path
+            ]
+            self.assertGreater(len(parts), 1)
+            for row in rows:
+                self.assertEqual(sum(text.count(row) for text in parts), 1)
+            for path, text in outputs.items():
+                self.assertLessEqual(len(text.encode()), DOCS.REGISTRY_LIMIT, path)
+
     def test_generated_manifest_and_progressive_http_navigation(self):
         manifest_file = ROOT / "documentation/generated-manifest.json"
         if not manifest_file.exists():
