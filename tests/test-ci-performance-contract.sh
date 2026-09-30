@@ -81,6 +81,8 @@ require "$merge" 'Verify and apply combined generation artifact'
 require "$merge" 'needs: [detect-changes, generation-state, create-regeneration-pr]'
 require "$merge" 'Successful ${name} generator source differs from the trigger'
 require "$merge" 'Generation Digest'
+require "$merge" 'dry-run:'
+require "$merge" "github.event.inputs.dry-run != 'true'"
 
 publisher=$(sed -n '/^  create-regeneration-pr:/,/^  # STEP 7:/p' "$merge")
 if grep -Eq 'go run tools/generate-all-schemas|go build|go vet|generate-provider-docs' <<<"$publisher"; then
