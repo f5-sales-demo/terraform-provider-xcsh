@@ -46,6 +46,11 @@ on:
         required: true
         type: boolean
         default: false
+      dry-run:
+        description: Exercise generation and decision paths without creating a tag, release, or regeneration PR.
+        required: true
+        type: boolean
+        default: false
 
 # GITHUB_TOKEN starts with no scopes; each job grants only what it consumes
 # (zizmor excessive-permissions). Verified: the only GITHUB_TOKEN consumers in
@@ -710,6 +715,7 @@ jobs:
     # Only run after the central classifier proves all applicable generators.
     if: |
       always() &&
+      github.event.inputs.dry-run != 'true' &&
       needs.generation-state.result == 'success' &&
       needs.generation-state.outputs.create-pr == 'true'
     runs-on: managed-socketless
@@ -1023,6 +1029,7 @@ jobs:
     needs: [detect-changes, generation-state, create-regeneration-pr]
     if: |
       always() &&
+      github.event.inputs.dry-run != 'true' &&
       needs.generation-state.result == 'success' &&
       needs.generation-state.outputs.release == 'true' &&
       needs.create-regeneration-pr.result == 'skipped'
