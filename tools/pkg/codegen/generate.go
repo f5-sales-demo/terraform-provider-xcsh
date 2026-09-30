@@ -12,7 +12,6 @@ import (
 	"go/format"
 	"go/parser"
 	"go/token"
-	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
@@ -20,6 +19,7 @@ import (
 
 	"golang.org/x/tools/go/ast/astutil"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/generatedfile"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
@@ -170,7 +170,7 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 		formatted = buf.Bytes()
 	}
 
-	return os.WriteFile(outputPath, formatted, 0644)
+	return generatedfile.WriteFile(outputPath, formatted, 0644)
 }
 
 // Terraform protocol blocks cannot carry sensitivity themselves. Propagate a
@@ -216,7 +216,7 @@ func GenerateClientTypes(resource *openapi.ResourceTemplate, clientDir string) e
 		formatted = buf.Bytes()
 	}
 
-	return os.WriteFile(outputPath, formatted, 0644)
+	return generatedfile.WriteFile(outputPath, formatted, 0644)
 }
 
 // GenerateReadOnlyDataSource generates a data-source-only file for a read-only resource.
@@ -247,7 +247,7 @@ func GenerateReadOnlyDataSource(resource *openapi.ResourceTemplate, outputDir st
 		formatted = buf.Bytes()
 	}
 
-	return os.WriteFile(outputPath, formatted, 0644)
+	return generatedfile.WriteFile(outputPath, formatted, 0644)
 }
 
 // GenerateReadOnlyClientTypes generates a Get-only client type file for a read-only resource.
@@ -270,7 +270,7 @@ func GenerateReadOnlyClientTypes(resource *openapi.ResourceTemplate, clientDir s
 		formatted = buf.Bytes()
 	}
 
-	return os.WriteFile(outputPath, formatted, 0644)
+	return generatedfile.WriteFile(outputPath, formatted, 0644)
 }
 
 // GenerateActionResource generates the resource file and the client request-body
@@ -293,7 +293,7 @@ func GenerateActionResource(resource *openapi.ResourceTemplate, outputDir, clien
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", resourcePath, err)
 		rformatted = rbuf.Bytes()
 	}
-	if err := os.WriteFile(resourcePath, rformatted, 0644); err != nil {
+	if err := generatedfile.WriteFile(resourcePath, rformatted, 0644); err != nil {
 		return err
 	}
 
@@ -312,7 +312,7 @@ func GenerateActionResource(resource *openapi.ResourceTemplate, outputDir, clien
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", clientPath, err)
 		cformatted = cbuf.Bytes()
 	}
-	return os.WriteFile(clientPath, cformatted, 0644)
+	return generatedfile.WriteFile(clientPath, cformatted, 0644)
 }
 
 // GenerateDataSource generates the Terraform data source Go file for a single resource.
@@ -346,5 +346,5 @@ func GenerateDataSource(resource *openapi.ResourceTemplate, outputDir string) er
 		formatted = buf.Bytes()
 	}
 
-	return os.WriteFile(outputPath, formatted, 0644)
+	return generatedfile.WriteFile(outputPath, formatted, 0644)
 }

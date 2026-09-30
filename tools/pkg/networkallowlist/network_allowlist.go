@@ -19,6 +19,8 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/generatedfile"
 )
 
 const extensionName = "x-f5xc-network-allowlist"
@@ -211,6 +213,13 @@ func WriteGo(path string, artifact Artifact) error {
 	}
 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
 		return fmt.Errorf("create output directory: %w", err)
+	}
+	same, err := generatedfile.Matches(path, formatted)
+	if err != nil {
+		return fmt.Errorf("compare generated output: %w", err)
+	}
+	if same {
+		return nil
 	}
 	temp, err := os.CreateTemp(filepath.Dir(path), ".network-allowlist-*.go")
 	if err != nil {
