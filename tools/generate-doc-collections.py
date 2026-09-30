@@ -10,10 +10,12 @@ validators supplement it; transformed Markdown is never used as schema input.
 
 import argparse
 import hashlib
+import html
 import json
 import os
 import re
 import sys
+import textwrap
 from pathlib import Path, PurePosixPath
 from urllib.parse import quote
 
@@ -44,7 +46,42 @@ def prose_links(text):
     """Parse generated navigation only, leaving code examples and regexes intact."""
     without_fences = re.sub(r"(?ms)^```[^\n]*\n.*?^```\s*$", "", text)
     without_code = re.sub(r"`[^`\n]*`", "", without_fences)
-    return LINK.findall(without_code)
+    return LINK.findall(re.sub(r"\\([\[\]])", "", without_code))
+
+
+def description_markdown(value):
+    """Publish full descriptions as plain prose without interpreting API markup."""
+    escaped = html.escape(value, quote=False)
+    escaped = re.sub(r"([\\`*_{}\[\]<>#])", r"\\\1", escaped)
+    escaped = re.sub(
+        r"(?<![A-Za-z0-9])www\.([A-Za-z0-9.-]+)",
+        lambda match: "www&#46;" + match.group(1),
+        escaped,
+    )
+    escaped = re.sub(
+        r"https?://", lambda match: match.group(0).replace(":", "&#58;"), escaped
+    )
+    escaped = re.sub(
+        r"(?m)^([ ]*)(?=[+.-] |[0-9]+[.)] )",
+        lambda match: match.group(1) + "&#8203;",
+        escaped,
+    )
+    paragraphs = re.split(r"\n\s*\n", escaped)
+    return "\n\n".join(
+        textwrap.fill(
+            " ".join(part.split()),
+            width=100,
+            break_long_words=False,
+            break_on_hyphens=False,
+        )
+        for part in paragraphs
+    )
+
+
+def normalize_body(value):
+    """Normalize whitespace while preserving complete fenced examples."""
+    value = value.expandtabs(2)
+    return re.sub(r"\n{3,}", "\n\n", value).rstrip() + "\n"
 
 
 def digest(data):
@@ -366,7 +403,7 @@ class Collection:
     def field_text(self, path, field, syntax, heading=True):
         name = path[-1]
         lines = (
-            [f'<a id="schema-{"--".join(path)}"></a>\n\n### {name}\n']
+            [f'<a id="schema-{"--".join(path)}"></a>\n\n### {name} property\n']
             if heading
             else []
         )
@@ -395,11 +432,15 @@ class Collection:
         lines.append(f"Type: `{json_text(typ)}`. {', '.join(flags)}.\n")
         desc = field.get("description", block.get("description", ""))
         if desc:
-            lines.append(desc + "\n")
+            lines.append(description_markdown(desc) + "\n")
         spec = self.specs.field(self.spec_roots, self.spec_schemas, path)
         long_description = spec.get("description", "")
         if long_description and long_description != desc:
-            lines.append("Upstream description:\n\n" + long_description + "\n")
+            lines.append(
+                "Upstream description:\n\n"
+                + description_markdown(long_description)
+                + "\n"
+            )
         lines.extend(
             f"{key}: `{field[key]}`.\n"
             for key in ("min_items", "max_items")
@@ -410,6 +451,8 @@ class Collection:
             lines.append(
                 "Provider validators and defaults (from schema source):\n\n```go\n"
                 + "\n".join(f"{k}: {v}" for k, v in sorted(source.items()))
+                .replace(", validators.", ",\n  validators.")
+                .replace(", validators.", ",\n  validators.")
                 + "\n```\n"
             )
         enriched = {
@@ -460,10 +503,10 @@ class Collection:
                 self.link(m["document_id"], s, m["anchor"]) if m else f"`{s}`"
                 for s, m in zip(members, mapped, strict=True)
             ]
+            lines.append("OneOf alternatives in this subsection:\n")
+            lines.extend("- " + link for link in links)
             lines.append(
-                "OneOf alternatives in this subsection: "
-                + ", ".join(links)
-                + ". Select alternatives according to the provider validators above.\n"
+                "\nSelect alternatives according to the provider validators above.\n"
             )
         if not field.get("computed") or field.get("optional") or field.get("required"):
             attrs = object_attributes(typ)
@@ -501,11 +544,13 @@ class Collection:
             ancestors.append(self.link(current["id"]))
         lines = [
             f"# {page['title']}\n",
-            "Breadcrumbs: " + " / ".join([*reversed(ancestors), page["title"]]) + "\n",
+            "Breadcrumbs:\n\n"
+            + "\n".join("- " + item for item in [*reversed(ancestors), page["title"]])
+            + "\n",
         ]
         if role == "fundamentals":
             lines += [
-                self.description + "\n",
+                description_markdown(self.description) + "\n",
                 "## Prerequisites\n",
                 "Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.\n",
             ]
@@ -524,7 +569,7 @@ class Collection:
                         + ".\n"
                     )
             for hint in self.metadata.get("relationship_hints", []):
-                lines.append("- " + hint)
+                lines.append("- " + hint + "\n")
             lines += [
                 "## Minimal configuration\n",
                 "Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.\n",
@@ -629,7 +674,7 @@ class Collection:
         lines.extend(
             "- " + self.link(identifier) for identifier in dict.fromkeys(next_ids)
         )
-        return "\n".join(lines).rstrip() + "\n"
+        return normalize_body("\n".join(lines).rstrip() + "\n")
 
 
 def frontmatter(page, body, category=""):
@@ -774,14 +819,17 @@ def registry_project(pages, categories):
                 chunk += section
             parts.append(chunk)
             landing = f"# {page['title']}\n\nComplete reference sections:\n\n"
-            for index, part in enumerate(parts, 1):
+            for index, original_part in enumerate(parts, 1):
+                part = original_part
+                if not part.lstrip().startswith("# "):
+                    part = f"# {page['title']} — Part {index}\n\n" + part
                 part_path = f"docs/guides/{projection_name(page)}--part-{index}.md"
                 landing += f"- [Part {index}]({os.path.relpath(part_path, str(PurePosixPath(output_path).parent))})\n"
                 for anchor in re.findall(r'<a id="([^"]+)"', part):
                     anchor_destinations[(output_path, anchor)] = part_path
                 outputs[part_path] = frontmatter(
                     dict(projected, path=part_path, projection_part=index),
-                    part,
+                    normalize_body(part),
                     categories[page["collection_id"]],
                 )
             rendered = frontmatter(
@@ -806,7 +854,7 @@ def registry_project(pages, categories):
             relative = os.path.relpath(part, str(PurePosixPath(current_path).parent))
             return f"[{label}]({relative}#{anchor})"
 
-        body = LINK.sub(move_anchor, body)
+        body = normalize_body(LINK.sub(move_anchor, body))
         metadata_lines = metadata_text.splitlines()
         metadata = json.loads(
             next(
