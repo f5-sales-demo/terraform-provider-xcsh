@@ -209,7 +209,9 @@ jobs:
         id: create
         if: steps.existing.outputs.tag == ''
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The tag traverses workflow changes in its source history. Use the
+          # existing governed credential with workflow-write authorization.
+          GH_TOKEN: ${{ secrets.repository-administration-token }}
           GPG_FINGERPRINT: ${{ steps.import_tag_gpg.outputs.fingerprint }}
           LATEST_TAG: ${{ steps.version.outputs.latest_tag }}
           NEW_TAG: ${{ steps.version.outputs.new_tag }}
