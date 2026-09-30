@@ -679,7 +679,10 @@ class Collection:
         lines.extend(
             "- " + self.link(identifier) for identifier in dict.fromkeys(next_ids)
         )
-        return normalize_body("\n".join(lines).rstrip() + "\n")
+        return (
+            "<!-- textlint-disable terminology: exact provider and upstream contract identifiers -->\n\n"
+            + normalize_body("\n".join(lines).rstrip() + "\n")
+        )
 
 
 def frontmatter(page, body, category=""):
