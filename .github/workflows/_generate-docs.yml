@@ -47,7 +47,7 @@ permissions: {}
 jobs:
   generate:
     name: Generate Documentation
-    runs-on: terraform-provider-xcsh-compute
+    runs-on: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 'ubuntu-latest' || 'terraform-provider-xcsh-compute' }}
     permissions:
       contents: read
     outputs:

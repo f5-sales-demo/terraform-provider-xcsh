@@ -1255,8 +1255,8 @@ func TestGeneratorRunnerContractsMatchOnMerge(t *testing.T) {
 				t.Errorf("default runner = %v, caller supplies %s", actual, label)
 			}
 			generator := workflow["jobs"].(map[string]any)["generate"].(map[string]any)
-			if generator["runs-on"] != label {
-				t.Errorf("actual runner = %v, caller supplies %s", generator["runs-on"], label)
+			if generator["runs-on"] != providerComputeRunnerExpression {
+				t.Errorf("actual runner = %v, want fork-isolated route for %s", generator["runs-on"], label)
 			}
 			var script string
 			for _, raw := range generator["steps"].([]any) {
