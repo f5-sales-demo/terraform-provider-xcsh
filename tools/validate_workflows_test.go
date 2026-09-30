@@ -153,6 +153,8 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 				"internal/acctest/parallel_build_aggregate_test.go",
 				"tools/performance_fork_isolation_test.go",
 				"scripts/generate-provider-docs.sh",
+				"scripts/verify-tfplugindocs.sh",
+				"tools/verify_tfplugindocs_test.go",
 				"scripts/check-spec-version-freshness.sh",
 				"scripts/test-check-spec-version-freshness.sh",
 				"scripts/prepare-spec-delivery-receipt.sh",
@@ -370,7 +372,7 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 		"_build-test.yml/vet":             {`test "$(go env GOVERSION)" = go1.25.13`},
 		"_build-test.yml/race":            {`test "$(go env GOVERSION)" = go1.25.13`},
 		"_build-test.yml/lint":            {`test "$(go env GOVERSION)" = go1.25.13`},
-		"_generate-docs.yml/generate":     {`test "$(go env GOVERSION)" = go1.25.13`, `$1 == "mod" && $2 == "github.com/hashicorp/terraform-plugin-docs" && $3 == "v0.25.0"`},
+		"_generate-docs.yml/generate":     {`test "$(go env GOVERSION)" = go1.25.13`, "bash scripts/verify-tfplugindocs.sh"},
 		"_generate-provider.yml/generate": {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/cleanup":           {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/real-api-tests":    {`test "$(go env GOVERSION)" = go1.25.13`},
@@ -1281,6 +1283,7 @@ func TestDocsTfplugindocsMetadataVerification(t *testing.T) {
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			cmd := exec.Command("bash", "-e", "-c", script)
+			cmd.Dir = ".."
 			cmd.Env = append(os.Environ(), "PATH="+bin+string(os.PathListSeparator)+os.Getenv("PATH"),
 				"TEST_DOCS_VERSION="+tc.version, "TEST_DOCS_EXIT="+tc.exit)
 			output, err := cmd.CombinedOutput()

@@ -22,6 +22,8 @@ while IFS= read -r path; do
     internal/acctest/parallel_build_aggregate_test.go | \
     tools/performance_fork_isolation_test.go | \
     scripts/generate-provider-docs.sh | \
+    scripts/verify-tfplugindocs.sh | \
+    tools/verify_tfplugindocs_test.go | \
     scripts/validate-smsv2-release.py | \
     tests/test-smsv2-release-validator.sh | \
     scripts/check-spec-version-freshness.sh | \
