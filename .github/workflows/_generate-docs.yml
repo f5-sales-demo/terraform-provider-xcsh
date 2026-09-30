@@ -23,7 +23,7 @@ on:
       runner-label:
         description: Trusted runner label for generation
         type: string
-        default: managed-socketless
+        default: terraform-provider-xcsh-compute
       go-concurrency:
         description: Go package and process concurrency on the compute pool
         type: number
@@ -47,7 +47,7 @@ permissions: {}
 jobs:
   generate:
     name: Generate Documentation
-    runs-on: managed-socketless
+    runs-on: terraform-provider-xcsh-compute
     permissions:
       contents: read
     outputs:
@@ -71,7 +71,7 @@ jobs:
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         env:
           RUNNER_LABEL: ${{ inputs.runner-label }}
-        run: test "$RUNNER_LABEL" = managed-socketless
+        run: test "$RUNNER_LABEL" = terraform-provider-xcsh-compute
       - name: Download provider generation artifact
         if: inputs.provider-artifact-name != ''
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1

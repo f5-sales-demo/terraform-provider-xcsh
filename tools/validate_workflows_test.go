@@ -1225,3 +1225,60 @@ func TestAcceptanceSummaryDownloadsNamedEvidence(t *testing.T) {
 		t.Fatalf("summary artifact inventory mismatch: %v", found)
 	}
 }
+
+func TestGeneratorRunnerContractsMatchOnMerge(t *testing.T) {
+	read := func(filename string) map[string]any {
+		t.Helper()
+		content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", filename))
+		if err != nil {
+			t.Fatal(err)
+		}
+		var workflow map[string]any
+		if err := yaml.Unmarshal(content, &workflow); err != nil {
+			t.Fatal(err)
+		}
+		return workflow
+	}
+	caller := read("on-merge.yml")["jobs"].(map[string]any)
+	for job, filename := range map[string]string{
+		"regenerate-provider": "_generate-provider.yml",
+		"regenerate-docs":     "_generate-docs.yml",
+	} {
+		t.Run(job, func(t *testing.T) {
+			label := caller[job].(map[string]any)["with"].(map[string]any)["runner-label"].(string)
+			if label != providerComputeRunnerLabel {
+				t.Fatalf("caller label = %q, want governed compute label", label)
+			}
+			workflow := read(filename)
+			inputs := workflow["on"].(map[string]any)["workflow_call"].(map[string]any)["inputs"].(map[string]any)
+			if actual := inputs["runner-label"].(map[string]any)["default"]; actual != label {
+				t.Errorf("default runner = %v, caller supplies %s", actual, label)
+			}
+			generator := workflow["jobs"].(map[string]any)["generate"].(map[string]any)
+			if generator["runs-on"] != label {
+				t.Errorf("actual runner = %v, caller supplies %s", generator["runs-on"], label)
+			}
+			var script string
+			for _, raw := range generator["steps"].([]any) {
+				step := raw.(map[string]any)
+				if step["name"] == "Verify governed runner input" {
+					script = step["run"].(string)
+				}
+			}
+			if script == "" {
+				t.Fatal("missing governed runner verification")
+			}
+			for _, tc := range []struct {
+				label string
+				pass  bool
+			}{{label, true}, {"managed-socketless", false}, {"unapproved-runner", false}} {
+				cmd := exec.Command("bash", "-e", "-c", script)
+				cmd.Env = append(os.Environ(), "RUNNER_LABEL="+tc.label)
+				output, err := cmd.CombinedOutput()
+				if (err == nil) != tc.pass {
+					t.Errorf("runner %q accepted = %v, want %v: %s", tc.label, err == nil, tc.pass, output)
+				}
+			}
+		})
+	}
+}
