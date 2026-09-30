@@ -1,0 +1,532 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:protocol_policer:fundamentals",
+    "id": "xcsh-docs:resources:protocol_policer:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:protocol_policer:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:protocol_policer:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:protocol_policer:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:protocol_policer:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:protocol_policer:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:protocol_policer:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:protocol_policer:reference",
+        "schema_path": ["namespace"]
+      },
+      "protocol_policer": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer",
+        "schema_path": ["protocol_policer"]
+      },
+      "protocol_policer.policer": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
+        "schema_path": ["protocol_policer", "policer"]
+      },
+      "protocol_policer.policer.kind": {
+        "anchor": "schema-protocol_policer--policer--kind",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
+        "schema_path": ["protocol_policer", "policer", "kind"]
+      },
+      "protocol_policer.policer.name": {
+        "anchor": "schema-protocol_policer--policer--name",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
+        "schema_path": ["protocol_policer", "policer", "name"]
+      },
+      "protocol_policer.policer.namespace": {
+        "anchor": "schema-protocol_policer--policer--namespace",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
+        "schema_path": ["protocol_policer", "policer", "namespace"]
+      },
+      "protocol_policer.policer.tenant": {
+        "anchor": "schema-protocol_policer--policer--tenant",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
+        "schema_path": ["protocol_policer", "policer", "tenant"]
+      },
+      "protocol_policer.policer.uid": {
+        "anchor": "schema-protocol_policer--policer--uid",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
+        "schema_path": ["protocol_policer", "policer", "uid"]
+      },
+      "protocol_policer.protocol": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol",
+        "schema_path": ["protocol_policer", "protocol"]
+      },
+      "protocol_policer.protocol.dns": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:dns",
+        "schema_path": ["protocol_policer", "protocol", "dns"]
+      },
+      "protocol_policer.protocol.icmp": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:icmp",
+        "schema_path": ["protocol_policer", "protocol", "icmp"]
+      },
+      "protocol_policer.protocol.icmp.type": {
+        "anchor": "schema-protocol_policer--protocol--icmp--type",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:icmp",
+        "schema_path": ["protocol_policer", "protocol", "icmp", "type"]
+      },
+      "protocol_policer.protocol.tcp": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:tcp",
+        "schema_path": ["protocol_policer", "protocol", "tcp"]
+      },
+      "protocol_policer.protocol.tcp.flags": {
+        "anchor": "schema-protocol_policer--protocol--tcp--flags",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:tcp",
+        "schema_path": ["protocol_policer", "protocol", "tcp", "flags"]
+      },
+      "protocol_policer.protocol.udp": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:udp",
+        "schema_path": ["protocol_policer", "protocol", "udp"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "protocol_policer",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:protocol_policer:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1642,
+      "body_sha256": "sha256:a2f3f7f0c2ad9b3da99f155c1c1bdbf4cbb068898bb27f1cc186cfac5585b29b",
+      "child_ids": [
+        "xcsh-docs:resources:protocol_policer:reference",
+        "xcsh-docs:resources:protocol_policer:examples",
+        "xcsh-docs:resources:protocol_policer:import",
+        "xcsh-docs:resources:protocol_policer:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/protocol_policer/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/protocol_policer.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_protocol_policer for xcsh_protocol_policer.",
+      "title": "xcsh_protocol_policer",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 12364,
+      "body_sha256": "sha256:5aa15e9262fb532a69e0e4ed2b35eb130d6e465e6087d860b3288bf6e855579f",
+      "child_ids": [
+        "xcsh-docs:resources:protocol_policer:properties:protocol_policer",
+        "xcsh-docs:resources:protocol_policer:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:reference",
+      "parent_id": "xcsh-docs:resources:protocol_policer:fundamentals",
+      "path": "documentation/resources/protocol_policer/properties/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_protocol_policer.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2336,
+      "body_sha256": "sha256:24cf7c6640b666d3f0978430eda427fa78d42e5d014fba98388ce62b7910f569",
+      "child_ids": [
+        "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
+        "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol"
+      ],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer",
+      "parent_id": "xcsh-docs:resources:protocol_policer:reference",
+      "path": "documentation/resources/protocol_policer/properties/protocol_policer/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--properties--protocol_policer.md",
+      "role": "properties",
+      "schema_path": ["protocol_policer"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "protocol_policer for xcsh_protocol_policer.",
+      "title": "protocol_policer",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6690,
+      "body_sha256": "sha256:38fd420cc9572697e3b48cf60c12acfe350c1b07723d013bc957fb251bcc66ec",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
+      "parent_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer",
+      "path": "documentation/resources/protocol_policer/properties/protocol_policer/policer/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--properties--protocol_policer--policer.md",
+      "role": "properties",
+      "schema_path": ["protocol_policer", "policer"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/policer/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "protocol_policer.policer for xcsh_protocol_policer.",
+      "title": "protocol_policer.policer",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2961,
+      "body_sha256": "sha256:d30adeabfaf9a288315a3f22ab0107b99444e5aee8d507b502dbba0c03060711",
+      "child_ids": [
+        "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:dns",
+        "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:icmp",
+        "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:tcp",
+        "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:udp"
+      ],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol",
+      "parent_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer",
+      "path": "documentation/resources/protocol_policer/properties/protocol_policer/protocol/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--properties--protocol_policer--protocol.md",
+      "role": "properties",
+      "schema_path": ["protocol_policer", "protocol"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "protocol_policer.protocol for xcsh_protocol_policer.",
+      "title": "protocol_policer.protocol",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1292,
+      "body_sha256": "sha256:a778e74c927cc1d59191e0bb92521452e492858bbae4e036f15f851a19e962d2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:dns",
+      "parent_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol",
+      "path": "documentation/resources/protocol_policer/properties/protocol_policer/protocol/dns/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--properties--protocol_policer--protocol--dns.md",
+      "role": "properties",
+      "schema_path": ["protocol_policer", "protocol", "dns"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/dns/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "protocol_policer.protocol.dns for xcsh_protocol_policer.",
+      "title": "protocol_policer.protocol.dns",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1916,
+      "body_sha256": "sha256:6f65e102b32aaaea3a24f127f420de08369ebecf4676229b96f71862f4cc0240",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:icmp",
+      "parent_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol",
+      "path": "documentation/resources/protocol_policer/properties/protocol_policer/protocol/icmp/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--properties--protocol_policer--protocol--icmp.md",
+      "role": "properties",
+      "schema_path": ["protocol_policer", "protocol", "icmp"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/icmp/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "protocol_policer.protocol.icmp for xcsh_protocol_policer.",
+      "title": "protocol_policer.protocol.icmp",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1893,
+      "body_sha256": "sha256:e1b28ed54031770d82629e0a9c05dffb97bd656a3dee9a8adbfbad7517fe844f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:tcp",
+      "parent_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol",
+      "path": "documentation/resources/protocol_policer/properties/protocol_policer/protocol/tcp/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--properties--protocol_policer--protocol--tcp.md",
+      "role": "properties",
+      "schema_path": ["protocol_policer", "protocol", "tcp"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/tcp/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "protocol_policer.protocol.tcp for xcsh_protocol_policer.",
+      "title": "protocol_policer.protocol.tcp",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1330,
+      "body_sha256": "sha256:d92a78c2e33fbaea8c88e7ad8c10afaf9615913cb02fc310e32d4cc7045e4947",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:udp",
+      "parent_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol",
+      "path": "documentation/resources/protocol_policer/properties/protocol_policer/protocol/udp/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--properties--protocol_policer--protocol--udp.md",
+      "role": "properties",
+      "schema_path": ["protocol_policer", "protocol", "udp"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/udp/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "protocol_policer.protocol.udp for xcsh_protocol_policer.",
+      "title": "protocol_policer.protocol.udp",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2156,
+      "body_sha256": "sha256:ba75b2e842493461de0bcd69bacc01839dc8c655acb79af9c8a6c0a2552a236b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:protocol_policer:reference",
+      "path": "documentation/resources/protocol_policer/properties/timeouts/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_protocol_policer.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 558,
+      "body_sha256": "sha256:9e5454a20a8f3b43da2bdb7e08dbb0af52c8819fc5b01409e1b6eb423c3f7d00",
+      "child_ids": ["xcsh-docs:resources:protocol_policer:example:resource"],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:examples",
+      "parent_id": "xcsh-docs:resources:protocol_policer:fundamentals",
+      "path": "documentation/resources/protocol_policer/examples/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_protocol_policer.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1285,
+      "body_sha256": "sha256:d4595832c0e0a2d9b444002fbac7b234d5b74f984fef0bfe60acb74bbda30d28",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:a7c6d355644dc5a658884b8dba6d0261da188cbcd2691b54aca0019ad537569c",
+        "source_path": "examples/resources/xcsh_protocol_policer/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:protocol_policer:example:resource",
+      "parent_id": "xcsh-docs:resources:protocol_policer:examples",
+      "path": "documentation/resources/protocol_policer/examples/resource/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_protocol_policer.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 429,
+      "body_sha256": "sha256:3a1c28b3d5f54a7945c8238240ec6e728a9cafdff8825aabb7644a26c4f8d03d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:import",
+      "parent_id": "xcsh-docs:resources:protocol_policer:fundamentals",
+      "path": "documentation/resources/protocol_policer/lifecycle/import/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_protocol_policer.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 489,
+      "body_sha256": "sha256:dd7c59076dea180faa3529b007ed1c8c5fa148cce64132c4c43878018ace6dbe",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_policer:timeouts",
+      "parent_id": "xcsh-docs:resources:protocol_policer:fundamentals",
+      "path": "documentation/resources/protocol_policer/lifecycle/timeouts/index.md",
+      "provider_name": "protocol_policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_policer--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_protocol_policer.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

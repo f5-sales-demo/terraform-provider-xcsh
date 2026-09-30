@@ -1,0 +1,496 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:k8s_pod_security_admission:fundamentals",
+    "id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+        "schema_path": ["namespace"]
+      },
+      "pod_security_admission_specs": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+        "schema_path": ["pod_security_admission_specs"]
+      },
+      "pod_security_admission_specs.audit": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:audit",
+        "schema_path": ["pod_security_admission_specs", "audit"]
+      },
+      "pod_security_admission_specs.baseline": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:baseline",
+        "schema_path": ["pod_security_admission_specs", "baseline"]
+      },
+      "pod_security_admission_specs.enforce": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:enforce",
+        "schema_path": ["pod_security_admission_specs", "enforce"]
+      },
+      "pod_security_admission_specs.privileged": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:privileged",
+        "schema_path": ["pod_security_admission_specs", "privileged"]
+      },
+      "pod_security_admission_specs.restricted": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:restricted",
+        "schema_path": ["pod_security_admission_specs", "restricted"]
+      },
+      "pod_security_admission_specs.warn": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:warn",
+        "schema_path": ["pod_security_admission_specs", "warn"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "k8s_pod_security_admission",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:k8s_pod_security_admission:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1621,
+      "body_sha256": "sha256:470144cbd494b4c05501e0389f94884f18a141efcd01cb500d478d3f974a6056",
+      "child_ids": [
+        "xcsh-docs:resources:k8s_pod_security_admission:reference",
+        "xcsh-docs:resources:k8s_pod_security_admission:examples",
+        "xcsh-docs:resources:k8s_pod_security_admission:import",
+        "xcsh-docs:resources:k8s_pod_security_admission:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/k8s_pod_security_admission/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/k8s_pod_security_admission.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_k8s_pod_security_admission for xcsh_k8s_pod_security_admission.",
+      "title": "xcsh_k8s_pod_security_admission",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 11217,
+      "body_sha256": "sha256:f931f4350ccc3f51557babcf795fea5f517132771af661da09dbd3d4591b3c1c",
+      "child_ids": [
+        "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+        "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:fundamentals",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_k8s_pod_security_admission.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4690,
+      "body_sha256": "sha256:f7f10fda98b20806bfb48ab411f6dcd52b28976cf8a3352388faf2124650ff14",
+      "child_ids": [
+        "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:audit",
+        "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:baseline",
+        "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:enforce",
+        "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:privileged",
+        "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:restricted",
+        "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:warn"
+      ],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--properties--pod_security_admission_specs.md",
+      "role": "properties",
+      "schema_path": ["pod_security_admission_specs"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pod_security_admission_specs for xcsh_k8s_pod_security_admission.",
+      "title": "pod_security_admission_specs",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1308,
+      "body_sha256": "sha256:b2f33a709e1111d412006c16bfadddc3c2ff020e2332e7397dadc6b71adc0522",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:audit",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/audit/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--properties--pod_security_admission_specs--audit.md",
+      "role": "properties",
+      "schema_path": ["pod_security_admission_specs", "audit"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/audit/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pod_security_admission_specs.audit for xcsh_k8s_pod_security_admission.",
+      "title": "pod_security_admission_specs.audit",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1317,
+      "body_sha256": "sha256:25358aad189146a1ca710c6d9a4aeb45ded0626ad70c01fe8a9dd47381f37dfa",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:baseline",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/baseline/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--properties--pod_security_admission_specs--baseline.md",
+      "role": "properties",
+      "schema_path": ["pod_security_admission_specs", "baseline"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/baseline/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pod_security_admission_specs.baseline for xcsh_k8s_pod_security_admission.",
+      "title": "pod_security_admission_specs.baseline",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1314,
+      "body_sha256": "sha256:f7619cea6c2862c9fe695cfd08b091740e49058711778ef71556c6bd9ea465e0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:enforce",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/enforce/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--properties--pod_security_admission_specs--enforce.md",
+      "role": "properties",
+      "schema_path": ["pod_security_admission_specs", "enforce"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/enforce/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pod_security_admission_specs.enforce for xcsh_k8s_pod_security_admission.",
+      "title": "pod_security_admission_specs.enforce",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1323,
+      "body_sha256": "sha256:e171429490bd040e4b8e0c681e7b70e930388ffaf873002d149dd5b71acb9367",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:privileged",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/privileged/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--properties--pod_security_admission_specs--privileged.md",
+      "role": "properties",
+      "schema_path": ["pod_security_admission_specs", "privileged"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/privileged/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pod_security_admission_specs.privileged for xcsh_k8s_pod_security_admission.",
+      "title": "pod_security_admission_specs.privileged",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1323,
+      "body_sha256": "sha256:98fb9652bd08802a4950cb3e3ea34872a3b9a52228689f4edfad64f59ba761a9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:restricted",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/restricted/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--properties--pod_security_admission_specs--restricted.md",
+      "role": "properties",
+      "schema_path": ["pod_security_admission_specs", "restricted"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/restricted/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pod_security_admission_specs.restricted for xcsh_k8s_pod_security_admission.",
+      "title": "pod_security_admission_specs.restricted",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1305,
+      "body_sha256": "sha256:31092b9f9764bbd04434faf79730e881d0dc6dd6d86a10ecc996a90a4f528719",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:warn",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/warn/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--properties--pod_security_admission_specs--warn.md",
+      "role": "properties",
+      "schema_path": ["pod_security_admission_specs", "warn"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/pod_security_admission_specs/warn/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pod_security_admission_specs.warn for xcsh_k8s_pod_security_admission.",
+      "title": "pod_security_admission_specs.warn",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2216,
+      "body_sha256": "sha256:305b7863160fdeb876a26b570a8e0883fc632796cfe68374d505ec12ff8d6254",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+      "path": "documentation/resources/k8s_pod_security_admission/properties/timeouts/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_k8s_pod_security_admission.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 618,
+      "body_sha256": "sha256:c8dc4e820ded01f3054036ec2bace8ae813f3a92b8fb5ac3fcc537f4a2105224",
+      "child_ids": ["xcsh-docs:resources:k8s_pod_security_admission:example:resource"],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:examples",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:fundamentals",
+      "path": "documentation/resources/k8s_pod_security_admission/examples/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_k8s_pod_security_admission.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1332,
+      "body_sha256": "sha256:42eef171d2df2526568f340bc4eafc7cba4f7ee429b1c6eaeb1b7f16e37a1e51",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:55b7bf85163231f6d1cb9fd77f147ddf87ba9bdf58b1aa2d6af5bb2885858dc2",
+        "source_path": "examples/resources/xcsh_k8s_pod_security_admission/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:example:resource",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:examples",
+      "path": "documentation/resources/k8s_pod_security_admission/examples/resource/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_k8s_pod_security_admission.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 479,
+      "body_sha256": "sha256:49eb04f0bc68541d6ebf95172cb1ea45848544ec5cad3358675a00b8fff5ebd1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:import",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:fundamentals",
+      "path": "documentation/resources/k8s_pod_security_admission/lifecycle/import/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_k8s_pod_security_admission.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 539,
+      "body_sha256": "sha256:64037b1175a03249796942aee7ef0b7c595f8db04df18ea2d0ddca135e8fc816",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:k8s_pod_security_admission:timeouts",
+      "parent_id": "xcsh-docs:resources:k8s_pod_security_admission:fundamentals",
+      "path": "documentation/resources/k8s_pod_security_admission/lifecycle/timeouts/index.md",
+      "provider_name": "k8s_pod_security_admission",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--k8s_pod_security_admission--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_k8s_pod_security_admission.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_pod_security_admissionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

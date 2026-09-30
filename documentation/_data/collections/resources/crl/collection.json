@@ -1,0 +1,317 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:crl:fundamentals",
+    "id": "xcsh-docs:resources:crl:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["disable"]
+      },
+      "http_access": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:crl:properties:http_access",
+        "schema_path": ["http_access"]
+      },
+      "http_access.path": {
+        "anchor": "schema-http_access--path",
+        "document_id": "xcsh-docs:resources:crl:properties:http_access",
+        "schema_path": ["http_access", "path"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:crl:reference", "schema_path": ["id"] },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["labels"]
+      },
+      "name": { "anchor": "schema-name", "document_id": "xcsh-docs:resources:crl:reference", "schema_path": ["name"] },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["namespace"]
+      },
+      "refresh_interval": {
+        "anchor": "schema-refresh_interval",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["refresh_interval"]
+      },
+      "server_address": {
+        "anchor": "schema-server_address",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["server_address"]
+      },
+      "server_port": {
+        "anchor": "schema-server_port",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["server_port"]
+      },
+      "timeout": {
+        "anchor": "schema-timeout",
+        "document_id": "xcsh-docs:resources:crl:reference",
+        "schema_path": ["timeout"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:crl:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:crl:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:crl:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:crl:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:crl:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "crl",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:crl:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1536,
+      "body_sha256": "sha256:42bf5de7e7ea53b5fed6d490574d0275c7a5520f8a5c354e95f5efc0894e533f",
+      "child_ids": [
+        "xcsh-docs:resources:crl:reference",
+        "xcsh-docs:resources:crl:examples",
+        "xcsh-docs:resources:crl:import",
+        "xcsh-docs:resources:crl:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:crl:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:crl:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/crl/index.md",
+      "provider_name": "crl",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/crl.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/crl/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_crl for xcsh_crl.",
+      "title": "xcsh_crl",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["crlCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13991,
+      "body_sha256": "sha256:d2fee54dcbf2e646053338698e14bab5c746046728ccbb1e400c3571ac4c5e83",
+      "child_ids": ["xcsh-docs:resources:crl:properties:http_access", "xcsh-docs:resources:crl:properties:timeouts"],
+      "collection_id": "xcsh-docs:resources:crl:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:crl:reference",
+      "parent_id": "xcsh-docs:resources:crl:fundamentals",
+      "path": "documentation/resources/crl/properties/index.md",
+      "provider_name": "crl",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--crl--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/crl/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_crl.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["crlCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1945,
+      "body_sha256": "sha256:f95649e05006afe1cc026d6ade60b90faaf2def98402485e1e1bc414e4abee7d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:crl:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:crl:properties:http_access",
+      "parent_id": "xcsh-docs:resources:crl:reference",
+      "path": "documentation/resources/crl/properties/http_access/index.md",
+      "provider_name": "crl",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--crl--properties--http_access.md",
+      "role": "properties",
+      "schema_path": ["http_access"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/crl/properties/http_access/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http_access for xcsh_crl.",
+      "title": "http_access",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["crlCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2078,
+      "body_sha256": "sha256:b42e03e6c23ed677bedfb8f938bf6bb9e9d533cdbaafac85e9b0a7823208072b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:crl:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:crl:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:crl:reference",
+      "path": "documentation/resources/crl/properties/timeouts/index.md",
+      "provider_name": "crl",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--crl--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/crl/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_crl.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["crlCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 480,
+      "body_sha256": "sha256:fec5f6417cc3dfe9c50c47d6d55bc877f960f6e5bee85926b7ec6f016886fbe2",
+      "child_ids": ["xcsh-docs:resources:crl:example:resource"],
+      "collection_id": "xcsh-docs:resources:crl:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:crl:examples",
+      "parent_id": "xcsh-docs:resources:crl:fundamentals",
+      "path": "documentation/resources/crl/examples/index.md",
+      "provider_name": "crl",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--crl--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/crl/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_crl.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["crlCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1164,
+      "body_sha256": "sha256:f936c59edf7ddaa1ccd72166ad810fa79b7e26bd5846417a3eb5ae3287a87656",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:crl:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:787cb67d26f54e510168be44dfb1793c35d97676385e49506a4c31f4d8662bf3",
+        "source_path": "examples/resources/xcsh_crl/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:crl:example:resource",
+      "parent_id": "xcsh-docs:resources:crl:examples",
+      "path": "documentation/resources/crl/examples/resource/index.md",
+      "provider_name": "crl",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--crl--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/crl/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_crl.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["crlCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 364,
+      "body_sha256": "sha256:39db34124b4e6826fe2c2103250fa0853f8c2a30af2fed6b3137d2fcf7ec7b82",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:crl:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:crl:import",
+      "parent_id": "xcsh-docs:resources:crl:fundamentals",
+      "path": "documentation/resources/crl/lifecycle/import/index.md",
+      "provider_name": "crl",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--crl--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/crl/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_crl.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["crlCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 424,
+      "body_sha256": "sha256:c1198cc4aa09292fdd122729028f29073178a0dc131e19364ed31e78dc2e669e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:crl:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:crl:timeouts",
+      "parent_id": "xcsh-docs:resources:crl:fundamentals",
+      "path": "documentation/resources/crl/lifecycle/timeouts/index.md",
+      "provider_name": "crl",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--crl--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/crl/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_crl.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["crlCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

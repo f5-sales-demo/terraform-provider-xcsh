@@ -1,0 +1,2102 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:app_firewall:fundamentals",
+    "id": "xcsh-docs:resources:app_firewall:collection",
+    "properties": {
+      "allow_all_response_codes": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:allow_all_response_codes",
+        "schema_path": ["allow_all_response_codes"]
+      },
+      "allowed_response_codes": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:allowed_response_codes",
+        "schema_path": ["allowed_response_codes"]
+      },
+      "allowed_response_codes.response_code": {
+        "anchor": "schema-allowed_response_codes--response_code",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:allowed_response_codes",
+        "schema_path": ["allowed_response_codes", "response_code"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:app_firewall:reference",
+        "schema_path": ["annotations"]
+      },
+      "blocking": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:blocking",
+        "schema_path": ["blocking"]
+      },
+      "blocking_page": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:blocking_page",
+        "schema_path": ["blocking_page"]
+      },
+      "blocking_page.blocking_page": {
+        "anchor": "schema-blocking_page--blocking_page",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:blocking_page",
+        "schema_path": ["blocking_page", "blocking_page"]
+      },
+      "blocking_page.response_code": {
+        "anchor": "schema-blocking_page--response_code",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:blocking_page",
+        "schema_path": ["blocking_page", "response_code"]
+      },
+      "bot_protection_setting": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:bot_protection_setting",
+        "schema_path": ["bot_protection_setting"]
+      },
+      "bot_protection_setting.good_bot_action": {
+        "anchor": "schema-bot_protection_setting--good_bot_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:bot_protection_setting",
+        "schema_path": ["bot_protection_setting", "good_bot_action"]
+      },
+      "bot_protection_setting.malicious_bot_action": {
+        "anchor": "schema-bot_protection_setting--malicious_bot_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:bot_protection_setting",
+        "schema_path": ["bot_protection_setting", "malicious_bot_action"]
+      },
+      "bot_protection_setting.suspicious_bot_action": {
+        "anchor": "schema-bot_protection_setting--suspicious_bot_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:bot_protection_setting",
+        "schema_path": ["bot_protection_setting", "suspicious_bot_action"]
+      },
+      "custom_anonymization": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization",
+        "schema_path": ["custom_anonymization"]
+      },
+      "custom_anonymization.anonymization_config": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config",
+        "schema_path": ["custom_anonymization", "anonymization_config"]
+      },
+      "custom_anonymization.anonymization_config.cookie": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:cookie",
+        "schema_path": ["custom_anonymization", "anonymization_config", "cookie"]
+      },
+      "custom_anonymization.anonymization_config.cookie.cookie_name": {
+        "anchor": "schema-custom_anonymization--anonymization_config--cookie--cookie_name",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:cookie",
+        "schema_path": ["custom_anonymization", "anonymization_config", "cookie", "cookie_name"]
+      },
+      "custom_anonymization.anonymization_config.http_header": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:http_header",
+        "schema_path": ["custom_anonymization", "anonymization_config", "http_header"]
+      },
+      "custom_anonymization.anonymization_config.http_header.header_name": {
+        "anchor": "schema-custom_anonymization--anonymization_config--http_header--header_name",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:http_header",
+        "schema_path": ["custom_anonymization", "anonymization_config", "http_header", "header_name"]
+      },
+      "custom_anonymization.anonymization_config.query_parameter": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:query_parameter",
+        "schema_path": ["custom_anonymization", "anonymization_config", "query_parameter"]
+      },
+      "custom_anonymization.anonymization_config.query_parameter.query_param_name": {
+        "anchor": "schema-custom_anonymization--anonymization_config--query_parameter--query_param_name",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:query_parameter",
+        "schema_path": ["custom_anonymization", "anonymization_config", "query_parameter", "query_param_name"]
+      },
+      "default_anonymization": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:default_anonymization",
+        "schema_path": ["default_anonymization"]
+      },
+      "default_bot_setting": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:default_bot_setting",
+        "schema_path": ["default_bot_setting"]
+      },
+      "default_detection_settings": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:default_detection_settings",
+        "schema_path": ["default_detection_settings"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:app_firewall:reference",
+        "schema_path": ["description"]
+      },
+      "detection_settings": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+        "schema_path": ["detection_settings"]
+      },
+      "detection_settings.bot_protection_setting": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:bot_protection_setting",
+        "schema_path": ["detection_settings", "bot_protection_setting"]
+      },
+      "detection_settings.bot_protection_setting.good_bot_action": {
+        "anchor": "schema-detection_settings--bot_protection_setting--good_bot_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:bot_protection_setting",
+        "schema_path": ["detection_settings", "bot_protection_setting", "good_bot_action"]
+      },
+      "detection_settings.bot_protection_setting.malicious_bot_action": {
+        "anchor": "schema-detection_settings--bot_protection_setting--malicious_bot_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:bot_protection_setting",
+        "schema_path": ["detection_settings", "bot_protection_setting", "malicious_bot_action"]
+      },
+      "detection_settings.bot_protection_setting.suspicious_bot_action": {
+        "anchor": "schema-detection_settings--bot_protection_setting--suspicious_bot_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:bot_protection_setting",
+        "schema_path": ["detection_settings", "bot_protection_setting", "suspicious_bot_action"]
+      },
+      "detection_settings.default_bot_setting": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:default_bot_setting",
+        "schema_path": ["detection_settings", "default_bot_setting"]
+      },
+      "detection_settings.default_violation_settings": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:default_violation_settings",
+        "schema_path": ["detection_settings", "default_violation_settings"]
+      },
+      "detection_settings.disable_staging": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_staging",
+        "schema_path": ["detection_settings", "disable_staging"]
+      },
+      "detection_settings.disable_suppression": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_suppression",
+        "schema_path": ["detection_settings", "disable_suppression"]
+      },
+      "detection_settings.disable_threat_campaigns": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_threat_campaigns",
+        "schema_path": ["detection_settings", "disable_threat_campaigns"]
+      },
+      "detection_settings.enable_suppression": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:enable_suppression",
+        "schema_path": ["detection_settings", "enable_suppression"]
+      },
+      "detection_settings.enable_threat_campaigns": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:enable_threat_campaigns",
+        "schema_path": ["detection_settings", "enable_threat_campaigns"]
+      },
+      "detection_settings.signature_selection_setting": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+        "schema_path": ["detection_settings", "signature_selection_setting"]
+      },
+      "detection_settings.signature_selection_setting.attack_type_settings": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:attack_type_settings",
+        "schema_path": ["detection_settings", "signature_selection_setting", "attack_type_settings"]
+      },
+      "detection_settings.signature_selection_setting.attack_type_settings.disabled_attack_types": {
+        "anchor": "schema-detection_settings--signature_selection_setting--attack_type_settings--disabled_attack_types",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:attack_type_settings",
+        "schema_path": [
+          "detection_settings",
+          "signature_selection_setting",
+          "attack_type_settings",
+          "disabled_attack_types"
+        ]
+      },
+      "detection_settings.signature_selection_setting.default_attack_type_settings": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:default_attack_type_settings",
+        "schema_path": ["detection_settings", "signature_selection_setting", "default_attack_type_settings"]
+      },
+      "detection_settings.signature_selection_setting.default_signature_setting": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:default_signature_setting",
+        "schema_path": ["detection_settings", "signature_selection_setting", "default_signature_setting"]
+      },
+      "detection_settings.signature_selection_setting.high_medium_accuracy_signatures": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_accuracy_signatures",
+        "schema_path": ["detection_settings", "signature_selection_setting", "high_medium_accuracy_signatures"]
+      },
+      "detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_low_accuracy_signatures",
+        "schema_path": ["detection_settings", "signature_selection_setting", "high_medium_low_accuracy_signatures"]
+      },
+      "detection_settings.signature_selection_setting.only_high_accuracy_signatures": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:only_high_accuracy_signatures",
+        "schema_path": ["detection_settings", "signature_selection_setting", "only_high_accuracy_signatures"]
+      },
+      "detection_settings.signature_selection_setting.signature_settings_by_accuracy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+        "schema_path": ["detection_settings", "signature_selection_setting", "signature_settings_by_accuracy"]
+      },
+      "detection_settings.signature_selection_setting.signature_settings_by_accuracy.high_accuracy_action": {
+        "anchor": "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--high_accuracy_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+        "schema_path": [
+          "detection_settings",
+          "signature_selection_setting",
+          "signature_settings_by_accuracy",
+          "high_accuracy_action"
+        ]
+      },
+      "detection_settings.signature_selection_setting.signature_settings_by_accuracy.low_accuracy_action": {
+        "anchor": "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--low_accuracy_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+        "schema_path": [
+          "detection_settings",
+          "signature_selection_setting",
+          "signature_settings_by_accuracy",
+          "low_accuracy_action"
+        ]
+      },
+      "detection_settings.signature_selection_setting.signature_settings_by_accuracy.medium_accuracy_action": {
+        "anchor": "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--medium_accuracy_action",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+        "schema_path": [
+          "detection_settings",
+          "signature_selection_setting",
+          "signature_settings_by_accuracy",
+          "medium_accuracy_action"
+        ]
+      },
+      "detection_settings.stage_new_and_updated_signatures": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures",
+        "schema_path": ["detection_settings", "stage_new_and_updated_signatures"]
+      },
+      "detection_settings.stage_new_and_updated_signatures.staging_period": {
+        "anchor": "schema-detection_settings--stage_new_and_updated_signatures--staging_period",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures",
+        "schema_path": ["detection_settings", "stage_new_and_updated_signatures", "staging_period"]
+      },
+      "detection_settings.stage_new_signatures": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:stage_new_signatures",
+        "schema_path": ["detection_settings", "stage_new_signatures"]
+      },
+      "detection_settings.stage_new_signatures.staging_period": {
+        "anchor": "schema-detection_settings--stage_new_signatures--staging_period",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:stage_new_signatures",
+        "schema_path": ["detection_settings", "stage_new_signatures", "staging_period"]
+      },
+      "detection_settings.violation_settings": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violation_settings",
+        "schema_path": ["detection_settings", "violation_settings"]
+      },
+      "detection_settings.violation_settings.disabled_violation_types": {
+        "anchor": "schema-detection_settings--violation_settings--disabled_violation_types",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violation_settings",
+        "schema_path": ["detection_settings", "violation_settings", "disabled_violation_types"]
+      },
+      "detection_settings.violations_view": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violations_view",
+        "schema_path": ["detection_settings", "violations_view"]
+      },
+      "detection_settings.violations_view.description_spec": {
+        "anchor": "schema-detection_settings--violations_view--description_spec",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violations_view",
+        "schema_path": ["detection_settings", "violations_view", "description_spec"]
+      },
+      "detection_settings.violations_view.enabled": {
+        "anchor": "schema-detection_settings--violations_view--enabled",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violations_view",
+        "schema_path": ["detection_settings", "violations_view", "enabled"]
+      },
+      "detection_settings.violations_view.enabled_by_default": {
+        "anchor": "schema-detection_settings--violations_view--enabled_by_default",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violations_view",
+        "schema_path": ["detection_settings", "violations_view", "enabled_by_default"]
+      },
+      "detection_settings.violations_view.name": {
+        "anchor": "schema-detection_settings--violations_view--name",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violations_view",
+        "schema_path": ["detection_settings", "violations_view", "name"]
+      },
+      "detection_settings.violations_view.title": {
+        "anchor": "schema-detection_settings--violations_view--title",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violations_view",
+        "schema_path": ["detection_settings", "violations_view", "title"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:app_firewall:reference",
+        "schema_path": ["disable"]
+      },
+      "disable_ai_enhancements": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:disable_ai_enhancements",
+        "schema_path": ["disable_ai_enhancements"]
+      },
+      "disable_anonymization": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:disable_anonymization",
+        "schema_path": ["disable_anonymization"]
+      },
+      "enable_ai_enhancements": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements",
+        "schema_path": ["enable_ai_enhancements"]
+      },
+      "enable_ai_enhancements.mitigate_high_medium_risk_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements:mitigate_high_medium_risk_action",
+        "schema_path": ["enable_ai_enhancements", "mitigate_high_medium_risk_action"]
+      },
+      "enable_ai_enhancements.mitigate_high_risk_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements:mitigate_high_risk_action",
+        "schema_path": ["enable_ai_enhancements", "mitigate_high_risk_action"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:app_firewall:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:app_firewall:reference",
+        "schema_path": ["labels"]
+      },
+      "monitoring": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:monitoring",
+        "schema_path": ["monitoring"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:app_firewall:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:app_firewall:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "use_default_blocking_page": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_firewall:properties:use_default_blocking_page",
+        "schema_path": ["use_default_blocking_page"]
+      }
+    },
+    "provider_name": "app_firewall",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:app_firewall:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1521,
+      "body_sha256": "sha256:00358a0a301aed1d5abcb715978b9c5b05a087abd21b9f789a78fc2a5c7af992",
+      "child_ids": [
+        "xcsh-docs:resources:app_firewall:reference",
+        "xcsh-docs:resources:app_firewall:examples",
+        "xcsh-docs:resources:app_firewall:import",
+        "xcsh-docs:resources:app_firewall:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/app_firewall/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/app_firewall.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_app_firewall for xcsh_app_firewall.",
+      "title": "xcsh_app_firewall",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 30854,
+      "body_sha256": "sha256:21b27e3301ca132f466eaacd7f6634cec7dd9a31eb6b457e993751f48cfa36ca",
+      "child_ids": [
+        "xcsh-docs:resources:app_firewall:properties:allow_all_response_codes",
+        "xcsh-docs:resources:app_firewall:properties:allowed_response_codes",
+        "xcsh-docs:resources:app_firewall:properties:blocking",
+        "xcsh-docs:resources:app_firewall:properties:blocking_page",
+        "xcsh-docs:resources:app_firewall:properties:bot_protection_setting",
+        "xcsh-docs:resources:app_firewall:properties:custom_anonymization",
+        "xcsh-docs:resources:app_firewall:properties:default_anonymization",
+        "xcsh-docs:resources:app_firewall:properties:default_bot_setting",
+        "xcsh-docs:resources:app_firewall:properties:default_detection_settings",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings",
+        "xcsh-docs:resources:app_firewall:properties:disable_ai_enhancements",
+        "xcsh-docs:resources:app_firewall:properties:disable_anonymization",
+        "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements",
+        "xcsh-docs:resources:app_firewall:properties:monitoring",
+        "xcsh-docs:resources:app_firewall:properties:timeouts",
+        "xcsh-docs:resources:app_firewall:properties:use_default_blocking_page"
+      ],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:reference",
+      "parent_id": "xcsh-docs:resources:app_firewall:fundamentals",
+      "path": "documentation/resources/app_firewall/properties/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_app_firewall.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1598,
+      "body_sha256": "sha256:46f7911247e8c73624f17c6162459052542439473bbfd26268767142f4f02764",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:allow_all_response_codes",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/allow_all_response_codes/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--allow_all_response_codes.md",
+      "role": "properties",
+      "schema_path": ["allow_all_response_codes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/allow_all_response_codes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_all_response_codes for xcsh_app_firewall.",
+      "title": "allow_all_response_codes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2651,
+      "body_sha256": "sha256:7db183dd74638c9a121f401da288ae9ac10c72b1a334bcaa9e4bc75aace98355",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:allowed_response_codes",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/allowed_response_codes/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--allowed_response_codes.md",
+      "role": "properties",
+      "schema_path": ["allowed_response_codes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/allowed_response_codes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allowed_response_codes for xcsh_app_firewall.",
+      "title": "allowed_response_codes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1354,
+      "body_sha256": "sha256:b4be3ef942511fb1fdf47d3ccdc2d67ef758591888866f29b29a9b2061f7d348",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:blocking",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/blocking/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--blocking.md",
+      "role": "properties",
+      "schema_path": ["blocking"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/blocking/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "blocking for xcsh_app_firewall.",
+      "title": "blocking",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10320,
+      "body_sha256": "sha256:f94e5b99ce347c9ed2798ff40d7faac26856c084539338170475f2e0db8d69c2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:blocking_page",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/blocking_page/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--blocking_page.md",
+      "role": "properties",
+      "schema_path": ["blocking_page"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/blocking_page/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "blocking_page for xcsh_app_firewall.",
+      "title": "blocking_page",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4016,
+      "body_sha256": "sha256:80bd3e153c5f6484a4efa2c331038f36aeb0928cb03ecd5e8bdbc82aa489e2c6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:bot_protection_setting",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/bot_protection_setting/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--bot_protection_setting.md",
+      "role": "properties",
+      "schema_path": ["bot_protection_setting"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/bot_protection_setting/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "bot_protection_setting for xcsh_app_firewall.",
+      "title": "bot_protection_setting",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2268,
+      "body_sha256": "sha256:45d436b1b6236a2503129c21f3f9b4abac20908838858f8d6fb8578d7616ecbc",
+      "child_ids": ["xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config"],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/custom_anonymization/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--custom_anonymization.md",
+      "role": "properties",
+      "schema_path": ["custom_anonymization"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/custom_anonymization/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_anonymization for xcsh_app_firewall.",
+      "title": "custom_anonymization",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3378,
+      "body_sha256": "sha256:cab8f85d9ec961fa82cbc5eec1014f756007ffb7d0be70fe00b368c6876efb92",
+      "child_ids": [
+        "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:cookie",
+        "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:http_header",
+        "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:query_parameter"
+      ],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization",
+      "path": "documentation/resources/app_firewall/properties/custom_anonymization/anonymization_config/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--custom_anonymization--anonymization_config.md",
+      "role": "properties",
+      "schema_path": ["custom_anonymization", "anonymization_config"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/custom_anonymization/anonymization_config/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_anonymization.anonymization_config for xcsh_app_firewall.",
+      "title": "custom_anonymization.anonymization_config",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2989,
+      "body_sha256": "sha256:1df17b7e6fe7cc9969fd777ddce267985b0e0d868c0877259c9f7632759f778e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:cookie",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config",
+      "path": "documentation/resources/app_firewall/properties/custom_anonymization/anonymization_config/cookie/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--custom_anonymization--anonymization_config--cookie.md",
+      "role": "properties",
+      "schema_path": ["custom_anonymization", "anonymization_config", "cookie"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/custom_anonymization/anonymization_config/cookie/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_anonymization.anonymization_config.cookie for xcsh_app_firewall.",
+      "title": "custom_anonymization.anonymization_config.cookie",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2884,
+      "body_sha256": "sha256:fbd70e5c52666209698f5f49986bb7b0a0a90ace6b13966266cc86f84440aae2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:http_header",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config",
+      "path": "documentation/resources/app_firewall/properties/custom_anonymization/anonymization_config/http_header/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--custom_anonymization--anonymization_config--http_header.md",
+      "role": "properties",
+      "schema_path": ["custom_anonymization", "anonymization_config", "http_header"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/custom_anonymization/anonymization_config/http_header/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_anonymization.anonymization_config.http_header for xcsh_app_firewall.",
+      "title": "custom_anonymization.anonymization_config.http_header",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3115,
+      "body_sha256": "sha256:b955d69db3be61ec47e1c93794e3e560f3ba4cea5c3d4d7413eab24e8c0fc885",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config:query_parameter",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:custom_anonymization:anonymization_config",
+      "path": "documentation/resources/app_firewall/properties/custom_anonymization/anonymization_config/query_parameter/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--custom_anonymization--anonymization_config--query_parameter.md",
+      "role": "properties",
+      "schema_path": ["custom_anonymization", "anonymization_config", "query_parameter"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/custom_anonymization/anonymization_config/query_parameter/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_anonymization.anonymization_config.query_parameter for xcsh_app_firewall.",
+      "title": "custom_anonymization.anonymization_config.query_parameter",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1111,
+      "body_sha256": "sha256:cdddab98b1e5ba5831c1b30122e77f3f326c512801b985fea1163ae5a6af0ce3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:default_anonymization",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/default_anonymization/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--default_anonymization.md",
+      "role": "properties",
+      "schema_path": ["default_anonymization"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/default_anonymization/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "default_anonymization for xcsh_app_firewall.",
+      "title": "default_anonymization",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1103,
+      "body_sha256": "sha256:57fc54cb2245a1d53561f1c951e1c2c6b7f490dac0657cb59824440c41e7ebf7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:default_bot_setting",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/default_bot_setting/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--default_bot_setting.md",
+      "role": "properties",
+      "schema_path": ["default_bot_setting"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/default_bot_setting/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "default_bot_setting for xcsh_app_firewall.",
+      "title": "default_bot_setting",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1637,
+      "body_sha256": "sha256:1e10907fd9a15efc3a31a76d876428a4adc2e3b4684bb5c9eba0c436ac1d981b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:default_detection_settings",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/default_detection_settings/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--default_detection_settings.md",
+      "role": "properties",
+      "schema_path": ["default_detection_settings"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/default_detection_settings/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "default_detection_settings for xcsh_app_firewall.",
+      "title": "default_detection_settings",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7099,
+      "body_sha256": "sha256:43afc9e5f112a6cbcbaec7c34e9287c50393a20ac6ad6486a5f836c9a106e21b",
+      "child_ids": [
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:bot_protection_setting",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:default_bot_setting",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:default_violation_settings",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_staging",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_suppression",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_threat_campaigns",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:enable_suppression",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:enable_threat_campaigns",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:stage_new_signatures",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:violation_settings",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:violations_view"
+      ],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings.md",
+      "role": "properties",
+      "schema_path": ["detection_settings"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings for xcsh_app_firewall.",
+      "title": "detection_settings",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3776,
+      "body_sha256": "sha256:1ac13510520bebc02d55ac045ae493af0a7144d3b79912ab3b77304fb20966bf",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:bot_protection_setting",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/bot_protection_setting/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--bot_protection_setting.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "bot_protection_setting"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/bot_protection_setting/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.bot_protection_setting for xcsh_app_firewall.",
+      "title": "detection_settings.bot_protection_setting",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1222,
+      "body_sha256": "sha256:5452b02c47099eb95b6d9f7bd1eda461fd00ccb5e5dccfdfdd735a8336b56b95",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:default_bot_setting",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/default_bot_setting/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--default_bot_setting.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "default_bot_setting"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/default_bot_setting/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.default_bot_setting for xcsh_app_firewall.",
+      "title": "detection_settings.default_bot_setting",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1250,
+      "body_sha256": "sha256:d1e5474a2bdf6ad199e515ec773f5921304f81dbb79009cc0c1665f81ea7e59d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:default_violation_settings",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/default_violation_settings/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--default_violation_settings.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "default_violation_settings"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/default_violation_settings/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.default_violation_settings for xcsh_app_firewall.",
+      "title": "detection_settings.default_violation_settings",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1180,
+      "body_sha256": "sha256:4491dce829e095f91e112a0fb9cb1cd7c4eb196c512da2c112cd215510b5620f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_staging",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/disable_staging/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--disable_staging.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "disable_staging"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/disable_staging/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.disable_staging for xcsh_app_firewall.",
+      "title": "detection_settings.disable_staging",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1222,
+      "body_sha256": "sha256:b4cdb00274462db0ad55fb03b7ccd42a6d0516d243d4ab2acacf01c0573e6b96",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_suppression",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/disable_suppression/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--disable_suppression.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "disable_suppression"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/disable_suppression/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.disable_suppression for xcsh_app_firewall.",
+      "title": "detection_settings.disable_suppression",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1207,
+      "body_sha256": "sha256:294cc1e1e3b141a8a5bd67265c1a63c133803171e9d5ea269e87c952f9fa48d1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:disable_threat_campaigns",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/disable_threat_campaigns/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--disable_threat_campaigns.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "disable_threat_campaigns"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/disable_threat_campaigns/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.disable_threat_campaigns for xcsh_app_firewall.",
+      "title": "detection_settings.disable_threat_campaigns",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1218,
+      "body_sha256": "sha256:a062c39916611bb91c9ba603fdf84dfdc8104c1e1ad83bf078fb4a909af78101",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:enable_suppression",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/enable_suppression/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--enable_suppression.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "enable_suppression"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/enable_suppression/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.enable_suppression for xcsh_app_firewall.",
+      "title": "detection_settings.enable_suppression",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1204,
+      "body_sha256": "sha256:48e026a1f9440708fbeacd6c55c5a1d8287252937f28124d927e2d1ec13e45d4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:enable_threat_campaigns",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/enable_threat_campaigns/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--enable_threat_campaigns.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "enable_threat_campaigns"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/enable_threat_campaigns/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.enable_threat_campaigns for xcsh_app_firewall.",
+      "title": "detection_settings.enable_threat_campaigns",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5635,
+      "body_sha256": "sha256:aa54917e7cdd5f04c05c2f451156e0f58797b994120c8df8802458dc330e30d2",
+      "child_ids": [
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:attack_type_settings",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:default_attack_type_settings",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:default_signature_setting",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_accuracy_signatures",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_low_accuracy_signatures",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:only_high_accuracy_signatures",
+        "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy"
+      ],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/signature_selection_setting/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--signature_selection_setting.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "signature_selection_setting"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/signature_selection_setting/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.signature_selection_setting for xcsh_app_firewall.",
+      "title": "detection_settings.signature_selection_setting",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5062,
+      "body_sha256": "sha256:884a47ca53bdd019a9577f6ed2f8eb4edba1a53732571ccf6c074d0dea0b0366",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:attack_type_settings",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/signature_selection_setting/attack_type_settings/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--signature_selection_setting--attack_type_settings.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "signature_selection_setting", "attack_type_settings"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/signature_selection_setting/attack_type_settings/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.signature_selection_setting.attack_type_settings for xcsh_app_firewall.",
+      "title": "detection_settings.signature_selection_setting.attack_type_settings",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1560,
+      "body_sha256": "sha256:c87d1f93c01b5843e505d9ffed2f5d898ec3afed4c51c8cf2631d5f1d6127154",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:default_attack_type_settings",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/signature_selection_setting/default_attack_type_settings/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--signature_selection_setting--default_attack_type_settings.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "signature_selection_setting", "default_attack_type_settings"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/signature_selection_setting/default_attack_type_settings/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.signature_selection_setting.default_attack_type_settings for xcsh_app_firewall.",
+      "title": "detection_settings.signature_selection_setting.default_attack_type_settings",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1548,
+      "body_sha256": "sha256:a95c2e3de14c95ead64912c75f8b0a90f3ced0f3e1ef4a0b2f73b57985a7deb4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:default_signature_setting",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/signature_selection_setting/default_signature_setting/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--signature_selection_setting--default_signature_setting.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "signature_selection_setting", "default_signature_setting"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/signature_selection_setting/default_signature_setting/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.signature_selection_setting.default_signature_setting for xcsh_app_firewall.",
+      "title": "detection_settings.signature_selection_setting.default_signature_setting",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1572,
+      "body_sha256": "sha256:2bfea5e27666e60522b355798ca4ba2cf963fe5c56b310c919e431507699d0c7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_accuracy_signatures",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/signature_selection_setting/high_medium_accuracy_signatures/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--signature_selection_setting--high_medium_accuracy_signatures.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "signature_selection_setting", "high_medium_accuracy_signatures"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/signature_selection_setting/high_medium_accuracy_signatures/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.signature_selection_setting.high_medium_accuracy_signatures for xcsh_app_firewall.",
+      "title": "detection_settings.signature_selection_setting.high_medium_accuracy_signatures",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1588,
+      "body_sha256": "sha256:feb0f00845290baa9b3b828c380f3c703c38e0c2cc9ae6b4135853cf06a37fa7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_low_accuracy_signatures",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/signature_selection_setting/high_medium_low_accuracy_signatures/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--signature_selection_setting--high_medium_low_accuracy_signatures.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "signature_selection_setting", "high_medium_low_accuracy_signatures"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/signature_selection_setting/high_medium_low_accuracy_signatures/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures for xcsh_app_firewall.",
+      "title": "detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1564,
+      "body_sha256": "sha256:0d165b0eb0ec41a352afd88d7325fb2bb716dcac79a995c8ec773ef8a3375c8a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:only_high_accuracy_signatures",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/signature_selection_setting/only_high_accuracy_signatures/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--signature_selection_setting--only_high_accuracy_signatures.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "signature_selection_setting", "only_high_accuracy_signatures"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/signature_selection_setting/only_high_accuracy_signatures/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.signature_selection_setting.only_high_accuracy_signatures for xcsh_app_firewall.",
+      "title": "detection_settings.signature_selection_setting.only_high_accuracy_signatures",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4342,
+      "body_sha256": "sha256:db1971d2f33da5eee53d0b59d563ed7795a0198fccf567fb0b9ca3952449d4bd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings:signature_selection_setting",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/signature_selection_setting/signature_settings_by_accuracy/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--signature_selection_setting--signature_settings_by_accuracy.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "signature_selection_setting", "signature_settings_by_accuracy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/signature_selection_setting/signature_settings_by_accuracy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.signature_selection_setting.signature_settings_by_accuracy for xcsh_app_firewall.",
+      "title": "detection_settings.signature_selection_setting.signature_settings_by_accuracy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2812,
+      "body_sha256": "sha256:05876072064c5bcd077bd9ed73c2065d20528fa427e895f0d9d65655b83f8ae5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/stage_new_and_updated_signatures/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--stage_new_and_updated_signatures.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "stage_new_and_updated_signatures"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/stage_new_and_updated_signatures/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.stage_new_and_updated_signatures for xcsh_app_firewall.",
+      "title": "detection_settings.stage_new_and_updated_signatures",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2764,
+      "body_sha256": "sha256:b312dab8ee047bc44b1b0cd2c9bcabb353245b9a499afe36b03378bbed803b2e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:stage_new_signatures",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/stage_new_signatures/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--stage_new_signatures.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "stage_new_signatures"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/stage_new_signatures/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.stage_new_signatures for xcsh_app_firewall.",
+      "title": "detection_settings.stage_new_signatures",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4874,
+      "body_sha256": "sha256:bb90cc659646938f90aee10f1001b09a3ee4169f8377e7095814aff05887a730",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violation_settings",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/violation_settings/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--violation_settings.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "violation_settings"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/violation_settings/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.violation_settings for xcsh_app_firewall.",
+      "title": "detection_settings.violation_settings",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4675,
+      "body_sha256": "sha256:14cadb53718443890854741fa911b0c1f454804b2041317850a243d4ece8cefd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:detection_settings:violations_view",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:detection_settings",
+      "path": "documentation/resources/app_firewall/properties/detection_settings/violations_view/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--detection_settings--violations_view.md",
+      "role": "properties",
+      "schema_path": ["detection_settings", "violations_view"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/detection_settings/violations_view/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "detection_settings.violations_view for xcsh_app_firewall.",
+      "title": "detection_settings.violations_view",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1626,
+      "body_sha256": "sha256:64cd879365baa49bda2555237b1f9bae94da0069ce0e3b505c1440d43216f7fe",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:disable_ai_enhancements",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/disable_ai_enhancements/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--disable_ai_enhancements.md",
+      "role": "properties",
+      "schema_path": ["disable_ai_enhancements"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/disable_ai_enhancements/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disable_ai_enhancements for xcsh_app_firewall.",
+      "title": "disable_ai_enhancements",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1039,
+      "body_sha256": "sha256:23b80c8efe9f738d5ab3152854459f40cac4b84165bb8a8c7275dfb3f0c2234a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:disable_anonymization",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/disable_anonymization/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--disable_anonymization.md",
+      "role": "properties",
+      "schema_path": ["disable_anonymization"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/disable_anonymization/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disable_anonymization for xcsh_app_firewall.",
+      "title": "disable_anonymization",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2142,
+      "body_sha256": "sha256:d1ddb3dcfa2746f85c003d3c58671a24e50457a0caa9f6af7ad9baee577507a7",
+      "child_ids": [
+        "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements:mitigate_high_medium_risk_action",
+        "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements:mitigate_high_risk_action"
+      ],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/enable_ai_enhancements/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--enable_ai_enhancements.md",
+      "role": "properties",
+      "schema_path": ["enable_ai_enhancements"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/enable_ai_enhancements/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_ai_enhancements for xcsh_app_firewall.",
+      "title": "enable_ai_enhancements",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1255,
+      "body_sha256": "sha256:b74cc30cb7ed9a141f5d6f77ffe145ab5be8b4fb47c82c859e71908125fabb52",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements:mitigate_high_medium_risk_action",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements",
+      "path": "documentation/resources/app_firewall/properties/enable_ai_enhancements/mitigate_high_medium_risk_action/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--enable_ai_enhancements--mitigate_high_medium_risk_action.md",
+      "role": "properties",
+      "schema_path": ["enable_ai_enhancements", "mitigate_high_medium_risk_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/enable_ai_enhancements/mitigate_high_medium_risk_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_ai_enhancements.mitigate_high_medium_risk_action for xcsh_app_firewall.",
+      "title": "enable_ai_enhancements.mitigate_high_medium_risk_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1234,
+      "body_sha256": "sha256:b463e90e3a33969fcffca4d5908ddb25a82298dbc62856b52d7983cfee2862b5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements:mitigate_high_risk_action",
+      "parent_id": "xcsh-docs:resources:app_firewall:properties:enable_ai_enhancements",
+      "path": "documentation/resources/app_firewall/properties/enable_ai_enhancements/mitigate_high_risk_action/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--enable_ai_enhancements--mitigate_high_risk_action.md",
+      "role": "properties",
+      "schema_path": ["enable_ai_enhancements", "mitigate_high_risk_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/enable_ai_enhancements/mitigate_high_risk_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_ai_enhancements.mitigate_high_risk_action for xcsh_app_firewall.",
+      "title": "enable_ai_enhancements.mitigate_high_risk_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1047,
+      "body_sha256": "sha256:a72ef6cb61ae165ba0c6d54f889b0ecc815fd44fb7ec97e6e91dcaaa0cd8d532",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:monitoring",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/monitoring/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--monitoring.md",
+      "role": "properties",
+      "schema_path": ["monitoring"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/monitoring/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "monitoring for xcsh_app_firewall.",
+      "title": "monitoring",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2132,
+      "body_sha256": "sha256:3639a3f45125f3d376d671f6c8da85aaab8992e4550f6a60e16ce241bd1ef898",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/timeouts/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_app_firewall.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1092,
+      "body_sha256": "sha256:9de0a3ec6bdd7c2efc545b46127d9e5716887cfd5ef16c9c94e63ef25afe9926",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:properties:use_default_blocking_page",
+      "parent_id": "xcsh-docs:resources:app_firewall:reference",
+      "path": "documentation/resources/app_firewall/properties/use_default_blocking_page/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--properties--use_default_blocking_page.md",
+      "role": "properties",
+      "schema_path": ["use_default_blocking_page"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/properties/use_default_blocking_page/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "use_default_blocking_page for xcsh_app_firewall.",
+      "title": "use_default_blocking_page",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3587,
+      "body_sha256": "sha256:187b1e2b79bc64ead7509824eeee6bea85805febaed788fcabff373a823b3cb5",
+      "child_ids": [
+        "xcsh-docs:resources:app_firewall:example:ai-enhancements",
+        "xcsh-docs:resources:app_firewall:example:all-attributes",
+        "xcsh-docs:resources:app_firewall:example:allowed-response-codes",
+        "xcsh-docs:resources:app_firewall:example:blocking",
+        "xcsh-docs:resources:app_firewall:example:bot-protection",
+        "xcsh-docs:resources:app_firewall:example:custom-blocking-page",
+        "xcsh-docs:resources:app_firewall:example:detection-settings",
+        "xcsh-docs:resources:app_firewall:example:disable-anonymization",
+        "xcsh-docs:resources:app_firewall:example:monitoring",
+        "xcsh-docs:resources:app_firewall:example:resource",
+        "xcsh-docs:resources:app_firewall:example:with-labels",
+        "xcsh-docs:resources:app_firewall:example:with-updated-labels"
+      ],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:examples",
+      "parent_id": "xcsh-docs:resources:app_firewall:fundamentals",
+      "path": "documentation/resources/app_firewall/examples/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_app_firewall.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1392,
+      "body_sha256": "sha256:5a18e938d079b5ec73a7a2be713fe501aa1374c0cfe812e41e6f1aeba6d96f7f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:8a5b5775deccd3da5f7c4e690d3bca03ede520f6e7ee1e00db0fa32e73bad912",
+        "source_path": "examples/resources/xcsh_app_firewall/ai-enhancements.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:ai-enhancements",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/ai-enhancements/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--ai-enhancements.md",
+      "role": "example",
+      "schema_path": ["ai-enhancements"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/ai-enhancements/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Ai enhancements for xcsh_app_firewall.",
+      "title": "Ai enhancements",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1511,
+      "body_sha256": "sha256:6ff33d1a46c160775c81f3c4d7f76c97c769038fbc1185ab51cd009463ff0bcc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:15478fdf93d3310174c8b51758e8f4e5d947ab3506a55afff7d878110c0c353d",
+        "source_path": "examples/resources/xcsh_app_firewall/all-attributes.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:all-attributes",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/all-attributes/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--all-attributes.md",
+      "role": "example",
+      "schema_path": ["all-attributes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/all-attributes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "All attributes for xcsh_app_firewall.",
+      "title": "All attributes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1391,
+      "body_sha256": "sha256:f5796f90331a5ffb99e50002cf06d810e81686be746a17f488401ee5c04b81a1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:9fac3f5328e4e5b2882046677e97a6cbe0fb6c753fef26f8f52956cc720b9fe4",
+        "source_path": "examples/resources/xcsh_app_firewall/allowed-response-codes.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:allowed-response-codes",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/allowed-response-codes/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--allowed-response-codes.md",
+      "role": "example",
+      "schema_path": ["allowed-response-codes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/allowed-response-codes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Allowed response codes for xcsh_app_firewall.",
+      "title": "Allowed response codes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1585,
+      "body_sha256": "sha256:4d3e1ea36e51448394c494ad6ec208bba9e9efb13f0171409ab2127fe57b1dfd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:ef7e8d73d30409b783a8406919290ea0de139474cbcea62a1582fcfe0f55c136",
+        "source_path": "examples/resources/xcsh_app_firewall/blocking.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:blocking",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/blocking/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--blocking.md",
+      "role": "example",
+      "schema_path": ["blocking"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/blocking/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Blocking for xcsh_app_firewall.",
+      "title": "Blocking",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1429,
+      "body_sha256": "sha256:f1fa9e897f5159bcb4ce09eab86cf305b3c0029e0eaee4b6db8d410325720311",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:6e9c8727741ef612628e60f244a11489e11b01d40ff73ee72db9aa6ea5f61164",
+        "source_path": "examples/resources/xcsh_app_firewall/bot-protection.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:bot-protection",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/bot-protection/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--bot-protection.md",
+      "role": "example",
+      "schema_path": ["bot-protection"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/bot-protection/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Bot protection for xcsh_app_firewall.",
+      "title": "Bot protection",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1420,
+      "body_sha256": "sha256:a238f83646e7aa4204bbecb0d92b23824f7e4182518e6cb5f41d3c3b096d8f31",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:f2df3fea5ad8e1732d977424427aaf5de894118f0229d9185c0686db929c5462",
+        "source_path": "examples/resources/xcsh_app_firewall/custom-blocking-page.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:custom-blocking-page",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/custom-blocking-page/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--custom-blocking-page.md",
+      "role": "example",
+      "schema_path": ["custom-blocking-page"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/custom-blocking-page/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Custom blocking page for xcsh_app_firewall.",
+      "title": "Custom blocking page",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1596,
+      "body_sha256": "sha256:fbc6b07e9befbf917b0443757ab4c7f74473279a7ef6d13b46890432e8262405",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:50e5c6c8e8107cae5d8fe6c732ac501ab51251e38c9d54deab9761fd88fcb6f2",
+        "source_path": "examples/resources/xcsh_app_firewall/detection-settings.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:detection-settings",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/detection-settings/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--detection-settings.md",
+      "role": "example",
+      "schema_path": ["detection-settings"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/detection-settings/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Detection settings for xcsh_app_firewall.",
+      "title": "Detection settings",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1345,
+      "body_sha256": "sha256:06654bc25bee3bfad682b21b457d0e349cfd4a4f014be0b687794b5899edf519",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:4e7ac5ea3e4dfe4980ba8b5bf719912588c340253be3f414343af180a9e177fc",
+        "source_path": "examples/resources/xcsh_app_firewall/disable-anonymization.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:disable-anonymization",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/disable-anonymization/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--disable-anonymization.md",
+      "role": "example",
+      "schema_path": ["disable-anonymization"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/disable-anonymization/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Disable anonymization for xcsh_app_firewall.",
+      "title": "Disable anonymization",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1306,
+      "body_sha256": "sha256:3b8845ba07c5e108c572fdcdefe792b5019faa91f32765fdcc9d1b7b629f9ac6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:c61bb69f05a187d2bdd987f0e88218a9e36bc46a2b425742c28302526d082474",
+        "source_path": "examples/resources/xcsh_app_firewall/monitoring.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:monitoring",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/monitoring/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--monitoring.md",
+      "role": "example",
+      "schema_path": ["monitoring"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/monitoring/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Monitoring for xcsh_app_firewall.",
+      "title": "Monitoring",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1131,
+      "body_sha256": "sha256:6146f328e29b49c844ec41ec80310c26659177ac0623c8395c732aaffab6a1b2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:03e5e1d1ea7b4ce0a0005da7cf6bf27eeca5913c46ae5552f44fffd430a9cb75",
+        "source_path": "examples/resources/xcsh_app_firewall/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:resource",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/resource/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_app_firewall.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1572,
+      "body_sha256": "sha256:ca2d890a3e12c898cf2b6495905e142b2d508914b73db86087cc8857629b47c6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:51f4bc6ac4257ec69ec14e7e0c37f3b9cd582e2461dff7632a889f943d97b42f",
+        "source_path": "examples/resources/xcsh_app_firewall/with-labels.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:with-labels",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/with-labels/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--with-labels.md",
+      "role": "example",
+      "schema_path": ["with-labels"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/with-labels/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "With labels for xcsh_app_firewall.",
+      "title": "With labels",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1463,
+      "body_sha256": "sha256:3e0c1edb8b322d18520eee627047a671af4c4791eb8d747e0b315364e89b997d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:0bbaf48e9cd535c6fd630956b0756feb6f88090c3cb140fc62c351e03346e5cd",
+        "source_path": "examples/resources/xcsh_app_firewall/with-updated-labels.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_firewall:example:with-updated-labels",
+      "parent_id": "xcsh-docs:resources:app_firewall:examples",
+      "path": "documentation/resources/app_firewall/examples/with-updated-labels/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--example--with-updated-labels.md",
+      "role": "example",
+      "schema_path": ["with-updated-labels"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/examples/with-updated-labels/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "With updated labels for xcsh_app_firewall.",
+      "title": "With updated labels",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 409,
+      "body_sha256": "sha256:040f54d5f1aab482d4465c6978dd6e785a530c6c9958d1f0bf32057f02128001",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:import",
+      "parent_id": "xcsh-docs:resources:app_firewall:fundamentals",
+      "path": "documentation/resources/app_firewall/lifecycle/import/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_app_firewall.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 469,
+      "body_sha256": "sha256:f09159e31ebebadf6c6750b660ef09a02fdb75264aad9f1e969993866493e8b3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_firewall:timeouts",
+      "parent_id": "xcsh-docs:resources:app_firewall:fundamentals",
+      "path": "documentation/resources/app_firewall/lifecycle/timeouts/index.md",
+      "provider_name": "app_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_firewall--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_firewall/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_app_firewall.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

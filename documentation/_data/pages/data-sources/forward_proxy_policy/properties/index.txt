@@ -1,0 +1,387 @@
+---
+page_title: "Property reference"
+subcategory: "Security"
+description: "Property reference for xcsh_forward_proxy_policy."
+xcsh_docs: {"aliases": [], "body_bytes": 32510, "body_sha256": "sha256:6e9a1e5c3fe7d4ebeccb697401159f984fd8532a7b672b3107549532d1040348", "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:allow_all", "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list", "xcsh-docs:data-sources:forward_proxy_policy:properties:any_proxy", "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list", "xcsh-docs:data-sources:forward_proxy_policy:properties:drp_http_connect", "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector", "xcsh-docs:data-sources:forward_proxy_policy:properties:proxy_label_selector", "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list"], "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:forward_proxy_policy:reference", "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:fundamentals", "path": "documentation/data-sources/forward_proxy_policy/properties/index.md", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "reference", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Property reference for xcsh_forward_proxy_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# Property reference
+
+Breadcrumbs:
+
+- [xcsh_forward_proxy_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/)
+- Property reference
+
+## Direct properties
+
+- [allow_all](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_all/): complete subsection reference.
+
+- [allow_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/): complete subsection reference.
+
+<a id="schema-annotations"></a>
+
+### annotations property
+
+Type: `["map", "string"]`. Computed.
+
+Annotations applied to this resource.
+
+Upstream description:
+
+Annotations is an unstructured key value map stored with a resource that may be set by external
+tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
+modifying objects.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.values.string.max_len": "1024",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.values.string.max_len": "1024",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  }
+}
+```
+
+- [any_proxy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/any_proxy/): complete subsection reference.
+
+- [deny_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/): complete subsection reference.
+
+<a id="schema-description"></a>
+
+### description property
+
+Type: `"string"`. Computed.
+
+Description of the ForwardProxyPolicy.
+
+Upstream description:
+
+Human readable description for the object.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 1200,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 1200
+    },
+    "category": "discovery",
+    "characterSet": {
+      "description": "Free text with UTF-8 support"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 1200,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "1200"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "1200"
+  }
+}
+```
+
+- [drp_http_connect](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/drp_http_connect/): complete subsection reference.
+
+<a id="schema-id"></a>
+
+### id property
+
+Type: `"string"`. Computed.
+
+Unique identifier for the resource.
+
+<a id="schema-labels"></a>
+
+### labels property
+
+Type: `["map", "string"]`. Computed.
+
+Labels applied to this resource.
+
+Upstream description:
+
+Map of string keys and values that can be used to organize and categorize (scope and select) objects
+as chosen by the user. Values specified here will be used by selector expression.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-name"></a>
+
+### name property
+
+Type: `"string"`. Required.
+
+Name of the ForwardProxyPolicy.
+
+Upstream description:
+
+This is the name of configuration object. It has to be unique within the namespace. It can only be
+specified during create API and cannot be changed during replace API. The value of name has to
+follow DNS-1035 format.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true"
+  }
+}
+```
+
+<a id="schema-namespace"></a>
+
+### namespace property
+
+Type: `"string"`. Required.
+
+Namespace where the ForwardProxyPolicy exists.
+
+Upstream description:
+
+This defines the workspace within which each the configuration object is to be created. Must be a
+DNS\_LABEL format. For a namespace object itself, namespace value will be ""
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [network_connector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/network_connector/): complete subsection reference.
+
+- [proxy_label_selector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/proxy_label_selector/): complete subsection reference.
+
+- [rule_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/): complete subsection reference.
+
+## All schema paths
+
+Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+
+| Schema path | Complete reference |
+| --- | --- |
+| `allow_all` | [allow_all](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_all/#section) |
+| `allow_list` | [allow_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/#section) |
+| `allow_list.default_action_allow` | [allow_list.default_action_allow](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/default_action_allow/#section) |
+| `allow_list.default_action_deny` | [allow_list.default_action_deny](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/default_action_deny/#section) |
+| `allow_list.default_action_next_policy` | [allow_list.default_action_next_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/default_action_next_policy/#section) |
+| `allow_list.dest_list` | [allow_list.dest_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/dest_list/#section) |
+| `allow_list.dest_list.ipv6_prefixes` | [allow_list.dest_list.ipv6_prefixes](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/dest_list/#schema-allow_list--dest_list--ipv6_prefixes) |
+| `allow_list.dest_list.port_ranges` | [allow_list.dest_list.port_ranges](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/dest_list/#schema-allow_list--dest_list--port_ranges) |
+| `allow_list.dest_list.prefixes` | [allow_list.dest_list.prefixes](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/dest_list/#schema-allow_list--dest_list--prefixes) |
+| `allow_list.http_list` | [allow_list.http_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/http_list/#section) |
+| `allow_list.http_list.any_path` | [allow_list.http_list.any_path](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/http_list/any_path/#section) |
+| `allow_list.http_list.exact_value` | [allow_list.http_list.exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/http_list/#schema-allow_list--http_list--exact_value) |
+| `allow_list.http_list.path_exact_value` | [allow_list.http_list.path_exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/http_list/#schema-allow_list--http_list--path_exact_value) |
+| `allow_list.http_list.path_prefix_value` | [allow_list.http_list.path_prefix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/http_list/#schema-allow_list--http_list--path_prefix_value) |
+| `allow_list.http_list.path_regex_value` | [allow_list.http_list.path_regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/http_list/#schema-allow_list--http_list--path_regex_value) |
+| `allow_list.http_list.regex_value` | [allow_list.http_list.regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/http_list/#schema-allow_list--http_list--regex_value) |
+| `allow_list.http_list.suffix_value` | [allow_list.http_list.suffix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/http_list/#schema-allow_list--http_list--suffix_value) |
+| `allow_list.tls_list` | [allow_list.tls_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/tls_list/#section) |
+| `allow_list.tls_list.exact_value` | [allow_list.tls_list.exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/tls_list/#schema-allow_list--tls_list--exact_value) |
+| `allow_list.tls_list.regex_value` | [allow_list.tls_list.regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/tls_list/#schema-allow_list--tls_list--regex_value) |
+| `allow_list.tls_list.suffix_value` | [allow_list.tls_list.suffix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/tls_list/#schema-allow_list--tls_list--suffix_value) |
+| `annotations` | [annotations](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/#schema-annotations) |
+| `any_proxy` | [any_proxy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/any_proxy/#section) |
+| `deny_list` | [deny_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/#section) |
+| `deny_list.default_action_allow` | [deny_list.default_action_allow](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/default_action_allow/#section) |
+| `deny_list.default_action_deny` | [deny_list.default_action_deny](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/default_action_deny/#section) |
+| `deny_list.default_action_next_policy` | [deny_list.default_action_next_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/default_action_next_policy/#section) |
+| `deny_list.dest_list` | [deny_list.dest_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/dest_list/#section) |
+| `deny_list.dest_list.ipv6_prefixes` | [deny_list.dest_list.ipv6_prefixes](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/dest_list/#schema-deny_list--dest_list--ipv6_prefixes) |
+| `deny_list.dest_list.port_ranges` | [deny_list.dest_list.port_ranges](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/dest_list/#schema-deny_list--dest_list--port_ranges) |
+| `deny_list.dest_list.prefixes` | [deny_list.dest_list.prefixes](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/dest_list/#schema-deny_list--dest_list--prefixes) |
+| `deny_list.http_list` | [deny_list.http_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/http_list/#section) |
+| `deny_list.http_list.any_path` | [deny_list.http_list.any_path](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/http_list/any_path/#section) |
+| `deny_list.http_list.exact_value` | [deny_list.http_list.exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/http_list/#schema-deny_list--http_list--exact_value) |
+| `deny_list.http_list.path_exact_value` | [deny_list.http_list.path_exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/http_list/#schema-deny_list--http_list--path_exact_value) |
+| `deny_list.http_list.path_prefix_value` | [deny_list.http_list.path_prefix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/http_list/#schema-deny_list--http_list--path_prefix_value) |
+| `deny_list.http_list.path_regex_value` | [deny_list.http_list.path_regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/http_list/#schema-deny_list--http_list--path_regex_value) |
+| `deny_list.http_list.regex_value` | [deny_list.http_list.regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/http_list/#schema-deny_list--http_list--regex_value) |
+| `deny_list.http_list.suffix_value` | [deny_list.http_list.suffix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/http_list/#schema-deny_list--http_list--suffix_value) |
+| `deny_list.tls_list` | [deny_list.tls_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/tls_list/#section) |
+| `deny_list.tls_list.exact_value` | [deny_list.tls_list.exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/tls_list/#schema-deny_list--tls_list--exact_value) |
+| `deny_list.tls_list.regex_value` | [deny_list.tls_list.regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/tls_list/#schema-deny_list--tls_list--regex_value) |
+| `deny_list.tls_list.suffix_value` | [deny_list.tls_list.suffix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/tls_list/#schema-deny_list--tls_list--suffix_value) |
+| `description` | [description](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/#schema-description) |
+| `drp_http_connect` | [drp_http_connect](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/drp_http_connect/#section) |
+| `id` | [id](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/#schema-id) |
+| `labels` | [labels](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/#schema-labels) |
+| `name` | [name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/#schema-name) |
+| `namespace` | [namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/#schema-namespace) |
+| `network_connector` | [network_connector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/network_connector/#section) |
+| `network_connector.name` | [network_connector.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/network_connector/#schema-network_connector--name) |
+| `network_connector.namespace` | [network_connector.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/network_connector/#schema-network_connector--namespace) |
+| `network_connector.tenant` | [network_connector.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/network_connector/#schema-network_connector--tenant) |
+| `proxy_label_selector` | [proxy_label_selector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/proxy_label_selector/#section) |
+| `proxy_label_selector.expressions` | [proxy_label_selector.expressions](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/proxy_label_selector/#schema-proxy_label_selector--expressions) |
+| `rule_list` | [rule_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/#section) |
+| `rule_list.rules` | [rule_list.rules](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/#section) |
+| `rule_list.rules.action` | [rule_list.rules.action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/#schema-rule_list--rules--action) |
+| `rule_list.rules.all_destinations` | [rule_list.rules.all_destinations](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/all_destinations/#section) |
+| `rule_list.rules.all_sources` | [rule_list.rules.all_sources](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/all_sources/#section) |
+| `rule_list.rules.dst_asn_list` | [rule_list.rules.dst_asn_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_list/#section) |
+| `rule_list.rules.dst_asn_list.as_numbers` | [rule_list.rules.dst_asn_list.as_numbers](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_list/#schema-rule_list--rules--dst_asn_list--as_numbers) |
+| `rule_list.rules.dst_asn_set` | [rule_list.rules.dst_asn_set](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/#section) |
+| `rule_list.rules.dst_asn_set.name` | [rule_list.rules.dst_asn_set.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/#schema-rule_list--rules--dst_asn_set--name) |
+| `rule_list.rules.dst_asn_set.namespace` | [rule_list.rules.dst_asn_set.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/#schema-rule_list--rules--dst_asn_set--namespace) |
+| `rule_list.rules.dst_asn_set.tenant` | [rule_list.rules.dst_asn_set.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/#schema-rule_list--rules--dst_asn_set--tenant) |
+| `rule_list.rules.dst_ip_prefix_set` | [rule_list.rules.dst_ip_prefix_set](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/#section) |
+| `rule_list.rules.dst_ip_prefix_set.name` | [rule_list.rules.dst_ip_prefix_set.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/#schema-rule_list--rules--dst_ip_prefix_set--name) |
+| `rule_list.rules.dst_ip_prefix_set.namespace` | [rule_list.rules.dst_ip_prefix_set.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/#schema-rule_list--rules--dst_ip_prefix_set--namespace) |
+| `rule_list.rules.dst_ip_prefix_set.tenant` | [rule_list.rules.dst_ip_prefix_set.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/#schema-rule_list--rules--dst_ip_prefix_set--tenant) |
+| `rule_list.rules.dst_label_selector` | [rule_list.rules.dst_label_selector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_label_selector/#section) |
+| `rule_list.rules.dst_label_selector.expressions` | [rule_list.rules.dst_label_selector.expressions](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_label_selector/#schema-rule_list--rules--dst_label_selector--expressions) |
+| `rule_list.rules.dst_prefix_list` | [rule_list.rules.dst_prefix_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_prefix_list/#section) |
+| `rule_list.rules.dst_prefix_list.prefixes` | [rule_list.rules.dst_prefix_list.prefixes](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_prefix_list/#schema-rule_list--rules--dst_prefix_list--prefixes) |
+| `rule_list.rules.http_list` | [rule_list.rules.http_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/#section) |
+| `rule_list.rules.http_list.http_list` | [rule_list.rules.http_list.http_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/#section) |
+| `rule_list.rules.http_list.http_list.any_path` | [rule_list.rules.http_list.http_list.any_path](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/any_path/#section) |
+| `rule_list.rules.http_list.http_list.exact_value` | [rule_list.rules.http_list.http_list.exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/#schema-rule_list--rules--http_list--http_list--exact_value) |
+| `rule_list.rules.http_list.http_list.path_exact_value` | [rule_list.rules.http_list.http_list.path_exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/#schema-rule_list--rules--http_list--http_list--path_exact_value) |
+| `rule_list.rules.http_list.http_list.path_prefix_value` | [rule_list.rules.http_list.http_list.path_prefix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/#schema-rule_list--rules--http_list--http_list--path_prefix_value) |
+| `rule_list.rules.http_list.http_list.path_regex_value` | [rule_list.rules.http_list.http_list.path_regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/#schema-rule_list--rules--http_list--http_list--path_regex_value) |
+| `rule_list.rules.http_list.http_list.regex_value` | [rule_list.rules.http_list.http_list.regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/#schema-rule_list--rules--http_list--http_list--regex_value) |
+| `rule_list.rules.http_list.http_list.suffix_value` | [rule_list.rules.http_list.http_list.suffix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/#schema-rule_list--rules--http_list--http_list--suffix_value) |
+| `rule_list.rules.ip_prefix_set` | [rule_list.rules.ip_prefix_set](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/#section) |
+| `rule_list.rules.ip_prefix_set.name` | [rule_list.rules.ip_prefix_set.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/#schema-rule_list--rules--ip_prefix_set--name) |
+| `rule_list.rules.ip_prefix_set.namespace` | [rule_list.rules.ip_prefix_set.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/#schema-rule_list--rules--ip_prefix_set--namespace) |
+| `rule_list.rules.ip_prefix_set.tenant` | [rule_list.rules.ip_prefix_set.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/#schema-rule_list--rules--ip_prefix_set--tenant) |
+| `rule_list.rules.label_selector` | [rule_list.rules.label_selector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/label_selector/#section) |
+| `rule_list.rules.label_selector.expressions` | [rule_list.rules.label_selector.expressions](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/label_selector/#schema-rule_list--rules--label_selector--expressions) |
+| `rule_list.rules.metadata` | [rule_list.rules.metadata](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/metadata/#section) |
+| `rule_list.rules.metadata.description_spec` | [rule_list.rules.metadata.description_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/metadata/#schema-rule_list--rules--metadata--description_spec) |
+| `rule_list.rules.metadata.name` | [rule_list.rules.metadata.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/metadata/#schema-rule_list--rules--metadata--name) |
+| `rule_list.rules.no_http_connect_port` | [rule_list.rules.no_http_connect_port](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/no_http_connect_port/#section) |
+| `rule_list.rules.port_matcher` | [rule_list.rules.port_matcher](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/port_matcher/#section) |
+| `rule_list.rules.port_matcher.invert_matcher` | [rule_list.rules.port_matcher.invert_matcher](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/port_matcher/#schema-rule_list--rules--port_matcher--invert_matcher) |
+| `rule_list.rules.port_matcher.ports` | [rule_list.rules.port_matcher.ports](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/port_matcher/#schema-rule_list--rules--port_matcher--ports) |
+| `rule_list.rules.prefix_list` | [rule_list.rules.prefix_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/prefix_list/#section) |
+| `rule_list.rules.prefix_list.prefixes` | [rule_list.rules.prefix_list.prefixes](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/prefix_list/#schema-rule_list--rules--prefix_list--prefixes) |
+| `rule_list.rules.tls_list` | [rule_list.rules.tls_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/#section) |
+| `rule_list.rules.tls_list.tls_list` | [rule_list.rules.tls_list.tls_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/#section) |
+| `rule_list.rules.tls_list.tls_list.exact_value` | [rule_list.rules.tls_list.tls_list.exact_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/#schema-rule_list--rules--tls_list--tls_list--exact_value) |
+| `rule_list.rules.tls_list.tls_list.regex_value` | [rule_list.rules.tls_list.tls_list.regex_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/#schema-rule_list--rules--tls_list--tls_list--regex_value) |
+| `rule_list.rules.tls_list.tls_list.suffix_value` | [rule_list.rules.tls_list.tls_list.suffix_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/#schema-rule_list--rules--tls_list--tls_list--suffix_value) |
+| `rule_list.rules.url_category_list` | [rule_list.rules.url_category_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/url_category_list/#section) |
+| `rule_list.rules.url_category_list.url_categories` | [rule_list.rules.url_category_list.url_categories](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/rules/url_category_list/#schema-rule_list--rules--url_category_list--url_categories) |
+
+## Next pages
+
+- [allow_all](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_all/)
+- [allow_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/allow_list/)
+- [any_proxy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/any_proxy/)
+- [deny_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/deny_list/)
+- [drp_http_connect](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/drp_http_connect/)
+- [network_connector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/network_connector/)
+- [proxy_label_selector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/proxy_label_selector/)
+- [rule_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/properties/rule_list/)
+- [xcsh_forward_proxy_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/forward_proxy_policy/)

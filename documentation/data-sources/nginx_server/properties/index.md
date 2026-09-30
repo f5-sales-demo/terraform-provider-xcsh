@@ -1,0 +1,131 @@
+---
+page_title: "Property reference"
+subcategory: ""
+description: "Property reference for xcsh_nginx_server."
+xcsh_docs: {"aliases": [], "body_bytes": 13098, "body_sha256": "sha256:9f2ff258fb4bb95421b744ad2c3857805536dd79328f7754ec67b0d4be36f3c4", "child_ids": ["xcsh-docs:data-sources:nginx_server:properties:dataplane_ref", "xcsh-docs:data-sources:nginx_server:properties:server_spec"], "collection_id": "xcsh-docs:data-sources:nginx_server:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nginx_server:reference", "parent_id": "xcsh-docs:data-sources:nginx_server:fundamentals", "path": "documentation/data-sources/nginx_server/properties/index.md", "provider_name": "nginx_server", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "reference", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Property reference for xcsh_nginx_server.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# Property reference
+
+Breadcrumbs:
+
+- [xcsh_nginx_server](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/)
+- Property reference
+
+## Direct properties
+
+<a id="schema-annotations"></a>
+
+### annotations property
+
+Type: `["map", "string"]`. Computed.
+
+Annotations.
+
+- [dataplane_ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/): complete subsection reference.
+
+<a id="schema-description"></a>
+
+### description property
+
+Type: `"string"`. Computed.
+
+Description.
+
+<a id="schema-id"></a>
+
+### id property
+
+Type: `"string"`. Computed.
+
+Unique identifier.
+
+<a id="schema-labels"></a>
+
+### labels property
+
+Type: `["map", "string"]`. Computed.
+
+Labels.
+
+<a id="schema-name"></a>
+
+### name property
+
+Type: `"string"`. Required.
+
+Name of the NginxServer to look up.
+
+<a id="schema-namespace"></a>
+
+### namespace property
+
+Type: `"string"`. Required.
+
+Namespace of the NginxServer.
+
+- [server_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/): complete subsection reference.
+
+## All schema paths
+
+Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+
+| Schema path | Complete reference |
+| --- | --- |
+| `annotations` | [annotations](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/#schema-annotations) |
+| `dataplane_ref` | [dataplane_ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/#section) |
+| `dataplane_ref.nginx_csg` | [dataplane_ref.nginx_csg](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/nginx_csg/#section) |
+| `dataplane_ref.nginx_csg.name` | [dataplane_ref.nginx_csg.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/nginx_csg/#schema-dataplane_ref--nginx_csg--name) |
+| `dataplane_ref.nginx_csg.namespace` | [dataplane_ref.nginx_csg.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/nginx_csg/#schema-dataplane_ref--nginx_csg--namespace) |
+| `dataplane_ref.nginx_csg.tenant` | [dataplane_ref.nginx_csg.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/nginx_csg/#schema-dataplane_ref--nginx_csg--tenant) |
+| `dataplane_ref.nginx_instance` | [dataplane_ref.nginx_instance](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/nginx_instance/#section) |
+| `dataplane_ref.nginx_instance.name` | [dataplane_ref.nginx_instance.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/nginx_instance/#schema-dataplane_ref--nginx_instance--name) |
+| `dataplane_ref.nginx_instance.namespace` | [dataplane_ref.nginx_instance.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/nginx_instance/#schema-dataplane_ref--nginx_instance--namespace) |
+| `dataplane_ref.nginx_instance.tenant` | [dataplane_ref.nginx_instance.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/nginx_instance/#schema-dataplane_ref--nginx_instance--tenant) |
+| `description` | [description](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/#schema-description) |
+| `id` | [id](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/#schema-id) |
+| `labels` | [labels](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/#schema-labels) |
+| `name` | [name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/#schema-name) |
+| `namespace` | [namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/#schema-namespace) |
+| `server_spec` | [server_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/#section) |
+| `server_spec.api_discovery_spec` | [server_spec.api_discovery_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/api_discovery_spec/#section) |
+| `server_spec.api_discovery_spec.disabled` | [server_spec.api_discovery_spec.disabled](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/api_discovery_spec/disabled/#section) |
+| `server_spec.api_discovery_spec.enabled` | [server_spec.api_discovery_spec.enabled](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/api_discovery_spec/enabled/#section) |
+| `server_spec.domains` | [server_spec.domains](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/#schema-server_spec--domains) |
+| `server_spec.locations` | [server_spec.locations](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/#section) |
+| `server_spec.locations.api_discovery_spec` | [server_spec.locations.api_discovery_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/#section) |
+| `server_spec.locations.api_discovery_spec.disabled` | [server_spec.locations.api_discovery_spec.disabled](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/disabled/#section) |
+| `server_spec.locations.api_discovery_spec.enabled` | [server_spec.locations.api_discovery_spec.enabled](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/enabled/#section) |
+| `server_spec.locations.definition` | [server_spec.locations.definition](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/#schema-server_spec--locations--definition) |
+| `server_spec.locations.name` | [server_spec.locations.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/#schema-server_spec--locations--name) |
+| `server_spec.locations.waf_spec` | [server_spec.locations.waf_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/#section) |
+| `server_spec.locations.waf_spec.blocking_waf_mode` | [server_spec.locations.waf_spec.blocking_waf_mode](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/blocking_waf_mode/#section) |
+| `server_spec.locations.waf_spec.distributed_cloud_policy_management` | [server_spec.locations.waf_spec.distributed_cloud_policy_management](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/distributed_cloud_policy_management/#section) |
+| `server_spec.locations.waf_spec.monitoring_waf_mode` | [server_spec.locations.waf_spec.monitoring_waf_mode](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/monitoring_waf_mode/#section) |
+| `server_spec.locations.waf_spec.nginx_policy_management` | [server_spec.locations.waf_spec.nginx_policy_management](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/nginx_policy_management/#section) |
+| `server_spec.locations.waf_spec.none_waf_mode` | [server_spec.locations.waf_spec.none_waf_mode](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/none_waf_mode/#section) |
+| `server_spec.locations.waf_spec.policy_file_name` | [server_spec.locations.waf_spec.policy_file_name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/#schema-server_spec--locations--waf_spec--policy_file_name) |
+| `server_spec.locations.waf_spec.policy_name` | [server_spec.locations.waf_spec.policy_name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/#schema-server_spec--locations--waf_spec--policy_name) |
+| `server_spec.locations.waf_spec.security_log_enabled` | [server_spec.locations.waf_spec.security_log_enabled](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/#schema-server_spec--locations--waf_spec--security_log_enabled) |
+| `server_spec.locations.waf_spec.security_log_file_names` | [server_spec.locations.waf_spec.security_log_file_names](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/locations/waf_spec/#schema-server_spec--locations--waf_spec--security_log_file_names) |
+| `server_spec.nginx_one_object_id` | [server_spec.nginx_one_object_id](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/#schema-server_spec--nginx_one_object_id) |
+| `server_spec.nginx_one_object_name` | [server_spec.nginx_one_object_name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/#schema-server_spec--nginx_one_object_name) |
+| `server_spec.port` | [server_spec.port](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/#schema-server_spec--port) |
+| `server_spec.server_name` | [server_spec.server_name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/#schema-server_spec--server_name) |
+| `server_spec.total_routes` | [server_spec.total_routes](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/#schema-server_spec--total_routes) |
+| `server_spec.waf_spec` | [server_spec.waf_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/#section) |
+| `server_spec.waf_spec.blocking_waf_mode` | [server_spec.waf_spec.blocking_waf_mode](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/blocking_waf_mode/#section) |
+| `server_spec.waf_spec.distributed_cloud_policy_management` | [server_spec.waf_spec.distributed_cloud_policy_management](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/distributed_cloud_policy_management/#section) |
+| `server_spec.waf_spec.monitoring_waf_mode` | [server_spec.waf_spec.monitoring_waf_mode](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/monitoring_waf_mode/#section) |
+| `server_spec.waf_spec.nginx_policy_management` | [server_spec.waf_spec.nginx_policy_management](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/nginx_policy_management/#section) |
+| `server_spec.waf_spec.none_waf_mode` | [server_spec.waf_spec.none_waf_mode](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/none_waf_mode/#section) |
+| `server_spec.waf_spec.policy_file_name` | [server_spec.waf_spec.policy_file_name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/#schema-server_spec--waf_spec--policy_file_name) |
+| `server_spec.waf_spec.policy_name` | [server_spec.waf_spec.policy_name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/#schema-server_spec--waf_spec--policy_name) |
+| `server_spec.waf_spec.security_log_enabled` | [server_spec.waf_spec.security_log_enabled](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/#schema-server_spec--waf_spec--security_log_enabled) |
+| `server_spec.waf_spec.security_log_file_names` | [server_spec.waf_spec.security_log_file_names](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/waf_spec/#schema-server_spec--waf_spec--security_log_file_names) |
+
+## Next pages
+
+- [dataplane_ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/dataplane_ref/)
+- [server_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/properties/server_spec/)
+- [xcsh_nginx_server](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/nginx_server/)

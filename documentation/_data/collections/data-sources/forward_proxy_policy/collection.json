@@ -1,0 +1,1788 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:forward_proxy_policy:fundamentals",
+    "id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+    "properties": {
+      "allow_all": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_all",
+        "schema_path": ["allow_all"]
+      },
+      "allow_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+        "schema_path": ["allow_list"]
+      },
+      "allow_list.default_action_allow": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_allow",
+        "schema_path": ["allow_list", "default_action_allow"]
+      },
+      "allow_list.default_action_deny": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_deny",
+        "schema_path": ["allow_list", "default_action_deny"]
+      },
+      "allow_list.default_action_next_policy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_next_policy",
+        "schema_path": ["allow_list", "default_action_next_policy"]
+      },
+      "allow_list.dest_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
+        "schema_path": ["allow_list", "dest_list"]
+      },
+      "allow_list.dest_list.ipv6_prefixes": {
+        "anchor": "schema-allow_list--dest_list--ipv6_prefixes",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
+        "schema_path": ["allow_list", "dest_list", "ipv6_prefixes"]
+      },
+      "allow_list.dest_list.port_ranges": {
+        "anchor": "schema-allow_list--dest_list--port_ranges",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
+        "schema_path": ["allow_list", "dest_list", "port_ranges"]
+      },
+      "allow_list.dest_list.prefixes": {
+        "anchor": "schema-allow_list--dest_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
+        "schema_path": ["allow_list", "dest_list", "prefixes"]
+      },
+      "allow_list.http_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+        "schema_path": ["allow_list", "http_list"]
+      },
+      "allow_list.http_list.any_path": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path",
+        "schema_path": ["allow_list", "http_list", "any_path"]
+      },
+      "allow_list.http_list.exact_value": {
+        "anchor": "schema-allow_list--http_list--exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+        "schema_path": ["allow_list", "http_list", "exact_value"]
+      },
+      "allow_list.http_list.path_exact_value": {
+        "anchor": "schema-allow_list--http_list--path_exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+        "schema_path": ["allow_list", "http_list", "path_exact_value"]
+      },
+      "allow_list.http_list.path_prefix_value": {
+        "anchor": "schema-allow_list--http_list--path_prefix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+        "schema_path": ["allow_list", "http_list", "path_prefix_value"]
+      },
+      "allow_list.http_list.path_regex_value": {
+        "anchor": "schema-allow_list--http_list--path_regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+        "schema_path": ["allow_list", "http_list", "path_regex_value"]
+      },
+      "allow_list.http_list.regex_value": {
+        "anchor": "schema-allow_list--http_list--regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+        "schema_path": ["allow_list", "http_list", "regex_value"]
+      },
+      "allow_list.http_list.suffix_value": {
+        "anchor": "schema-allow_list--http_list--suffix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+        "schema_path": ["allow_list", "http_list", "suffix_value"]
+      },
+      "allow_list.tls_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
+        "schema_path": ["allow_list", "tls_list"]
+      },
+      "allow_list.tls_list.exact_value": {
+        "anchor": "schema-allow_list--tls_list--exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
+        "schema_path": ["allow_list", "tls_list", "exact_value"]
+      },
+      "allow_list.tls_list.regex_value": {
+        "anchor": "schema-allow_list--tls_list--regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
+        "schema_path": ["allow_list", "tls_list", "regex_value"]
+      },
+      "allow_list.tls_list.suffix_value": {
+        "anchor": "schema-allow_list--tls_list--suffix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
+        "schema_path": ["allow_list", "tls_list", "suffix_value"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "any_proxy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:any_proxy",
+        "schema_path": ["any_proxy"]
+      },
+      "deny_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+        "schema_path": ["deny_list"]
+      },
+      "deny_list.default_action_allow": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_allow",
+        "schema_path": ["deny_list", "default_action_allow"]
+      },
+      "deny_list.default_action_deny": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_deny",
+        "schema_path": ["deny_list", "default_action_deny"]
+      },
+      "deny_list.default_action_next_policy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_next_policy",
+        "schema_path": ["deny_list", "default_action_next_policy"]
+      },
+      "deny_list.dest_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
+        "schema_path": ["deny_list", "dest_list"]
+      },
+      "deny_list.dest_list.ipv6_prefixes": {
+        "anchor": "schema-deny_list--dest_list--ipv6_prefixes",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
+        "schema_path": ["deny_list", "dest_list", "ipv6_prefixes"]
+      },
+      "deny_list.dest_list.port_ranges": {
+        "anchor": "schema-deny_list--dest_list--port_ranges",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
+        "schema_path": ["deny_list", "dest_list", "port_ranges"]
+      },
+      "deny_list.dest_list.prefixes": {
+        "anchor": "schema-deny_list--dest_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
+        "schema_path": ["deny_list", "dest_list", "prefixes"]
+      },
+      "deny_list.http_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+        "schema_path": ["deny_list", "http_list"]
+      },
+      "deny_list.http_list.any_path": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path",
+        "schema_path": ["deny_list", "http_list", "any_path"]
+      },
+      "deny_list.http_list.exact_value": {
+        "anchor": "schema-deny_list--http_list--exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+        "schema_path": ["deny_list", "http_list", "exact_value"]
+      },
+      "deny_list.http_list.path_exact_value": {
+        "anchor": "schema-deny_list--http_list--path_exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+        "schema_path": ["deny_list", "http_list", "path_exact_value"]
+      },
+      "deny_list.http_list.path_prefix_value": {
+        "anchor": "schema-deny_list--http_list--path_prefix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+        "schema_path": ["deny_list", "http_list", "path_prefix_value"]
+      },
+      "deny_list.http_list.path_regex_value": {
+        "anchor": "schema-deny_list--http_list--path_regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+        "schema_path": ["deny_list", "http_list", "path_regex_value"]
+      },
+      "deny_list.http_list.regex_value": {
+        "anchor": "schema-deny_list--http_list--regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+        "schema_path": ["deny_list", "http_list", "regex_value"]
+      },
+      "deny_list.http_list.suffix_value": {
+        "anchor": "schema-deny_list--http_list--suffix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+        "schema_path": ["deny_list", "http_list", "suffix_value"]
+      },
+      "deny_list.tls_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
+        "schema_path": ["deny_list", "tls_list"]
+      },
+      "deny_list.tls_list.exact_value": {
+        "anchor": "schema-deny_list--tls_list--exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
+        "schema_path": ["deny_list", "tls_list", "exact_value"]
+      },
+      "deny_list.tls_list.regex_value": {
+        "anchor": "schema-deny_list--tls_list--regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
+        "schema_path": ["deny_list", "tls_list", "regex_value"]
+      },
+      "deny_list.tls_list.suffix_value": {
+        "anchor": "schema-deny_list--tls_list--suffix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
+        "schema_path": ["deny_list", "tls_list", "suffix_value"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+        "schema_path": ["description"]
+      },
+      "drp_http_connect": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:drp_http_connect",
+        "schema_path": ["drp_http_connect"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "network_connector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
+        "schema_path": ["network_connector"]
+      },
+      "network_connector.name": {
+        "anchor": "schema-network_connector--name",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
+        "schema_path": ["network_connector", "name"]
+      },
+      "network_connector.namespace": {
+        "anchor": "schema-network_connector--namespace",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
+        "schema_path": ["network_connector", "namespace"]
+      },
+      "network_connector.tenant": {
+        "anchor": "schema-network_connector--tenant",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
+        "schema_path": ["network_connector", "tenant"]
+      },
+      "proxy_label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:proxy_label_selector",
+        "schema_path": ["proxy_label_selector"]
+      },
+      "proxy_label_selector.expressions": {
+        "anchor": "schema-proxy_label_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:proxy_label_selector",
+        "schema_path": ["proxy_label_selector", "expressions"]
+      },
+      "rule_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list",
+        "schema_path": ["rule_list"]
+      },
+      "rule_list.rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+        "schema_path": ["rule_list", "rules"]
+      },
+      "rule_list.rules.action": {
+        "anchor": "schema-rule_list--rules--action",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+        "schema_path": ["rule_list", "rules", "action"]
+      },
+      "rule_list.rules.all_destinations": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+        "schema_path": ["rule_list", "rules", "all_destinations"]
+      },
+      "rule_list.rules.all_sources": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+        "schema_path": ["rule_list", "rules", "all_sources"]
+      },
+      "rule_list.rules.dst_asn_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+        "schema_path": ["rule_list", "rules", "dst_asn_list"]
+      },
+      "rule_list.rules.dst_asn_list.as_numbers": {
+        "anchor": "schema-rule_list--rules--dst_asn_list--as_numbers",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+        "schema_path": ["rule_list", "rules", "dst_asn_list", "as_numbers"]
+      },
+      "rule_list.rules.dst_asn_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+        "schema_path": ["rule_list", "rules", "dst_asn_set"]
+      },
+      "rule_list.rules.dst_asn_set.name": {
+        "anchor": "schema-rule_list--rules--dst_asn_set--name",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+        "schema_path": ["rule_list", "rules", "dst_asn_set", "name"]
+      },
+      "rule_list.rules.dst_asn_set.namespace": {
+        "anchor": "schema-rule_list--rules--dst_asn_set--namespace",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+        "schema_path": ["rule_list", "rules", "dst_asn_set", "namespace"]
+      },
+      "rule_list.rules.dst_asn_set.tenant": {
+        "anchor": "schema-rule_list--rules--dst_asn_set--tenant",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+        "schema_path": ["rule_list", "rules", "dst_asn_set", "tenant"]
+      },
+      "rule_list.rules.dst_ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "dst_ip_prefix_set"]
+      },
+      "rule_list.rules.dst_ip_prefix_set.name": {
+        "anchor": "schema-rule_list--rules--dst_ip_prefix_set--name",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "dst_ip_prefix_set", "name"]
+      },
+      "rule_list.rules.dst_ip_prefix_set.namespace": {
+        "anchor": "schema-rule_list--rules--dst_ip_prefix_set--namespace",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "dst_ip_prefix_set", "namespace"]
+      },
+      "rule_list.rules.dst_ip_prefix_set.tenant": {
+        "anchor": "schema-rule_list--rules--dst_ip_prefix_set--tenant",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "dst_ip_prefix_set", "tenant"]
+      },
+      "rule_list.rules.dst_label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+        "schema_path": ["rule_list", "rules", "dst_label_selector"]
+      },
+      "rule_list.rules.dst_label_selector.expressions": {
+        "anchor": "schema-rule_list--rules--dst_label_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+        "schema_path": ["rule_list", "rules", "dst_label_selector", "expressions"]
+      },
+      "rule_list.rules.dst_prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+        "schema_path": ["rule_list", "rules", "dst_prefix_list"]
+      },
+      "rule_list.rules.dst_prefix_list.prefixes": {
+        "anchor": "schema-rule_list--rules--dst_prefix_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+        "schema_path": ["rule_list", "rules", "dst_prefix_list", "prefixes"]
+      },
+      "rule_list.rules.http_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list",
+        "schema_path": ["rule_list", "rules", "http_list"]
+      },
+      "rule_list.rules.http_list.http_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+        "schema_path": ["rule_list", "rules", "http_list", "http_list"]
+      },
+      "rule_list.rules.http_list.http_list.any_path": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
+        "schema_path": ["rule_list", "rules", "http_list", "http_list", "any_path"]
+      },
+      "rule_list.rules.http_list.http_list.exact_value": {
+        "anchor": "schema-rule_list--rules--http_list--http_list--exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+        "schema_path": ["rule_list", "rules", "http_list", "http_list", "exact_value"]
+      },
+      "rule_list.rules.http_list.http_list.path_exact_value": {
+        "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+        "schema_path": ["rule_list", "rules", "http_list", "http_list", "path_exact_value"]
+      },
+      "rule_list.rules.http_list.http_list.path_prefix_value": {
+        "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+        "schema_path": ["rule_list", "rules", "http_list", "http_list", "path_prefix_value"]
+      },
+      "rule_list.rules.http_list.http_list.path_regex_value": {
+        "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+        "schema_path": ["rule_list", "rules", "http_list", "http_list", "path_regex_value"]
+      },
+      "rule_list.rules.http_list.http_list.regex_value": {
+        "anchor": "schema-rule_list--rules--http_list--http_list--regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+        "schema_path": ["rule_list", "rules", "http_list", "http_list", "regex_value"]
+      },
+      "rule_list.rules.http_list.http_list.suffix_value": {
+        "anchor": "schema-rule_list--rules--http_list--http_list--suffix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+        "schema_path": ["rule_list", "rules", "http_list", "http_list", "suffix_value"]
+      },
+      "rule_list.rules.ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set"]
+      },
+      "rule_list.rules.ip_prefix_set.name": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--name",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "name"]
+      },
+      "rule_list.rules.ip_prefix_set.namespace": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--namespace",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "namespace"]
+      },
+      "rule_list.rules.ip_prefix_set.tenant": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--tenant",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "tenant"]
+      },
+      "rule_list.rules.label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+        "schema_path": ["rule_list", "rules", "label_selector"]
+      },
+      "rule_list.rules.label_selector.expressions": {
+        "anchor": "schema-rule_list--rules--label_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+        "schema_path": ["rule_list", "rules", "label_selector", "expressions"]
+      },
+      "rule_list.rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:metadata",
+        "schema_path": ["rule_list", "rules", "metadata"]
+      },
+      "rule_list.rules.metadata.description_spec": {
+        "anchor": "schema-rule_list--rules--metadata--description_spec",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:metadata",
+        "schema_path": ["rule_list", "rules", "metadata", "description_spec"]
+      },
+      "rule_list.rules.metadata.name": {
+        "anchor": "schema-rule_list--rules--metadata--name",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:metadata",
+        "schema_path": ["rule_list", "rules", "metadata", "name"]
+      },
+      "rule_list.rules.no_http_connect_port": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:no_http_connect_port",
+        "schema_path": ["rule_list", "rules", "no_http_connect_port"]
+      },
+      "rule_list.rules.port_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
+        "schema_path": ["rule_list", "rules", "port_matcher"]
+      },
+      "rule_list.rules.port_matcher.invert_matcher": {
+        "anchor": "schema-rule_list--rules--port_matcher--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
+        "schema_path": ["rule_list", "rules", "port_matcher", "invert_matcher"]
+      },
+      "rule_list.rules.port_matcher.ports": {
+        "anchor": "schema-rule_list--rules--port_matcher--ports",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
+        "schema_path": ["rule_list", "rules", "port_matcher", "ports"]
+      },
+      "rule_list.rules.prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+        "schema_path": ["rule_list", "rules", "prefix_list"]
+      },
+      "rule_list.rules.prefix_list.prefixes": {
+        "anchor": "schema-rule_list--rules--prefix_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+        "schema_path": ["rule_list", "rules", "prefix_list", "prefixes"]
+      },
+      "rule_list.rules.tls_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+        "schema_path": ["rule_list", "rules", "tls_list"]
+      },
+      "rule_list.rules.tls_list.tls_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+        "schema_path": ["rule_list", "rules", "tls_list", "tls_list"]
+      },
+      "rule_list.rules.tls_list.tls_list.exact_value": {
+        "anchor": "schema-rule_list--rules--tls_list--tls_list--exact_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+        "schema_path": ["rule_list", "rules", "tls_list", "tls_list", "exact_value"]
+      },
+      "rule_list.rules.tls_list.tls_list.regex_value": {
+        "anchor": "schema-rule_list--rules--tls_list--tls_list--regex_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+        "schema_path": ["rule_list", "rules", "tls_list", "tls_list", "regex_value"]
+      },
+      "rule_list.rules.tls_list.tls_list.suffix_value": {
+        "anchor": "schema-rule_list--rules--tls_list--tls_list--suffix_value",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+        "schema_path": ["rule_list", "rules", "tls_list", "tls_list", "suffix_value"]
+      },
+      "rule_list.rules.url_category_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+        "schema_path": ["rule_list", "rules", "url_category_list"]
+      },
+      "rule_list.rules.url_category_list.url_categories": {
+        "anchor": "schema-rule_list--rules--url_category_list--url_categories",
+        "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+        "schema_path": ["rule_list", "rules", "url_category_list", "url_categories"]
+      }
+    },
+    "provider_name": "forward_proxy_policy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:forward_proxy_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1378,
+      "body_sha256": "sha256:4eadd45ecfc2a473f796e8fe22f7f498de005c622358c9d6f4c49f64bb0f0c46",
+      "child_ids": [
+        "xcsh-docs:data-sources:forward_proxy_policy:reference",
+        "xcsh-docs:data-sources:forward_proxy_policy:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/forward_proxy_policy/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/forward_proxy_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_forward_proxy_policy for xcsh_forward_proxy_policy.",
+      "title": "xcsh_forward_proxy_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 32510,
+      "body_sha256": "sha256:6e9a1e5c3fe7d4ebeccb697401159f984fd8532a7b672b3107549532d1040348",
+      "child_ids": [
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_all",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:any_proxy",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:drp_http_connect",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:proxy_label_selector",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:fundamentals",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_forward_proxy_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1686,
+      "body_sha256": "sha256:820ca11fb32c52f1868022d449687611c34883d14e08917e10a09d4b4468a7c7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_all",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_all/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_all.md",
+      "role": "properties",
+      "schema_path": ["allow_all"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_all/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_all for xcsh_forward_proxy_policy.",
+      "title": "allow_all",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3185,
+      "body_sha256": "sha256:95db6b94be72e84577d0c11a629fb2bda9d9f20eb8aaf34fede4d6d21bc44a62",
+      "child_ids": [
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_allow",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_deny",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_next_policy",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_list.md",
+      "role": "properties",
+      "schema_path": ["allow_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_list for xcsh_forward_proxy_policy.",
+      "title": "allow_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1155,
+      "body_sha256": "sha256:88e7d0ac13f9f21ab0415164db1274a90b6afa1e7f57058b1243b6d1d4fc2ec1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_allow",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/default_action_allow/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_list--default_action_allow.md",
+      "role": "properties",
+      "schema_path": ["allow_list", "default_action_allow"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/default_action_allow/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_list.default_action_allow for xcsh_forward_proxy_policy.",
+      "title": "allow_list.default_action_allow",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1153,
+      "body_sha256": "sha256:5d10665d4dc593dc1f435479d013e2adc432c01f8d65a77fc9f1cd1c1f23a58f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_deny",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/default_action_deny/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_list--default_action_deny.md",
+      "role": "properties",
+      "schema_path": ["allow_list", "default_action_deny"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/default_action_deny/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_list.default_action_deny for xcsh_forward_proxy_policy.",
+      "title": "allow_list.default_action_deny",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1187,
+      "body_sha256": "sha256:f4777daf9513579555ec576c5359cc54739f2356e813885ab3f440e9785e7129",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_next_policy",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/default_action_next_policy/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_list--default_action_next_policy.md",
+      "role": "properties",
+      "schema_path": ["allow_list", "default_action_next_policy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/default_action_next_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_list.default_action_next_policy for xcsh_forward_proxy_policy.",
+      "title": "allow_list.default_action_next_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5203,
+      "body_sha256": "sha256:ba2e208fb36224e666a8303584a249504aa847358032cdb80d0a12855952d05b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/dest_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_list--dest_list.md",
+      "role": "properties",
+      "schema_path": ["allow_list", "dest_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/dest_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_list.dest_list for xcsh_forward_proxy_policy.",
+      "title": "allow_list.dest_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9204,
+      "body_sha256": "sha256:09b92f46fdd4c4cd4ceb3533a7ca250b3535be61ac284910495a537a985816b8",
+      "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path"],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/http_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_list--http_list.md",
+      "role": "properties",
+      "schema_path": ["allow_list", "http_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/http_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_list.http_list for xcsh_forward_proxy_policy.",
+      "title": "allow_list.http_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1320,
+      "body_sha256": "sha256:5a93c187b76f0d5c20b066e570b236b36b39821f1e91b463dd61c551f34b4a62",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/http_list/any_path/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_list--http_list--any_path.md",
+      "role": "properties",
+      "schema_path": ["allow_list", "http_list", "any_path"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/http_list/any_path/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_list.http_list.any_path for xcsh_forward_proxy_policy.",
+      "title": "allow_list.http_list.any_path",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5224,
+      "body_sha256": "sha256:3ad0d4e3f4394eec75aa0f9e80c904738e3ed64914bae7957aa5671e3fa31421",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/tls_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--allow_list--tls_list.md",
+      "role": "properties",
+      "schema_path": ["allow_list", "tls_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/tls_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_list.tls_list for xcsh_forward_proxy_policy.",
+      "title": "allow_list.tls_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1763,
+      "body_sha256": "sha256:a3fc1a9b8a5b3f8c7017ca615dc6e10e3055e79ff74f7cc83f96fe915d1bc828",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:any_proxy",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/any_proxy/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--any_proxy.md",
+      "role": "properties",
+      "schema_path": ["any_proxy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/any_proxy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "any_proxy for xcsh_forward_proxy_policy.",
+      "title": "any_proxy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3165,
+      "body_sha256": "sha256:cc629112c706368bcd4abe40496214140c63951916a62a1f3499ba88b170fab1",
+      "child_ids": [
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_allow",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_deny",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_next_policy",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--deny_list.md",
+      "role": "properties",
+      "schema_path": ["deny_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_list for xcsh_forward_proxy_policy.",
+      "title": "deny_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1149,
+      "body_sha256": "sha256:6d6325b2704adaed91b3c4b4c7c01dc9326062411682bed2c3ca860164cebc23",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_allow",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/default_action_allow/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--deny_list--default_action_allow.md",
+      "role": "properties",
+      "schema_path": ["deny_list", "default_action_allow"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/default_action_allow/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_list.default_action_allow for xcsh_forward_proxy_policy.",
+      "title": "deny_list.default_action_allow",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1147,
+      "body_sha256": "sha256:17914dead1989dd1c59192774d3b6701206bcf68cb7b44c1272d5c87962e9249",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_deny",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/default_action_deny/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--deny_list--default_action_deny.md",
+      "role": "properties",
+      "schema_path": ["deny_list", "default_action_deny"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/default_action_deny/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_list.default_action_deny for xcsh_forward_proxy_policy.",
+      "title": "deny_list.default_action_deny",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1181,
+      "body_sha256": "sha256:f22c37fd3df4ecf592faa470de434dcd07a12c2087d7d095047d239b65879d84",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_next_policy",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/default_action_next_policy/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--deny_list--default_action_next_policy.md",
+      "role": "properties",
+      "schema_path": ["deny_list", "default_action_next_policy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/default_action_next_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_list.default_action_next_policy for xcsh_forward_proxy_policy.",
+      "title": "deny_list.default_action_next_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5194,
+      "body_sha256": "sha256:d7d40df20ad704a29cbfc1c68430ae5637d7a4eaef1aeef3db92d3054e20c430",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/dest_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--deny_list--dest_list.md",
+      "role": "properties",
+      "schema_path": ["deny_list", "dest_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/dest_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_list.dest_list for xcsh_forward_proxy_policy.",
+      "title": "deny_list.dest_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9189,
+      "body_sha256": "sha256:b28f21c53e59c0df23b4f1f8d5a17f56e47fce768e6308e7d42b759013df9bb7",
+      "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path"],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/http_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--deny_list--http_list.md",
+      "role": "properties",
+      "schema_path": ["deny_list", "http_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/http_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_list.http_list for xcsh_forward_proxy_policy.",
+      "title": "deny_list.http_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1312,
+      "body_sha256": "sha256:7984c4506fc749c8407b41544a7713907596f17c04436c01ccdb82349cecd5dd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/http_list/any_path/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--deny_list--http_list--any_path.md",
+      "role": "properties",
+      "schema_path": ["deny_list", "http_list", "any_path"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/http_list/any_path/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_list.http_list.any_path for xcsh_forward_proxy_policy.",
+      "title": "deny_list.http_list.any_path",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5215,
+      "body_sha256": "sha256:f8e6c9e7c6af3302f12e0696dbe9bfdf81793d979d62b349bbe07cd2dbd74117",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/tls_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--deny_list--tls_list.md",
+      "role": "properties",
+      "schema_path": ["deny_list", "tls_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/tls_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_list.tls_list for xcsh_forward_proxy_policy.",
+      "title": "deny_list.tls_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1020,
+      "body_sha256": "sha256:af71e80109fe229787f22950507cc191e499a7d378148dc3a61e29bfea3c6b52",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:drp_http_connect",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/drp_http_connect/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--drp_http_connect.md",
+      "role": "properties",
+      "schema_path": ["drp_http_connect"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/drp_http_connect/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "drp_http_connect for xcsh_forward_proxy_policy.",
+      "title": "drp_http_connect",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5121,
+      "body_sha256": "sha256:45b78c8752e97974a43a54b6181424d2c5e914550bc918519f87f5a8ccb8fd82",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/network_connector/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--network_connector.md",
+      "role": "properties",
+      "schema_path": ["network_connector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/network_connector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_connector for xcsh_forward_proxy_policy.",
+      "title": "network_connector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3538,
+      "body_sha256": "sha256:5b3337aecd8a2d8c828cf38f2899e6987bcb76cc020740072ea5b7818d98a566",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:proxy_label_selector",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/proxy_label_selector/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--proxy_label_selector.md",
+      "role": "properties",
+      "schema_path": ["proxy_label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/proxy_label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_label_selector for xcsh_forward_proxy_policy.",
+      "title": "proxy_label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1187,
+      "body_sha256": "sha256:56e9bb54bb577cde88eb7b8d3345dc1d5d5c960fd09cb927dd69fbdbd6af6da6",
+      "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules"],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:reference",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9791,
+      "body_sha256": "sha256:2acd824a812d385151f3644bc7d33042e8ded03aa791528537601c89887fef64",
+      "child_ids": [
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:metadata",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:no_http_connect_port",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:url_category_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1331,
+      "body_sha256": "sha256:60eed8b23a89f2dbf057a811159515b67d0278ca52040780137e1ae31411f0b6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/all_destinations/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--all_destinations.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_destinations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/all_destinations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_destinations for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.all_destinations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1316,
+      "body_sha256": "sha256:da014dfcfbc15d5e27bed0b56239fa3370ee5ffaf7232f73819c81127cd95bc6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/all_sources/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--all_sources.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_sources"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/all_sources/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_sources for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.all_sources",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3142,
+      "body_sha256": "sha256:14e619612a77a946a443dea71f620d6ac49460eba09f01bb528f75a69fa97614",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--dst_asn_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "dst_asn_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.dst_asn_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.dst_asn_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5456,
+      "body_sha256": "sha256:bcdda0cf10729379bf3a28c083c5f1940d49ffde36d329be46fffd5bc58c46fa",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--dst_asn_set.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "dst_asn_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.dst_asn_set for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.dst_asn_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5486,
+      "body_sha256": "sha256:55e4880715c66ad90dbf1bb3823503b24474def42f25bf9c0278e26ceece749a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--dst_ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "dst_ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.dst_ip_prefix_set for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.dst_ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3861,
+      "body_sha256": "sha256:da714c11968db80161b9eeffd71093480a6f843cd4185f91aba504642cb075e8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_label_selector/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--dst_label_selector.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "dst_label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.dst_label_selector for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.dst_label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2247,
+      "body_sha256": "sha256:953161977470dc6796fd9d9aba41f4de42c89ec1ac183faba2e3494d7f3d5c36",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_prefix_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--dst_prefix_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "dst_prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.dst_prefix_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.dst_prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1489,
+      "body_sha256": "sha256:34b596a8f6f44cb74407d511cae4b63da4bb34f27b206997c3f0247751899229",
+      "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list"],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--http_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "http_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.http_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.http_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9707,
+      "body_sha256": "sha256:c91a769985a8b8d4036964ab6889a5ea03d7abeef2ffe09344d2ffe16658122e",
+      "child_ids": [
+        "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path"
+      ],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--http_list--http_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "http_list", "http_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.http_list.http_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.http_list.http_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1706,
+      "body_sha256": "sha256:8f075b496877d971b6d8f995eea5aca76020ee98e6254ac03651328fcdc0ddbe",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/any_path/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--http_list--http_list--any_path.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "http_list", "http_list", "any_path"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/any_path/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.http_list.http_list.any_path for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.http_list.http_list.any_path",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5466,
+      "body_sha256": "sha256:af4e18efa2f9fb2d450ba044023a63c4965805e6acb72b943b7b7c0c133b29bd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.ip_prefix_set for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3849,
+      "body_sha256": "sha256:527d580522025575bc95b44837c2decd1abf0e23a7f72855a91db49261ab7c96",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/label_selector/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--label_selector.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.label_selector for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3595,
+      "body_sha256": "sha256:784edde4dc3abed775a6cc1723faeceb03e61db92299123db666c25cc932d96e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:metadata",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/metadata/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.metadata for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1312,
+      "body_sha256": "sha256:ba33f0dcbd9dca6524eaf674e3510b4b0dbdcbb4ac602f43d2546a59532ae690",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:no_http_connect_port",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/no_http_connect_port/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--no_http_connect_port.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "no_http_connect_port"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/no_http_connect_port/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.no_http_connect_port for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.no_http_connect_port",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3465,
+      "body_sha256": "sha256:7253c52a13b6e9f61b1c140677c67d24aef56ff70cbfc95e1ac62b1778ab917a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/port_matcher/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--port_matcher.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "port_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/port_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.port_matcher for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.port_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2235,
+      "body_sha256": "sha256:45cfbf77ed3091c3940a336650904180916ca234bd37dc0f7dd29dff6b18c7a0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/prefix_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--prefix_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.prefix_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1483,
+      "body_sha256": "sha256:a470eb5650be48618bfb5b79baa49bd53dfa5709c3097b49f82bcf350e239c6b",
+      "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list"],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--tls_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "tls_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.tls_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.tls_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5622,
+      "body_sha256": "sha256:9b02ba5fdf67ec0bd8555ee83d58f3d70a6168332162b23f094d922bc38f39bf",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--tls_list--tls_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "tls_list", "tls_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.tls_list.tls_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.tls_list.tls_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5735,
+      "body_sha256": "sha256:af8fc45704676eaa5cbfd9f8f25df1c7fa5f7bcb37187cf3a6fc7818f2f1c30f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/url_category_list/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--properties--rule_list--rules--url_category_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "url_category_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/url_category_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.url_category_list for xcsh_forward_proxy_policy.",
+      "title": "rule_list.rules.url_category_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 606,
+      "body_sha256": "sha256:079035346a1b9ecbb351964ba085211436fa61b4fd28170629316a0d01822275",
+      "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:examples",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:fundamentals",
+      "path": "documentation/data-sources/forward_proxy_policy/examples/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_forward_proxy_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1282,
+      "body_sha256": "sha256:4bb91c6512789e7ad3a8a3725b90d9420491215cd05eb91a809ab0f37443578c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:3fff12bb997c990a591800c80ace62a7790c01337e27ba68116856af1dfaf950",
+        "source_path": "examples/data-sources/xcsh_forward_proxy_policy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:forward_proxy_policy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:examples",
+      "path": "documentation/data-sources/forward_proxy_policy/examples/data-source/index.md",
+      "provider_name": "forward_proxy_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--forward_proxy_policy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_forward_proxy_policy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["forward_proxy_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

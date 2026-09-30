@@ -1,0 +1,212 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals",
+    "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection",
+    "properties": {
+      "content_type": {
+        "anchor": "schema-content_type",
+        "document_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:reference",
+        "schema_path": ["content_type"]
+      },
+      "data": {
+        "anchor": "schema-data",
+        "document_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:reference",
+        "schema_path": ["data"]
+      },
+      "extensions": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:properties:extensions",
+        "schema_path": ["extensions"]
+      },
+      "extensions.type_url": {
+        "anchor": "schema-extensions--type_url",
+        "document_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:properties:extensions",
+        "schema_path": ["extensions", "type_url"]
+      },
+      "extensions.value": {
+        "anchor": "schema-extensions--value",
+        "document_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:properties:extensions",
+        "schema_path": ["extensions", "value"]
+      },
+      "site": {
+        "anchor": "schema-site",
+        "document_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:reference",
+        "schema_path": ["site"]
+      }
+    },
+    "provider_name": "kubernetes_manifests",
+    "provider_type": "ephemeral-resources",
+    "reference_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1214,
+      "body_sha256": "sha256:87b6370152f0ef46e6307e0a37ba07285ddc2cfb7d480fa86a4c00f3d4e43580",
+      "child_ids": [
+        "xcsh-docs:ephemeral-resources:kubernetes_manifests:reference",
+        "xcsh-docs:ephemeral-resources:kubernetes_manifests:examples",
+        "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle"
+      ],
+      "collection_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals",
+      "parent_id": null,
+      "path": "documentation/ephemeral-resources/kubernetes_manifests/index.md",
+      "provider_name": "kubernetes_manifests",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "ephemeral-resources",
+      "registry_path": "docs/ephemeral-resources/kubernetes_manifests.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/kubernetes_manifests/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_kubernetes_manifests for xcsh_kubernetes_manifests.",
+      "title": "xcsh_kubernetes_manifests",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2291,
+      "body_sha256": "sha256:cf44f4034fe556d5f0765e90e763db0787fd9097494c829be7a44ef29bbb8a40",
+      "child_ids": ["xcsh-docs:ephemeral-resources:kubernetes_manifests:properties:extensions"],
+      "collection_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:reference",
+      "parent_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals",
+      "path": "documentation/ephemeral-resources/kubernetes_manifests/properties/index.md",
+      "provider_name": "kubernetes_manifests",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "ephemeral-resources",
+      "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/kubernetes_manifests/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_kubernetes_manifests.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1279,
+      "body_sha256": "sha256:07b2c82dd6b41913396ca4776a5f4217e8d78a1eca359f25336d6d56bd3fd8ef",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:properties:extensions",
+      "parent_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:reference",
+      "path": "documentation/ephemeral-resources/kubernetes_manifests/properties/extensions/index.md",
+      "provider_name": "kubernetes_manifests",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "ephemeral-resources",
+      "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--properties--extensions.md",
+      "role": "properties",
+      "schema_path": ["extensions"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/kubernetes_manifests/properties/extensions/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "extensions for xcsh_kubernetes_manifests.",
+      "title": "extensions",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 626,
+      "body_sha256": "sha256:0a2dbf6b22b8b43f812bd8dd9d1266b358d4c9c1c379f90b4ade0a3157972b73",
+      "child_ids": ["xcsh-docs:ephemeral-resources:kubernetes_manifests:example:ephemeral"],
+      "collection_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:examples",
+      "parent_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals",
+      "path": "documentation/ephemeral-resources/kubernetes_manifests/examples/index.md",
+      "provider_name": "kubernetes_manifests",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "ephemeral-resources",
+      "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/kubernetes_manifests/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_kubernetes_manifests.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1141,
+      "body_sha256": "sha256:49ad0af06f242c5d1104a8389b0ab34c4e779d523ee9b87a42d716e6199f7893",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:e7611464c5404b77a4b6c720f8e02924f4419518332607f8e54efc9f31aad54e",
+        "source_path": "examples/ephemeral-resources/xcsh_kubernetes_manifests/ephemeral.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:example:ephemeral",
+      "parent_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:examples",
+      "path": "documentation/ephemeral-resources/kubernetes_manifests/examples/ephemeral/index.md",
+      "provider_name": "kubernetes_manifests",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "ephemeral-resources",
+      "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--example--ephemeral.md",
+      "role": "example",
+      "schema_path": ["ephemeral"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/kubernetes_manifests/examples/ephemeral/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Ephemeral for xcsh_kubernetes_manifests.",
+      "title": "Ephemeral",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 592,
+      "body_sha256": "sha256:65a18aeabc003704568b2e05ecc880a7ead3ac29e004c3ad9046edea12f3c197",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle",
+      "parent_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals",
+      "path": "documentation/ephemeral-resources/kubernetes_manifests/lifecycle/index.md",
+      "provider_name": "kubernetes_manifests",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "ephemeral-resources",
+      "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--lifecycle.md",
+      "role": "lifecycle",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/kubernetes_manifests/lifecycle/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Lifecycle for xcsh_kubernetes_manifests.",
+      "title": "Lifecycle",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

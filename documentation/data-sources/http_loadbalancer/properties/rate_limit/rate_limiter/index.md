@@ -1,0 +1,231 @@
+---
+page_title: "rate_limit.rate_limiter"
+subcategory: "Load Balancing"
+description: "rate_limit.rate_limiter for xcsh_http_loadbalancer."
+xcsh_docs: {"aliases": [], "body_bytes": 6571, "body_sha256": "sha256:35be3aed2b347c007699b195581e6f865e13fece1404886c9d8eb3a8bf46be22", "child_ids": ["xcsh-docs:data-sources:http_loadbalancer:properties:rate_limit:rate_limiter:action_block", "xcsh-docs:data-sources:http_loadbalancer:properties:rate_limit:rate_limiter:disabled", "xcsh-docs:data-sources:http_loadbalancer:properties:rate_limit:rate_limiter:leaky_bucket", "xcsh-docs:data-sources:http_loadbalancer:properties:rate_limit:rate_limiter:token_bucket"], "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:rate_limit:rate_limiter", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:rate_limit", "path": "documentation/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/index.md", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "properties", "schema_path": ["rate_limit", "rate_limiter"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "rate_limit.rate_limiter for xcsh_http_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# rate_limit.rate_limiter
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/)
+- [rate_limit](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/)
+- rate_limit.rate_limiter
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+Tuple consisting of a rate limit period unit and the total number of allowed requests for that
+period.
+
+Upstream description:
+
+A tuple consisting of a rate limit period unit and the total number of allowed requests for that
+period.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-action_choice": "[\"action_block\",\"disabled\"]",
+  "x-ves-oneof-field-algorithm": "[\"leaky_bucket\",\"token_bucket\"]"
+}
+```
+
+## Direct properties
+
+- [action_block](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/action_block/): complete subsection reference.
+
+<a id="schema-rate_limit--rate_limiter--burst_multiplier"></a>
+
+### burst_multiplier property
+
+Type: `"number"`. Computed.
+
+The maximum burst of requests to accommodate, expressed as a multiple of the rate.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 100,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gt": "0",
+    "ves.io.schema.rules.uint32.lte": "100"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gt": "0",
+    "ves.io.schema.rules.uint32.lte": "100"
+  }
+}
+```
+
+- [disabled](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/disabled/): complete subsection reference.
+
+- [leaky_bucket](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/leaky_bucket/): complete subsection reference.
+
+<a id="schema-rate_limit--rate_limiter--period_multiplier"></a>
+
+### period_multiplier property
+
+Type: `"number"`. Computed.
+
+Setting, combined with Per Period units, provides a duration. Server applies default when omitted.
+
+Upstream description:
+
+This setting, combined with Per Period units, provides a duration.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0"
+  }
+}
+```
+
+- [token_bucket](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/token_bucket/): complete subsection reference.
+
+<a id="schema-rate_limit--rate_limiter--total_number"></a>
+
+### total_number property
+
+Type: `"number"`. Computed.
+
+The total number of allowed requests per rate-limiting period.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 8192,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gt": "0",
+    "ves.io.schema.rules.uint32.lte": "8192"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gt": "0",
+    "ves.io.schema.rules.uint32.lte": "8192"
+  }
+}
+```
+
+<a id="schema-rate_limit--rate_limiter--unit"></a>
+
+### unit property
+
+Type: `"string"`. Computed.
+
+\[Enum: SECOND|MINUTE|HOUR\] Unit for the period per which the rate limit is applied. - SECOND:
+Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR:
+Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are
+\`SECOND\`, \`MINUTE\`, \`HOUR\`. Defaults to \`SECOND\`.
+
+Upstream description:
+
+Unit for the period per which the rate limit is applied.
+
+&#8203;- SECOND: Second
+
+Rate limit period unit is seconds &#8203;- MINUTE: Minute
+
+Rate limit period unit is minutes &#8203;- HOUR: Hour
+
+Rate limit period unit is hours &#8203;- DAY: Day
+
+Rate limit period unit is days.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "SECOND",
+  "enum": [
+    "SECOND",
+    "MINUTE",
+    "HOUR"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+## Next pages
+
+- [rate_limit.rate_limiter.action_block](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/action_block/)
+- [rate_limit.rate_limiter.disabled](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/disabled/)
+- [rate_limit.rate_limiter.leaky_bucket](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/leaky_bucket/)
+- [rate_limit.rate_limiter.token_bucket](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/rate_limiter/token_bucket/)
+- [rate_limit](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/rate_limit/)
+- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

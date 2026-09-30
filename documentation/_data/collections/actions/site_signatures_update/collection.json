@@ -1,0 +1,166 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:actions:site_signatures_update:fundamentals",
+    "id": "xcsh-docs:actions:site_signatures_update:collection",
+    "properties": {
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:actions:site_signatures_update:reference",
+        "schema_path": ["namespace"]
+      },
+      "site_names": {
+        "anchor": "schema-site_names",
+        "document_id": "xcsh-docs:actions:site_signatures_update:reference",
+        "schema_path": ["site_names"]
+      }
+    },
+    "provider_name": "site_signatures_update",
+    "provider_type": "actions",
+    "reference_id": "xcsh-docs:actions:site_signatures_update:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1198,
+      "body_sha256": "sha256:806f75084e41120c7a0ea6ef134a0b57515dd8f24608ab06d5e8de6645dab886",
+      "child_ids": [
+        "xcsh-docs:actions:site_signatures_update:reference",
+        "xcsh-docs:actions:site_signatures_update:examples",
+        "xcsh-docs:actions:site_signatures_update:lifecycle"
+      ],
+      "collection_id": "xcsh-docs:actions:site_signatures_update:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:site_signatures_update:fundamentals",
+      "parent_id": null,
+      "path": "documentation/actions/site_signatures_update/index.md",
+      "provider_name": "site_signatures_update",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/actions/site_signatures_update.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_signatures_update/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_site_signatures_update for xcsh_site_signatures_update.",
+      "title": "xcsh_site_signatures_update",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1159,
+      "body_sha256": "sha256:6d48ea0eb62a2983cb3580c56b971f3489f3ee4e1e67eef30086f0c0e2c004d4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:site_signatures_update:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:site_signatures_update:reference",
+      "parent_id": "xcsh-docs:actions:site_signatures_update:fundamentals",
+      "path": "documentation/actions/site_signatures_update/properties/index.md",
+      "provider_name": "site_signatures_update",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--site_signatures_update--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_signatures_update/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_site_signatures_update.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 578,
+      "body_sha256": "sha256:45ec511f8df5a11d8c075b02203879e6c7a36cf041e8099dcf9857487772ca28",
+      "child_ids": ["xcsh-docs:actions:site_signatures_update:example:action"],
+      "collection_id": "xcsh-docs:actions:site_signatures_update:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:site_signatures_update:examples",
+      "parent_id": "xcsh-docs:actions:site_signatures_update:fundamentals",
+      "path": "documentation/actions/site_signatures_update/examples/index.md",
+      "provider_name": "site_signatures_update",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--site_signatures_update--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_signatures_update/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_site_signatures_update.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1097,
+      "body_sha256": "sha256:dcc46dac83d5c6af7502e8b37b8b26caa26c80e5678782a1eaf04dfd75e926c7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:site_signatures_update:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:b8fc93938ea82d6d38f39cc7c48dce93f107714b65d36ac9a46938636cbed4f9",
+        "source_path": "examples/actions/xcsh_site_signatures_update/action.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:actions:site_signatures_update:example:action",
+      "parent_id": "xcsh-docs:actions:site_signatures_update:examples",
+      "path": "documentation/actions/site_signatures_update/examples/action/index.md",
+      "provider_name": "site_signatures_update",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--site_signatures_update--example--action.md",
+      "role": "example",
+      "schema_path": ["action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_signatures_update/examples/action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Action for xcsh_site_signatures_update.",
+      "title": "Action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 539,
+      "body_sha256": "sha256:109e0c07d0443eeefb287f079a98d3d7ce9254226cb817686f1293a55fc276b8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:site_signatures_update:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:site_signatures_update:lifecycle",
+      "parent_id": "xcsh-docs:actions:site_signatures_update:fundamentals",
+      "path": "documentation/actions/site_signatures_update/lifecycle/index.md",
+      "provider_name": "site_signatures_update",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--site_signatures_update--lifecycle.md",
+      "role": "lifecycle",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_signatures_update/lifecycle/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Lifecycle for xcsh_site_signatures_update.",
+      "title": "Lifecycle",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

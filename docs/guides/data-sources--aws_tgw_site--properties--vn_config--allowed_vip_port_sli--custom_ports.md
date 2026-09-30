@@ -1,0 +1,97 @@
+---
+page_title: "vn_config.allowed_vip_port_sli.custom_ports"
+subcategory: ""
+description: "vn_config.allowed_vip_port_sli.custom_ports for xcsh_aws_tgw_site."
+xcsh_docs: {"aliases": [], "body_bytes": 2092, "body_sha256": "sha256:7bae6c41fd478e6bd6d021e5009659eeacf63cf174d7c170a929b4a9159a3f55", "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:custom_ports", "child_ids": [], "collection_id": "xcsh-docs:data-sources:aws_tgw_site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:custom_ports", "parent_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli", "path": "docs/guides/data-sources--aws_tgw_site--properties--vn_config--allowed_vip_port_sli--custom_ports.md", "provider_name": "aws_tgw_site", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "properties", "schema_path": ["vn_config", "allowed_vip_port_sli", "custom_ports"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/aws_tgw_site/properties/vn_config/allowed_vip_port_sli/custom_ports/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "vn_config.allowed_vip_port_sli.custom_ports for xcsh_aws_tgw_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["aws_tgw_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# vn_config.allowed_vip_port_sli.custom_ports
+
+Breadcrumbs:
+
+- [xcsh_aws_tgw_site](../data-sources/aws_tgw_site.md)
+- [Property reference](data-sources--aws_tgw_site--reference.md)
+- [vn_config](data-sources--aws_tgw_site--properties--vn_config.md)
+- [vn_config.allowed_vip_port_sli](data-sources--aws_tgw_site--properties--vn_config--allowed_vip_port_sli.md)
+- vn_config.allowed_vip_port_sli.custom_ports
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+Custom Ports. List of Custom port.
+
+Upstream description:
+
+List of Custom port.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+## Direct properties
+
+<a id="schema-vn_config--allowed_vip_port_sli--custom_ports--port_ranges"></a>
+
+### port_ranges property
+
+Type: `"string"`. Computed.
+
+Port Ranges. Port Ranges.
+
+Upstream description:
+
+Port Ranges.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 512,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 512,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "512",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.port_range_list": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "512",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.port_range_list": "true"
+  }
+}
+```
+
+## Next pages
+
+- [vn_config.allowed_vip_port_sli](data-sources--aws_tgw_site--properties--vn_config--allowed_vip_port_sli.md)
+- [xcsh_aws_tgw_site](../data-sources/aws_tgw_site.md)

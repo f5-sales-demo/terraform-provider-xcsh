@@ -1,0 +1,284 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:dns_compliance_checks:fundamentals",
+    "id": "xcsh-docs:resources:dns_compliance_checks:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["disable"]
+      },
+      "disallowed_query_type_list": {
+        "anchor": "schema-disallowed_query_type_list",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["disallowed_query_type_list"]
+      },
+      "disallowed_resource_record_type_list": {
+        "anchor": "schema-disallowed_resource_record_type_list",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["disallowed_resource_record_type_list"]
+      },
+      "domain_denylist": {
+        "anchor": "schema-domain_denylist",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["domain_denylist"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:dns_compliance_checks:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "dns_compliance_checks",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:dns_compliance_checks:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1631,
+      "body_sha256": "sha256:9c61e04b5b498fb1c34d8dd5c8010db652d4fd58d3202faf59f29181833025c2",
+      "child_ids": [
+        "xcsh-docs:resources:dns_compliance_checks:reference",
+        "xcsh-docs:resources:dns_compliance_checks:examples",
+        "xcsh-docs:resources:dns_compliance_checks:import",
+        "xcsh-docs:resources:dns_compliance_checks:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_compliance_checks:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/dns_compliance_checks/index.md",
+      "provider_name": "dns_compliance_checks",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/dns_compliance_checks.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_dns_compliance_checks for xcsh_dns_compliance_checks.",
+      "title": "xcsh_dns_compliance_checks",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_compliance_checksCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 14526,
+      "body_sha256": "sha256:347b28a49a077cafcc3739ddc418e758809c2b9af60d1f3d1d494495c3ddde1d",
+      "child_ids": ["xcsh-docs:resources:dns_compliance_checks:properties:timeouts"],
+      "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_compliance_checks:reference",
+      "parent_id": "xcsh-docs:resources:dns_compliance_checks:fundamentals",
+      "path": "documentation/resources/dns_compliance_checks/properties/index.md",
+      "provider_name": "dns_compliance_checks",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_compliance_checks--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_dns_compliance_checks.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_compliance_checksCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2186,
+      "body_sha256": "sha256:d2d518ea1adcfcf5b283ac84684b0c1eda55d2bcb84b564a7e98f7bc73d9d397",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_compliance_checks:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:dns_compliance_checks:reference",
+      "path": "documentation/resources/dns_compliance_checks/properties/timeouts/index.md",
+      "provider_name": "dns_compliance_checks",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_compliance_checks--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_dns_compliance_checks.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_compliance_checksCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 588,
+      "body_sha256": "sha256:ed05dbe26303d9264949a1c8dd6b1647f394592d48a1a2644c1da5a66058279a",
+      "child_ids": ["xcsh-docs:resources:dns_compliance_checks:example:resource"],
+      "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_compliance_checks:examples",
+      "parent_id": "xcsh-docs:resources:dns_compliance_checks:fundamentals",
+      "path": "documentation/resources/dns_compliance_checks/examples/index.md",
+      "provider_name": "dns_compliance_checks",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_compliance_checks--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_dns_compliance_checks.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_compliance_checksCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1279,
+      "body_sha256": "sha256:d5151b52c0370ca0f79779d1582134c7be6fc5129d07447d5f0e9129198c9ac2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:4b55554787f8c66271c8f849e8f82effc0413dcd79554cefe77c85a2e413eba1",
+        "source_path": "examples/resources/xcsh_dns_compliance_checks/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:dns_compliance_checks:example:resource",
+      "parent_id": "xcsh-docs:resources:dns_compliance_checks:examples",
+      "path": "documentation/resources/dns_compliance_checks/examples/resource/index.md",
+      "provider_name": "dns_compliance_checks",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_compliance_checks--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_dns_compliance_checks.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_compliance_checksCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 454,
+      "body_sha256": "sha256:7af780ca4d85763f6158b2c9a80f9f7439b5885376b6f2e0a73a01ef155236ca",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_compliance_checks:import",
+      "parent_id": "xcsh-docs:resources:dns_compliance_checks:fundamentals",
+      "path": "documentation/resources/dns_compliance_checks/lifecycle/import/index.md",
+      "provider_name": "dns_compliance_checks",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_compliance_checks--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_dns_compliance_checks.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_compliance_checksCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 514,
+      "body_sha256": "sha256:9a58952bfcfaf317997b1f9830361cb56b7df76d0d584a7eb2223379b53ad9b0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_compliance_checks:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_compliance_checks:timeouts",
+      "parent_id": "xcsh-docs:resources:dns_compliance_checks:fundamentals",
+      "path": "documentation/resources/dns_compliance_checks/lifecycle/timeouts/index.md",
+      "provider_name": "dns_compliance_checks",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_compliance_checks--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_compliance_checks/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_dns_compliance_checks.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_compliance_checksCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

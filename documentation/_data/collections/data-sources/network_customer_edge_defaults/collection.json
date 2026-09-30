@@ -1,0 +1,164 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:network_customer_edge_defaults:fundamentals",
+    "id": "xcsh-docs:data-sources:network_customer_edge_defaults:collection",
+    "properties": {
+      "api_release_tag": {
+        "anchor": "schema-api_release_tag",
+        "document_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+        "schema_path": ["api_release_tag"]
+      },
+      "dns_servers": {
+        "anchor": "schema-dns_servers",
+        "document_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+        "schema_path": ["dns_servers"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+        "schema_path": ["id"]
+      },
+      "manifest_generated_at": {
+        "anchor": "schema-manifest_generated_at",
+        "document_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+        "schema_path": ["manifest_generated_at"]
+      },
+      "ntp_servers": {
+        "anchor": "schema-ntp_servers",
+        "document_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+        "schema_path": ["ntp_servers"]
+      },
+      "source_sha256": {
+        "anchor": "schema-source_sha256",
+        "document_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+        "schema_path": ["source_sha256"]
+      },
+      "source_url": {
+        "anchor": "schema-source_url",
+        "document_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+        "schema_path": ["source_url"]
+      }
+    },
+    "provider_name": "network_customer_edge_defaults",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1693,
+      "body_sha256": "sha256:814c66c02e5d3ba2ffddb172c17f42b01f3be6d15afc71d2f991d9080b6c6bb3",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+        "xcsh-docs:data-sources:network_customer_edge_defaults:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_customer_edge_defaults:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_customer_edge_defaults:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/network_customer_edge_defaults/index.md",
+      "provider_name": "network_customer_edge_defaults",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/network_customer_edge_defaults.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_customer_edge_defaults/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_network_customer_edge_defaults for xcsh_network_customer_edge_defaults.",
+      "title": "xcsh_network_customer_edge_defaults",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2876,
+      "body_sha256": "sha256:00ce2144392fad1f05047971b37b36b3c96c97883e4702dc6099bea419872280",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_customer_edge_defaults:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
+      "parent_id": "xcsh-docs:data-sources:network_customer_edge_defaults:fundamentals",
+      "path": "documentation/data-sources/network_customer_edge_defaults/properties/index.md",
+      "provider_name": "network_customer_edge_defaults",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_customer_edge_defaults/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_network_customer_edge_defaults.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 666,
+      "body_sha256": "sha256:d58c4bac8c7a35a9c43571f8be071db90ab6c4b75fc47c8c9ab3f5f93d069381",
+      "child_ids": ["xcsh-docs:data-sources:network_customer_edge_defaults:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:network_customer_edge_defaults:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples",
+      "parent_id": "xcsh-docs:data-sources:network_customer_edge_defaults:fundamentals",
+      "path": "documentation/data-sources/network_customer_edge_defaults/examples/index.md",
+      "provider_name": "network_customer_edge_defaults",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_customer_edge_defaults/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_network_customer_edge_defaults.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1569,
+      "body_sha256": "sha256:d1f3e10de0e4e1103ce1e945cf0f9e9529c2e8c18c3593e19f88bc135af2d494",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_customer_edge_defaults:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:02dcb0c87e55fb1eb9417d76ac0888bfe3451a7f9f3e9a6cb8857b1ff2aff366",
+        "source_path": "examples/data-sources/xcsh_network_customer_edge_defaults/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:network_customer_edge_defaults:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples",
+      "path": "documentation/data-sources/network_customer_edge_defaults/examples/data-source/index.md",
+      "provider_name": "network_customer_edge_defaults",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_customer_edge_defaults/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_network_customer_edge_defaults.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

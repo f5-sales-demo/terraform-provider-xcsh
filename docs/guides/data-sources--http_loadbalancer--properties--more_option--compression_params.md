@@ -1,0 +1,226 @@
+---
+page_title: "more_option.compression_params"
+subcategory: "Load Balancing"
+description: "more_option.compression_params for xcsh_http_loadbalancer."
+xcsh_docs: {"aliases": [], "body_bytes": 6887, "body_sha256": "sha256:2fac88ed9e837cf2b2049239eb52856e158c0b5aa27a27b0e2451a8571461aeb", "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "child_ids": [], "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:compression_params", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option", "path": "docs/guides/data-sources--http_loadbalancer--properties--more_option--compression_params.md", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "properties", "schema_path": ["more_option", "compression_params"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/more_option/compression_params/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "more_option.compression_params for xcsh_http_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# more_option.compression_params
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md)
+- [Property reference](data-sources--http_loadbalancer--reference.md)
+- [more_option](data-sources--http_loadbalancer--properties--more_option.md)
+- more_option.compression_params
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+Enables loadbalancer to compress dispatched data from an upstream service upon client request. The
+content is compressed and then sent to the client with the appropriate headers if either response
+and request allow. Only GZIP compression is supported.
+
+Upstream description:
+
+Enables loadbalancer to compress dispatched data from an upstream service upon client request. The
+content is compressed and then sent to the client with the appropriate headers if either response
+and request allow. Only GZIP compression is supported.
+
+By default compression will be skipped when:
+
+A request does NOT contain accept-encoding header. A request includes accept-encoding header, but it
+does not contain “gzip” or “\*”. A request includes accept-encoding with “gzip” or “\*” with the
+weight “q=0”. Note that the “gzip” will have a higher weight then “\*”. For example, if
+accept-encoding is “gzip;q=0,\*;q=1”, the filter will not compress. But if the header is set to
+“\*;q=0,gzip;q=1”, the filter will compress. A request whose accept-encoding header includes
+“identity”. A response contains a content-encoding header. A response contains a cache-control
+header whose value includes “no-transform”. A response contains a transfer-encoding header whose
+value includes “gzip”. A response does not contain a content-type value that matches one of the
+selected mime-types, which default to application/javascript, application/JSON,
+application/xhtml+XML, image/svg+XML, text/CSS, text/HTML, text/plain, text/XML. Neither
+content-length nor transfer-encoding headers are present in the response. Response size is smaller
+than 30 bytes (only applicable when transfer-encoding is not chunked).
+
+When compression is applied:
+
+The content-length is removed from response headers. Response headers contain “transfer-encoding:
+chunked” and do not contain “content-encoding” header. The “vary: accept-encoding” header is
+inserted on every response.
+
+GZIP Compression Level:
+
+A value which is optimal balance between speed of compression and amount of compression is chosen.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+## Direct properties
+
+<a id="schema-more_option--compression_params--content_length"></a>
+
+### content_length property
+
+Type: `"number"`. Computed.
+
+Minimum response length, in bytes, which will trigger compression. The. Defaults to \`30\`.
+
+Upstream description:
+
+Minimum response length, in bytes, which will trigger compression. The default value is 30.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 30
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  }
+}
+```
+
+<a id="schema-more_option--compression_params--content_type"></a>
+
+### content_type property
+
+Type: `["list", "string"]`. Computed.
+
+Set of strings that allows specifying which mime-types yield compression When this field is not
+defined, compression will be applied to the following mime-types: 'application/javascript'
+'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain'
+'text/XML'.
+
+Upstream description:
+
+Set of strings that allows specifying which mime-types yield compression When this field is not
+defined, compression will be applied to the following mime-types: "application/javascript"
+"application/JSON", "application/xhtml+XML" "image/svg+XML" "text/CSS" "text/HTML" "text/plain"
+"text/XML"
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 50,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 50,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "50",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "50",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="schema-more_option--compression_params--disable_on_etag_header"></a>
+
+### disable_on_etag_header property
+
+Type: `"bool"`. Computed.
+
+If true, disables compression when the response contains an etag header. When it is false, weak
+etags will be preserved and the ones that require strong validation will be removed.
+
+Upstream description:
+
+If true, disables compression when the response contains an etag header. When it is false, weak
+etags will be preserved and the ones that require strong validation will be removed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-more_option--compression_params--remove_accept_encoding_header"></a>
+
+### remove_accept_encoding_header property
+
+Type: `"bool"`. Computed.
+
+If true, removes accept-encoding from the request headers before dispatching it to the upstream so
+that responses do not GET compressed before reaching the filter.
+
+Upstream description:
+
+If true, removes accept-encoding from the request headers before dispatching it to the upstream so
+that responses do not GET compressed before reaching the filter.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+## Next pages
+
+- [more_option](data-sources--http_loadbalancer--properties--more_option.md)
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md)

@@ -1,0 +1,280 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:bot_infrastructure:fundamentals",
+    "id": "xcsh-docs:data-sources:bot_infrastructure:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+        "schema_path": ["annotations"]
+      },
+      "create_cloud_hosted": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted",
+        "schema_path": ["create_cloud_hosted"]
+      },
+      "create_cloud_hosted.ip_addresses": {
+        "anchor": "schema-create_cloud_hosted--ip_addresses",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted",
+        "schema_path": ["create_cloud_hosted", "ip_addresses"]
+      },
+      "create_cloud_hosted.production": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:production",
+        "schema_path": ["create_cloud_hosted", "production"]
+      },
+      "create_cloud_hosted.production.region_1": {
+        "anchor": "schema-create_cloud_hosted--production--region_1",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:production",
+        "schema_path": ["create_cloud_hosted", "production", "region_1"]
+      },
+      "create_cloud_hosted.production.region_2": {
+        "anchor": "schema-create_cloud_hosted--production--region_2",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:production",
+        "schema_path": ["create_cloud_hosted", "production", "region_2"]
+      },
+      "create_cloud_hosted.testing": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:testing",
+        "schema_path": ["create_cloud_hosted", "testing"]
+      },
+      "create_cloud_hosted.testing.region_1": {
+        "anchor": "schema-create_cloud_hosted--testing--region_1",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:testing",
+        "schema_path": ["create_cloud_hosted", "testing", "region_1"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+        "schema_path": ["namespace"]
+      },
+      "traffic_type": {
+        "anchor": "schema-traffic_type",
+        "document_id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+        "schema_path": ["traffic_type"]
+      }
+    },
+    "provider_name": "bot_infrastructure",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:bot_infrastructure:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1259,
+      "body_sha256": "sha256:3bb7ae1da297f3a8331364c59212fd7fa2605e15f15b728fdd5072c8c362254e",
+      "child_ids": [
+        "xcsh-docs:data-sources:bot_infrastructure:reference",
+        "xcsh-docs:data-sources:bot_infrastructure:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bot_infrastructure:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_infrastructure:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/bot_infrastructure/index.md",
+      "provider_name": "bot_infrastructure",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/bot_infrastructure.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_bot_infrastructure for xcsh_bot_infrastructure.",
+      "title": "xcsh_bot_infrastructure",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bot_infrastructureCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10020,
+      "body_sha256": "sha256:dc9ef039461317d7f6b58f7e2d31468c54d0aa1ad2611cc311bc94ae68c02fa0",
+      "child_ids": ["xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted"],
+      "collection_id": "xcsh-docs:data-sources:bot_infrastructure:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+      "parent_id": "xcsh-docs:data-sources:bot_infrastructure:fundamentals",
+      "path": "documentation/data-sources/bot_infrastructure/properties/index.md",
+      "provider_name": "bot_infrastructure",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_infrastructure--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_bot_infrastructure.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bot_infrastructureCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2116,
+      "body_sha256": "sha256:ac5eb2877daa98ca2997ec2f929102a542e534f4ac9cc1caddd2bda57c902434",
+      "child_ids": [
+        "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:production",
+        "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:testing"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bot_infrastructure:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted",
+      "parent_id": "xcsh-docs:data-sources:bot_infrastructure:reference",
+      "path": "documentation/data-sources/bot_infrastructure/properties/create_cloud_hosted/index.md",
+      "provider_name": "bot_infrastructure",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_infrastructure--properties--create_cloud_hosted.md",
+      "role": "properties",
+      "schema_path": ["create_cloud_hosted"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/properties/create_cloud_hosted/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "create_cloud_hosted for xcsh_bot_infrastructure.",
+      "title": "create_cloud_hosted",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bot_infrastructureCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2872,
+      "body_sha256": "sha256:4d88f9b8c68b4f146ec75658f987b7ab9bb6c567b06bac44f9bcde588869416a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_infrastructure:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:production",
+      "parent_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted",
+      "path": "documentation/data-sources/bot_infrastructure/properties/create_cloud_hosted/production/index.md",
+      "provider_name": "bot_infrastructure",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_infrastructure--properties--create_cloud_hosted--production.md",
+      "role": "properties",
+      "schema_path": ["create_cloud_hosted", "production"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/properties/create_cloud_hosted/production/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "create_cloud_hosted.production for xcsh_bot_infrastructure.",
+      "title": "create_cloud_hosted.production",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bot_infrastructureCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1903,
+      "body_sha256": "sha256:a5ddf86d7c92d176c3f9bbe33a47f06632aff9bc658731ece4309686bb7f2f53",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_infrastructure:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:testing",
+      "parent_id": "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted",
+      "path": "documentation/data-sources/bot_infrastructure/properties/create_cloud_hosted/testing/index.md",
+      "provider_name": "bot_infrastructure",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_infrastructure--properties--create_cloud_hosted--testing.md",
+      "role": "properties",
+      "schema_path": ["create_cloud_hosted", "testing"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/properties/create_cloud_hosted/testing/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "create_cloud_hosted.testing for xcsh_bot_infrastructure.",
+      "title": "create_cloud_hosted.testing",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bot_infrastructureCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 594,
+      "body_sha256": "sha256:1908e4928cd070ed2674e685ac64cac23a704a047613d7520080abc7a24454b4",
+      "child_ids": ["xcsh-docs:data-sources:bot_infrastructure:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:bot_infrastructure:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_infrastructure:examples",
+      "parent_id": "xcsh-docs:data-sources:bot_infrastructure:fundamentals",
+      "path": "documentation/data-sources/bot_infrastructure/examples/index.md",
+      "provider_name": "bot_infrastructure",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_infrastructure--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_bot_infrastructure.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bot_infrastructureCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1258,
+      "body_sha256": "sha256:06571295971f714ce4bf32d016933d76a68954335a192037a4bd7193e7fe9fa5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_infrastructure:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:f72b753447890fa3999ee0487a20af9414eac1431bcf20d1ef50048bd9025f06",
+        "source_path": "examples/data-sources/xcsh_bot_infrastructure/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:bot_infrastructure:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:bot_infrastructure:examples",
+      "path": "documentation/data-sources/bot_infrastructure/examples/data-source/index.md",
+      "provider_name": "bot_infrastructure",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_infrastructure--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_infrastructure/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_bot_infrastructure.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bot_infrastructureCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

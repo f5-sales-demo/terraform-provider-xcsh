@@ -1,0 +1,1651 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:alert_receiver:fundamentals",
+    "id": "xcsh-docs:data-sources:alert_receiver:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:reference",
+        "schema_path": ["description"]
+      },
+      "email": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:email",
+        "schema_path": ["email"]
+      },
+      "email.email": {
+        "anchor": "schema-email--email",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:email",
+        "schema_path": ["email", "email"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:reference",
+        "schema_path": ["namespace"]
+      },
+      "opsgenie": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie",
+        "schema_path": ["opsgenie"]
+      },
+      "opsgenie.api_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key",
+        "schema_path": ["opsgenie", "api_key"]
+      },
+      "opsgenie.api_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
+        "schema_path": ["opsgenie", "api_key", "blindfold_secret_info"]
+      },
+      "opsgenie.api_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-opsgenie--api_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
+        "schema_path": ["opsgenie", "api_key", "blindfold_secret_info", "decryption_provider"]
+      },
+      "opsgenie.api_key.blindfold_secret_info.location": {
+        "anchor": "schema-opsgenie--api_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
+        "schema_path": ["opsgenie", "api_key", "blindfold_secret_info", "location"]
+      },
+      "opsgenie.api_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-opsgenie--api_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
+        "schema_path": ["opsgenie", "api_key", "blindfold_secret_info", "store_provider"]
+      },
+      "opsgenie.api_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info",
+        "schema_path": ["opsgenie", "api_key", "clear_secret_info"]
+      },
+      "opsgenie.api_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-opsgenie--api_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info",
+        "schema_path": ["opsgenie", "api_key", "clear_secret_info", "provider_ref"]
+      },
+      "opsgenie.api_key.clear_secret_info.url": {
+        "anchor": "schema-opsgenie--api_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info",
+        "schema_path": ["opsgenie", "api_key", "clear_secret_info", "url"]
+      },
+      "opsgenie.url": {
+        "anchor": "schema-opsgenie--url",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie",
+        "schema_path": ["opsgenie", "url"]
+      },
+      "pagerduty": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty",
+        "schema_path": ["pagerduty"]
+      },
+      "pagerduty.routing_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key",
+        "schema_path": ["pagerduty", "routing_key"]
+      },
+      "pagerduty.routing_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
+        "schema_path": ["pagerduty", "routing_key", "blindfold_secret_info"]
+      },
+      "pagerduty.routing_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-pagerduty--routing_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
+        "schema_path": ["pagerduty", "routing_key", "blindfold_secret_info", "decryption_provider"]
+      },
+      "pagerduty.routing_key.blindfold_secret_info.location": {
+        "anchor": "schema-pagerduty--routing_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
+        "schema_path": ["pagerduty", "routing_key", "blindfold_secret_info", "location"]
+      },
+      "pagerduty.routing_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-pagerduty--routing_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
+        "schema_path": ["pagerduty", "routing_key", "blindfold_secret_info", "store_provider"]
+      },
+      "pagerduty.routing_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info",
+        "schema_path": ["pagerduty", "routing_key", "clear_secret_info"]
+      },
+      "pagerduty.routing_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-pagerduty--routing_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info",
+        "schema_path": ["pagerduty", "routing_key", "clear_secret_info", "provider_ref"]
+      },
+      "pagerduty.routing_key.clear_secret_info.url": {
+        "anchor": "schema-pagerduty--routing_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info",
+        "schema_path": ["pagerduty", "routing_key", "clear_secret_info", "url"]
+      },
+      "pagerduty.url": {
+        "anchor": "schema-pagerduty--url",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty",
+        "schema_path": ["pagerduty", "url"]
+      },
+      "slack": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack",
+        "schema_path": ["slack"]
+      },
+      "slack.channel": {
+        "anchor": "schema-slack--channel",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack",
+        "schema_path": ["slack", "channel"]
+      },
+      "slack.url": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url",
+        "schema_path": ["slack", "url"]
+      },
+      "slack.url.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
+        "schema_path": ["slack", "url", "blindfold_secret_info"]
+      },
+      "slack.url.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-slack--url--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
+        "schema_path": ["slack", "url", "blindfold_secret_info", "decryption_provider"]
+      },
+      "slack.url.blindfold_secret_info.location": {
+        "anchor": "schema-slack--url--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
+        "schema_path": ["slack", "url", "blindfold_secret_info", "location"]
+      },
+      "slack.url.blindfold_secret_info.store_provider": {
+        "anchor": "schema-slack--url--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
+        "schema_path": ["slack", "url", "blindfold_secret_info", "store_provider"]
+      },
+      "slack.url.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info",
+        "schema_path": ["slack", "url", "clear_secret_info"]
+      },
+      "slack.url.clear_secret_info.provider_ref": {
+        "anchor": "schema-slack--url--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info",
+        "schema_path": ["slack", "url", "clear_secret_info", "provider_ref"]
+      },
+      "slack.url.clear_secret_info.url": {
+        "anchor": "schema-slack--url--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info",
+        "schema_path": ["slack", "url", "clear_secret_info", "url"]
+      },
+      "sms": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:sms",
+        "schema_path": ["sms"]
+      },
+      "sms.contact_number": {
+        "anchor": "schema-sms--contact_number",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:sms",
+        "schema_path": ["sms", "contact_number"]
+      },
+      "webhook": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook",
+        "schema_path": ["webhook"]
+      },
+      "webhook.http_config": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+        "schema_path": ["webhook", "http_config"]
+      },
+      "webhook.http_config.auth_token": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token",
+        "schema_path": ["webhook", "http_config", "auth_token"]
+      },
+      "webhook.http_config.auth_token.token": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token",
+        "schema_path": ["webhook", "http_config", "auth_token", "token"]
+      },
+      "webhook.http_config.auth_token.token.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
+        "schema_path": ["webhook", "http_config", "auth_token", "token", "blindfold_secret_info"]
+      },
+      "webhook.http_config.auth_token.token.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-webhook--http_config--auth_token--token--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
+        "schema_path": ["webhook", "http_config", "auth_token", "token", "blindfold_secret_info", "decryption_provider"]
+      },
+      "webhook.http_config.auth_token.token.blindfold_secret_info.location": {
+        "anchor": "schema-webhook--http_config--auth_token--token--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
+        "schema_path": ["webhook", "http_config", "auth_token", "token", "blindfold_secret_info", "location"]
+      },
+      "webhook.http_config.auth_token.token.blindfold_secret_info.store_provider": {
+        "anchor": "schema-webhook--http_config--auth_token--token--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
+        "schema_path": ["webhook", "http_config", "auth_token", "token", "blindfold_secret_info", "store_provider"]
+      },
+      "webhook.http_config.auth_token.token.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info",
+        "schema_path": ["webhook", "http_config", "auth_token", "token", "clear_secret_info"]
+      },
+      "webhook.http_config.auth_token.token.clear_secret_info.provider_ref": {
+        "anchor": "schema-webhook--http_config--auth_token--token--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info",
+        "schema_path": ["webhook", "http_config", "auth_token", "token", "clear_secret_info", "provider_ref"]
+      },
+      "webhook.http_config.auth_token.token.clear_secret_info.url": {
+        "anchor": "schema-webhook--http_config--auth_token--token--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info",
+        "schema_path": ["webhook", "http_config", "auth_token", "token", "clear_secret_info", "url"]
+      },
+      "webhook.http_config.basic_auth": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth",
+        "schema_path": ["webhook", "http_config", "basic_auth"]
+      },
+      "webhook.http_config.basic_auth.password": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password",
+        "schema_path": ["webhook", "http_config", "basic_auth", "password"]
+      },
+      "webhook.http_config.basic_auth.password.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
+        "schema_path": ["webhook", "http_config", "basic_auth", "password", "blindfold_secret_info"]
+      },
+      "webhook.http_config.basic_auth.password.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-webhook--http_config--basic_auth--password--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
+        "schema_path": [
+          "webhook",
+          "http_config",
+          "basic_auth",
+          "password",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "webhook.http_config.basic_auth.password.blindfold_secret_info.location": {
+        "anchor": "schema-webhook--http_config--basic_auth--password--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
+        "schema_path": ["webhook", "http_config", "basic_auth", "password", "blindfold_secret_info", "location"]
+      },
+      "webhook.http_config.basic_auth.password.blindfold_secret_info.store_provider": {
+        "anchor": "schema-webhook--http_config--basic_auth--password--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
+        "schema_path": ["webhook", "http_config", "basic_auth", "password", "blindfold_secret_info", "store_provider"]
+      },
+      "webhook.http_config.basic_auth.password.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info",
+        "schema_path": ["webhook", "http_config", "basic_auth", "password", "clear_secret_info"]
+      },
+      "webhook.http_config.basic_auth.password.clear_secret_info.provider_ref": {
+        "anchor": "schema-webhook--http_config--basic_auth--password--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info",
+        "schema_path": ["webhook", "http_config", "basic_auth", "password", "clear_secret_info", "provider_ref"]
+      },
+      "webhook.http_config.basic_auth.password.clear_secret_info.url": {
+        "anchor": "schema-webhook--http_config--basic_auth--password--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info",
+        "schema_path": ["webhook", "http_config", "basic_auth", "password", "clear_secret_info", "url"]
+      },
+      "webhook.http_config.basic_auth.user_name": {
+        "anchor": "schema-webhook--http_config--basic_auth--user_name",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth",
+        "schema_path": ["webhook", "http_config", "basic_auth", "user_name"]
+      },
+      "webhook.http_config.client_cert_obj": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj",
+        "schema_path": ["webhook", "http_config", "client_cert_obj"]
+      },
+      "webhook.http_config.client_cert_obj.use_tls_obj": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
+        "schema_path": ["webhook", "http_config", "client_cert_obj", "use_tls_obj"]
+      },
+      "webhook.http_config.client_cert_obj.use_tls_obj.kind": {
+        "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--kind",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
+        "schema_path": ["webhook", "http_config", "client_cert_obj", "use_tls_obj", "kind"]
+      },
+      "webhook.http_config.client_cert_obj.use_tls_obj.name": {
+        "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--name",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
+        "schema_path": ["webhook", "http_config", "client_cert_obj", "use_tls_obj", "name"]
+      },
+      "webhook.http_config.client_cert_obj.use_tls_obj.namespace": {
+        "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--namespace",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
+        "schema_path": ["webhook", "http_config", "client_cert_obj", "use_tls_obj", "namespace"]
+      },
+      "webhook.http_config.client_cert_obj.use_tls_obj.tenant": {
+        "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--tenant",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
+        "schema_path": ["webhook", "http_config", "client_cert_obj", "use_tls_obj", "tenant"]
+      },
+      "webhook.http_config.client_cert_obj.use_tls_obj.uid": {
+        "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--uid",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
+        "schema_path": ["webhook", "http_config", "client_cert_obj", "use_tls_obj", "uid"]
+      },
+      "webhook.http_config.enable_http2": {
+        "anchor": "schema-webhook--http_config--enable_http2",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+        "schema_path": ["webhook", "http_config", "enable_http2"]
+      },
+      "webhook.http_config.follow_redirects": {
+        "anchor": "schema-webhook--http_config--follow_redirects",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+        "schema_path": ["webhook", "http_config", "follow_redirects"]
+      },
+      "webhook.http_config.no_authorization": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:no_authorization",
+        "schema_path": ["webhook", "http_config", "no_authorization"]
+      },
+      "webhook.http_config.no_tls": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:no_tls",
+        "schema_path": ["webhook", "http_config", "no_tls"]
+      },
+      "webhook.http_config.use_tls": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
+        "schema_path": ["webhook", "http_config", "use_tls"]
+      },
+      "webhook.http_config.use_tls.disable_sni": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:disable_sni",
+        "schema_path": ["webhook", "http_config", "use_tls", "disable_sni"]
+      },
+      "webhook.http_config.use_tls.max_version": {
+        "anchor": "schema-webhook--http_config--use_tls--max_version",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
+        "schema_path": ["webhook", "http_config", "use_tls", "max_version"]
+      },
+      "webhook.http_config.use_tls.min_version": {
+        "anchor": "schema-webhook--http_config--use_tls--min_version",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
+        "schema_path": ["webhook", "http_config", "use_tls", "min_version"]
+      },
+      "webhook.http_config.use_tls.sni": {
+        "anchor": "schema-webhook--http_config--use_tls--sni",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
+        "schema_path": ["webhook", "http_config", "use_tls", "sni"]
+      },
+      "webhook.http_config.use_tls.use_server_verification": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification",
+        "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification"]
+      },
+      "webhook.http_config.use_tls.use_server_verification.ca_cert_obj": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj",
+        "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification", "ca_cert_obj"]
+      },
+      "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
+        "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification", "ca_cert_obj", "trusted_ca"]
+      },
+      "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca.kind": {
+        "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--kind",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
+        "schema_path": [
+          "webhook",
+          "http_config",
+          "use_tls",
+          "use_server_verification",
+          "ca_cert_obj",
+          "trusted_ca",
+          "kind"
+        ]
+      },
+      "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca.name": {
+        "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--name",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
+        "schema_path": [
+          "webhook",
+          "http_config",
+          "use_tls",
+          "use_server_verification",
+          "ca_cert_obj",
+          "trusted_ca",
+          "name"
+        ]
+      },
+      "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca.namespace": {
+        "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--namespace",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
+        "schema_path": [
+          "webhook",
+          "http_config",
+          "use_tls",
+          "use_server_verification",
+          "ca_cert_obj",
+          "trusted_ca",
+          "namespace"
+        ]
+      },
+      "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca.tenant": {
+        "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--tenant",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
+        "schema_path": [
+          "webhook",
+          "http_config",
+          "use_tls",
+          "use_server_verification",
+          "ca_cert_obj",
+          "trusted_ca",
+          "tenant"
+        ]
+      },
+      "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca.uid": {
+        "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--uid",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
+        "schema_path": [
+          "webhook",
+          "http_config",
+          "use_tls",
+          "use_server_verification",
+          "ca_cert_obj",
+          "trusted_ca",
+          "uid"
+        ]
+      },
+      "webhook.http_config.use_tls.volterra_trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:volterra_trusted_ca",
+        "schema_path": ["webhook", "http_config", "use_tls", "volterra_trusted_ca"]
+      },
+      "webhook.url": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url",
+        "schema_path": ["webhook", "url"]
+      },
+      "webhook.url.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
+        "schema_path": ["webhook", "url", "blindfold_secret_info"]
+      },
+      "webhook.url.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-webhook--url--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
+        "schema_path": ["webhook", "url", "blindfold_secret_info", "decryption_provider"]
+      },
+      "webhook.url.blindfold_secret_info.location": {
+        "anchor": "schema-webhook--url--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
+        "schema_path": ["webhook", "url", "blindfold_secret_info", "location"]
+      },
+      "webhook.url.blindfold_secret_info.store_provider": {
+        "anchor": "schema-webhook--url--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
+        "schema_path": ["webhook", "url", "blindfold_secret_info", "store_provider"]
+      },
+      "webhook.url.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info",
+        "schema_path": ["webhook", "url", "clear_secret_info"]
+      },
+      "webhook.url.clear_secret_info.provider_ref": {
+        "anchor": "schema-webhook--url--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info",
+        "schema_path": ["webhook", "url", "clear_secret_info", "provider_ref"]
+      },
+      "webhook.url.clear_secret_info.url": {
+        "anchor": "schema-webhook--url--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info",
+        "schema_path": ["webhook", "url", "clear_secret_info", "url"]
+      }
+    },
+    "provider_name": "alert_receiver",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:alert_receiver:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1226,
+      "body_sha256": "sha256:40f0e09edae0954e2aedddea6e0909dd4f4f664a156794830114b10a088cc5ce",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:reference",
+        "xcsh-docs:data-sources:alert_receiver:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/alert_receiver/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/alert_receiver.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_alert_receiver for xcsh_alert_receiver.",
+      "title": "xcsh_alert_receiver",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 32350,
+      "body_sha256": "sha256:b76e94e497157f5a86c424c54b7ba602fde7ee9c3c1d72c16d5151b858346a78",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:email",
+        "xcsh-docs:data-sources:alert_receiver:properties:opsgenie",
+        "xcsh-docs:data-sources:alert_receiver:properties:pagerduty",
+        "xcsh-docs:data-sources:alert_receiver:properties:slack",
+        "xcsh-docs:data-sources:alert_receiver:properties:sms",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:reference",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:fundamentals",
+      "path": "documentation/data-sources/alert_receiver/properties/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_alert_receiver.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2679,
+      "body_sha256": "sha256:5195e1ec58b5984525c166db78d57ddaa8afb6ec7d2ba9cbe3c254f66565f6e3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:email",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:reference",
+      "path": "documentation/data-sources/alert_receiver/properties/email/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--email.md",
+      "role": "properties",
+      "schema_path": ["email"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/email/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "email for xcsh_alert_receiver.",
+      "title": "email",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2212,
+      "body_sha256": "sha256:433a7d54cb689431a7c77df59a5828bef711b0bf9bb93e939ee0e9e4de1d1d6e",
+      "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key"],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:reference",
+      "path": "documentation/data-sources/alert_receiver/properties/opsgenie/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--opsgenie.md",
+      "role": "properties",
+      "schema_path": ["opsgenie"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/opsgenie/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "opsgenie for xcsh_alert_receiver.",
+      "title": "opsgenie",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1798,
+      "body_sha256": "sha256:c527cabb345151e5fa42a123de591efd36619eef6749cb2cfdffd8ad2d75aa73",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
+        "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie",
+      "path": "documentation/data-sources/alert_receiver/properties/opsgenie/api_key/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--opsgenie--api_key.md",
+      "role": "properties",
+      "schema_path": ["opsgenie", "api_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/opsgenie/api_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "opsgenie.api_key for xcsh_alert_receiver.",
+      "title": "opsgenie.api_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4280,
+      "body_sha256": "sha256:c0f901f887354995bdd735fe811365cd922b22be3575fe9ae89638a1ca3600fa",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key",
+      "path": "documentation/data-sources/alert_receiver/properties/opsgenie/api_key/blindfold_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--opsgenie--api_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["opsgenie", "api_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/opsgenie/api_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "opsgenie.api_key.blindfold_secret_info for xcsh_alert_receiver.",
+      "title": "opsgenie.api_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3183,
+      "body_sha256": "sha256:f7040314b22caa962a9f493172dd13e08256701169da7cd4cf6d428f3c9c4f9f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key",
+      "path": "documentation/data-sources/alert_receiver/properties/opsgenie/api_key/clear_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--opsgenie--api_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["opsgenie", "api_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/opsgenie/api_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "opsgenie.api_key.clear_secret_info for xcsh_alert_receiver.",
+      "title": "opsgenie.api_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2242,
+      "body_sha256": "sha256:995e2291e3cc024fcbf49403a0ae0a30417a0d8dbc24491d550f33b5efb3b37c",
+      "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key"],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:reference",
+      "path": "documentation/data-sources/alert_receiver/properties/pagerduty/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--pagerduty.md",
+      "role": "properties",
+      "schema_path": ["pagerduty"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/pagerduty/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pagerduty for xcsh_alert_receiver.",
+      "title": "pagerduty",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1842,
+      "body_sha256": "sha256:f52d39ef3a8ef4758fb6aead1bb1a54ebe319e8b9109c3f0ca547d8581e6f073",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
+        "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty",
+      "path": "documentation/data-sources/alert_receiver/properties/pagerduty/routing_key/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--pagerduty--routing_key.md",
+      "role": "properties",
+      "schema_path": ["pagerduty", "routing_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/pagerduty/routing_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pagerduty.routing_key for xcsh_alert_receiver.",
+      "title": "pagerduty.routing_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4327,
+      "body_sha256": "sha256:74549f519457304ec7e16cb0cdb24b5f7345c018806e626680f3207b1878d693",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key",
+      "path": "documentation/data-sources/alert_receiver/properties/pagerduty/routing_key/blindfold_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--pagerduty--routing_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["pagerduty", "routing_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/pagerduty/routing_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pagerduty.routing_key.blindfold_secret_info for xcsh_alert_receiver.",
+      "title": "pagerduty.routing_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3225,
+      "body_sha256": "sha256:e4a0854c391734b31a81d7aeb98bf6250430ed9a52503eadddd56754f5472340",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key",
+      "path": "documentation/data-sources/alert_receiver/properties/pagerduty/routing_key/clear_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--pagerduty--routing_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["pagerduty", "routing_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/pagerduty/routing_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pagerduty.routing_key.clear_secret_info for xcsh_alert_receiver.",
+      "title": "pagerduty.routing_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1980,
+      "body_sha256": "sha256:7f96241b77ff2d76a487512e42ac19bb95a7f41cb2699a9421abccef2ab9e035",
+      "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:slack:url"],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:slack",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:reference",
+      "path": "documentation/data-sources/alert_receiver/properties/slack/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--slack.md",
+      "role": "properties",
+      "schema_path": ["slack"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/slack/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "slack for xcsh_alert_receiver.",
+      "title": "slack",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1730,
+      "body_sha256": "sha256:c6d3bda7348e02d8097cfddfe81088f01359482f45aa090e9fc78917e02ec705",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
+        "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:slack",
+      "path": "documentation/data-sources/alert_receiver/properties/slack/url/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--slack--url.md",
+      "role": "properties",
+      "schema_path": ["slack", "url"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/slack/url/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "slack.url for xcsh_alert_receiver.",
+      "title": "slack.url",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4211,
+      "body_sha256": "sha256:3003b53796d99e949b960359d9318ad357ee8368e080143a1e034450fd3b1b40",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url",
+      "path": "documentation/data-sources/alert_receiver/properties/slack/url/blindfold_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--slack--url--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["slack", "url", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/slack/url/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "slack.url.blindfold_secret_info for xcsh_alert_receiver.",
+      "title": "slack.url.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3121,
+      "body_sha256": "sha256:809dba06350637d5e1abc901edc95a16637f39a1516f1831591114c29983d444",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url",
+      "path": "documentation/data-sources/alert_receiver/properties/slack/url/clear_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--slack--url--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["slack", "url", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/slack/url/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "slack.url.clear_secret_info for xcsh_alert_receiver.",
+      "title": "slack.url.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1705,
+      "body_sha256": "sha256:243a56f827701880c14dc4bc7726e7ef031cf8b28be1dddb0783a92259d08f14",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:sms",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:reference",
+      "path": "documentation/data-sources/alert_receiver/properties/sms/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--sms.md",
+      "role": "properties",
+      "schema_path": ["sms"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/sms/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "sms for xcsh_alert_receiver.",
+      "title": "sms",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1393,
+      "body_sha256": "sha256:b21f74c43360b561cbc769899320d1266ad1b1bed3e25d785364d43fdcc934c3",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:url"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:reference",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook.md",
+      "role": "properties",
+      "schema_path": ["webhook"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook for xcsh_alert_receiver.",
+      "title": "webhook",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3974,
+      "body_sha256": "sha256:065a2b169c04902ed5ba71792859aaf19b1ee20fb4839222b9b93d43005c6a62",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:no_authorization",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:no_tls",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config for xcsh_alert_receiver.",
+      "title": "webhook.http_config",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1541,
+      "body_sha256": "sha256:e22fa9707138fbfbefd6da9a1867bcdc367d3361c824e4419e70ab5207a2ae8e",
+      "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token"],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/auth_token/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--auth_token.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "auth_token"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/auth_token/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.auth_token for xcsh_alert_receiver.",
+      "title": "webhook.http_config.auth_token",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2304,
+      "body_sha256": "sha256:49e674a860d4871d461a3c3fc9ab948c91efbee354e5947bd45c1b487535cfd1",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--auth_token--token.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "auth_token", "token"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.auth_token.token for xcsh_alert_receiver.",
+      "title": "webhook.http_config.auth_token.token",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4768,
+      "body_sha256": "sha256:3f619acbb6196d5f4a8d6fbfb6a7c1f51c9b19158377d1127a52e547a3d38ad8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/blindfold_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--auth_token--token--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "auth_token", "token", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.auth_token.token.blindfold_secret_info for xcsh_alert_receiver.",
+      "title": "webhook.http_config.auth_token.token.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3649,
+      "body_sha256": "sha256:b95dfbd1c71fc1c34fc17dfdab57fd9eb4ab638a32d89b338f823d10c10d9d29",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/clear_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--auth_token--token--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "auth_token", "token", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/auth_token/token/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.auth_token.token.clear_secret_info for xcsh_alert_receiver.",
+      "title": "webhook.http_config.auth_token.token.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2446,
+      "body_sha256": "sha256:0f62c9d96d3a9db9c544abd3a10e254f30b30daf32928f9f85514a68d218ebdf",
+      "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password"],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--basic_auth.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "basic_auth"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.basic_auth for xcsh_alert_receiver.",
+      "title": "webhook.http_config.basic_auth",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2328,
+      "body_sha256": "sha256:3f757580cb3b31fa1b86c6dbc170e153cf30fa1c325bff0d5e6298c4e803329d",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--basic_auth--password.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "basic_auth", "password"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.basic_auth.password for xcsh_alert_receiver.",
+      "title": "webhook.http_config.basic_auth.password",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4795,
+      "body_sha256": "sha256:7aa90ca4e19bed87d1c74dada390dab52c7d1e8c462e10ca5006a5db1012f6ae",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/blindfold_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--basic_auth--password--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "basic_auth", "password", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.basic_auth.password.blindfold_secret_info for xcsh_alert_receiver.",
+      "title": "webhook.http_config.basic_auth.password.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3673,
+      "body_sha256": "sha256:174221a391f362d01c987c1fa134f054a301f5fe0e60943495719059492184b5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/clear_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--basic_auth--password--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "basic_auth", "password", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/basic_auth/password/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.basic_auth.password.clear_secret_info for xcsh_alert_receiver.",
+      "title": "webhook.http_config.basic_auth.password.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1613,
+      "body_sha256": "sha256:c7373ed3e13e340a5d7412931cdd5b8c161db8f8cc59d63f59fd89d94fb7f0de",
+      "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj"],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/client_cert_obj/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--client_cert_obj.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "client_cert_obj"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/client_cert_obj/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.client_cert_obj for xcsh_alert_receiver.",
+      "title": "webhook.http_config.client_cert_obj",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6663,
+      "body_sha256": "sha256:bbc11c5b8272d633db10fe62878f1537ebf2255ac8e4390b7ac6ef92127886df",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/client_cert_obj/use_tls_obj/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--client_cert_obj--use_tls_obj.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "client_cert_obj", "use_tls_obj"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/client_cert_obj/use_tls_obj/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.client_cert_obj.use_tls_obj for xcsh_alert_receiver.",
+      "title": "webhook.http_config.client_cert_obj.use_tls_obj",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1303,
+      "body_sha256": "sha256:46239609fb407fb1c23943eea3b7a1d69633cae73823dc36bb89c578f0a375ad",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:no_authorization",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/no_authorization/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--no_authorization.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "no_authorization"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/no_authorization/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.no_authorization for xcsh_alert_receiver.",
+      "title": "webhook.http_config.no_authorization",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1256,
+      "body_sha256": "sha256:72791c299234029a62e4a045bdf71b7fe9d108d6ed043c48fc4634e9a2098a39",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:no_tls",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/no_tls/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--no_tls.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "no_tls"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/no_tls/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.no_tls for xcsh_alert_receiver.",
+      "title": "webhook.http_config.no_tls",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5129,
+      "body_sha256": "sha256:e36fb5a7d721f6680196c27f0e643bfd1c40bbdc60a289b49f16b9f7ff0d409b",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:disable_sni",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:volterra_trusted_ca"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--use_tls.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "use_tls"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.use_tls for xcsh_alert_receiver.",
+      "title": "webhook.http_config.use_tls",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1477,
+      "body_sha256": "sha256:577dd572ae01c82ac1da17828e5542f8e134440e36dc3cbbd71b5a9e51ee8bae",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:disable_sni",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/disable_sni/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--use_tls--disable_sni.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "use_tls", "disable_sni"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/disable_sni/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.use_tls.disable_sni for xcsh_alert_receiver.",
+      "title": "webhook.http_config.use_tls.disable_sni",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1849,
+      "body_sha256": "sha256:0faa4ad38960311920533307b40ad4b11238808c4e82816520401b8bad53b475",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--use_tls--use_server_verification.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.use_tls.use_server_verification for xcsh_alert_receiver.",
+      "title": "webhook.http_config.use_tls.use_server_verification",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2147,
+      "body_sha256": "sha256:1bab43909e4c642795209b8b8464017045bdcc9506e0405a0db5eecb02f80729",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--use_tls--use_server_verification--ca_cert_obj.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification", "ca_cert_obj"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.use_tls.use_server_verification.ca_cert_obj for xcsh_alert_receiver.",
+      "title": "webhook.http_config.use_tls.use_server_verification.ca_cert_obj",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7336,
+      "body_sha256": "sha256:66823c021b08022fc157d4998da7f56907899a10ad3c7357ea7fdf89efe9be3c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/trusted_ca/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification", "ca_cert_obj", "trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca for xcsh_alert_receiver.",
+      "title": "webhook.http_config.use_tls.use_server_verification.ca_cert_obj.trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1501,
+      "body_sha256": "sha256:f158b0d5aadc417f991d62549f67c2d7be6a9248f9aa424fab4d42f9507476a8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:volterra_trusted_ca",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/http_config/use_tls/volterra_trusted_ca/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--http_config--use_tls--volterra_trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["webhook", "http_config", "use_tls", "volterra_trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/http_config/use_tls/volterra_trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.http_config.use_tls.volterra_trusted_ca for xcsh_alert_receiver.",
+      "title": "webhook.http_config.use_tls.volterra_trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1754,
+      "body_sha256": "sha256:601ca2661d5bc91dc4b7dabb2ce05813cb95a4d0075ba180c08201f3a3cccf88",
+      "child_ids": [
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
+        "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/url/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--url.md",
+      "role": "properties",
+      "schema_path": ["webhook", "url"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/url/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.url for xcsh_alert_receiver.",
+      "title": "webhook.url",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4233,
+      "body_sha256": "sha256:5f1aac8b2099253186b2a14761b02a894436fb225422e421c162143a3b735083",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/url/blindfold_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--url--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["webhook", "url", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/url/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.url.blindfold_secret_info for xcsh_alert_receiver.",
+      "title": "webhook.url.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3141,
+      "body_sha256": "sha256:262426450500d276d115e55d0a5be89c86987bc80ae1bd78606b4dbf7916f05d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url",
+      "path": "documentation/data-sources/alert_receiver/properties/webhook/url/clear_secret_info/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--properties--webhook--url--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["webhook", "url", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/properties/webhook/url/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "webhook.url.clear_secret_info for xcsh_alert_receiver.",
+      "title": "webhook.url.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 570,
+      "body_sha256": "sha256:27d0a4146b60022bdfddb7b15433281e9af4548e4083a84d7670922660ee88ea",
+      "child_ids": ["xcsh-docs:data-sources:alert_receiver:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:alert_receiver:examples",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:fundamentals",
+      "path": "documentation/data-sources/alert_receiver/examples/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_alert_receiver.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1206,
+      "body_sha256": "sha256:5780f357c32816c28adf98c901e6545789f63385bd6b97c0c2da4184d6ff0613",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:alert_receiver:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:96027faa6721d178ff8fb480c66120ec2d45036c783323915216275133e6a1d6",
+        "source_path": "examples/data-sources/xcsh_alert_receiver/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:alert_receiver:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:alert_receiver:examples",
+      "path": "documentation/data-sources/alert_receiver/examples/data-source/index.md",
+      "provider_name": "alert_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--alert_receiver--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_receiver/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_alert_receiver.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

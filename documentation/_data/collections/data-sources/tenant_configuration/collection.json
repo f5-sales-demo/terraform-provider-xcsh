@@ -1,0 +1,553 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:tenant_configuration:fundamentals",
+    "id": "xcsh-docs:data-sources:tenant_configuration:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+        "schema_path": ["annotations"]
+      },
+      "brute_force_detection": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:brute_force_detection",
+        "schema_path": ["brute_force_detection"]
+      },
+      "brute_force_detection.max_login_failures": {
+        "anchor": "schema-brute_force_detection--max_login_failures",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:brute_force_detection",
+        "schema_path": ["brute_force_detection", "max_login_failures"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+        "schema_path": ["namespace"]
+      },
+      "password_policy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy"]
+      },
+      "password_policy.digits": {
+        "anchor": "schema-password_policy--digits",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy", "digits"]
+      },
+      "password_policy.expire_password": {
+        "anchor": "schema-password_policy--expire_password",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy", "expire_password"]
+      },
+      "password_policy.lowercase_characters": {
+        "anchor": "schema-password_policy--lowercase_characters",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy", "lowercase_characters"]
+      },
+      "password_policy.minimum_length": {
+        "anchor": "schema-password_policy--minimum_length",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy", "minimum_length"]
+      },
+      "password_policy.not_recently_used": {
+        "anchor": "schema-password_policy--not_recently_used",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy", "not_recently_used"]
+      },
+      "password_policy.not_username": {
+        "anchor": "schema-password_policy--not_username",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy", "not_username"]
+      },
+      "password_policy.special_characters": {
+        "anchor": "schema-password_policy--special_characters",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy", "special_characters"]
+      },
+      "password_policy.uppercase_characters": {
+        "anchor": "schema-password_policy--uppercase_characters",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "schema_path": ["password_policy", "uppercase_characters"]
+      },
+      "tenant_details": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:tenant_details",
+        "schema_path": ["tenant_details"]
+      },
+      "tenant_details.display_name": {
+        "anchor": "schema-tenant_details--display_name",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:tenant_details",
+        "schema_path": ["tenant_details", "display_name"]
+      },
+      "user_session_expiration": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration",
+        "schema_path": ["user_session_expiration"]
+      },
+      "user_session_expiration.absolute_timeout": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout",
+        "schema_path": ["user_session_expiration", "absolute_timeout"]
+      },
+      "user_session_expiration.absolute_timeout.hours": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout:hours",
+        "schema_path": ["user_session_expiration", "absolute_timeout", "hours"]
+      },
+      "user_session_expiration.absolute_timeout.hours.duration": {
+        "anchor": "schema-user_session_expiration--absolute_timeout--hours--duration",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout:hours",
+        "schema_path": ["user_session_expiration", "absolute_timeout", "hours", "duration"]
+      },
+      "user_session_expiration.absolute_timeout.minutes": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout:minutes",
+        "schema_path": ["user_session_expiration", "absolute_timeout", "minutes"]
+      },
+      "user_session_expiration.absolute_timeout.minutes.duration": {
+        "anchor": "schema-user_session_expiration--absolute_timeout--minutes--duration",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout:minutes",
+        "schema_path": ["user_session_expiration", "absolute_timeout", "minutes", "duration"]
+      },
+      "user_session_expiration.idle_timeout": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout",
+        "schema_path": ["user_session_expiration", "idle_timeout"]
+      },
+      "user_session_expiration.idle_timeout.hours": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout:hours",
+        "schema_path": ["user_session_expiration", "idle_timeout", "hours"]
+      },
+      "user_session_expiration.idle_timeout.hours.duration": {
+        "anchor": "schema-user_session_expiration--idle_timeout--hours--duration",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout:hours",
+        "schema_path": ["user_session_expiration", "idle_timeout", "hours", "duration"]
+      },
+      "user_session_expiration.idle_timeout.minutes": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout:minutes",
+        "schema_path": ["user_session_expiration", "idle_timeout", "minutes"]
+      },
+      "user_session_expiration.idle_timeout.minutes.duration": {
+        "anchor": "schema-user_session_expiration--idle_timeout--minutes--duration",
+        "document_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout:minutes",
+        "schema_path": ["user_session_expiration", "idle_timeout", "minutes", "duration"]
+      }
+    },
+    "provider_name": "tenant_configuration",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:tenant_configuration:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1346,
+      "body_sha256": "sha256:05e6593c44ae19fc9b835021eafd7d92ede529bbf7f4b2d0e487d502fcc57335",
+      "child_ids": [
+        "xcsh-docs:data-sources:tenant_configuration:reference",
+        "xcsh-docs:data-sources:tenant_configuration:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/tenant_configuration/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/tenant_configuration.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_tenant_configuration for xcsh_tenant_configuration.",
+      "title": "xcsh_tenant_configuration",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9374,
+      "body_sha256": "sha256:df3659992044bc202ff60e52e54a26ca52b0d289acf12c874ec30b880e63921c",
+      "child_ids": [
+        "xcsh-docs:data-sources:tenant_configuration:properties:brute_force_detection",
+        "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+        "xcsh-docs:data-sources:tenant_configuration:properties:tenant_details",
+        "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration"
+      ],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:reference",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:fundamentals",
+      "path": "documentation/data-sources/tenant_configuration/properties/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_tenant_configuration.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1905,
+      "body_sha256": "sha256:db05267dae5f73f34b613154192abfe22f0b62acc096616e01ab0731b96cda64",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:brute_force_detection",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+      "path": "documentation/data-sources/tenant_configuration/properties/brute_force_detection/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--brute_force_detection.md",
+      "role": "properties",
+      "schema_path": ["brute_force_detection"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/brute_force_detection/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "brute_force_detection for xcsh_tenant_configuration.",
+      "title": "brute_force_detection",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6893,
+      "body_sha256": "sha256:efdd6e461951cc4baf81a0c1f81f451c552f1a09ef7868d284d237bcf3656601",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:password_policy",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+      "path": "documentation/data-sources/tenant_configuration/properties/password_policy/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--password_policy.md",
+      "role": "properties",
+      "schema_path": ["password_policy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/password_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "password_policy for xcsh_tenant_configuration.",
+      "title": "password_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2011,
+      "body_sha256": "sha256:abb4e392dce03b73166b7c62eb2edc6f06af7f3f3a55a304fcf2497ad80cb753",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:tenant_details",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+      "path": "documentation/data-sources/tenant_configuration/properties/tenant_details/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--tenant_details.md",
+      "role": "properties",
+      "schema_path": ["tenant_details"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/tenant_details/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tenant_details for xcsh_tenant_configuration.",
+      "title": "tenant_details",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2440,
+      "body_sha256": "sha256:4f42fb0521080e7e29ef086f7b5e924f2858921ecb73996e77d2935862ef1e03",
+      "child_ids": [
+        "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout",
+        "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout"
+      ],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:reference",
+      "path": "documentation/data-sources/tenant_configuration/properties/user_session_expiration/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--user_session_expiration.md",
+      "role": "properties",
+      "schema_path": ["user_session_expiration"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/user_session_expiration/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_session_expiration for xcsh_tenant_configuration.",
+      "title": "user_session_expiration",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1949,
+      "body_sha256": "sha256:cc5e24124bbe3a4c05d06a8e846cb83cadea5982d467449a8b19efea4cff8543",
+      "child_ids": [
+        "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout:hours",
+        "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout:minutes"
+      ],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration",
+      "path": "documentation/data-sources/tenant_configuration/properties/user_session_expiration/absolute_timeout/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--user_session_expiration--absolute_timeout.md",
+      "role": "properties",
+      "schema_path": ["user_session_expiration", "absolute_timeout"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/user_session_expiration/absolute_timeout/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_session_expiration.absolute_timeout for xcsh_tenant_configuration.",
+      "title": "user_session_expiration.absolute_timeout",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2367,
+      "body_sha256": "sha256:400a968840d5dc6f47d9fbc39951d00888d081309d585abfb89426b1ed4051ad",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout:hours",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout",
+      "path": "documentation/data-sources/tenant_configuration/properties/user_session_expiration/absolute_timeout/hours/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--user_session_expiration--absolute_timeout--hours.md",
+      "role": "properties",
+      "schema_path": ["user_session_expiration", "absolute_timeout", "hours"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/user_session_expiration/absolute_timeout/hours/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_session_expiration.absolute_timeout.hours for xcsh_tenant_configuration.",
+      "title": "user_session_expiration.absolute_timeout.hours",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2381,
+      "body_sha256": "sha256:018ef618099efc0061c1c69e81deefa6dc3a0d654c08f8c629a638ef469f38b2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout:minutes",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:absolute_timeout",
+      "path": "documentation/data-sources/tenant_configuration/properties/user_session_expiration/absolute_timeout/minutes/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--user_session_expiration--absolute_timeout--minutes.md",
+      "role": "properties",
+      "schema_path": ["user_session_expiration", "absolute_timeout", "minutes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/user_session_expiration/absolute_timeout/minutes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_session_expiration.absolute_timeout.minutes for xcsh_tenant_configuration.",
+      "title": "user_session_expiration.absolute_timeout.minutes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1916,
+      "body_sha256": "sha256:51211c3461c3b4c73c30af01303d7afd5b481ca797e82a6af9d32e7b2310f0c6",
+      "child_ids": [
+        "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout:hours",
+        "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout:minutes"
+      ],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration",
+      "path": "documentation/data-sources/tenant_configuration/properties/user_session_expiration/idle_timeout/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--user_session_expiration--idle_timeout.md",
+      "role": "properties",
+      "schema_path": ["user_session_expiration", "idle_timeout"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/user_session_expiration/idle_timeout/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_session_expiration.idle_timeout for xcsh_tenant_configuration.",
+      "title": "user_session_expiration.idle_timeout",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2338,
+      "body_sha256": "sha256:064266845186cd9af22fc2219585c7de31d8ede1f4bf6512347fd1dbf995ee0d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout:hours",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout",
+      "path": "documentation/data-sources/tenant_configuration/properties/user_session_expiration/idle_timeout/hours/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--user_session_expiration--idle_timeout--hours.md",
+      "role": "properties",
+      "schema_path": ["user_session_expiration", "idle_timeout", "hours"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/user_session_expiration/idle_timeout/hours/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_session_expiration.idle_timeout.hours for xcsh_tenant_configuration.",
+      "title": "user_session_expiration.idle_timeout.hours",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2352,
+      "body_sha256": "sha256:5573c2635372549b4779971b464eafd463de073a3c46eaf96b52fde385559ede",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout:minutes",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:properties:user_session_expiration:idle_timeout",
+      "path": "documentation/data-sources/tenant_configuration/properties/user_session_expiration/idle_timeout/minutes/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--properties--user_session_expiration--idle_timeout--minutes.md",
+      "role": "properties",
+      "schema_path": ["user_session_expiration", "idle_timeout", "minutes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/properties/user_session_expiration/idle_timeout/minutes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_session_expiration.idle_timeout.minutes for xcsh_tenant_configuration.",
+      "title": "user_session_expiration.idle_timeout.minutes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 606,
+      "body_sha256": "sha256:c17589795f6cd4052ae324f3d6a91321654b8bfe04b341b9ae4e4b85cdb99824",
+      "child_ids": ["xcsh-docs:data-sources:tenant_configuration:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tenant_configuration:examples",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:fundamentals",
+      "path": "documentation/data-sources/tenant_configuration/examples/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_tenant_configuration.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1284,
+      "body_sha256": "sha256:610d013d22b04e373eb34ecf1cb731a659015e8d63e726b099ca8c12c98c5218",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tenant_configuration:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:82e6c50873cbaa19717f3b339ef9fae150aab727845b88eb85553bf86a8cc317",
+        "source_path": "examples/data-sources/xcsh_tenant_configuration/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:tenant_configuration:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:tenant_configuration:examples",
+      "path": "documentation/data-sources/tenant_configuration/examples/data-source/index.md",
+      "provider_name": "tenant_configuration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tenant_configuration--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_tenant_configuration.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tenant_configurationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

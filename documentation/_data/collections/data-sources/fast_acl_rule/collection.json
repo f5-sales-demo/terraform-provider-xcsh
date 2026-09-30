@@ -1,0 +1,598 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:fast_acl_rule:fundamentals",
+    "id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+    "properties": {
+      "action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action",
+        "schema_path": ["action"]
+      },
+      "action.policer_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action",
+        "schema_path": ["action", "policer_action"]
+      },
+      "action.policer_action.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref",
+        "schema_path": ["action", "policer_action", "ref"]
+      },
+      "action.policer_action.ref.kind": {
+        "anchor": "schema-action--policer_action--ref--kind",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref",
+        "schema_path": ["action", "policer_action", "ref", "kind"]
+      },
+      "action.policer_action.ref.name": {
+        "anchor": "schema-action--policer_action--ref--name",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref",
+        "schema_path": ["action", "policer_action", "ref", "name"]
+      },
+      "action.policer_action.ref.namespace": {
+        "anchor": "schema-action--policer_action--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref",
+        "schema_path": ["action", "policer_action", "ref", "namespace"]
+      },
+      "action.policer_action.ref.tenant": {
+        "anchor": "schema-action--policer_action--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref",
+        "schema_path": ["action", "policer_action", "ref", "tenant"]
+      },
+      "action.policer_action.ref.uid": {
+        "anchor": "schema-action--policer_action--ref--uid",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref",
+        "schema_path": ["action", "policer_action", "ref", "uid"]
+      },
+      "action.protocol_policer_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action",
+        "schema_path": ["action", "protocol_policer_action"]
+      },
+      "action.protocol_policer_action.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref",
+        "schema_path": ["action", "protocol_policer_action", "ref"]
+      },
+      "action.protocol_policer_action.ref.kind": {
+        "anchor": "schema-action--protocol_policer_action--ref--kind",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref",
+        "schema_path": ["action", "protocol_policer_action", "ref", "kind"]
+      },
+      "action.protocol_policer_action.ref.name": {
+        "anchor": "schema-action--protocol_policer_action--ref--name",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref",
+        "schema_path": ["action", "protocol_policer_action", "ref", "name"]
+      },
+      "action.protocol_policer_action.ref.namespace": {
+        "anchor": "schema-action--protocol_policer_action--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref",
+        "schema_path": ["action", "protocol_policer_action", "ref", "namespace"]
+      },
+      "action.protocol_policer_action.ref.tenant": {
+        "anchor": "schema-action--protocol_policer_action--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref",
+        "schema_path": ["action", "protocol_policer_action", "ref", "tenant"]
+      },
+      "action.protocol_policer_action.ref.uid": {
+        "anchor": "schema-action--protocol_policer_action--ref--uid",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref",
+        "schema_path": ["action", "protocol_policer_action", "ref", "uid"]
+      },
+      "action.simple_action": {
+        "anchor": "schema-action--simple_action",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action",
+        "schema_path": ["action", "simple_action"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+        "schema_path": ["id"]
+      },
+      "ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set",
+        "schema_path": ["ip_prefix_set"]
+      },
+      "ip_prefix_set.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref",
+        "schema_path": ["ip_prefix_set", "ref"]
+      },
+      "ip_prefix_set.ref.kind": {
+        "anchor": "schema-ip_prefix_set--ref--kind",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref",
+        "schema_path": ["ip_prefix_set", "ref", "kind"]
+      },
+      "ip_prefix_set.ref.name": {
+        "anchor": "schema-ip_prefix_set--ref--name",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref",
+        "schema_path": ["ip_prefix_set", "ref", "name"]
+      },
+      "ip_prefix_set.ref.namespace": {
+        "anchor": "schema-ip_prefix_set--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref",
+        "schema_path": ["ip_prefix_set", "ref", "namespace"]
+      },
+      "ip_prefix_set.ref.tenant": {
+        "anchor": "schema-ip_prefix_set--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref",
+        "schema_path": ["ip_prefix_set", "ref", "tenant"]
+      },
+      "ip_prefix_set.ref.uid": {
+        "anchor": "schema-ip_prefix_set--ref--uid",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref",
+        "schema_path": ["ip_prefix_set", "ref", "uid"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+        "schema_path": ["namespace"]
+      },
+      "port": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:port",
+        "schema_path": ["port"]
+      },
+      "port.all": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:port:all",
+        "schema_path": ["port", "all"]
+      },
+      "port.dns": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:port:dns",
+        "schema_path": ["port", "dns"]
+      },
+      "port.user_defined": {
+        "anchor": "schema-port--user_defined",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:port",
+        "schema_path": ["port", "user_defined"]
+      },
+      "prefix": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:prefix",
+        "schema_path": ["prefix"]
+      },
+      "prefix.prefix": {
+        "anchor": "schema-prefix--prefix",
+        "document_id": "xcsh-docs:data-sources:fast_acl_rule:properties:prefix",
+        "schema_path": ["prefix", "prefix"]
+      }
+    },
+    "provider_name": "fast_acl_rule",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:fast_acl_rule:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1277,
+      "body_sha256": "sha256:28622d86e7d98a827de6e6d8d64faff4d51388f3cb4a9542e055470208837765",
+      "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:reference", "xcsh-docs:data-sources:fast_acl_rule:examples"],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/fast_acl_rule/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/fast_acl_rule.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_fast_acl_rule for xcsh_fast_acl_rule.",
+      "title": "xcsh_fast_acl_rule",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13754,
+      "body_sha256": "sha256:528d57f403d6d86484a6c520c279a85f45d72cf6c7a6e2fa6f99b773c61c98b2",
+      "child_ids": [
+        "xcsh-docs:data-sources:fast_acl_rule:properties:action",
+        "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set",
+        "xcsh-docs:data-sources:fast_acl_rule:properties:port",
+        "xcsh-docs:data-sources:fast_acl_rule:properties:prefix"
+      ],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:fundamentals",
+      "path": "documentation/data-sources/fast_acl_rule/properties/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_fast_acl_rule.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2483,
+      "body_sha256": "sha256:7e369bab4b5870559e8836f23b29abce5d9a72f7df52a9d71d95a64dc3bae2fb",
+      "child_ids": [
+        "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action",
+        "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action"
+      ],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:action",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+      "path": "documentation/data-sources/fast_acl_rule/properties/action/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--action.md",
+      "role": "properties",
+      "schema_path": ["action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "action for xcsh_fast_acl_rule.",
+      "title": "action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1307,
+      "body_sha256": "sha256:fdcf5512ec8964841e0ffd98d883692362611d2616f2584d4fb2889073f11830",
+      "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref"],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action",
+      "path": "documentation/data-sources/fast_acl_rule/properties/action/policer_action/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--action--policer_action.md",
+      "role": "properties",
+      "schema_path": ["action", "policer_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/action/policer_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "action.policer_action for xcsh_fast_acl_rule.",
+      "title": "action.policer_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6264,
+      "body_sha256": "sha256:f52569183c698704131b960e5879b19e25d1b34ff56852f29eb59e476f546097",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action:ref",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:policer_action",
+      "path": "documentation/data-sources/fast_acl_rule/properties/action/policer_action/ref/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--action--policer_action--ref.md",
+      "role": "properties",
+      "schema_path": ["action", "policer_action", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/action/policer_action/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "action.policer_action.ref for xcsh_fast_acl_rule.",
+      "title": "action.policer_action.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1361,
+      "body_sha256": "sha256:617ef9390f26e48b120ee1b587c56634b47b9f4e7145794dc64b08251d7d7eab",
+      "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref"],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action",
+      "path": "documentation/data-sources/fast_acl_rule/properties/action/protocol_policer_action/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--action--protocol_policer_action.md",
+      "role": "properties",
+      "schema_path": ["action", "protocol_policer_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/action/protocol_policer_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "action.protocol_policer_action for xcsh_fast_acl_rule.",
+      "title": "action.protocol_policer_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6400,
+      "body_sha256": "sha256:3911add0520bcd699939734285a6c79e957370b211131c864df613d4b2889f5a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action:ref",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:properties:action:protocol_policer_action",
+      "path": "documentation/data-sources/fast_acl_rule/properties/action/protocol_policer_action/ref/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--action--protocol_policer_action--ref.md",
+      "role": "properties",
+      "schema_path": ["action", "protocol_policer_action", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/action/protocol_policer_action/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "action.protocol_policer_action.ref for xcsh_fast_acl_rule.",
+      "title": "action.protocol_policer_action.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1576,
+      "body_sha256": "sha256:2584285cd463835515c09e0387d1557e5cff3cde0d35d15fd6a1cc5d621fca76",
+      "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref"],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+      "path": "documentation/data-sources/fast_acl_rule/properties/ip_prefix_set/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ip_prefix_set for xcsh_fast_acl_rule.",
+      "title": "ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6086,
+      "body_sha256": "sha256:20ad5bcfe4557e861e7d43d6a71488a486932c08df0b6ba1d8642ddee3f2e53a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set:ref",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:properties:ip_prefix_set",
+      "path": "documentation/data-sources/fast_acl_rule/properties/ip_prefix_set/ref/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--ip_prefix_set--ref.md",
+      "role": "properties",
+      "schema_path": ["ip_prefix_set", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/ip_prefix_set/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ip_prefix_set.ref for xcsh_fast_acl_rule.",
+      "title": "ip_prefix_set.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2866,
+      "body_sha256": "sha256:f7d1f1e1acba42ccf3521b64e90fafdfa02a29b09b4135f14f42963cef6cb930",
+      "child_ids": [
+        "xcsh-docs:data-sources:fast_acl_rule:properties:port:all",
+        "xcsh-docs:data-sources:fast_acl_rule:properties:port:dns"
+      ],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:port",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+      "path": "documentation/data-sources/fast_acl_rule/properties/port/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--port.md",
+      "role": "properties",
+      "schema_path": ["port"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/port/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "port for xcsh_fast_acl_rule.",
+      "title": "port",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1036,
+      "body_sha256": "sha256:51468a66b0f3e0dbfb06bf0d54f05c00cdd8febfc66a748d45fdf42bbf0564e1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:port:all",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:properties:port",
+      "path": "documentation/data-sources/fast_acl_rule/properties/port/all/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--port--all.md",
+      "role": "properties",
+      "schema_path": ["port", "all"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/port/all/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "port.all for xcsh_fast_acl_rule.",
+      "title": "port.all",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1036,
+      "body_sha256": "sha256:59ca651cdd4f67075055479c542b050c135251644f8afdd1e072ee7a5c92e24f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:port:dns",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:properties:port",
+      "path": "documentation/data-sources/fast_acl_rule/properties/port/dns/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--port--dns.md",
+      "role": "properties",
+      "schema_path": ["port", "dns"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/port/dns/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "port.dns for xcsh_fast_acl_rule.",
+      "title": "port.dns",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2001,
+      "body_sha256": "sha256:99e5084fb8a49469e55497c77c0745b9ccbb6c8904377fdc06887ca4afaadbff",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:properties:prefix",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:reference",
+      "path": "documentation/data-sources/fast_acl_rule/properties/prefix/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--properties--prefix.md",
+      "role": "properties",
+      "schema_path": ["prefix"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/properties/prefix/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "prefix for xcsh_fast_acl_rule.",
+      "title": "prefix",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 564,
+      "body_sha256": "sha256:1f06712552789af96319cba6fe3e2a5669b52d6f8ddc27f3fe69b997eb9f8b7a",
+      "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:fast_acl_rule:examples",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:fundamentals",
+      "path": "documentation/data-sources/fast_acl_rule/examples/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_fast_acl_rule.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1191,
+      "body_sha256": "sha256:c8ec70b1778eb7f3d564a67b8ec7b68616a199f55ac0449ebddb52b88e2c39cf",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:d3a85aa2d2c4a98927959b827b07db2533ed58dbfde3c28ad82e3e2235d3a843",
+        "source_path": "examples/data-sources/xcsh_fast_acl_rule/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:fast_acl_rule:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:fast_acl_rule:examples",
+      "path": "documentation/data-sources/fast_acl_rule/examples/data-source/index.md",
+      "provider_name": "fast_acl_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--fast_acl_rule--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_fast_acl_rule.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["fast_acl_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

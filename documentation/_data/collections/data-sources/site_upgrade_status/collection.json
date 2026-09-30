@@ -1,0 +1,234 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:site_upgrade_status:fundamentals",
+    "id": "xcsh-docs:data-sources:site_upgrade_status:collection",
+    "properties": {
+      "eligible": {
+        "anchor": "schema-eligible",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["eligible"]
+      },
+      "expected_os_version": {
+        "anchor": "schema-expected_os_version",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["expected_os_version"]
+      },
+      "expected_software_version": {
+        "anchor": "schema-expected_software_version",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["expected_software_version"]
+      },
+      "failed_precheck_names": {
+        "anchor": "schema-failed_precheck_names",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["failed_precheck_names"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["id"]
+      },
+      "os_available_version": {
+        "anchor": "schema-os_available_version",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["os_available_version"]
+      },
+      "os_deployment_phase": {
+        "anchor": "schema-os_deployment_phase",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["os_deployment_phase"]
+      },
+      "os_deployment_result": {
+        "anchor": "schema-os_deployment_result",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["os_deployment_result"]
+      },
+      "os_installed_version": {
+        "anchor": "schema-os_installed_version",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["os_installed_version"]
+      },
+      "poll_interval_seconds": {
+        "anchor": "schema-poll_interval_seconds",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["poll_interval_seconds"]
+      },
+      "ready": {
+        "anchor": "schema-ready",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["ready"]
+      },
+      "site": {
+        "anchor": "schema-site",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["site"]
+      },
+      "site_state": {
+        "anchor": "schema-site_state",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["site_state"]
+      },
+      "software_available_version": {
+        "anchor": "schema-software_available_version",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["software_available_version"]
+      },
+      "software_deployment_phase": {
+        "anchor": "schema-software_deployment_phase",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["software_deployment_phase"]
+      },
+      "software_deployment_result": {
+        "anchor": "schema-software_deployment_result",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["software_deployment_result"]
+      },
+      "software_installed_version": {
+        "anchor": "schema-software_installed_version",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["software_installed_version"]
+      },
+      "target_converged": {
+        "anchor": "schema-target_converged",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["target_converged"]
+      },
+      "timeout_seconds": {
+        "anchor": "schema-timeout_seconds",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["timeout_seconds"]
+      },
+      "upgradable_software_versions": {
+        "anchor": "schema-upgradable_software_versions",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["upgradable_software_versions"]
+      },
+      "wait": {
+        "anchor": "schema-wait",
+        "document_id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "schema_path": ["wait"]
+      }
+    },
+    "provider_name": "site_upgrade_status",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:site_upgrade_status:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1520,
+      "body_sha256": "sha256:9bccdf30baa44176198f04bef7a9f1c8b635063ab22c7635b5028e0025741597",
+      "child_ids": [
+        "xcsh-docs:data-sources:site_upgrade_status:reference",
+        "xcsh-docs:data-sources:site_upgrade_status:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:site_upgrade_status:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:site_upgrade_status:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/site_upgrade_status/index.md",
+      "provider_name": "site_upgrade_status",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/site_upgrade_status.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_upgrade_status/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_site_upgrade_status for xcsh_site_upgrade_status.",
+      "title": "xcsh_site_upgrade_status",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7434,
+      "body_sha256": "sha256:3fd9b9bf9a139f57d2267db77be27c29f3d92b971d9c04a378c4a2ece2cca8d7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:site_upgrade_status:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:site_upgrade_status:reference",
+      "parent_id": "xcsh-docs:data-sources:site_upgrade_status:fundamentals",
+      "path": "documentation/data-sources/site_upgrade_status/properties/index.md",
+      "provider_name": "site_upgrade_status",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--site_upgrade_status--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_upgrade_status/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_site_upgrade_status.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 600,
+      "body_sha256": "sha256:9a6931936960e2621a8302c400ecc252735c0f8f63ca032b943719a9bb9a8e1e",
+      "child_ids": ["xcsh-docs:data-sources:site_upgrade_status:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:site_upgrade_status:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:site_upgrade_status:examples",
+      "parent_id": "xcsh-docs:data-sources:site_upgrade_status:fundamentals",
+      "path": "documentation/data-sources/site_upgrade_status/examples/index.md",
+      "provider_name": "site_upgrade_status",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--site_upgrade_status--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_upgrade_status/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_site_upgrade_status.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1462,
+      "body_sha256": "sha256:9a9951067a80633feba66e00eb5cab267e5c4ee3099ab92de546f47a579900c4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:site_upgrade_status:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:3c8a578ab685be3268d5b0dab58926aa035dcddae8cb2d3ebaa0f6a17186a683",
+        "source_path": "examples/data-sources/xcsh_site_upgrade_status/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:site_upgrade_status:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:site_upgrade_status:examples",
+      "path": "documentation/data-sources/site_upgrade_status/examples/data-source/index.md",
+      "provider_name": "site_upgrade_status",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--site_upgrade_status--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_upgrade_status/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_site_upgrade_status.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

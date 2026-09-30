@@ -1,0 +1,274 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:certificate_chain:fundamentals",
+    "id": "xcsh-docs:resources:certificate_chain:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:certificate_chain:reference",
+        "schema_path": ["annotations"]
+      },
+      "certificate_url": {
+        "anchor": "schema-certificate_url",
+        "document_id": "xcsh-docs:resources:certificate_chain:reference",
+        "schema_path": ["certificate_url"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:certificate_chain:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:certificate_chain:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:certificate_chain:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:certificate_chain:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:certificate_chain:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:certificate_chain:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate_chain:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:certificate_chain:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:certificate_chain:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:certificate_chain:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:certificate_chain:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "certificate_chain",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:certificate_chain:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1636,
+      "body_sha256": "sha256:512b830b84394c6c8d7ff261a71b66f605d0e350bd88192647cf0a412cb68d59",
+      "child_ids": [
+        "xcsh-docs:resources:certificate_chain:reference",
+        "xcsh-docs:resources:certificate_chain:examples",
+        "xcsh-docs:resources:certificate_chain:import",
+        "xcsh-docs:resources:certificate_chain:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:certificate_chain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate_chain:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/certificate_chain/index.md",
+      "provider_name": "certificate_chain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/certificate_chain.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate_chain/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_certificate_chain for xcsh_certificate_chain.",
+      "title": "xcsh_certificate_chain",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificate_chainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10455,
+      "body_sha256": "sha256:a1b53c1407d6a335391d9582f3dabbfbafb150be075131c7c80ceb743ee3c288",
+      "child_ids": ["xcsh-docs:resources:certificate_chain:properties:timeouts"],
+      "collection_id": "xcsh-docs:resources:certificate_chain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate_chain:reference",
+      "parent_id": "xcsh-docs:resources:certificate_chain:fundamentals",
+      "path": "documentation/resources/certificate_chain/properties/index.md",
+      "provider_name": "certificate_chain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate_chain--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate_chain/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_certificate_chain.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificate_chainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2162,
+      "body_sha256": "sha256:2f723e37b31b610d6101fcb2f341520e7ddaa24b0ef457334bf4cce7cefd8af9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate_chain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate_chain:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:certificate_chain:reference",
+      "path": "documentation/resources/certificate_chain/properties/timeouts/index.md",
+      "provider_name": "certificate_chain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate_chain--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate_chain/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_certificate_chain.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificate_chainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 564,
+      "body_sha256": "sha256:84bb0dc0c536b541585860d6749d9c47ad6e7a2fcefdc0d0a391b1761af77e10",
+      "child_ids": ["xcsh-docs:resources:certificate_chain:example:resource"],
+      "collection_id": "xcsh-docs:resources:certificate_chain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate_chain:examples",
+      "parent_id": "xcsh-docs:resources:certificate_chain:fundamentals",
+      "path": "documentation/resources/certificate_chain/examples/index.md",
+      "provider_name": "certificate_chain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate_chain--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate_chain/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_certificate_chain.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificate_chainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1275,
+      "body_sha256": "sha256:3c213aeffe0dff5f0562a1f843f1b2aa38f5679ba01ac2af980c93d48076dead",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate_chain:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:b97518ab6ca31864cd9125be1aa4c371e7fb2f6d12ef9376188442d135d4d743",
+        "source_path": "examples/resources/xcsh_certificate_chain/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:certificate_chain:example:resource",
+      "parent_id": "xcsh-docs:resources:certificate_chain:examples",
+      "path": "documentation/resources/certificate_chain/examples/resource/index.md",
+      "provider_name": "certificate_chain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate_chain--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate_chain/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_certificate_chain.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificate_chainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 434,
+      "body_sha256": "sha256:5d35aec8ff15d3e567df8fe8522060c2ca9fb78dfbb08a1da248e5f172be414d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate_chain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate_chain:import",
+      "parent_id": "xcsh-docs:resources:certificate_chain:fundamentals",
+      "path": "documentation/resources/certificate_chain/lifecycle/import/index.md",
+      "provider_name": "certificate_chain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate_chain--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate_chain/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_certificate_chain.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificate_chainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 494,
+      "body_sha256": "sha256:872992eb84cc52c0641761d658e70ae5932f2db1694a9c5ff5ad0f462c19542e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate_chain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate_chain:timeouts",
+      "parent_id": "xcsh-docs:resources:certificate_chain:fundamentals",
+      "path": "documentation/resources/certificate_chain/lifecycle/timeouts/index.md",
+      "provider_name": "certificate_chain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate_chain--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate_chain/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_certificate_chain.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificate_chainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

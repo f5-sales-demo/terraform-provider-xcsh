@@ -1,0 +1,50 @@
+---
+page_title: "items.get_spec.infra.hw_info.gpu"
+subcategory: ""
+description: "items.get_spec.infra.hw_info.gpu for xcsh_site_registrations."
+xcsh_docs: {"aliases": [], "body_bytes": 2008, "body_sha256": "sha256:1b5054452683c2bcf218a07bbfc6d77cc35c52d9ece7db2180a470e7e5b34387", "child_ids": ["xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:gpu:gpu_device"], "collection_id": "xcsh-docs:data-sources:site_registrations:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:gpu", "parent_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info", "path": "documentation/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/gpu/index.md", "provider_name": "site_registrations", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "properties", "schema_path": ["items", "get_spec", "infra", "hw_info", "gpu"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/gpu/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "items.get_spec.infra.hw_info.gpu for xcsh_site_registrations.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# items.get_spec.infra.hw_info.gpu
+
+Breadcrumbs:
+
+- [xcsh_site_registrations](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/)
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/)
+- [items](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/)
+- [items.get_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/)
+- [items.get_spec.infra](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/)
+- [items.get_spec.infra.hw_info](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/)
+- items.get_spec.infra.hw_info.gpu
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+GPU. GPU information on server.
+
+## Direct properties
+
+<a id="schema-items--get_spec--infra--hw_info--gpu--cuda_version"></a>
+
+### cuda_version property
+
+Type: `"string"`. Computed.
+
+Cuda Version. GPU Cuda Version.
+
+<a id="schema-items--get_spec--infra--hw_info--gpu--driver_version"></a>
+
+### driver_version property
+
+Type: `"string"`. Computed.
+
+Driver Version. GPU Driver Version.
+
+- [gpu_device](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/gpu/gpu_device/): complete subsection reference.
+
+## Next pages
+
+- [items.get_spec.infra.hw_info.gpu.gpu_device](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/gpu/gpu_device/)
+- [items.get_spec.infra.hw_info](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/)
+- [xcsh_site_registrations](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/)

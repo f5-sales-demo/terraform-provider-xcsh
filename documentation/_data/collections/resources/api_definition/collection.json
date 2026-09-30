@@ -1,0 +1,466 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:api_definition:fundamentals",
+    "id": "xcsh-docs:resources:api_definition:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:api_definition:reference",
+        "schema_path": ["annotations"]
+      },
+      "api_inventory_exclusion_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_exclusion_list",
+        "schema_path": ["api_inventory_exclusion_list"]
+      },
+      "api_inventory_exclusion_list.method": {
+        "anchor": "schema-api_inventory_exclusion_list--method",
+        "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_exclusion_list",
+        "schema_path": ["api_inventory_exclusion_list", "method"]
+      },
+      "api_inventory_exclusion_list.path": {
+        "anchor": "schema-api_inventory_exclusion_list--path",
+        "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_exclusion_list",
+        "schema_path": ["api_inventory_exclusion_list", "path"]
+      },
+      "api_inventory_inclusion_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list",
+        "schema_path": ["api_inventory_inclusion_list"]
+      },
+      "api_inventory_inclusion_list.method": {
+        "anchor": "schema-api_inventory_inclusion_list--method",
+        "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list",
+        "schema_path": ["api_inventory_inclusion_list", "method"]
+      },
+      "api_inventory_inclusion_list.path": {
+        "anchor": "schema-api_inventory_inclusion_list--path",
+        "document_id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list",
+        "schema_path": ["api_inventory_inclusion_list", "path"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:api_definition:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:api_definition:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:api_definition:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:api_definition:reference",
+        "schema_path": ["labels"]
+      },
+      "mixed_schema_origin": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_definition:properties:mixed_schema_origin",
+        "schema_path": ["mixed_schema_origin"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:api_definition:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:api_definition:reference",
+        "schema_path": ["namespace"]
+      },
+      "non_api_endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_definition:properties:non_api_endpoints",
+        "schema_path": ["non_api_endpoints"]
+      },
+      "non_api_endpoints.method": {
+        "anchor": "schema-non_api_endpoints--method",
+        "document_id": "xcsh-docs:resources:api_definition:properties:non_api_endpoints",
+        "schema_path": ["non_api_endpoints", "method"]
+      },
+      "non_api_endpoints.path": {
+        "anchor": "schema-non_api_endpoints--path",
+        "document_id": "xcsh-docs:resources:api_definition:properties:non_api_endpoints",
+        "schema_path": ["non_api_endpoints", "path"]
+      },
+      "strict_schema_origin": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_definition:properties:strict_schema_origin",
+        "schema_path": ["strict_schema_origin"]
+      },
+      "swagger_specs": {
+        "anchor": "schema-swagger_specs",
+        "document_id": "xcsh-docs:resources:api_definition:reference",
+        "schema_path": ["swagger_specs"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_definition:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:api_definition:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:api_definition:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:api_definition:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:api_definition:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "api_definition",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:api_definition:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1521,
+      "body_sha256": "sha256:9e735407a43e371a8be5188d8d01d4d2f6bc42bb66931b825f4d230fe8a2efb7",
+      "child_ids": [
+        "xcsh-docs:resources:api_definition:reference",
+        "xcsh-docs:resources:api_definition:examples",
+        "xcsh-docs:resources:api_definition:import",
+        "xcsh-docs:resources:api_definition:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/api_definition/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/api_definition.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_api_definition for xcsh_api_definition.",
+      "title": "xcsh_api_definition",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 14566,
+      "body_sha256": "sha256:4352a6b48f8f2f26c6c88530c3b767f08165decc323f2eafccc71c40aaf300cf",
+      "child_ids": [
+        "xcsh-docs:resources:api_definition:properties:api_inventory_exclusion_list",
+        "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list",
+        "xcsh-docs:resources:api_definition:properties:mixed_schema_origin",
+        "xcsh-docs:resources:api_definition:properties:non_api_endpoints",
+        "xcsh-docs:resources:api_definition:properties:strict_schema_origin",
+        "xcsh-docs:resources:api_definition:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:reference",
+      "parent_id": "xcsh-docs:resources:api_definition:fundamentals",
+      "path": "documentation/resources/api_definition/properties/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_api_definition.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4652,
+      "body_sha256": "sha256:625f9c8244cfbc50ccaf78058592e106a95e3a5a2af41f89545a6684d7a8cda0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:properties:api_inventory_exclusion_list",
+      "parent_id": "xcsh-docs:resources:api_definition:reference",
+      "path": "documentation/resources/api_definition/properties/api_inventory_exclusion_list/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--properties--api_inventory_exclusion_list.md",
+      "role": "properties",
+      "schema_path": ["api_inventory_exclusion_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/api_inventory_exclusion_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "api_inventory_exclusion_list for xcsh_api_definition.",
+      "title": "api_inventory_exclusion_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4816,
+      "body_sha256": "sha256:a35dc14b2215f0a38686ddc0f7a6c60a9ad3e2eb14e284076f72001eb814c9ae",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:properties:api_inventory_inclusion_list",
+      "parent_id": "xcsh-docs:resources:api_definition:reference",
+      "path": "documentation/resources/api_definition/properties/api_inventory_inclusion_list/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--properties--api_inventory_inclusion_list.md",
+      "role": "properties",
+      "schema_path": ["api_inventory_inclusion_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/api_inventory_inclusion_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "api_inventory_inclusion_list for xcsh_api_definition.",
+      "title": "api_inventory_inclusion_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1500,
+      "body_sha256": "sha256:1d8c0438f0688fb1146e7d5e866a1116fc95cea091c1bcb2ebfd48b724e49f09",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:properties:mixed_schema_origin",
+      "parent_id": "xcsh-docs:resources:api_definition:reference",
+      "path": "documentation/resources/api_definition/properties/mixed_schema_origin/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--properties--mixed_schema_origin.md",
+      "role": "properties",
+      "schema_path": ["mixed_schema_origin"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/mixed_schema_origin/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mixed_schema_origin for xcsh_api_definition.",
+      "title": "mixed_schema_origin",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4571,
+      "body_sha256": "sha256:cdb0686029a1f920407e68a86558833aaaeadf3aa7e752839407d8de180cdded",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:properties:non_api_endpoints",
+      "parent_id": "xcsh-docs:resources:api_definition:reference",
+      "path": "documentation/resources/api_definition/properties/non_api_endpoints/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--properties--non_api_endpoints.md",
+      "role": "properties",
+      "schema_path": ["non_api_endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/non_api_endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "non_api_endpoints for xcsh_api_definition.",
+      "title": "non_api_endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1119,
+      "body_sha256": "sha256:a9ae06d882c12444657358a6533b31b3798ed170858d0cbccf696b8b99416860",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:properties:strict_schema_origin",
+      "parent_id": "xcsh-docs:resources:api_definition:reference",
+      "path": "documentation/resources/api_definition/properties/strict_schema_origin/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--properties--strict_schema_origin.md",
+      "role": "properties",
+      "schema_path": ["strict_schema_origin"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/strict_schema_origin/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "strict_schema_origin for xcsh_api_definition.",
+      "title": "strict_schema_origin",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2144,
+      "body_sha256": "sha256:ce5dddfb21e71ae396b44aaabebb355c813ff7cb6b6d57415e51f1b5810f75d1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:api_definition:reference",
+      "path": "documentation/resources/api_definition/properties/timeouts/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_api_definition.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 546,
+      "body_sha256": "sha256:29f202d5e379025c2733ad3af9b2197502eb91f34e4ff0a2ce4d7d64ec063b30",
+      "child_ids": ["xcsh-docs:resources:api_definition:example:resource"],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:examples",
+      "parent_id": "xcsh-docs:resources:api_definition:fundamentals",
+      "path": "documentation/resources/api_definition/examples/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_api_definition.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1147,
+      "body_sha256": "sha256:c38c8a41db9a91366c032ea585aec5fd512954de606ec46758c523d96e0396ab",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:8eaaa98845c6177dba9c28e17da78fe9cbe8a7d10b85b7c4e55e7857d3d8ba64",
+        "source_path": "examples/resources/xcsh_api_definition/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:api_definition:example:resource",
+      "parent_id": "xcsh-docs:resources:api_definition:examples",
+      "path": "documentation/resources/api_definition/examples/resource/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_api_definition.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 419,
+      "body_sha256": "sha256:9c3fa0ba5d42b2fdb2539286389d7cc19db7443532bf91b82b2a0ebcbe4b2ecc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:import",
+      "parent_id": "xcsh-docs:resources:api_definition:fundamentals",
+      "path": "documentation/resources/api_definition/lifecycle/import/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_api_definition.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 479,
+      "body_sha256": "sha256:221bd128db58da2461ab0a66dd716ea9bd6cbd5dd05bc0bd60074357ae66bc51",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_definition:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_definition:timeouts",
+      "parent_id": "xcsh-docs:resources:api_definition:fundamentals",
+      "path": "documentation/resources/api_definition/lifecycle/timeouts/index.md",
+      "provider_name": "api_definition",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_definition--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_definition/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_api_definition.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_definitionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

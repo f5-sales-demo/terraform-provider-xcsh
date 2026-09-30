@@ -1,0 +1,580 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:bgp_routing_policy:fundamentals",
+    "id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules",
+        "schema_path": ["rules"]
+      },
+      "rules.action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+        "schema_path": ["rules", "action"]
+      },
+      "rules.action.allow": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:allow",
+        "schema_path": ["rules", "action", "allow"]
+      },
+      "rules.action.as_path": {
+        "anchor": "schema-rules--action--as_path",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+        "schema_path": ["rules", "action", "as_path"]
+      },
+      "rules.action.community": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:community",
+        "schema_path": ["rules", "action", "community"]
+      },
+      "rules.action.community.community": {
+        "anchor": "schema-rules--action--community--community",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:community",
+        "schema_path": ["rules", "action", "community", "community"]
+      },
+      "rules.action.deny": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:deny",
+        "schema_path": ["rules", "action", "deny"]
+      },
+      "rules.action.local_preference": {
+        "anchor": "schema-rules--action--local_preference",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+        "schema_path": ["rules", "action", "local_preference"]
+      },
+      "rules.action.metric": {
+        "anchor": "schema-rules--action--metric",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+        "schema_path": ["rules", "action", "metric"]
+      },
+      "rules.match": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match",
+        "schema_path": ["rules", "match"]
+      },
+      "rules.match.as_path": {
+        "anchor": "schema-rules--match--as_path",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match",
+        "schema_path": ["rules", "match", "as_path"]
+      },
+      "rules.match.community": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community",
+        "schema_path": ["rules", "match", "community"]
+      },
+      "rules.match.community.community": {
+        "anchor": "schema-rules--match--community--community",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community",
+        "schema_path": ["rules", "match", "community", "community"]
+      },
+      "rules.match.ip_prefixes": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes",
+        "schema_path": ["rules", "match", "ip_prefixes"]
+      },
+      "rules.match.ip_prefixes.prefixes": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
+        "schema_path": ["rules", "match", "ip_prefixes", "prefixes"]
+      },
+      "rules.match.ip_prefixes.prefixes.equal_or_longer_than": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:equal_or_longer_than",
+        "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "equal_or_longer_than"]
+      },
+      "rules.match.ip_prefixes.prefixes.exact_match": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:exact_match",
+        "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "exact_match"]
+      },
+      "rules.match.ip_prefixes.prefixes.ip_prefixes": {
+        "anchor": "schema-rules--match--ip_prefixes--prefixes--ip_prefixes",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
+        "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "ip_prefixes"]
+      },
+      "rules.match.ip_prefixes.prefixes.longer_than": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:longer_than",
+        "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "longer_than"]
+      }
+    },
+    "provider_name": "bgp_routing_policy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:bgp_routing_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1453,
+      "body_sha256": "sha256:604229fa5b925887db62236fcfc15b65c6e3dbe7bf6d824512d528f9e65e8bd8",
+      "child_ids": [
+        "xcsh-docs:data-sources:bgp_routing_policy:reference",
+        "xcsh-docs:data-sources:bgp_routing_policy:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/bgp_routing_policy/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/bgp_routing_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_bgp_routing_policy for xcsh_bgp_routing_policy.",
+      "title": "xcsh_bgp_routing_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 11051,
+      "body_sha256": "sha256:23a723fcb76c4d11a3d4a797418052791c245c9d4c108431dd4ae7f3dd9ac937",
+      "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:properties:rules"],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:reference",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:fundamentals",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_bgp_routing_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2356,
+      "body_sha256": "sha256:9cf0c86f67fae44fa1e978e44d51413b4be75280b4628896b775be42c3c594fd",
+      "child_ids": [
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:reference",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules.md",
+      "role": "properties",
+      "schema_path": ["rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules for xcsh_bgp_routing_policy.",
+      "title": "rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3949,
+      "body_sha256": "sha256:e4788d0bc0d1b1adfb99c810234678ffcace6f68b224d309288a8063a161e115",
+      "child_ids": [
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:allow",
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:community",
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:deny"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/action/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--action.md",
+      "role": "properties",
+      "schema_path": ["rules", "action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.action for xcsh_bgp_routing_policy.",
+      "title": "rules.action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1240,
+      "body_sha256": "sha256:d7904f04505bff1e6093f2e10f5642e6b661354447379acecfbf0ae4204461da",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:allow",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/action/allow/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--action--allow.md",
+      "role": "properties",
+      "schema_path": ["rules", "action", "allow"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/action/allow/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.action.allow for xcsh_bgp_routing_policy.",
+      "title": "rules.action.allow",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2683,
+      "body_sha256": "sha256:d197c8688f317798a3f7a66dac4242287baaed0bd749c302018fb8843d946043",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:community",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/action/community/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--action--community.md",
+      "role": "properties",
+      "schema_path": ["rules", "action", "community"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/action/community/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.action.community for xcsh_bgp_routing_policy.",
+      "title": "rules.action.community",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1238,
+      "body_sha256": "sha256:7ac3c5d0d0ba9c8b3e689f65a013c0b047988d59b69ba64af21173ea9f6ec41f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action:deny",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:action",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/action/deny/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--action--deny.md",
+      "role": "properties",
+      "schema_path": ["rules", "action", "deny"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/action/deny/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.action.deny for xcsh_bgp_routing_policy.",
+      "title": "rules.action.deny",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2484,
+      "body_sha256": "sha256:b853340fdd72e81180d2b94bf1f32f42fb929a8302f4aa796e82246def7665fa",
+      "child_ids": [
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community",
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--match.md",
+      "role": "properties",
+      "schema_path": ["rules", "match"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.match for xcsh_bgp_routing_policy.",
+      "title": "rules.match",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2676,
+      "body_sha256": "sha256:4b61651dce038ccdbfddb133e2ab53501ad152ce106303dde40b42df1c5416d0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:community",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/community/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--match--community.md",
+      "role": "properties",
+      "schema_path": ["rules", "match", "community"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/community/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.match.community for xcsh_bgp_routing_policy.",
+      "title": "rules.match.community",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1477,
+      "body_sha256": "sha256:8bde6b28578db834558690449d87f1e022f07a46f40317232d87a845a88096cc",
+      "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes"],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--match--ip_prefixes.md",
+      "role": "properties",
+      "schema_path": ["rules", "match", "ip_prefixes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.match.ip_prefixes for xcsh_bgp_routing_policy.",
+      "title": "rules.match.ip_prefixes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4091,
+      "body_sha256": "sha256:c8e52c160f7970d3db053cc09ee3984dd4765410ac7e1b69968ae3b80004dae8",
+      "child_ids": [
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:equal_or_longer_than",
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:exact_match",
+        "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:longer_than"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--match--ip_prefixes--prefixes.md",
+      "role": "properties",
+      "schema_path": ["rules", "match", "ip_prefixes", "prefixes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.match.ip_prefixes.prefixes for xcsh_bgp_routing_policy.",
+      "title": "rules.match.ip_prefixes.prefixes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1703,
+      "body_sha256": "sha256:d605d15b0a20ad00d51bb19babacfd52544dbf8c0102464cd96ce465dae9a3d0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:equal_or_longer_than",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/equal_or_longer_than/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--match--ip_prefixes--prefixes--equal_or_longer_than.md",
+      "role": "properties",
+      "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "equal_or_longer_than"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/equal_or_longer_than/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.match.ip_prefixes.prefixes.equal_or_longer_than for xcsh_bgp_routing_policy.",
+      "title": "rules.match.ip_prefixes.prefixes.equal_or_longer_than",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1676,
+      "body_sha256": "sha256:72927a940d32b6757d2188d134951295be3050c736e3aa81f5f19f52088a613a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:exact_match",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/exact_match/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--match--ip_prefixes--prefixes--exact_match.md",
+      "role": "properties",
+      "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "exact_match"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/exact_match/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.match.ip_prefixes.prefixes.exact_match for xcsh_bgp_routing_policy.",
+      "title": "rules.match.ip_prefixes.prefixes.exact_match",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1676,
+      "body_sha256": "sha256:984d4d7f4224097708289eedb98c957beeeb1484a84c83e0458e1588c7e3907a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:longer_than",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
+      "path": "documentation/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/longer_than/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--properties--rules--match--ip_prefixes--prefixes--longer_than.md",
+      "role": "properties",
+      "schema_path": ["rules", "match", "ip_prefixes", "prefixes", "longer_than"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/properties/rules/match/ip_prefixes/prefixes/longer_than/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.match.ip_prefixes.prefixes.longer_than for xcsh_bgp_routing_policy.",
+      "title": "rules.match.ip_prefixes.prefixes.longer_than",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 594,
+      "body_sha256": "sha256:8a06e0953e4ed678606da793fe41462d2f834ca50b2783a9e09a1ef909b674f9",
+      "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:examples",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:fundamentals",
+      "path": "documentation/data-sources/bgp_routing_policy/examples/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_bgp_routing_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1256,
+      "body_sha256": "sha256:cb6d133bc405cb3803ee083684e3b5a53b6019f08734e9e287deb49fbfa89957",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:b3d6f35be703edce6abe0703f58285587174e0deae9414b75725a102a2aa63cb",
+        "source_path": "examples/data-sources/xcsh_bgp_routing_policy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:bgp_routing_policy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:bgp_routing_policy:examples",
+      "path": "documentation/data-sources/bgp_routing_policy/examples/data-source/index.md",
+      "provider_name": "bgp_routing_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bgp_routing_policy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_bgp_routing_policy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["bgp_routing_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

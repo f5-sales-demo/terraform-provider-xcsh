@@ -1,0 +1,171 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:actions:dns_zone_add_cryptokey:fundamentals",
+    "id": "xcsh-docs:actions:dns_zone_add_cryptokey:collection",
+    "properties": {
+      "key_type": {
+        "anchor": "schema-key_type",
+        "document_id": "xcsh-docs:actions:dns_zone_add_cryptokey:reference",
+        "schema_path": ["key_type"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:actions:dns_zone_add_cryptokey:reference",
+        "schema_path": ["namespace"]
+      },
+      "zone_name": {
+        "anchor": "schema-zone_name",
+        "document_id": "xcsh-docs:actions:dns_zone_add_cryptokey:reference",
+        "schema_path": ["zone_name"]
+      }
+    },
+    "provider_name": "dns_zone_add_cryptokey",
+    "provider_type": "actions",
+    "reference_id": "xcsh-docs:actions:dns_zone_add_cryptokey:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1158,
+      "body_sha256": "sha256:a54b972bcaabc4925e3559f538b356d5cb265edbb55645cb549bed3eb40006d6",
+      "child_ids": [
+        "xcsh-docs:actions:dns_zone_add_cryptokey:reference",
+        "xcsh-docs:actions:dns_zone_add_cryptokey:examples",
+        "xcsh-docs:actions:dns_zone_add_cryptokey:lifecycle"
+      ],
+      "collection_id": "xcsh-docs:actions:dns_zone_add_cryptokey:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:dns_zone_add_cryptokey:fundamentals",
+      "parent_id": null,
+      "path": "documentation/actions/dns_zone_add_cryptokey/index.md",
+      "provider_name": "dns_zone_add_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/actions/dns_zone_add_cryptokey.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_add_cryptokey/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_dns_zone_add_cryptokey for xcsh_dns_zone_add_cryptokey.",
+      "title": "xcsh_dns_zone_add_cryptokey",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1612,
+      "body_sha256": "sha256:66cef84feb5c97c7b091d56f5879d8ea1e4ddb984a1749390882c92bfaba7770",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:dns_zone_add_cryptokey:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:dns_zone_add_cryptokey:reference",
+      "parent_id": "xcsh-docs:actions:dns_zone_add_cryptokey:fundamentals",
+      "path": "documentation/actions/dns_zone_add_cryptokey/properties/index.md",
+      "provider_name": "dns_zone_add_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--dns_zone_add_cryptokey--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_add_cryptokey/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_dns_zone_add_cryptokey.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 578,
+      "body_sha256": "sha256:c18b06f1769362b7848275559b3f8997ffb2bc2c249ba9917920c1e68b44c827",
+      "child_ids": ["xcsh-docs:actions:dns_zone_add_cryptokey:example:action"],
+      "collection_id": "xcsh-docs:actions:dns_zone_add_cryptokey:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:dns_zone_add_cryptokey:examples",
+      "parent_id": "xcsh-docs:actions:dns_zone_add_cryptokey:fundamentals",
+      "path": "documentation/actions/dns_zone_add_cryptokey/examples/index.md",
+      "provider_name": "dns_zone_add_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--dns_zone_add_cryptokey--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_add_cryptokey/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_dns_zone_add_cryptokey.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1064,
+      "body_sha256": "sha256:b42d8218b8d99eed0d268803d6ba4a498c6407d72360022585d9a7058b1b88be",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:dns_zone_add_cryptokey:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:41e2e4052bac9b33dbdf74fdf0a795bf2458f8e723d6c49a082ace67a79ec803",
+        "source_path": "examples/actions/xcsh_dns_zone_add_cryptokey/action.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:actions:dns_zone_add_cryptokey:example:action",
+      "parent_id": "xcsh-docs:actions:dns_zone_add_cryptokey:examples",
+      "path": "documentation/actions/dns_zone_add_cryptokey/examples/action/index.md",
+      "provider_name": "dns_zone_add_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--dns_zone_add_cryptokey--example--action.md",
+      "role": "example",
+      "schema_path": ["action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_add_cryptokey/examples/action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Action for xcsh_dns_zone_add_cryptokey.",
+      "title": "Action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 539,
+      "body_sha256": "sha256:001b88ba767e7cafa161d7b3f9db35218170cd6f855df19d546d9c976900a7bd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:dns_zone_add_cryptokey:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:dns_zone_add_cryptokey:lifecycle",
+      "parent_id": "xcsh-docs:actions:dns_zone_add_cryptokey:fundamentals",
+      "path": "documentation/actions/dns_zone_add_cryptokey/lifecycle/index.md",
+      "provider_name": "dns_zone_add_cryptokey",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--dns_zone_add_cryptokey--lifecycle.md",
+      "role": "lifecycle",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/dns_zone_add_cryptokey/lifecycle/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Lifecycle for xcsh_dns_zone_add_cryptokey.",
+      "title": "Lifecycle",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,1133 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:cdn_cache_rule:fundamentals",
+    "id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:reference",
+        "schema_path": ["annotations"]
+      },
+      "cache_rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules",
+        "schema_path": ["cache_rules"]
+      },
+      "cache_rules.cache_bypass": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:cache_bypass",
+        "schema_path": ["cache_rules", "cache_bypass"]
+      },
+      "cache_rules.eligible_for_cache": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache",
+        "schema_path": ["cache_rules", "eligible_for_cache"]
+      },
+      "cache_rules.eligible_for_cache.scheme_proxy_host_request_uri": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
+        "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_request_uri"]
+      },
+      "cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_override": {
+        "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--cache_override",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
+        "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_request_uri", "cache_override"]
+      },
+      "cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.cache_ttl": {
+        "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--cache_ttl",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
+        "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_request_uri", "cache_ttl"]
+      },
+      "cache_rules.eligible_for_cache.scheme_proxy_host_request_uri.ignore_response_cookie": {
+        "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--ignore_response_cookie",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
+        "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_request_uri", "ignore_response_cookie"]
+      },
+      "cache_rules.eligible_for_cache.scheme_proxy_host_uri": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
+        "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_uri"]
+      },
+      "cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_override": {
+        "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--cache_override",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
+        "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_uri", "cache_override"]
+      },
+      "cache_rules.eligible_for_cache.scheme_proxy_host_uri.cache_ttl": {
+        "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--cache_ttl",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
+        "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_uri", "cache_ttl"]
+      },
+      "cache_rules.eligible_for_cache.scheme_proxy_host_uri.ignore_response_cookie": {
+        "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--ignore_response_cookie",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
+        "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_uri", "ignore_response_cookie"]
+      },
+      "cache_rules.rule_expression_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list",
+        "schema_path": ["cache_rules", "rule_expression_list"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.name": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--name",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers", "name"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers", "operator"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.contains": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--contains",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "contains"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_contain": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_contain",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "does_not_contain"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_end_with": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_end_with",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "does_not_end_with"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_equal": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_equal",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "does_not_equal"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.does_not_start_with": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_start_with",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "does_not_start_with"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.endswith": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--endswith",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "endswith"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.equals": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--equals",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "equals"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.match_regex": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--match_regex",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "match_regex"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator.startswith": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--startswith",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cache_headers",
+          "operator",
+          "startswith"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.name": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--name",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher", "name"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher", "operator"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.contains": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--contains",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "contains"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_contain": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_contain",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "does_not_contain"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_end_with": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_end_with",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "does_not_end_with"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_equal": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_equal",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "does_not_equal"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.does_not_start_with": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_start_with",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "does_not_start_with"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.endswith": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--endswith",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "endswith"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.equals": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--equals",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "equals"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.match_regex": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--match_regex",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "match_regex"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator.startswith": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--startswith",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "cookie_matcher",
+          "operator",
+          "startswith"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "path_match"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "path_match", "operator"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.contains": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--contains",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "contains"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_contain": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_contain",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "does_not_contain"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_end_with": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_end_with",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "does_not_end_with"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_equal": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_equal",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "does_not_equal"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.does_not_start_with": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_start_with",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "does_not_start_with"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.endswith": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--endswith",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "endswith"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.equals": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--equals",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "equals"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.match_regex": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--match_regex",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "match_regex"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator.startswith": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--startswith",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "path_match",
+          "operator",
+          "startswith"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.key": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--key",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters", "key"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters", "operator"]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.contains": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--contains",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "contains"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_contain": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_contain",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "does_not_contain"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_end_with": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_end_with",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "does_not_end_with"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_equal": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_equal",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "does_not_equal"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.does_not_start_with": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_start_with",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "does_not_start_with"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.endswith": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--endswith",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "endswith"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.equals": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--equals",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "equals"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.match_regex": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--match_regex",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "match_regex"
+        ]
+      },
+      "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator.startswith": {
+        "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--startswith",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+        "schema_path": [
+          "cache_rules",
+          "rule_expression_list",
+          "cache_rule_expression",
+          "query_parameters",
+          "operator",
+          "startswith"
+        ]
+      },
+      "cache_rules.rule_expression_list.expression_name": {
+        "anchor": "schema-cache_rules--rule_expression_list--expression_name",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list",
+        "schema_path": ["cache_rules", "rule_expression_list", "expression_name"]
+      },
+      "cache_rules.rule_name": {
+        "anchor": "schema-cache_rules--rule_name",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules",
+        "schema_path": ["cache_rules", "rule_name"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:cdn_cache_rule:reference",
+        "schema_path": ["namespace"]
+      }
+    },
+    "provider_name": "cdn_cache_rule",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:cdn_cache_rule:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1274,
+      "body_sha256": "sha256:e1828ae4add6c537bfbf03417d8c84b1b9c6c0a4866aabdc190c3ec6e24192fb",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:reference",
+        "xcsh-docs:data-sources:cdn_cache_rule:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/cdn_cache_rule/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/cdn_cache_rule.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_cdn_cache_rule for xcsh_cdn_cache_rule.",
+      "title": "xcsh_cdn_cache_rule",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 32429,
+      "body_sha256": "sha256:9238b169876682a20e890b1a2def5d6db03a3099dbd234eb1831b24895d9ae28",
+      "child_ids": ["xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules"],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:reference",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:fundamentals",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_cdn_cache_rule.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2882,
+      "body_sha256": "sha256:a74d707fcf821c552aba0e98ece6af90bf9ddddf5e9b7fd00fe97eb77302d338",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:cache_bypass",
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache",
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:reference",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules.md",
+      "role": "properties",
+      "schema_path": ["cache_rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules for xcsh_cdn_cache_rule.",
+      "title": "cache_rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1126,
+      "body_sha256": "sha256:69c3dd16d6f489d7cd38e3f6b7551368814850902f75b7554143cd19ffc00bf5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:cache_bypass",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/cache_bypass/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--cache_bypass.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "cache_bypass"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/cache_bypass/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.cache_bypass for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.cache_bypass",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2013,
+      "body_sha256": "sha256:d9b33f98a22f938ee654b806e19937e3f65123d7c812561b4e36b868e7782b28",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--eligible_for_cache.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "eligible_for_cache"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.eligible_for_cache for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.eligible_for_cache",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3425,
+      "body_sha256": "sha256:3811e578480e20498df38b2d835831f272f6e65db5cd7e2a79f7ed8f31c98633",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_request_uri/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--eligible_for_cache--scheme_proxy_host_request_uri.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_request_uri"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_request_uri/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.eligible_for_cache.scheme_proxy_host_request_uri for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.eligible_for_cache.scheme_proxy_host_request_uri",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3385,
+      "body_sha256": "sha256:76e4b124be7351404d1a3f479881d0d3f1cf00fd81ba8e4c3c0133a65a626263",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_uri/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--eligible_for_cache--scheme_proxy_host_uri.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_uri"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/eligible_for_cache/scheme_proxy_host_uri/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.eligible_for_cache.scheme_proxy_host_uri for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.eligible_for_cache.scheme_proxy_host_uri",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3352,
+      "body_sha256": "sha256:702475dd3aa1a1e17d5e95f7ff209d7047e28fd5d29021f0e51378e3b7e46bc5",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3882,
+      "body_sha256": "sha256:92ea86a2ecb6a880d99a67f918eff757a7da4d93ef90da7a368389f6d2091944",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match",
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3823,
+      "body_sha256": "sha256:f91f0b1c2dc370d4d15e3ec26cfde81e90cb3fd0860c3c8ba9cc7a4bb1101cd9",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression--cache_headers.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression.cache_headers for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression.cache_headers",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5087,
+      "body_sha256": "sha256:65c922623c3bc131249134a9c57a4a3540c991208798611266b44b255999ab1b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/operator/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers", "operator"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cache_headers/operator/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression.cache_headers.operator",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4754,
+      "body_sha256": "sha256:72a89dcaa95db1568b3c53ca81d4846b096402633008d18a34721539317d95e1",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5117,
+      "body_sha256": "sha256:71919869b0d0d7d04cd830ebb3b71dde3de2ecc6d13c3736205f4c2d5fbfca24",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/operator/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher", "operator"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/cookie_matcher/operator/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression.cookie_matcher.operator",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2036,
+      "body_sha256": "sha256:cc6bf3c6e9f2fddaa5fc083e61c43fa854a5d37e15758ebdf98cf37ebc797f45",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression--path_match.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "path_match"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression.path_match for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression.path_match",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5145,
+      "body_sha256": "sha256:79bba2098cce785d86c249b0a9fcaf4cd993af3d78190f3c8beaed061bc7b54e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/operator/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression--path_match--operator.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "path_match", "operator"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/path_match/operator/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression.path_match.operator",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3781,
+      "body_sha256": "sha256:a9729ac2697c8b9d3770a7fa3c733afb211b413349c45ce5cf380412d511842e",
+      "child_ids": [
+        "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression--query_parameters.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression.query_parameters for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression.query_parameters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5228,
+      "body_sha256": "sha256:7b1127185f503bff9309554881f73a51145cff09844008acfa67a7df418b5718",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters",
+      "path": "documentation/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/operator/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--properties--cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator.md",
+      "role": "properties",
+      "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters", "operator"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/properties/cache_rules/rule_expression_list/cache_rule_expression/query_parameters/operator/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator for xcsh_cdn_cache_rule.",
+      "title": "cache_rules.rule_expression_list.cache_rule_expression.query_parameters.operator",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 570,
+      "body_sha256": "sha256:3221d8c6a73a5fa6e71db6f73c1b2e0f6910d96eb9ec09e23f9e2e8c3ceadc40",
+      "child_ids": ["xcsh-docs:data-sources:cdn_cache_rule:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:examples",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:fundamentals",
+      "path": "documentation/data-sources/cdn_cache_rule/examples/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_cdn_cache_rule.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1204,
+      "body_sha256": "sha256:6204dcdd42ee2f392f4c1ea9ca2be645973c58571d9ff87a336607fa9e4ee2bd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:fc686ceb8d4fdca2d4b78094b5b3751ef65d5c692bd05f9089c3561d05468ad9",
+        "source_path": "examples/data-sources/xcsh_cdn_cache_rule/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:cdn_cache_rule:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:cdn_cache_rule:examples",
+      "path": "documentation/data-sources/cdn_cache_rule/examples/data-source/index.md",
+      "provider_name": "cdn_cache_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cdn_cache_rule--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_cdn_cache_rule.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cdn_cache_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

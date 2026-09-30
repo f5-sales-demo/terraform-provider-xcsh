@@ -1,0 +1,274 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:allowed_domain:fundamentals",
+    "id": "xcsh-docs:resources:allowed_domain:collection",
+    "properties": {
+      "allowed_domain": {
+        "anchor": "schema-allowed_domain",
+        "document_id": "xcsh-docs:resources:allowed_domain:reference",
+        "schema_path": ["allowed_domain"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:allowed_domain:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:allowed_domain:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:allowed_domain:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:allowed_domain:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:allowed_domain:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:allowed_domain:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:allowed_domain:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:allowed_domain:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:allowed_domain:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:allowed_domain:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:allowed_domain:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:allowed_domain:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "allowed_domain",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:allowed_domain:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1454,
+      "body_sha256": "sha256:a996e3a1ab719ad63246274c6d0ef2ede2bb95711370334224d5f81381629c7c",
+      "child_ids": [
+        "xcsh-docs:resources:allowed_domain:reference",
+        "xcsh-docs:resources:allowed_domain:examples",
+        "xcsh-docs:resources:allowed_domain:import",
+        "xcsh-docs:resources:allowed_domain:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:allowed_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:allowed_domain:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/allowed_domain/index.md",
+      "provider_name": "allowed_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/allowed_domain.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_allowed_domain for xcsh_allowed_domain.",
+      "title": "xcsh_allowed_domain",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["allowed_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10677,
+      "body_sha256": "sha256:a8c790b8ce7ee0e53764533733973c924400ffef6777b6a83afba1ac8728435a",
+      "child_ids": ["xcsh-docs:resources:allowed_domain:properties:timeouts"],
+      "collection_id": "xcsh-docs:resources:allowed_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:allowed_domain:reference",
+      "parent_id": "xcsh-docs:resources:allowed_domain:fundamentals",
+      "path": "documentation/resources/allowed_domain/properties/index.md",
+      "provider_name": "allowed_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--allowed_domain--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_allowed_domain.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["allowed_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2144,
+      "body_sha256": "sha256:a32ba008c5e735010fd89b72dab436c303842fa2433b7603d21d3e883e5089c2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:allowed_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:allowed_domain:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:allowed_domain:reference",
+      "path": "documentation/resources/allowed_domain/properties/timeouts/index.md",
+      "provider_name": "allowed_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--allowed_domain--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_allowed_domain.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["allowed_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 546,
+      "body_sha256": "sha256:740168db565b8d6eb09eb8fd0d6430279f87df2039fbd78f9c5bb770c0c4b70f",
+      "child_ids": ["xcsh-docs:resources:allowed_domain:example:resource"],
+      "collection_id": "xcsh-docs:resources:allowed_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:allowed_domain:examples",
+      "parent_id": "xcsh-docs:resources:allowed_domain:fundamentals",
+      "path": "documentation/resources/allowed_domain/examples/index.md",
+      "provider_name": "allowed_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--allowed_domain--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_allowed_domain.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["allowed_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1183,
+      "body_sha256": "sha256:973d136796cdcb804ec7ad4e36e99ac041dab724eab21de0dc31606cc718ffb5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:allowed_domain:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:311173eaa23e9e9afb5856fa5a592866eb29afd044fe81b255b02bc483f4948e",
+        "source_path": "examples/resources/xcsh_allowed_domain/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:allowed_domain:example:resource",
+      "parent_id": "xcsh-docs:resources:allowed_domain:examples",
+      "path": "documentation/resources/allowed_domain/examples/resource/index.md",
+      "provider_name": "allowed_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--allowed_domain--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_allowed_domain.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["allowed_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 427,
+      "body_sha256": "sha256:44c348a8faed31cf101f41fef740b0f138a155c564261dabf02e4ab43e798a4d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:allowed_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:allowed_domain:import",
+      "parent_id": "xcsh-docs:resources:allowed_domain:fundamentals",
+      "path": "documentation/resources/allowed_domain/lifecycle/import/index.md",
+      "provider_name": "allowed_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--allowed_domain--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_allowed_domain.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["allowed_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 479,
+      "body_sha256": "sha256:bdffc1ebf0c773653d14a991e97420cc6efb462d2d8f2b3a9b71d9d5a43b12ad",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:allowed_domain:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:allowed_domain:timeouts",
+      "parent_id": "xcsh-docs:resources:allowed_domain:fundamentals",
+      "path": "documentation/resources/allowed_domain/lifecycle/timeouts/index.md",
+      "provider_name": "allowed_domain",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--allowed_domain--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/allowed_domain/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_allowed_domain.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["allowed_domainCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

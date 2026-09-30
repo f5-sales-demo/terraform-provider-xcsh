@@ -1,0 +1,683 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:network_firewall:fundamentals",
+    "id": "xcsh-docs:resources:network_firewall:collection",
+    "properties": {
+      "active_enhanced_firewall_policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies",
+        "schema_path": ["active_enhanced_firewall_policies"]
+      },
+      "active_enhanced_firewall_policies.enhanced_firewall_policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
+        "schema_path": ["active_enhanced_firewall_policies", "enhanced_firewall_policies"]
+      },
+      "active_enhanced_firewall_policies.enhanced_firewall_policies.name": {
+        "anchor": "schema-active_enhanced_firewall_policies--enhanced_firewall_policies--name",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
+        "schema_path": ["active_enhanced_firewall_policies", "enhanced_firewall_policies", "name"]
+      },
+      "active_enhanced_firewall_policies.enhanced_firewall_policies.namespace": {
+        "anchor": "schema-active_enhanced_firewall_policies--enhanced_firewall_policies--namespace",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
+        "schema_path": ["active_enhanced_firewall_policies", "enhanced_firewall_policies", "namespace"]
+      },
+      "active_enhanced_firewall_policies.enhanced_firewall_policies.tenant": {
+        "anchor": "schema-active_enhanced_firewall_policies--enhanced_firewall_policies--tenant",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
+        "schema_path": ["active_enhanced_firewall_policies", "enhanced_firewall_policies", "tenant"]
+      },
+      "active_fast_acls": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_fast_acls",
+        "schema_path": ["active_fast_acls"]
+      },
+      "active_fast_acls.fast_acls": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_fast_acls:fast_acls",
+        "schema_path": ["active_fast_acls", "fast_acls"]
+      },
+      "active_fast_acls.fast_acls.name": {
+        "anchor": "schema-active_fast_acls--fast_acls--name",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_fast_acls:fast_acls",
+        "schema_path": ["active_fast_acls", "fast_acls", "name"]
+      },
+      "active_fast_acls.fast_acls.namespace": {
+        "anchor": "schema-active_fast_acls--fast_acls--namespace",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_fast_acls:fast_acls",
+        "schema_path": ["active_fast_acls", "fast_acls", "namespace"]
+      },
+      "active_fast_acls.fast_acls.tenant": {
+        "anchor": "schema-active_fast_acls--fast_acls--tenant",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_fast_acls:fast_acls",
+        "schema_path": ["active_fast_acls", "fast_acls", "tenant"]
+      },
+      "active_forward_proxy_policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies",
+        "schema_path": ["active_forward_proxy_policies"]
+      },
+      "active_forward_proxy_policies.forward_proxy_policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
+        "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies"]
+      },
+      "active_forward_proxy_policies.forward_proxy_policies.name": {
+        "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--name",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
+        "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "name"]
+      },
+      "active_forward_proxy_policies.forward_proxy_policies.namespace": {
+        "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--namespace",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
+        "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "namespace"]
+      },
+      "active_forward_proxy_policies.forward_proxy_policies.tenant": {
+        "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--tenant",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
+        "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies", "tenant"]
+      },
+      "active_network_policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_network_policies",
+        "schema_path": ["active_network_policies"]
+      },
+      "active_network_policies.network_policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_network_policies:network_policies",
+        "schema_path": ["active_network_policies", "network_policies"]
+      },
+      "active_network_policies.network_policies.name": {
+        "anchor": "schema-active_network_policies--network_policies--name",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_network_policies:network_policies",
+        "schema_path": ["active_network_policies", "network_policies", "name"]
+      },
+      "active_network_policies.network_policies.namespace": {
+        "anchor": "schema-active_network_policies--network_policies--namespace",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_network_policies:network_policies",
+        "schema_path": ["active_network_policies", "network_policies", "namespace"]
+      },
+      "active_network_policies.network_policies.tenant": {
+        "anchor": "schema-active_network_policies--network_policies--tenant",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:active_network_policies:network_policies",
+        "schema_path": ["active_network_policies", "network_policies", "tenant"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:network_firewall:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:network_firewall:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:network_firewall:reference",
+        "schema_path": ["disable"]
+      },
+      "disable_fast_acl": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:disable_fast_acl",
+        "schema_path": ["disable_fast_acl"]
+      },
+      "disable_forward_proxy_policy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:disable_forward_proxy_policy",
+        "schema_path": ["disable_forward_proxy_policy"]
+      },
+      "disable_network_policy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:disable_network_policy",
+        "schema_path": ["disable_network_policy"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:network_firewall:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:network_firewall:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:network_firewall:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:network_firewall:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:network_firewall:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "network_firewall",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:network_firewall:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1603,
+      "body_sha256": "sha256:9c8a00dff742c1092eee21a20cd101ed5b98edf3af77a448ed21b0696e80e04c",
+      "child_ids": [
+        "xcsh-docs:resources:network_firewall:reference",
+        "xcsh-docs:resources:network_firewall:examples",
+        "xcsh-docs:resources:network_firewall:import",
+        "xcsh-docs:resources:network_firewall:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/network_firewall/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/network_firewall.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_network_firewall for xcsh_network_firewall.",
+      "title": "xcsh_network_firewall",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 17498,
+      "body_sha256": "sha256:fef5aa969fc33b8c91c414969b0f9fbbf346438100082b025b74f92f4b0aaf42",
+      "child_ids": [
+        "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies",
+        "xcsh-docs:resources:network_firewall:properties:active_fast_acls",
+        "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies",
+        "xcsh-docs:resources:network_firewall:properties:active_network_policies",
+        "xcsh-docs:resources:network_firewall:properties:disable_fast_acl",
+        "xcsh-docs:resources:network_firewall:properties:disable_forward_proxy_policy",
+        "xcsh-docs:resources:network_firewall:properties:disable_network_policy",
+        "xcsh-docs:resources:network_firewall:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:reference",
+      "parent_id": "xcsh-docs:resources:network_firewall:fundamentals",
+      "path": "documentation/resources/network_firewall/properties/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_network_firewall.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2676,
+      "body_sha256": "sha256:5d1ca5dc36fd1bfbbdcafcce2d042e1dc28a9c382010e8577b7005af1cf5e708",
+      "child_ids": [
+        "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies"
+      ],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies",
+      "parent_id": "xcsh-docs:resources:network_firewall:reference",
+      "path": "documentation/resources/network_firewall/properties/active_enhanced_firewall_policies/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--active_enhanced_firewall_policies.md",
+      "role": "properties",
+      "schema_path": ["active_enhanced_firewall_policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_enhanced_firewall_policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_enhanced_firewall_policies for xcsh_network_firewall.",
+      "title": "active_enhanced_firewall_policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6654,
+      "body_sha256": "sha256:a021f35a5ce7b04bd5b313f79cc720ebc9e099296659cc5c791626e55920839c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
+      "parent_id": "xcsh-docs:resources:network_firewall:properties:active_enhanced_firewall_policies",
+      "path": "documentation/resources/network_firewall/properties/active_enhanced_firewall_policies/enhanced_firewall_policies/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--active_enhanced_firewall_policies--enhanced_firewall_policies.md",
+      "role": "properties",
+      "schema_path": ["active_enhanced_firewall_policies", "enhanced_firewall_policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_enhanced_firewall_policies/enhanced_firewall_policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_enhanced_firewall_policies.enhanced_firewall_policies for xcsh_network_firewall.",
+      "title": "active_enhanced_firewall_policies.enhanced_firewall_policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1935,
+      "body_sha256": "sha256:f8513aa398ec8bc069764d488b69da8738830a828b2a26c41995e4e2b87b7898",
+      "child_ids": ["xcsh-docs:resources:network_firewall:properties:active_fast_acls:fast_acls"],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:active_fast_acls",
+      "parent_id": "xcsh-docs:resources:network_firewall:reference",
+      "path": "documentation/resources/network_firewall/properties/active_fast_acls/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--active_fast_acls.md",
+      "role": "properties",
+      "schema_path": ["active_fast_acls"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_fast_acls/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_fast_acls for xcsh_network_firewall.",
+      "title": "active_fast_acls",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6410,
+      "body_sha256": "sha256:fc8c5e37958477f5a1e0ea6814516f77eaaff7ae3924f2d0fec03d836d90270a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:active_fast_acls:fast_acls",
+      "parent_id": "xcsh-docs:resources:network_firewall:properties:active_fast_acls",
+      "path": "documentation/resources/network_firewall/properties/active_fast_acls/fast_acls/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--active_fast_acls--fast_acls.md",
+      "role": "properties",
+      "schema_path": ["active_fast_acls", "fast_acls"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_fast_acls/fast_acls/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_fast_acls.fast_acls for xcsh_network_firewall.",
+      "title": "active_fast_acls.fast_acls",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2195,
+      "body_sha256": "sha256:9101ddacd24efe127c6fc0fde0dc45636fda7bd6fa93b2af564bec766f0a2b6a",
+      "child_ids": [
+        "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies"
+      ],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies",
+      "parent_id": "xcsh-docs:resources:network_firewall:reference",
+      "path": "documentation/resources/network_firewall/properties/active_forward_proxy_policies/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--active_forward_proxy_policies.md",
+      "role": "properties",
+      "schema_path": ["active_forward_proxy_policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_forward_proxy_policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_forward_proxy_policies for xcsh_network_firewall.",
+      "title": "active_forward_proxy_policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6590,
+      "body_sha256": "sha256:b61d0ef1f3e9ac57789bbad96098fb5e369fb0979a69668bc17ed3185df37b71",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
+      "parent_id": "xcsh-docs:resources:network_firewall:properties:active_forward_proxy_policies",
+      "path": "documentation/resources/network_firewall/properties/active_forward_proxy_policies/forward_proxy_policies/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--active_forward_proxy_policies--forward_proxy_policies.md",
+      "role": "properties",
+      "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_forward_proxy_policies/forward_proxy_policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_forward_proxy_policies.forward_proxy_policies for xcsh_network_firewall.",
+      "title": "active_forward_proxy_policies.forward_proxy_policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1560,
+      "body_sha256": "sha256:242ccbf1ee9f64858e561071cb07e0d11a1d3ec39cf84dd357b2fe5dc85d919e",
+      "child_ids": ["xcsh-docs:resources:network_firewall:properties:active_network_policies:network_policies"],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:active_network_policies",
+      "parent_id": "xcsh-docs:resources:network_firewall:reference",
+      "path": "documentation/resources/network_firewall/properties/active_network_policies/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--active_network_policies.md",
+      "role": "properties",
+      "schema_path": ["active_network_policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_network_policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_network_policies for xcsh_network_firewall.",
+      "title": "active_network_policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6521,
+      "body_sha256": "sha256:e92de67d1a3e49a84847efa9f30a3c207ba40891e88962b27f59ccbae516fa8c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:active_network_policies:network_policies",
+      "parent_id": "xcsh-docs:resources:network_firewall:properties:active_network_policies",
+      "path": "documentation/resources/network_firewall/properties/active_network_policies/network_policies/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--active_network_policies--network_policies.md",
+      "role": "properties",
+      "schema_path": ["active_network_policies", "network_policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_network_policies/network_policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_network_policies.network_policies for xcsh_network_firewall.",
+      "title": "active_network_policies.network_policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1115,
+      "body_sha256": "sha256:6ad93054ecf031ad1c53d99ecfc8959f01a9750c713b91bad9a4057c2d55bfb5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:disable_fast_acl",
+      "parent_id": "xcsh-docs:resources:network_firewall:reference",
+      "path": "documentation/resources/network_firewall/properties/disable_fast_acl/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--disable_fast_acl.md",
+      "role": "properties",
+      "schema_path": ["disable_fast_acl"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/disable_fast_acl/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disable_fast_acl for xcsh_network_firewall.",
+      "title": "disable_fast_acl",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1144,
+      "body_sha256": "sha256:0ec56fad2e7e432df11f8dc720ca3c7a69da20fa285ce10bd3890bba9d75da35",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:disable_forward_proxy_policy",
+      "parent_id": "xcsh-docs:resources:network_firewall:reference",
+      "path": "documentation/resources/network_firewall/properties/disable_forward_proxy_policy/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--disable_forward_proxy_policy.md",
+      "role": "properties",
+      "schema_path": ["disable_forward_proxy_policy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/disable_forward_proxy_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disable_forward_proxy_policy for xcsh_network_firewall.",
+      "title": "disable_forward_proxy_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1126,
+      "body_sha256": "sha256:fc92ec46bea660a69bf73a564cd80a8fa1fafdee905626b10ca47266ec9963bb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:disable_network_policy",
+      "parent_id": "xcsh-docs:resources:network_firewall:reference",
+      "path": "documentation/resources/network_firewall/properties/disable_network_policy/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--disable_network_policy.md",
+      "role": "properties",
+      "schema_path": ["disable_network_policy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/disable_network_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disable_network_policy for xcsh_network_firewall.",
+      "title": "disable_network_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2156,
+      "body_sha256": "sha256:0ddf259a3d0c7d7c809267462d70ff9328388e7df10af4fbeb4545c30dd86f64",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:network_firewall:reference",
+      "path": "documentation/resources/network_firewall/properties/timeouts/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_network_firewall.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 558,
+      "body_sha256": "sha256:57db2e7ad7c0105d033a3caf5cef4b70dfa9d64fb2184a0122805c05d968ae2d",
+      "child_ids": ["xcsh-docs:resources:network_firewall:example:resource"],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:examples",
+      "parent_id": "xcsh-docs:resources:network_firewall:fundamentals",
+      "path": "documentation/resources/network_firewall/examples/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_network_firewall.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1242,
+      "body_sha256": "sha256:2aa09f639e89465632b4cf712c081086d87dcf45aa1f31e7e3bbfc3014d25fa7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:7eeae23d1d7b0c0adbae62b0e59aafa91676ffc023ed6aa05396e73c69627d84",
+        "source_path": "examples/resources/xcsh_network_firewall/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:network_firewall:example:resource",
+      "parent_id": "xcsh-docs:resources:network_firewall:examples",
+      "path": "documentation/resources/network_firewall/examples/resource/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_network_firewall.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 429,
+      "body_sha256": "sha256:c813fdd7878a9c4e489b4b76ffbf243056eb66d0dc139b347b318f13fadbe166",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:import",
+      "parent_id": "xcsh-docs:resources:network_firewall:fundamentals",
+      "path": "documentation/resources/network_firewall/lifecycle/import/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_network_firewall.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 489,
+      "body_sha256": "sha256:1b4d48e1c01e8ae9ce19c24eb0a8bf03d728c97b7a99b1a8f1519ec871f96412",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:network_firewall:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:network_firewall:timeouts",
+      "parent_id": "xcsh-docs:resources:network_firewall:fundamentals",
+      "path": "documentation/resources/network_firewall/lifecycle/timeouts/index.md",
+      "provider_name": "network_firewall",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--network_firewall--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_network_firewall.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_firewallCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

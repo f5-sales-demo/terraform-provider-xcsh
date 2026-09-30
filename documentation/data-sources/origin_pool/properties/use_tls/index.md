@@ -1,0 +1,175 @@
+---
+page_title: "use_tls"
+subcategory: "Load Balancing"
+description: "use_tls for xcsh_origin_pool."
+xcsh_docs: {"aliases": [], "body_bytes": 6974, "body_sha256": "sha256:43a786fe20b1c31fbcf40f39bff3f52ee91e22df8748586a5634c48a035a224c", "child_ids": ["xcsh-docs:data-sources:origin_pool:properties:use_tls:default_session_key_caching", "xcsh-docs:data-sources:origin_pool:properties:use_tls:disable_session_key_caching", "xcsh-docs:data-sources:origin_pool:properties:use_tls:disable_sni", "xcsh-docs:data-sources:origin_pool:properties:use_tls:no_mtls", "xcsh-docs:data-sources:origin_pool:properties:use_tls:skip_server_verification", "xcsh-docs:data-sources:origin_pool:properties:use_tls:tls_config", "xcsh-docs:data-sources:origin_pool:properties:use_tls:use_host_header_as_sni", "xcsh-docs:data-sources:origin_pool:properties:use_tls:use_mtls", "xcsh-docs:data-sources:origin_pool:properties:use_tls:use_mtls_obj", "xcsh-docs:data-sources:origin_pool:properties:use_tls:use_server_verification", "xcsh-docs:data-sources:origin_pool:properties:use_tls:volterra_trusted_ca"], "collection_id": "xcsh-docs:data-sources:origin_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:origin_pool:properties:use_tls", "parent_id": "xcsh-docs:data-sources:origin_pool:reference", "path": "documentation/data-sources/origin_pool/properties/use_tls/index.md", "provider_name": "origin_pool", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "properties", "schema_path": ["use_tls"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/origin_pool/properties/use_tls/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "use_tls for xcsh_origin_pool.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["origin_poolCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+# use_tls
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/)
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/)
+- use_tls
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+TLS Parameters for Origin Servers. Upstream TLS Parameters.
+
+Upstream description:
+
+Upstream TLS Parameters.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-max_session_keys_type": "[\"default_session_key_caching\",\"disable_session_key_caching\",\"max_session_keys\"]",
+  "x-ves-oneof-field-mtls_choice": "[\"no_mtls\",\"use_mtls\",\"use_mtls_obj\"]",
+  "x-ves-oneof-field-server_validation_choice": "[\"skip_server_verification\",\"use_server_verification\",\"volterra_trusted_ca\"]",
+  "x-ves-oneof-field-sni_choice": "[\"disable_sni\",\"sni\",\"use_host_header_as_sni\"]"
+}
+```
+
+## Direct properties
+
+- [default_session_key_caching](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/default_session_key_caching/): complete subsection reference.
+
+- [disable_session_key_caching](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/disable_session_key_caching/): complete subsection reference.
+
+- [disable_sni](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/disable_sni/): complete subsection reference.
+
+<a id="schema-use_tls--max_session_keys"></a>
+
+### max_session_keys property
+
+Type: `"number"`. Computed.
+
+Exclusive with \[default\_session\_key\_caching disable\_session\_key\_caching\] Number of session
+keys that are cached.
+
+Upstream description:
+
+Exclusive with \[default\_session\_key\_caching disable\_session\_key\_caching\]
+
+Number of session keys that are cached.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 2
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "2",
+    "ves.io.schema.rules.uint32.lte": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "2",
+    "ves.io.schema.rules.uint32.lte": "64"
+  }
+}
+```
+
+- [no_mtls](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/no_mtls/): complete subsection reference.
+
+- [skip_server_verification](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/skip_server_verification/): complete subsection reference.
+
+<a id="schema-use_tls--sni"></a>
+
+### sni property
+
+Type: `"string"`. Computed.
+
+Exclusive with \[disable\_sni use\_host\_header\_as\_sni\] SNI value to be used.
+
+Upstream description:
+
+Exclusive with \[disable\_sni use\_host\_header\_as\_sni\] SNI value to be used.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [tls_config](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/tls_config/): complete subsection reference.
+
+- [use_host_header_as_sni](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/use_host_header_as_sni/): complete subsection reference.
+
+- [use_mtls](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/use_mtls/): complete subsection reference.
+
+- [use_mtls_obj](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/use_mtls_obj/): complete subsection reference.
+
+- [use_server_verification](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/use_server_verification/): complete subsection reference.
+
+- [volterra_trusted_ca](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/volterra_trusted_ca/): complete subsection reference.
+
+## Next pages
+
+- [use_tls.default_session_key_caching](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/default_session_key_caching/)
+- [use_tls.disable_session_key_caching](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/disable_session_key_caching/)
+- [use_tls.disable_sni](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/disable_sni/)
+- [use_tls.no_mtls](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/no_mtls/)
+- [use_tls.skip_server_verification](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/skip_server_verification/)
+- [use_tls.tls_config](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/tls_config/)
+- [use_tls.use_host_header_as_sni](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/use_host_header_as_sni/)
+- [use_tls.use_mtls](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/use_mtls/)
+- [use_tls.use_mtls_obj](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/use_mtls_obj/)
+- [use_tls.use_server_verification](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/use_server_verification/)
+- [use_tls.volterra_trusted_ca](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/use_tls/volterra_trusted_ca/)
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/properties/)
+- [xcsh_origin_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/origin_pool/)

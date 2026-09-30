@@ -1,0 +1,546 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:certificate:fundamentals",
+    "id": "xcsh-docs:resources:certificate:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:certificate:reference",
+        "schema_path": ["annotations"]
+      },
+      "certificate_chain": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
+        "schema_path": ["certificate_chain"]
+      },
+      "certificate_chain.name": {
+        "anchor": "schema-certificate_chain--name",
+        "document_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
+        "schema_path": ["certificate_chain", "name"]
+      },
+      "certificate_chain.namespace": {
+        "anchor": "schema-certificate_chain--namespace",
+        "document_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
+        "schema_path": ["certificate_chain", "namespace"]
+      },
+      "certificate_chain.tenant": {
+        "anchor": "schema-certificate_chain--tenant",
+        "document_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
+        "schema_path": ["certificate_chain", "tenant"]
+      },
+      "certificate_url": {
+        "anchor": "schema-certificate_url",
+        "document_id": "xcsh-docs:resources:certificate:reference",
+        "schema_path": ["certificate_url"]
+      },
+      "custom_hash_algorithms": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:custom_hash_algorithms",
+        "schema_path": ["custom_hash_algorithms"]
+      },
+      "custom_hash_algorithms.hash_algorithms": {
+        "anchor": "schema-custom_hash_algorithms--hash_algorithms",
+        "document_id": "xcsh-docs:resources:certificate:properties:custom_hash_algorithms",
+        "schema_path": ["custom_hash_algorithms", "hash_algorithms"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:certificate:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:certificate:reference",
+        "schema_path": ["disable"]
+      },
+      "disable_ocsp_stapling": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:disable_ocsp_stapling",
+        "schema_path": ["disable_ocsp_stapling"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:certificate:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:certificate:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:certificate:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:certificate:reference",
+        "schema_path": ["namespace"]
+      },
+      "private_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:private_key",
+        "schema_path": ["private_key"]
+      },
+      "private_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
+        "schema_path": ["private_key", "blindfold_secret_info"]
+      },
+      "private_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-private_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
+        "schema_path": ["private_key", "blindfold_secret_info", "decryption_provider"]
+      },
+      "private_key.blindfold_secret_info.location": {
+        "anchor": "schema-private_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
+        "schema_path": ["private_key", "blindfold_secret_info", "location"]
+      },
+      "private_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-private_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
+        "schema_path": ["private_key", "blindfold_secret_info", "store_provider"]
+      },
+      "private_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
+        "schema_path": ["private_key", "clear_secret_info"]
+      },
+      "private_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-private_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
+        "schema_path": ["private_key", "clear_secret_info", "provider_ref"]
+      },
+      "private_key.clear_secret_info.url": {
+        "anchor": "schema-private_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
+        "schema_path": ["private_key", "clear_secret_info", "url"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:certificate:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:certificate:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:certificate:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:certificate:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "use_system_defaults": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:use_system_defaults",
+        "schema_path": ["use_system_defaults"]
+      }
+    },
+    "provider_name": "certificate",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:certificate:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1525,
+      "body_sha256": "sha256:06e60c3d71fa5987e76bbd84c026b08475c8e0d6d4b3bcf7c9de0290e3c20aee",
+      "child_ids": [
+        "xcsh-docs:resources:certificate:reference",
+        "xcsh-docs:resources:certificate:examples",
+        "xcsh-docs:resources:certificate:import",
+        "xcsh-docs:resources:certificate:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/certificate/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/certificate.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_certificate for xcsh_certificate.",
+      "title": "xcsh_certificate",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 15363,
+      "body_sha256": "sha256:1c21f95dd311b5fd210f61f40fc7a70a52cff06d4488d2d144d7e7c544e35f66",
+      "child_ids": [
+        "xcsh-docs:resources:certificate:properties:certificate_chain",
+        "xcsh-docs:resources:certificate:properties:custom_hash_algorithms",
+        "xcsh-docs:resources:certificate:properties:disable_ocsp_stapling",
+        "xcsh-docs:resources:certificate:properties:private_key",
+        "xcsh-docs:resources:certificate:properties:timeouts",
+        "xcsh-docs:resources:certificate:properties:use_system_defaults"
+      ],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:reference",
+      "parent_id": "xcsh-docs:resources:certificate:fundamentals",
+      "path": "documentation/resources/certificate/properties/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_certificate.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5754,
+      "body_sha256": "sha256:f487651a0c6f7df151bde2390382e2bb5e4973e4e86bbc094a39e4dd807fe119",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:certificate_chain",
+      "parent_id": "xcsh-docs:resources:certificate:reference",
+      "path": "documentation/resources/certificate/properties/certificate_chain/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--properties--certificate_chain.md",
+      "role": "properties",
+      "schema_path": ["certificate_chain"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/certificate_chain/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "certificate_chain for xcsh_certificate.",
+      "title": "certificate_chain",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3342,
+      "body_sha256": "sha256:d35fc784bca98893eac2849644750e759e77e857c80a6dd2643748d7a4ba85c8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:custom_hash_algorithms",
+      "parent_id": "xcsh-docs:resources:certificate:reference",
+      "path": "documentation/resources/certificate/properties/custom_hash_algorithms/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--properties--custom_hash_algorithms.md",
+      "role": "properties",
+      "schema_path": ["custom_hash_algorithms"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/custom_hash_algorithms/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_hash_algorithms for xcsh_certificate.",
+      "title": "custom_hash_algorithms",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1033,
+      "body_sha256": "sha256:1e102ca6fab7c979c825bde139322a1c14f32fc48d9385fb03a35b98fef6a33d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:disable_ocsp_stapling",
+      "parent_id": "xcsh-docs:resources:certificate:reference",
+      "path": "documentation/resources/certificate/properties/disable_ocsp_stapling/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--properties--disable_ocsp_stapling.md",
+      "role": "properties",
+      "schema_path": ["disable_ocsp_stapling"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/disable_ocsp_stapling/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disable_ocsp_stapling for xcsh_certificate.",
+      "title": "disable_ocsp_stapling",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1894,
+      "body_sha256": "sha256:9c1a4921489b49cec8f869447a4ca5773f39ba9c28905617ed0926b0c84fe6cb",
+      "child_ids": [
+        "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
+        "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:private_key",
+      "parent_id": "xcsh-docs:resources:certificate:reference",
+      "path": "documentation/resources/certificate/properties/private_key/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--properties--private_key.md",
+      "role": "properties",
+      "schema_path": ["private_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/private_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "private_key for xcsh_certificate.",
+      "title": "private_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4499,
+      "body_sha256": "sha256:1203ec098daa9eb44e35d1cbcfa6e1298dfcf13f0b581eeff832816ab91f4ee7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:certificate:properties:private_key",
+      "path": "documentation/resources/certificate/properties/private_key/blindfold_secret_info/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--properties--private_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["private_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/private_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "private_key.blindfold_secret_info for xcsh_certificate.",
+      "title": "private_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3399,
+      "body_sha256": "sha256:800fe5dbaef13d108b59656934f51c4b63b4e5c24142cff1b1c2d8fb01485a9a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:certificate:properties:private_key",
+      "path": "documentation/resources/certificate/properties/private_key/clear_secret_info/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--properties--private_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["private_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/private_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "private_key.clear_secret_info for xcsh_certificate.",
+      "title": "private_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2126,
+      "body_sha256": "sha256:d83796fd562359ec91b02b8698de145aab1bd81ecac90cb521072053dbbe2f2f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:certificate:reference",
+      "path": "documentation/resources/certificate/properties/timeouts/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_certificate.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1025,
+      "body_sha256": "sha256:719aa7a2cb945ede1b52240b793e1a81ef15872cf6f4eb157063243f69120a5e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:use_system_defaults",
+      "parent_id": "xcsh-docs:resources:certificate:reference",
+      "path": "documentation/resources/certificate/properties/use_system_defaults/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--properties--use_system_defaults.md",
+      "role": "properties",
+      "schema_path": ["use_system_defaults"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/use_system_defaults/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "use_system_defaults for xcsh_certificate.",
+      "title": "use_system_defaults",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 528,
+      "body_sha256": "sha256:1ea65059b0437e5b582e07a07e0fbabdfbc23dbadc807bf8f3a8f3b2a103f159",
+      "child_ids": ["xcsh-docs:resources:certificate:example:resource"],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:examples",
+      "parent_id": "xcsh-docs:resources:certificate:fundamentals",
+      "path": "documentation/resources/certificate/examples/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_certificate.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1177,
+      "body_sha256": "sha256:f5fb128720a02a2f9cb8a9f8578ad9639bb1a743f07e50c7ce0bb1dfca6145b0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:a89bc2bb9f8d9310b1230ada6b9c044b0eeaf77e938fa8139bb314ba9412a092",
+        "source_path": "examples/resources/xcsh_certificate/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:certificate:example:resource",
+      "parent_id": "xcsh-docs:resources:certificate:examples",
+      "path": "documentation/resources/certificate/examples/resource/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_certificate.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 404,
+      "body_sha256": "sha256:b8caeefdaa0c2db2621896e5286d49e6a46c0ae982b9652058de3fec87edc4b0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:import",
+      "parent_id": "xcsh-docs:resources:certificate:fundamentals",
+      "path": "documentation/resources/certificate/lifecycle/import/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_certificate.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 464,
+      "body_sha256": "sha256:235b2bcb786a7c247dd3155f40edda62b9c4c3c6017d3fcc1e8c5e558e3bae6b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:timeouts",
+      "parent_id": "xcsh-docs:resources:certificate:fundamentals",
+      "path": "documentation/resources/certificate/lifecycle/timeouts/index.md",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--certificate--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_certificate.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

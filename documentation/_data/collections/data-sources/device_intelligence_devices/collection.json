@@ -1,0 +1,384 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:device_intelligence_devices:fundamentals",
+    "id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+    "properties": {
+      "devices": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices"]
+      },
+      "devices.action_taken": {
+        "anchor": "schema-devices--action_taken",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices", "action_taken"]
+      },
+      "devices.confidence": {
+        "anchor": "schema-devices--confidence",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices", "confidence"]
+      },
+      "devices.device_id": {
+        "anchor": "schema-devices--device_id",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices", "device_id"]
+      },
+      "devices.high_risk_txn_count": {
+        "anchor": "schema-devices--high_risk_txn_count",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices", "high_risk_txn_count"]
+      },
+      "devices.latest_txn_id": {
+        "anchor": "schema-devices--latest_txn_id",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices", "latest_txn_id"]
+      },
+      "devices.linked_accounts": {
+        "anchor": "schema-devices--linked_accounts",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices", "linked_accounts"]
+      },
+      "devices.risk_score": {
+        "anchor": "schema-devices--risk_score",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices", "risk_score"]
+      },
+      "devices.risk_signals": {
+        "anchor": "schema-devices--risk_signals",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "schema_path": ["devices", "risk_signals"]
+      },
+      "end_time": {
+        "anchor": "schema-end_time",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:reference",
+        "schema_path": ["end_time"]
+      },
+      "filters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters",
+        "schema_path": ["filters"]
+      },
+      "filters.global_filters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters"]
+      },
+      "filters.global_filters.key": {
+        "anchor": "schema-filters--global_filters--key",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "key"]
+      },
+      "filters.global_filters.op": {
+        "anchor": "schema-filters--global_filters--op",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "op"]
+      },
+      "filters.global_filters.values": {
+        "anchor": "schema-filters--global_filters--values",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "values"]
+      },
+      "filters.region_filter": {
+        "anchor": "schema-filters--region_filter",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters",
+        "schema_path": ["filters", "region_filter"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:reference",
+        "schema_path": ["namespace"]
+      },
+      "pagination": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:pagination",
+        "schema_path": ["pagination"]
+      },
+      "pagination.page_number": {
+        "anchor": "schema-pagination--page_number",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:pagination",
+        "schema_path": ["pagination", "page_number"]
+      },
+      "pagination.page_size": {
+        "anchor": "schema-pagination--page_size",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:pagination",
+        "schema_path": ["pagination", "page_size"]
+      },
+      "sort": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:sort",
+        "schema_path": ["sort"]
+      },
+      "sort.key": {
+        "anchor": "schema-sort--key",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:sort",
+        "schema_path": ["sort", "key"]
+      },
+      "sort.order": {
+        "anchor": "schema-sort--order",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:sort",
+        "schema_path": ["sort", "order"]
+      },
+      "start_time": {
+        "anchor": "schema-start_time",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_devices:reference",
+        "schema_path": ["start_time"]
+      }
+    },
+    "provider_name": "device_intelligence_devices",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:device_intelligence_devices:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1215,
+      "body_sha256": "sha256:b4366cfde19e0cf0b1741c9ab2b61a7b5863ef46ee21e42d4679c9f3b1168958",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_devices:reference",
+        "xcsh-docs:data-sources:device_intelligence_devices:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/device_intelligence_devices/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/device_intelligence_devices.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_device_intelligence_devices for xcsh_device_intelligence_devices.",
+      "title": "xcsh_device_intelligence_devices",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7325,
+      "body_sha256": "sha256:22a4ac6eade73f5139f65eed266e73ad9a2dcc32376504145cac57f23bc666d3",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+        "xcsh-docs:data-sources:device_intelligence_devices:properties:filters",
+        "xcsh-docs:data-sources:device_intelligence_devices:properties:pagination",
+        "xcsh-docs:data-sources:device_intelligence_devices:properties:sort"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:reference",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_devices:fundamentals",
+      "path": "documentation/data-sources/device_intelligence_devices/properties/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_devices--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_device_intelligence_devices.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1941,
+      "body_sha256": "sha256:a444ce20c247b686fc09fa4e9c7a94ecde16af0c2af79f96ee27fe0785b9a6fc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:properties:devices",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_devices:reference",
+      "path": "documentation/data-sources/device_intelligence_devices/properties/devices/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_devices--properties--devices.md",
+      "role": "properties",
+      "schema_path": ["devices"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/properties/devices/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "devices for xcsh_device_intelligence_devices.",
+      "title": "devices",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1553,
+      "body_sha256": "sha256:2f118e5570227d9c98b58d9e54b94b5e840900cdd4f0bc6b1009950382d9124a",
+      "child_ids": ["xcsh-docs:data-sources:device_intelligence_devices:properties:filters:global_filters"],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_devices:reference",
+      "path": "documentation/data-sources/device_intelligence_devices/properties/filters/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_devices--properties--filters.md",
+      "role": "properties",
+      "schema_path": ["filters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/properties/filters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "filters for xcsh_device_intelligence_devices.",
+      "title": "filters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5325,
+      "body_sha256": "sha256:4b528b45ab686198ba94e5ab7382885d5fff4f6c6eea1935ad0be7d92dd864fe",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters:global_filters",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_devices:properties:filters",
+      "path": "documentation/data-sources/device_intelligence_devices/properties/filters/global_filters/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_devices--properties--filters--global_filters.md",
+      "role": "properties",
+      "schema_path": ["filters", "global_filters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/properties/filters/global_filters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "filters.global_filters for xcsh_device_intelligence_devices.",
+      "title": "filters.global_filters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1129,
+      "body_sha256": "sha256:0178157fda57c28a80b779aea56f72a54472031c2e0d0d8c5a588fd8eb181362",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:properties:pagination",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_devices:reference",
+      "path": "documentation/data-sources/device_intelligence_devices/properties/pagination/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_devices--properties--pagination.md",
+      "role": "properties",
+      "schema_path": ["pagination"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/properties/pagination/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "pagination for xcsh_device_intelligence_devices.",
+      "title": "pagination",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4308,
+      "body_sha256": "sha256:32ffd0fdaaa9d9a930c3671ce7fcef4cc25ba639365dbba75c036c869a1eced1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:properties:sort",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_devices:reference",
+      "path": "documentation/data-sources/device_intelligence_devices/properties/sort/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_devices--properties--sort.md",
+      "role": "properties",
+      "schema_path": ["sort"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/properties/sort/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "sort for xcsh_device_intelligence_devices.",
+      "title": "sort",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 648,
+      "body_sha256": "sha256:8b834389b5cf88af1059ba387953c836effe4d12b563889ce4726ee993b55f4c",
+      "child_ids": ["xcsh-docs:data-sources:device_intelligence_devices:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:examples",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_devices:fundamentals",
+      "path": "documentation/data-sources/device_intelligence_devices/examples/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_devices--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_device_intelligence_devices.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1272,
+      "body_sha256": "sha256:6c7f25db7d2d33130f6637ca4568a841e450670c5d36fe4e1cb4be28d6de0ce9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_devices:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:59c1a13d7be54a7427ce8e310798e9737dbdf20c08bef5ed916ec4310ce79e92",
+        "source_path": "examples/data-sources/xcsh_device_intelligence_devices/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:device_intelligence_devices:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_devices:examples",
+      "path": "documentation/data-sources/device_intelligence_devices/examples/data-source/index.md",
+      "provider_name": "device_intelligence_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_devices--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_devices/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_device_intelligence_devices.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

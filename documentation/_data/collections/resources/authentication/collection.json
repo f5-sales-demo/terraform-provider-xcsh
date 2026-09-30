@@ -1,0 +1,850 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:authentication:fundamentals",
+    "id": "xcsh-docs:resources:authentication:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:authentication:reference",
+        "schema_path": ["annotations"]
+      },
+      "cookie_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params",
+        "schema_path": ["cookie_params"]
+      },
+      "cookie_params.auth_hmac": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac",
+        "schema_path": ["cookie_params", "auth_hmac"]
+      },
+      "cookie_params.auth_hmac.prim_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key"]
+      },
+      "cookie_params.auth_hmac.prim_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key", "blindfold_secret_info"]
+      },
+      "cookie_params.auth_hmac.prim_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-cookie_params--auth_hmac--prim_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key", "blindfold_secret_info", "decryption_provider"]
+      },
+      "cookie_params.auth_hmac.prim_key.blindfold_secret_info.location": {
+        "anchor": "schema-cookie_params--auth_hmac--prim_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key", "blindfold_secret_info", "location"]
+      },
+      "cookie_params.auth_hmac.prim_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-cookie_params--auth_hmac--prim_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key", "blindfold_secret_info", "store_provider"]
+      },
+      "cookie_params.auth_hmac.prim_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key", "clear_secret_info"]
+      },
+      "cookie_params.auth_hmac.prim_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-cookie_params--auth_hmac--prim_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key", "clear_secret_info", "provider_ref"]
+      },
+      "cookie_params.auth_hmac.prim_key.clear_secret_info.url": {
+        "anchor": "schema-cookie_params--auth_hmac--prim_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key", "clear_secret_info", "url"]
+      },
+      "cookie_params.auth_hmac.prim_key_expiry": {
+        "anchor": "schema-cookie_params--auth_hmac--prim_key_expiry",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac",
+        "schema_path": ["cookie_params", "auth_hmac", "prim_key_expiry"]
+      },
+      "cookie_params.auth_hmac.sec_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key"]
+      },
+      "cookie_params.auth_hmac.sec_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key", "blindfold_secret_info"]
+      },
+      "cookie_params.auth_hmac.sec_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-cookie_params--auth_hmac--sec_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key", "blindfold_secret_info", "decryption_provider"]
+      },
+      "cookie_params.auth_hmac.sec_key.blindfold_secret_info.location": {
+        "anchor": "schema-cookie_params--auth_hmac--sec_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key", "blindfold_secret_info", "location"]
+      },
+      "cookie_params.auth_hmac.sec_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-cookie_params--auth_hmac--sec_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key", "blindfold_secret_info", "store_provider"]
+      },
+      "cookie_params.auth_hmac.sec_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key", "clear_secret_info"]
+      },
+      "cookie_params.auth_hmac.sec_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-cookie_params--auth_hmac--sec_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key", "clear_secret_info", "provider_ref"]
+      },
+      "cookie_params.auth_hmac.sec_key.clear_secret_info.url": {
+        "anchor": "schema-cookie_params--auth_hmac--sec_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key", "clear_secret_info", "url"]
+      },
+      "cookie_params.auth_hmac.sec_key_expiry": {
+        "anchor": "schema-cookie_params--auth_hmac--sec_key_expiry",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac",
+        "schema_path": ["cookie_params", "auth_hmac", "sec_key_expiry"]
+      },
+      "cookie_params.cookie_expiry": {
+        "anchor": "schema-cookie_params--cookie_expiry",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params",
+        "schema_path": ["cookie_params", "cookie_expiry"]
+      },
+      "cookie_params.cookie_refresh_interval": {
+        "anchor": "schema-cookie_params--cookie_refresh_interval",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params",
+        "schema_path": ["cookie_params", "cookie_refresh_interval"]
+      },
+      "cookie_params.kms_key_hmac": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params:kms_key_hmac",
+        "schema_path": ["cookie_params", "kms_key_hmac"]
+      },
+      "cookie_params.session_expiry": {
+        "anchor": "schema-cookie_params--session_expiry",
+        "document_id": "xcsh-docs:resources:authentication:properties:cookie_params",
+        "schema_path": ["cookie_params", "session_expiry"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:authentication:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:authentication:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:authentication:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:authentication:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:authentication:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:authentication:reference",
+        "schema_path": ["namespace"]
+      },
+      "oidc_auth": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth",
+        "schema_path": ["oidc_auth"]
+      },
+      "oidc_auth.client_secret": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret",
+        "schema_path": ["oidc_auth", "client_secret"]
+      },
+      "oidc_auth.client_secret.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
+        "schema_path": ["oidc_auth", "client_secret", "blindfold_secret_info"]
+      },
+      "oidc_auth.client_secret.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-oidc_auth--client_secret--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
+        "schema_path": ["oidc_auth", "client_secret", "blindfold_secret_info", "decryption_provider"]
+      },
+      "oidc_auth.client_secret.blindfold_secret_info.location": {
+        "anchor": "schema-oidc_auth--client_secret--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
+        "schema_path": ["oidc_auth", "client_secret", "blindfold_secret_info", "location"]
+      },
+      "oidc_auth.client_secret.blindfold_secret_info.store_provider": {
+        "anchor": "schema-oidc_auth--client_secret--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
+        "schema_path": ["oidc_auth", "client_secret", "blindfold_secret_info", "store_provider"]
+      },
+      "oidc_auth.client_secret.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:clear_secret_info",
+        "schema_path": ["oidc_auth", "client_secret", "clear_secret_info"]
+      },
+      "oidc_auth.client_secret.clear_secret_info.provider_ref": {
+        "anchor": "schema-oidc_auth--client_secret--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:clear_secret_info",
+        "schema_path": ["oidc_auth", "client_secret", "clear_secret_info", "provider_ref"]
+      },
+      "oidc_auth.client_secret.clear_secret_info.url": {
+        "anchor": "schema-oidc_auth--client_secret--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:clear_secret_info",
+        "schema_path": ["oidc_auth", "client_secret", "clear_secret_info", "url"]
+      },
+      "oidc_auth.oidc_auth_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:oidc_auth_params",
+        "schema_path": ["oidc_auth", "oidc_auth_params"]
+      },
+      "oidc_auth.oidc_auth_params.auth_endpoint_url": {
+        "anchor": "schema-oidc_auth--oidc_auth_params--auth_endpoint_url",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:oidc_auth_params",
+        "schema_path": ["oidc_auth", "oidc_auth_params", "auth_endpoint_url"]
+      },
+      "oidc_auth.oidc_auth_params.end_session_endpoint_url": {
+        "anchor": "schema-oidc_auth--oidc_auth_params--end_session_endpoint_url",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:oidc_auth_params",
+        "schema_path": ["oidc_auth", "oidc_auth_params", "end_session_endpoint_url"]
+      },
+      "oidc_auth.oidc_auth_params.token_endpoint_url": {
+        "anchor": "schema-oidc_auth--oidc_auth_params--token_endpoint_url",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth:oidc_auth_params",
+        "schema_path": ["oidc_auth", "oidc_auth_params", "token_endpoint_url"]
+      },
+      "oidc_auth.oidc_client_id": {
+        "anchor": "schema-oidc_auth--oidc_client_id",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth",
+        "schema_path": ["oidc_auth", "oidc_client_id"]
+      },
+      "oidc_auth.oidc_well_known_config_url": {
+        "anchor": "schema-oidc_auth--oidc_well_known_config_url",
+        "document_id": "xcsh-docs:resources:authentication:properties:oidc_auth",
+        "schema_path": ["oidc_auth", "oidc_well_known_config_url"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:authentication:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:authentication:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:authentication:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:authentication:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:authentication:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "authentication",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:authentication:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1424,
+      "body_sha256": "sha256:a9a6aa2397ae5155821914aac638ccc1eb36369f7c269d3779db8dac31c8867c",
+      "child_ids": [
+        "xcsh-docs:resources:authentication:reference",
+        "xcsh-docs:resources:authentication:examples",
+        "xcsh-docs:resources:authentication:import",
+        "xcsh-docs:resources:authentication:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/authentication/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/authentication.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_authentication for xcsh_authentication.",
+      "title": "xcsh_authentication",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 20109,
+      "body_sha256": "sha256:8aba3d8348dae13b3e6c30ca93a152cc8bffd11eac24f32487a24f44d03c29cd",
+      "child_ids": [
+        "xcsh-docs:resources:authentication:properties:cookie_params",
+        "xcsh-docs:resources:authentication:properties:oidc_auth",
+        "xcsh-docs:resources:authentication:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:reference",
+      "parent_id": "xcsh-docs:resources:authentication:fundamentals",
+      "path": "documentation/resources/authentication/properties/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_authentication.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5973,
+      "body_sha256": "sha256:e1c48da03ba99643cbd3f899cbdd68f6942853412e7ceea87e81e4d156d4cf19",
+      "child_ids": [
+        "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac",
+        "xcsh-docs:resources:authentication:properties:cookie_params:kms_key_hmac"
+      ],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params",
+      "parent_id": "xcsh-docs:resources:authentication:reference",
+      "path": "documentation/resources/authentication/properties/cookie_params/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params.md",
+      "role": "properties",
+      "schema_path": ["cookie_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params for xcsh_authentication.",
+      "title": "cookie_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3881,
+      "body_sha256": "sha256:eaf763ffc3ddbbef1d2c9745181398b56ca60326f5eb6f65d20a7e7911e71eab",
+      "child_ids": [
+        "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key",
+        "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key"
+      ],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac",
+      "parent_id": "xcsh-docs:resources:authentication:properties:cookie_params",
+      "path": "documentation/resources/authentication/properties/cookie_params/auth_hmac/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params--auth_hmac.md",
+      "role": "properties",
+      "schema_path": ["cookie_params", "auth_hmac"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params.auth_hmac for xcsh_authentication.",
+      "title": "cookie_params.auth_hmac",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2390,
+      "body_sha256": "sha256:eadb22d1e9bd419b9bc8e6a661bec1ec4c62285d961fe1fe8f4f8624197f476a",
+      "child_ids": [
+        "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
+        "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key",
+      "parent_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac",
+      "path": "documentation/resources/authentication/properties/cookie_params/auth_hmac/prim_key/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params--auth_hmac--prim_key.md",
+      "role": "properties",
+      "schema_path": ["cookie_params", "auth_hmac", "prim_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/prim_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params.auth_hmac.prim_key for xcsh_authentication.",
+      "title": "cookie_params.auth_hmac.prim_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4987,
+      "body_sha256": "sha256:2fd7b02ee9fdad2db8aa902707a5a0b5b6e9b5a70c9f9ab488bceddc1bdf6e95",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key",
+      "path": "documentation/resources/authentication/properties/cookie_params/auth_hmac/prim_key/blindfold_secret_info/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params--auth_hmac--prim_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["cookie_params", "auth_hmac", "prim_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/prim_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params.auth_hmac.prim_key.blindfold_secret_info for xcsh_authentication.",
+      "title": "cookie_params.auth_hmac.prim_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3864,
+      "body_sha256": "sha256:d5813569c0713ec5a75668855153fc91c91dfd23ebcb13db93f5c43e75c704d9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:prim_key",
+      "path": "documentation/resources/authentication/properties/cookie_params/auth_hmac/prim_key/clear_secret_info/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params--auth_hmac--prim_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["cookie_params", "auth_hmac", "prim_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/prim_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params.auth_hmac.prim_key.clear_secret_info for xcsh_authentication.",
+      "title": "cookie_params.auth_hmac.prim_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2381,
+      "body_sha256": "sha256:159a8e4e3fe531b8727c39f2cf0d16ff584219f9c2116d476953e56d40fca1cb",
+      "child_ids": [
+        "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
+        "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key",
+      "parent_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac",
+      "path": "documentation/resources/authentication/properties/cookie_params/auth_hmac/sec_key/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params--auth_hmac--sec_key.md",
+      "role": "properties",
+      "schema_path": ["cookie_params", "auth_hmac", "sec_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/sec_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params.auth_hmac.sec_key for xcsh_authentication.",
+      "title": "cookie_params.auth_hmac.sec_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4978,
+      "body_sha256": "sha256:20d4e578c720a815c4b84f542cdc2eb61d360f3ffe4d002ecfa222f7f40b74af",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key",
+      "path": "documentation/resources/authentication/properties/cookie_params/auth_hmac/sec_key/blindfold_secret_info/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params--auth_hmac--sec_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["cookie_params", "auth_hmac", "sec_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/sec_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params.auth_hmac.sec_key.blindfold_secret_info for xcsh_authentication.",
+      "title": "cookie_params.auth_hmac.sec_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3856,
+      "body_sha256": "sha256:dd3eb62a8feaeaf516b787ab8e18d910c4478be2e2cc16552e26d2776172fec2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:authentication:properties:cookie_params:auth_hmac:sec_key",
+      "path": "documentation/resources/authentication/properties/cookie_params/auth_hmac/sec_key/clear_secret_info/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params--auth_hmac--sec_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["cookie_params", "auth_hmac", "sec_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/sec_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params.auth_hmac.sec_key.clear_secret_info for xcsh_authentication.",
+      "title": "cookie_params.auth_hmac.sec_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1149,
+      "body_sha256": "sha256:6311cfcbe2bd72b7f7798b1c992e39469f78668cdf13748724e6d85f565f3763",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:cookie_params:kms_key_hmac",
+      "parent_id": "xcsh-docs:resources:authentication:properties:cookie_params",
+      "path": "documentation/resources/authentication/properties/cookie_params/kms_key_hmac/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--cookie_params--kms_key_hmac.md",
+      "role": "properties",
+      "schema_path": ["cookie_params", "kms_key_hmac"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/kms_key_hmac/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_params.kms_key_hmac for xcsh_authentication.",
+      "title": "cookie_params.kms_key_hmac",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4500,
+      "body_sha256": "sha256:301ebdd30380be6f12e33f5f76f73e09970e7fedf34c6f6d4eb894b077afa16b",
+      "child_ids": [
+        "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret",
+        "xcsh-docs:resources:authentication:properties:oidc_auth:oidc_auth_params"
+      ],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:oidc_auth",
+      "parent_id": "xcsh-docs:resources:authentication:reference",
+      "path": "documentation/resources/authentication/properties/oidc_auth/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--oidc_auth.md",
+      "role": "properties",
+      "schema_path": ["oidc_auth"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "oidc_auth for xcsh_authentication.",
+      "title": "oidc_auth",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2141,
+      "body_sha256": "sha256:3651a1f739b3c62280c7b351f2f3ae189fe283dccf430da8a52a1a384bcbb127",
+      "child_ids": [
+        "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
+        "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret",
+      "parent_id": "xcsh-docs:resources:authentication:properties:oidc_auth",
+      "path": "documentation/resources/authentication/properties/oidc_auth/client_secret/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--oidc_auth--client_secret.md",
+      "role": "properties",
+      "schema_path": ["oidc_auth", "client_secret"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/client_secret/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "oidc_auth.client_secret for xcsh_authentication.",
+      "title": "oidc_auth.client_secret",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4749,
+      "body_sha256": "sha256:1ed86dd94f5db20d4ea8a6d06411e4d72bd9fcb7b2c2fc147288593b1774d129",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret",
+      "path": "documentation/resources/authentication/properties/oidc_auth/client_secret/blindfold_secret_info/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--oidc_auth--client_secret--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["oidc_auth", "client_secret", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/client_secret/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "oidc_auth.client_secret.blindfold_secret_info for xcsh_authentication.",
+      "title": "oidc_auth.client_secret.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3636,
+      "body_sha256": "sha256:e476f14881b72842752f0048577d3deb363053c8afde88614d36db09b9a79376",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:authentication:properties:oidc_auth:client_secret",
+      "path": "documentation/resources/authentication/properties/oidc_auth/client_secret/clear_secret_info/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--oidc_auth--client_secret--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["oidc_auth", "client_secret", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/client_secret/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "oidc_auth.client_secret.clear_secret_info for xcsh_authentication.",
+      "title": "oidc_auth.client_secret.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5224,
+      "body_sha256": "sha256:b9e107c11ab7b9f6176ac08d7f47e381be8455316b813be5e40f452684a1b913",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:oidc_auth:oidc_auth_params",
+      "parent_id": "xcsh-docs:resources:authentication:properties:oidc_auth",
+      "path": "documentation/resources/authentication/properties/oidc_auth/oidc_auth_params/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--oidc_auth--oidc_auth_params.md",
+      "role": "properties",
+      "schema_path": ["oidc_auth", "oidc_auth_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/oidc_auth_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "oidc_auth.oidc_auth_params for xcsh_authentication.",
+      "title": "oidc_auth.oidc_auth_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2144,
+      "body_sha256": "sha256:f3ccc0b9cec31f889352175ce7935993401d8f9769c4f62959ba6f6651875bf3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:authentication:reference",
+      "path": "documentation/resources/authentication/properties/timeouts/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_authentication.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 546,
+      "body_sha256": "sha256:c036597c1b6447fad3e710bc3ffa8c90b9ed1ea061a1c83b7d5ff7f7f95acb6e",
+      "child_ids": ["xcsh-docs:resources:authentication:example:resource"],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:examples",
+      "parent_id": "xcsh-docs:resources:authentication:fundamentals",
+      "path": "documentation/resources/authentication/examples/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_authentication.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1160,
+      "body_sha256": "sha256:88ce0f7065517f13e4f977bd44138b22031aca44af896d637f47149302172c75",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:43532e046dd0e813a92a49d472a5eaa915d3ad0e96dcd6b49097f16328170876",
+        "source_path": "examples/resources/xcsh_authentication/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:authentication:example:resource",
+      "parent_id": "xcsh-docs:resources:authentication:examples",
+      "path": "documentation/resources/authentication/examples/resource/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_authentication.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 419,
+      "body_sha256": "sha256:d5b1a0f9c1f7866235052004c592051ce76879e8bf73dafbc65d77de86006637",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:import",
+      "parent_id": "xcsh-docs:resources:authentication:fundamentals",
+      "path": "documentation/resources/authentication/lifecycle/import/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_authentication.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 479,
+      "body_sha256": "sha256:e8078855e2624aab81eff7a6b1fb07f956ad2c7883cb6e22d82ef66812a0d4f7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:authentication:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:authentication:timeouts",
+      "parent_id": "xcsh-docs:resources:authentication:fundamentals",
+      "path": "documentation/resources/authentication/lifecycle/timeouts/index.md",
+      "provider_name": "authentication",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--authentication--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_authentication.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["authenticationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

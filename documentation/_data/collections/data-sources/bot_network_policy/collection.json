@@ -1,0 +1,475 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:bot_network_policy:fundamentals",
+    "id": "xcsh-docs:data-sources:bot_network_policy:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "latest_version": {
+        "anchor": "schema-latest_version",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:reference",
+        "schema_path": ["latest_version"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "network_policy_content": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content",
+        "schema_path": ["network_policy_content"]
+      },
+      "network_policy_content.manual_routing_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list",
+        "schema_path": ["network_policy_content", "manual_routing_list"]
+      },
+      "network_policy_content.manual_routing_list.manual_routing": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+        "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing"]
+      },
+      "network_policy_content.manual_routing_list.manual_routing.domain_name": {
+        "anchor": "schema-network_policy_content--manual_routing_list--manual_routing--domain_name",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+        "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "domain_name"]
+      },
+      "network_policy_content.manual_routing_list.manual_routing.http": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:http",
+        "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "http"]
+      },
+      "network_policy_content.manual_routing_list.manual_routing.https": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:https",
+        "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "https"]
+      },
+      "network_policy_content.manual_routing_list.manual_routing.outbound_domain_name": {
+        "anchor": "schema-network_policy_content--manual_routing_list--manual_routing--outbound_domain_name",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+        "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "outbound_domain_name"]
+      },
+      "network_policy_content.manual_routing_list.manual_routing.port": {
+        "anchor": "schema-network_policy_content--manual_routing_list--manual_routing--port",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+        "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "port"]
+      },
+      "network_policy_content.manual_routing_list.manual_routing.protocol_http": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_http",
+        "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "protocol_http"]
+      },
+      "network_policy_content.manual_routing_list.manual_routing.protocol_https": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_https",
+        "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "protocol_https"]
+      },
+      "network_policy_content.upstream_routing_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list",
+        "schema_path": ["network_policy_content", "upstream_routing_list"]
+      },
+      "network_policy_content.upstream_routing_list.upstream_routing": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list:upstream_routing",
+        "schema_path": ["network_policy_content", "upstream_routing_list", "upstream_routing"]
+      },
+      "network_policy_content.upstream_routing_list.upstream_routing.domain_name": {
+        "anchor": "schema-network_policy_content--upstream_routing_list--upstream_routing--domain_name",
+        "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list:upstream_routing",
+        "schema_path": ["network_policy_content", "upstream_routing_list", "upstream_routing", "domain_name"]
+      }
+    },
+    "provider_name": "bot_network_policy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:bot_network_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1334,
+      "body_sha256": "sha256:176591c4edcbc7073beaf602dfe5c945bc8d20a89ed98eabd1c76b82acf27736",
+      "child_ids": [
+        "xcsh-docs:data-sources:bot_network_policy:reference",
+        "xcsh-docs:data-sources:bot_network_policy:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/bot_network_policy/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/bot_network_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_bot_network_policy for xcsh_bot_network_policy.",
+      "title": "xcsh_bot_network_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6829,
+      "body_sha256": "sha256:562e7f48fb84d1abfef51629d20f0541ed2f1324ae263543d8bc239d263b6f54",
+      "child_ids": ["xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content"],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:reference",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:fundamentals",
+      "path": "documentation/data-sources/bot_network_policy/properties/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_bot_network_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1483,
+      "body_sha256": "sha256:eb6fb8352631aaf83600940f53cdc6116f0c792b7c722952c1a3c956279fac46",
+      "child_ids": [
+        "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list",
+        "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:reference",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content for xcsh_bot_network_policy.",
+      "title": "network_policy_content",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1334,
+      "body_sha256": "sha256:dcbc46097d57914e0891f217607cdfab66c1e7b9ad9df250ccd9a5162837a0a7",
+      "child_ids": [
+        "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content--manual_routing_list.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content", "manual_routing_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content.manual_routing_list for xcsh_bot_network_policy.",
+      "title": "network_policy_content.manual_routing_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3567,
+      "body_sha256": "sha256:6df2b12d0d466e24b08a2215e13cd6ef340247c1a2c04be0a71fa544b8f3e9a8",
+      "child_ids": [
+        "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:http",
+        "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:https",
+        "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_http",
+        "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_https"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content--manual_routing_list--manual_routing.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content.manual_routing_list.manual_routing for xcsh_bot_network_policy.",
+      "title": "network_policy_content.manual_routing_list.manual_routing",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1476,
+      "body_sha256": "sha256:fea5c1ea96f01d83d5d0cf678bf544c8321d885862c49591bb5ef496ff8f6078",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:http",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/http/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content--manual_routing_list--manual_routing--http.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "http"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/http/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content.manual_routing_list.manual_routing.http for xcsh_bot_network_policy.",
+      "title": "network_policy_content.manual_routing_list.manual_routing.http",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1478,
+      "body_sha256": "sha256:bf0a9fe53a02594c381b7132b9637f2623838d7f3cd3a66d51fd386e0b14d409",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:https",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/https/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content--manual_routing_list--manual_routing--https.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "https"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/https/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content.manual_routing_list.manual_routing.https for xcsh_bot_network_policy.",
+      "title": "network_policy_content.manual_routing_list.manual_routing.https",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1518,
+      "body_sha256": "sha256:5f66e5fbee467039222c50df56b2b0a1216879f028eb32c9a6525eebc6ac2bbe",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_http",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/protocol_http/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content--manual_routing_list--manual_routing--protocol_http.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "protocol_http"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/protocol_http/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content.manual_routing_list.manual_routing.protocol_http for xcsh_bot_network_policy.",
+      "title": "network_policy_content.manual_routing_list.manual_routing.protocol_http",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1521,
+      "body_sha256": "sha256:d3d66d3ecdadf53bf8fca053ae1c55cd1db194aa2c55cdd17afcfa33b2ed1a5e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_https",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/protocol_https/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content--manual_routing_list--manual_routing--protocol_https.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing", "protocol_https"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/manual_routing_list/manual_routing/protocol_https/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content.manual_routing_list.manual_routing.protocol_https for xcsh_bot_network_policy.",
+      "title": "network_policy_content.manual_routing_list.manual_routing.protocol_https",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1349,
+      "body_sha256": "sha256:3bd8dbf93a6fa6d4b4a9decae0de73e3673ca4ccf63c1d4fa9d6dc7d10f75c29",
+      "child_ids": [
+        "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list:upstream_routing"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/upstream_routing_list/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content--upstream_routing_list.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content", "upstream_routing_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/upstream_routing_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content.upstream_routing_list for xcsh_bot_network_policy.",
+      "title": "network_policy_content.upstream_routing_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1359,
+      "body_sha256": "sha256:3754e64767e7eff203011c968760c68076c9e85003fdd3459bf947feb6e98fb4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list:upstream_routing",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list",
+      "path": "documentation/data-sources/bot_network_policy/properties/network_policy_content/upstream_routing_list/upstream_routing/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--properties--network_policy_content--upstream_routing_list--upstream_routing.md",
+      "role": "properties",
+      "schema_path": ["network_policy_content", "upstream_routing_list", "upstream_routing"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/properties/network_policy_content/upstream_routing_list/upstream_routing/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_policy_content.upstream_routing_list.upstream_routing for xcsh_bot_network_policy.",
+      "title": "network_policy_content.upstream_routing_list.upstream_routing",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 594,
+      "body_sha256": "sha256:62a43d625825d752042277eab180e771ae1b895f3b52f50295588a89503b40c2",
+      "child_ids": ["xcsh-docs:data-sources:bot_network_policy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_network_policy:examples",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:fundamentals",
+      "path": "documentation/data-sources/bot_network_policy/examples/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_bot_network_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1256,
+      "body_sha256": "sha256:21da82ddabc6d6a3647c24503e84eb2c8343659cfbf8c79e2b9576705e09c19e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_network_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:b2aec065924f60efb4e75a54937e4cdc96ee0d4e38bbfe5651736f1aa7a5ffe9",
+        "source_path": "examples/data-sources/xcsh_bot_network_policy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:bot_network_policy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:bot_network_policy:examples",
+      "path": "documentation/data-sources/bot_network_policy/examples/data-source/index.md",
+      "provider_name": "bot_network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_network_policy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_network_policy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_bot_network_policy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

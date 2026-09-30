@@ -1,0 +1,261 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:customer_support_comments:fundamentals",
+    "id": "xcsh-docs:data-sources:customer_support_comments:collection",
+    "properties": {
+      "all_comments_returned": {
+        "anchor": "schema-all_comments_returned",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:reference",
+        "schema_path": ["all_comments_returned"]
+      },
+      "comments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+        "schema_path": ["comments"]
+      },
+      "comments.attachment_ids": {
+        "anchor": "schema-comments--attachment_ids",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+        "schema_path": ["comments", "attachment_ids"]
+      },
+      "comments.attachments_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments:attachments_info",
+        "schema_path": ["comments", "attachments_info"]
+      },
+      "comments.attachments_info.attachment": {
+        "anchor": "schema-comments--attachments_info--attachment",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments:attachments_info",
+        "schema_path": ["comments", "attachments_info", "attachment"]
+      },
+      "comments.attachments_info.content_type": {
+        "anchor": "schema-comments--attachments_info--content_type",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments:attachments_info",
+        "schema_path": ["comments", "attachments_info", "content_type"]
+      },
+      "comments.attachments_info.filename": {
+        "anchor": "schema-comments--attachments_info--filename",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments:attachments_info",
+        "schema_path": ["comments", "attachments_info", "filename"]
+      },
+      "comments.attachments_info.tp_id": {
+        "anchor": "schema-comments--attachments_info--tp_id",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments:attachments_info",
+        "schema_path": ["comments", "attachments_info", "tp_id"]
+      },
+      "comments.author_email": {
+        "anchor": "schema-comments--author_email",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+        "schema_path": ["comments", "author_email"]
+      },
+      "comments.author_name": {
+        "anchor": "schema-comments--author_name",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+        "schema_path": ["comments", "author_name"]
+      },
+      "comments.comment_id": {
+        "anchor": "schema-comments--comment_id",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+        "schema_path": ["comments", "comment_id"]
+      },
+      "comments.created_at": {
+        "anchor": "schema-comments--created_at",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+        "schema_path": ["comments", "created_at"]
+      },
+      "comments.html": {
+        "anchor": "schema-comments--html",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+        "schema_path": ["comments", "html"]
+      },
+      "comments.plain_text": {
+        "anchor": "schema-comments--plain_text",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+        "schema_path": ["comments", "plain_text"]
+      },
+      "created_until_timestamp": {
+        "anchor": "schema-created_until_timestamp",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:reference",
+        "schema_path": ["created_until_timestamp"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:customer_support_comments:reference",
+        "schema_path": ["name"]
+      }
+    },
+    "provider_name": "customer_support_comments",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:customer_support_comments:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1190,
+      "body_sha256": "sha256:49f7de92857dd8451ab64041f7cd93ee78b996e6dc0977d709ab1f1f8384d5ca",
+      "child_ids": [
+        "xcsh-docs:data-sources:customer_support_comments:reference",
+        "xcsh-docs:data-sources:customer_support_comments:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:customer_support_comments:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:customer_support_comments:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/customer_support_comments/index.md",
+      "provider_name": "customer_support_comments",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/customer_support_comments.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/customer_support_comments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_customer_support_comments for xcsh_customer_support_comments.",
+      "title": "xcsh_customer_support_comments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4651,
+      "body_sha256": "sha256:a31215fe8f9fc2d84fb02bcb97baeb7d85768e01c21fb0b73b2a1f973849fe00",
+      "child_ids": ["xcsh-docs:data-sources:customer_support_comments:properties:comments"],
+      "collection_id": "xcsh-docs:data-sources:customer_support_comments:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:customer_support_comments:reference",
+      "parent_id": "xcsh-docs:data-sources:customer_support_comments:fundamentals",
+      "path": "documentation/data-sources/customer_support_comments/properties/index.md",
+      "provider_name": "customer_support_comments",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--customer_support_comments--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/customer_support_comments/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_customer_support_comments.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2294,
+      "body_sha256": "sha256:4fb6055eaa29b4d1e2b97c44a3db76ee891de7f88cf9d92077e210ba69e781ce",
+      "child_ids": ["xcsh-docs:data-sources:customer_support_comments:properties:comments:attachments_info"],
+      "collection_id": "xcsh-docs:data-sources:customer_support_comments:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+      "parent_id": "xcsh-docs:data-sources:customer_support_comments:reference",
+      "path": "documentation/data-sources/customer_support_comments/properties/comments/index.md",
+      "provider_name": "customer_support_comments",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--customer_support_comments--properties--comments.md",
+      "role": "properties",
+      "schema_path": ["comments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/customer_support_comments/properties/comments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "comments for xcsh_customer_support_comments.",
+      "title": "comments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1669,
+      "body_sha256": "sha256:659f22fac35cea1fe9c076a4153428f4092c5c2c567e2084c9449923561c8d37",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:customer_support_comments:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:customer_support_comments:properties:comments:attachments_info",
+      "parent_id": "xcsh-docs:data-sources:customer_support_comments:properties:comments",
+      "path": "documentation/data-sources/customer_support_comments/properties/comments/attachments_info/index.md",
+      "provider_name": "customer_support_comments",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--customer_support_comments--properties--comments--attachments_info.md",
+      "role": "properties",
+      "schema_path": ["comments", "attachments_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/customer_support_comments/properties/comments/attachments_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "comments.attachments_info for xcsh_customer_support_comments.",
+      "title": "comments.attachments_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 636,
+      "body_sha256": "sha256:fce7c1701acd0b92a2ad5cf16d9c802462ac597c8e34168eb0dbc5d40873ef0c",
+      "child_ids": ["xcsh-docs:data-sources:customer_support_comments:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:customer_support_comments:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:customer_support_comments:examples",
+      "parent_id": "xcsh-docs:data-sources:customer_support_comments:fundamentals",
+      "path": "documentation/data-sources/customer_support_comments/examples/index.md",
+      "provider_name": "customer_support_comments",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--customer_support_comments--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/customer_support_comments/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_customer_support_comments.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1245,
+      "body_sha256": "sha256:401c67490ae652575611d52857481546a7b2f75dafdc287e9c5960c70991ed7d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:customer_support_comments:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:0d5599711e86330f779d8085568282cccbd3e192a937997854401c5d7fbdb6a3",
+        "source_path": "examples/data-sources/xcsh_customer_support_comments/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:customer_support_comments:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:customer_support_comments:examples",
+      "path": "documentation/data-sources/customer_support_comments/examples/data-source/index.md",
+      "provider_name": "customer_support_comments",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--customer_support_comments--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/customer_support_comments/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_customer_support_comments.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

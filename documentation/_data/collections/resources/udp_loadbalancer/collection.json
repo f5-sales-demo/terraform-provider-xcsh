@@ -1,0 +1,1773 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
+    "id": "xcsh-docs:resources:udp_loadbalancer:collection",
+    "properties": {
+      "active_service_policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies",
+        "schema_path": ["active_service_policies"]
+      },
+      "active_service_policies.policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies:policies",
+        "schema_path": ["active_service_policies", "policies"]
+      },
+      "active_service_policies.policies.name": {
+        "anchor": "schema-active_service_policies--policies--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies:policies",
+        "schema_path": ["active_service_policies", "policies", "name"]
+      },
+      "active_service_policies.policies.namespace": {
+        "anchor": "schema-active_service_policies--policies--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies:policies",
+        "schema_path": ["active_service_policies", "policies", "namespace"]
+      },
+      "active_service_policies.policies.tenant": {
+        "anchor": "schema-active_service_policies--policies--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies:policies",
+        "schema_path": ["active_service_policies", "policies", "tenant"]
+      },
+      "advertise_custom": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom",
+        "schema_path": ["advertise_custom"]
+      },
+      "advertise_custom.advertise_where": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+        "schema_path": ["advertise_custom", "advertise_where"]
+      },
+      "advertise_custom.advertise_where.advertise_dualstack_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_dualstack_on_public"]
+      },
+      "advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_dualstack_on_public", "public_ip"]
+      },
+      "advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.name": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_dualstack_on_public", "public_ip", "name"]
+      },
+      "advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+        "schema_path": [
+          "advertise_custom",
+          "advertise_where",
+          "advertise_dualstack_on_public",
+          "public_ip",
+          "namespace"
+        ]
+      },
+      "advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_dualstack_on_public", "public_ip", "tenant"]
+      },
+      "advertise_custom.advertise_where.advertise_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public"]
+      },
+      "advertise_custom.advertise_where.advertise_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public", "public_ip"]
+      },
+      "advertise_custom.advertise_where.advertise_on_public.public_ip.name": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_on_public--public_ip--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public", "public_ip", "name"]
+      },
+      "advertise_custom.advertise_where.advertise_on_public.public_ip.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public", "public_ip", "namespace"]
+      },
+      "advertise_custom.advertise_where.advertise_on_public.public_ip.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public", "public_ip", "tenant"]
+      },
+      "advertise_custom.advertise_where.advertise_v6_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public"]
+      },
+      "advertise_custom.advertise_where.advertise_v6_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public", "public_ip"]
+      },
+      "advertise_custom.advertise_where.advertise_v6_on_public.public_ip.name": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_v6_on_public--public_ip--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public", "public_ip", "name"]
+      },
+      "advertise_custom.advertise_where.advertise_v6_on_public.public_ip.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_v6_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public", "public_ip", "namespace"]
+      },
+      "advertise_custom.advertise_where.advertise_v6_on_public.public_ip.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--advertise_v6_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+        "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public", "public_ip", "tenant"]
+      },
+      "advertise_custom.advertise_where.port": {
+        "anchor": "schema-advertise_custom--advertise_where--port",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+        "schema_path": ["advertise_custom", "advertise_where", "port"]
+      },
+      "advertise_custom.advertise_where.port_ranges": {
+        "anchor": "schema-advertise_custom--advertise_where--port_ranges",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+        "schema_path": ["advertise_custom", "advertise_where", "port_ranges"]
+      },
+      "advertise_custom.advertise_where.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site",
+        "schema_path": ["advertise_custom", "advertise_where", "site"]
+      },
+      "advertise_custom.advertise_where.site.ip": {
+        "anchor": "schema-advertise_custom--advertise_where--site--ip",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site",
+        "schema_path": ["advertise_custom", "advertise_where", "site", "ip"]
+      },
+      "advertise_custom.advertise_where.site.network": {
+        "anchor": "schema-advertise_custom--advertise_where--site--network",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site",
+        "schema_path": ["advertise_custom", "advertise_where", "site", "network"]
+      },
+      "advertise_custom.advertise_where.site.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
+        "schema_path": ["advertise_custom", "advertise_where", "site", "site"]
+      },
+      "advertise_custom.advertise_where.site.site.name": {
+        "anchor": "schema-advertise_custom--advertise_where--site--site--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
+        "schema_path": ["advertise_custom", "advertise_where", "site", "site", "name"]
+      },
+      "advertise_custom.advertise_where.site.site.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--site--site--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
+        "schema_path": ["advertise_custom", "advertise_where", "site", "site", "namespace"]
+      },
+      "advertise_custom.advertise_where.site.site.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--site--site--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
+        "schema_path": ["advertise_custom", "advertise_where", "site", "site", "tenant"]
+      },
+      "advertise_custom.advertise_where.use_default_port": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:use_default_port",
+        "schema_path": ["advertise_custom", "advertise_where", "use_default_port"]
+      },
+      "advertise_custom.advertise_where.virtual_network": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network"]
+      },
+      "advertise_custom.advertise_where.virtual_network.default_v6_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:default_v6_vip",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "default_v6_vip"]
+      },
+      "advertise_custom.advertise_where.virtual_network.default_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:default_vip",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "default_vip"]
+      },
+      "advertise_custom.advertise_where.virtual_network.specific_v6_vip": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_network--specific_v6_vip",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "specific_v6_vip"]
+      },
+      "advertise_custom.advertise_where.virtual_network.specific_vip": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_network--specific_vip",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "specific_vip"]
+      },
+      "advertise_custom.advertise_where.virtual_network.virtual_network": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "virtual_network"]
+      },
+      "advertise_custom.advertise_where.virtual_network.virtual_network.name": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_network--virtual_network--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "virtual_network", "name"]
+      },
+      "advertise_custom.advertise_where.virtual_network.virtual_network.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_network--virtual_network--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "virtual_network", "namespace"]
+      },
+      "advertise_custom.advertise_where.virtual_network.virtual_network.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_network--virtual_network--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "virtual_network", "tenant"]
+      },
+      "advertise_custom.advertise_where.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site"]
+      },
+      "advertise_custom.advertise_where.virtual_site.network": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site--network",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site", "network"]
+      },
+      "advertise_custom.advertise_where.virtual_site.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site", "virtual_site"]
+      },
+      "advertise_custom.advertise_where.virtual_site.virtual_site.name": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site--virtual_site--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site", "virtual_site", "name"]
+      },
+      "advertise_custom.advertise_where.virtual_site.virtual_site.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site--virtual_site--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site", "virtual_site", "namespace"]
+      },
+      "advertise_custom.advertise_where.virtual_site.virtual_site.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site--virtual_site--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site", "virtual_site", "tenant"]
+      },
+      "advertise_custom.advertise_where.virtual_site_with_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip"]
+      },
+      "advertise_custom.advertise_where.virtual_site_with_vip.ip": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--ip",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip", "ip"]
+      },
+      "advertise_custom.advertise_where.virtual_site_with_vip.network": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--network",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip", "network"]
+      },
+      "advertise_custom.advertise_where.virtual_site_with_vip.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip", "virtual_site"]
+      },
+      "advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.name": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip", "virtual_site", "name"]
+      },
+      "advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip", "virtual_site", "namespace"]
+      },
+      "advertise_custom.advertise_where.virtual_site_with_vip.virtual_site.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip", "virtual_site", "tenant"]
+      },
+      "advertise_custom.advertise_where.vk8s_service": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service"]
+      },
+      "advertise_custom.advertise_where.vk8s_service.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "site"]
+      },
+      "advertise_custom.advertise_where.vk8s_service.site.name": {
+        "anchor": "schema-advertise_custom--advertise_where--vk8s_service--site--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "site", "name"]
+      },
+      "advertise_custom.advertise_where.vk8s_service.site.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--vk8s_service--site--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "site", "namespace"]
+      },
+      "advertise_custom.advertise_where.vk8s_service.site.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--vk8s_service--site--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "site", "tenant"]
+      },
+      "advertise_custom.advertise_where.vk8s_service.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "virtual_site"]
+      },
+      "advertise_custom.advertise_where.vk8s_service.virtual_site.name": {
+        "anchor": "schema-advertise_custom--advertise_where--vk8s_service--virtual_site--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "virtual_site", "name"]
+      },
+      "advertise_custom.advertise_where.vk8s_service.virtual_site.namespace": {
+        "anchor": "schema-advertise_custom--advertise_where--vk8s_service--virtual_site--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "virtual_site", "namespace"]
+      },
+      "advertise_custom.advertise_where.vk8s_service.virtual_site.tenant": {
+        "anchor": "schema-advertise_custom--advertise_where--vk8s_service--virtual_site--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
+        "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "virtual_site", "tenant"]
+      },
+      "advertise_on_public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public",
+        "schema_path": ["advertise_on_public"]
+      },
+      "advertise_on_public.public_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public:public_ip",
+        "schema_path": ["advertise_on_public", "public_ip"]
+      },
+      "advertise_on_public.public_ip.name": {
+        "anchor": "schema-advertise_on_public--public_ip--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public:public_ip",
+        "schema_path": ["advertise_on_public", "public_ip", "name"]
+      },
+      "advertise_on_public.public_ip.namespace": {
+        "anchor": "schema-advertise_on_public--public_ip--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public:public_ip",
+        "schema_path": ["advertise_on_public", "public_ip", "namespace"]
+      },
+      "advertise_on_public.public_ip.tenant": {
+        "anchor": "schema-advertise_on_public--public_ip--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public:public_ip",
+        "schema_path": ["advertise_on_public", "public_ip", "tenant"]
+      },
+      "advertise_on_public_default_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public_default_vip",
+        "schema_path": ["advertise_on_public_default_vip"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["disable"]
+      },
+      "dns_volterra_managed": {
+        "anchor": "schema-dns_volterra_managed",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["dns_volterra_managed"]
+      },
+      "do_not_advertise": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:do_not_advertise",
+        "schema_path": ["do_not_advertise"]
+      },
+      "domains": {
+        "anchor": "schema-domains",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["domains"]
+      },
+      "hash_policy_choice_random": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_random",
+        "schema_path": ["hash_policy_choice_random"]
+      },
+      "hash_policy_choice_round_robin": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_round_robin",
+        "schema_path": ["hash_policy_choice_round_robin"]
+      },
+      "hash_policy_choice_source_ip_stickiness": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_source_ip_stickiness",
+        "schema_path": ["hash_policy_choice_source_ip_stickiness"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["id"]
+      },
+      "idle_timeout": {
+        "anchor": "schema-idle_timeout",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["idle_timeout"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["labels"]
+      },
+      "listen_port": {
+        "anchor": "schema-listen_port",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["listen_port"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["namespace"]
+      },
+      "no_service_policies": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:no_service_policies",
+        "schema_path": ["no_service_policies"]
+      },
+      "origin_pools_weights": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights",
+        "schema_path": ["origin_pools_weights"]
+      },
+      "origin_pools_weights.cluster": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:cluster",
+        "schema_path": ["origin_pools_weights", "cluster"]
+      },
+      "origin_pools_weights.cluster.name": {
+        "anchor": "schema-origin_pools_weights--cluster--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:cluster",
+        "schema_path": ["origin_pools_weights", "cluster", "name"]
+      },
+      "origin_pools_weights.cluster.namespace": {
+        "anchor": "schema-origin_pools_weights--cluster--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:cluster",
+        "schema_path": ["origin_pools_weights", "cluster", "namespace"]
+      },
+      "origin_pools_weights.cluster.tenant": {
+        "anchor": "schema-origin_pools_weights--cluster--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:cluster",
+        "schema_path": ["origin_pools_weights", "cluster", "tenant"]
+      },
+      "origin_pools_weights.endpoint_subsets": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:endpoint_subsets",
+        "schema_path": ["origin_pools_weights", "endpoint_subsets"]
+      },
+      "origin_pools_weights.pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:pool",
+        "schema_path": ["origin_pools_weights", "pool"]
+      },
+      "origin_pools_weights.pool.name": {
+        "anchor": "schema-origin_pools_weights--pool--name",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:pool",
+        "schema_path": ["origin_pools_weights", "pool", "name"]
+      },
+      "origin_pools_weights.pool.namespace": {
+        "anchor": "schema-origin_pools_weights--pool--namespace",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:pool",
+        "schema_path": ["origin_pools_weights", "pool", "namespace"]
+      },
+      "origin_pools_weights.pool.tenant": {
+        "anchor": "schema-origin_pools_weights--pool--tenant",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:pool",
+        "schema_path": ["origin_pools_weights", "pool", "tenant"]
+      },
+      "origin_pools_weights.priority": {
+        "anchor": "schema-origin_pools_weights--priority",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights",
+        "schema_path": ["origin_pools_weights", "priority"]
+      },
+      "origin_pools_weights.weight": {
+        "anchor": "schema-origin_pools_weights--weight",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights",
+        "schema_path": ["origin_pools_weights", "weight"]
+      },
+      "port_ranges": {
+        "anchor": "schema-port_ranges",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+        "schema_path": ["port_ranges"]
+      },
+      "service_policies_from_namespace": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:service_policies_from_namespace",
+        "schema_path": ["service_policies_from_namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "udp": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:udp_loadbalancer:properties:udp",
+        "schema_path": ["udp"]
+      }
+    },
+    "provider_name": "udp_loadbalancer",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:udp_loadbalancer:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1550,
+      "body_sha256": "sha256:1c21d2faa137b67f8b98ec35e3f8a56d3dc63977969d90beb5a3900f4aead45e",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:reference",
+        "xcsh-docs:resources:udp_loadbalancer:examples",
+        "xcsh-docs:resources:udp_loadbalancer:import",
+        "xcsh-docs:resources:udp_loadbalancer:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/udp_loadbalancer/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/udp_loadbalancer.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_udp_loadbalancer for xcsh_udp_loadbalancer.",
+      "title": "xcsh_udp_loadbalancer",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 45405,
+      "body_sha256": "sha256:83add8c705f4bf60a847bd13f9eb89b682b717bedb3ca8189fba226ae0c2208c",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public_default_vip",
+        "xcsh-docs:resources:udp_loadbalancer:properties:do_not_advertise",
+        "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_random",
+        "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_round_robin",
+        "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_source_ip_stickiness",
+        "xcsh-docs:resources:udp_loadbalancer:properties:no_service_policies",
+        "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights",
+        "xcsh-docs:resources:udp_loadbalancer:properties:service_policies_from_namespace",
+        "xcsh-docs:resources:udp_loadbalancer:properties:timeouts",
+        "xcsh-docs:resources:udp_loadbalancer:properties:udp"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
+      "path": "documentation/resources/udp_loadbalancer/properties/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_udp_loadbalancer.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2225,
+      "body_sha256": "sha256:fb4c5a7eff6086455275af9b2eebc6164fe6bae9c967f5e239e1f1a72767e3c4",
+      "child_ids": ["xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies:policies"],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/active_service_policies/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--active_service_policies.md",
+      "role": "properties",
+      "schema_path": ["active_service_policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/active_service_policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_service_policies for xcsh_udp_loadbalancer.",
+      "title": "active_service_policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7470,
+      "body_sha256": "sha256:96e061c273e2cfc1676c96cc7833d56e964752aacefeb9dc104b48272bbc0152",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies:policies",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:active_service_policies",
+      "path": "documentation/resources/udp_loadbalancer/properties/active_service_policies/policies/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--active_service_policies--policies.md",
+      "role": "properties",
+      "schema_path": ["active_service_policies", "policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/active_service_policies/policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "active_service_policies.policies for xcsh_udp_loadbalancer.",
+      "title": "active_service_policies.policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2403,
+      "body_sha256": "sha256:3f37911688dba3f77ce50587d36f98a5dc8e941e2b48daf3ffe70276a2eaafe3",
+      "child_ids": ["xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where"],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 11222,
+      "body_sha256": "sha256:ac7cf21e2407cb13bc718624ecacdac4087a7027956c735d4458716e05d3db7e",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:use_default_port",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2176,
+      "body_sha256": "sha256:8d4a363e9d1661add53866a4029a47601272f6f4f559a93e0cfddf5413d7c0a6",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--advertise_dualstack_on_public.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "advertise_dualstack_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.advertise_dualstack_on_public for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.advertise_dualstack_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6693,
+      "body_sha256": "sha256:c8d36fac1dd82943dc4bd74486cc090604d5d528dda689ad7d937a3b2d470113",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "advertise_dualstack_on_public", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2116,
+      "body_sha256": "sha256:c591d61b24368f94e281cd6703ec4d896218cef1526a43e1efdce67f2ae283ab",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--advertise_on_public.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.advertise_on_public for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.advertise_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6603,
+      "body_sha256": "sha256:5ee70a46c7ab16b8f23271111803cb50c5bd7c54a2df50dcdda1b1a1acaabd18",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/public_ip/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--advertise_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.advertise_on_public.public_ip for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.advertise_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2134,
+      "body_sha256": "sha256:e6172f4232f473e3896c95124a6bbe4607b7bfe17427ec6ff6337b181bf9ac30",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--advertise_v6_on_public.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.advertise_v6_on_public for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.advertise_v6_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6630,
+      "body_sha256": "sha256:24ab47fdbf173e73800e352c71a673bef31031b9f4f1f0a9750ebc46ba10c4a2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--advertise_v6_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.advertise_v6_on_public.public_ip for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.advertise_v6_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5087,
+      "body_sha256": "sha256:9bbcc147746c631eba61e50e229c70619ee48e2c9b667f4407400792c45f5c16",
+      "child_ids": ["xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/site/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--site.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.site for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6438,
+      "body_sha256": "sha256:ba6bd30f86104a0c2f917aa94505f23f8ef27daac926378657a47764363382e5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:site",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/site/site/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--site--site.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "site", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/site/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.site.site for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.site.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1429,
+      "body_sha256": "sha256:a9b399328134ec7fc65e112b09d540ed7a0b9530b557dbd844e14102620b7c74",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:use_default_port",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/use_default_port/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--use_default_port.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "use_default_port"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/use_default_port/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.use_default_port for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.use_default_port",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5350,
+      "body_sha256": "sha256:3a4658c6e5fb7565c877f28cf80b9c3265f08bf197a69cfeca1d81950419d56a",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:default_v6_vip",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:default_vip",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--virtual_network.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "virtual_network"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.virtual_network for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.virtual_network",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1685,
+      "body_sha256": "sha256:9e16d95bcf3eda2d46f4bff85f82349b61c5618547dd9810baa9765d0c51e006",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:default_v6_vip",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--virtual_network--default_v6_vip.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "default_v6_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.virtual_network.default_v6_vip for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.virtual_network.default_v6_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1676,
+      "body_sha256": "sha256:a2982fea993441cf1cc410f26aaf4a9303dcdad4155570ba76108a37bede6300",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:default_vip",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_vip/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--virtual_network--default_vip.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "default_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.virtual_network.default_vip for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.virtual_network.default_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6603,
+      "body_sha256": "sha256:83a537e8bd9964941fa0fa17f650fa6f2bb13cbb5daf1660981eacd44b526d5d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/virtual_network/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--virtual_network--virtual_network.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "virtual_network"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/virtual_network/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.virtual_network.virtual_network for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.virtual_network.virtual_network",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4212,
+      "body_sha256": "sha256:e4af17548d90943e2fdd872290df05553dd5c5178cf8ff44a080fa0a7a5e0b47",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.virtual_site for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6558,
+      "body_sha256": "sha256:dffe7f549c7c502faae0320ba771297cd28a96a7c4acf7ab98670b041b58b8da",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/virtual_site/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--virtual_site--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "virtual_site", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.virtual_site.virtual_site for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.virtual_site.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4197,
+      "body_sha256": "sha256:ad1bb4f8481cec098200e014286812e75462faf96b3ff09578fc6fb141064296",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--virtual_site_with_vip.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.virtual_site_with_vip for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.virtual_site_with_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6639,
+      "body_sha256": "sha256:7f88b3f90b355da613538e625e97a3d5e6236352ee75a0bb5d9035b0d0743c2c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--virtual_site_with_vip--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.virtual_site_with_vip.virtual_site for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.virtual_site_with_vip.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2614,
+      "body_sha256": "sha256:b0cde73eeaf7bb80fbc2f3c0113e188c5fc7979168ddd82c09aed0f4ae27eae0",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
+        "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--vk8s_service.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "vk8s_service"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.vk8s_service for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.vk8s_service",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6510,
+      "body_sha256": "sha256:00e0a9bd19a2741302e8ec56bd97edc6eeda44407e570bb8de6d6c0473f29ab8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/site/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--vk8s_service--site.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.vk8s_service.site for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.vk8s_service.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6558,
+      "body_sha256": "sha256:12fc21372552bd6e6cf87002589704fae57b62b30202a9392c1c2554c51ad135",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/virtual_site/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_custom--advertise_where--vk8s_service--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_custom.advertise_where.vk8s_service.virtual_site for xcsh_udp_loadbalancer.",
+      "title": "advertise_custom.advertise_where.vk8s_service.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1604,
+      "body_sha256": "sha256:4d6e22d75a49e1563954248edf6e95ab86de86491f7043569ddf837859eaa35d",
+      "child_ids": ["xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public:public_ip"],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_on_public/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_on_public.md",
+      "role": "properties",
+      "schema_path": ["advertise_on_public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_on_public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_on_public for xcsh_udp_loadbalancer.",
+      "title": "advertise_on_public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6000,
+      "body_sha256": "sha256:71340fae5cc58bc93e2528b8f0226109ff549893241e224a233b47f7dcbfb831",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public:public_ip",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_on_public/public_ip/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_on_public--public_ip.md",
+      "role": "properties",
+      "schema_path": ["advertise_on_public", "public_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_on_public/public_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_on_public.public_ip for xcsh_udp_loadbalancer.",
+      "title": "advertise_on_public.public_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1061,
+      "body_sha256": "sha256:0231b1a3c572a36e7b0c3e0e4a7157585992e8cb5326befcea3e1facd2ec3e97",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_on_public_default_vip",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/advertise_on_public_default_vip/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--advertise_on_public_default_vip.md",
+      "role": "properties",
+      "schema_path": ["advertise_on_public_default_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/advertise_on_public_default_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "advertise_on_public_default_vip for xcsh_udp_loadbalancer.",
+      "title": "advertise_on_public_default_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1043,
+      "body_sha256": "sha256:a3811525fb2bc0e00767007990e71c56156ba44d95efee41e7fe9b54eb431a2f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:do_not_advertise",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/do_not_advertise/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--do_not_advertise.md",
+      "role": "properties",
+      "schema_path": ["do_not_advertise"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/do_not_advertise/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "do_not_advertise for xcsh_udp_loadbalancer.",
+      "title": "do_not_advertise",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1825,
+      "body_sha256": "sha256:63854c6d2845fd4382adcba3eefd0e05441eb3dfc14c386b79408a5f77b4a595",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_random",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/hash_policy_choice_random/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--hash_policy_choice_random.md",
+      "role": "properties",
+      "schema_path": ["hash_policy_choice_random"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/hash_policy_choice_random/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "hash_policy_choice_random for xcsh_udp_loadbalancer.",
+      "title": "hash_policy_choice_random",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1099,
+      "body_sha256": "sha256:b2402cbc6b4d0a94e32d288dbe814b1bcd36d67b7d4e925307d9600c15a1c31e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_round_robin",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/hash_policy_choice_round_robin/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--hash_policy_choice_round_robin.md",
+      "role": "properties",
+      "schema_path": ["hash_policy_choice_round_robin"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/hash_policy_choice_round_robin/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "hash_policy_choice_round_robin for xcsh_udp_loadbalancer.",
+      "title": "hash_policy_choice_round_robin",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1085,
+      "body_sha256": "sha256:301f42b3b357dc9de726cf4b6f7c78c2007c935ba2ba410e1d3b6800bc1f4cd3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:hash_policy_choice_source_ip_stickiness",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/hash_policy_choice_source_ip_stickiness/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--hash_policy_choice_source_ip_stickiness.md",
+      "role": "properties",
+      "schema_path": ["hash_policy_choice_source_ip_stickiness"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/hash_policy_choice_source_ip_stickiness/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "hash_policy_choice_source_ip_stickiness for xcsh_udp_loadbalancer.",
+      "title": "hash_policy_choice_source_ip_stickiness",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1055,
+      "body_sha256": "sha256:93cd5c5aacbe4172354102962beb1d5adf64fe10b5ee335b4ae02aa1d6dfe77c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:no_service_policies",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/no_service_policies/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--no_service_policies.md",
+      "role": "properties",
+      "schema_path": ["no_service_policies"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/no_service_policies/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "no_service_policies for xcsh_udp_loadbalancer.",
+      "title": "no_service_policies",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4889,
+      "body_sha256": "sha256:5dc6eb9bca6e87991a811c4d6f38e9035ed8c3851db0c8db18acf96ef025c8e0",
+      "child_ids": [
+        "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:cluster",
+        "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:endpoint_subsets",
+        "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:pool"
+      ],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/origin_pools_weights/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--origin_pools_weights.md",
+      "role": "properties",
+      "schema_path": ["origin_pools_weights"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/origin_pools_weights/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_pools_weights for xcsh_udp_loadbalancer.",
+      "title": "origin_pools_weights",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5997,
+      "body_sha256": "sha256:9ffbb54b92d2d25421f71503c75a9a67d6286e908865b3b6923651a2854a2c3a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:cluster",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights",
+      "path": "documentation/resources/udp_loadbalancer/properties/origin_pools_weights/cluster/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--origin_pools_weights--cluster.md",
+      "role": "properties",
+      "schema_path": ["origin_pools_weights", "cluster"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/origin_pools_weights/cluster/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_pools_weights.cluster for xcsh_udp_loadbalancer.",
+      "title": "origin_pools_weights.cluster",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2350,
+      "body_sha256": "sha256:6ce1b1c53e139797d8f2d756d06e7ae9635338a899bb51cc0c5f4e585d3fb969",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:endpoint_subsets",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights",
+      "path": "documentation/resources/udp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--origin_pools_weights--endpoint_subsets.md",
+      "role": "properties",
+      "schema_path": ["origin_pools_weights", "endpoint_subsets"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_pools_weights.endpoint_subsets for xcsh_udp_loadbalancer.",
+      "title": "origin_pools_weights.endpoint_subsets",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5979,
+      "body_sha256": "sha256:4d0d671c2b1dbdf75d42aa5601f24a4ce248057e9f975ec5d6ec897e1554557a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights:pool",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:properties:origin_pools_weights",
+      "path": "documentation/resources/udp_loadbalancer/properties/origin_pools_weights/pool/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--origin_pools_weights--pool.md",
+      "role": "properties",
+      "schema_path": ["origin_pools_weights", "pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/origin_pools_weights/pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "origin_pools_weights.pool for xcsh_udp_loadbalancer.",
+      "title": "origin_pools_weights.pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1061,
+      "body_sha256": "sha256:7de7a4a9b45de0709c6f4f2598ad632b42da07de21785b0f577a1f24662425db",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:service_policies_from_namespace",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/service_policies_from_namespace/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--service_policies_from_namespace.md",
+      "role": "properties",
+      "schema_path": ["service_policies_from_namespace"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/service_policies_from_namespace/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "service_policies_from_namespace for xcsh_udp_loadbalancer.",
+      "title": "service_policies_from_namespace",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2156,
+      "body_sha256": "sha256:7717231d12440bde5f107ba38c9361e9252d5a4f848c9d56cac483a133797f0d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/timeouts/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_udp_loadbalancer.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 990,
+      "body_sha256": "sha256:2a2d7d0262954f214cfb6848b6339bf318cac2c6bd517c797d436cd030036a2f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:properties:udp",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:reference",
+      "path": "documentation/resources/udp_loadbalancer/properties/udp/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--properties--udp.md",
+      "role": "properties",
+      "schema_path": ["udp"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/properties/udp/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "udp for xcsh_udp_loadbalancer.",
+      "title": "udp",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 558,
+      "body_sha256": "sha256:836f8e88d1c09981a896cda481c64d1e9709f660f848e047c953d8076b4b20cd",
+      "child_ids": ["xcsh-docs:resources:udp_loadbalancer:example:resource"],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:examples",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
+      "path": "documentation/resources/udp_loadbalancer/examples/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_udp_loadbalancer.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1234,
+      "body_sha256": "sha256:10c9067c628e649b8971e3155ac13941906e0d2ae973a6346c607a7b1ab22708",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:f54b33fab2f01b75ab0f74a179601bfe368063a44f1d292cd4b49a5f0936b681",
+        "source_path": "examples/resources/xcsh_udp_loadbalancer/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:udp_loadbalancer:example:resource",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:examples",
+      "path": "documentation/resources/udp_loadbalancer/examples/resource/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_udp_loadbalancer.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 429,
+      "body_sha256": "sha256:9d63fda72af0e367b3a5fda4f574e6307d01110c89cb1623717ba58ef058d9af",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:import",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
+      "path": "documentation/resources/udp_loadbalancer/lifecycle/import/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_udp_loadbalancer.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 489,
+      "body_sha256": "sha256:a2a7bffedd7cf036f95bd7f6f7e899f64867365f3019687028d5ae072c0415c9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:udp_loadbalancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:udp_loadbalancer:timeouts",
+      "parent_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
+      "path": "documentation/resources/udp_loadbalancer/lifecycle/timeouts/index.md",
+      "provider_name": "udp_loadbalancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--udp_loadbalancer--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/udp_loadbalancer/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_udp_loadbalancer.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["udp_loadbalancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,328 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:alert_gen_policy:fundamentals",
+    "id": "xcsh-docs:resources:alert_gen_policy:collection",
+    "properties": {
+      "alert_status": {
+        "anchor": "schema-alert_status",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:reference",
+        "schema_path": ["alert_status"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:reference",
+        "schema_path": ["description"]
+      },
+      "details": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:details",
+        "schema_path": ["details"]
+      },
+      "details.alert_message": {
+        "anchor": "schema-details--alert_message",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:details",
+        "schema_path": ["details", "alert_message"]
+      },
+      "details.alert_message_details": {
+        "anchor": "schema-details--alert_message_details",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:details",
+        "schema_path": ["details", "alert_message_details"]
+      },
+      "details.alert_name": {
+        "anchor": "schema-details--alert_name",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:details",
+        "schema_path": ["details", "alert_name"]
+      },
+      "details.severity": {
+        "anchor": "schema-details--severity",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:details",
+        "schema_path": ["details", "severity"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:alert_gen_policy:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "alert_gen_policy",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:alert_gen_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1436,
+      "body_sha256": "sha256:106f9e5b815791ff18d66f7fa32e1624de34ff13d3e20cc5ff41483b454c8214",
+      "child_ids": [
+        "xcsh-docs:resources:alert_gen_policy:reference",
+        "xcsh-docs:resources:alert_gen_policy:examples",
+        "xcsh-docs:resources:alert_gen_policy:import",
+        "xcsh-docs:resources:alert_gen_policy:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:alert_gen_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:alert_gen_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/alert_gen_policy/index.md",
+      "provider_name": "alert_gen_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/alert_gen_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_alert_gen_policy for xcsh_alert_gen_policy.",
+      "title": "xcsh_alert_gen_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_gen_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10918,
+      "body_sha256": "sha256:4f278467b77fc284ec7f6336723e07ac9e55d2ca9f1e465e3d8a810b312fb972",
+      "child_ids": [
+        "xcsh-docs:resources:alert_gen_policy:properties:details",
+        "xcsh-docs:resources:alert_gen_policy:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:alert_gen_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:alert_gen_policy:reference",
+      "parent_id": "xcsh-docs:resources:alert_gen_policy:fundamentals",
+      "path": "documentation/resources/alert_gen_policy/properties/index.md",
+      "provider_name": "alert_gen_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--alert_gen_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_alert_gen_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_gen_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4871,
+      "body_sha256": "sha256:acb1319e4b97a57946b5d7f69823841a9bae9fc4e8eb04102dffaf84a82b45fb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:alert_gen_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:alert_gen_policy:properties:details",
+      "parent_id": "xcsh-docs:resources:alert_gen_policy:reference",
+      "path": "documentation/resources/alert_gen_policy/properties/details/index.md",
+      "provider_name": "alert_gen_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--alert_gen_policy--properties--details.md",
+      "role": "properties",
+      "schema_path": ["details"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/properties/details/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "details for xcsh_alert_gen_policy.",
+      "title": "details",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_gen_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2156,
+      "body_sha256": "sha256:90bb679568d57cbe85a183b89c0754f7831debb09537018e3f41ccc5be0f4b5c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:alert_gen_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:alert_gen_policy:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:alert_gen_policy:reference",
+      "path": "documentation/resources/alert_gen_policy/properties/timeouts/index.md",
+      "provider_name": "alert_gen_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--alert_gen_policy--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_alert_gen_policy.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_gen_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 558,
+      "body_sha256": "sha256:b22e24594525a7c562907b789e990f9ba2a128d82f199bdbd18ee4c6c22f2905",
+      "child_ids": ["xcsh-docs:resources:alert_gen_policy:example:resource"],
+      "collection_id": "xcsh-docs:resources:alert_gen_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:alert_gen_policy:examples",
+      "parent_id": "xcsh-docs:resources:alert_gen_policy:fundamentals",
+      "path": "documentation/resources/alert_gen_policy/examples/index.md",
+      "provider_name": "alert_gen_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--alert_gen_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_alert_gen_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_gen_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1176,
+      "body_sha256": "sha256:01ae23259d2e7cabb8026709a428726bd7e80ac8f8070d9a1d4b905b07eab617",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:alert_gen_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:eea28da7e92ac8598036f86f1095005a92f369536d4496a75262a4b141db489a",
+        "source_path": "examples/resources/xcsh_alert_gen_policy/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:alert_gen_policy:example:resource",
+      "parent_id": "xcsh-docs:resources:alert_gen_policy:examples",
+      "path": "documentation/resources/alert_gen_policy/examples/resource/index.md",
+      "provider_name": "alert_gen_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--alert_gen_policy--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_alert_gen_policy.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_gen_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 429,
+      "body_sha256": "sha256:eaef40bb754557f9f9b9e5d16da0bac446ea9278be401889997db093b4a79b78",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:alert_gen_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:alert_gen_policy:import",
+      "parent_id": "xcsh-docs:resources:alert_gen_policy:fundamentals",
+      "path": "documentation/resources/alert_gen_policy/lifecycle/import/index.md",
+      "provider_name": "alert_gen_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--alert_gen_policy--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_alert_gen_policy.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_gen_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 489,
+      "body_sha256": "sha256:22a0c4294f0f56120c0f442d6a123c6e7abdb7ffb71e5f505f1bf176b0e91fd4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:alert_gen_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:alert_gen_policy:timeouts",
+      "parent_id": "xcsh-docs:resources:alert_gen_policy:fundamentals",
+      "path": "documentation/resources/alert_gen_policy/lifecycle/timeouts/index.md",
+      "provider_name": "alert_gen_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--alert_gen_policy--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_alert_gen_policy.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["alert_gen_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

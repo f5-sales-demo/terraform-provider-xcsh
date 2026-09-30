@@ -1,0 +1,166 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:actions:site_upgrade_os:fundamentals",
+    "id": "xcsh-docs:actions:site_upgrade_os:collection",
+    "properties": {
+      "os_version": {
+        "anchor": "schema-os_version",
+        "document_id": "xcsh-docs:actions:site_upgrade_os:reference",
+        "schema_path": ["os_version"]
+      },
+      "site": {
+        "anchor": "schema-site",
+        "document_id": "xcsh-docs:actions:site_upgrade_os:reference",
+        "schema_path": ["site"]
+      }
+    },
+    "provider_name": "site_upgrade_os",
+    "provider_type": "actions",
+    "reference_id": "xcsh-docs:actions:site_upgrade_os:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1214,
+      "body_sha256": "sha256:7fa7cddd412baeeb52f8d03bb526e00708acde9bf03b3587f57329ca8a4ccf64",
+      "child_ids": [
+        "xcsh-docs:actions:site_upgrade_os:reference",
+        "xcsh-docs:actions:site_upgrade_os:examples",
+        "xcsh-docs:actions:site_upgrade_os:lifecycle"
+      ],
+      "collection_id": "xcsh-docs:actions:site_upgrade_os:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:site_upgrade_os:fundamentals",
+      "parent_id": null,
+      "path": "documentation/actions/site_upgrade_os/index.md",
+      "provider_name": "site_upgrade_os",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/actions/site_upgrade_os.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_site_upgrade_os for xcsh_site_upgrade_os.",
+      "title": "xcsh_site_upgrade_os",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 956,
+      "body_sha256": "sha256:e282333ff4106b01cc350655189029e5cf0df99461af2404fe1e112b278a026d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:site_upgrade_os:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:site_upgrade_os:reference",
+      "parent_id": "xcsh-docs:actions:site_upgrade_os:fundamentals",
+      "path": "documentation/actions/site_upgrade_os/properties/index.md",
+      "provider_name": "site_upgrade_os",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--site_upgrade_os--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_site_upgrade_os.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 536,
+      "body_sha256": "sha256:e981ca4aec94f44f3f4f3316fcb5d44423d0614db04177ca6a945fda3ce352b1",
+      "child_ids": ["xcsh-docs:actions:site_upgrade_os:example:action"],
+      "collection_id": "xcsh-docs:actions:site_upgrade_os:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:site_upgrade_os:examples",
+      "parent_id": "xcsh-docs:actions:site_upgrade_os:fundamentals",
+      "path": "documentation/actions/site_upgrade_os/examples/index.md",
+      "provider_name": "site_upgrade_os",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--site_upgrade_os--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_site_upgrade_os.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1068,
+      "body_sha256": "sha256:0d8ea60dd118a09b79634f7a279a926285859338c79ffb8708bf1dfe44191f39",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:site_upgrade_os:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:39e348141a455b8f8743fa7481580e9f9219671ca870734d07a968a5bcbd2acc",
+        "source_path": "examples/actions/xcsh_site_upgrade_os/action.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:actions:site_upgrade_os:example:action",
+      "parent_id": "xcsh-docs:actions:site_upgrade_os:examples",
+      "path": "documentation/actions/site_upgrade_os/examples/action/index.md",
+      "provider_name": "site_upgrade_os",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--site_upgrade_os--example--action.md",
+      "role": "example",
+      "schema_path": ["action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/examples/action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Action for xcsh_site_upgrade_os.",
+      "title": "Action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 511,
+      "body_sha256": "sha256:e95959ce5b0cffc00396885c024e6a148968756e72fbd951102550c3a6b3eb34",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:actions:site_upgrade_os:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:actions:site_upgrade_os:lifecycle",
+      "parent_id": "xcsh-docs:actions:site_upgrade_os:fundamentals",
+      "path": "documentation/actions/site_upgrade_os/lifecycle/index.md",
+      "provider_name": "site_upgrade_os",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "actions",
+      "registry_path": "docs/guides/actions--site_upgrade_os--lifecycle.md",
+      "role": "lifecycle",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/site_upgrade_os/lifecycle/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Lifecycle for xcsh_site_upgrade_os.",
+      "title": "Lifecycle",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

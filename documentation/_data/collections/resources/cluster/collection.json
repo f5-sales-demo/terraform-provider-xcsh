@@ -1,0 +1,2103 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:cluster:fundamentals",
+    "id": "xcsh-docs:resources:cluster:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["annotations"]
+      },
+      "auto_http_config": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:auto_http_config",
+        "schema_path": ["auto_http_config"]
+      },
+      "circuit_breaker": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
+        "schema_path": ["circuit_breaker"]
+      },
+      "circuit_breaker.connection_limit": {
+        "anchor": "schema-circuit_breaker--connection_limit",
+        "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
+        "schema_path": ["circuit_breaker", "connection_limit"]
+      },
+      "circuit_breaker.max_requests": {
+        "anchor": "schema-circuit_breaker--max_requests",
+        "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
+        "schema_path": ["circuit_breaker", "max_requests"]
+      },
+      "circuit_breaker.pending_requests": {
+        "anchor": "schema-circuit_breaker--pending_requests",
+        "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
+        "schema_path": ["circuit_breaker", "pending_requests"]
+      },
+      "circuit_breaker.priority": {
+        "anchor": "schema-circuit_breaker--priority",
+        "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
+        "schema_path": ["circuit_breaker", "priority"]
+      },
+      "circuit_breaker.retries": {
+        "anchor": "schema-circuit_breaker--retries",
+        "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
+        "schema_path": ["circuit_breaker", "retries"]
+      },
+      "connection_timeout": {
+        "anchor": "schema-connection_timeout",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["connection_timeout"]
+      },
+      "default_subset": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:default_subset",
+        "schema_path": ["default_subset"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["disable"]
+      },
+      "disable_proxy_protocol": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:disable_proxy_protocol",
+        "schema_path": ["disable_proxy_protocol"]
+      },
+      "endpoint_selection": {
+        "anchor": "schema-endpoint_selection",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["endpoint_selection"]
+      },
+      "endpoint_subsets": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets",
+        "schema_path": ["endpoint_subsets"]
+      },
+      "endpoint_subsets.keys": {
+        "anchor": "schema-endpoint_subsets--keys",
+        "document_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets",
+        "schema_path": ["endpoint_subsets", "keys"]
+      },
+      "endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
+        "schema_path": ["endpoints"]
+      },
+      "endpoints.kind": {
+        "anchor": "schema-endpoints--kind",
+        "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
+        "schema_path": ["endpoints", "kind"]
+      },
+      "endpoints.name": {
+        "anchor": "schema-endpoints--name",
+        "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
+        "schema_path": ["endpoints", "name"]
+      },
+      "endpoints.namespace": {
+        "anchor": "schema-endpoints--namespace",
+        "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
+        "schema_path": ["endpoints", "namespace"]
+      },
+      "endpoints.tenant": {
+        "anchor": "schema-endpoints--tenant",
+        "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
+        "schema_path": ["endpoints", "tenant"]
+      },
+      "endpoints.uid": {
+        "anchor": "schema-endpoints--uid",
+        "document_id": "xcsh-docs:resources:cluster:properties:endpoints",
+        "schema_path": ["endpoints", "uid"]
+      },
+      "fallback_policy": {
+        "anchor": "schema-fallback_policy",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["fallback_policy"]
+      },
+      "health_checks": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
+        "schema_path": ["health_checks"]
+      },
+      "health_checks.kind": {
+        "anchor": "schema-health_checks--kind",
+        "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
+        "schema_path": ["health_checks", "kind"]
+      },
+      "health_checks.name": {
+        "anchor": "schema-health_checks--name",
+        "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
+        "schema_path": ["health_checks", "name"]
+      },
+      "health_checks.namespace": {
+        "anchor": "schema-health_checks--namespace",
+        "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
+        "schema_path": ["health_checks", "namespace"]
+      },
+      "health_checks.tenant": {
+        "anchor": "schema-health_checks--tenant",
+        "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
+        "schema_path": ["health_checks", "tenant"]
+      },
+      "health_checks.uid": {
+        "anchor": "schema-health_checks--uid",
+        "document_id": "xcsh-docs:resources:cluster:properties:health_checks",
+        "schema_path": ["health_checks", "uid"]
+      },
+      "http1_config": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:http1_config",
+        "schema_path": ["http1_config"]
+      },
+      "http1_config.header_transformation": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation",
+        "schema_path": ["http1_config", "header_transformation"]
+      },
+      "http1_config.header_transformation.default_header_transformation": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:default_header_transformation",
+        "schema_path": ["http1_config", "header_transformation", "default_header_transformation"]
+      },
+      "http1_config.header_transformation.preserve_case_header_transformation": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:preserve_case_header_transformation",
+        "schema_path": ["http1_config", "header_transformation", "preserve_case_header_transformation"]
+      },
+      "http1_config.header_transformation.proper_case_header_transformation": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation",
+        "schema_path": ["http1_config", "header_transformation", "proper_case_header_transformation"]
+      },
+      "http2_options": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:http2_options",
+        "schema_path": ["http2_options"]
+      },
+      "http2_options.enabled": {
+        "anchor": "schema-http2_options--enabled",
+        "document_id": "xcsh-docs:resources:cluster:properties:http2_options",
+        "schema_path": ["http2_options", "enabled"]
+      },
+      "http_idle_timeout": {
+        "anchor": "schema-http_idle_timeout",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["http_idle_timeout"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:cluster:reference", "schema_path": ["id"] },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["labels"]
+      },
+      "loadbalancer_algorithm": {
+        "anchor": "schema-loadbalancer_algorithm",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["loadbalancer_algorithm"]
+      },
+      "max_requests_per_connection": {
+        "anchor": "schema-max_requests_per_connection",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["max_requests_per_connection"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["namespace"]
+      },
+      "no_panic_threshold": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:no_panic_threshold",
+        "schema_path": ["no_panic_threshold"]
+      },
+      "no_request_limit_per_connection": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:no_request_limit_per_connection",
+        "schema_path": ["no_request_limit_per_connection"]
+      },
+      "outlier_detection": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
+        "schema_path": ["outlier_detection"]
+      },
+      "outlier_detection.base_ejection_time": {
+        "anchor": "schema-outlier_detection--base_ejection_time",
+        "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
+        "schema_path": ["outlier_detection", "base_ejection_time"]
+      },
+      "outlier_detection.consecutive_5xx": {
+        "anchor": "schema-outlier_detection--consecutive_5xx",
+        "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
+        "schema_path": ["outlier_detection", "consecutive_5xx"]
+      },
+      "outlier_detection.consecutive_gateway_failure": {
+        "anchor": "schema-outlier_detection--consecutive_gateway_failure",
+        "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
+        "schema_path": ["outlier_detection", "consecutive_gateway_failure"]
+      },
+      "outlier_detection.interval": {
+        "anchor": "schema-outlier_detection--interval",
+        "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
+        "schema_path": ["outlier_detection", "interval"]
+      },
+      "outlier_detection.max_ejection_percent": {
+        "anchor": "schema-outlier_detection--max_ejection_percent",
+        "document_id": "xcsh-docs:resources:cluster:properties:outlier_detection",
+        "schema_path": ["outlier_detection", "max_ejection_percent"]
+      },
+      "panic_threshold": {
+        "anchor": "schema-panic_threshold",
+        "document_id": "xcsh-docs:resources:cluster:reference",
+        "schema_path": ["panic_threshold"]
+      },
+      "proxy_protocol_v1": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:proxy_protocol_v1",
+        "schema_path": ["proxy_protocol_v1"]
+      },
+      "proxy_protocol_v2": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:proxy_protocol_v2",
+        "schema_path": ["proxy_protocol_v2"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:cluster:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "tls_parameters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+        "schema_path": ["tls_parameters"]
+      },
+      "tls_parameters.cert_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+        "schema_path": ["tls_parameters", "cert_params"]
+      },
+      "tls_parameters.cert_params.certificates": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
+        "schema_path": ["tls_parameters", "cert_params", "certificates"]
+      },
+      "tls_parameters.cert_params.certificates.kind": {
+        "anchor": "schema-tls_parameters--cert_params--certificates--kind",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
+        "schema_path": ["tls_parameters", "cert_params", "certificates", "kind"]
+      },
+      "tls_parameters.cert_params.certificates.name": {
+        "anchor": "schema-tls_parameters--cert_params--certificates--name",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
+        "schema_path": ["tls_parameters", "cert_params", "certificates", "name"]
+      },
+      "tls_parameters.cert_params.certificates.namespace": {
+        "anchor": "schema-tls_parameters--cert_params--certificates--namespace",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
+        "schema_path": ["tls_parameters", "cert_params", "certificates", "namespace"]
+      },
+      "tls_parameters.cert_params.certificates.tenant": {
+        "anchor": "schema-tls_parameters--cert_params--certificates--tenant",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
+        "schema_path": ["tls_parameters", "cert_params", "certificates", "tenant"]
+      },
+      "tls_parameters.cert_params.certificates.uid": {
+        "anchor": "schema-tls_parameters--cert_params--certificates--uid",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
+        "schema_path": ["tls_parameters", "cert_params", "certificates", "uid"]
+      },
+      "tls_parameters.cert_params.cipher_suites": {
+        "anchor": "schema-tls_parameters--cert_params--cipher_suites",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+        "schema_path": ["tls_parameters", "cert_params", "cipher_suites"]
+      },
+      "tls_parameters.cert_params.maximum_protocol_version": {
+        "anchor": "schema-tls_parameters--cert_params--maximum_protocol_version",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+        "schema_path": ["tls_parameters", "cert_params", "maximum_protocol_version"]
+      },
+      "tls_parameters.cert_params.minimum_protocol_version": {
+        "anchor": "schema-tls_parameters--cert_params--minimum_protocol_version",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+        "schema_path": ["tls_parameters", "cert_params", "minimum_protocol_version"]
+      },
+      "tls_parameters.cert_params.skip_server_verification": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:skip_server_verification",
+        "schema_path": ["tls_parameters", "cert_params", "skip_server_verification"]
+      },
+      "tls_parameters.cert_params.tls_validation_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
+        "schema_path": ["tls_parameters", "cert_params", "tls_validation_params"]
+      },
+      "tls_parameters.cert_params.tls_validation_params.skip_hostname_verification": {
+        "anchor": "schema-tls_parameters--cert_params--tls_validation_params--skip_hostname_verification",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
+        "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "skip_hostname_verification"]
+      },
+      "tls_parameters.cert_params.tls_validation_params.trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca",
+        "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "trusted_ca"]
+      },
+      "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "trusted_ca", "trusted_ca_list"]
+      },
+      "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.kind": {
+        "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--kind",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "tls_parameters",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "kind"
+        ]
+      },
+      "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.name": {
+        "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--name",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "tls_parameters",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "name"
+        ]
+      },
+      "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.namespace": {
+        "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--namespace",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "tls_parameters",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "namespace"
+        ]
+      },
+      "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.tenant": {
+        "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--tenant",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "tls_parameters",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "tenant"
+        ]
+      },
+      "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.uid": {
+        "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--uid",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "tls_parameters",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "uid"
+        ]
+      },
+      "tls_parameters.cert_params.tls_validation_params.trusted_ca_url": {
+        "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca_url",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
+        "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "trusted_ca_url"]
+      },
+      "tls_parameters.cert_params.tls_validation_params.verify_subject_alt_names": {
+        "anchor": "schema-tls_parameters--cert_params--tls_validation_params--verify_subject_alt_names",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
+        "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "verify_subject_alt_names"]
+      },
+      "tls_parameters.cert_params.volterra_trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca",
+        "schema_path": ["tls_parameters", "cert_params", "volterra_trusted_ca"]
+      },
+      "tls_parameters.common_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
+        "schema_path": ["tls_parameters", "common_params"]
+      },
+      "tls_parameters.common_params.cipher_suites": {
+        "anchor": "schema-tls_parameters--common_params--cipher_suites",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
+        "schema_path": ["tls_parameters", "common_params", "cipher_suites"]
+      },
+      "tls_parameters.common_params.maximum_protocol_version": {
+        "anchor": "schema-tls_parameters--common_params--maximum_protocol_version",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
+        "schema_path": ["tls_parameters", "common_params", "maximum_protocol_version"]
+      },
+      "tls_parameters.common_params.minimum_protocol_version": {
+        "anchor": "schema-tls_parameters--common_params--minimum_protocol_version",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
+        "schema_path": ["tls_parameters", "common_params", "minimum_protocol_version"]
+      },
+      "tls_parameters.common_params.tls_certificates": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates"]
+      },
+      "tls_parameters.common_params.tls_certificates.certificate_url": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "certificate_url"]
+      },
+      "tls_parameters.common_params.tls_certificates.custom_hash_algorithms": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "custom_hash_algorithms"]
+      },
+      "tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
+        "schema_path": [
+          "tls_parameters",
+          "common_params",
+          "tls_certificates",
+          "custom_hash_algorithms",
+          "hash_algorithms"
+        ]
+      },
+      "tls_parameters.common_params.tls_certificates.description_spec": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--description_spec",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "description_spec"]
+      },
+      "tls_parameters.common_params.tls_certificates.disable_ocsp_stapling": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "disable_ocsp_stapling"]
+      },
+      "tls_parameters.common_params.tls_certificates.private_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key"]
+      },
+      "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"]
+      },
+      "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "schema_path": [
+          "tls_parameters",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "schema_path": [
+          "tls_parameters",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "schema_path": [
+          "tls_parameters",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "clear_secret_info"]
+      },
+      "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
+        "schema_path": [
+          "tls_parameters",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
+        "schema_path": [
+          "tls_parameters",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "clear_secret_info",
+          "url"
+        ]
+      },
+      "tls_parameters.common_params.tls_certificates.use_system_defaults": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "use_system_defaults"]
+      },
+      "tls_parameters.common_params.validation_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
+        "schema_path": ["tls_parameters", "common_params", "validation_params"]
+      },
+      "tls_parameters.common_params.validation_params.skip_hostname_verification": {
+        "anchor": "schema-tls_parameters--common_params--validation_params--skip_hostname_verification",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
+        "schema_path": ["tls_parameters", "common_params", "validation_params", "skip_hostname_verification"]
+      },
+      "tls_parameters.common_params.validation_params.trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca",
+        "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca"]
+      },
+      "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca", "trusted_ca_list"]
+      },
+      "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.kind": {
+        "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--kind",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca", "trusted_ca_list", "kind"]
+      },
+      "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.name": {
+        "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--name",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca", "trusted_ca_list", "name"]
+      },
+      "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.namespace": {
+        "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--namespace",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "tls_parameters",
+          "common_params",
+          "validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "namespace"
+        ]
+      },
+      "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.tenant": {
+        "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--tenant",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "tls_parameters",
+          "common_params",
+          "validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "tenant"
+        ]
+      },
+      "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list.uid": {
+        "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--uid",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca", "trusted_ca_list", "uid"]
+      },
+      "tls_parameters.common_params.validation_params.trusted_ca_url": {
+        "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
+        "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca_url"]
+      },
+      "tls_parameters.common_params.validation_params.verify_subject_alt_names": {
+        "anchor": "schema-tls_parameters--common_params--validation_params--verify_subject_alt_names",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
+        "schema_path": ["tls_parameters", "common_params", "validation_params", "verify_subject_alt_names"]
+      },
+      "tls_parameters.default_session_key_caching": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:default_session_key_caching",
+        "schema_path": ["tls_parameters", "default_session_key_caching"]
+      },
+      "tls_parameters.disable_session_key_caching": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_session_key_caching",
+        "schema_path": ["tls_parameters", "disable_session_key_caching"]
+      },
+      "tls_parameters.disable_sni": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_sni",
+        "schema_path": ["tls_parameters", "disable_sni"]
+      },
+      "tls_parameters.max_session_keys": {
+        "anchor": "schema-tls_parameters--max_session_keys",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+        "schema_path": ["tls_parameters", "max_session_keys"]
+      },
+      "tls_parameters.sni": {
+        "anchor": "schema-tls_parameters--sni",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+        "schema_path": ["tls_parameters", "sni"]
+      },
+      "tls_parameters.use_host_header_as_sni": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni",
+        "schema_path": ["tls_parameters", "use_host_header_as_sni"]
+      },
+      "upstream_conn_pool_reuse_type": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type",
+        "schema_path": ["upstream_conn_pool_reuse_type"]
+      },
+      "upstream_conn_pool_reuse_type.disable_conn_pool_reuse": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:disable_conn_pool_reuse",
+        "schema_path": ["upstream_conn_pool_reuse_type", "disable_conn_pool_reuse"]
+      },
+      "upstream_conn_pool_reuse_type.enable_conn_pool_reuse": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
+        "schema_path": ["upstream_conn_pool_reuse_type", "enable_conn_pool_reuse"]
+      }
+    },
+    "provider_name": "cluster",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:cluster:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1476,
+      "body_sha256": "sha256:f9317198323961631a784c4ee89e379bd33f5288fa7831a1e15fb6daf54d9a03",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:reference",
+        "xcsh-docs:resources:cluster:examples",
+        "xcsh-docs:resources:cluster:import",
+        "xcsh-docs:resources:cluster:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/cluster/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/cluster.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_cluster for xcsh_cluster.",
+      "title": "xcsh_cluster",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 53547,
+      "body_sha256": "sha256:145590a9ff87bd84a717c37174081a15a99e5f94c3182974c8198b065bd4643a",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:auto_http_config",
+        "xcsh-docs:resources:cluster:properties:circuit_breaker",
+        "xcsh-docs:resources:cluster:properties:default_subset",
+        "xcsh-docs:resources:cluster:properties:disable_proxy_protocol",
+        "xcsh-docs:resources:cluster:properties:endpoint_subsets",
+        "xcsh-docs:resources:cluster:properties:endpoints",
+        "xcsh-docs:resources:cluster:properties:health_checks",
+        "xcsh-docs:resources:cluster:properties:http1_config",
+        "xcsh-docs:resources:cluster:properties:http2_options",
+        "xcsh-docs:resources:cluster:properties:no_panic_threshold",
+        "xcsh-docs:resources:cluster:properties:no_request_limit_per_connection",
+        "xcsh-docs:resources:cluster:properties:outlier_detection",
+        "xcsh-docs:resources:cluster:properties:proxy_protocol_v1",
+        "xcsh-docs:resources:cluster:properties:proxy_protocol_v2",
+        "xcsh-docs:resources:cluster:properties:timeouts",
+        "xcsh-docs:resources:cluster:properties:tls_parameters",
+        "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:reference",
+      "parent_id": "xcsh-docs:resources:cluster:fundamentals",
+      "path": "documentation/resources/cluster/properties/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_cluster.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1514,
+      "body_sha256": "sha256:0f28aa77187ff9dd076bfcc74aba966dc94e12d8fc820e301b30856df7097108",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:auto_http_config",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/auto_http_config/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--auto_http_config.md",
+      "role": "properties",
+      "schema_path": ["auto_http_config"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/auto_http_config/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "auto_http_config for xcsh_cluster.",
+      "title": "auto_http_config",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8484,
+      "body_sha256": "sha256:cb3be91527f544e967d55b3ad22296352332c7955c24bda647b69ea453dca7f5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/circuit_breaker/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--circuit_breaker.md",
+      "role": "properties",
+      "schema_path": ["circuit_breaker"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/circuit_breaker/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "circuit_breaker for xcsh_cluster.",
+      "title": "circuit_breaker",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1434,
+      "body_sha256": "sha256:4da9f8f8943528e71c7400cd7139e639eab0e9950ad3c67c0e318596c9aa080c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:default_subset",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/default_subset/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--default_subset.md",
+      "role": "properties",
+      "schema_path": ["default_subset"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/default_subset/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "default_subset for xcsh_cluster.",
+      "title": "default_subset",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1647,
+      "body_sha256": "sha256:d5a6af1ecf631e20aeef083f135cc3e9e4ed6976f909fd246a2c1be37376fbc9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:disable_proxy_protocol",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/disable_proxy_protocol/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--disable_proxy_protocol.md",
+      "role": "properties",
+      "schema_path": ["disable_proxy_protocol"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/disable_proxy_protocol/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disable_proxy_protocol for xcsh_cluster.",
+      "title": "disable_proxy_protocol",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4867,
+      "body_sha256": "sha256:8c9b1f270c862df685a7a14f3e4bd16e966217ea041d51da4cda939dba40760d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:endpoint_subsets",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/endpoint_subsets/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--endpoint_subsets.md",
+      "role": "properties",
+      "schema_path": ["endpoint_subsets"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/endpoint_subsets/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "endpoint_subsets for xcsh_cluster.",
+      "title": "endpoint_subsets",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6262,
+      "body_sha256": "sha256:dba1c54ab85ea9554816d80a86feed61ac41ca9189acf266c6665a7eee97bec9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:endpoints",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/endpoints/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--endpoints.md",
+      "role": "properties",
+      "schema_path": ["endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "endpoints for xcsh_cluster.",
+      "title": "endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6247,
+      "body_sha256": "sha256:747dcd1a0627c15664039740a0bd9d6098a7f6588c79af34d8b33d8d5998716a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:health_checks",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/health_checks/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--health_checks.md",
+      "role": "properties",
+      "schema_path": ["health_checks"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/health_checks/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "health_checks for xcsh_cluster.",
+      "title": "health_checks",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1231,
+      "body_sha256": "sha256:a322d6891560a4d4230e5a872932a460ce3abb8dc32e88ecd0198a125b129b2f",
+      "child_ids": ["xcsh-docs:resources:cluster:properties:http1_config:header_transformation"],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:http1_config",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/http1_config/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--http1_config.md",
+      "role": "properties",
+      "schema_path": ["http1_config"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http1_config for xcsh_cluster.",
+      "title": "http1_config",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3064,
+      "body_sha256": "sha256:76d3cfe07a549b3fc22330d69e1b2d5d2143a5bf6f05dbd6bfe5a0663aa49057",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:default_header_transformation",
+        "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:preserve_case_header_transformation",
+        "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation",
+      "parent_id": "xcsh-docs:resources:cluster:properties:http1_config",
+      "path": "documentation/resources/cluster/properties/http1_config/header_transformation/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--http1_config--header_transformation.md",
+      "role": "properties",
+      "schema_path": ["http1_config", "header_transformation"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http1_config.header_transformation for xcsh_cluster.",
+      "title": "http1_config.header_transformation",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1371,
+      "body_sha256": "sha256:61cd390920be74dac647c3b2b37b38c0210a208406819653da2de8a5aefd3a09",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:default_header_transformation",
+      "parent_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation",
+      "path": "documentation/resources/cluster/properties/http1_config/header_transformation/default_header_transformation/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--http1_config--header_transformation--default_header_transformation.md",
+      "role": "properties",
+      "schema_path": ["http1_config", "header_transformation", "default_header_transformation"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/default_header_transformation/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http1_config.header_transformation.default_header_transformation for xcsh_cluster.",
+      "title": "http1_config.header_transformation.default_header_transformation",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1390,
+      "body_sha256": "sha256:eec28b2ff235308a76d920b004fda87c88f49b951d55f1da191c4992690eccf0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:preserve_case_header_transformation",
+      "parent_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation",
+      "path": "documentation/resources/cluster/properties/http1_config/header_transformation/preserve_case_header_transformation/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--http1_config--header_transformation--preserve_case_header_transformation.md",
+      "role": "properties",
+      "schema_path": ["http1_config", "header_transformation", "preserve_case_header_transformation"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/preserve_case_header_transformation/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http1_config.header_transformation.preserve_case_header_transformation for xcsh_cluster.",
+      "title": "http1_config.header_transformation.preserve_case_header_transformation",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1396,
+      "body_sha256": "sha256:b1f0b9debf294107eef1bc246640019452fd96bb3ce0a5beb8a43775f1b5b20d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation",
+      "parent_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation",
+      "path": "documentation/resources/cluster/properties/http1_config/header_transformation/proper_case_header_transformation/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--http1_config--header_transformation--proper_case_header_transformation.md",
+      "role": "properties",
+      "schema_path": ["http1_config", "header_transformation", "proper_case_header_transformation"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/proper_case_header_transformation/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http1_config.header_transformation.proper_case_header_transformation for xcsh_cluster.",
+      "title": "http1_config.header_transformation.proper_case_header_transformation",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1214,
+      "body_sha256": "sha256:d3e1aaca8a87be66ffce719316ab74c6a2327e9d6a60834d878f047bc73b402b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:http2_options",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/http2_options/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--http2_options.md",
+      "role": "properties",
+      "schema_path": ["http2_options"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http2_options/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http2_options for xcsh_cluster.",
+      "title": "http2_options",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1451,
+      "body_sha256": "sha256:ab0295fd6b7ae1a9476da4bd8728d9092baeaf8c60dccc95f2464d53891a0699",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:no_panic_threshold",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/no_panic_threshold/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--no_panic_threshold.md",
+      "role": "properties",
+      "schema_path": ["no_panic_threshold"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/no_panic_threshold/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "no_panic_threshold for xcsh_cluster.",
+      "title": "no_panic_threshold",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1049,
+      "body_sha256": "sha256:8deb1409db52dcbfc8a0eddf86d40dd9b6c327ad5339911c66e8047dba02df6e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:no_request_limit_per_connection",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/no_request_limit_per_connection/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--no_request_limit_per_connection.md",
+      "role": "properties",
+      "schema_path": ["no_request_limit_per_connection"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/no_request_limit_per_connection/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "no_request_limit_per_connection for xcsh_cluster.",
+      "title": "no_request_limit_per_connection",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9354,
+      "body_sha256": "sha256:7437abab107e254a4c213ed9f6042cce9d41825d36d1d63b1b88c93c40d74f52",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:outlier_detection",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/outlier_detection/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--outlier_detection.md",
+      "role": "properties",
+      "schema_path": ["outlier_detection"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/outlier_detection/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "outlier_detection for xcsh_cluster.",
+      "title": "outlier_detection",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 993,
+      "body_sha256": "sha256:5ab48f21827e98e87ab9b2c8379976ab8abfd0e789c91022f646dd8345a2d700",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:proxy_protocol_v1",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/proxy_protocol_v1/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--proxy_protocol_v1.md",
+      "role": "properties",
+      "schema_path": ["proxy_protocol_v1"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/proxy_protocol_v1/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_protocol_v1 for xcsh_cluster.",
+      "title": "proxy_protocol_v1",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 993,
+      "body_sha256": "sha256:7be595031704705c0570c1d192299079eb07871d934628e7f87fe9a9a267ba3e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:proxy_protocol_v2",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/proxy_protocol_v2/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--proxy_protocol_v2.md",
+      "role": "properties",
+      "schema_path": ["proxy_protocol_v2"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/proxy_protocol_v2/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "proxy_protocol_v2 for xcsh_cluster.",
+      "title": "proxy_protocol_v2",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2102,
+      "body_sha256": "sha256:7ecc7f7f6ab00b56db9f6f84671249ab4fc246095c7548c0a27efb5590d4b7ef",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/timeouts/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_cluster.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6310,
+      "body_sha256": "sha256:4718de2e001c721ed04cc898118ccdccfed5ed9cd4bf78b0ccc9fabadc3e2055",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:default_session_key_caching",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:disable_session_key_caching",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:disable_sni",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/tls_parameters/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters for xcsh_cluster.",
+      "title": "tls_parameters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9002,
+      "body_sha256": "sha256:ad74fc09328e7c41257f61f3a95f43100d40dd94c70793e32bd359c077f14c6b",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:skip_server_verification",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+      "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--cert_params.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "cert_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.cert_params for xcsh_cluster.",
+      "title": "tls_parameters.cert_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6568,
+      "body_sha256": "sha256:e130f815c7ee12e8103c0e753cbac5e1bd1f3755a59c13319b9b5d0c47951b42",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+      "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/certificates/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--cert_params--certificates.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "cert_params", "certificates"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/certificates/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.cert_params.certificates for xcsh_cluster.",
+      "title": "tls_parameters.cert_params.certificates",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1341,
+      "body_sha256": "sha256:ae4dbc99d877fdf48f04060c3edfc61923559fb25bce14f102261325fa61903c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:skip_server_verification",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+      "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/skip_server_verification/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--cert_params--skip_server_verification.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "cert_params", "skip_server_verification"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/skip_server_verification/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.cert_params.skip_server_verification for xcsh_cluster.",
+      "title": "tls_parameters.cert_params.skip_server_verification",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4849,
+      "body_sha256": "sha256:ed93acca4b0b880ea2e607754e824257fd68f247b3473c1ea358dceb082ee93d",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+      "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--cert_params--tls_validation_params.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "cert_params", "tls_validation_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.cert_params.tls_validation_params for xcsh_cluster.",
+      "title": "tls_parameters.cert_params.tls_validation_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2045,
+      "body_sha256": "sha256:96a019bbec392f2e4b5604f4ecd573a7e6bf02b7f59e77282cd6b0c6048bfbf6",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
+      "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--cert_params--tls_validation_params--trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.cert_params.tls_validation_params.trusted_ca for xcsh_cluster.",
+      "title": "tls_parameters.cert_params.tls_validation_params.trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7459,
+      "body_sha256": "sha256:01da3e1c5e1f8cdbf6e0363e38bdf5a40dcdedf422a4a980dcd96afd91797c51",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca",
+      "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--cert_params--tls_validation_params--trusted_ca--trusted_ca_list.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "trusted_ca", "trusted_ca_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list for xcsh_cluster.",
+      "title": "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1356,
+      "body_sha256": "sha256:be446ad510e8007e735214dd9bab1e17842b166821bca6e07ce97205122c4f0f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
+      "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/volterra_trusted_ca/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--cert_params--volterra_trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "cert_params", "volterra_trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/volterra_trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.cert_params.volterra_trusted_ca for xcsh_cluster.",
+      "title": "tls_parameters.cert_params.volterra_trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7844,
+      "body_sha256": "sha256:59401e0822a3cb3654d56dc1fe8b2fb52f58549c58181345c82a2e155fd378ad",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params for xcsh_cluster.",
+      "title": "tls_parameters.common_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5230,
+      "body_sha256": "sha256:06b4d194988e86d0caf919dcd856333421d5de37db88b85bfeefa45c6864fe09",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--tls_certificates.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.tls_certificates for xcsh_cluster.",
+      "title": "tls_parameters.common_params.tls_certificates",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3258,
+      "body_sha256": "sha256:011fa000cd8d6a7053e1f80fc7e04553af279b06f5e595d4ab0353e2c93d258f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--tls_certificates--custom_hash_algorithms.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates", "custom_hash_algorithms"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms for xcsh_cluster.",
+      "title": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1627,
+      "body_sha256": "sha256:521ed996b5a06928293c432be97fd8a57eb5f916b50395d93254872d11b0e5b4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--tls_certificates--disable_ocsp_stapling.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates", "disable_ocsp_stapling"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.tls_certificates.disable_ocsp_stapling for xcsh_cluster.",
+      "title": "tls_parameters.common_params.tls_certificates.disable_ocsp_stapling",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2748,
+      "body_sha256": "sha256:0642183ee2aa5e4632fb57bad006c20c48548bfbb3a6fb68867617a32f693a08",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--tls_certificates--private_key.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.tls_certificates.private_key for xcsh_cluster.",
+      "title": "tls_parameters.common_params.tls_certificates.private_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5347,
+      "body_sha256": "sha256:fd24d8e8fa106549f8aa59a2df0e38be5327ba4efb2072baeb171b0e4b842948",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info for xcsh_cluster.",
+      "title": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4198,
+      "body_sha256": "sha256:ce107fd4cb07affb4b608e45c7c52423f70961fd07178818b7659d06bb520f6b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--tls_certificates--private_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info for xcsh_cluster.",
+      "title": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1619,
+      "body_sha256": "sha256:60c6472bb07996858b60dd7df5e8acd2f78f46a43ef7693833870244ce93ed2c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--tls_certificates--use_system_defaults.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates", "use_system_defaults"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.tls_certificates.use_system_defaults for xcsh_cluster.",
+      "title": "tls_parameters.common_params.tls_certificates.use_system_defaults",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4837,
+      "body_sha256": "sha256:a12845683c4bc10d8d9efe5432583d4a4d3584b4059e50b254f982c9a82e338e",
+      "child_ids": ["xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca"],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--validation_params.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "validation_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.validation_params for xcsh_cluster.",
+      "title": "tls_parameters.common_params.validation_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2031,
+      "body_sha256": "sha256:ca55c65230a7cfb67f0e3e9e56894712934e98ecf4a5f32434a413bba52cfe0c",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--validation_params--trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.validation_params.trusted_ca for xcsh_cluster.",
+      "title": "tls_parameters.common_params.validation_params.trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7437,
+      "body_sha256": "sha256:e301d740786ec3549b1464aabae8bab2ba27a6675948253a3578f659d29e6572",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca", "trusted_ca_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list for xcsh_cluster.",
+      "title": "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1195,
+      "body_sha256": "sha256:5c47ec4a6c922c9c386e4fa53026cb7a5b9f822ae85fb3fd5d50e854fc791c46",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:default_session_key_caching",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+      "path": "documentation/resources/cluster/properties/tls_parameters/default_session_key_caching/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--default_session_key_caching.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "default_session_key_caching"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/default_session_key_caching/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.default_session_key_caching for xcsh_cluster.",
+      "title": "tls_parameters.default_session_key_caching",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1195,
+      "body_sha256": "sha256:c87cf605916ab5cc8681caebb56b7c778b5972a77090e1b26849196dfe507082",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_session_key_caching",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+      "path": "documentation/resources/cluster/properties/tls_parameters/disable_session_key_caching/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--disable_session_key_caching.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "disable_session_key_caching"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/disable_session_key_caching/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.disable_session_key_caching for xcsh_cluster.",
+      "title": "tls_parameters.disable_session_key_caching",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1131,
+      "body_sha256": "sha256:185972d5632924fd08d0936fe7073a2f693fd60fe8155ef273b8e3f9bc64c7e4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_sni",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+      "path": "documentation/resources/cluster/properties/tls_parameters/disable_sni/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--disable_sni.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "disable_sni"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/disable_sni/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.disable_sni for xcsh_cluster.",
+      "title": "tls_parameters.disable_sni",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1142,
+      "body_sha256": "sha256:59a9e930646bd11c38b1911a5ae927dc7511608c893eb27c9489e57a350b5eef",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
+      "path": "documentation/resources/cluster/properties/tls_parameters/use_host_header_as_sni/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--tls_parameters--use_host_header_as_sni.md",
+      "role": "properties",
+      "schema_path": ["tls_parameters", "use_host_header_as_sni"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/use_host_header_as_sni/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_parameters.use_host_header_as_sni for xcsh_cluster.",
+      "title": "tls_parameters.use_host_header_as_sni",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2133,
+      "body_sha256": "sha256:f81d21c678ef95ea4129be5242d209baf62353eaf7bc6ac7bca76954612e1441",
+      "child_ids": [
+        "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:disable_conn_pool_reuse",
+        "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse"
+      ],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type",
+      "parent_id": "xcsh-docs:resources:cluster:reference",
+      "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--upstream_conn_pool_reuse_type.md",
+      "role": "properties",
+      "schema_path": ["upstream_conn_pool_reuse_type"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "upstream_conn_pool_reuse_type for xcsh_cluster.",
+      "title": "upstream_conn_pool_reuse_type",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1269,
+      "body_sha256": "sha256:c99bdb3cee9e6690091e7a1ee392fa2b42eb8015254060faefea6501c9ea8db6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:disable_conn_pool_reuse",
+      "parent_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type",
+      "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--upstream_conn_pool_reuse_type--disable_conn_pool_reuse.md",
+      "role": "properties",
+      "schema_path": ["upstream_conn_pool_reuse_type", "disable_conn_pool_reuse"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "upstream_conn_pool_reuse_type.disable_conn_pool_reuse for xcsh_cluster.",
+      "title": "upstream_conn_pool_reuse_type.disable_conn_pool_reuse",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1265,
+      "body_sha256": "sha256:af856543a919fa166edeaacbb53a359b0a8457188fcd28cbef5bb1a3fa173912",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
+      "parent_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type",
+      "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--properties--upstream_conn_pool_reuse_type--enable_conn_pool_reuse.md",
+      "role": "properties",
+      "schema_path": ["upstream_conn_pool_reuse_type", "enable_conn_pool_reuse"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "upstream_conn_pool_reuse_type.enable_conn_pool_reuse for xcsh_cluster.",
+      "title": "upstream_conn_pool_reuse_type.enable_conn_pool_reuse",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 504,
+      "body_sha256": "sha256:3a225c4e00f64209c84c2a42d377ccb8c73755454b0bb1b2ca7882923f8df29d",
+      "child_ids": ["xcsh-docs:resources:cluster:example:resource"],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:examples",
+      "parent_id": "xcsh-docs:resources:cluster:fundamentals",
+      "path": "documentation/resources/cluster/examples/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_cluster.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1144,
+      "body_sha256": "sha256:ffe01b183eff4098a7f9875cf3c05a50584e9bb088323edd76e1ab4440805f30",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:5826c5405f2445e4c35c5efebde0e90198d315b39c9333da9092af648210a59e",
+        "source_path": "examples/resources/xcsh_cluster/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:cluster:example:resource",
+      "parent_id": "xcsh-docs:resources:cluster:examples",
+      "path": "documentation/resources/cluster/examples/resource/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_cluster.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 384,
+      "body_sha256": "sha256:5b2a30a4b476ef677987fc0af7502892040942b270b560b46eaa82bbeceb8ddd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:import",
+      "parent_id": "xcsh-docs:resources:cluster:fundamentals",
+      "path": "documentation/resources/cluster/lifecycle/import/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_cluster.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 444,
+      "body_sha256": "sha256:057ecbf1ad1c342dc511e2d9ef4f7f4b807094a68d525e92be2e4ed0321b5a49",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:timeouts",
+      "parent_id": "xcsh-docs:resources:cluster:fundamentals",
+      "path": "documentation/resources/cluster/lifecycle/timeouts/index.md",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cluster--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_cluster.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

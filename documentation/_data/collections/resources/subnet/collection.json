@@ -1,0 +1,621 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:subnet:fundamentals",
+    "id": "xcsh-docs:resources:subnet:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:subnet:reference",
+        "schema_path": ["annotations"]
+      },
+      "connect_to_layer2": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2",
+        "schema_path": ["connect_to_layer2"]
+      },
+      "connect_to_layer2.layer2_intf_ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref",
+        "schema_path": ["connect_to_layer2", "layer2_intf_ref"]
+      },
+      "connect_to_layer2.layer2_intf_ref.name": {
+        "anchor": "schema-connect_to_layer2--layer2_intf_ref--name",
+        "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref",
+        "schema_path": ["connect_to_layer2", "layer2_intf_ref", "name"]
+      },
+      "connect_to_layer2.layer2_intf_ref.namespace": {
+        "anchor": "schema-connect_to_layer2--layer2_intf_ref--namespace",
+        "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref",
+        "schema_path": ["connect_to_layer2", "layer2_intf_ref", "namespace"]
+      },
+      "connect_to_layer2.layer2_intf_ref.tenant": {
+        "anchor": "schema-connect_to_layer2--layer2_intf_ref--tenant",
+        "document_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref",
+        "schema_path": ["connect_to_layer2", "layer2_intf_ref", "tenant"]
+      },
+      "connect_to_slo": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:connect_to_slo",
+        "schema_path": ["connect_to_slo"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:subnet:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:subnet:reference",
+        "schema_path": ["disable"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:subnet:reference", "schema_path": ["id"] },
+      "isolated_nw": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:isolated_nw",
+        "schema_path": ["isolated_nw"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:subnet:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:subnet:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:subnet:reference",
+        "schema_path": ["namespace"]
+      },
+      "site_subnet_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params",
+        "schema_path": ["site_subnet_params"]
+      },
+      "site_subnet_params.dhcp": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:dhcp",
+        "schema_path": ["site_subnet_params", "dhcp"]
+      },
+      "site_subnet_params.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:site",
+        "schema_path": ["site_subnet_params", "site"]
+      },
+      "site_subnet_params.site.name": {
+        "anchor": "schema-site_subnet_params--site--name",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:site",
+        "schema_path": ["site_subnet_params", "site", "name"]
+      },
+      "site_subnet_params.site.namespace": {
+        "anchor": "schema-site_subnet_params--site--namespace",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:site",
+        "schema_path": ["site_subnet_params", "site", "namespace"]
+      },
+      "site_subnet_params.site.tenant": {
+        "anchor": "schema-site_subnet_params--site--tenant",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:site",
+        "schema_path": ["site_subnet_params", "site", "tenant"]
+      },
+      "site_subnet_params.static_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:static_ip",
+        "schema_path": ["site_subnet_params", "static_ip"]
+      },
+      "site_subnet_params.subnet_dhcp_server_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:subnet_dhcp_server_params",
+        "schema_path": ["site_subnet_params", "subnet_dhcp_server_params"]
+      },
+      "site_subnet_params.subnet_dhcp_server_params.dhcp_networks": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:subnet_dhcp_server_params:dhcp_networks",
+        "schema_path": ["site_subnet_params", "subnet_dhcp_server_params", "dhcp_networks"]
+      },
+      "site_subnet_params.subnet_dhcp_server_params.dhcp_networks.network_prefix": {
+        "anchor": "schema-site_subnet_params--subnet_dhcp_server_params--dhcp_networks--network_prefix",
+        "document_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:subnet_dhcp_server_params:dhcp_networks",
+        "schema_path": ["site_subnet_params", "subnet_dhcp_server_params", "dhcp_networks", "network_prefix"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:subnet:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:subnet:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:subnet:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:subnet:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:subnet:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "subnet",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:subnet:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1526,
+      "body_sha256": "sha256:7ebfd84c1df66c30716b3c8f5cbccdf66e55d3e7b31ecd6bace16ba56468c382",
+      "child_ids": [
+        "xcsh-docs:resources:subnet:reference",
+        "xcsh-docs:resources:subnet:examples",
+        "xcsh-docs:resources:subnet:import",
+        "xcsh-docs:resources:subnet:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/subnet/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/subnet.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_subnet for xcsh_subnet.",
+      "title": "xcsh_subnet",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13464,
+      "body_sha256": "sha256:83e47f3aca5eab1ac1238cccd2820d045fce8ebb188e78bb04b9ac8e4e2c82c1",
+      "child_ids": [
+        "xcsh-docs:resources:subnet:properties:connect_to_layer2",
+        "xcsh-docs:resources:subnet:properties:connect_to_slo",
+        "xcsh-docs:resources:subnet:properties:isolated_nw",
+        "xcsh-docs:resources:subnet:properties:site_subnet_params",
+        "xcsh-docs:resources:subnet:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:reference",
+      "parent_id": "xcsh-docs:resources:subnet:fundamentals",
+      "path": "documentation/resources/subnet/properties/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_subnet.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1777,
+      "body_sha256": "sha256:ad497661daa0663972f44859c07dda6177071acf4d5d153958760472a885890a",
+      "child_ids": ["xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref"],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:connect_to_layer2",
+      "parent_id": "xcsh-docs:resources:subnet:reference",
+      "path": "documentation/resources/subnet/properties/connect_to_layer2/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--connect_to_layer2.md",
+      "role": "properties",
+      "schema_path": ["connect_to_layer2"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/connect_to_layer2/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "connect_to_layer2 for xcsh_subnet.",
+      "title": "connect_to_layer2",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5948,
+      "body_sha256": "sha256:faf26316a8631292660de795261bfb5cd088825b1b733eccc3a63e7a392e3687",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:connect_to_layer2:layer2_intf_ref",
+      "parent_id": "xcsh-docs:resources:subnet:properties:connect_to_layer2",
+      "path": "documentation/resources/subnet/properties/connect_to_layer2/layer2_intf_ref/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--connect_to_layer2--layer2_intf_ref.md",
+      "role": "properties",
+      "schema_path": ["connect_to_layer2", "layer2_intf_ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/connect_to_layer2/layer2_intf_ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "connect_to_layer2.layer2_intf_ref for xcsh_subnet.",
+      "title": "connect_to_layer2.layer2_intf_ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 975,
+      "body_sha256": "sha256:86eafdcfc6055708c02092c773176559584ed4027b5928dd03d2dbad3128b78f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:connect_to_slo",
+      "parent_id": "xcsh-docs:resources:subnet:reference",
+      "path": "documentation/resources/subnet/properties/connect_to_slo/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--connect_to_slo.md",
+      "role": "properties",
+      "schema_path": ["connect_to_slo"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/connect_to_slo/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "connect_to_slo for xcsh_subnet.",
+      "title": "connect_to_slo",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 963,
+      "body_sha256": "sha256:78864682d999a26b8e26c684fcccd27603074aea5b97ab91b2861e0c13ef9d04",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:isolated_nw",
+      "parent_id": "xcsh-docs:resources:subnet:reference",
+      "path": "documentation/resources/subnet/properties/isolated_nw/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--isolated_nw.md",
+      "role": "properties",
+      "schema_path": ["isolated_nw"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/isolated_nw/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "isolated_nw for xcsh_subnet.",
+      "title": "isolated_nw",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3088,
+      "body_sha256": "sha256:89aa97d2c868d618d035266f921c5d6bb29092099b0a7da7c6ac338dfe43212c",
+      "child_ids": [
+        "xcsh-docs:resources:subnet:properties:site_subnet_params:dhcp",
+        "xcsh-docs:resources:subnet:properties:site_subnet_params:site",
+        "xcsh-docs:resources:subnet:properties:site_subnet_params:static_ip",
+        "xcsh-docs:resources:subnet:properties:site_subnet_params:subnet_dhcp_server_params"
+      ],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:site_subnet_params",
+      "parent_id": "xcsh-docs:resources:subnet:reference",
+      "path": "documentation/resources/subnet/properties/site_subnet_params/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--site_subnet_params.md",
+      "role": "properties",
+      "schema_path": ["site_subnet_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/site_subnet_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_subnet_params for xcsh_subnet.",
+      "title": "site_subnet_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1105,
+      "body_sha256": "sha256:78fd748d87ea169c4a9746fcc2a5c1deebd139b90eb2a67b7d9b9114104730c3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:site_subnet_params:dhcp",
+      "parent_id": "xcsh-docs:resources:subnet:properties:site_subnet_params",
+      "path": "documentation/resources/subnet/properties/site_subnet_params/dhcp/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--site_subnet_params--dhcp.md",
+      "role": "properties",
+      "schema_path": ["site_subnet_params", "dhcp"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/site_subnet_params/dhcp/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_subnet_params.dhcp for xcsh_subnet.",
+      "title": "site_subnet_params.dhcp",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5891,
+      "body_sha256": "sha256:aed1dc793f77a9d71de8bed17fabfb48a161d9a1ac2fc3d36724a97f877fe1f4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:site_subnet_params:site",
+      "parent_id": "xcsh-docs:resources:subnet:properties:site_subnet_params",
+      "path": "documentation/resources/subnet/properties/site_subnet_params/site/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--site_subnet_params--site.md",
+      "role": "properties",
+      "schema_path": ["site_subnet_params", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/site_subnet_params/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_subnet_params.site for xcsh_subnet.",
+      "title": "site_subnet_params.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1120,
+      "body_sha256": "sha256:950383a0b64edf5c1e9665f547ae68399a16dfe5a4516f01d788c18bea497249",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:site_subnet_params:static_ip",
+      "parent_id": "xcsh-docs:resources:subnet:properties:site_subnet_params",
+      "path": "documentation/resources/subnet/properties/site_subnet_params/static_ip/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--site_subnet_params--static_ip.md",
+      "role": "properties",
+      "schema_path": ["site_subnet_params", "static_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/site_subnet_params/static_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_subnet_params.static_ip for xcsh_subnet.",
+      "title": "site_subnet_params.static_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1851,
+      "body_sha256": "sha256:da54a792476940626f2b286a4c611d28793e45aade2e428856a82244bf0eb6c7",
+      "child_ids": ["xcsh-docs:resources:subnet:properties:site_subnet_params:subnet_dhcp_server_params:dhcp_networks"],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:site_subnet_params:subnet_dhcp_server_params",
+      "parent_id": "xcsh-docs:resources:subnet:properties:site_subnet_params",
+      "path": "documentation/resources/subnet/properties/site_subnet_params/subnet_dhcp_server_params/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--site_subnet_params--subnet_dhcp_server_params.md",
+      "role": "properties",
+      "schema_path": ["site_subnet_params", "subnet_dhcp_server_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/site_subnet_params/subnet_dhcp_server_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_subnet_params.subnet_dhcp_server_params for xcsh_subnet.",
+      "title": "site_subnet_params.subnet_dhcp_server_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2805,
+      "body_sha256": "sha256:ebe71a58a3a58f0a4c3459b5ed1b5d41eaf1244ccedc5eed5bf9fc80dd2f8fba",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:site_subnet_params:subnet_dhcp_server_params:dhcp_networks",
+      "parent_id": "xcsh-docs:resources:subnet:properties:site_subnet_params:subnet_dhcp_server_params",
+      "path": "documentation/resources/subnet/properties/site_subnet_params/subnet_dhcp_server_params/dhcp_networks/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--site_subnet_params--subnet_dhcp_server_params--dhcp_networks.md",
+      "role": "properties",
+      "schema_path": ["site_subnet_params", "subnet_dhcp_server_params", "dhcp_networks"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/site_subnet_params/subnet_dhcp_server_params/dhcp_networks/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_subnet_params.subnet_dhcp_server_params.dhcp_networks for xcsh_subnet.",
+      "title": "site_subnet_params.subnet_dhcp_server_params.dhcp_networks",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2096,
+      "body_sha256": "sha256:8fc09f6989cdbd4523bf4b918dbcada2d81240f9e18d5637c0bf0616a191c14f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:subnet:reference",
+      "path": "documentation/resources/subnet/properties/timeouts/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_subnet.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 498,
+      "body_sha256": "sha256:2eb2d602acc6992c2fe69b4009784166b070d850872c790761441264077fe4d8",
+      "child_ids": ["xcsh-docs:resources:subnet:example:resource"],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:examples",
+      "parent_id": "xcsh-docs:resources:subnet:fundamentals",
+      "path": "documentation/resources/subnet/examples/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_subnet.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1134,
+      "body_sha256": "sha256:9c64954e99a25404b62d86938afb2286afd19241f6719c0684e2dcb53dc5904f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:4b17c21430cf56ad4295d650386f0dba8c0f28367f60769889a0c3628d334ae0",
+        "source_path": "examples/resources/xcsh_subnet/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:subnet:example:resource",
+      "parent_id": "xcsh-docs:resources:subnet:examples",
+      "path": "documentation/resources/subnet/examples/resource/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_subnet.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 379,
+      "body_sha256": "sha256:cd272d186f135d7d992de9dc137f1b0f488b8f4b5e59c1660cdcdd23140e9627",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:import",
+      "parent_id": "xcsh-docs:resources:subnet:fundamentals",
+      "path": "documentation/resources/subnet/lifecycle/import/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_subnet.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 439,
+      "body_sha256": "sha256:a78984051f7cd8e25d8fec93d1035a24091b4e433a3a669d9eceaae1c5408b7a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:subnet:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:subnet:timeouts",
+      "parent_id": "xcsh-docs:resources:subnet:fundamentals",
+      "path": "documentation/resources/subnet/lifecycle/timeouts/index.md",
+      "provider_name": "subnet",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--subnet--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/subnet/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_subnet.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["subnetCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

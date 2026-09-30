@@ -1,0 +1,485 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:protocol_inspection:fundamentals",
+    "id": "xcsh-docs:resources:protocol_inspection:collection",
+    "properties": {
+      "action": {
+        "anchor": "schema-action",
+        "document_id": "xcsh-docs:resources:protocol_inspection:reference",
+        "schema_path": ["action"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:protocol_inspection:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:protocol_inspection:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:protocol_inspection:reference",
+        "schema_path": ["disable"]
+      },
+      "enable_disable_compliance_checks": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks",
+        "schema_path": ["enable_disable_compliance_checks"]
+      },
+      "enable_disable_compliance_checks.disable_compliance_checks": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:disable_compliance_checks",
+        "schema_path": ["enable_disable_compliance_checks", "disable_compliance_checks"]
+      },
+      "enable_disable_compliance_checks.enable_compliance_checks": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:enable_compliance_checks",
+        "schema_path": ["enable_disable_compliance_checks", "enable_compliance_checks"]
+      },
+      "enable_disable_compliance_checks.enable_compliance_checks.name": {
+        "anchor": "schema-enable_disable_compliance_checks--enable_compliance_checks--name",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:enable_compliance_checks",
+        "schema_path": ["enable_disable_compliance_checks", "enable_compliance_checks", "name"]
+      },
+      "enable_disable_compliance_checks.enable_compliance_checks.namespace": {
+        "anchor": "schema-enable_disable_compliance_checks--enable_compliance_checks--namespace",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:enable_compliance_checks",
+        "schema_path": ["enable_disable_compliance_checks", "enable_compliance_checks", "namespace"]
+      },
+      "enable_disable_compliance_checks.enable_compliance_checks.tenant": {
+        "anchor": "schema-enable_disable_compliance_checks--enable_compliance_checks--tenant",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:enable_compliance_checks",
+        "schema_path": ["enable_disable_compliance_checks", "enable_compliance_checks", "tenant"]
+      },
+      "enable_disable_signatures": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures",
+        "schema_path": ["enable_disable_signatures"]
+      },
+      "enable_disable_signatures.disable_signature": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures:disable_signature",
+        "schema_path": ["enable_disable_signatures", "disable_signature"]
+      },
+      "enable_disable_signatures.enable_signature": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures:enable_signature",
+        "schema_path": ["enable_disable_signatures", "enable_signature"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:protocol_inspection:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:protocol_inspection:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:protocol_inspection:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:protocol_inspection:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:protocol_inspection:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "protocol_inspection",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:protocol_inspection:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1551,
+      "body_sha256": "sha256:ecd819776cdbd9e0170f9fd3bc0f4c358d6449647b06186238d42c1aeb2caafb",
+      "child_ids": [
+        "xcsh-docs:resources:protocol_inspection:reference",
+        "xcsh-docs:resources:protocol_inspection:examples",
+        "xcsh-docs:resources:protocol_inspection:import",
+        "xcsh-docs:resources:protocol_inspection:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/protocol_inspection/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/protocol_inspection.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_protocol_inspection for xcsh_protocol_inspection.",
+      "title": "xcsh_protocol_inspection",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13334,
+      "body_sha256": "sha256:8fed6e8c2d31d3b534c95293a60c69fef1f877fd4e155e88c04667e9accee8f0",
+      "child_ids": [
+        "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks",
+        "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures",
+        "xcsh-docs:resources:protocol_inspection:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:reference",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:fundamentals",
+      "path": "documentation/resources/protocol_inspection/properties/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_protocol_inspection.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2200,
+      "body_sha256": "sha256:6d09105dbd151870ae53074c5e966f3b9aa76efacf8acf128ce622c41877419c",
+      "child_ids": [
+        "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:disable_compliance_checks",
+        "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:enable_compliance_checks"
+      ],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:reference",
+      "path": "documentation/resources/protocol_inspection/properties/enable_disable_compliance_checks/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--properties--enable_disable_compliance_checks.md",
+      "role": "properties",
+      "schema_path": ["enable_disable_compliance_checks"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_compliance_checks/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_disable_compliance_checks for xcsh_protocol_inspection.",
+      "title": "enable_disable_compliance_checks",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1379,
+      "body_sha256": "sha256:22b568aa3ad2367da4b0c16fe79ab33f73080d60069effd9e493d3bd01a4110f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:disable_compliance_checks",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks",
+      "path": "documentation/resources/protocol_inspection/properties/enable_disable_compliance_checks/disable_compliance_checks/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--properties--enable_disable_compliance_checks--disable_compliance_checks.md",
+      "role": "properties",
+      "schema_path": ["enable_disable_compliance_checks", "disable_compliance_checks"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_compliance_checks/disable_compliance_checks/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_disable_compliance_checks.disable_compliance_checks for xcsh_protocol_inspection.",
+      "title": "enable_disable_compliance_checks.disable_compliance_checks",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6228,
+      "body_sha256": "sha256:a29f767f0f24479faa39e6080bdc570df4f0cdb1af6f392875435ae2aa3e976a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks:enable_compliance_checks",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_compliance_checks",
+      "path": "documentation/resources/protocol_inspection/properties/enable_disable_compliance_checks/enable_compliance_checks/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--properties--enable_disable_compliance_checks--enable_compliance_checks.md",
+      "role": "properties",
+      "schema_path": ["enable_disable_compliance_checks", "enable_compliance_checks"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_compliance_checks/enable_compliance_checks/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_disable_compliance_checks.enable_compliance_checks for xcsh_protocol_inspection.",
+      "title": "enable_disable_compliance_checks.enable_compliance_checks",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2105,
+      "body_sha256": "sha256:8c01b543fc5bc209e67233fd452e8c46ed2d10bdeb553d4a48c98360ec71c8ba",
+      "child_ids": [
+        "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures:disable_signature",
+        "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures:enable_signature"
+      ],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:reference",
+      "path": "documentation/resources/protocol_inspection/properties/enable_disable_signatures/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--properties--enable_disable_signatures.md",
+      "role": "properties",
+      "schema_path": ["enable_disable_signatures"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_signatures/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_disable_signatures for xcsh_protocol_inspection.",
+      "title": "enable_disable_signatures",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1305,
+      "body_sha256": "sha256:58dfe73061c0caba33c0e5dc1a33a9f8e814ebe1fe248ed5a2d450d00ca515cd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures:disable_signature",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures",
+      "path": "documentation/resources/protocol_inspection/properties/enable_disable_signatures/disable_signature/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--properties--enable_disable_signatures--disable_signature.md",
+      "role": "properties",
+      "schema_path": ["enable_disable_signatures", "disable_signature"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_signatures/disable_signature/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_disable_signatures.disable_signature for xcsh_protocol_inspection.",
+      "title": "enable_disable_signatures.disable_signature",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1301,
+      "body_sha256": "sha256:658c54c97c76717435cf20955b4c945160e4c151a6da7c165f0c4d586338ca6c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures:enable_signature",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:properties:enable_disable_signatures",
+      "path": "documentation/resources/protocol_inspection/properties/enable_disable_signatures/enable_signature/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--properties--enable_disable_signatures--enable_signature.md",
+      "role": "properties",
+      "schema_path": ["enable_disable_signatures", "enable_signature"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_signatures/enable_signature/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enable_disable_signatures.enable_signature for xcsh_protocol_inspection.",
+      "title": "enable_disable_signatures.enable_signature",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2174,
+      "body_sha256": "sha256:4c1d435e2559c7dcca29ed0cc5d5492bfe4f9fe2ad237af51ec1f2a3a330278b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:reference",
+      "path": "documentation/resources/protocol_inspection/properties/timeouts/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_protocol_inspection.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 576,
+      "body_sha256": "sha256:586206e9fd908567524547abde4d100de9344baa117d796dc84d8bd173a98bb9",
+      "child_ids": ["xcsh-docs:resources:protocol_inspection:example:resource"],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:examples",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:fundamentals",
+      "path": "documentation/resources/protocol_inspection/examples/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_protocol_inspection.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1218,
+      "body_sha256": "sha256:3959e59a6bcf6af3050f2b9e953d456d09652b423fe07c1c4a96311640a77c96",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:0edd9213402a7bd99b02d8b9c2f3a4ee63eb0305d083b63f69f415300d8acfa9",
+        "source_path": "examples/resources/xcsh_protocol_inspection/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:protocol_inspection:example:resource",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:examples",
+      "path": "documentation/resources/protocol_inspection/examples/resource/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_protocol_inspection.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 444,
+      "body_sha256": "sha256:c8cffed88aff94be17dd90afefa1d00e829d5ab5b8147e0de5e1e168b577a307",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:import",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:fundamentals",
+      "path": "documentation/resources/protocol_inspection/lifecycle/import/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_protocol_inspection.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 504,
+      "body_sha256": "sha256:0667eee4aca786b948e3423cde69827b7315f48874f7509f8138f7b943b4f768",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:protocol_inspection:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:protocol_inspection:timeouts",
+      "parent_id": "xcsh-docs:resources:protocol_inspection:fundamentals",
+      "path": "documentation/resources/protocol_inspection/lifecycle/timeouts/index.md",
+      "provider_name": "protocol_inspection",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--protocol_inspection--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_protocol_inspection.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["protocol_inspectionCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

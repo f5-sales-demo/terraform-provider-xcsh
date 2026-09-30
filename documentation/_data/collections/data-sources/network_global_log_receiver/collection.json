@@ -1,0 +1,164 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:network_global_log_receiver:fundamentals",
+    "id": "xcsh-docs:data-sources:network_global_log_receiver:collection",
+    "properties": {
+      "api_release_tag": {
+        "anchor": "schema-api_release_tag",
+        "document_id": "xcsh-docs:data-sources:network_global_log_receiver:reference",
+        "schema_path": ["api_release_tag"]
+      },
+      "cidr_blocks": {
+        "anchor": "schema-cidr_blocks",
+        "document_id": "xcsh-docs:data-sources:network_global_log_receiver:reference",
+        "schema_path": ["cidr_blocks"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:network_global_log_receiver:reference",
+        "schema_path": ["id"]
+      },
+      "manifest_generated_at": {
+        "anchor": "schema-manifest_generated_at",
+        "document_id": "xcsh-docs:data-sources:network_global_log_receiver:reference",
+        "schema_path": ["manifest_generated_at"]
+      },
+      "source_entries": {
+        "anchor": "schema-source_entries",
+        "document_id": "xcsh-docs:data-sources:network_global_log_receiver:reference",
+        "schema_path": ["source_entries"]
+      },
+      "source_sha256": {
+        "anchor": "schema-source_sha256",
+        "document_id": "xcsh-docs:data-sources:network_global_log_receiver:reference",
+        "schema_path": ["source_sha256"]
+      },
+      "source_url": {
+        "anchor": "schema-source_url",
+        "document_id": "xcsh-docs:data-sources:network_global_log_receiver:reference",
+        "schema_path": ["source_url"]
+      }
+    },
+    "provider_name": "network_global_log_receiver",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:network_global_log_receiver:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1607,
+      "body_sha256": "sha256:b813cb9360c07ab0eb773cbd619e0301bb2e5301ebd063bfdd8b1659be0f72ba",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_global_log_receiver:reference",
+        "xcsh-docs:data-sources:network_global_log_receiver:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_global_log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_global_log_receiver:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/network_global_log_receiver/index.md",
+      "provider_name": "network_global_log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/network_global_log_receiver.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_global_log_receiver/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_network_global_log_receiver for xcsh_network_global_log_receiver.",
+      "title": "xcsh_network_global_log_receiver",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2928,
+      "body_sha256": "sha256:adb995867064c116fc51b2eff9be29378900d03fe2f24866579aede3790a22a8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_global_log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_global_log_receiver:reference",
+      "parent_id": "xcsh-docs:data-sources:network_global_log_receiver:fundamentals",
+      "path": "documentation/data-sources/network_global_log_receiver/properties/index.md",
+      "provider_name": "network_global_log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_global_log_receiver--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_global_log_receiver/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_network_global_log_receiver.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 648,
+      "body_sha256": "sha256:138d70214d4322aeaa0454dcba985772a5f21841dd1d222e79610d4316580d74",
+      "child_ids": ["xcsh-docs:data-sources:network_global_log_receiver:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:network_global_log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_global_log_receiver:examples",
+      "parent_id": "xcsh-docs:data-sources:network_global_log_receiver:fundamentals",
+      "path": "documentation/data-sources/network_global_log_receiver/examples/index.md",
+      "provider_name": "network_global_log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_global_log_receiver--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_global_log_receiver/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_network_global_log_receiver.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1441,
+      "body_sha256": "sha256:739ce22740c88276d47e965be5ec565c7bbcb13d25d0c8d58a191e7e7f777ab4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_global_log_receiver:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:e6481bf54911d3f66c740203a948d54d5c759ec25e22c585e36cf6e6833c987c",
+        "source_path": "examples/data-sources/xcsh_network_global_log_receiver/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:network_global_log_receiver:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:network_global_log_receiver:examples",
+      "path": "documentation/data-sources/network_global_log_receiver/examples/data-source/index.md",
+      "provider_name": "network_global_log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_global_log_receiver--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_global_log_receiver/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_network_global_log_receiver.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

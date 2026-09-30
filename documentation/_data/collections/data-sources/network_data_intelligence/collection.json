@@ -1,0 +1,174 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:network_data_intelligence:fundamentals",
+    "id": "xcsh-docs:data-sources:network_data_intelligence:collection",
+    "properties": {
+      "api_release_tag": {
+        "anchor": "schema-api_release_tag",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["api_release_tag"]
+      },
+      "cidr_blocks": {
+        "anchor": "schema-cidr_blocks",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["cidr_blocks"]
+      },
+      "cidr_blocks_by_region": {
+        "anchor": "schema-cidr_blocks_by_region",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["cidr_blocks_by_region"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["id"]
+      },
+      "manifest_generated_at": {
+        "anchor": "schema-manifest_generated_at",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["manifest_generated_at"]
+      },
+      "regions": {
+        "anchor": "schema-regions",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["regions"]
+      },
+      "source_entries": {
+        "anchor": "schema-source_entries",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["source_entries"]
+      },
+      "source_sha256": {
+        "anchor": "schema-source_sha256",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["source_sha256"]
+      },
+      "source_url": {
+        "anchor": "schema-source_url",
+        "document_id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "schema_path": ["source_url"]
+      }
+    },
+    "provider_name": "network_data_intelligence",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:network_data_intelligence:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1412,
+      "body_sha256": "sha256:ca4475599bdd6bffccd84c2dc51c49654f9dedd99cfe6d7400566e998d46a370",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_data_intelligence:reference",
+        "xcsh-docs:data-sources:network_data_intelligence:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_data_intelligence:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_data_intelligence:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/network_data_intelligence/index.md",
+      "provider_name": "network_data_intelligence",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/network_data_intelligence.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_data_intelligence/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_network_data_intelligence for xcsh_network_data_intelligence.",
+      "title": "xcsh_network_data_intelligence",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3645,
+      "body_sha256": "sha256:ed912c2a106271d754db4d43557e75b4a07b232640136af13ee2a96e048e41a6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_data_intelligence:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_data_intelligence:reference",
+      "parent_id": "xcsh-docs:data-sources:network_data_intelligence:fundamentals",
+      "path": "documentation/data-sources/network_data_intelligence/properties/index.md",
+      "provider_name": "network_data_intelligence",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_data_intelligence--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_data_intelligence/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_network_data_intelligence.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 636,
+      "body_sha256": "sha256:6ca078e6b81bd5edd2e7cfde6ad8921043b976434b242a4393c5341341bb9a9a",
+      "child_ids": ["xcsh-docs:data-sources:network_data_intelligence:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:network_data_intelligence:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_data_intelligence:examples",
+      "parent_id": "xcsh-docs:data-sources:network_data_intelligence:fundamentals",
+      "path": "documentation/data-sources/network_data_intelligence/examples/index.md",
+      "provider_name": "network_data_intelligence",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_data_intelligence--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_data_intelligence/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_network_data_intelligence.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1294,
+      "body_sha256": "sha256:ec0255b8030897520cb632b5a13af5a725dcbfc589ceff7d239ad3e9e1eb4685",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_data_intelligence:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:529d85fb608129abcf053afa1a4c7516767c8567633cbc06efe8d845d135d233",
+        "source_path": "examples/data-sources/xcsh_network_data_intelligence/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:network_data_intelligence:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:network_data_intelligence:examples",
+      "path": "documentation/data-sources/network_data_intelligence/examples/data-source/index.md",
+      "provider_name": "network_data_intelligence",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_data_intelligence--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_data_intelligence/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_network_data_intelligence.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

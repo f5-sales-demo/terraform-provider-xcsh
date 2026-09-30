@@ -1,0 +1,1010 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:nginx_server:fundamentals",
+    "id": "xcsh-docs:data-sources:nginx_server:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+        "schema_path": ["annotations"]
+      },
+      "dataplane_ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref",
+        "schema_path": ["dataplane_ref"]
+      },
+      "dataplane_ref.nginx_csg": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+        "schema_path": ["dataplane_ref", "nginx_csg"]
+      },
+      "dataplane_ref.nginx_csg.name": {
+        "anchor": "schema-dataplane_ref--nginx_csg--name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+        "schema_path": ["dataplane_ref", "nginx_csg", "name"]
+      },
+      "dataplane_ref.nginx_csg.namespace": {
+        "anchor": "schema-dataplane_ref--nginx_csg--namespace",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+        "schema_path": ["dataplane_ref", "nginx_csg", "namespace"]
+      },
+      "dataplane_ref.nginx_csg.tenant": {
+        "anchor": "schema-dataplane_ref--nginx_csg--tenant",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+        "schema_path": ["dataplane_ref", "nginx_csg", "tenant"]
+      },
+      "dataplane_ref.nginx_instance": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+        "schema_path": ["dataplane_ref", "nginx_instance"]
+      },
+      "dataplane_ref.nginx_instance.name": {
+        "anchor": "schema-dataplane_ref--nginx_instance--name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+        "schema_path": ["dataplane_ref", "nginx_instance", "name"]
+      },
+      "dataplane_ref.nginx_instance.namespace": {
+        "anchor": "schema-dataplane_ref--nginx_instance--namespace",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+        "schema_path": ["dataplane_ref", "nginx_instance", "namespace"]
+      },
+      "dataplane_ref.nginx_instance.tenant": {
+        "anchor": "schema-dataplane_ref--nginx_instance--tenant",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+        "schema_path": ["dataplane_ref", "nginx_instance", "tenant"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:nginx_server:reference",
+        "schema_path": ["namespace"]
+      },
+      "server_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+        "schema_path": ["server_spec"]
+      },
+      "server_spec.api_discovery_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec",
+        "schema_path": ["server_spec", "api_discovery_spec"]
+      },
+      "server_spec.api_discovery_spec.disabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:disabled",
+        "schema_path": ["server_spec", "api_discovery_spec", "disabled"]
+      },
+      "server_spec.api_discovery_spec.enabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:enabled",
+        "schema_path": ["server_spec", "api_discovery_spec", "enabled"]
+      },
+      "server_spec.domains": {
+        "anchor": "schema-server_spec--domains",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+        "schema_path": ["server_spec", "domains"]
+      },
+      "server_spec.locations": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+        "schema_path": ["server_spec", "locations"]
+      },
+      "server_spec.locations.api_discovery_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec",
+        "schema_path": ["server_spec", "locations", "api_discovery_spec"]
+      },
+      "server_spec.locations.api_discovery_spec.disabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:disabled",
+        "schema_path": ["server_spec", "locations", "api_discovery_spec", "disabled"]
+      },
+      "server_spec.locations.api_discovery_spec.enabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:enabled",
+        "schema_path": ["server_spec", "locations", "api_discovery_spec", "enabled"]
+      },
+      "server_spec.locations.definition": {
+        "anchor": "schema-server_spec--locations--definition",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+        "schema_path": ["server_spec", "locations", "definition"]
+      },
+      "server_spec.locations.name": {
+        "anchor": "schema-server_spec--locations--name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+        "schema_path": ["server_spec", "locations", "name"]
+      },
+      "server_spec.locations.waf_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+        "schema_path": ["server_spec", "locations", "waf_spec"]
+      },
+      "server_spec.locations.waf_spec.blocking_waf_mode": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:blocking_waf_mode",
+        "schema_path": ["server_spec", "locations", "waf_spec", "blocking_waf_mode"]
+      },
+      "server_spec.locations.waf_spec.distributed_cloud_policy_management": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:distributed_cloud_policy_management",
+        "schema_path": ["server_spec", "locations", "waf_spec", "distributed_cloud_policy_management"]
+      },
+      "server_spec.locations.waf_spec.monitoring_waf_mode": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:monitoring_waf_mode",
+        "schema_path": ["server_spec", "locations", "waf_spec", "monitoring_waf_mode"]
+      },
+      "server_spec.locations.waf_spec.nginx_policy_management": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:nginx_policy_management",
+        "schema_path": ["server_spec", "locations", "waf_spec", "nginx_policy_management"]
+      },
+      "server_spec.locations.waf_spec.none_waf_mode": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:none_waf_mode",
+        "schema_path": ["server_spec", "locations", "waf_spec", "none_waf_mode"]
+      },
+      "server_spec.locations.waf_spec.policy_file_name": {
+        "anchor": "schema-server_spec--locations--waf_spec--policy_file_name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+        "schema_path": ["server_spec", "locations", "waf_spec", "policy_file_name"]
+      },
+      "server_spec.locations.waf_spec.policy_name": {
+        "anchor": "schema-server_spec--locations--waf_spec--policy_name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+        "schema_path": ["server_spec", "locations", "waf_spec", "policy_name"]
+      },
+      "server_spec.locations.waf_spec.security_log_enabled": {
+        "anchor": "schema-server_spec--locations--waf_spec--security_log_enabled",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+        "schema_path": ["server_spec", "locations", "waf_spec", "security_log_enabled"]
+      },
+      "server_spec.locations.waf_spec.security_log_file_names": {
+        "anchor": "schema-server_spec--locations--waf_spec--security_log_file_names",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+        "schema_path": ["server_spec", "locations", "waf_spec", "security_log_file_names"]
+      },
+      "server_spec.nginx_one_object_id": {
+        "anchor": "schema-server_spec--nginx_one_object_id",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+        "schema_path": ["server_spec", "nginx_one_object_id"]
+      },
+      "server_spec.nginx_one_object_name": {
+        "anchor": "schema-server_spec--nginx_one_object_name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+        "schema_path": ["server_spec", "nginx_one_object_name"]
+      },
+      "server_spec.port": {
+        "anchor": "schema-server_spec--port",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+        "schema_path": ["server_spec", "port"]
+      },
+      "server_spec.server_name": {
+        "anchor": "schema-server_spec--server_name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+        "schema_path": ["server_spec", "server_name"]
+      },
+      "server_spec.total_routes": {
+        "anchor": "schema-server_spec--total_routes",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+        "schema_path": ["server_spec", "total_routes"]
+      },
+      "server_spec.waf_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+        "schema_path": ["server_spec", "waf_spec"]
+      },
+      "server_spec.waf_spec.blocking_waf_mode": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:blocking_waf_mode",
+        "schema_path": ["server_spec", "waf_spec", "blocking_waf_mode"]
+      },
+      "server_spec.waf_spec.distributed_cloud_policy_management": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:distributed_cloud_policy_management",
+        "schema_path": ["server_spec", "waf_spec", "distributed_cloud_policy_management"]
+      },
+      "server_spec.waf_spec.monitoring_waf_mode": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:monitoring_waf_mode",
+        "schema_path": ["server_spec", "waf_spec", "monitoring_waf_mode"]
+      },
+      "server_spec.waf_spec.nginx_policy_management": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:nginx_policy_management",
+        "schema_path": ["server_spec", "waf_spec", "nginx_policy_management"]
+      },
+      "server_spec.waf_spec.none_waf_mode": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:none_waf_mode",
+        "schema_path": ["server_spec", "waf_spec", "none_waf_mode"]
+      },
+      "server_spec.waf_spec.policy_file_name": {
+        "anchor": "schema-server_spec--waf_spec--policy_file_name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+        "schema_path": ["server_spec", "waf_spec", "policy_file_name"]
+      },
+      "server_spec.waf_spec.policy_name": {
+        "anchor": "schema-server_spec--waf_spec--policy_name",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+        "schema_path": ["server_spec", "waf_spec", "policy_name"]
+      },
+      "server_spec.waf_spec.security_log_enabled": {
+        "anchor": "schema-server_spec--waf_spec--security_log_enabled",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+        "schema_path": ["server_spec", "waf_spec", "security_log_enabled"]
+      },
+      "server_spec.waf_spec.security_log_file_names": {
+        "anchor": "schema-server_spec--waf_spec--security_log_file_names",
+        "document_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+        "schema_path": ["server_spec", "waf_spec", "security_log_file_names"]
+      }
+    },
+    "provider_name": "nginx_server",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:nginx_server:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1284,
+      "body_sha256": "sha256:a36fc1569601e95b788915f22671ce60822c7c8f52d875aa7cde352a191cb9eb",
+      "child_ids": ["xcsh-docs:data-sources:nginx_server:reference", "xcsh-docs:data-sources:nginx_server:examples"],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/nginx_server/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/nginx_server.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_nginx_server for xcsh_nginx_server.",
+      "title": "xcsh_nginx_server",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13098,
+      "body_sha256": "sha256:9f2ff258fb4bb95421b744ad2c3857805536dd79328f7754ec67b0d4be36f3c4",
+      "child_ids": [
+        "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec"
+      ],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:reference",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:fundamentals",
+      "path": "documentation/data-sources/nginx_server/properties/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_nginx_server.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1251,
+      "body_sha256": "sha256:c9e21d820694707fe25685fd6bb5da018b2778b751688a2c036b93e4fdbd8ce7",
+      "child_ids": [
+        "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+        "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance"
+      ],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:reference",
+      "path": "documentation/data-sources/nginx_server/properties/dataplane_ref/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--dataplane_ref.md",
+      "role": "properties",
+      "schema_path": ["dataplane_ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/dataplane_ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "dataplane_ref for xcsh_nginx_server.",
+      "title": "dataplane_ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1635,
+      "body_sha256": "sha256:95e296e1d24fd5f79d70cc8dd67e79a59818796393b22fd952c6d85acae74d63",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_csg",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref",
+      "path": "documentation/data-sources/nginx_server/properties/dataplane_ref/nginx_csg/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--dataplane_ref--nginx_csg.md",
+      "role": "properties",
+      "schema_path": ["dataplane_ref", "nginx_csg"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/dataplane_ref/nginx_csg/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "dataplane_ref.nginx_csg for xcsh_nginx_server.",
+      "title": "dataplane_ref.nginx_csg",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1660,
+      "body_sha256": "sha256:0d6d09de80bcb819e3d5b4c7f6d8b5020baa438abe80f0d688cbaee72504ca3b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref",
+      "path": "documentation/data-sources/nginx_server/properties/dataplane_ref/nginx_instance/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--dataplane_ref--nginx_instance.md",
+      "role": "properties",
+      "schema_path": ["dataplane_ref", "nginx_instance"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/dataplane_ref/nginx_instance/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "dataplane_ref.nginx_instance for xcsh_nginx_server.",
+      "title": "dataplane_ref.nginx_instance",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2799,
+      "body_sha256": "sha256:b4bfc8bd8fe03e3c07b8a5bda68dfd2c9d01507d02ea139135482690266248e3",
+      "child_ids": [
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec"
+      ],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:reference",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec.md",
+      "role": "properties",
+      "schema_path": ["server_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec for xcsh_nginx_server.",
+      "title": "server_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1503,
+      "body_sha256": "sha256:4fe5bc00ec80adf3791e2063a6a35e00ef9638fbdf861a78b1da4c304e02aa4c",
+      "child_ids": [
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:disabled",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:enabled"
+      ],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/api_discovery_spec/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--api_discovery_spec.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "api_discovery_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/api_discovery_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.api_discovery_spec for xcsh_nginx_server.",
+      "title": "server_spec.api_discovery_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1061,
+      "body_sha256": "sha256:f873238f300b08722ffddaf1027d4b90e3bc5aef29f7f46ccc5b980d6239ff8a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:disabled",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/api_discovery_spec/disabled/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--api_discovery_spec--disabled.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "api_discovery_spec", "disabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/api_discovery_spec/disabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.api_discovery_spec.disabled for xcsh_nginx_server.",
+      "title": "server_spec.api_discovery_spec.disabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1059,
+      "body_sha256": "sha256:b192182c826b19dfa33e1a6112dd21ffc877c41a7021464239b63997d4175042",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:enabled",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/api_discovery_spec/enabled/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--api_discovery_spec--enabled.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "api_discovery_spec", "enabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/api_discovery_spec/enabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.api_discovery_spec.enabled for xcsh_nginx_server.",
+      "title": "server_spec.api_discovery_spec.enabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2005,
+      "body_sha256": "sha256:34794f294f98e544f9f055e57b654fd228bcd13f0426e7e14e28a08f4b3ab8a9",
+      "child_ids": [
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec"
+      ],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations for xcsh_nginx_server.",
+      "title": "server_spec.locations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1746,
+      "body_sha256": "sha256:01f5815ed5c3550b82341d6a3ad12f15f055174d969bf4f9e81c1e6b929ef9d1",
+      "child_ids": [
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:disabled",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:enabled"
+      ],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--api_discovery_spec.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "api_discovery_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.api_discovery_spec for xcsh_nginx_server.",
+      "title": "server_spec.locations.api_discovery_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1264,
+      "body_sha256": "sha256:3c031a39104335350949683eebffbb287de1b107f991f52d070a562aa66da5ec",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:disabled",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/disabled/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--api_discovery_spec--disabled.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "api_discovery_spec", "disabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/disabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.api_discovery_spec.disabled for xcsh_nginx_server.",
+      "title": "server_spec.locations.api_discovery_spec.disabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1262,
+      "body_sha256": "sha256:6b05af503cd03768492c0beb3b7d93a6cdd39ba1948dc0f41d66818672095f66",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:enabled",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/enabled/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--api_discovery_spec--enabled.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "api_discovery_spec", "enabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/enabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.api_discovery_spec.enabled for xcsh_nginx_server.",
+      "title": "server_spec.locations.api_discovery_spec.enabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3754,
+      "body_sha256": "sha256:37c10a6ffd023f54eee38c85dce9461794a00c702c270aa2fbe0c38a9ebde12c",
+      "child_ids": [
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:blocking_waf_mode",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:distributed_cloud_policy_management",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:monitoring_waf_mode",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:nginx_policy_management",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:none_waf_mode"
+      ],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--waf_spec.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "waf_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/waf_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.waf_spec for xcsh_nginx_server.",
+      "title": "server_spec.locations.waf_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1222,
+      "body_sha256": "sha256:e2a66b809e84576e42b530bfda5dbd0796a15df2e8cc51a4ffee4e64b144e997",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:blocking_waf_mode",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/blocking_waf_mode/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--waf_spec--blocking_waf_mode.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "waf_spec", "blocking_waf_mode"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/waf_spec/blocking_waf_mode/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.waf_spec.blocking_waf_mode for xcsh_nginx_server.",
+      "title": "server_spec.locations.waf_spec.blocking_waf_mode",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1304,
+      "body_sha256": "sha256:dc02ba9361293c43f50c8059ef82be501deef373887b51f3afaefcdb47e10754",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:distributed_cloud_policy_management",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/distributed_cloud_policy_management/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--waf_spec--distributed_cloud_policy_management.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "waf_spec", "distributed_cloud_policy_management"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/waf_spec/distributed_cloud_policy_management/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.waf_spec.distributed_cloud_policy_management for xcsh_nginx_server.",
+      "title": "server_spec.locations.waf_spec.distributed_cloud_policy_management",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1256,
+      "body_sha256": "sha256:99b1c8cc208b337e7b7317d0043835ccd0cdf8477ca0406c3fb7c8e3d1db7bf8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:monitoring_waf_mode",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/monitoring_waf_mode/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--waf_spec--monitoring_waf_mode.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "waf_spec", "monitoring_waf_mode"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/waf_spec/monitoring_waf_mode/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.waf_spec.monitoring_waf_mode for xcsh_nginx_server.",
+      "title": "server_spec.locations.waf_spec.monitoring_waf_mode",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1268,
+      "body_sha256": "sha256:48350c6d4cbe49b6451f39fe0a2468531879eacd373f98a20842b66fabebd5cd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:nginx_policy_management",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/nginx_policy_management/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--waf_spec--nginx_policy_management.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "waf_spec", "nginx_policy_management"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/waf_spec/nginx_policy_management/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.waf_spec.nginx_policy_management for xcsh_nginx_server.",
+      "title": "server_spec.locations.waf_spec.nginx_policy_management",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1238,
+      "body_sha256": "sha256:7190fc63a2b4f678c64c4a0b0cd1c125258c6a223d56ddbe46e1bee36e010e77",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:none_waf_mode",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/none_waf_mode/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--locations--waf_spec--none_waf_mode.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "locations", "waf_spec", "none_waf_mode"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/locations/waf_spec/none_waf_mode/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.locations.waf_spec.none_waf_mode for xcsh_nginx_server.",
+      "title": "server_spec.locations.waf_spec.none_waf_mode",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3377,
+      "body_sha256": "sha256:bd30112ed8256196dda71c869e53b773c07b0de77343acd85eb72d36b8db5de1",
+      "child_ids": [
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:blocking_waf_mode",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:distributed_cloud_policy_management",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:monitoring_waf_mode",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:nginx_policy_management",
+        "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:none_waf_mode"
+      ],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--waf_spec.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "waf_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/waf_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.waf_spec for xcsh_nginx_server.",
+      "title": "server_spec.waf_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1019,
+      "body_sha256": "sha256:36ea21d49050270db3dbfd9402d1117de3ecadc13f85215246ff3c80ddec23de",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:blocking_waf_mode",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/blocking_waf_mode/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--waf_spec--blocking_waf_mode.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "waf_spec", "blocking_waf_mode"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/waf_spec/blocking_waf_mode/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.waf_spec.blocking_waf_mode for xcsh_nginx_server.",
+      "title": "server_spec.waf_spec.blocking_waf_mode",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1101,
+      "body_sha256": "sha256:ab82790a013bdc92d9e7ef28efce5c2526db20ce2a5e334f36887c19bb4f6859",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:distributed_cloud_policy_management",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/distributed_cloud_policy_management/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--waf_spec--distributed_cloud_policy_management.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "waf_spec", "distributed_cloud_policy_management"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/waf_spec/distributed_cloud_policy_management/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.waf_spec.distributed_cloud_policy_management for xcsh_nginx_server.",
+      "title": "server_spec.waf_spec.distributed_cloud_policy_management",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1053,
+      "body_sha256": "sha256:6e58a49fdf494adc6146787a1604cd197d33c46263505f922eab4462e0eed89e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:monitoring_waf_mode",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/monitoring_waf_mode/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--waf_spec--monitoring_waf_mode.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "waf_spec", "monitoring_waf_mode"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/waf_spec/monitoring_waf_mode/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.waf_spec.monitoring_waf_mode for xcsh_nginx_server.",
+      "title": "server_spec.waf_spec.monitoring_waf_mode",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1065,
+      "body_sha256": "sha256:311d343838aa7de70935755d9135100cf521731e9ced04ec59aa6845dd7888c6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:nginx_policy_management",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/nginx_policy_management/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--waf_spec--nginx_policy_management.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "waf_spec", "nginx_policy_management"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/waf_spec/nginx_policy_management/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.waf_spec.nginx_policy_management for xcsh_nginx_server.",
+      "title": "server_spec.waf_spec.nginx_policy_management",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1035,
+      "body_sha256": "sha256:88ec6c0c9d63da0efbbe0050c7533e057de9f10ad75eb4413bd6b795f84595a2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:none_waf_mode",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec",
+      "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/none_waf_mode/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--properties--server_spec--waf_spec--none_waf_mode.md",
+      "role": "properties",
+      "schema_path": ["server_spec", "waf_spec", "none_waf_mode"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/properties/server_spec/waf_spec/none_waf_mode/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_spec.waf_spec.none_waf_mode for xcsh_nginx_server.",
+      "title": "server_spec.waf_spec.none_waf_mode",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 558,
+      "body_sha256": "sha256:50031df044bac5c92258996ff1b48fef84a15c31796b9a84339f9a927cc5ebe2",
+      "child_ids": ["xcsh-docs:data-sources:nginx_server:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:nginx_server:examples",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:fundamentals",
+      "path": "documentation/data-sources/nginx_server/examples/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_nginx_server.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1180,
+      "body_sha256": "sha256:06902df8ccfcee229e0401b03a299136cc0756c853ab8a68f73ff2826480f933",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:nginx_server:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:255e0e3089bba8c6998465d72659b209b4c83e33fec880e96e0bccd476d39e6e",
+        "source_path": "examples/data-sources/xcsh_nginx_server/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:nginx_server:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:nginx_server:examples",
+      "path": "documentation/data-sources/nginx_server/examples/data-source/index.md",
+      "provider_name": "nginx_server",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--nginx_server--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_nginx_server.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

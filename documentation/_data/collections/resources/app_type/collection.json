@@ -1,0 +1,442 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:app_type:fundamentals",
+    "id": "xcsh-docs:resources:app_type:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:app_type:reference",
+        "schema_path": ["annotations"]
+      },
+      "business_logic_markup_setting": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting",
+        "schema_path": ["business_logic_markup_setting"]
+      },
+      "business_logic_markup_setting.disable_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:disable_spec",
+        "schema_path": ["business_logic_markup_setting", "disable_spec"]
+      },
+      "business_logic_markup_setting.discovered_api_settings": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:discovered_api_settings",
+        "schema_path": ["business_logic_markup_setting", "discovered_api_settings"]
+      },
+      "business_logic_markup_setting.discovered_api_settings.purge_duration_for_inactive_discovered_apis": {
+        "anchor": "schema-business_logic_markup_setting--discovered_api_settings--purge_duration_for_inactive_discovered_apis",
+        "document_id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:discovered_api_settings",
+        "schema_path": [
+          "business_logic_markup_setting",
+          "discovered_api_settings",
+          "purge_duration_for_inactive_discovered_apis"
+        ]
+      },
+      "business_logic_markup_setting.enable": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:enable",
+        "schema_path": ["business_logic_markup_setting", "enable"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:app_type:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:app_type:reference",
+        "schema_path": ["disable"]
+      },
+      "features": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_type:properties:features",
+        "schema_path": ["features"]
+      },
+      "features.type": {
+        "anchor": "schema-features--type",
+        "document_id": "xcsh-docs:resources:app_type:properties:features",
+        "schema_path": ["features", "type"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:app_type:reference", "schema_path": ["id"] },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:app_type:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:app_type:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:app_type:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:app_type:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:app_type:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:app_type:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:app_type:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:app_type:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "app_type",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:app_type:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1452,
+      "body_sha256": "sha256:12baba5db91d5fc52177dde06e5b37c261c1821ce417c101ff518a4e3a404d3c",
+      "child_ids": [
+        "xcsh-docs:resources:app_type:reference",
+        "xcsh-docs:resources:app_type:examples",
+        "xcsh-docs:resources:app_type:import",
+        "xcsh-docs:resources:app_type:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/app_type/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/app_type.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_app_type for xcsh_app_type.",
+      "title": "xcsh_app_type",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10925,
+      "body_sha256": "sha256:be4773bf3dfc690c004a128a537650c32f63b464227b3a30fbc03ad4c994e173",
+      "child_ids": [
+        "xcsh-docs:resources:app_type:properties:business_logic_markup_setting",
+        "xcsh-docs:resources:app_type:properties:features",
+        "xcsh-docs:resources:app_type:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:reference",
+      "parent_id": "xcsh-docs:resources:app_type:fundamentals",
+      "path": "documentation/resources/app_type/properties/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_app_type.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2295,
+      "body_sha256": "sha256:e62b412d0be8bccd5f2695577f04e299c3357cbcbd9cb9408cd8260259012434",
+      "child_ids": [
+        "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:disable_spec",
+        "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:discovered_api_settings",
+        "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:enable"
+      ],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting",
+      "parent_id": "xcsh-docs:resources:app_type:reference",
+      "path": "documentation/resources/app_type/properties/business_logic_markup_setting/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--properties--business_logic_markup_setting.md",
+      "role": "properties",
+      "schema_path": ["business_logic_markup_setting"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/properties/business_logic_markup_setting/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "business_logic_markup_setting for xcsh_app_type.",
+      "title": "business_logic_markup_setting",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 952,
+      "body_sha256": "sha256:d379666c4393367ecfe44230b414f97fd0e586165dd1d917c10c8a62c4046bdb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:disable_spec",
+      "parent_id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting",
+      "path": "documentation/resources/app_type/properties/business_logic_markup_setting/disable_spec/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--properties--business_logic_markup_setting--disable_spec.md",
+      "role": "properties",
+      "schema_path": ["business_logic_markup_setting", "disable_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/properties/business_logic_markup_setting/disable_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "business_logic_markup_setting.disable_spec for xcsh_app_type.",
+      "title": "business_logic_markup_setting.disable_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2531,
+      "body_sha256": "sha256:708a35a2d93c2ad9d469d32bca70e90cc2b231bbb5a14655b0d4d4f30eb961dc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:discovered_api_settings",
+      "parent_id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting",
+      "path": "documentation/resources/app_type/properties/business_logic_markup_setting/discovered_api_settings/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--properties--business_logic_markup_setting--discovered_api_settings.md",
+      "role": "properties",
+      "schema_path": ["business_logic_markup_setting", "discovered_api_settings"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/properties/business_logic_markup_setting/discovered_api_settings/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "business_logic_markup_setting.discovered_api_settings for xcsh_app_type.",
+      "title": "business_logic_markup_setting.discovered_api_settings",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1191,
+      "body_sha256": "sha256:3c0c4379b6b62e2f5b8c475d7448f25547270381c5632abb10549891d5628698",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting:enable",
+      "parent_id": "xcsh-docs:resources:app_type:properties:business_logic_markup_setting",
+      "path": "documentation/resources/app_type/properties/business_logic_markup_setting/enable/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--properties--business_logic_markup_setting--enable.md",
+      "role": "properties",
+      "schema_path": ["business_logic_markup_setting", "enable"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/properties/business_logic_markup_setting/enable/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "business_logic_markup_setting.enable for xcsh_app_type.",
+      "title": "business_logic_markup_setting.enable",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3042,
+      "body_sha256": "sha256:0890c8ae96d67d03813309914b6f74e61052ca424beaed07e9520adbf637536d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:properties:features",
+      "parent_id": "xcsh-docs:resources:app_type:reference",
+      "path": "documentation/resources/app_type/properties/features/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--properties--features.md",
+      "role": "properties",
+      "schema_path": ["features"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/properties/features/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "features for xcsh_app_type.",
+      "title": "features",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2108,
+      "body_sha256": "sha256:f16053edbf6bc72c4458d48833ce788e071a742a1d32eaf3ae5243b6147cbfa6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:app_type:reference",
+      "path": "documentation/resources/app_type/properties/timeouts/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_app_type.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 510,
+      "body_sha256": "sha256:446549cc88b49ad92e809292c7c9e9f8fba82dabc5043cd83d257133fe45fd52",
+      "child_ids": ["xcsh-docs:resources:app_type:example:resource"],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:examples",
+      "parent_id": "xcsh-docs:resources:app_type:fundamentals",
+      "path": "documentation/resources/app_type/examples/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_app_type.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1137,
+      "body_sha256": "sha256:f26111cab1cd5d73960dade5aad8766bdfb29f82350bde3231c643afa2830577",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:9988ab36f101ce764d3f26103a86f6c75f3dcea74d272aeebe958208da89b71d",
+        "source_path": "examples/resources/xcsh_app_type/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:app_type:example:resource",
+      "parent_id": "xcsh-docs:resources:app_type:examples",
+      "path": "documentation/resources/app_type/examples/resource/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_app_type.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 389,
+      "body_sha256": "sha256:bcd568790902dc3546b344375a01169ded99ba8e40a017d0995d9d59e6a75a82",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:import",
+      "parent_id": "xcsh-docs:resources:app_type:fundamentals",
+      "path": "documentation/resources/app_type/lifecycle/import/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_app_type.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 449,
+      "body_sha256": "sha256:8cc38b45557b5d43394b1eb166a5f7dee706505ecf631d03f3b94fc00a507180",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:app_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:app_type:timeouts",
+      "parent_id": "xcsh-docs:resources:app_type:fundamentals",
+      "path": "documentation/resources/app_type/lifecycle/timeouts/index.md",
+      "provider_name": "app_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--app_type--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_type/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_app_type.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["app_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

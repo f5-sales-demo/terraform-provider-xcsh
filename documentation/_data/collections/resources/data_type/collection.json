@@ -1,0 +1,660 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:data_type:fundamentals",
+    "id": "xcsh-docs:resources:data_type:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["annotations"]
+      },
+      "compliances": {
+        "anchor": "schema-compliances",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["compliances"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["disable"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:data_type:reference", "schema_path": ["id"] },
+      "is_pii": {
+        "anchor": "schema-is_pii",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["is_pii"]
+      },
+      "is_sensitive_data": {
+        "anchor": "schema-is_sensitive_data",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["is_sensitive_data"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:data_type:reference",
+        "schema_path": ["namespace"]
+      },
+      "rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules",
+        "schema_path": ["rules"]
+      },
+      "rules.key_pattern": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern",
+        "schema_path": ["rules", "key_pattern"]
+      },
+      "rules.key_pattern.exact_values": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern:exact_values",
+        "schema_path": ["rules", "key_pattern", "exact_values"]
+      },
+      "rules.key_pattern.exact_values.exact_values": {
+        "anchor": "schema-rules--key_pattern--exact_values--exact_values",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern:exact_values",
+        "schema_path": ["rules", "key_pattern", "exact_values", "exact_values"]
+      },
+      "rules.key_pattern.regex_value": {
+        "anchor": "schema-rules--key_pattern--regex_value",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern",
+        "schema_path": ["rules", "key_pattern", "regex_value"]
+      },
+      "rules.key_pattern.substring_value": {
+        "anchor": "schema-rules--key_pattern--substring_value",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern",
+        "schema_path": ["rules", "key_pattern", "substring_value"]
+      },
+      "rules.key_value_pattern": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern",
+        "schema_path": ["rules", "key_value_pattern"]
+      },
+      "rules.key_value_pattern.key_pattern": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
+        "schema_path": ["rules", "key_value_pattern", "key_pattern"]
+      },
+      "rules.key_value_pattern.key_pattern.exact_values": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values",
+        "schema_path": ["rules", "key_value_pattern", "key_pattern", "exact_values"]
+      },
+      "rules.key_value_pattern.key_pattern.exact_values.exact_values": {
+        "anchor": "schema-rules--key_value_pattern--key_pattern--exact_values--exact_values",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values",
+        "schema_path": ["rules", "key_value_pattern", "key_pattern", "exact_values", "exact_values"]
+      },
+      "rules.key_value_pattern.key_pattern.regex_value": {
+        "anchor": "schema-rules--key_value_pattern--key_pattern--regex_value",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
+        "schema_path": ["rules", "key_value_pattern", "key_pattern", "regex_value"]
+      },
+      "rules.key_value_pattern.key_pattern.substring_value": {
+        "anchor": "schema-rules--key_value_pattern--key_pattern--substring_value",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
+        "schema_path": ["rules", "key_value_pattern", "key_pattern", "substring_value"]
+      },
+      "rules.key_value_pattern.value_pattern": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern",
+        "schema_path": ["rules", "key_value_pattern", "value_pattern"]
+      },
+      "rules.key_value_pattern.value_pattern.exact_values": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values",
+        "schema_path": ["rules", "key_value_pattern", "value_pattern", "exact_values"]
+      },
+      "rules.key_value_pattern.value_pattern.exact_values.exact_values": {
+        "anchor": "schema-rules--key_value_pattern--value_pattern--exact_values--exact_values",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values",
+        "schema_path": ["rules", "key_value_pattern", "value_pattern", "exact_values", "exact_values"]
+      },
+      "rules.key_value_pattern.value_pattern.regex_value": {
+        "anchor": "schema-rules--key_value_pattern--value_pattern--regex_value",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern",
+        "schema_path": ["rules", "key_value_pattern", "value_pattern", "regex_value"]
+      },
+      "rules.key_value_pattern.value_pattern.substring_value": {
+        "anchor": "schema-rules--key_value_pattern--value_pattern--substring_value",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern",
+        "schema_path": ["rules", "key_value_pattern", "value_pattern", "substring_value"]
+      },
+      "rules.value_pattern": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern",
+        "schema_path": ["rules", "value_pattern"]
+      },
+      "rules.value_pattern.exact_values": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern:exact_values",
+        "schema_path": ["rules", "value_pattern", "exact_values"]
+      },
+      "rules.value_pattern.exact_values.exact_values": {
+        "anchor": "schema-rules--value_pattern--exact_values--exact_values",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern:exact_values",
+        "schema_path": ["rules", "value_pattern", "exact_values", "exact_values"]
+      },
+      "rules.value_pattern.regex_value": {
+        "anchor": "schema-rules--value_pattern--regex_value",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern",
+        "schema_path": ["rules", "value_pattern", "regex_value"]
+      },
+      "rules.value_pattern.substring_value": {
+        "anchor": "schema-rules--value_pattern--substring_value",
+        "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern",
+        "schema_path": ["rules", "value_pattern", "substring_value"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "data_type",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:data_type:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1475,
+      "body_sha256": "sha256:f2b565be12b47c77b23a3979828a4f1b47ebf228f4db41f755ac12afeb974610",
+      "child_ids": [
+        "xcsh-docs:resources:data_type:reference",
+        "xcsh-docs:resources:data_type:examples",
+        "xcsh-docs:resources:data_type:import",
+        "xcsh-docs:resources:data_type:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/data_type/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/data_type.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_data_type for xcsh_data_type.",
+      "title": "xcsh_data_type",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 17675,
+      "body_sha256": "sha256:38a0057aa5c00cce0e02e47ebf276e722fa9e73c57f6b5ebea029466a5b3acad",
+      "child_ids": [
+        "xcsh-docs:resources:data_type:properties:rules",
+        "xcsh-docs:resources:data_type:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:reference",
+      "parent_id": "xcsh-docs:resources:data_type:fundamentals",
+      "path": "documentation/resources/data_type/properties/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_data_type.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3014,
+      "body_sha256": "sha256:9c0a45e210f2156e1cc67810e89760254f41edf302e04d3953b80fda4be709db",
+      "child_ids": [
+        "xcsh-docs:resources:data_type:properties:rules:key_pattern",
+        "xcsh-docs:resources:data_type:properties:rules:key_value_pattern",
+        "xcsh-docs:resources:data_type:properties:rules:value_pattern"
+      ],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules",
+      "parent_id": "xcsh-docs:resources:data_type:reference",
+      "path": "documentation/resources/data_type/properties/rules/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules.md",
+      "role": "properties",
+      "schema_path": ["rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules for xcsh_data_type.",
+      "title": "rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4174,
+      "body_sha256": "sha256:ad4af8b8aebe129ccc67ba924bf62140c6d3038c8883e29a042dc8286003d003",
+      "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_pattern:exact_values"],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:key_pattern",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules",
+      "path": "documentation/resources/data_type/properties/rules/key_pattern/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--key_pattern.md",
+      "role": "properties",
+      "schema_path": ["rules", "key_pattern"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/key_pattern/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.key_pattern for xcsh_data_type.",
+      "title": "rules.key_pattern",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2467,
+      "body_sha256": "sha256:741bef4205abb2fe0e7dda64e769fea4508eded5aea2161a00dad335d55e42cb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:key_pattern:exact_values",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern",
+      "path": "documentation/resources/data_type/properties/rules/key_pattern/exact_values/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--key_pattern--exact_values.md",
+      "role": "properties",
+      "schema_path": ["rules", "key_pattern", "exact_values"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/key_pattern/exact_values/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.key_pattern.exact_values for xcsh_data_type.",
+      "title": "rules.key_pattern.exact_values",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1732,
+      "body_sha256": "sha256:6751ea337e373129ffae2fd567f50b1658c041980207ba0320aa7dac422dfa19",
+      "child_ids": [
+        "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
+        "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern"
+      ],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules",
+      "path": "documentation/resources/data_type/properties/rules/key_value_pattern/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--key_value_pattern.md",
+      "role": "properties",
+      "schema_path": ["rules", "key_value_pattern"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/key_value_pattern/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.key_value_pattern for xcsh_data_type.",
+      "title": "rules.key_value_pattern",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4479,
+      "body_sha256": "sha256:16e5754246fb58624206be63236edb06ab366f7c8a8feaef6ccbcecc87988d24",
+      "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values"],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern",
+      "path": "documentation/resources/data_type/properties/rules/key_value_pattern/key_pattern/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--key_value_pattern--key_pattern.md",
+      "role": "properties",
+      "schema_path": ["rules", "key_value_pattern", "key_pattern"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/key_value_pattern/key_pattern/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.key_value_pattern.key_pattern for xcsh_data_type.",
+      "title": "rules.key_value_pattern.key_pattern",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2735,
+      "body_sha256": "sha256:cdfc15d6e2800391319c21173e705a4403b2420b898196210c04b2a288ca505b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
+      "path": "documentation/resources/data_type/properties/rules/key_value_pattern/key_pattern/exact_values/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--key_value_pattern--key_pattern--exact_values.md",
+      "role": "properties",
+      "schema_path": ["rules", "key_value_pattern", "key_pattern", "exact_values"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/key_value_pattern/key_pattern/exact_values/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.key_value_pattern.key_pattern.exact_values for xcsh_data_type.",
+      "title": "rules.key_value_pattern.key_pattern.exact_values",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4497,
+      "body_sha256": "sha256:646409f63c04b14d3b672c1665ac323c95522b9ecc469dc00edb9b5a6f743627",
+      "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values"],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern",
+      "path": "documentation/resources/data_type/properties/rules/key_value_pattern/value_pattern/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--key_value_pattern--value_pattern.md",
+      "role": "properties",
+      "schema_path": ["rules", "key_value_pattern", "value_pattern"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/key_value_pattern/value_pattern/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.key_value_pattern.value_pattern for xcsh_data_type.",
+      "title": "rules.key_value_pattern.value_pattern",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2749,
+      "body_sha256": "sha256:45830356a4df6009ed89fdf7894924fedbd9c44a343578cdcedc5e4451f82483",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern",
+      "path": "documentation/resources/data_type/properties/rules/key_value_pattern/value_pattern/exact_values/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--key_value_pattern--value_pattern--exact_values.md",
+      "role": "properties",
+      "schema_path": ["rules", "key_value_pattern", "value_pattern", "exact_values"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/key_value_pattern/value_pattern/exact_values/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.key_value_pattern.value_pattern.exact_values for xcsh_data_type.",
+      "title": "rules.key_value_pattern.value_pattern.exact_values",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4192,
+      "body_sha256": "sha256:fd0c984183c3c5895da379513ff87f0939bf5e2cd45447c9e478d131eac8e71e",
+      "child_ids": ["xcsh-docs:resources:data_type:properties:rules:value_pattern:exact_values"],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:value_pattern",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules",
+      "path": "documentation/resources/data_type/properties/rules/value_pattern/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--value_pattern.md",
+      "role": "properties",
+      "schema_path": ["rules", "value_pattern"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/value_pattern/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.value_pattern for xcsh_data_type.",
+      "title": "rules.value_pattern",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2481,
+      "body_sha256": "sha256:12fde443c5ac52d3bb4161931d4c60ca859edf4e257353fc942dd5720265d9fe",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:rules:value_pattern:exact_values",
+      "parent_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern",
+      "path": "documentation/resources/data_type/properties/rules/value_pattern/exact_values/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--rules--value_pattern--exact_values.md",
+      "role": "properties",
+      "schema_path": ["rules", "value_pattern", "exact_values"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/rules/value_pattern/exact_values/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.value_pattern.exact_values for xcsh_data_type.",
+      "title": "rules.value_pattern.exact_values",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2114,
+      "body_sha256": "sha256:aa6d527a8d30472e8e07dce4a454ca52279bcd026884a700464149832b4c037a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:data_type:reference",
+      "path": "documentation/resources/data_type/properties/timeouts/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_data_type.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 516,
+      "body_sha256": "sha256:cd6d1d0dd4b78ef6c13f7142e4ff2cf38e7d71286c48db53e03fe68b8a71e5d0",
+      "child_ids": ["xcsh-docs:resources:data_type:example:resource"],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:examples",
+      "parent_id": "xcsh-docs:resources:data_type:fundamentals",
+      "path": "documentation/resources/data_type/examples/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_data_type.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1154,
+      "body_sha256": "sha256:128b68d0c012b261239143f14eca8a5fd3293d48eb35965903771b4fbde8a25c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:292681f3b6c18ec2ffbe2be1a0e17beb9c57b44e1777befb42567a6c3a8f12ee",
+        "source_path": "examples/resources/xcsh_data_type/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:data_type:example:resource",
+      "parent_id": "xcsh-docs:resources:data_type:examples",
+      "path": "documentation/resources/data_type/examples/resource/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_data_type.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 394,
+      "body_sha256": "sha256:a0f70abeb081ccd612f496bced3f83e668cfa854295e09571dfb6d68aa65702a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:import",
+      "parent_id": "xcsh-docs:resources:data_type:fundamentals",
+      "path": "documentation/resources/data_type/lifecycle/import/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_data_type.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 454,
+      "body_sha256": "sha256:b02c5c2bf385d4ace754461d06b0ba3c62cc273c2d8929faf369fd94f03b7338",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:data_type:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:data_type:timeouts",
+      "parent_id": "xcsh-docs:resources:data_type:fundamentals",
+      "path": "documentation/resources/data_type/lifecycle/timeouts/index.md",
+      "provider_name": "data_type",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--data_type--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_type/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_data_type.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["data_typeCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

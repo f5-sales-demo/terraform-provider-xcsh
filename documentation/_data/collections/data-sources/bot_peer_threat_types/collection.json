@@ -1,0 +1,210 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:bot_peer_threat_types:fundamentals",
+    "id": "xcsh-docs:data-sources:bot_peer_threat_types:collection",
+    "properties": {
+      "details": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:properties:details",
+        "schema_path": ["details"]
+      },
+      "details.name": {
+        "anchor": "schema-details--name",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:properties:details",
+        "schema_path": ["details", "name"]
+      },
+      "details.peer_count": {
+        "anchor": "schema-details--peer_count",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:properties:details",
+        "schema_path": ["details", "peer_count"]
+      },
+      "details.peer_percentage": {
+        "anchor": "schema-details--peer_percentage",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:properties:details",
+        "schema_path": ["details", "peer_percentage"]
+      },
+      "details.self_count": {
+        "anchor": "schema-details--self_count",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:properties:details",
+        "schema_path": ["details", "self_count"]
+      },
+      "details.self_percentage": {
+        "anchor": "schema-details--self_percentage",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:properties:details",
+        "schema_path": ["details", "self_percentage"]
+      },
+      "end_time": {
+        "anchor": "schema-end_time",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:reference",
+        "schema_path": ["end_time"]
+      },
+      "limit": {
+        "anchor": "schema-limit",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:reference",
+        "schema_path": ["limit"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:reference",
+        "schema_path": ["namespace"]
+      },
+      "rank_by": {
+        "anchor": "schema-rank_by",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:reference",
+        "schema_path": ["rank_by"]
+      },
+      "start_time": {
+        "anchor": "schema-start_time",
+        "document_id": "xcsh-docs:data-sources:bot_peer_threat_types:reference",
+        "schema_path": ["start_time"]
+      }
+    },
+    "provider_name": "bot_peer_threat_types",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:bot_peer_threat_types:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1166,
+      "body_sha256": "sha256:553d8e4cd05ea4846279c52d4b7bbd6646f36d12eb1d9e4710c38e03f014ee5e",
+      "child_ids": [
+        "xcsh-docs:data-sources:bot_peer_threat_types:reference",
+        "xcsh-docs:data-sources:bot_peer_threat_types:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:bot_peer_threat_types:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_peer_threat_types:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/bot_peer_threat_types/index.md",
+      "provider_name": "bot_peer_threat_types",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/bot_peer_threat_types.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_threat_types/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_bot_peer_threat_types for xcsh_bot_peer_threat_types.",
+      "title": "xcsh_bot_peer_threat_types",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3919,
+      "body_sha256": "sha256:cb38e73236bfe413cea51ab307449191a7c53dabb8e10f61aa98e63481b68d29",
+      "child_ids": ["xcsh-docs:data-sources:bot_peer_threat_types:properties:details"],
+      "collection_id": "xcsh-docs:data-sources:bot_peer_threat_types:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_peer_threat_types:reference",
+      "parent_id": "xcsh-docs:data-sources:bot_peer_threat_types:fundamentals",
+      "path": "documentation/data-sources/bot_peer_threat_types/properties/index.md",
+      "provider_name": "bot_peer_threat_types",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_peer_threat_types--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_threat_types/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_bot_peer_threat_types.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1626,
+      "body_sha256": "sha256:1abf70377edc4f50d43bc536b9e79ab54576346d048affbe84b57e630d407c6f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_peer_threat_types:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_peer_threat_types:properties:details",
+      "parent_id": "xcsh-docs:data-sources:bot_peer_threat_types:reference",
+      "path": "documentation/data-sources/bot_peer_threat_types/properties/details/index.md",
+      "provider_name": "bot_peer_threat_types",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_peer_threat_types--properties--details.md",
+      "role": "properties",
+      "schema_path": ["details"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_threat_types/properties/details/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "details for xcsh_bot_peer_threat_types.",
+      "title": "details",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 612,
+      "body_sha256": "sha256:2c83e873f0004c4f6e04b639f2d922de3f50920665c0b8922800847acf1c848b",
+      "child_ids": ["xcsh-docs:data-sources:bot_peer_threat_types:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:bot_peer_threat_types:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:bot_peer_threat_types:examples",
+      "parent_id": "xcsh-docs:data-sources:bot_peer_threat_types:fundamentals",
+      "path": "documentation/data-sources/bot_peer_threat_types/examples/index.md",
+      "provider_name": "bot_peer_threat_types",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_peer_threat_types--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_threat_types/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_bot_peer_threat_types.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1205,
+      "body_sha256": "sha256:545b0c973c992ae43db7097a63e720bb3faec9094e581b5208249accb492248e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:bot_peer_threat_types:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:340fefb3e7c9dd8e5383ef09986b56ee68d03ed73a4bcf9a8c9ec927ce63eafa",
+        "source_path": "examples/data-sources/xcsh_bot_peer_threat_types/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:bot_peer_threat_types:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:bot_peer_threat_types:examples",
+      "path": "documentation/data-sources/bot_peer_threat_types/examples/data-source/index.md",
+      "provider_name": "bot_peer_threat_types",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--bot_peer_threat_types--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_threat_types/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_bot_peer_threat_types.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

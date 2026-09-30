@@ -1,0 +1,313 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:virtual_site:fundamentals",
+    "id": "xcsh-docs:resources:virtual_site:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:virtual_site:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:virtual_site:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:virtual_site:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:virtual_site:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:virtual_site:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:virtual_site:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:virtual_site:reference",
+        "schema_path": ["namespace"]
+      },
+      "site_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:virtual_site:properties:site_selector",
+        "schema_path": ["site_selector"]
+      },
+      "site_selector.expressions": {
+        "anchor": "schema-site_selector--expressions",
+        "document_id": "xcsh-docs:resources:virtual_site:properties:site_selector",
+        "schema_path": ["site_selector", "expressions"]
+      },
+      "site_type": {
+        "anchor": "schema-site_type",
+        "document_id": "xcsh-docs:resources:virtual_site:reference",
+        "schema_path": ["site_type"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:virtual_site:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:virtual_site:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:virtual_site:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:virtual_site:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:virtual_site:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "virtual_site",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:virtual_site:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1462,
+      "body_sha256": "sha256:e068cc27d657a8ea825807867fe564eedbb98e21d09096b8d621d7723c14cae7",
+      "child_ids": [
+        "xcsh-docs:resources:virtual_site:reference",
+        "xcsh-docs:resources:virtual_site:examples",
+        "xcsh-docs:resources:virtual_site:import",
+        "xcsh-docs:resources:virtual_site:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:virtual_site:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:virtual_site:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/virtual_site/index.md",
+      "provider_name": "virtual_site",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/virtual_site.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_virtual_site for xcsh_virtual_site.",
+      "title": "xcsh_virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_siteCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10473,
+      "body_sha256": "sha256:1d9a7a4c30ff6debeaf48b8df2ceb208e51edb39299943fa336772d78bd4e2a7",
+      "child_ids": [
+        "xcsh-docs:resources:virtual_site:properties:site_selector",
+        "xcsh-docs:resources:virtual_site:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:virtual_site:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:virtual_site:reference",
+      "parent_id": "xcsh-docs:resources:virtual_site:fundamentals",
+      "path": "documentation/resources/virtual_site/properties/index.md",
+      "provider_name": "virtual_site",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--virtual_site--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_virtual_site.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_siteCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3859,
+      "body_sha256": "sha256:272ecc36bed4c3a36ed1a679c66a2da1f21bbca883c5cdae12f888497a56174b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:virtual_site:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:virtual_site:properties:site_selector",
+      "parent_id": "xcsh-docs:resources:virtual_site:reference",
+      "path": "documentation/resources/virtual_site/properties/site_selector/index.md",
+      "provider_name": "virtual_site",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--virtual_site--properties--site_selector.md",
+      "role": "properties",
+      "schema_path": ["site_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/properties/site_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_selector for xcsh_virtual_site.",
+      "title": "site_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_siteCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2132,
+      "body_sha256": "sha256:08e9c2e11e6c4286c70c420a68a0919181f93b585029dca48515e5d0cd30de63",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:virtual_site:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:virtual_site:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:virtual_site:reference",
+      "path": "documentation/resources/virtual_site/properties/timeouts/index.md",
+      "provider_name": "virtual_site",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--virtual_site--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_virtual_site.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_siteCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 534,
+      "body_sha256": "sha256:5f201828e20c08d38f1b85c64b2b48177530c07dedbeb8b5d10a51930e8b24de",
+      "child_ids": ["xcsh-docs:resources:virtual_site:example:resource"],
+      "collection_id": "xcsh-docs:resources:virtual_site:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:virtual_site:examples",
+      "parent_id": "xcsh-docs:resources:virtual_site:fundamentals",
+      "path": "documentation/resources/virtual_site/examples/index.md",
+      "provider_name": "virtual_site",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--virtual_site--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_virtual_site.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_siteCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1149,
+      "body_sha256": "sha256:d94a5f2a5c6fe2384cb8e2252c843410a03b3ec463556c82c2c52e2d911d4735",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:virtual_site:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:d4f2ae5a53db544456cc0750c3ea7b5a8e1e23a8aad03279e065c9ce6ac7f872",
+        "source_path": "examples/resources/xcsh_virtual_site/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:virtual_site:example:resource",
+      "parent_id": "xcsh-docs:resources:virtual_site:examples",
+      "path": "documentation/resources/virtual_site/examples/resource/index.md",
+      "provider_name": "virtual_site",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--virtual_site--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_virtual_site.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_siteCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 409,
+      "body_sha256": "sha256:b7333aa24956656c6b801762ef76d7547642815a140278336bc0426bbbcc25c3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:virtual_site:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:virtual_site:import",
+      "parent_id": "xcsh-docs:resources:virtual_site:fundamentals",
+      "path": "documentation/resources/virtual_site/lifecycle/import/index.md",
+      "provider_name": "virtual_site",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--virtual_site--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_virtual_site.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_siteCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 469,
+      "body_sha256": "sha256:43220688814dd1c5a657e3d44f885ab5eb71d611f285125aca8fc9a0df282ab7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:virtual_site:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:virtual_site:timeouts",
+      "parent_id": "xcsh-docs:resources:virtual_site:fundamentals",
+      "path": "documentation/resources/virtual_site/lifecycle/timeouts/index.md",
+      "provider_name": "virtual_site",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--virtual_site--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_virtual_site.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_siteCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

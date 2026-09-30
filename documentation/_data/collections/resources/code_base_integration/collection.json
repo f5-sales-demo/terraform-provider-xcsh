@@ -1,0 +1,1512 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:code_base_integration:fundamentals",
+    "id": "xcsh-docs:resources:code_base_integration:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:code_base_integration:reference",
+        "schema_path": ["annotations"]
+      },
+      "code_base_integration": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+        "schema_path": ["code_base_integration"]
+      },
+      "code_base_integration.azure_repos": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos",
+        "schema_path": ["code_base_integration", "azure_repos"]
+      },
+      "code_base_integration.azure_repos.access_token": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token",
+        "schema_path": ["code_base_integration", "azure_repos", "access_token"]
+      },
+      "code_base_integration.azure_repos.access_token.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "azure_repos", "access_token", "blindfold_secret_info"]
+      },
+      "code_base_integration.azure_repos.access_token.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-code_base_integration--azure_repos--access_token--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "azure_repos",
+          "access_token",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "code_base_integration.azure_repos.access_token.blindfold_secret_info.location": {
+        "anchor": "schema-code_base_integration--azure_repos--access_token--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "azure_repos", "access_token", "blindfold_secret_info", "location"]
+      },
+      "code_base_integration.azure_repos.access_token.blindfold_secret_info.store_provider": {
+        "anchor": "schema-code_base_integration--azure_repos--access_token--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "azure_repos",
+          "access_token",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "code_base_integration.azure_repos.access_token.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "azure_repos", "access_token", "clear_secret_info"]
+      },
+      "code_base_integration.azure_repos.access_token.clear_secret_info.provider_ref": {
+        "anchor": "schema-code_base_integration--azure_repos--access_token--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "azure_repos", "access_token", "clear_secret_info", "provider_ref"]
+      },
+      "code_base_integration.azure_repos.access_token.clear_secret_info.url": {
+        "anchor": "schema-code_base_integration--azure_repos--access_token--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "azure_repos", "access_token", "clear_secret_info", "url"]
+      },
+      "code_base_integration.bitbucket": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket",
+        "schema_path": ["code_base_integration", "bitbucket"]
+      },
+      "code_base_integration.bitbucket.passwd": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd",
+        "schema_path": ["code_base_integration", "bitbucket", "passwd"]
+      },
+      "code_base_integration.bitbucket.passwd.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket", "passwd", "blindfold_secret_info"]
+      },
+      "code_base_integration.bitbucket.passwd.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-code_base_integration--bitbucket--passwd--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket", "passwd", "blindfold_secret_info", "decryption_provider"]
+      },
+      "code_base_integration.bitbucket.passwd.blindfold_secret_info.location": {
+        "anchor": "schema-code_base_integration--bitbucket--passwd--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket", "passwd", "blindfold_secret_info", "location"]
+      },
+      "code_base_integration.bitbucket.passwd.blindfold_secret_info.store_provider": {
+        "anchor": "schema-code_base_integration--bitbucket--passwd--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket", "passwd", "blindfold_secret_info", "store_provider"]
+      },
+      "code_base_integration.bitbucket.passwd.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket", "passwd", "clear_secret_info"]
+      },
+      "code_base_integration.bitbucket.passwd.clear_secret_info.provider_ref": {
+        "anchor": "schema-code_base_integration--bitbucket--passwd--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket", "passwd", "clear_secret_info", "provider_ref"]
+      },
+      "code_base_integration.bitbucket.passwd.clear_secret_info.url": {
+        "anchor": "schema-code_base_integration--bitbucket--passwd--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket", "passwd", "clear_secret_info", "url"]
+      },
+      "code_base_integration.bitbucket.username": {
+        "anchor": "schema-code_base_integration--bitbucket--username",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket",
+        "schema_path": ["code_base_integration", "bitbucket", "username"]
+      },
+      "code_base_integration.bitbucket_server": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server",
+        "schema_path": ["code_base_integration", "bitbucket_server"]
+      },
+      "code_base_integration.bitbucket_server.passwd": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd",
+        "schema_path": ["code_base_integration", "bitbucket_server", "passwd"]
+      },
+      "code_base_integration.bitbucket_server.passwd.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "blindfold_secret_info"]
+      },
+      "code_base_integration.bitbucket_server.passwd.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-code_base_integration--bitbucket_server--passwd--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "bitbucket_server",
+          "passwd",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "code_base_integration.bitbucket_server.passwd.blindfold_secret_info.location": {
+        "anchor": "schema-code_base_integration--bitbucket_server--passwd--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "blindfold_secret_info", "location"]
+      },
+      "code_base_integration.bitbucket_server.passwd.blindfold_secret_info.store_provider": {
+        "anchor": "schema-code_base_integration--bitbucket_server--passwd--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "bitbucket_server",
+          "passwd",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "code_base_integration.bitbucket_server.passwd.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "clear_secret_info"]
+      },
+      "code_base_integration.bitbucket_server.passwd.clear_secret_info.provider_ref": {
+        "anchor": "schema-code_base_integration--bitbucket_server--passwd--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "clear_secret_info", "provider_ref"]
+      },
+      "code_base_integration.bitbucket_server.passwd.clear_secret_info.url": {
+        "anchor": "schema-code_base_integration--bitbucket_server--passwd--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info",
+        "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "clear_secret_info", "url"]
+      },
+      "code_base_integration.bitbucket_server.url": {
+        "anchor": "schema-code_base_integration--bitbucket_server--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server",
+        "schema_path": ["code_base_integration", "bitbucket_server", "url"]
+      },
+      "code_base_integration.bitbucket_server.username": {
+        "anchor": "schema-code_base_integration--bitbucket_server--username",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server",
+        "schema_path": ["code_base_integration", "bitbucket_server", "username"]
+      },
+      "code_base_integration.bitbucket_server.verify_ssl": {
+        "anchor": "schema-code_base_integration--bitbucket_server--verify_ssl",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server",
+        "schema_path": ["code_base_integration", "bitbucket_server", "verify_ssl"]
+      },
+      "code_base_integration.github": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github",
+        "schema_path": ["code_base_integration", "github"]
+      },
+      "code_base_integration.github.access_token": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token",
+        "schema_path": ["code_base_integration", "github", "access_token"]
+      },
+      "code_base_integration.github.access_token.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "github", "access_token", "blindfold_secret_info"]
+      },
+      "code_base_integration.github.access_token.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-code_base_integration--github--access_token--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "github",
+          "access_token",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "code_base_integration.github.access_token.blindfold_secret_info.location": {
+        "anchor": "schema-code_base_integration--github--access_token--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "github", "access_token", "blindfold_secret_info", "location"]
+      },
+      "code_base_integration.github.access_token.blindfold_secret_info.store_provider": {
+        "anchor": "schema-code_base_integration--github--access_token--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "github", "access_token", "blindfold_secret_info", "store_provider"]
+      },
+      "code_base_integration.github.access_token.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "github", "access_token", "clear_secret_info"]
+      },
+      "code_base_integration.github.access_token.clear_secret_info.provider_ref": {
+        "anchor": "schema-code_base_integration--github--access_token--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "github", "access_token", "clear_secret_info", "provider_ref"]
+      },
+      "code_base_integration.github.access_token.clear_secret_info.url": {
+        "anchor": "schema-code_base_integration--github--access_token--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "github", "access_token", "clear_secret_info", "url"]
+      },
+      "code_base_integration.github.username": {
+        "anchor": "schema-code_base_integration--github--username",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github",
+        "schema_path": ["code_base_integration", "github", "username"]
+      },
+      "code_base_integration.github.verify_ssl": {
+        "anchor": "schema-code_base_integration--github--verify_ssl",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github",
+        "schema_path": ["code_base_integration", "github", "verify_ssl"]
+      },
+      "code_base_integration.github_enterprise": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise",
+        "schema_path": ["code_base_integration", "github_enterprise"]
+      },
+      "code_base_integration.github_enterprise.access_token": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token",
+        "schema_path": ["code_base_integration", "github_enterprise", "access_token"]
+      },
+      "code_base_integration.github_enterprise.access_token.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "github_enterprise", "access_token", "blindfold_secret_info"]
+      },
+      "code_base_integration.github_enterprise.access_token.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-code_base_integration--github_enterprise--access_token--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "github_enterprise",
+          "access_token",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "code_base_integration.github_enterprise.access_token.blindfold_secret_info.location": {
+        "anchor": "schema-code_base_integration--github_enterprise--access_token--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "github_enterprise",
+          "access_token",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "code_base_integration.github_enterprise.access_token.blindfold_secret_info.store_provider": {
+        "anchor": "schema-code_base_integration--github_enterprise--access_token--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "github_enterprise",
+          "access_token",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "code_base_integration.github_enterprise.access_token.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "github_enterprise", "access_token", "clear_secret_info"]
+      },
+      "code_base_integration.github_enterprise.access_token.clear_secret_info.provider_ref": {
+        "anchor": "schema-code_base_integration--github_enterprise--access_token--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "github_enterprise",
+          "access_token",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "code_base_integration.github_enterprise.access_token.clear_secret_info.url": {
+        "anchor": "schema-code_base_integration--github_enterprise--access_token--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "github_enterprise", "access_token", "clear_secret_info", "url"]
+      },
+      "code_base_integration.github_enterprise.hostname": {
+        "anchor": "schema-code_base_integration--github_enterprise--hostname",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise",
+        "schema_path": ["code_base_integration", "github_enterprise", "hostname"]
+      },
+      "code_base_integration.github_enterprise.username": {
+        "anchor": "schema-code_base_integration--github_enterprise--username",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise",
+        "schema_path": ["code_base_integration", "github_enterprise", "username"]
+      },
+      "code_base_integration.gitlab": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab",
+        "schema_path": ["code_base_integration", "gitlab"]
+      },
+      "code_base_integration.gitlab.access_token": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token",
+        "schema_path": ["code_base_integration", "gitlab", "access_token"]
+      },
+      "code_base_integration.gitlab.access_token.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "gitlab", "access_token", "blindfold_secret_info"]
+      },
+      "code_base_integration.gitlab.access_token.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-code_base_integration--gitlab--access_token--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "gitlab",
+          "access_token",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "code_base_integration.gitlab.access_token.blindfold_secret_info.location": {
+        "anchor": "schema-code_base_integration--gitlab--access_token--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "gitlab", "access_token", "blindfold_secret_info", "location"]
+      },
+      "code_base_integration.gitlab.access_token.blindfold_secret_info.store_provider": {
+        "anchor": "schema-code_base_integration--gitlab--access_token--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "gitlab", "access_token", "blindfold_secret_info", "store_provider"]
+      },
+      "code_base_integration.gitlab.access_token.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "gitlab", "access_token", "clear_secret_info"]
+      },
+      "code_base_integration.gitlab.access_token.clear_secret_info.provider_ref": {
+        "anchor": "schema-code_base_integration--gitlab--access_token--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "gitlab", "access_token", "clear_secret_info", "provider_ref"]
+      },
+      "code_base_integration.gitlab.access_token.clear_secret_info.url": {
+        "anchor": "schema-code_base_integration--gitlab--access_token--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "gitlab", "access_token", "clear_secret_info", "url"]
+      },
+      "code_base_integration.gitlab_enterprise": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise",
+        "schema_path": ["code_base_integration", "gitlab_enterprise"]
+      },
+      "code_base_integration.gitlab_enterprise.access_token": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token",
+        "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token"]
+      },
+      "code_base_integration.gitlab_enterprise.access_token.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
+        "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token", "blindfold_secret_info"]
+      },
+      "code_base_integration.gitlab_enterprise.access_token.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "gitlab_enterprise",
+          "access_token",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "code_base_integration.gitlab_enterprise.access_token.blindfold_secret_info.location": {
+        "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "gitlab_enterprise",
+          "access_token",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "code_base_integration.gitlab_enterprise.access_token.blindfold_secret_info.store_provider": {
+        "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "gitlab_enterprise",
+          "access_token",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "code_base_integration.gitlab_enterprise.access_token.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token", "clear_secret_info"]
+      },
+      "code_base_integration.gitlab_enterprise.access_token.clear_secret_info.provider_ref": {
+        "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info",
+        "schema_path": [
+          "code_base_integration",
+          "gitlab_enterprise",
+          "access_token",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "code_base_integration.gitlab_enterprise.access_token.clear_secret_info.url": {
+        "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info",
+        "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token", "clear_secret_info", "url"]
+      },
+      "code_base_integration.gitlab_enterprise.url": {
+        "anchor": "schema-code_base_integration--gitlab_enterprise--url",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise",
+        "schema_path": ["code_base_integration", "gitlab_enterprise", "url"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:code_base_integration:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:code_base_integration:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:code_base_integration:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:code_base_integration:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:code_base_integration:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:code_base_integration:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:code_base_integration:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "code_base_integration",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:code_base_integration:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1478,
+      "body_sha256": "sha256:67ae3a5f93d23bf822320d8fc9211fe52fe5a1e216587e7eb3fbd8ea191797de",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:reference",
+        "xcsh-docs:resources:code_base_integration:examples",
+        "xcsh-docs:resources:code_base_integration:import",
+        "xcsh-docs:resources:code_base_integration:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/code_base_integration/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/code_base_integration.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_code_base_integration for xcsh_code_base_integration.",
+      "title": "xcsh_code_base_integration",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 34709,
+      "body_sha256": "sha256:862a7a7ea99cc683173df0469fc920355167c3e0db002044f5ad2e691a2048e5",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+        "xcsh-docs:resources:code_base_integration:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:reference",
+      "parent_id": "xcsh-docs:resources:code_base_integration:fundamentals",
+      "path": "documentation/resources/code_base_integration/properties/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_code_base_integration.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5449,
+      "body_sha256": "sha256:d4b8a9ede236dc785fa22f6858a704e420b9d612e310ef6c424019372dadcb22",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+      "parent_id": "xcsh-docs:resources:code_base_integration:reference",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration for xcsh_code_base_integration.",
+      "title": "code_base_integration",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1574,
+      "body_sha256": "sha256:5e32e727cc4e48432a7d339e06a626b099e85f4165f70587ee8cf2c17c653d93",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/azure_repos/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--azure_repos.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "azure_repos"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.azure_repos for xcsh_code_base_integration.",
+      "title": "code_base_integration.azure_repos",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2646,
+      "body_sha256": "sha256:0f67cc9ee9fb90f935882e1e6dc29d9ab108662a8dc53e7ea2d421b3d24454e2",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--azure_repos--access_token.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "azure_repos", "access_token"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.azure_repos.access_token for xcsh_code_base_integration.",
+      "title": "code_base_integration.azure_repos.access_token",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5212,
+      "body_sha256": "sha256:88f3c83224b77181527ca5cf978ba8e48f2d0ed92fcbd5e5cde2bca6aba85415",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/blindfold_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--azure_repos--access_token--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "azure_repos", "access_token", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.azure_repos.access_token.blindfold_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.azure_repos.access_token.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4075,
+      "body_sha256": "sha256:f7ff19f2e3dff9428afdbe962315a7de0d0b9f48d0b5d5742148c0cd95701042",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:azure_repos:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/clear_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--azure_repos--access_token--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "azure_repos", "access_token", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.azure_repos.access_token.clear_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.azure_repos.access_token.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2678,
+      "body_sha256": "sha256:a97b23d2f7d934d57674dcee2df8d5ba46ad5f466b129d630b42324539bca127",
+      "child_ids": ["xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd"],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--bitbucket.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "bitbucket"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.bitbucket for xcsh_code_base_integration.",
+      "title": "code_base_integration.bitbucket",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2568,
+      "body_sha256": "sha256:ad6c8c8c00c1adcfaa7fc0d40d82cf247cb95479356a9a74e892d3b1842ecd29",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--bitbucket--passwd.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "bitbucket", "passwd"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.bitbucket.passwd for xcsh_code_base_integration.",
+      "title": "code_base_integration.bitbucket.passwd",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5136,
+      "body_sha256": "sha256:03ccb06913393f5470c28a91711597c91dacca14d6e2bccc511b6066cde2287d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/blindfold_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--bitbucket--passwd--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "bitbucket", "passwd", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.bitbucket.passwd.blindfold_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.bitbucket.passwd.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4007,
+      "body_sha256": "sha256:dec6b61e151b0a06b14022289147709c3f54ef83f78c37fd15207a79dc28d34d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/clear_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--bitbucket--passwd--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "bitbucket", "passwd", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.bitbucket.passwd.clear_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.bitbucket.passwd.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4446,
+      "body_sha256": "sha256:1a92b222d5fe7bbbd843939889d9b89950dce1f90eb32098336c8886d4b56fa0",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket_server/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--bitbucket_server.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "bitbucket_server"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.bitbucket_server for xcsh_code_base_integration.",
+      "title": "code_base_integration.bitbucket_server",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2652,
+      "body_sha256": "sha256:306b17bde59c4dd73f73d7888f57777ffb54713a85c59baea9b1e4c3d07e01bd",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--bitbucket_server--passwd.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "bitbucket_server", "passwd"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.bitbucket_server.passwd for xcsh_code_base_integration.",
+      "title": "code_base_integration.bitbucket_server.passwd",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5213,
+      "body_sha256": "sha256:1a90ff7e5ef5e1bdb1582f7a8922ec9dbbc13e5285cedbd422bb7b2274b13f4e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/blindfold_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--bitbucket_server--passwd--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.bitbucket_server.passwd.blindfold_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.bitbucket_server.passwd.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4077,
+      "body_sha256": "sha256:f1f1885aa0b7116b18d7bdb3e86b3ffcb9454234e6f02bcd1bc143129730de3a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/clear_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--bitbucket_server--passwd--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.bitbucket_server.passwd.clear_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.bitbucket_server.passwd.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3081,
+      "body_sha256": "sha256:0cac6c3f2996e78366b08e918d46fe521a4c4292680a3fec644b6d65a70d1dc7",
+      "child_ids": ["xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token"],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/github/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--github.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "github"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.github for xcsh_code_base_integration.",
+      "title": "code_base_integration.github",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2586,
+      "body_sha256": "sha256:6de15fd7a52bb383c9c17f0f69d43b711edfa309101165a6ac6709cf28bab5a8",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/github/access_token/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--github--access_token.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "github", "access_token"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.github.access_token for xcsh_code_base_integration.",
+      "title": "code_base_integration.github.access_token",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5157,
+      "body_sha256": "sha256:72852d758b6aafb75a9bdd4134e2fa2aeaa27140b9c5a25100ea559745eb1563",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/github/access_token/blindfold_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--github--access_token--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "github", "access_token", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.github.access_token.blindfold_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.github.access_token.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4025,
+      "body_sha256": "sha256:39258ba063e681862843915b360d5969d0207de81476ae858490d9770f14e77f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/github/access_token/clear_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--github--access_token--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "github", "access_token", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.github.access_token.clear_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.github.access_token.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4107,
+      "body_sha256": "sha256:7a6da8b0a1f59da9bd711bf5560807c1c058d1e9d7aa893280498844c81a5f69",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/github_enterprise/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--github_enterprise.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "github_enterprise"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.github_enterprise for xcsh_code_base_integration.",
+      "title": "code_base_integration.github_enterprise",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2718,
+      "body_sha256": "sha256:a3b42f1ed9ebea80e540704a649be9bc574ea6ae2bbaf5e5648f3385f548bd15",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--github_enterprise--access_token.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "github_enterprise", "access_token"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.github_enterprise.access_token for xcsh_code_base_integration.",
+      "title": "code_base_integration.github_enterprise.access_token",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5278,
+      "body_sha256": "sha256:93c57b3f08370d49eb78451580412984a52e6d423c776fd14895f1b3c15eedd1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/blindfold_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--github_enterprise--access_token--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "github_enterprise", "access_token", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.github_enterprise.access_token.blindfold_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.github_enterprise.access_token.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4135,
+      "body_sha256": "sha256:84da5651942da866a49757085498e340e5227176c120bbb96f7c1be8d0992fc1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:github_enterprise:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/clear_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--github_enterprise--access_token--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "github_enterprise", "access_token", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.github_enterprise.access_token.clear_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.github_enterprise.access_token.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1529,
+      "body_sha256": "sha256:b856a5189f0f54f8821d44afb0633060c5d1fa614ccbdac3031845a157dfca1d",
+      "child_ids": ["xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token"],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--gitlab.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "gitlab"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.gitlab for xcsh_code_base_integration.",
+      "title": "code_base_integration.gitlab",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2586,
+      "body_sha256": "sha256:c81a8cba594863d23291a225b11d4e0d1cd54e7d9ecbb8630212130818446723",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--gitlab--access_token.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "gitlab", "access_token"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.gitlab.access_token for xcsh_code_base_integration.",
+      "title": "code_base_integration.gitlab.access_token",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5157,
+      "body_sha256": "sha256:37ac38114f5832def8a1ff24ef2b5f0771f42dc0ae7b64bce2c7eb0dd74e7f68",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/blindfold_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--gitlab--access_token--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "gitlab", "access_token", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.gitlab.access_token.blindfold_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.gitlab.access_token.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4025,
+      "body_sha256": "sha256:b21956e9e4a01c9f8aaca3dbcac4f86745bc9d3ef40a710611dad4781143b85c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/clear_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--gitlab--access_token--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "gitlab", "access_token", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.gitlab.access_token.clear_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.gitlab.access_token.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3018,
+      "body_sha256": "sha256:8a6b0fc17c13f1d04e65a48693e6838cf10c1f945079f96aa5dc28d1141d8b38",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--gitlab_enterprise.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "gitlab_enterprise"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.gitlab_enterprise for xcsh_code_base_integration.",
+      "title": "code_base_integration.gitlab_enterprise",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2718,
+      "body_sha256": "sha256:2d91f1b5dbc86615682bfb0741723f2d24a32801f80d1ff5e1cf0e1551c0ab53",
+      "child_ids": [
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
+        "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--gitlab_enterprise--access_token.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.gitlab_enterprise.access_token for xcsh_code_base_integration.",
+      "title": "code_base_integration.gitlab_enterprise.access_token",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5278,
+      "body_sha256": "sha256:5509c6b4776a6c79b1017a83004153ba80ae38ec43f2b8ba0dcb9209ecacaa58",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/blindfold_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--gitlab_enterprise--access_token--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.gitlab_enterprise.access_token.blindfold_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.gitlab_enterprise.access_token.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4135,
+      "body_sha256": "sha256:1fee3ecf8353656ef13fed3a605da2e73060d621a51e5d0e7e46976cfa3ab830",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token",
+      "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/clear_secret_info/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--code_base_integration--gitlab_enterprise--access_token--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "code_base_integration.gitlab_enterprise.access_token.clear_secret_info for xcsh_code_base_integration.",
+      "title": "code_base_integration.gitlab_enterprise.access_token.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2186,
+      "body_sha256": "sha256:600c4f2ab9cf5dfd275ea5ec0ea25cf688706af61bf9a990c4ebbd44615cd5b1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:code_base_integration:reference",
+      "path": "documentation/resources/code_base_integration/properties/timeouts/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_code_base_integration.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 588,
+      "body_sha256": "sha256:2356d2f1e3a4a72e72fe92f7b3f3b628a47689e35079f2e7539b9ef4229b4538",
+      "child_ids": ["xcsh-docs:resources:code_base_integration:example:resource"],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:examples",
+      "parent_id": "xcsh-docs:resources:code_base_integration:fundamentals",
+      "path": "documentation/resources/code_base_integration/examples/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_code_base_integration.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1227,
+      "body_sha256": "sha256:68ae6e2c35aa623b618391eac5c3e4c5cfab1256fc0f63a2a93f641d9bf53842",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:96e41779f04da03e1e24b87e34c40ee5955713fd86df36344fb3cbec779ab18f",
+        "source_path": "examples/resources/xcsh_code_base_integration/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:code_base_integration:example:resource",
+      "parent_id": "xcsh-docs:resources:code_base_integration:examples",
+      "path": "documentation/resources/code_base_integration/examples/resource/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_code_base_integration.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 454,
+      "body_sha256": "sha256:6d64b545ad6506e195307560f344a8e324d5f87af1115dfa418f92e9e6d9e0a3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:import",
+      "parent_id": "xcsh-docs:resources:code_base_integration:fundamentals",
+      "path": "documentation/resources/code_base_integration/lifecycle/import/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_code_base_integration.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 514,
+      "body_sha256": "sha256:ce0fec69000b0f8283dcfc997f6d3f3f7e2eacf4376127f008b8b73c9fe02916",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:code_base_integration:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:code_base_integration:timeouts",
+      "parent_id": "xcsh-docs:resources:code_base_integration:fundamentals",
+      "path": "documentation/resources/code_base_integration/lifecycle/timeouts/index.md",
+      "provider_name": "code_base_integration",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--code_base_integration--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_code_base_integration.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["code_base_integrationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

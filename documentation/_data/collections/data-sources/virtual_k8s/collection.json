@@ -1,0 +1,325 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:virtual_k8s:fundamentals",
+    "id": "xcsh-docs:data-sources:virtual_k8s:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+        "schema_path": ["annotations"]
+      },
+      "default_flavor_ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:default_flavor_ref",
+        "schema_path": ["default_flavor_ref"]
+      },
+      "default_flavor_ref.name": {
+        "anchor": "schema-default_flavor_ref--name",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:default_flavor_ref",
+        "schema_path": ["default_flavor_ref", "name"]
+      },
+      "default_flavor_ref.namespace": {
+        "anchor": "schema-default_flavor_ref--namespace",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:default_flavor_ref",
+        "schema_path": ["default_flavor_ref", "namespace"]
+      },
+      "default_flavor_ref.tenant": {
+        "anchor": "schema-default_flavor_ref--tenant",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:default_flavor_ref",
+        "schema_path": ["default_flavor_ref", "tenant"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+        "schema_path": ["description"]
+      },
+      "disabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:disabled",
+        "schema_path": ["disabled"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+        "schema_path": ["id"]
+      },
+      "isolated": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:isolated",
+        "schema_path": ["isolated"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+        "schema_path": ["namespace"]
+      },
+      "vsite_refs": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:vsite_refs",
+        "schema_path": ["vsite_refs"]
+      },
+      "vsite_refs.kind": {
+        "anchor": "schema-vsite_refs--kind",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:vsite_refs",
+        "schema_path": ["vsite_refs", "kind"]
+      },
+      "vsite_refs.name": {
+        "anchor": "schema-vsite_refs--name",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:vsite_refs",
+        "schema_path": ["vsite_refs", "name"]
+      },
+      "vsite_refs.namespace": {
+        "anchor": "schema-vsite_refs--namespace",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:vsite_refs",
+        "schema_path": ["vsite_refs", "namespace"]
+      },
+      "vsite_refs.tenant": {
+        "anchor": "schema-vsite_refs--tenant",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:vsite_refs",
+        "schema_path": ["vsite_refs", "tenant"]
+      },
+      "vsite_refs.uid": {
+        "anchor": "schema-vsite_refs--uid",
+        "document_id": "xcsh-docs:data-sources:virtual_k8s:properties:vsite_refs",
+        "schema_path": ["vsite_refs", "uid"]
+      }
+    },
+    "provider_name": "virtual_k8s",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:virtual_k8s:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1383,
+      "body_sha256": "sha256:2107f3949d937b66fcf6f06924ec693e48f2add4012dc250a39105cd48f50a1d",
+      "child_ids": ["xcsh-docs:data-sources:virtual_k8s:reference", "xcsh-docs:data-sources:virtual_k8s:examples"],
+      "collection_id": "xcsh-docs:data-sources:virtual_k8s:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:virtual_k8s:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/virtual_k8s/index.md",
+      "provider_name": "virtual_k8s",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/virtual_k8s.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_virtual_k8s for xcsh_virtual_k8s.",
+      "title": "xcsh_virtual_k8s",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_k8sCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9953,
+      "body_sha256": "sha256:b3d226e63d1080cd1f18e77132801fb06e08b7aee8d1837764ddfbd5443c5806",
+      "child_ids": [
+        "xcsh-docs:data-sources:virtual_k8s:properties:default_flavor_ref",
+        "xcsh-docs:data-sources:virtual_k8s:properties:disabled",
+        "xcsh-docs:data-sources:virtual_k8s:properties:isolated",
+        "xcsh-docs:data-sources:virtual_k8s:properties:vsite_refs"
+      ],
+      "collection_id": "xcsh-docs:data-sources:virtual_k8s:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:virtual_k8s:reference",
+      "parent_id": "xcsh-docs:data-sources:virtual_k8s:fundamentals",
+      "path": "documentation/data-sources/virtual_k8s/properties/index.md",
+      "provider_name": "virtual_k8s",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--virtual_k8s--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_virtual_k8s.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_k8sCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5072,
+      "body_sha256": "sha256:f179aed902e933c42d3af7a7bcd3092d9d5ea76390687911c3c8b0b3adece702",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:virtual_k8s:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:virtual_k8s:properties:default_flavor_ref",
+      "parent_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+      "path": "documentation/data-sources/virtual_k8s/properties/default_flavor_ref/index.md",
+      "provider_name": "virtual_k8s",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--virtual_k8s--properties--default_flavor_ref.md",
+      "role": "properties",
+      "schema_path": ["default_flavor_ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/properties/default_flavor_ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "default_flavor_ref for xcsh_virtual_k8s.",
+      "title": "default_flavor_ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_k8sCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1307,
+      "body_sha256": "sha256:f00281a08de3cb511623025aff0769fe13664370f242f75d201684d1a454e15b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:virtual_k8s:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:virtual_k8s:properties:disabled",
+      "parent_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+      "path": "documentation/data-sources/virtual_k8s/properties/disabled/index.md",
+      "provider_name": "virtual_k8s",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--virtual_k8s--properties--disabled.md",
+      "role": "properties",
+      "schema_path": ["disabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/properties/disabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disabled for xcsh_virtual_k8s.",
+      "title": "disabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_k8sCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 923,
+      "body_sha256": "sha256:d54b0b8ee71d2afb91332141552abc444e40f6680b35a4c6f2f76c61e3ed53e4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:virtual_k8s:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:virtual_k8s:properties:isolated",
+      "parent_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+      "path": "documentation/data-sources/virtual_k8s/properties/isolated/index.md",
+      "provider_name": "virtual_k8s",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--virtual_k8s--properties--isolated.md",
+      "role": "properties",
+      "schema_path": ["isolated"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/properties/isolated/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "isolated for xcsh_virtual_k8s.",
+      "title": "isolated",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_k8sCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6363,
+      "body_sha256": "sha256:0c68cee7a9518c95313af9d1cffca923dd8115a21d5163620f372514ff7c5fe6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:virtual_k8s:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:virtual_k8s:properties:vsite_refs",
+      "parent_id": "xcsh-docs:data-sources:virtual_k8s:reference",
+      "path": "documentation/data-sources/virtual_k8s/properties/vsite_refs/index.md",
+      "provider_name": "virtual_k8s",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--virtual_k8s--properties--vsite_refs.md",
+      "role": "properties",
+      "schema_path": ["vsite_refs"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/properties/vsite_refs/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "vsite_refs for xcsh_virtual_k8s.",
+      "title": "vsite_refs",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_k8sCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 552,
+      "body_sha256": "sha256:091a1450305e612623aafea2b32314b70debd87080538c91dafe3a1e8c729354",
+      "child_ids": ["xcsh-docs:data-sources:virtual_k8s:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:virtual_k8s:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:virtual_k8s:examples",
+      "parent_id": "xcsh-docs:data-sources:virtual_k8s:fundamentals",
+      "path": "documentation/data-sources/virtual_k8s/examples/index.md",
+      "provider_name": "virtual_k8s",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--virtual_k8s--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_virtual_k8s.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_k8sCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1167,
+      "body_sha256": "sha256:472cdadbd19ee99dbe51b7a9fb731daece40a1e774b4be4af11c844a3168dcaa",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:virtual_k8s:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:85c7894f9985a87a12ec00003bcdb34e2727cf22575e06597a586ec7fcc0019d",
+        "source_path": "examples/data-sources/xcsh_virtual_k8s/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:virtual_k8s:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:virtual_k8s:examples",
+      "path": "documentation/data-sources/virtual_k8s/examples/data-source/index.md",
+      "provider_name": "virtual_k8s",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--virtual_k8s--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_k8s/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_virtual_k8s.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["virtual_k8sCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

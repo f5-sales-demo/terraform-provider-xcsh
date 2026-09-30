@@ -1,0 +1,359 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:sensitive_data_policy:fundamentals",
+    "id": "xcsh-docs:resources:sensitive_data_policy:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "compliances": {
+        "anchor": "schema-compliances",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["compliances"]
+      },
+      "custom_data_types": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types",
+        "schema_path": ["custom_data_types"]
+      },
+      "custom_data_types.custom_data_type_ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref",
+        "schema_path": ["custom_data_types", "custom_data_type_ref"]
+      },
+      "custom_data_types.custom_data_type_ref.name": {
+        "anchor": "schema-custom_data_types--custom_data_type_ref--name",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref",
+        "schema_path": ["custom_data_types", "custom_data_type_ref", "name"]
+      },
+      "custom_data_types.custom_data_type_ref.namespace": {
+        "anchor": "schema-custom_data_types--custom_data_type_ref--namespace",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref",
+        "schema_path": ["custom_data_types", "custom_data_type_ref", "namespace"]
+      },
+      "custom_data_types.custom_data_type_ref.tenant": {
+        "anchor": "schema-custom_data_types--custom_data_type_ref--tenant",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref",
+        "schema_path": ["custom_data_types", "custom_data_type_ref", "tenant"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["disable"]
+      },
+      "disabled_predefined_data_types": {
+        "anchor": "schema-disabled_predefined_data_types",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["disabled_predefined_data_types"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:sensitive_data_policy:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "sensitive_data_policy",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:sensitive_data_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1652,
+      "body_sha256": "sha256:b793f874bff2bffb31e0203ec2d44807eb62bd31fd293a61b7e969e065e02c90",
+      "child_ids": [
+        "xcsh-docs:resources:sensitive_data_policy:reference",
+        "xcsh-docs:resources:sensitive_data_policy:examples",
+        "xcsh-docs:resources:sensitive_data_policy:import",
+        "xcsh-docs:resources:sensitive_data_policy:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:sensitive_data_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/sensitive_data_policy/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/sensitive_data_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_sensitive_data_policy for xcsh_sensitive_data_policy.",
+      "title": "xcsh_sensitive_data_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 14409,
+      "body_sha256": "sha256:884a938bf036dfffaad12ecd407213095feced156a29b861a6a3d7e3b4462745",
+      "child_ids": [
+        "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types",
+        "xcsh-docs:resources:sensitive_data_policy:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:sensitive_data_policy:reference",
+      "parent_id": "xcsh-docs:resources:sensitive_data_policy:fundamentals",
+      "path": "documentation/resources/sensitive_data_policy/properties/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--sensitive_data_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_sensitive_data_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1971,
+      "body_sha256": "sha256:edac2232933e83b7f69a6a46a96b1ab9f9d2f3be3438b181d43439df78f7a47f",
+      "child_ids": ["xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref"],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types",
+      "parent_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+      "path": "documentation/resources/sensitive_data_policy/properties/custom_data_types/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--sensitive_data_policy--properties--custom_data_types.md",
+      "role": "properties",
+      "schema_path": ["custom_data_types"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/properties/custom_data_types/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_data_types for xcsh_sensitive_data_policy.",
+      "title": "custom_data_types",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6083,
+      "body_sha256": "sha256:3a9791ee816c27d3c8b1871ea9a7c986822af2310e8e62e1225f6e8fcdd4df19",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref",
+      "parent_id": "xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types",
+      "path": "documentation/resources/sensitive_data_policy/properties/custom_data_types/custom_data_type_ref/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--sensitive_data_policy--properties--custom_data_types--custom_data_type_ref.md",
+      "role": "properties",
+      "schema_path": ["custom_data_types", "custom_data_type_ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/properties/custom_data_types/custom_data_type_ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_data_types.custom_data_type_ref for xcsh_sensitive_data_policy.",
+      "title": "custom_data_types.custom_data_type_ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2186,
+      "body_sha256": "sha256:f0671717a3e37cffbc1e97d3e9d6f5028f16eba1d440ed2ac88672af88ebdc25",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:sensitive_data_policy:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:sensitive_data_policy:reference",
+      "path": "documentation/resources/sensitive_data_policy/properties/timeouts/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--sensitive_data_policy--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_sensitive_data_policy.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 588,
+      "body_sha256": "sha256:56f7f137fa702db88f1c5b9158754b2b2b331bdb54ff564b09ae96794690aaa3",
+      "child_ids": ["xcsh-docs:resources:sensitive_data_policy:example:resource"],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:sensitive_data_policy:examples",
+      "parent_id": "xcsh-docs:resources:sensitive_data_policy:fundamentals",
+      "path": "documentation/resources/sensitive_data_policy/examples/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--sensitive_data_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_sensitive_data_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1296,
+      "body_sha256": "sha256:e5fabc9da9c404f7ce58214c140b4b88d8b905941e33dee1a9c66de3aaad5693",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:1472df2a4b2a381ee1201907e79b19112e2352a74e50b30a503511f47b7c7e1a",
+        "source_path": "examples/resources/xcsh_sensitive_data_policy/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:sensitive_data_policy:example:resource",
+      "parent_id": "xcsh-docs:resources:sensitive_data_policy:examples",
+      "path": "documentation/resources/sensitive_data_policy/examples/resource/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--sensitive_data_policy--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_sensitive_data_policy.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 454,
+      "body_sha256": "sha256:966cbffd8b675c70fce0052d975d1906ba522c194d5643ae5770e906f90f1c0e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:sensitive_data_policy:import",
+      "parent_id": "xcsh-docs:resources:sensitive_data_policy:fundamentals",
+      "path": "documentation/resources/sensitive_data_policy/lifecycle/import/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--sensitive_data_policy--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_sensitive_data_policy.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 514,
+      "body_sha256": "sha256:8989556a737f704cf716934fc085ec930f544e5f37ad315e1bcce6b1125fee93",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:sensitive_data_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:sensitive_data_policy:timeouts",
+      "parent_id": "xcsh-docs:resources:sensitive_data_policy:fundamentals",
+      "path": "documentation/resources/sensitive_data_policy/lifecycle/timeouts/index.md",
+      "provider_name": "sensitive_data_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--sensitive_data_policy--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_sensitive_data_policy.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["sensitive_data_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,2446 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:secret_management_access:fundamentals",
+    "id": "xcsh-docs:data-sources:secret_management_access:collection",
+    "properties": {
+      "access_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info",
+        "schema_path": ["access_info"]
+      },
+      "access_info.rest_auth_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info",
+        "schema_path": ["access_info", "rest_auth_info"]
+      },
+      "access_info.rest_auth_info.basic_auth": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth",
+        "schema_path": ["access_info", "rest_auth_info", "basic_auth"]
+      },
+      "access_info.rest_auth_info.basic_auth.password": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password",
+        "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password"]
+      },
+      "access_info.rest_auth_info.basic_auth.password.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+        "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password", "blindfold_secret_info"]
+      },
+      "access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-access_info--rest_auth_info--basic_auth--password--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "rest_auth_info",
+          "basic_auth",
+          "password",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.location": {
+        "anchor": "schema-access_info--rest_auth_info--basic_auth--password--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+        "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password", "blindfold_secret_info", "location"]
+      },
+      "access_info.rest_auth_info.basic_auth.password.blindfold_secret_info.store_provider": {
+        "anchor": "schema-access_info--rest_auth_info--basic_auth--password--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "rest_auth_info",
+          "basic_auth",
+          "password",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "access_info.rest_auth_info.basic_auth.password.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info",
+        "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password", "clear_secret_info"]
+      },
+      "access_info.rest_auth_info.basic_auth.password.clear_secret_info.provider_ref": {
+        "anchor": "schema-access_info--rest_auth_info--basic_auth--password--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info",
+        "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password", "clear_secret_info", "provider_ref"]
+      },
+      "access_info.rest_auth_info.basic_auth.password.clear_secret_info.url": {
+        "anchor": "schema-access_info--rest_auth_info--basic_auth--password--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info",
+        "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password", "clear_secret_info", "url"]
+      },
+      "access_info.rest_auth_info.basic_auth.username": {
+        "anchor": "schema-access_info--rest_auth_info--basic_auth--username",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth",
+        "schema_path": ["access_info", "rest_auth_info", "basic_auth", "username"]
+      },
+      "access_info.rest_auth_info.headers_auth": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth",
+        "schema_path": ["access_info", "rest_auth_info", "headers_auth"]
+      },
+      "access_info.rest_auth_info.headers_auth.headers": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth:headers",
+        "schema_path": ["access_info", "rest_auth_info", "headers_auth", "headers"]
+      },
+      "access_info.rest_auth_info.query_params_auth": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth",
+        "schema_path": ["access_info", "rest_auth_info", "query_params_auth"]
+      },
+      "access_info.rest_auth_info.query_params_auth.query_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth:query_params",
+        "schema_path": ["access_info", "rest_auth_info", "query_params_auth", "query_params"]
+      },
+      "access_info.scheme": {
+        "anchor": "schema-access_info--scheme",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info",
+        "schema_path": ["access_info", "scheme"]
+      },
+      "access_info.server_endpoint": {
+        "anchor": "schema-access_info--server_endpoint",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info",
+        "schema_path": ["access_info", "server_endpoint"]
+      },
+      "access_info.tls_config": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+        "schema_path": ["access_info", "tls_config"]
+      },
+      "access_info.tls_config.cert_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+        "schema_path": ["access_info", "tls_config", "cert_params"]
+      },
+      "access_info.tls_config.cert_params.certificates": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+        "schema_path": ["access_info", "tls_config", "cert_params", "certificates"]
+      },
+      "access_info.tls_config.cert_params.certificates.kind": {
+        "anchor": "schema-access_info--tls_config--cert_params--certificates--kind",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+        "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "kind"]
+      },
+      "access_info.tls_config.cert_params.certificates.name": {
+        "anchor": "schema-access_info--tls_config--cert_params--certificates--name",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+        "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "name"]
+      },
+      "access_info.tls_config.cert_params.certificates.namespace": {
+        "anchor": "schema-access_info--tls_config--cert_params--certificates--namespace",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+        "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "namespace"]
+      },
+      "access_info.tls_config.cert_params.certificates.tenant": {
+        "anchor": "schema-access_info--tls_config--cert_params--certificates--tenant",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+        "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "tenant"]
+      },
+      "access_info.tls_config.cert_params.certificates.uid": {
+        "anchor": "schema-access_info--tls_config--cert_params--certificates--uid",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+        "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "uid"]
+      },
+      "access_info.tls_config.cert_params.cipher_suites": {
+        "anchor": "schema-access_info--tls_config--cert_params--cipher_suites",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+        "schema_path": ["access_info", "tls_config", "cert_params", "cipher_suites"]
+      },
+      "access_info.tls_config.cert_params.maximum_protocol_version": {
+        "anchor": "schema-access_info--tls_config--cert_params--maximum_protocol_version",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+        "schema_path": ["access_info", "tls_config", "cert_params", "maximum_protocol_version"]
+      },
+      "access_info.tls_config.cert_params.minimum_protocol_version": {
+        "anchor": "schema-access_info--tls_config--cert_params--minimum_protocol_version",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+        "schema_path": ["access_info", "tls_config", "cert_params", "minimum_protocol_version"]
+      },
+      "access_info.tls_config.cert_params.skip_server_verification": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:skip_server_verification",
+        "schema_path": ["access_info", "tls_config", "cert_params", "skip_server_verification"]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+        "schema_path": ["access_info", "tls_config", "cert_params", "tls_validation_params"]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.skip_hostname_verification": {
+        "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--skip_hostname_verification",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "cert_params",
+          "tls_validation_params",
+          "skip_hostname_verification"
+        ]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca",
+        "schema_path": ["access_info", "tls_config", "cert_params", "tls_validation_params", "trusted_ca"]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list"
+        ]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.kind": {
+        "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--kind",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "kind"
+        ]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.name": {
+        "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--name",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "name"
+        ]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.namespace": {
+        "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--namespace",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "namespace"
+        ]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.tenant": {
+        "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--tenant",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "tenant"
+        ]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list.uid": {
+        "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--uid",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "cert_params",
+          "tls_validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "uid"
+        ]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.trusted_ca_url": {
+        "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca_url",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+        "schema_path": ["access_info", "tls_config", "cert_params", "tls_validation_params", "trusted_ca_url"]
+      },
+      "access_info.tls_config.cert_params.tls_validation_params.verify_subject_alt_names": {
+        "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--verify_subject_alt_names",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+        "schema_path": ["access_info", "tls_config", "cert_params", "tls_validation_params", "verify_subject_alt_names"]
+      },
+      "access_info.tls_config.cert_params.volterra_trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:volterra_trusted_ca",
+        "schema_path": ["access_info", "tls_config", "cert_params", "volterra_trusted_ca"]
+      },
+      "access_info.tls_config.common_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
+        "schema_path": ["access_info", "tls_config", "common_params"]
+      },
+      "access_info.tls_config.common_params.cipher_suites": {
+        "anchor": "schema-access_info--tls_config--common_params--cipher_suites",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
+        "schema_path": ["access_info", "tls_config", "common_params", "cipher_suites"]
+      },
+      "access_info.tls_config.common_params.maximum_protocol_version": {
+        "anchor": "schema-access_info--tls_config--common_params--maximum_protocol_version",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
+        "schema_path": ["access_info", "tls_config", "common_params", "maximum_protocol_version"]
+      },
+      "access_info.tls_config.common_params.minimum_protocol_version": {
+        "anchor": "schema-access_info--tls_config--common_params--minimum_protocol_version",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
+        "schema_path": ["access_info", "tls_config", "common_params", "minimum_protocol_version"]
+      },
+      "access_info.tls_config.common_params.tls_certificates": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+        "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates"]
+      },
+      "access_info.tls_config.common_params.tls_certificates.certificate_url": {
+        "anchor": "schema-access_info--tls_config--common_params--tls_certificates--certificate_url",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+        "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "certificate_url"]
+      },
+      "access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:custom_hash_algorithms",
+        "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "custom_hash_algorithms"]
+      },
+      "access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms": {
+        "anchor": "schema-access_info--tls_config--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:custom_hash_algorithms",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "tls_certificates",
+          "custom_hash_algorithms",
+          "hash_algorithms"
+        ]
+      },
+      "access_info.tls_config.common_params.tls_certificates.description_spec": {
+        "anchor": "schema-access_info--tls_config--common_params--tls_certificates--description_spec",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+        "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "description_spec"]
+      },
+      "access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:disable_ocsp_stapling",
+        "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "disable_ocsp_stapling"]
+      },
+      "access_info.tls_config.common_params.tls_certificates.private_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key",
+        "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "private_key"]
+      },
+      "access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "blindfold_secret_info"
+        ]
+      },
+      "access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.location": {
+        "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "clear_secret_info"
+        ]
+      },
+      "access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info.url": {
+        "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "tls_certificates",
+          "private_key",
+          "clear_secret_info",
+          "url"
+        ]
+      },
+      "access_info.tls_config.common_params.tls_certificates.use_system_defaults": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:use_system_defaults",
+        "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "use_system_defaults"]
+      },
+      "access_info.tls_config.common_params.validation_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+        "schema_path": ["access_info", "tls_config", "common_params", "validation_params"]
+      },
+      "access_info.tls_config.common_params.validation_params.skip_hostname_verification": {
+        "anchor": "schema-access_info--tls_config--common_params--validation_params--skip_hostname_verification",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+        "schema_path": ["access_info", "tls_config", "common_params", "validation_params", "skip_hostname_verification"]
+      },
+      "access_info.tls_config.common_params.validation_params.trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca",
+        "schema_path": ["access_info", "tls_config", "common_params", "validation_params", "trusted_ca"]
+      },
+      "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "validation_params",
+          "trusted_ca",
+          "trusted_ca_list"
+        ]
+      },
+      "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.kind": {
+        "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--kind",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "kind"
+        ]
+      },
+      "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.name": {
+        "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--name",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "name"
+        ]
+      },
+      "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.namespace": {
+        "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--namespace",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "namespace"
+        ]
+      },
+      "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.tenant": {
+        "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--tenant",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "tenant"
+        ]
+      },
+      "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list.uid": {
+        "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--uid",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+        "schema_path": [
+          "access_info",
+          "tls_config",
+          "common_params",
+          "validation_params",
+          "trusted_ca",
+          "trusted_ca_list",
+          "uid"
+        ]
+      },
+      "access_info.tls_config.common_params.validation_params.trusted_ca_url": {
+        "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca_url",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+        "schema_path": ["access_info", "tls_config", "common_params", "validation_params", "trusted_ca_url"]
+      },
+      "access_info.tls_config.common_params.validation_params.verify_subject_alt_names": {
+        "anchor": "schema-access_info--tls_config--common_params--validation_params--verify_subject_alt_names",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+        "schema_path": ["access_info", "tls_config", "common_params", "validation_params", "verify_subject_alt_names"]
+      },
+      "access_info.tls_config.default_session_key_caching": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:default_session_key_caching",
+        "schema_path": ["access_info", "tls_config", "default_session_key_caching"]
+      },
+      "access_info.tls_config.disable_session_key_caching": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:disable_session_key_caching",
+        "schema_path": ["access_info", "tls_config", "disable_session_key_caching"]
+      },
+      "access_info.tls_config.disable_sni": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:disable_sni",
+        "schema_path": ["access_info", "tls_config", "disable_sni"]
+      },
+      "access_info.tls_config.max_session_keys": {
+        "anchor": "schema-access_info--tls_config--max_session_keys",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+        "schema_path": ["access_info", "tls_config", "max_session_keys"]
+      },
+      "access_info.tls_config.sni": {
+        "anchor": "schema-access_info--tls_config--sni",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+        "schema_path": ["access_info", "tls_config", "sni"]
+      },
+      "access_info.tls_config.use_host_header_as_sni": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:use_host_header_as_sni",
+        "schema_path": ["access_info", "tls_config", "use_host_header_as_sni"]
+      },
+      "access_info.vault_auth_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info",
+        "schema_path": ["access_info", "vault_auth_info"]
+      },
+      "access_info.vault_auth_info.app_role_auth": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
+        "schema_path": ["access_info", "vault_auth_info", "app_role_auth"]
+      },
+      "access_info.vault_auth_info.app_role_auth.role_id": {
+        "anchor": "schema-access_info--vault_auth_info--app_role_auth--role_id",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
+        "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "role_id"]
+      },
+      "access_info.vault_auth_info.app_role_auth.secret_id": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id",
+        "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "secret_id"]
+      },
+      "access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "secret_id", "blindfold_secret_info"]
+      },
+      "access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "vault_auth_info",
+          "app_role_auth",
+          "secret_id",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.location": {
+        "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "vault_auth_info",
+          "app_role_auth",
+          "secret_id",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info.store_provider": {
+        "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+        "schema_path": [
+          "access_info",
+          "vault_auth_info",
+          "app_role_auth",
+          "secret_id",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "secret_id", "clear_secret_info"]
+      },
+      "access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.provider_ref": {
+        "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info",
+        "schema_path": [
+          "access_info",
+          "vault_auth_info",
+          "app_role_auth",
+          "secret_id",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info.url": {
+        "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "secret_id", "clear_secret_info", "url"]
+      },
+      "access_info.vault_auth_info.token": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token",
+        "schema_path": ["access_info", "vault_auth_info", "token"]
+      },
+      "access_info.vault_auth_info.token.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "token", "blindfold_secret_info"]
+      },
+      "access_info.vault_auth_info.token.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-access_info--vault_auth_info--token--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "token", "blindfold_secret_info", "decryption_provider"]
+      },
+      "access_info.vault_auth_info.token.blindfold_secret_info.location": {
+        "anchor": "schema-access_info--vault_auth_info--token--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "token", "blindfold_secret_info", "location"]
+      },
+      "access_info.vault_auth_info.token.blindfold_secret_info.store_provider": {
+        "anchor": "schema-access_info--vault_auth_info--token--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "token", "blindfold_secret_info", "store_provider"]
+      },
+      "access_info.vault_auth_info.token.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "token", "clear_secret_info"]
+      },
+      "access_info.vault_auth_info.token.clear_secret_info.provider_ref": {
+        "anchor": "schema-access_info--vault_auth_info--token--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "token", "clear_secret_info", "provider_ref"]
+      },
+      "access_info.vault_auth_info.token.clear_secret_info.url": {
+        "anchor": "schema-access_info--vault_auth_info--token--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info",
+        "schema_path": ["access_info", "vault_auth_info", "token", "clear_secret_info", "url"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:reference",
+        "schema_path": ["namespace"]
+      },
+      "provider_name": {
+        "anchor": "schema-provider_name",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:reference",
+        "schema_path": ["provider_name"]
+      },
+      "where": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where",
+        "schema_path": ["where"]
+      },
+      "where.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site",
+        "schema_path": ["where", "site"]
+      },
+      "where.site.disable_internet_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:disable_internet_vip",
+        "schema_path": ["where", "site", "disable_internet_vip"]
+      },
+      "where.site.enable_internet_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:enable_internet_vip",
+        "schema_path": ["where", "site", "enable_internet_vip"]
+      },
+      "where.site.network_type": {
+        "anchor": "schema-where--site--network_type",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site",
+        "schema_path": ["where", "site", "network_type"]
+      },
+      "where.site.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref"]
+      },
+      "where.site.ref.kind": {
+        "anchor": "schema-where--site--ref--kind",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "kind"]
+      },
+      "where.site.ref.name": {
+        "anchor": "schema-where--site--ref--name",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "name"]
+      },
+      "where.site.ref.namespace": {
+        "anchor": "schema-where--site--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "namespace"]
+      },
+      "where.site.ref.tenant": {
+        "anchor": "schema-where--site--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "tenant"]
+      },
+      "where.site.ref.uid": {
+        "anchor": "schema-where--site--ref--uid",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "uid"]
+      },
+      "where.virtual_network": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network",
+        "schema_path": ["where", "virtual_network"]
+      },
+      "where.virtual_network.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref"]
+      },
+      "where.virtual_network.ref.kind": {
+        "anchor": "schema-where--virtual_network--ref--kind",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "kind"]
+      },
+      "where.virtual_network.ref.name": {
+        "anchor": "schema-where--virtual_network--ref--name",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "name"]
+      },
+      "where.virtual_network.ref.namespace": {
+        "anchor": "schema-where--virtual_network--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "namespace"]
+      },
+      "where.virtual_network.ref.tenant": {
+        "anchor": "schema-where--virtual_network--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "tenant"]
+      },
+      "where.virtual_network.ref.uid": {
+        "anchor": "schema-where--virtual_network--ref--uid",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "uid"]
+      },
+      "where.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site",
+        "schema_path": ["where", "virtual_site"]
+      },
+      "where.virtual_site.disable_internet_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:disable_internet_vip",
+        "schema_path": ["where", "virtual_site", "disable_internet_vip"]
+      },
+      "where.virtual_site.enable_internet_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:enable_internet_vip",
+        "schema_path": ["where", "virtual_site", "enable_internet_vip"]
+      },
+      "where.virtual_site.network_type": {
+        "anchor": "schema-where--virtual_site--network_type",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site",
+        "schema_path": ["where", "virtual_site", "network_type"]
+      },
+      "where.virtual_site.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref"]
+      },
+      "where.virtual_site.ref.kind": {
+        "anchor": "schema-where--virtual_site--ref--kind",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "kind"]
+      },
+      "where.virtual_site.ref.name": {
+        "anchor": "schema-where--virtual_site--ref--name",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "name"]
+      },
+      "where.virtual_site.ref.namespace": {
+        "anchor": "schema-where--virtual_site--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "namespace"]
+      },
+      "where.virtual_site.ref.tenant": {
+        "anchor": "schema-where--virtual_site--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "tenant"]
+      },
+      "where.virtual_site.ref.uid": {
+        "anchor": "schema-where--virtual_site--ref--uid",
+        "document_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "uid"]
+      }
+    },
+    "provider_name": "secret_management_access",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:secret_management_access:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1388,
+      "body_sha256": "sha256:93310ebbcfe72b5a71f6c0e4f990ae74d680d763c4e3c8cfcd4a640fb0372cf2",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:reference",
+        "xcsh-docs:data-sources:secret_management_access:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/secret_management_access/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/secret_management_access.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_secret_management_access for xcsh_secret_management_access.",
+      "title": "xcsh_secret_management_access",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 49394,
+      "body_sha256": "sha256:919290b29029c2cd236e5a0cda0cc0244ea0ce817c8b9ceb002cd93542885d8e",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info",
+        "xcsh-docs:data-sources:secret_management_access:properties:where"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:reference",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:fundamentals",
+      "path": "documentation/data-sources/secret_management_access/properties/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_secret_management_access.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3634,
+      "body_sha256": "sha256:0871e817fb54a76841cf52c55f15645b0231550ebe89e707a874227cb2d99d4b",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:reference",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info.md",
+      "role": "properties",
+      "schema_path": ["access_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info for xcsh_secret_management_access.",
+      "title": "access_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2316,
+      "body_sha256": "sha256:16da5226fa2a6dc8a065681f092afd7d690278148b767a2770d56d6232a7c8c4",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2471,
+      "body_sha256": "sha256:54bc4bce0338b79094269372a6d2519628107edf3695d9f80fa251b9575dac93",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info--basic_auth.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info", "basic_auth"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info.basic_auth for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info.basic_auth",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2564,
+      "body_sha256": "sha256:c337eb0d1334a493b2674af1b39fbeb217283be1ac87f9a8441b6a60616cdf5c",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info--basic_auth--password.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info.basic_auth.password for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info.basic_auth.password",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4994,
+      "body_sha256": "sha256:18af8b86587ca661463a96b0eeea18bce283a1842cde897c63e512823db9ffd5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/blindfold_secret_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info--basic_auth--password--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info.basic_auth.password.blindfold_secret_info for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info.basic_auth.password.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3865,
+      "body_sha256": "sha256:b6aebd58444ca86e6206dabfaf78e287c799da43aeb70337e690a65377e5a223",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/clear_secret_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info--basic_auth--password--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/basic_auth/password/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info.basic_auth.password.clear_secret_info for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info.basic_auth.password.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1691,
+      "body_sha256": "sha256:193795a0c82cb117c01008b83630d77c14a99428e50ad90017b3c54027c6ba0b",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth:headers"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/headers_auth/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info--headers_auth.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info", "headers_auth"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/headers_auth/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info.headers_auth for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info.headers_auth",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1969,
+      "body_sha256": "sha256:a8a7d990434f99f6d358fe9f5a4580f14c8cb211b725b041f5ed2bf045e5a75c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth:headers",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/headers_auth/headers/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info--headers_auth--headers.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info", "headers_auth", "headers"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/headers_auth/headers/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info.headers_auth.headers for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info.headers_auth.headers",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1746,
+      "body_sha256": "sha256:2c56c05a91cba8068cdccdc0f98e9b3fac7f0d480d34975f48b3a66ec5a99bed",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth:query_params"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/query_params_auth/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info--query_params_auth.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info", "query_params_auth"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/query_params_auth/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info.query_params_auth for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info.query_params_auth",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2021,
+      "body_sha256": "sha256:cf18183e7b6998a7aab4a23e2ddf572c7770a10a18f13c0717277579f01d7362",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth:query_params",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/rest_auth_info/query_params_auth/query_params/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--rest_auth_info--query_params_auth--query_params.md",
+      "role": "properties",
+      "schema_path": ["access_info", "rest_auth_info", "query_params_auth", "query_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/rest_auth_info/query_params_auth/query_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.rest_auth_info.query_params_auth.query_params for xcsh_secret_management_access.",
+      "title": "access_info.rest_auth_info.query_params_auth.query_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5878,
+      "body_sha256": "sha256:f7ebdd57868b6a1ab55722fbd97de4992d01a0d61419f8b447fa8b9267b53cf6",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:default_session_key_caching",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:disable_session_key_caching",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:disable_sni",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:use_host_header_as_sni"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config for xcsh_secret_management_access.",
+      "title": "access_info.tls_config",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8645,
+      "body_sha256": "sha256:157bff84a1f8ba7323223d263eb1be8ad18004187d4ff76e3130bba2ba7458c8",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:skip_server_verification",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:volterra_trusted_ca"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--cert_params.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "cert_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.cert_params for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.cert_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6602,
+      "body_sha256": "sha256:bd133a13fe4860930ef2609ef5ebee8de8c7785a07462ab6314607e5e21bf935",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/certificates/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--cert_params--certificates.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "cert_params", "certificates"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/certificates/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.cert_params.certificates for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.cert_params.certificates",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1627,
+      "body_sha256": "sha256:c9cae54ec01dd386ab17e3e9a271ce7ec726a5bd205a2f245334b035cea918a0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:skip_server_verification",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/skip_server_verification/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--cert_params--skip_server_verification.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "cert_params", "skip_server_verification"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/skip_server_verification/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.cert_params.skip_server_verification for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.cert_params.skip_server_verification",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4848,
+      "body_sha256": "sha256:a46e9970a0c23e079bee4b59bcb744620f88c1f502d56d3603a2b8842ddd554b",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--cert_params--tls_validation_params.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "cert_params", "tls_validation_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.cert_params.tls_validation_params for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.cert_params.tls_validation_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2379,
+      "body_sha256": "sha256:1b9a9cbc13205965e491db9fdeb8df3e917415e80053f3654d53c99bcf706da3",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/trusted_ca/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--cert_params--tls_validation_params--trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "cert_params", "tls_validation_params", "trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.cert_params.tls_validation_params.trusted_ca for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.cert_params.tls_validation_params.trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7562,
+      "body_sha256": "sha256:e4e1fdcb7fa0d78685cfd9e4ccff99a05dbb63fa967ecb5da1d479a75c8200a7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list.md",
+      "role": "properties",
+      "schema_path": [
+        "access_info",
+        "tls_config",
+        "cert_params",
+        "tls_validation_params",
+        "trusted_ca",
+        "trusted_ca_list"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.cert_params.tls_validation_params.trusted_ca.trusted_ca_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1647,
+      "body_sha256": "sha256:b7b7c84383d230051625f39d77a2d64f1e2b370a8e0abe05784220d8e28588b2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:volterra_trusted_ca",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/volterra_trusted_ca/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--cert_params--volterra_trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "cert_params", "volterra_trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/cert_params/volterra_trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.cert_params.volterra_trusted_ca for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.cert_params.volterra_trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7798,
+      "body_sha256": "sha256:d13eb64146222d6fa3a1b229bdb942eb5ffa6ede3db1e66ef5de89f0a188502f",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "common_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5133,
+      "body_sha256": "sha256:ecbfabdf3631fa60ebd728a16644514aea49be44b1b326cd532a3dc22c921ed7",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:custom_hash_algorithms",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:disable_ocsp_stapling",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:use_system_defaults"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--tls_certificates.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.tls_certificates for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.tls_certificates",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3237,
+      "body_sha256": "sha256:dd804dd18d152e5e5913967e17041946cd2376f6045f288c36f0cde13b30467e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:custom_hash_algorithms",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/custom_hash_algorithms/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--tls_certificates--custom_hash_algorithms.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "custom_hash_algorithms"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/custom_hash_algorithms/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1952,
+      "body_sha256": "sha256:6d45052ddc413584f427a266c6b4a0b0acc184737dece47e893c3dc14e5670e4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:disable_ocsp_stapling",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/disable_ocsp_stapling/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--tls_certificates--disable_ocsp_stapling.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "disable_ocsp_stapling"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/disable_ocsp_stapling/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.tls_certificates.disable_ocsp_stapling",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2957,
+      "body_sha256": "sha256:f24490a15f28084e9dec02624e1eb3c8bf48a032ca7daba4799c7b90d5dca21f",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--tls_certificates--private_key.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "private_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.tls_certificates.private_key for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.tls_certificates.private_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5377,
+      "body_sha256": "sha256:45668071eb82cf2c15eb1b912ee9c573fd63ec02855e9783f77df03cf4576e7c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/blindfold_secret_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--tls_certificates--private_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": [
+        "access_info",
+        "tls_config",
+        "common_params",
+        "tls_certificates",
+        "private_key",
+        "blindfold_secret_info"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.tls_certificates.private_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4228,
+      "body_sha256": "sha256:1247c0315716c3d8be6f37f0d89c8f4b3b3e143dc184485dcbf5bd6659f13bb9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/clear_secret_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--tls_certificates--private_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": [
+        "access_info",
+        "tls_config",
+        "common_params",
+        "tls_certificates",
+        "private_key",
+        "clear_secret_info"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/private_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.tls_certificates.private_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1946,
+      "body_sha256": "sha256:839cc5c96058708e8fd45152b977553d44750f10590d06687e1702398f2c50a4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:use_system_defaults",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/use_system_defaults/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--tls_certificates--use_system_defaults.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "common_params", "tls_certificates", "use_system_defaults"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/tls_certificates/use_system_defaults/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.tls_certificates.use_system_defaults for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.tls_certificates.use_system_defaults",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4840,
+      "body_sha256": "sha256:21f9dd9921e7a7438322faabc11d263da10d6dac7c0394a9dbfe6708f76c2471",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--validation_params.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "common_params", "validation_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.validation_params for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.validation_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2365,
+      "body_sha256": "sha256:4cd63eb971792274051f005b2fffa041226b29876ba54bd50bc1d97d10de1fed",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/trusted_ca/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--validation_params--trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "common_params", "validation_params", "trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.validation_params.trusted_ca for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.validation_params.trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7540,
+      "body_sha256": "sha256:1cc5583a56755e7b17e1b3ce73b56d05d02a5b46f508199196ad91da9cdcf601",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/trusted_ca/trusted_ca_list/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list.md",
+      "role": "properties",
+      "schema_path": [
+        "access_info",
+        "tls_config",
+        "common_params",
+        "validation_params",
+        "trusted_ca",
+        "trusted_ca_list"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/common_params/validation_params/trusted_ca/trusted_ca_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.common_params.validation_params.trusted_ca.trusted_ca_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1442,
+      "body_sha256": "sha256:39628dfe6ceb52cafb5d858cc9f4c4b91ea6dda3d0cbcf76184ffc4d92ce8668",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:default_session_key_caching",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/default_session_key_caching/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--default_session_key_caching.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "default_session_key_caching"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/default_session_key_caching/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.default_session_key_caching for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.default_session_key_caching",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1442,
+      "body_sha256": "sha256:98095b51271e061673bd0215e00e891949d29727ed2ba71e01710dc5c0c60996",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:disable_session_key_caching",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/disable_session_key_caching/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--disable_session_key_caching.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "disable_session_key_caching"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/disable_session_key_caching/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.disable_session_key_caching for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.disable_session_key_caching",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1394,
+      "body_sha256": "sha256:d7212e4843a4dbe973b765cde4baa85852fbc101dd96fa74ea23d5b8299cef70",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:disable_sni",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/disable_sni/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--disable_sni.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "disable_sni"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/disable_sni/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.disable_sni for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.disable_sni",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1394,
+      "body_sha256": "sha256:49c53407b836176d6b411f53a088cf4c70992dd738ed151c1794766dc3814869",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:use_host_header_as_sni",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/tls_config/use_host_header_as_sni/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--tls_config--use_host_header_as_sni.md",
+      "role": "properties",
+      "schema_path": ["access_info", "tls_config", "use_host_header_as_sni"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/tls_config/use_host_header_as_sni/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.tls_config.use_host_header_as_sni for xcsh_secret_management_access.",
+      "title": "access_info.tls_config.use_host_header_as_sni",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1879,
+      "body_sha256": "sha256:555e9ead4b5c6daefc5172d9d8dfd9331d02208593e20c183bd26eb1d413887a",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/vault_auth_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--vault_auth_info.md",
+      "role": "properties",
+      "schema_path": ["access_info", "vault_auth_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/vault_auth_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.vault_auth_info for xcsh_secret_management_access.",
+      "title": "access_info.vault_auth_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2387,
+      "body_sha256": "sha256:4227e8d80bc0a169481bb91c5502fe2ee96adb24d6126ea6fad446574622f859",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--vault_auth_info--app_role_auth.md",
+      "role": "properties",
+      "schema_path": ["access_info", "vault_auth_info", "app_role_auth"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.vault_auth_info.app_role_auth for xcsh_secret_management_access.",
+      "title": "access_info.vault_auth_info.app_role_auth",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2622,
+      "body_sha256": "sha256:6613b3712ad3fa789ea701c9c23726033c615302d962fb1bc609736d2aa5879d",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--vault_auth_info--app_role_auth--secret_id.md",
+      "role": "properties",
+      "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "secret_id"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.vault_auth_info.app_role_auth.secret_id for xcsh_secret_management_access.",
+      "title": "access_info.vault_auth_info.app_role_auth.secret_id",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5049,
+      "body_sha256": "sha256:ca20dbb77a7b6d100b4bf35e28b20d59a6081aabc7e88da837e84cccb072b219",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/blindfold_secret_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--vault_auth_info--app_role_auth--secret_id--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "secret_id", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info for xcsh_secret_management_access.",
+      "title": "access_info.vault_auth_info.app_role_auth.secret_id.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3915,
+      "body_sha256": "sha256:ccf518184dce2c7d63f124114a0446b2fd0a295f2057755afdf58d1f0f69be2c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/clear_secret_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--vault_auth_info--app_role_auth--secret_id--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "secret_id", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/vault_auth_info/app_role_auth/secret_id/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info for xcsh_secret_management_access.",
+      "title": "access_info.vault_auth_info.app_role_auth.secret_id.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2255,
+      "body_sha256": "sha256:24a730d04deee774954d55eec85db7e55ab3753fbd4f1152347caa3b1f54e21a",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+        "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/vault_auth_info/token/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--vault_auth_info--token.md",
+      "role": "properties",
+      "schema_path": ["access_info", "vault_auth_info", "token"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/vault_auth_info/token/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.vault_auth_info.token for xcsh_secret_management_access.",
+      "title": "access_info.vault_auth_info.token",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4689,
+      "body_sha256": "sha256:1a265f96284146857de183b5203036fbbd48ebc5cc8c7362790cec5c118107b8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/vault_auth_info/token/blindfold_secret_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--vault_auth_info--token--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["access_info", "vault_auth_info", "token", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/vault_auth_info/token/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.vault_auth_info.token.blindfold_secret_info for xcsh_secret_management_access.",
+      "title": "access_info.vault_auth_info.token.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3574,
+      "body_sha256": "sha256:ed15d9d85cf901f15c7a6362b7246e9739efba3dcaa144ccd6b5227972654a4d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token",
+      "path": "documentation/data-sources/secret_management_access/properties/access_info/vault_auth_info/token/clear_secret_info/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--access_info--vault_auth_info--token--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["access_info", "vault_auth_info", "token", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/access_info/vault_auth_info/token/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_info.vault_auth_info.token.clear_secret_info for xcsh_secret_management_access.",
+      "title": "access_info.vault_auth_info.token.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2557,
+      "body_sha256": "sha256:59f578d623c725a59c65a041c8b23e05446a187a4962d884578d66287350c46b",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:where:site",
+        "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network",
+        "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:reference",
+      "path": "documentation/data-sources/secret_management_access/properties/where/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where.md",
+      "role": "properties",
+      "schema_path": ["where"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where for xcsh_secret_management_access.",
+      "title": "where",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7767,
+      "body_sha256": "sha256:304d0ad3c66d8ee68bfdf74db162f96c4fcd210e6507cf87413727ae26fc543d",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:where:site:disable_internet_vip",
+        "xcsh-docs:data-sources:secret_management_access:properties:where:site:enable_internet_vip",
+        "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:site",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where",
+      "path": "documentation/data-sources/secret_management_access/properties/where/site/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--site.md",
+      "role": "properties",
+      "schema_path": ["where", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.site for xcsh_secret_management_access.",
+      "title": "where.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1306,
+      "body_sha256": "sha256:09db7fda88147f16d292d1a7bf36ab11e813896743eb8949b652b4f031c5b040",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:disable_internet_vip",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site",
+      "path": "documentation/data-sources/secret_management_access/properties/where/site/disable_internet_vip/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--site--disable_internet_vip.md",
+      "role": "properties",
+      "schema_path": ["where", "site", "disable_internet_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/site/disable_internet_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.site.disable_internet_vip for xcsh_secret_management_access.",
+      "title": "where.site.disable_internet_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1304,
+      "body_sha256": "sha256:f9bbd6902ab7b218ff7ed616161e63f3c8bee6f84bd343fbb3d0934608bdec1e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:enable_internet_vip",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site",
+      "path": "documentation/data-sources/secret_management_access/properties/where/site/enable_internet_vip/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--site--enable_internet_vip.md",
+      "role": "properties",
+      "schema_path": ["where", "site", "enable_internet_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/site/enable_internet_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.site.enable_internet_vip for xcsh_secret_management_access.",
+      "title": "where.site.enable_internet_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6325,
+      "body_sha256": "sha256:a8f5979636dca6bc00ddb351fd2c306d415fb9aed7428124efaa3b39e5d7c8b9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where:site",
+      "path": "documentation/data-sources/secret_management_access/properties/where/site/ref/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--site--ref.md",
+      "role": "properties",
+      "schema_path": ["where", "site", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/site/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.site.ref for xcsh_secret_management_access.",
+      "title": "where.site.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1458,
+      "body_sha256": "sha256:d259cf52aacd61982ff35473029fe111148f5df8b63eeb8a792fcabd1a8f4536",
+      "child_ids": ["xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref"],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where",
+      "path": "documentation/data-sources/secret_management_access/properties/where/virtual_network/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--virtual_network.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_network"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/virtual_network/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_network for xcsh_secret_management_access.",
+      "title": "where.virtual_network",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6468,
+      "body_sha256": "sha256:52550e4446a6ee3b2d221f255fb853e15f59f4f3bb33a0e0f10daa037c1e3d88",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network",
+      "path": "documentation/data-sources/secret_management_access/properties/where/virtual_network/ref/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--virtual_network--ref.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_network", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/virtual_network/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_network.ref for xcsh_secret_management_access.",
+      "title": "where.virtual_network.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7824,
+      "body_sha256": "sha256:345748e8e32d5b1693374af8cc1b3c99bf1929e7c61ce22bda23abcf6feb932f",
+      "child_ids": [
+        "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:disable_internet_vip",
+        "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:enable_internet_vip",
+        "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref"
+      ],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where",
+      "path": "documentation/data-sources/secret_management_access/properties/where/virtual_site/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_site for xcsh_secret_management_access.",
+      "title": "where.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1354,
+      "body_sha256": "sha256:e9cf7a801a096ca4abca255dfec5d98b2ac417f8a72760f64738459f006587fc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:disable_internet_vip",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site",
+      "path": "documentation/data-sources/secret_management_access/properties/where/virtual_site/disable_internet_vip/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--virtual_site--disable_internet_vip.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_site", "disable_internet_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/virtual_site/disable_internet_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_site.disable_internet_vip for xcsh_secret_management_access.",
+      "title": "where.virtual_site.disable_internet_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1352,
+      "body_sha256": "sha256:933bacfd48d2cac7ab5861d34c0022bb9814ce92d674aa4696814ef0bce0053d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:enable_internet_vip",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site",
+      "path": "documentation/data-sources/secret_management_access/properties/where/virtual_site/enable_internet_vip/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--virtual_site--enable_internet_vip.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_site", "enable_internet_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/virtual_site/enable_internet_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_site.enable_internet_vip for xcsh_secret_management_access.",
+      "title": "where.virtual_site.enable_internet_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6431,
+      "body_sha256": "sha256:dc2191cd3f5cb967e413e85a5f3efc43a09bdd9ea16dc876f3a327cff5cf2319",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site",
+      "path": "documentation/data-sources/secret_management_access/properties/where/virtual_site/ref/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--properties--where--virtual_site--ref.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_site", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/properties/where/virtual_site/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_site.ref for xcsh_secret_management_access.",
+      "title": "where.virtual_site.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 630,
+      "body_sha256": "sha256:992c2129d1fef303545333364c41ae0393127eae4302fc659c7791cae8bfe348",
+      "child_ids": ["xcsh-docs:data-sources:secret_management_access:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:secret_management_access:examples",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:fundamentals",
+      "path": "documentation/data-sources/secret_management_access/examples/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_secret_management_access.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1334,
+      "body_sha256": "sha256:4be573306154e2eee52a77b4cfe89e794cb4f8b802aab848ce907dc35e845f11",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:secret_management_access:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:ed6c81d9e9def7ced3f618a92fe6932b7593d44a1f95e72e70fe1cd4aab5ace2",
+        "source_path": "examples/data-sources/xcsh_secret_management_access/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:secret_management_access:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:secret_management_access:examples",
+      "path": "documentation/data-sources/secret_management_access/examples/data-source/index.md",
+      "provider_name": "secret_management_access",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--secret_management_access--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/secret_management_access/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_secret_management_access.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["secret_management_accessCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,411 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:tmm_session_metrics:fundamentals",
+    "id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+    "properties": {
+      "data": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+        "schema_path": ["data"]
+      },
+      "data.metric": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric",
+        "schema_path": ["data", "metric"]
+      },
+      "data.metric.key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:key",
+        "schema_path": ["data", "metric", "key"]
+      },
+      "data.metric.value": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value",
+        "schema_path": ["data", "metric", "value"]
+      },
+      "data.metric.value.timestamp": {
+        "anchor": "schema-data--metric--value--timestamp",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value",
+        "schema_path": ["data", "metric", "value", "timestamp"]
+      },
+      "data.metric.value.trend_value": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+        "schema_path": ["data", "metric", "value", "trend_value"]
+      },
+      "data.metric.value.trend_value.description_spec": {
+        "anchor": "schema-data--metric--value--trend_value--description_spec",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+        "schema_path": ["data", "metric", "value", "trend_value", "description_spec"]
+      },
+      "data.metric.value.trend_value.previous_value": {
+        "anchor": "schema-data--metric--value--trend_value--previous_value",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+        "schema_path": ["data", "metric", "value", "trend_value", "previous_value"]
+      },
+      "data.metric.value.trend_value.sentiment": {
+        "anchor": "schema-data--metric--value--trend_value--sentiment",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+        "schema_path": ["data", "metric", "value", "trend_value", "sentiment"]
+      },
+      "data.metric.value.trend_value.value": {
+        "anchor": "schema-data--metric--value--trend_value--value",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+        "schema_path": ["data", "metric", "value", "trend_value", "value"]
+      },
+      "data.metric.value.value": {
+        "anchor": "schema-data--metric--value--value",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value",
+        "schema_path": ["data", "metric", "value", "value"]
+      },
+      "data.type": {
+        "anchor": "schema-data--type",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+        "schema_path": ["data", "type"]
+      },
+      "data.unit": {
+        "anchor": "schema-data--unit",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+        "schema_path": ["data", "unit"]
+      },
+      "end_time": {
+        "anchor": "schema-end_time",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+        "schema_path": ["end_time"]
+      },
+      "field_selector": {
+        "anchor": "schema-field_selector",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+        "schema_path": ["field_selector"]
+      },
+      "group_by": {
+        "anchor": "schema-group_by",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+        "schema_path": ["group_by"]
+      },
+      "is_trend_request": {
+        "anchor": "schema-is_trend_request",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+        "schema_path": ["is_trend_request"]
+      },
+      "label_filter": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+        "schema_path": ["label_filter"]
+      },
+      "label_filter.label": {
+        "anchor": "schema-label_filter--label",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+        "schema_path": ["label_filter", "label"]
+      },
+      "label_filter.op": {
+        "anchor": "schema-label_filter--op",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+        "schema_path": ["label_filter", "op"]
+      },
+      "label_filter.value": {
+        "anchor": "schema-label_filter--value",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+        "schema_path": ["label_filter", "value"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+        "schema_path": ["namespace"]
+      },
+      "start_time": {
+        "anchor": "schema-start_time",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+        "schema_path": ["start_time"]
+      },
+      "step": {
+        "anchor": "schema-step",
+        "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+        "schema_path": ["step"]
+      }
+    },
+    "provider_name": "tmm_session_metrics",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:tmm_session_metrics:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1151,
+      "body_sha256": "sha256:0d3dd44edd5d170d79e3359f1849f9698af5dd50b7ece37a998ced4d871eddb6",
+      "child_ids": [
+        "xcsh-docs:data-sources:tmm_session_metrics:reference",
+        "xcsh-docs:data-sources:tmm_session_metrics:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/tmm_session_metrics/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/tmm_session_metrics.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_tmm_session_metrics for xcsh_tmm_session_metrics.",
+      "title": "xcsh_tmm_session_metrics",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8536,
+      "body_sha256": "sha256:26d2630f440bcdd4deae0180f83a4235aae2631144a84e92f55d19e563c4c39f",
+      "child_ids": [
+        "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+        "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter"
+      ],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:fundamentals",
+      "path": "documentation/data-sources/tmm_session_metrics/properties/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_tmm_session_metrics.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4373,
+      "body_sha256": "sha256:0359783383cff4e1f0ea4529a1d65a3e43a53dedf389aaf0e244ad3a841ef0bb",
+      "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric"],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+      "path": "documentation/data-sources/tmm_session_metrics/properties/data/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--properties--data.md",
+      "role": "properties",
+      "schema_path": ["data"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/properties/data/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "data for xcsh_tmm_session_metrics.",
+      "title": "data",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1355,
+      "body_sha256": "sha256:5f5452faf4b797f3d8eaf5cf8ba1876870a95fd1e3bb4afa3b8b2abd8fbb5879",
+      "child_ids": [
+        "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:key",
+        "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value"
+      ],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+      "path": "documentation/data-sources/tmm_session_metrics/properties/data/metric/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--properties--data--metric.md",
+      "role": "properties",
+      "schema_path": ["data", "metric"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/properties/data/metric/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "data.metric for xcsh_tmm_session_metrics.",
+      "title": "data.metric",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1039,
+      "body_sha256": "sha256:e0a292c5e08cafb84e4c6bd6e55b005cadd6a80121b16bbf97b0506c23c29452",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:key",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric",
+      "path": "documentation/data-sources/tmm_session_metrics/properties/data/metric/key/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--properties--data--metric--key.md",
+      "role": "properties",
+      "schema_path": ["data", "metric", "key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/properties/data/metric/key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "data.metric.key for xcsh_tmm_session_metrics.",
+      "title": "data.metric.key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1527,
+      "body_sha256": "sha256:f86e523b2e0de13068eae7dabc3c6ddb37bea07dbe1cdd126c9085896b76f8a8",
+      "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value"],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric",
+      "path": "documentation/data-sources/tmm_session_metrics/properties/data/metric/value/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--properties--data--metric--value.md",
+      "role": "properties",
+      "schema_path": ["data", "metric", "value"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/properties/data/metric/value/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "data.metric.value for xcsh_tmm_session_metrics.",
+      "title": "data.metric.value",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2339,
+      "body_sha256": "sha256:bccdadabbe54e240e11b71fd1e55f757f438d43bbe898c26e065c7b681a441c7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value",
+      "path": "documentation/data-sources/tmm_session_metrics/properties/data/metric/value/trend_value/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--properties--data--metric--value--trend_value.md",
+      "role": "properties",
+      "schema_path": ["data", "metric", "value", "trend_value"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/properties/data/metric/value/trend_value/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "data.metric.value.trend_value for xcsh_tmm_session_metrics.",
+      "title": "data.metric.value.trend_value",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2368,
+      "body_sha256": "sha256:415da0949c840c975e474049cbc746a831cc049ecb432e2af7362e2dd2b2bc87",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+      "path": "documentation/data-sources/tmm_session_metrics/properties/label_filter/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--properties--label_filter.md",
+      "role": "properties",
+      "schema_path": ["label_filter"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/properties/label_filter/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "label_filter for xcsh_tmm_session_metrics.",
+      "title": "label_filter",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 600,
+      "body_sha256": "sha256:d7d262b0bdc7a9f7fbafac02b014703ec7541115545451f89c0ce83f330f7bdd",
+      "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:examples",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:fundamentals",
+      "path": "documentation/data-sources/tmm_session_metrics/examples/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_tmm_session_metrics.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1184,
+      "body_sha256": "sha256:080bbbdc2518abe5f1f3e987fa04c48282bc29c94e1d59ede6b2e4d97e01926d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:68c10b51b9e48b65d8a384096eef45f5c9fac00e135d661c65b0101b25c350c0",
+        "source_path": "examples/data-sources/xcsh_tmm_session_metrics/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:tmm_session_metrics:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:tmm_session_metrics:examples",
+      "path": "documentation/data-sources/tmm_session_metrics/examples/data-source/index.md",
+      "provider_name": "tmm_session_metrics",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--tmm_session_metrics--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_tmm_session_metrics.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:site_image:fundamentals",
+    "id": "xcsh-docs:data-sources:site_image:collection",
+    "properties": {
+      "image_download_url": {
+        "anchor": "schema-image_download_url",
+        "document_id": "xcsh-docs:data-sources:site_image:reference",
+        "schema_path": ["image_download_url"]
+      },
+      "image_md5_sum": {
+        "anchor": "schema-image_md5_sum",
+        "document_id": "xcsh-docs:data-sources:site_image:reference",
+        "schema_path": ["image_md5_sum"]
+      },
+      "image_name": {
+        "anchor": "schema-image_name",
+        "document_id": "xcsh-docs:data-sources:site_image:reference",
+        "schema_path": ["image_name"]
+      },
+      "site_name": {
+        "anchor": "schema-site_name",
+        "document_id": "xcsh-docs:data-sources:site_image:reference",
+        "schema_path": ["site_name"]
+      }
+    },
+    "provider_name": "site_image",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:site_image:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1299,
+      "body_sha256": "sha256:e839de9391336d2856768ab9fef07b891be483d4ebf7113a4cf4d93499e5022d",
+      "child_ids": ["xcsh-docs:data-sources:site_image:reference", "xcsh-docs:data-sources:site_image:examples"],
+      "collection_id": "xcsh-docs:data-sources:site_image:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:site_image:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/site_image/index.md",
+      "provider_name": "site_image",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/site_image.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_image/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_site_image for xcsh_site_image.",
+      "title": "xcsh_site_image",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1813,
+      "body_sha256": "sha256:7397ba63b98e5bec0b748867008b0373e04ef425b7b42f050130a7b238bf15ce",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:site_image:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:site_image:reference",
+      "parent_id": "xcsh-docs:data-sources:site_image:fundamentals",
+      "path": "documentation/data-sources/site_image/properties/index.md",
+      "provider_name": "site_image",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--site_image--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_image/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_site_image.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 546,
+      "body_sha256": "sha256:e2eb929c5d57084d4b53e3a3f42011e6eaa8e52922c93a8d692f1e9dab40ab5c",
+      "child_ids": ["xcsh-docs:data-sources:site_image:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:site_image:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:site_image:examples",
+      "parent_id": "xcsh-docs:data-sources:site_image:fundamentals",
+      "path": "documentation/data-sources/site_image/examples/index.md",
+      "provider_name": "site_image",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--site_image--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_image/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_site_image.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1109,
+      "body_sha256": "sha256:f4c655ce87829de8d018e05a46b4e55cccd05327eadf8b24333fc1546b15e8fe",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:site_image:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:f749f6969ede8da33793449ff8e0b7f889a9d0fc592de94c4d8d386d5af43af8",
+        "source_path": "examples/data-sources/xcsh_site_image/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:site_image:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:site_image:examples",
+      "path": "documentation/data-sources/site_image/examples/data-source/index.md",
+      "provider_name": "site_image",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--site_image--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_image/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_site_image.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}
