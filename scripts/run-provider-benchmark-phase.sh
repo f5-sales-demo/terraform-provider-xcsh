@@ -67,8 +67,10 @@ sed -E \
 (
   temporary_index=$(mktemp)
   trap 'rm -f "$temporary_index"' EXIT
+  real_index=$(git rev-parse --git-path index)
   export GIT_INDEX_FILE="$temporary_index"
-  git read-tree HEAD
+  cp "$real_index" "$temporary_index"
+  excluded_paths=(.qualification-harness .runner-harness)
   paths=(. ':!.qualification-harness' ':!.runner-harness')
   repository_root=$(git rev-parse --show-toplevel)
   evidence_root=$(git -C "$evidence_dir" rev-parse --show-toplevel 2>/dev/null || true)
@@ -76,7 +78,11 @@ sed -E \
     evidence_prefix=$(git -C "$evidence_dir" rev-parse --show-prefix)
     test -n "$evidence_prefix"
     paths+=(":(exclude,literal)${evidence_prefix%/}")
+    excluded_paths+=(":(literal)${evidence_prefix%/}")
   fi
+  # A copied index can already stage measurement inputs. Reset only those
+  # excluded paths to HEAD in this temporary index before adding output.
+  git reset -q HEAD -- "${excluded_paths[@]}"
   git add -A -- "${paths[@]}"
   git diff --cached HEAD --binary --no-ext-diff
 ) | sed -E 's/index [0-9a-f]+\.\.[0-9a-f]+/index <digest>..<digest>/' \
