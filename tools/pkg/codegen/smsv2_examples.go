@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/generatedfile"
 )
 
 // SecuremeshSiteV2ProviderChoices is the complete provider-choice group from
@@ -42,7 +44,7 @@ func writeSMSv2Example(root, variant, body string) error {
 	if err := os.MkdirAll(directory, 0o755); err != nil {
 		return err
 	}
-	return os.WriteFile(filepath.Join(directory, "resource.tf"), []byte(smsv2ExamplePreamble+body), 0o644)
+	return generatedfile.WriteFile(filepath.Join(directory, "resource.tf"), []byte(smsv2ExamplePreamble+body), 0o644)
 }
 
 // WriteSecuremeshSiteV2Examples writes one structurally complete example for
