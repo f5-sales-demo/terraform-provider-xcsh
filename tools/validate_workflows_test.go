@@ -24,6 +24,7 @@ const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 const providerComputeRunnerLabel = "terraform-provider-xcsh-compute"
 const providerCandidateRunnerExpression = "${{ needs.validate.outputs.runner_label }}"
 const providerComputeRunnerExpression = "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 'ubuntu-latest' || 'terraform-provider-xcsh-compute' }}"
+const providerShellRunnerExpression = "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 'ubuntu-latest' || 'managed-socketless' }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
 const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
 
@@ -662,6 +663,12 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 			canonical[index] = providerComputeRunnerLabel
 		case providerComputeRunnerExpression:
 			canonical[index] = providerComputeRunnerLabel
+		case providerShellRunnerExpression:
+			if jobID == "validate-shell-scripts" {
+				canonical[index] = canonicalManagedSocketlessRunsOn[0]
+			} else {
+				*errors = append(*errors, jobID+": isolated shell route requires its exact job")
+			}
 		case sharedSocketlessRunnerExpression:
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
 		case docsSocketlessRunnerExpression:
