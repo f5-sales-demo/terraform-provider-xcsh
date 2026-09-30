@@ -7,7 +7,7 @@ metadata=$(go version -m "$binary") || {
   exit 1
 }
 printf '%s\n' "$metadata" >&2
-version=$(awk '$1 == "mod" && $2 == "github.com/hashicorp/terraform-plugin-docs" {print $3}' <<< "$metadata")
+version=$(awk '$1 == "mod" && $2 == "github.com/hashicorp/terraform-plugin-docs" {print $3}' <<<"$metadata")
 case "$version" in
 v0.25.0) ;;
 v0.25.0+dirty)
