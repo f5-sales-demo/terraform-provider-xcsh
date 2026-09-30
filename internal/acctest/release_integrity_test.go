@@ -1355,6 +1355,44 @@ func TestReleaseImmutabilityChecksUseAdministrationToken(t *testing.T) {
 	}
 }
 
+func TestSignedReleaseTagUsesWorkflowAuthorizedCredential(t *testing.T) {
+	root := testRepositoryRoot(t)
+	data, err := os.ReadFile(filepath.Join(root, ".github/workflows/_tag-release.yml")) //nolint:gosec // fixed repository path
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow struct {
+		Jobs map[string]struct {
+			Steps []struct {
+				Name string            `yaml:"name"`
+				Run  string            `yaml:"run"`
+				Env  map[string]string `yaml:"env"`
+			} `yaml:"steps"`
+		} `yaml:"jobs"`
+	}
+	if err := yaml.Unmarshal(data, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	found := false
+	for _, step := range workflow.Jobs["tag"].Steps {
+		if step.Name != "Create and push tag" {
+			continue
+		}
+		found = true
+		if step.Env["GH_TOKEN"] != "${{ secrets.repository-administration-token }}" {
+			t.Fatal("signed tag push must use the governed workflow-authorized credential")
+		}
+		for _, fragment := range []string{"gh auth setup-git", "git tag -s", `git push origin "$NEW_TAG"`} {
+			if !strings.Contains(step.Run, fragment) {
+				t.Fatalf("signed tag creation is missing %q", fragment)
+			}
+		}
+	}
+	if !found {
+		t.Fatal("signed tag creation step is missing")
+	}
+}
+
 func TestReusableWorkflowsPinExactTriggerSHA(t *testing.T) {
 	root := testRepositoryRoot(t)
 	for name, count := range map[string]int{
