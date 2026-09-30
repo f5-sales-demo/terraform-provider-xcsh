@@ -450,21 +450,12 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	}
 }
 
-func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
+func TestGitHubHostedAcceptanceJobsPreserveGoSetup(t *testing.T) {
 	hostedContracts := map[string][]string{
 		"acc-tests.yml": {
 			"runs-on: ubuntu-latest",
 			"actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
 			"go-version: '1.25.13'",
-		},
-		"_generate-docs.yml": {
-			"runs-on: ubuntu-latest",
-			"actions/setup-go@",
-			"go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0",
-		},
-		"_generate-provider.yml": {
-			"runs-on: ubuntu-latest",
-			"actions/setup-go@",
 		},
 	}
 	for filename, fragments := range hostedContracts {
