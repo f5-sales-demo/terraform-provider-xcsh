@@ -1,24 +1,39 @@
-# Reusable workflow for regenerating provider code from OpenAPI specs
-# Called by: on-merge.yml, sync-openapi.yml
+# Reusable read-only workflow for regenerating provider code from OpenAPI specs.
 name: Generate Provider Code
 
 on:
   workflow_call:
     inputs:
       ref:
-        description: 'Git ref to checkout'
+        description: Immutable Git ref to check out
         type: string
         default: ''
       spec-dir:
-        description: 'Directory containing OpenAPI specs'
+        description: Directory containing OpenAPI specs
         type: string
-        default: 'docs/specifications/api'
+        default: docs/specifications/api
+      runner-label:
+        description: Trusted runner label for heavy Go work
+        type: string
+        default: managed-socketless
+      go-concurrency:
+        description: Go package and process concurrency on the compute pool
+        type: number
+        default: 4
     outputs:
+      generation-artifact-name:
+        description: Source-bound provider generation artifact
+        value: ${{ jobs.generate.outputs.generation-artifact-name }}
+      source-sha:
+        description: Exact source commit used for generation
+        value: ${{ jobs.generate.outputs.source-sha }}
+      digest:
+        description: SHA-256 digest of the binary provider patch
+        value: ${{ jobs.generate.outputs.digest }}
       changed:
-        description: 'Whether provider code changed'
+        description: Whether provider code changed
         value: ${{ jobs.generate.outputs.changed }}
 
-# Do not inherit a write-capable caller token into this read-only generator.
 permissions: {}
 
 jobs:
@@ -26,99 +41,135 @@ jobs:
     name: Generate Provider Code
     runs-on: managed-socketless
     permissions:
-      contents: read # checkout and download the public API-spec release
+      contents: read
     outputs:
-      changed: ${{ steps.check.outputs.changed }}
+      generation-artifact-name: ${{ steps.artifact.outputs.artifact_name }}
+      source-sha: ${{ steps.artifact.outputs.source_sha }}
+      digest: ${{ steps.artifact.outputs.digest }}
+      changed: ${{ steps.artifact.outputs.changed }}
+    env:
+      GOGC: '20'
+      GOMEMLIMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && '4GiB' || '16GiB' }}
+      GOMAXPROCS: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 1 || inputs.go-concurrency }}
+      GO_PACKAGE_PARALLELISM: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 1 || inputs.go-concurrency }}
     steps:
-      - name: Checkout
+      - name: Checkout immutable source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ inputs.ref || github.sha }}
           fetch-depth: 0
           persist-credentials: false
-
-      # The download used to warn on a missing asset, and a "Verify specs exist"
-      # step then set has_specs=false, which every subsequent step was conditional
-      # on — so the whole regeneration was skipped and the run went green having
-      # generated nothing. A release built that way carries whatever the previous
-      # run happened to leave behind. The shared action fails on a missing bundle,
-      # which makes that condition unreachable, so it and its six `if:` guards are
-      # gone rather than left as a branch that can never be taken.
+      - name: Verify governed runner input
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          RUNNER_LABEL: ${{ inputs.runner-label }}
+        run: test "$RUNNER_LABEL" = managed-socketless
       - name: Download API specs
         uses: ./.github/actions/download-api-specs
         with:
           token: ${{ github.token }}
           spec-dir: ${{ inputs.spec-dir }}
-
       - name: Verify immutable Go toolchain
         run: |
           go version
           test "$(go env GOVERSION)" = go1.25.13
-
-      - name: Run code generator
+      - name: Restore source-bound Go cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: provider-go-${{ runner.os }}-${{ runner.arch }}-1.25.13-${{ hashFiles('go.sum') }}
+      - name: Run code generator with runner profiling
         env:
           SPEC_DIR: ${{ inputs.spec-dir }}
         run: |
-          echo "Running code generator..."
-          go run tools/generate-all-schemas.go --spec-dir="${SPEC_DIR}"
-
-      - name: Run go mod tidy
-        run: scripts/go-retry.sh 3 go mod tidy
-
-      - name: Build to verify
-        # ./... so hand-written packages the root binary does not import — above
-        # all internal/acctest — are compiled against the freshly regenerated
-        # code. See #1351: `go build .` verified nothing about them.
-        # Generated provider packages are large enough to exhaust the hosted
-        # runner when Go compiles packages concurrently with optimizations on.
-        # Keep this verification equivalent to the proven constrained-runner
-        # acceptance build so a regeneration can finish its release chain.
-        env:
-          GOGC: "10"
-          GOMEMLIMIT: 4GiB
-          GOMAXPROCS: "1"
-        run: scripts/go-retry.sh 3 go build -p 1 -gcflags='all=-N -l' -v ./...
-
-      - name: Vet to verify
-        # Type-checks _test.go files, which go build skips (#1351).
-        # Vet compiles the same large package graph as build. Keeping this step
-        # serial and under the same GC/memory ceiling prevents the ARC runner
-        # service from terminating it after a successful constrained build.
-        env:
-          GOGC: "10"
-          GOMEMLIMIT: 4GiB
-          GOMAXPROCS: "1"
-        run: scripts/go-retry.sh 3 go vet -p 1 ./...
-
-      - name: Run tests
-        # ./tools/... runs here as well as in _build-test.yml so the freshly
-        # regenerated tree is re-tested against the specs it was generated from.
-        # XCSH_SPEC_DIR makes TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames
-        # (#1257) run rather than skip; _build-test.yml downloads the same bundle
-        # so the guard also blocks on the PR, before merge.
-        #
-        # The broad provider makes internal/provider too large for concurrent,
-        # optimized test compilation on a GitHub-hosted runner. Build and vet
-        # above already use this bounded compilation posture. Keep the complete
-        # test surface while applying the same limits here so the runner is not
-        # terminated during the final package compile (#2186).
-        env:
-          GOGC: "10"
-          GOMEMLIMIT: 4GiB
-          GOMAXPROCS: "1"
-          XCSH_SPEC_DIR: ${{ inputs.spec-dir }}
-        run: scripts/go-retry.sh 2 go test -p 1 -gcflags='all=-N -l' -v ./internal/... ./tools/...
-
-      - name: Check for changes
-        id: check
-        run: |
-          git add -A
-          if git diff --cached --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No provider code changes"
+          set -euo pipefail
+          profile="$RUNNER_TEMP/provider-profile/generation.json"
+          mkdir -p "$(dirname "$profile")"
+          command=(go run -p "$GO_PACKAGE_PARALLELISM" tools/generate-all-schemas.go "--spec-dir=$SPEC_DIR")
+          if command -v runner-profile >/dev/null 2>&1; then
+            runner-profile --name provider-generation --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- "${command[@]}"
           else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "Provider code changes detected:"
-            git diff --cached --stat
-            git reset HEAD
+            "${command[@]}"
           fi
+          scripts/go-retry.sh 3 go mod tidy
+      - name: Build regenerated tree with runner profiling
+        run: |
+          set -euo pipefail
+          profile="$RUNNER_TEMP/provider-profile/build.json"
+          command=(scripts/go-retry.sh 3 go build -p "$GO_PACKAGE_PARALLELISM" -gcflags='all=-N -l' -v ./...)
+          if command -v runner-profile >/dev/null 2>&1; then
+            runner-profile --name provider-build --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- "${command[@]}"
+          else
+            "${command[@]}"
+          fi
+      - name: Vet regenerated tree with runner profiling
+        run: |
+          set -euo pipefail
+          profile="$RUNNER_TEMP/provider-profile/vet.json"
+          command=(scripts/go-retry.sh 3 go vet -p "$GO_PACKAGE_PARALLELISM" ./...)
+          if command -v runner-profile >/dev/null 2>&1; then
+            runner-profile --name provider-vet --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- "${command[@]}"
+          else
+            "${command[@]}"
+          fi
+          scripts/vet-build-ignored-tools.sh
+      - name: Test regenerated tree with runner profiling
+        env:
+          XCSH_SPEC_DIR: ${{ inputs.spec-dir }}
+        run: |
+          set -euo pipefail
+          profile="$RUNNER_TEMP/provider-profile/test.json"
+          command=(scripts/go-retry.sh 2 go test -p "$GO_PACKAGE_PARALLELISM" -gcflags='all=-N -l' -v ./internal/... ./tools/...)
+          if command -v runner-profile >/dev/null 2>&1; then
+            runner-profile --name provider-test --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- "${command[@]}"
+          else
+            "${command[@]}"
+          fi
+      - name: Create source-bound provider patch
+        id: artifact
+        run: |
+          set -euo pipefail
+          artifact_dir="$RUNNER_TEMP/provider-generation"
+          patch="$artifact_dir/provider-generation.patch"
+          manifest="$artifact_dir/generation-manifest.json"
+          mkdir -p "$artifact_dir"
+          source_sha=$(git rev-parse HEAD)
+          git add -A
+          git diff --cached --binary --full-index --no-ext-diff >"$patch"
+          changed=false
+          if [ -s "$patch" ]; then
+            changed=true
+            git diff --cached --stat
+          fi
+          git reset
+          digest="sha256:$(sha256sum <"$patch" | awk '{print $1}')"
+          go_version=$(go env GOVERSION)
+          jq_args=(--arg artifact_kind provider --arg source_sha "$source_sha")
+          jq_args+=(--arg patch_file provider-generation.patch --arg patch_sha256 "$digest")
+          jq_args+=(--arg go_version "$go_version" --argjson go_concurrency "$GO_PACKAGE_PARALLELISM")
+          jq_args+=(--argjson changed "$changed")
+          jq -nS "${jq_args[@]}" '{schema_version:1,artifact_kind:$artifact_kind,source_sha:$source_sha,patch_file:$patch_file,patch_sha256:$patch_sha256,changed:$changed,go_concurrency:$go_concurrency,tool_versions:{go:$go_version}}' >"$manifest"
+          artifact_name="provider-generation-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          {
+            echo "artifact_name=$artifact_name"
+            echo "source_sha=$source_sha"
+            echo "digest=$digest"
+            echo "changed=$changed"
+          } >>"$GITHUB_OUTPUT"
+      - name: Upload provider generation artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ${{ steps.artifact.outputs.artifact_name }}
+          path: ${{ runner.temp }}/provider-generation
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload provider workload profiles
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: provider-generation-profile-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/provider-profile
+          if-no-files-found: ignore
+          retention-days: 30

@@ -529,6 +529,8 @@ jobs:
     with:
       ref: ${{ github.sha }}
       run-lint: true
+      runner-label: terraform-provider-xcsh-compute
+      go-concurrency: 4
 
   # ===========================================================================
   # STEP 3: Regenerate provider code (if OpenAPI specs OR generator tools changed - human commits only)
@@ -547,6 +549,8 @@ jobs:
     uses: ./.github/workflows/_generate-provider.yml
     with:
       ref: ${{ github.sha }}
+      runner-label: terraform-provider-xcsh-compute
+      go-concurrency: 4
 
   # ===========================================================================
   # STEP 4: Regenerate documentation (if code or tools changed - human commits only)
@@ -568,6 +572,11 @@ jobs:
     uses: ./.github/workflows/_generate-docs.yml
     with:
       ref: ${{ github.sha }}
+      provider-artifact-name: ${{ needs.regenerate-provider.outputs.generation-artifact-name }}
+      provider-source-sha: ${{ needs.regenerate-provider.outputs.source-sha }}
+      provider-digest: ${{ needs.regenerate-provider.outputs.digest }}
+      runner-label: terraform-provider-xcsh-compute
+      go-concurrency: 4
 
   # ===========================================================================
   # STEP 5: Classify the exact generator state
@@ -594,9 +603,16 @@ jobs:
           PROVIDER_REQUIRED: ${{ needs.detect-changes.outputs.provider-regeneration-required }}
           PROVIDER_RESULT: ${{ needs.regenerate-provider.result }}
           PROVIDER_CHANGED: ${{ needs.regenerate-provider.outputs.changed }}
+          PROVIDER_ARTIFACT_NAME: ${{ needs.regenerate-provider.outputs.generation-artifact-name }}
+          PROVIDER_SOURCE_SHA: ${{ needs.regenerate-provider.outputs.source-sha }}
+          PROVIDER_DIGEST: ${{ needs.regenerate-provider.outputs.digest }}
           DOCS_REQUIRED: ${{ needs.detect-changes.outputs.docs-regeneration-required }}
           DOCS_RESULT: ${{ needs.regenerate-docs.result }}
           DOCS_CHANGED: ${{ needs.regenerate-docs.outputs.changed }}
+          DOCS_ARTIFACT_NAME: ${{ needs.regenerate-docs.outputs.generation-artifact-name }}
+          DOCS_SOURCE_SHA: ${{ needs.regenerate-docs.outputs.source-sha }}
+          DOCS_DIGEST: ${{ needs.regenerate-docs.outputs.digest }}
+          SOURCE_COMMIT: ${{ github.sha }}
         run: |
           set -euo pipefail
           CREATE_PR=false
@@ -631,6 +647,7 @@ jobs:
 
           validate_generator() {
             local name=$1 required=$2 result=$3 changed=$4
+            local artifact_name=$5 source_sha=$6 digest=$7
             if [ "$required" = "true" ]; then
               [ "$result" = "success" ] || {
                 echo "::error::Applicable ${name} generator result is ${result:-missing}, not success"
@@ -643,6 +660,18 @@ jobs:
                   return 1
                   ;;
               esac
+              [ -n "$artifact_name" ] || {
+                echo "::error::Successful ${name} generator has no artifact name"
+                return 1
+              }
+              [ "$source_sha" = "$SOURCE_COMMIT" ] || {
+                echo "::error::Successful ${name} generator source differs from the trigger"
+                return 1
+              }
+              [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ ]] || {
+                echo "::error::Successful ${name} generator digest is malformed"
+                return 1
+              }
             else
               [ "$result" = "skipped" ] || {
                 echo "::error::Non-applicable ${name} generator result is ${result:-missing}, not skipped"
@@ -651,8 +680,11 @@ jobs:
             fi
           }
 
-          validate_generator provider "$PROVIDER_REQUIRED" "$PROVIDER_RESULT" "$PROVIDER_CHANGED"
-          validate_generator docs "$DOCS_REQUIRED" "$DOCS_RESULT" "$DOCS_CHANGED"
+          validate_generator provider "$PROVIDER_REQUIRED" "$PROVIDER_RESULT" \
+            "$PROVIDER_CHANGED" "$PROVIDER_ARTIFACT_NAME" "$PROVIDER_SOURCE_SHA" \
+            "$PROVIDER_DIGEST"
+          validate_generator docs "$DOCS_REQUIRED" "$DOCS_RESULT" \
+            "$DOCS_CHANGED" "$DOCS_ARTIFACT_NAME" "$DOCS_SOURCE_SHA" "$DOCS_DIGEST"
 
           if [ "$PENDING_DELIVERY" = "true" ] ||
              [ "$PROVIDER_CHANGED" = "true" ] || [ "$DOCS_CHANGED" = "true" ]; then
@@ -707,95 +739,52 @@ jobs:
           token: ${{ secrets.REPO_SYNC_TOKEN }}
           persist-credentials: false
 
-      # This step used to warn and continue when the asset was missing, which meant
-      # the regeneration below could commit documentation stripped of every
-      # spec-derived enrichment. The shared action fails instead.
-      - name: Download API specs
-        uses: ./.github/actions/download-api-specs
+      - name: Download combined generation artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          token: ${{ github.token }}
+          name: ${{ needs.regenerate-docs.outputs.generation-artifact-name }}
+          path: ${{ runner.temp }}/combined-generation-input
 
-      - name: Verify immutable Go toolchain
-        run: |
-          go version
-          test "$(go env GOVERSION)" = go1.25.13
-
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
-        with:
-          terraform_version: 1.16.3
-          terraform_wrapper: false
-
-      - name: Verify image-resident tfplugindocs
-        run: |
-          set -o pipefail
-          go version -m "$(command -v tfplugindocs)" \
-            | tee /dev/stderr \
-            | tr '\t' ' ' \
-            | grep -F 'mod github.com/hashicorp/terraform-plugin-docs v0.25.0'
-
-      - name: Regenerate provider (if needed)
-        if: needs.regenerate-provider.outputs.changed == 'true'
+      - name: Verify and apply combined generation artifact
         env:
-          GOGC: "10"
-          GOMEMLIMIT: 4GiB
-          GOMAXPROCS: "1"
+          EXPECTED_DIGEST: ${{ needs.regenerate-docs.outputs.digest }}
+          EXPECTED_PROVIDER_DIGEST: ${{ needs.regenerate-provider.outputs.digest }}
+          EXPECTED_SOURCE_SHA: ${{ needs.regenerate-docs.outputs.source-sha }}
+          SOURCE_COMMIT: ${{ github.sha }}
         run: |
-          echo "::group::Generate provider code"
-          go run tools/generate-all-schemas.go --spec-dir=docs/specifications/api
-          echo "::endgroup::"
-          scripts/go-retry.sh 3 go mod tidy
-          scripts/go-retry.sh 3 go build -p 1 -gcflags='all=-N -l' -v ./...
-
-      - name: Regenerate and validate documentation (if needed)
-        # Regenerate docs if:
-        # 1. The standalone docs job found changes (template/example changes), OR
-        # 2. Provider was regenerated (schema descriptions may have changed)
-        if: |
-          needs.regenerate-docs.outputs.changed == 'true' ||
-          needs.regenerate-provider.outputs.changed == 'true' ||
-          needs.detect-changes.outputs.pending-delivery == 'true'
-        run: scripts/generate-provider-docs.sh
-
-      - name: Verify the regenerated tree compiles
-        # THE GATE THAT KEEPS main COMPILABLE (#1351).
-        #
-        # This job commits the regenerated tree, opens a PR and immediately turns
-        # on auto-merge. Auto-merge waits only for the REQUIRED checks — "check /
-        # Check linked issues", "lint / Lint Code Base" and "review /
-        # claude-review". "Build and Test" is not among them, so the regeneration
-        # PR can merge before that job has even finished, let alone passed.
-        #
-        # That is not hypothetical: PR #1339 merged at 03:38:06Z while its build
-        # job was still running; the job recorded the GetAPM/DeleteAPM compile
-        # failure at 03:38:56Z, fifty seconds too late, and main was broken.
-        #
-        # So the regeneration job has to prove the tree compiles BEFORE it hands
-        # anything to auto-merge. ./... rather than . because the packages that
-        # rot when upstream removes a schema — internal/acctest above all — are
-        # imported only by tests, and go vet on top because go build skips
-        # _test.go entirely. Failing here means no PR and a red on-merge run,
-        # which is the correct outcome: hand-written code has to catch up with
-        # codegen before the regeneration can land.
-        env:
-          GOGC: "10"
-          GOMEMLIMIT: 4GiB
-          GOMAXPROCS: "1"
-        run: |
-          echo "::group::go build ./..."
-          scripts/go-retry.sh 3 go build -p 1 -gcflags='all=-N -l' ./...
-          echo "::endgroup::"
-          echo "::group::go vet ./..."
-          scripts/go-retry.sh 3 go vet -p 1 ./...
-          echo "::endgroup::"
-          echo "::group::go vet (build-ignored generators)"
-          scripts/vet-build-ignored-tools.sh
-          echo "::endgroup::"
-          echo "Regenerated tree compiles (all packages, tests included)"
-
-      - name: Clean build artifacts
-        run: |
-          rm -f terraform-provider-xcsh
+          set -euo pipefail
+          artifact_dir="$RUNNER_TEMP/combined-generation-input"
+          manifest="$artifact_dir/generation-manifest.json"
+          patch="$artifact_dir/combined-generation.patch"
+          test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test "$EXPECTED_SOURCE_SHA" = "$SOURCE_COMMIT"
+          digest="sha256:$(sha256sum <"$patch" | awk '{print $1}')"
+          test "$digest" = "$EXPECTED_DIGEST"
+          jq -e \
+            --arg source_sha "$SOURCE_COMMIT" \
+            --arg digest "$digest" \
+            --arg provider_digest "$EXPECTED_PROVIDER_DIGEST" '
+            .schema_version == 1 and
+            .artifact_kind == "combined" and
+            .source_sha == $source_sha and
+            .patch_file == "combined-generation.patch" and
+            .patch_sha256 == $digest and
+            .provider_patch_sha256 == $provider_digest and
+            (.changed | type == "boolean") and
+            (.docs_changed | type == "boolean") and
+            (.go_concurrency | type == "number") and
+            (.tool_versions.go | type == "string" and length > 0) and
+            (.tool_versions.terraform | type == "string" and length > 0) and
+            (.tool_versions.tfplugindocs | type == "string" and length > 0)
+          ' "$manifest" >/dev/null
+          changed=$(jq -r '.changed' "$manifest")
+          if [ "$changed" = true ]; then
+            test -s "$patch"
+            git apply --check "$patch"
+            git apply "$patch"
+          else
+            test ! -s "$patch"
+          fi
 
       # The "Fix generated content for lint compliance" step stood here. It ran
       # codespell --write-changes, applied tools/codespell-corrections.json as blind
@@ -1199,6 +1188,9 @@ jobs:
           BUILD_TEST_RESULT: ${{ needs.build-test.result }}
           PROVIDER_RESULT: ${{ needs.regenerate-provider.result }}
           DOCS_RESULT: ${{ needs.regenerate-docs.result }}
+          GENERATION_ARTIFACT: ${{ needs.regenerate-docs.outputs.generation-artifact-name }}
+          GENERATION_SOURCE_SHA: ${{ needs.regenerate-docs.outputs.source-sha }}
+          GENERATION_DIGEST: ${{ needs.regenerate-docs.outputs.digest }}
           GENERATION_STATE_RESULT: ${{ needs.generation-state.result }}
           CREATE_PR_REQUIRED: ${{ needs.generation-state.outputs.create-pr }}
           RELEASE_REQUIRED: ${{ needs.generation-state.outputs.release }}
@@ -1221,6 +1213,9 @@ jobs:
             echo "| Build/Test | ${BUILD_TEST_RESULT} |"
             echo "| Provider Regenerated | ${PROVIDER_RESULT} |"
             echo "| Docs Regenerated | ${DOCS_RESULT} |"
+            echo "| Generation Artifact | ${GENERATION_ARTIFACT:-n/a} |"
+            echo "| Generation Source | ${GENERATION_SOURCE_SHA:-n/a} |"
+            echo "| Generation Digest | ${GENERATION_DIGEST:-n/a} |"
             echo "| Generator State | ${GENERATION_STATE_RESULT} |"
             echo "| Regeneration PR Created | ${PR_RESULT} |"
             echo "| Tagged/Released | ${TAG_RELEASE_RESULT} |"

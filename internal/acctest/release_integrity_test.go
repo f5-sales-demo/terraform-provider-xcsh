@@ -654,9 +654,16 @@ func TestOnMergeGeneratorStateTruthTable(t *testing.T) {
 			"PROVIDER_REQUIRED":            "true",
 			"PROVIDER_RESULT":              "success",
 			"PROVIDER_CHANGED":             "false",
+			"PROVIDER_ARTIFACT_NAME":       "provider-generation-1-1",
+			"PROVIDER_SOURCE_SHA":          strings.Repeat("a", 40),
+			"PROVIDER_DIGEST":              "sha256:" + strings.Repeat("b", 64),
 			"DOCS_REQUIRED":                "true",
 			"DOCS_RESULT":                  "success",
 			"DOCS_CHANGED":                 "false",
+			"DOCS_ARTIFACT_NAME":           "combined-generation-1-1",
+			"DOCS_SOURCE_SHA":              strings.Repeat("a", 40),
+			"DOCS_DIGEST":                  "sha256:" + strings.Repeat("c", 64),
+			"SOURCE_COMMIT":                strings.Repeat("a", 40),
 			"GITHUB_OUTPUT":                output,
 		}
 		for _, assignment := range extraEnv {
@@ -719,6 +726,26 @@ func TestOnMergeGeneratorStateTruthTable(t *testing.T) {
 		}
 		if strings.Contains(outputs, "create_pr=true") || strings.Contains(outputs, "release=true") {
 			t.Fatalf("missing changed output emitted authorization:\n%s", outputs)
+		}
+	})
+
+	t.Run("successful generator artifact must match source and digest", func(t *testing.T) {
+		for _, invalid := range []string{
+			"PROVIDER_ARTIFACT_NAME=",
+			"PROVIDER_SOURCE_SHA=" + strings.Repeat("d", 40),
+			"PROVIDER_DIGEST=not-a-digest",
+			"DOCS_ARTIFACT_NAME=",
+			"DOCS_SOURCE_SHA=" + strings.Repeat("d", 40),
+			"DOCS_DIGEST=not-a-digest",
+		} {
+			outputs, result, err := run(t, invalid)
+			if err == nil {
+				t.Fatalf("invalid artifact provenance %q passed:\n%s", invalid, outputs)
+			}
+			if strings.Contains(outputs, "create_pr=true") ||
+				strings.Contains(outputs, "release=true") {
+				t.Fatalf("invalid artifact provenance emitted authorization: %v\n%s", err, result)
+			}
 		}
 	})
 
@@ -1010,17 +1037,17 @@ func TestRegenerationStaleBranchDeletionUsesPAT(t *testing.T) {
 	if err := yaml.Unmarshal(workflowBytes, &workflow); err != nil {
 		t.Fatal(err)
 	}
-	foundPublicDownload := false
+	foundGenerationArtifact := false
 	for _, step := range workflow.Jobs["create-regeneration-pr"].Steps {
-		if step.Name == "Download API specs" {
-			foundPublicDownload = true
-			if step.With["token"] != "${{ github.token }}" {
-				t.Fatalf("public spec download receives the write PAT: %+v", step.With)
+		if step.Name == "Download combined generation artifact" {
+			foundGenerationArtifact = true
+			if step.With["name"] != "${{ needs.regenerate-docs.outputs.generation-artifact-name }}" {
+				t.Fatalf("publisher downloads an unbound generation artifact: %+v", step.With)
 			}
 		}
 	}
-	if !foundPublicDownload {
-		t.Fatal("create-regeneration-pr public spec download step is missing")
+	if !foundGenerationArtifact {
+		t.Fatal("create-regeneration-pr combined generation artifact step is missing")
 	}
 
 	script := extractWorkflowRunStep(t, "on-merge.yml", "create-regeneration-pr", "Close stale auto-regenerate PRs")
@@ -1621,6 +1648,7 @@ func TestRegenerationBuildUsesBoundedMemory(t *testing.T) {
 	}
 	var workflow struct {
 		Jobs map[string]struct {
+			Env   map[string]string `yaml:"env"`
 			Steps []struct {
 				Name string            `yaml:"name"`
 				Run  string            `yaml:"run"`
@@ -1631,20 +1659,24 @@ func TestRegenerationBuildUsesBoundedMemory(t *testing.T) {
 	if err := yaml.Unmarshal(workflowBytes, &workflow); err != nil {
 		t.Fatal(err)
 	}
-	for _, step := range workflow.Jobs["generate"].Steps {
-		if step.Name != "Build to verify" {
+	job := workflow.Jobs["generate"]
+	for key, fragment := range map[string]string{
+		"GOMEMLIMIT": "16GiB",
+		"GOMAXPROCS": "inputs.go-concurrency",
+	} {
+		if got := job.Env[key]; !strings.Contains(got, fragment) {
+			t.Fatalf("regeneration job %s = %q, want fragment %q", key, got, fragment)
+		}
+	}
+	for _, step := range job.Steps {
+		if step.Name != "Build regenerated tree with runner profiling" {
 			continue
 		}
-		for key, want := range map[string]string{
-			"GOGC":       "10",
-			"GOMEMLIMIT": "4GiB",
-			"GOMAXPROCS": "1",
+		for _, want := range []string{
+			`go build -p "$GO_PACKAGE_PARALLELISM"`,
+			"-gcflags='all=-N -l'",
+			"-v ./...",
 		} {
-			if got := step.Env[key]; got != want {
-				t.Fatalf("regeneration build %s = %q, want %q", key, got, want)
-			}
-		}
-		for _, want := range []string{"go build -p 1", "-gcflags='all=-N -l'", "-v ./..."} {
 			if !strings.Contains(step.Run, want) {
 				t.Fatalf("regeneration build does not use %q: %s", want, step.Run)
 			}

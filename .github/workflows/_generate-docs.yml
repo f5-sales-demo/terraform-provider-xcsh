@@ -1,20 +1,47 @@
-# Reusable workflow for generating Terraform provider documentation
-# Called by: on-merge.yml, sync-openapi.yml
+# Reusable read-only workflow for generating documentation over provider output.
 name: Generate Documentation
 
 on:
   workflow_call:
     inputs:
       ref:
-        description: 'Git ref to checkout'
+        description: Immutable Git ref to check out
         type: string
         default: ''
+      provider-artifact-name:
+        description: Optional provider patch artifact from this workflow run
+        type: string
+        default: ''
+      provider-source-sha:
+        description: Expected source SHA in the provider artifact
+        type: string
+        default: ''
+      provider-digest:
+        description: Expected SHA-256 digest of the provider patch
+        type: string
+        default: ''
+      runner-label:
+        description: Trusted runner label for generation
+        type: string
+        default: managed-socketless
+      go-concurrency:
+        description: Go package and process concurrency on the compute pool
+        type: number
+        default: 4
     outputs:
+      generation-artifact-name:
+        description: Source-bound combined provider and documentation artifact
+        value: ${{ jobs.generate.outputs.generation-artifact-name }}
+      source-sha:
+        description: Exact source commit used for generation
+        value: ${{ jobs.generate.outputs.source-sha }}
+      digest:
+        description: SHA-256 digest of the combined binary patch
+        value: ${{ jobs.generate.outputs.digest }}
       changed:
-        description: 'Whether documentation changed'
+        description: Whether documentation changed
         value: ${{ jobs.generate.outputs.changed }}
 
-# Do not inherit a write-capable caller token into this read-only generator.
 permissions: {}
 
 jobs:
@@ -22,57 +49,167 @@ jobs:
     name: Generate Documentation
     runs-on: managed-socketless
     permissions:
-      contents: read # checkout and download the public API-spec release
+      contents: read
     outputs:
-      changed: ${{ steps.check.outputs.changed }}
+      generation-artifact-name: ${{ steps.artifact.outputs.artifact_name }}
+      source-sha: ${{ steps.artifact.outputs.source_sha }}
+      digest: ${{ steps.artifact.outputs.digest }}
+      changed: ${{ steps.artifact.outputs.docs_changed }}
+    env:
+      GOGC: '20'
+      GOMEMLIMIT: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && '4GiB' || '16GiB' }}
+      GOMAXPROCS: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 1 || inputs.go-concurrency }}
+      GO_PACKAGE_PARALLELISM: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 1 || inputs.go-concurrency }}
     steps:
-      - name: Checkout
+      - name: Checkout immutable source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ inputs.ref || github.sha }}
           fetch-depth: 0
           persist-credentials: false
-
-      # This job had no spec download at all, so transform-docs.go always stripped
-      # the spec-derived enrichment and the "Check for changes" step below always
-      # saw a dirty tree. Its `changed` output gates create-regeneration-pr in
-      # on-merge.yml, so every qualifying push opened a regeneration PR for a diff
-      # that only existed because the bundle was missing.
+      - name: Verify governed runner input
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          RUNNER_LABEL: ${{ inputs.runner-label }}
+        run: test "$RUNNER_LABEL" = managed-socketless
+      - name: Download provider generation artifact
+        if: inputs.provider-artifact-name != ''
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: ${{ inputs.provider-artifact-name }}
+          path: ${{ runner.temp }}/provider-generation-input
+      - name: Verify and apply provider generation artifact
+        if: inputs.provider-artifact-name != ''
+        env:
+          EXPECTED_DIGEST: ${{ inputs.provider-digest }}
+          EXPECTED_SOURCE_SHA: ${{ inputs.provider-source-sha }}
+        run: |
+          set -euo pipefail
+          artifact_dir="$RUNNER_TEMP/provider-generation-input"
+          manifest="$artifact_dir/generation-manifest.json"
+          patch="$artifact_dir/provider-generation.patch"
+          source_sha=$(git rev-parse HEAD)
+          test "$source_sha" = "$EXPECTED_SOURCE_SHA"
+          digest="sha256:$(sha256sum <"$patch" | awk '{print $1}')"
+          test "$digest" = "$EXPECTED_DIGEST"
+          jq -e --arg source_sha "$source_sha" --arg digest "$digest" '
+            .schema_version == 1 and
+            .artifact_kind == "provider" and
+            .source_sha == $source_sha and
+            .patch_file == "provider-generation.patch" and
+            .patch_sha256 == $digest and
+            (.changed | type == "boolean") and
+            (.go_concurrency | type == "number") and
+            (.tool_versions.go | type == "string" and length > 0)
+          ' "$manifest" >/dev/null
+          changed=$(jq -r '.changed' "$manifest")
+          if [ "$changed" = true ]; then
+            test -s "$patch"
+            git apply --check "$patch"
+            git apply --index "$patch"
+          else
+            test ! -s "$patch"
+          fi
       - name: Download API specs
         uses: ./.github/actions/download-api-specs
         with:
           token: ${{ github.token }}
-
-      - name: Verify immutable Go toolchain
-        run: |
-          go version
-          test "$(go env GOVERSION)" = go1.25.13
-
-      - name: Verify image-resident tfplugindocs
-        run: |
-          set -o pipefail
-          go version -m "$(command -v tfplugindocs)" \
-            | tee /dev/stderr \
-            | tr '\t' ' ' \
-            | grep -F 'mod github.com/hashicorp/terraform-plugin-docs v0.25.0'
-
-      - name: Set up Terraform
+      - name: Set up Go for fork isolation
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: Set up Terraform for fork isolation
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
         uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
         with:
           terraform_version: 1.16.3
           terraform_wrapper: false
-
-      - name: Generate and validate all provider documentation
-        run: scripts/generate-provider-docs.sh
-
-      - name: Check for changes
-        id: check
+      - name: Install tfplugindocs for fork isolation
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
         run: |
-          if [ -n "$(git status --porcelain docs/ examples/ templates/)" ]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "Documentation changes detected:"
-            git status --porcelain docs/ examples/ templates/
+          GOTOOLCHAIN=local go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
+          echo "$(go env GOPATH)/bin" >>"$GITHUB_PATH"
+      - name: Verify immutable generation toolchain
+        run: |
+          set -euo pipefail
+          test "$(go env GOVERSION)" = go1.25.13
+          terraform version | head -1 | grep -Fx 'Terraform v1.16.3'
+          go version -m "$(command -v tfplugindocs)" |
+            tr '\t' ' ' |
+            grep -F 'mod github.com/hashicorp/terraform-plugin-docs v0.25.0'
+      - name: Restore source-bound Go cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: provider-go-${{ runner.os }}-${{ runner.arch }}-1.25.13-${{ hashFiles('go.sum') }}
+      - name: Generate documentation with runner profiling
+        run: |
+          set -euo pipefail
+          profile="$RUNNER_TEMP/provider-profile/documentation.json"
+          mkdir -p "$(dirname "$profile")"
+          if command -v runner-profile >/dev/null 2>&1; then
+            runner-profile --name documentation-generation --output "$profile" --variant "p${GO_PACKAGE_PARALLELISM}" -- scripts/generate-provider-docs.sh
           else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No documentation changes"
+            scripts/generate-provider-docs.sh
           fi
+      - name: Create source-bound combined patch
+        id: artifact
+        env:
+          PROVIDER_DIGEST: ${{ inputs.provider-digest }}
+        run: |
+          set -euo pipefail
+          artifact_dir="$RUNNER_TEMP/combined-generation"
+          patch="$artifact_dir/combined-generation.patch"
+          manifest="$artifact_dir/generation-manifest.json"
+          mkdir -p "$artifact_dir"
+          source_sha=$(git rev-parse HEAD)
+          docs_changed=false
+          if [ -n "$(git status --porcelain docs/ examples/ templates/)" ]; then
+            docs_changed=true
+          fi
+          git add -A
+          git diff --cached --binary --full-index --no-ext-diff >"$patch"
+          combined_changed=false
+          if [ -s "$patch" ]; then
+            combined_changed=true
+            git diff --cached --stat
+          fi
+          git reset
+          digest="sha256:$(sha256sum <"$patch" | awk '{print $1}')"
+          go_version=$(go env GOVERSION)
+          terraform_version=$(terraform version | head -1)
+          tfplugindocs_version=$(go version -m "$(command -v tfplugindocs)" |
+            awk '$1 == "mod" {print $3}')
+          jq_args=(--arg artifact_kind combined --arg source_sha "$source_sha")
+          jq_args+=(--arg patch_file combined-generation.patch --arg patch_sha256 "$digest")
+          jq_args+=(--arg provider_patch_sha256 "$PROVIDER_DIGEST" --arg go_version "$go_version")
+          jq_args+=(--arg terraform_version "$terraform_version" --arg tfplugindocs_version "$tfplugindocs_version")
+          jq_args+=(--argjson go_concurrency "$GO_PACKAGE_PARALLELISM" --argjson changed "$combined_changed")
+          jq_args+=(--argjson docs_changed "$docs_changed")
+          jq -nS "${jq_args[@]}" '{schema_version:1,artifact_kind:$artifact_kind,source_sha:$source_sha,patch_file:$patch_file,patch_sha256:$patch_sha256,provider_patch_sha256:$provider_patch_sha256,changed:$changed,docs_changed:$docs_changed,go_concurrency:$go_concurrency,tool_versions:{go:$go_version,terraform:$terraform_version,tfplugindocs:$tfplugindocs_version}}' >"$manifest"
+          artifact_name="combined-generation-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          {
+            echo "artifact_name=$artifact_name"
+            echo "source_sha=$source_sha"
+            echo "digest=$digest"
+            echo "docs_changed=$docs_changed"
+          } >>"$GITHUB_OUTPUT"
+      - name: Upload combined generation artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ${{ steps.artifact.outputs.artifact_name }}
+          path: ${{ runner.temp }}/combined-generation
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload documentation workload profile
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: documentation-generation-profile-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/provider-profile
+          if-no-files-found: ignore
+          retention-days: 30
