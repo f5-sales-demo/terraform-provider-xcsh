@@ -1205,6 +1205,7 @@ jobs:
         # Job outputs reach the shell through env: — an ${{ }} expansion inside
         # run: is a code-injection sink (zizmor template-injection).
         env:
+          DRY_RUN: ${{ inputs.dry-run || false }}
           SHOULD_PROCESS: ${{ needs.detect-changes.outputs.should-process }}
           IS_REGENERATION_COMMIT: ${{ needs.detect-changes.outputs.is-regeneration-commit }}
           NEEDS_REGENERATION: ${{ needs.detect-changes.outputs.needs-regeneration }}
@@ -1230,6 +1231,7 @@ jobs:
             echo ""
             echo "| Step | Result |"
             echo "|------|--------|"
+            echo "| Dry Run | ${DRY_RUN:-false} |"
             echo "| Should Process | ${SHOULD_PROCESS} |"
             echo "| Is Regeneration Commit | ${IS_REGENERATION_COMMIT} |"
             echo "| Needs Regeneration | ${NEEDS_REGENERATION} |"
@@ -1244,6 +1246,8 @@ jobs:
             echo "| Generation Source | ${GENERATION_SOURCE_SHA:-n/a} |"
             echo "| Generation Digest | ${GENERATION_DIGEST:-n/a} |"
             echo "| Generator State | ${GENERATION_STATE_RESULT} |"
+            echo "| Regeneration PR Required | ${CREATE_PR_REQUIRED} |"
+            echo "| Release Required | ${RELEASE_REQUIRED} |"
             echo "| Regeneration PR Created | ${PR_RESULT} |"
             echo "| Tagged/Released | ${TAG_RELEASE_RESULT} |"
             echo "| Delivery Receipted | ${DELIVERY_RECEIPT_RESULT} |"
@@ -1257,6 +1261,15 @@ jobs:
           if [ "$GENERATION_STATE_RESULT" != "success" ]; then
             echo "::error::Generator state classification did not succeed"
             exit 1
+          fi
+          if [ "${DRY_RUN:-false}" = "true" ]; then
+            if [ "$PR_RESULT" != "skipped" ] ||
+               [ "$TAG_RELEASE_RESULT" != "skipped" ] ||
+               [ "$DELIVERY_RECEIPT_RESULT" != "skipped" ]; then
+              echo "::error::Dry run requires every publishing job to be skipped"
+              exit 1
+            fi
+            exit 0
           fi
           if [ "$CREATE_PR_REQUIRED" = "true" ] && [ "$PR_RESULT" != "success" ]; then
             echo "::error::Required regeneration PR was not created successfully"
