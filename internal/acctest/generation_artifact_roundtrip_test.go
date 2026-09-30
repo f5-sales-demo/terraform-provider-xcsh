@@ -18,6 +18,11 @@ func TestGenerationArtifactRoundTrip(t *testing.T) {
 			bin := filepath.Join(work, "bin")
 			writeReleaseTestFile(t, repo, "provider.txt", "before\n", 0o600)
 			writeReleaseTestFile(t, repo, "docs/fixture.md", "before\n", 0o600)
+			verifier, err := os.ReadFile(filepath.Join(testRepositoryRoot(t), "scripts", "verify-tfplugindocs.sh"))
+			if err != nil {
+				t.Fatal(err)
+			}
+			writeReleaseTestFile(t, repo, "scripts/verify-tfplugindocs.sh", string(verifier), 0o600)
 			runReleaseTestCommand(t, repo, nil, "git", "init", "-q")
 			runReleaseTestCommand(t, repo, nil, "git", "config", "user.name", "Artifact Test")
 			runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "artifact@example.com")
