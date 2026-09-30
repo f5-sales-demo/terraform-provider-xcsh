@@ -9,6 +9,12 @@ set -euo pipefail
 MAX_ATTEMPTS="${1:?Usage: go-retry.sh <max_attempts> <command> [args...]}"
 shift
 CMD=("$@")
+# Go's HTTP/2 dependency downloads have failed with proxy stream INTERNAL_ERROR.
+# Keep the existing checksums, retries and diagnostics while using HTTP/1.1.
+# Go takes the last value for a duplicate GODEBUG key; preserve other settings.
+if [ "${CMD[0]##*/}" = go ] && [ "${CMD[1]:-}" = mod ]; then
+  export GODEBUG="${GODEBUG:+${GODEBUG},}http2client=0"
+fi
 
 attempt=1
 while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
