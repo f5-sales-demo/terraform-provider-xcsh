@@ -40,6 +40,10 @@ if [ "$1" = env ]; then
   esac
 elif [ "$1" = list ]; then
   echo 'example.test/provider example.test/provider@v1.0.0'
+elif [ "$1" = run ] && [ "${FAIL_FIRST_GENERATOR:-false}" = true ]; then
+  exit 7
+elif [ "$1" = mod ] && [ "${FAIL_FIRST_GENERATOR:-false}" = true ]; then
+  printf '%s\n' after-failed-generator >"$FOLLOW_ON_LOG"
 elif [ "$1" = build ]; then
   [ "$GOMAXPROCS" = "$EXPECTED_CONCURRENCY" ]
   [ "$GOFLAGS" = "-p=$EXPECTED_CONCURRENCY" ]
@@ -296,6 +300,32 @@ raise SystemExit(status)
             json.loads((evidence / "runtime-environment.json").read_text())["exit_code"]
             == 143
         )
+
+    def test_generation_failure_cannot_be_hidden_by_later_commands(self):
+        for phase in ("provider-generation", "release-preflight"):
+            with self.subTest(phase=phase):
+                evidence = self.work / f"failure-{phase}"
+                later = self.work / f"follow-on-{phase}"
+                env = self.env | {
+                    "FAIL_FIRST_GENERATOR": "true",
+                    "FOLLOW_ON_LOG": str(later),
+                }
+                result = subprocess.run(  # noqa: S603 - fixed local phase fixture
+                    [
+                        self.executable("bash"),
+                        str(self.repo / "scripts/run-provider-benchmark-phase.sh"),
+                        phase,
+                        "4",
+                        str(evidence),
+                    ],
+                    cwd=self.repo,
+                    env=env,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                assert result.returncode != 0, result.stdout + result.stderr
+                assert not later.exists(), "phase continued after failed generation"
 
 
 if __name__ == "__main__":

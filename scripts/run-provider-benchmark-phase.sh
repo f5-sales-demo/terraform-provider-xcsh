@@ -17,7 +17,8 @@ evidence_dir=$3
 mkdir -p "$evidence_dir"
 raw_log="$evidence_dir/workload.log"
 set +e
-{
+(
+  set -e
   case "$phase" in
   build)
     scripts/go-retry.sh 3 go build -p "$concurrency" ./...
@@ -49,7 +50,7 @@ set +e
     exit 2
     ;;
   esac
-} > >(tee "$raw_log") 2>&1
+) > >(tee "$raw_log") 2>&1
 status=$?
 set -e
 
