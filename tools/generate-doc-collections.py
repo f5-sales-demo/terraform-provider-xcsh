@@ -54,7 +54,7 @@ def description_markdown(value):
     escaped = html.escape(value, quote=False)
     escaped = re.sub(r"([\\`*_{}\[\]<>#])", r"\\\1", escaped)
     escaped = re.sub(
-        r"(?<![A-Za-z0-9])www\.([A-Za-z0-9.-]+)",
+        r"(?i)(?<![A-Za-z0-9])www\.([A-Za-z0-9.-]+)",
         lambda match: "www&#46;" + match.group(1),
         escaped,
     )
@@ -67,7 +67,7 @@ def description_markdown(value):
         escaped,
     )
     paragraphs = re.split(r"\n\s*\n", escaped)
-    return "\n\n".join(
+    result = "\n\n".join(
         textwrap.fill(
             " ".join(part.split()),
             width=100,
@@ -76,6 +76,7 @@ def description_markdown(value):
         )
         for part in paragraphs
     )
+    return re.sub(r"(?m)^(?=[+.-] |[0-9]+[.)] )", "&#8203;", result)
 
 
 def normalize_body(value):
@@ -452,7 +453,9 @@ class Collection:
                 "Provider validators and defaults (from schema source):\n\n```go\n"
                 + "\n".join(f"{k}: {v}" for k, v in sorted(source.items()))
                 .replace(", validators.", ",\n  validators.")
+                .replace(', "', ',\n    "')
                 .replace(", validators.", ",\n  validators.")
+                .replace(', "', ',\n    "')
                 + "\n```\n"
             )
         enriched = {
