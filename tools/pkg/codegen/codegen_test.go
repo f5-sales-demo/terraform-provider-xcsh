@@ -2842,3 +2842,37 @@ func TestEmptyChoiceMarkerRendersNullableObjectAttribute(t *testing.T) {
 		t.Fatalf("empty marker unmarshal lost presence semantics: %s", unmarshal.String())
 	}
 }
+
+func TestSecuremeshKVMUpdatePreservesRealizedNodesAfterMarshalling(t *testing.T) {
+	tmpl := &openapi.ResourceTemplate{
+		Name: "securemesh_site_v2", TitleCase: "SecuremeshSiteV2", Description: "Probe.",
+		HasNamespaceInPath: true, FiltersDiscoveredSiteLabels: true, HasConcurrencyToken: true,
+		APIPath: "/api/config/namespaces/%s/securemesh_site_v2s", APIPathItem: "/api/config/namespaces/%s/securemesh_site_v2s/%s",
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", Required: true},
+			{Name: "labels", GoName: "Labels", TfsdkTag: "labels", Type: "map", ElementType: "string", Optional: true},
+			{Name: "id", GoName: "ID", TfsdkTag: "id", Type: "string", Computed: true},
+		},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatal(err)
+	}
+	source, err := os.ReadFile(filepath.Join(dir, "securemesh_site_v2_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := string(source)
+	update := text[strings.Index(text, "func (r *SecuremeshSiteV2Resource) Update("):]
+	preservation := strings.Index(update, "preserveRealizedKVMNodes(current, apiResource)")
+	marshal := strings.Index(update, "// Marshal spec fields")
+	write := strings.Index(update, "r.client.UpdateSecuremeshSiteV2(ctx, apiResource)")
+	if marshal < 0 || preservation < marshal || write < preservation {
+		t.Fatal("KVM preservation must follow configured marshal and precede the single versioned write")
+	}
+	create := text[strings.Index(text, "func (r *SecuremeshSiteV2Resource) Create("):strings.Index(text, "func (r *SecuremeshSiteV2Resource) Read(")]
+	if strings.Contains(create, "preserveRealizedKVMNodes") {
+		t.Fatal("bootstrap creation must remain untouched")
+	}
+}

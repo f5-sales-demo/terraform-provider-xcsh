@@ -49496,6 +49496,11 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		apiResource.Spec["tunnel_type"] = data.TunnelType.ValueString()
 	}
 
+	if preserveErr := preserveRealizedKVMNodes(current, apiResource); preserveErr != nil {
+		resp.Diagnostics.AddError("Unable to Preserve Realized KVM Nodes", preserveErr.Error())
+		return
+	}
+
 	_, err := r.client.UpdateSecuremeshSiteV2(ctx, apiResource)
 	if err != nil {
 		var apiErr *xcsherrors.XCSHError
