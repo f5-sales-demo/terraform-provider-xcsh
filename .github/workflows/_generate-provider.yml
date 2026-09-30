@@ -15,7 +15,7 @@ on:
       runner-label:
         description: Trusted runner label for heavy Go work
         type: string
-        default: managed-socketless
+        default: terraform-provider-xcsh-compute
       go-concurrency:
         description: Go package and process concurrency on the compute pool
         type: number
@@ -39,7 +39,7 @@ permissions: {}
 jobs:
   generate:
     name: Generate Provider Code
-    runs-on: managed-socketless
+    runs-on: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 'ubuntu-latest' || 'terraform-provider-xcsh-compute' }}
     permissions:
       contents: read
     outputs:
@@ -63,12 +63,18 @@ jobs:
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         env:
           RUNNER_LABEL: ${{ inputs.runner-label }}
-        run: test "$RUNNER_LABEL" = managed-socketless
+        run: test "$RUNNER_LABEL" = terraform-provider-xcsh-compute
       - name: Download API specs
         uses: ./.github/actions/download-api-specs
         with:
           token: ${{ github.token }}
           spec-dir: ${{ inputs.spec-dir }}
+      - name: Set up Go for fork isolation
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
       - name: Verify immutable Go toolchain
         run: |
           go version

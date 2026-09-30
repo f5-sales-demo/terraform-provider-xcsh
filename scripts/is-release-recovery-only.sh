@@ -17,6 +17,10 @@ while IFS= read -r path; do
     internal/acctest/download_specs_action_test.go | \
     internal/acctest/sync_openapi_dispatch_test.go | \
     internal/acctest/release_integrity_test.go | \
+    internal/acctest/generation_artifact_test.go | \
+    internal/acctest/generation_artifact_roundtrip_test.go | \
+    internal/acctest/parallel_build_aggregate_test.go | \
+    tools/performance_fork_isolation_test.go | \
     scripts/generate-provider-docs.sh | \
     scripts/validate-smsv2-release.py | \
     tests/test-smsv2-release-validator.sh | \

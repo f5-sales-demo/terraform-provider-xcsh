@@ -575,6 +575,7 @@ jobs:
       provider-artifact-name: ${{ needs.regenerate-provider.outputs.generation-artifact-name }}
       provider-source-sha: ${{ needs.regenerate-provider.outputs.source-sha }}
       provider-digest: ${{ needs.regenerate-provider.outputs.digest }}
+      provider-changed: ${{ needs.regenerate-provider.outputs.changed }}
       runner-label: terraform-provider-xcsh-compute
       go-concurrency: 4
 
@@ -749,6 +750,8 @@ jobs:
         env:
           EXPECTED_DIGEST: ${{ needs.regenerate-docs.outputs.digest }}
           EXPECTED_PROVIDER_DIGEST: ${{ needs.regenerate-provider.outputs.digest }}
+          EXPECTED_PROVIDER_CHANGED: ${{ needs.regenerate-provider.outputs.changed || 'false' }}
+          EXPECTED_DOCS_CHANGED: ${{ needs.regenerate-docs.outputs.changed }}
           EXPECTED_SOURCE_SHA: ${{ needs.regenerate-docs.outputs.source-sha }}
           SOURCE_COMMIT: ${{ github.sha }}
         run: |
@@ -758,12 +761,19 @@ jobs:
           patch="$artifact_dir/combined-generation.patch"
           test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
           test "$EXPECTED_SOURCE_SHA" = "$SOURCE_COMMIT"
+          current_main=$(git ls-remote --exit-code --heads origin refs/heads/main | awk '$2 == "refs/heads/main" {print $1}')
+          test "$current_main" = "$SOURCE_COMMIT" || {
+            echo "::error::Protected main changed after generation; dispatch from the new source"
+            exit 1
+          }
           digest="sha256:$(sha256sum <"$patch" | awk '{print $1}')"
           test "$digest" = "$EXPECTED_DIGEST"
           jq -e \
             --arg source_sha "$SOURCE_COMMIT" \
             --arg digest "$digest" \
             --arg provider_digest "$EXPECTED_PROVIDER_DIGEST" '
+            type == "object" and
+            (keys | sort) == ["artifact_kind", "changed", "docs_changed", "go_concurrency", "patch_file", "patch_sha256", "provider_patch_sha256", "schema_version", "source_sha", "tool_versions"] and
             .schema_version == 1 and
             .artifact_kind == "combined" and
             .source_sha == $source_sha and
@@ -772,12 +782,17 @@ jobs:
             .provider_patch_sha256 == $provider_digest and
             (.changed | type == "boolean") and
             (.docs_changed | type == "boolean") and
-            (.go_concurrency | type == "number") and
-            (.tool_versions.go | type == "string" and length > 0) and
-            (.tool_versions.terraform | type == "string" and length > 0) and
-            (.tool_versions.tfplugindocs | type == "string" and length > 0)
+            .go_concurrency == 4 and
+            .tool_versions == {go:"go1.25.13",terraform:"Terraform v1.16.3",tfplugindocs:"v0.25.0"}
           ' "$manifest" >/dev/null
           changed=$(jq -r '.changed' "$manifest")
+          docs_changed=$(jq -r '.docs_changed' "$manifest")
+          test "$docs_changed" = "$EXPECTED_DOCS_CHANGED"
+          case "$EXPECTED_PROVIDER_CHANGED:$EXPECTED_DOCS_CHANGED" in
+            false:false) test "$changed" = false ;;
+            true:true|true:false|false:true) test "$changed" = true ;;
+            *) exit 1 ;;
+          esac
           if [ "$changed" = true ]; then
             test -s "$patch"
             git apply --check "$patch"
@@ -911,6 +926,15 @@ jobs:
           BRANCH_NAME="auto-regenerate/${COMMIT_SHA}"
           [[ "$COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]] || exit 1
           REMOTE_SHA=$(git ls-remote origin "refs/heads/${BRANCH_NAME}" | awk '{print $1}')
+          [ -z "$REMOTE_SHA" ] || {
+            echo "::error::Attested regeneration branch already exists and cannot be replaced"
+            exit 1
+          }
+          current_main=$(git ls-remote --exit-code --heads origin refs/heads/main | awk '$2 == "refs/heads/main" {print $1}')
+          test "$current_main" = "$COMMIT_SHA" || {
+            echo "::error::Protected main changed before regeneration publication"
+            exit 1
+          }
           git checkout -B "$BRANCH_NAME"
           git commit -m "chore: auto-regenerate provider and documentation
 
@@ -927,11 +951,7 @@ jobs:
           # Push the branch (clear checkout extraheader and use PAT so push triggers CI)
           git config --unset-all http.https://github.com/.extraheader || true
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
-          if [ -n "$REMOTE_SHA" ]; then
-            git push --force-with-lease="refs/heads/${BRANCH_NAME}:${REMOTE_SHA}" origin "$BRANCH_NAME"
-          else
-            git push --force-with-lease origin "$BRANCH_NAME"
-          fi
+          git push origin "HEAD:refs/heads/${BRANCH_NAME}"
 
           ISSUE_TITLE="chore: auto-regenerate provider from ${COMMIT_SHA}"
           ISSUE_JSON=$(gh issue list --state all --search "$ISSUE_TITLE in:title" \
