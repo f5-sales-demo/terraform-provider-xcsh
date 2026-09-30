@@ -139,9 +139,13 @@ func RenderResponseOperationExampleHCL(rt *openapi.ResourceTemplate, resourceNam
 		sb.WriteString(fmt.Sprintf("resource \"xcsh_%s\" \"example\" {\n", resourceName))
 	case "data_source":
 		sb.WriteString(fmt.Sprintf("data \"xcsh_%s\" \"example\" {\n", resourceName))
+	case "ephemeral_resource":
+		sb.WriteString(fmt.Sprintf("ephemeral \"xcsh_%s\" \"example\" {\n", resourceName))
 	case "action":
-		sb.WriteString(fmt.Sprintf("# The API accepts this upgrade request immediately; convergence is asynchronous.\n"))
-		sb.WriteString("# This action does not reconcile a site's pinned software_settings.\n")
+		if resourceName == "site_upgrade_sw" {
+			sb.WriteString("# The API accepts the upgrade request immediately; convergence is asynchronous.\n")
+			sb.WriteString("# This action does not reconcile a site's pinned software_settings.\n")
+		}
 		sb.WriteString(fmt.Sprintf("action \"xcsh_%s\" \"example\" {\n  config {\n", resourceName))
 		indent = "    "
 	default:
@@ -244,6 +248,8 @@ func WriteResponseOperationExample(rt *openapi.ResourceTemplate, resourceName, e
 		subdir, filename = "data-sources", "data-source.tf"
 	case "action":
 		subdir, filename = "actions", "action.tf"
+	case "ephemeral_resource":
+		subdir, filename = "ephemeral-resources", "ephemeral.tf"
 	default:
 		return fmt.Errorf("unsupported response-operation example surface %q", surface)
 	}

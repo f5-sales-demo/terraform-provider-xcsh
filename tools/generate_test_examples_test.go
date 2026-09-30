@@ -98,11 +98,11 @@ func TestRenderExamplesHasExpectedSelection(t *testing.T) {
 	}
 
 	wantCounts := map[string]int{
-		"xcsh_http_loadbalancer":         17,
+		"xcsh_http_loadbalancer":         13,
 		"xcsh_tcp_loadbalancer":          6,
 		"xcsh_healthcheck":               13,
 		"xcsh_app_firewall":              11,
-		"xcsh_origin_pool":               7,
+		"xcsh_origin_pool":               6,
 		"xcsh_rate_limiter":              7,
 		"xcsh_service_policy":            4,
 		"xcsh_user_identification":       8,

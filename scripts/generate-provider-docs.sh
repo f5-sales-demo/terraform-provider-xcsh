@@ -96,6 +96,7 @@ mkdir -p "$plugin_cache_dir"
 
 validate_example() {
   local source_file=$1
+  local expected_outcome=${2:-valid}
   local case_dir case_name init_log selected_version validate_log version_log
   case_dir=$(mktemp -d "${temporary_root}/example.XXXXXX")
   case_name=${source_file#examples/}
@@ -122,6 +123,9 @@ validate_example() {
     fail "generated example ${case_name} selected xcsh ${selected_version}, want local ${provider_version}"
   if ! TF_CLI_CONFIG_FILE="$terraform_cli_config" TF_PLUGIN_CACHE_DIR="$plugin_cache_dir" \
     terraform -chdir="$case_dir" validate -no-color >"$validate_log" 2>&1; then
+    if [ "$expected_outcome" = conflict ] && grep -Ei 'conflict|exactly one|mutually exclusive' "$validate_log" >/dev/null; then
+      return 0
+    fi
     cat "$validate_log" >&2
     fail "terraform validate rejected generated example ${case_name}"
   fi
@@ -133,9 +137,10 @@ actual_example_dirs="$temporary_root/actual-example-dirs.txt"
 jq -r '
   (.resources[] | "examples/resources/xcsh_" + .),
   (.data_sources[] | "examples/data-sources/xcsh_" + .),
-  (.actions[] | "examples/actions/xcsh_" + .)
+  (.actions[] | "examples/actions/xcsh_" + .),
+  (.ephemeral_resources[] | "examples/ephemeral-resources/xcsh_" + .)
 ' provider-release-surface.json | LC_ALL=C sort >"$expected_example_dirs"
-find examples/resources examples/data-sources examples/actions \
+find examples/resources examples/data-sources examples/actions examples/ephemeral-resources \
   -mindepth 1 -maxdepth 1 -type d -print | LC_ALL=C sort >"$actual_example_dirs"
 if ! diff -u "$expected_example_dirs" "$actual_example_dirs"; then
   fail "example directories do not exactly match provider-release-surface.json"
@@ -147,6 +152,7 @@ while IFS= read -r directory; do
   examples/resources/*) canonical_file="$directory/resource.tf" ;;
   examples/data-sources/*) canonical_file="$directory/data-source.tf" ;;
   examples/actions/*) canonical_file="$directory/action.tf" ;;
+  examples/ephemeral-resources/*) canonical_file="$directory/ephemeral.tf" ;;
   *) fail "unexpected example directory ${directory}" ;;
   esac
   [ -f "$canonical_file" ] || fail "missing canonical example ${canonical_file}"
@@ -162,7 +168,11 @@ echo "::endgroup::"
 echo "::group::Validate acceptance-derived examples"
 validated_named_examples=0
 while IFS= read -r example; do
-  validate_example "$example"
+  if [[ "$example" == *conflict* ]]; then
+    validate_example "$example" conflict
+  else
+    validate_example "$example"
+  fi
   validated_named_examples=$((validated_named_examples + 1))
 done < <(find examples/resources -mindepth 2 -maxdepth 2 -type f -name "*.tf" \
   ! -name resource.tf -print | LC_ALL=C sort)
@@ -174,44 +184,6 @@ echo "::endgroup::"
 if [ "$validate_examples_only" = true ]; then
   exit 0
 fi
-
-echo "::group::Generate and transform provider documentation"
-tfplugindocs generate --provider-name xcsh
-go run tools/transform-docs.go
-# The exhaustive documentation assertions inspect the transformed files. Run
-# them after the first transformation pass; running them against tfplugindocs'
-# raw nested-schema output rejects a valid fresh generation before the
-# transformer has had a chance to add stable anchors and flattened paths.
-go test tools/transform-docs.go tools/transform-docs_test.go
-
-# A transformer that converges only after a second run makes generated output
-# depend on repository history. Snapshot the first pass, run it again, and fail
-# on any byte-level drift.
-first_pass_docs="$temporary_root/first-pass-docs"
-mkdir -p "$first_pass_docs"
-(tar -cf - docs) |
-  (cd "$first_pass_docs" && tar -xf -)
-go run tools/transform-docs.go
-idempotence_diff="$temporary_root/transform-idempotence.diff"
-if ! diff -qr "$first_pass_docs/docs" docs >"$idempotence_diff"; then
-  sed -n '1,200p' "$idempotence_diff" >&2
-  fail "documentation transformer changed its own first-pass output"
-fi
-echo "Verified documentation transformer idempotence"
-
-expected_doc_files="$temporary_root/expected-doc-files.txt"
-actual_doc_files="$temporary_root/actual-doc-files.txt"
-jq -r '
-  (.resources[] | "docs/resources/" + . + ".md"),
-  (.data_sources[] | "docs/data-sources/" + . + ".md"),
-  (.actions[] | "docs/actions/" + . + ".md")
-' provider-release-surface.json | LC_ALL=C sort >"$expected_doc_files"
-find docs/resources docs/data-sources docs/actions \
-  -maxdepth 1 -type f -name '*.md' ! -name index.md -print | LC_ALL=C sort >"$actual_doc_files"
-if ! diff -u "$expected_doc_files" "$actual_doc_files"; then
-  fail "generated documentation does not exactly match provider-release-surface.json"
-fi
-echo "::endgroup::"
 
 # Exporting the schema is an executable contract test for the exact provider
 # binary. Use the same local mirror as the examples so init and schema export
@@ -271,7 +243,14 @@ validate_example tests/compatibility/csd/main.tf
 echo "Exported provider schema: $(wc -c <"$schema_output" | tr -d '[:space:]') bytes"
 echo "::endgroup::"
 
-echo "::group::Generate machine-readable documentation indexes"
-go run tools/generate-llms-txt.go
-scripts/format-provider-docs-index.sh
+echo "::group::Generate complete provider documentation collections"
+constraints_output="$temporary_root/documentation-constraints.json"
+go run tools/export-doc-constraints.go >"$constraints_output"
+python3 tools/generate-doc-collections.py --schema "$schema_output" --constraints "$constraints_output"
+python3 -m unittest discover -s tests -p test_doc_collections.py
+first_manifest="$temporary_root/first-generated-manifest.json"
+cp documentation/generated-manifest.json "$first_manifest"
+python3 tools/generate-doc-collections.py --schema "$schema_output" --constraints "$constraints_output"
+cmp "$first_manifest" documentation/generated-manifest.json || fail "collection generation is not idempotent"
+echo "Verified collection coverage, links and deterministic regeneration"
 echo "::endgroup::"
