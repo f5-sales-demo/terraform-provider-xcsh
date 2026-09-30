@@ -363,6 +363,97 @@ raise SystemExit(status)
         )
         assert staged_before == staged_after
 
+    def test_snapshot_preserves_staged_modified_and_deleted_output(self):
+        self.write(self.repo / "deleted.txt", "delete me\n")
+        self.write(self.repo / "changed.txt", "before\n")
+        git = [self.executable("git")]
+        subprocess.run(  # noqa: S603 - fixed isolated benchmark fixture
+            [*git, "add", "."], cwd=self.repo, check=True, capture_output=True
+        )
+        subprocess.run(  # noqa: S603 - fixed isolated benchmark fixture
+            [*git, "commit", "-qm", "additional fixture"],
+            cwd=self.repo,
+            check=True,
+            capture_output=True,
+        )
+        self.write(self.repo / "changed.txt", "after\n")
+        (self.repo / "deleted.txt").unlink()
+        self.write(self.repo / "staged.txt", "staged output\n")
+        self.write(
+            self.repo / ".qualification-harness/staged.txt", "excluded harness\n"
+        )
+        evidence = self.repo / "snapshot-evidence"
+        self.write(evidence / "staged-input.txt", "excluded evidence\n")
+        subprocess.run(  # noqa: S603 - fixed isolated benchmark fixture
+            [*git, "add", "-A"], cwd=self.repo, check=True, capture_output=True
+        )
+        before = subprocess.check_output([*git, "write-tree"], cwd=self.repo, text=True)  # noqa: S603 - fixed isolated benchmark fixture
+        result = subprocess.run(  # noqa: S603 - fixed isolated benchmark fixture
+            [
+                self.executable("bash"),
+                str(self.repo / "scripts/run-provider-benchmark-phase.sh"),
+                "provider-generation",
+                "4",
+                str(evidence),
+            ],
+            cwd=self.repo,
+            env=self.env,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        assert result.returncode == 0, result.stdout + result.stderr
+        patch_text = (evidence / "worktree-output.patch").read_text()
+        assert "changed.txt" in patch_text
+        assert "+after" in patch_text
+        assert "deleted.txt" in patch_text
+        assert "deleted file mode" in patch_text
+        assert "staged.txt" in patch_text
+        assert "+staged output" in patch_text
+        assert ".qualification-harness" not in patch_text
+        assert "snapshot-evidence" not in patch_text
+        assert before == subprocess.check_output(  # noqa: S603 - fixed isolated benchmark fixture
+            [*git, "write-tree"], cwd=self.repo, text=True
+        )
+
+    def test_inherited_index_is_preserved(self):
+        git = [self.executable("git")]
+        inherited = self.work / "inherited.index"
+        original = subprocess.check_output(  # noqa: S603 - fixed isolated benchmark fixture
+            [*git, "rev-parse", "--git-path", "index"], cwd=self.repo, text=True
+        ).strip()
+        shutil.copyfile(self.repo / original, inherited)
+        env = self.env | {"GIT_INDEX_FILE": str(inherited)}
+        self.write(self.repo / "inherited-output.txt", "staged inherited output\n")
+        subprocess.run(  # noqa: S603 - fixed isolated benchmark fixture
+            [*git, "add", "inherited-output.txt"],
+            cwd=self.repo,
+            env=env,
+            check=True,
+            capture_output=True,
+        )
+        before = inherited.read_bytes()
+        evidence = self.work / "inherited-evidence"
+        result = subprocess.run(  # noqa: S603 - fixed isolated benchmark fixture
+            [
+                self.executable("bash"),
+                str(self.repo / "scripts/run-provider-benchmark-phase.sh"),
+                "provider-generation",
+                "4",
+                str(evidence),
+            ],
+            cwd=self.repo,
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert inherited.read_bytes() == before
+        assert (
+            "inherited-output.txt" in (evidence / "worktree-output.patch").read_text()
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
