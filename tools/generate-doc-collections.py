@@ -509,11 +509,22 @@ class Collection:
                 "## Prerequisites\n",
                 "Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.\n",
             ]
-            for key in ("tier", "dependencies", "relationship_hints"):
-                if key in self.metadata:
+            if self.metadata.get("tier"):
+                lines.append(f"Required service tier: {self.metadata['tier']}.\n")
+            dependencies = self.metadata.get("dependencies", {})
+            for label, key in (
+                ("Required dependencies", "required"),
+                ("Optional integrations", "optional"),
+            ):
+                if dependencies.get(key):
                     lines.append(
-                        f"Upstream {key}: `{json_text(self.metadata[key])}`.\n"
+                        label
+                        + ": "
+                        + ", ".join(f"`{name}`" for name in dependencies[key])
+                        + ".\n"
                     )
+            for hint in self.metadata.get("relationship_hints", []):
+                lines.append("- " + hint)
             lines += [
                 "## Minimal configuration\n",
                 "Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.\n",
@@ -903,6 +914,12 @@ def generate(root, schema_path, constraints_path, canonical_only=False):
             collections.append(collection)
             categories[stable_id(kind, name, "collection")] = collection.category
             for page in collection.pages.values():
+                page["source_url"] = (
+                    SITE
+                    + "/_data/pages/"
+                    + page["path"].removeprefix("documentation/").removesuffix(".md")
+                    + ".txt"
+                )
                 body = collection.body(page)
                 page.update(
                     body=body,
