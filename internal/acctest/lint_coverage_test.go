@@ -22,7 +22,8 @@ func TestLintCoverageIncludesTools(t *testing.T) {
 		{
 			file: ".github/workflows/_build-test.yml",
 			mustHave: []string{
-				"mapfile -t pkgs < <(go list -f '{{.Dir}}' ./internal/... . ./tools/... | grep -vE '/internal/(provider|client)$')",
+				"go list -f '{{.Dir}}' ./internal/... . ./tools/...",
+				"grep -vE '/internal/(provider|client)$'",
 			},
 		},
 		{

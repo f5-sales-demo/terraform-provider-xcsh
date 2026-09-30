@@ -3,6 +3,7 @@
 package codegen
 
 import (
+	"encoding/json"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -313,19 +314,16 @@ func TestWireNameAbsentOutputUnchanged(t *testing.T) {
 // TestWireNameResourceCompiles is the compile-level guard (#1271's lesson: the
 // substring assertions above cannot catch a generator that emits code which does
 // not build). It runs the full pipeline on the annotated fixture, writes the
-// generated Go into the module tree and runs `go build`.
+// generated Go into an isolated tree and compiles it through a Go overlay.
 //
 // The fixture uses the SYNTHETIC resource name "zz_wire_probe": no such resource
 // exists in the specs, so this guard can never clobber a committed generated file
 // and can never start failing once a real artifact exists.
 //
-// The generated files are written to their REAL destinations (internal/provider
-// and internal/client) and removed on cleanup. A throwaway package under
-// internal/ is not enough: a generated CRUD resource calls package-level helpers
-// that live in internal/provider (filterSystemLabels,
-// filterSystemManagedRrSetGroups, ...), so only compiling it as part of that
-// package proves the output actually builds. Both paths are refused if a file is
-// already there, so the guard can never overwrite committed output.
+// A throwaway package is not enough: a generated CRUD resource calls helpers in
+// internal/provider. The overlay adds the synthetic files to their real package
+// paths without mutating the shared module tree, so package-parallel tests cannot
+// observe a partially written or removed source file.
 func TestWireNameResourceCompiles(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping go build compile check in -short mode")
@@ -334,28 +332,17 @@ func TestWireNameResourceCompiles(t *testing.T) {
 	tmpl := wireProbeTemplate(t, true)
 
 	root := repoRootFromTest(t)
-	provDir := filepath.Join(root, "internal", "provider")
-	clientDir := filepath.Join(root, "internal", "client")
+	generatedRoot := t.TempDir()
+	provDir := filepath.Join(generatedRoot, "provider")
+	clientDir := filepath.Join(generatedRoot, "client")
+	if err := os.MkdirAll(provDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(clientDir, 0o755); err != nil {
+		t.Fatal(err)
+	}
 	resourceFile := filepath.Join(provDir, "zz_wire_probe_resource.go")
 	clientTypes := filepath.Join(clientDir, "zz_wire_probe_types.go")
-	// These names are reserved exclusively for this test. A previous process may
-	// have been terminated after writing them but before t.Cleanup could run;
-	// remove only those known synthetic artifacts so a controlled retry starts
-	// from a clean module tree.
-	for _, path := range []string{resourceFile, clientTypes} {
-		if err := os.Remove(path); err != nil && !os.IsNotExist(err) {
-			t.Fatalf("removing stale wire probe %s: %v", path, err)
-		}
-	}
-	for _, path := range []string{resourceFile, clientTypes} {
-		if _, err := os.Stat(path); err == nil {
-			t.Fatalf("refusing to clobber existing %s", path)
-		}
-	}
-	t.Cleanup(func() {
-		os.Remove(resourceFile)
-		os.Remove(clientTypes)
-	})
 
 	if err := GenerateResourceFile(tmpl, provDir); err != nil {
 		t.Fatalf("GenerateResourceFile: %v", err)
@@ -378,7 +365,26 @@ func TestWireNameResourceCompiles(t *testing.T) {
 		t.Errorf("generated resource missing wire key public_advertisment:\n%s", res)
 	}
 
-	cmd := exec.Command("go", "build", "./internal/provider/", "./internal/client/")
+	overlay := struct {
+		Replace map[string]string `json:"Replace"`
+	}{
+		Replace: map[string]string{
+			filepath.Join(root, "internal", "provider", filepath.Base(resourceFile)): resourceFile,
+			filepath.Join(root, "internal", "client", filepath.Base(clientTypes)):    clientTypes,
+		},
+	}
+	overlayBytes, err := json.Marshal(overlay)
+	if err != nil {
+		t.Fatal(err)
+	}
+	overlayPath := filepath.Join(generatedRoot, "overlay.json")
+	if err := os.WriteFile(overlayPath, overlayBytes, 0o600); err != nil {
+		t.Fatal(err)
+	}
+	cmd := exec.Command(
+		"go", "build", "-overlay", overlayPath,
+		"./internal/provider/", "./internal/client/",
+	)
 	cmd.Dir = root
 	out, err := cmd.CombinedOutput()
 	if err != nil {

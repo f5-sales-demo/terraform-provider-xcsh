@@ -52,8 +52,9 @@ jobs:
           SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
-          [[ "$EXPECTED_IMAGE_DIGEST" =~ ^ghcr\.io/f5-sales-demo/self-hosted-runner@sha256:[0-9a-f]{64}$ ]]
-          echo 'runner_label=terraform-provider-xcsh-32vcpu-candidate' >> "$GITHUB_OUTPUT"
+          pattern='^(ghcr\.io/f5-sales-demo|f5salesdemoarcca\.azurecr\.io|[0-9]{12}\.dkr\.ecr\.us-east-1\.amazonaws\.com)/self-hosted-runner@sha256:[0-9a-f]{64}$'
+          [[ "$EXPECTED_IMAGE_DIGEST" =~ $pattern ]]
+          echo 'runner_label=terraform-provider-xcsh-compute' >> "$GITHUB_OUTPUT"
 
   hosted-serial:
     name: Hosted serial / ${{ inputs.phase }} / ${{ inputs.cache_state }} / pair-${{ inputs.pair_id }}
@@ -193,6 +194,27 @@ jobs:
             all(.[]; .exit_code == 0)
           ' "${manifests[@]}"
           jq -s '.' "${manifests[@]}" > matched-output-manifests.json
+      - name: Enforce candidate resource and elapsed-time qualification
+        env:
+          CANDIDATE_VARIANT: eks-p${{ inputs.concurrency }}
+        run: |
+          set -euo pipefail
+          hosted=$(find evidence -name workload-profile.json -type f -print0 |
+            xargs -0 jq -c 'select(.variant == "hosted-p1")')
+          candidate=$(find evidence -name workload-profile.json -type f -print0 |
+            xargs -0 jq -c --arg variant "$CANDIDATE_VARIANT" "select(.variant == \$variant)")
+          test -n "$hosted"
+          test -n "$candidate"
+          # shellcheck disable=SC2016
+          jq -en --argjson hosted "$hosted" --argjson candidate "$candidate" '
+            $hosted.exit.code == 0 and
+            $candidate.exit.code == 0 and
+            $candidate.memory.peak_limit_ratio != null and
+            $candidate.memory.peak_limit_ratio < 0.8 and
+            ($candidate.memory.events.oom // 0) == 0 and
+            ($candidate.memory.events.oom_kill // 0) == 0 and
+            $candidate.duration_seconds <= ($hosted.duration_seconds * 0.8)
+          '
       - name: Upload matched manifest
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:

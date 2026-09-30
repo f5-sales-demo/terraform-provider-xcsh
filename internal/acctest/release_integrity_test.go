@@ -1331,7 +1331,7 @@ func TestReleaseImmutabilityChecksUseAdministrationToken(t *testing.T) {
 func TestReusableWorkflowsPinExactTriggerSHA(t *testing.T) {
 	root := testRepositoryRoot(t)
 	for name, count := range map[string]int{
-		"_build-test.yml":        2,
+		"_build-test.yml":        4,
 		"_generate-provider.yml": 1,
 		"_generate-docs.yml":     1,
 	} {
