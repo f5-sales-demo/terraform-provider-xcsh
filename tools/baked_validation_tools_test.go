@@ -22,9 +22,47 @@ func TestShellValidationUsesBakedToolsWithForkIsolation(t *testing.T) {
 		t.Fatal(err)
 	}
 	job := workflow.Jobs["validate-shell-scripts"]
-	const isolatedShellRunner = "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 'ubuntu-latest' || 'managed-socketless' }}"
-	if job["runs-on"] != isolatedShellRunner {
-		t.Fatal("shell validation must isolate forks on hosted runners")
+	if job["runs-on"] != "managed-socketless" {
+		t.Fatal("trusted shell validation must use the canonical socketless runner")
+	}
+	guard, _ := job["if"].(string)
+	if !strings.Contains(guard, "github.event.pull_request.head.repo.full_name == github.repository") {
+		t.Fatal("trusted shell validation must exclude fork code")
+	}
+	forkData, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_build-test.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var buildWorkflow workflowDocument
+	if err := yaml.Unmarshal(forkData, &buildWorkflow); err != nil {
+		t.Fatal(err)
+	}
+	buildJob := buildWorkflow.Jobs["build"]
+	const isolatedBuildRunner = "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && 'ubuntu-latest' || 'terraform-provider-xcsh-compute' }}"
+	if buildJob["runs-on"] != isolatedBuildRunner {
+		t.Fatal("fork shell validation must stay in the approved hosted build shard")
+	}
+	forkSteps, _ := buildJob["steps"].([]any)
+	forkFound := false
+	for _, value := range forkSteps {
+		step, _ := value.(map[string]any)
+		if step["name"] != "Validate shell scripts in the existing hosted fork shard" {
+			continue
+		}
+		forkFound = true
+		forkGuard, _ := step["if"].(string)
+		if !strings.Contains(forkGuard, "github.event.pull_request.head.repo.full_name != github.repository") {
+			t.Fatal("downloaded ShellCheck must be used only for isolated forks")
+		}
+		script, _ := step["run"].(string)
+		for _, required := range []string{"sha256sum --check", "version: 0.11.0", "shellcheck\" --severity=warning", "test-github-api-download.sh", "test-classify-spec-release-semantics.sh"} {
+			if !strings.Contains(script, required) {
+				t.Fatalf("fork shell validation lost %q", required)
+			}
+		}
+	}
+	if !forkFound {
+		t.Fatal("fork shell validation is missing")
 	}
 	steps, _ := job["steps"].([]any)
 	found := false
