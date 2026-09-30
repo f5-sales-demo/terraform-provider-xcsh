@@ -14,6 +14,8 @@ import html
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import textwrap
 from pathlib import Path, PurePosixPath
@@ -1134,6 +1136,34 @@ def generate(root, schema_path, constraints_path):
             if owned.is_symlink() or digest(owned.read_bytes()) != evidence["sha256"]:
                 raise ValueError(f"legacy output contains unowned edits: {relative}")
             owned.unlink()
+    formatter = [shutil.which("biome") or "/usr/bin/biome"]
+    if os.environ.get("PROVIDER_FORK_ISOLATION") == "true":
+        formatter = [
+            shutil.which("npx") or "/usr/bin/npx",
+            "--yes",
+            "@biomejs/biome@2.5.6",
+        ]
+    else:
+        version = subprocess.run(  # noqa: S603 - verified local tool, fixed arguments
+            [formatter[0], "--version"], check=True, capture_output=True, text=True
+        ).stdout.strip()
+        if version not in ("Version: 2.5.6", "2.5.6"):
+            raise ValueError("documentation formatter must be Biome 2.5.6")
+    for relative, text in list(outputs.items()):
+        if relative.endswith(".json"):
+            formatted = subprocess.run(  # noqa: S603 - generated path and verified formatter
+                [
+                    *formatter,
+                    "format",
+                    "--stdin-file-path=" + relative,
+                    "--files-max-size=100000000",
+                ],
+                input=text,
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            outputs[relative] = formatted.stdout
     for relative, text in outputs.items():
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
