@@ -27,7 +27,12 @@ esac
 
 required_commands=(go jq terraform)
 if [ "$validate_examples_only" = false ]; then
-  required_commands+=(tfplugindocs npx)
+  required_commands+=(tfplugindocs)
+  if [ "${PROVIDER_FORK_ISOLATION:-false}" = true ]; then
+    required_commands+=(npx)
+  else
+    required_commands+=(biome)
+  fi
 fi
 for command in "${required_commands[@]}"; do
   command -v "$command" >/dev/null 2>&1 || fail "required command is unavailable: $command"
@@ -268,5 +273,5 @@ echo "::endgroup::"
 
 echo "::group::Generate machine-readable documentation indexes"
 go run tools/generate-llms-txt.go
-npx --yes @biomejs/biome@2.5.6 format --write docs/terraform-llms-index.json
+scripts/format-provider-docs-index.sh
 echo "::endgroup::"
