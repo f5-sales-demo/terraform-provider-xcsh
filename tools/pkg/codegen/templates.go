@@ -854,6 +854,13 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 	// Marshal spec fields from Terraform state to API struct
 {{renderSpecMarshalCode .Attributes "\t" .TitleCase}}
 
+{{- if eq .TitleCase "SecuremeshSiteV2"}}
+	if preserveErr := preserveRealizedKVMNodes(current, apiResource); preserveErr != nil {
+		resp.Diagnostics.AddError("Unable to Preserve Realized KVM Nodes", preserveErr.Error())
+		return
+	}
+
+{{- end}}
 	_, err := r.client.Update{{.TitleCase}}(ctx, apiResource)
 	if err != nil {
 		{{- if .HasConcurrencyToken}}
