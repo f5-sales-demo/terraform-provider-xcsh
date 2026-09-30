@@ -832,6 +832,34 @@
         "tag": "v9.0.0",
         "version": "9.0.0"
       }
+    },
+    "f287e9a9e1393be4fd4e29711fe3e4e1472a8416ef4cfce3eb2ffbc0f7afbd42": {
+      "delivery": {
+        "release_tag": "v9.0.0",
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440",
+        "version": "9.0.0"
+      },
+      "publication": {
+        "assets": {
+          "terraform-provider-xcsh_12.0.0_SHA256SUMS": "sha256:c615bb2f50ff606b17b2f5ab6012e1e9a025cdceccf725b05a79f236392dbfda",
+          "terraform-provider-xcsh_12.0.0_SHA256SUMS.sig": "sha256:51949d9c3e0b7e3cc3c38e92c7efbeb23666b184dbf9cd4a30be85cbc3eedb4c",
+          "terraform-provider-xcsh_12.0.0_darwin_amd64.zip": "sha256:63ab46a1a59008ed80d6b8167962f9f1e68b460df619d668d8a35b84761b5fe6",
+          "terraform-provider-xcsh_12.0.0_darwin_arm64.zip": "sha256:74300061f38046a80b986edef413c4ef8715196c0e259a58dc29653b9652a526",
+          "terraform-provider-xcsh_12.0.0_freebsd_386.zip": "sha256:689827c9eedc4edf10516f063d4ec7c36f666c00476910c25bf664405fa4099f",
+          "terraform-provider-xcsh_12.0.0_freebsd_amd64.zip": "sha256:55e7e5382c207ee2dc9c5a63c15021564d611cfc09192a072e1eef0f490db5d6",
+          "terraform-provider-xcsh_12.0.0_linux_386.zip": "sha256:059fc7ff4b41467d70d9febac5d6cf0736653a6e56c8678017f9fe8cb8325189",
+          "terraform-provider-xcsh_12.0.0_linux_amd64.zip": "sha256:e6687d3727afecc225531746d35d21053c0661c4e6a6595f83812e4fb327dcf3",
+          "terraform-provider-xcsh_12.0.0_linux_arm.zip": "sha256:f56ec2ab5468bc312b413a32aa109c01080fdfe33a6db2c15e0bb591f353ba9f",
+          "terraform-provider-xcsh_12.0.0_linux_arm64.zip": "sha256:ed17a360f3a32cd95acc0de72544cdd6ed9be8672df11c32a10c26eb1e359aa1",
+          "terraform-provider-xcsh_12.0.0_manifest.json": "sha256:95513584b227b9c7923e641aae986935821077b1eb4116845b5312ac412bbc72",
+          "terraform-provider-xcsh_12.0.0_windows_386.zip": "sha256:af5966ce40d2b3d5317b7b6bcfe535f5777edac4c4408ffdab15a1c13f52ed3e",
+          "terraform-provider-xcsh_12.0.0_windows_amd64.zip": "sha256:419f5f234bbbd5983fda27df4cf73a6137b6254c0b32ba2f30d6d7eb9f0e9129"
+        },
+        "commit": "13779f72723cc88d7fd0e9cfeb2f7c09f4f61daf",
+        "spec_release_sha256": "5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+        "tag": "v12.0.0",
+        "version": "12.0.0"
+      }
     }
   },
   "version": 1
