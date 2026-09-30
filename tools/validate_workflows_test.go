@@ -224,6 +224,33 @@ func TestOnMergeGeneratorStateClassifier(t *testing.T) {
 	}
 }
 
+func TestOnMergeDryRunSummaryReceivesDispatchMode(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow struct {
+		Jobs map[string]struct {
+			Steps []struct {
+				Name string            `yaml:"name"`
+				Env  map[string]string `yaml:"env"`
+			} `yaml:"steps"`
+		} `yaml:"jobs"`
+	}
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	for _, step := range workflow.Jobs["summary"].Steps {
+		if step.Name == "Print summary" {
+			if got := step.Env["DRY_RUN"]; got != "${{ inputs.dry-run || false }}" {
+				t.Fatalf("summary dry-run binding = %q", got)
+			}
+			return
+		}
+	}
+	t.Fatal("workflow summary step is missing")
+}
+
 func TestOnMergePendingRecoveryPrecedesMetadataOnlySkip(t *testing.T) {
 	workflowBytes, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
 	if err != nil {
