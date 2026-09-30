@@ -1223,3 +1223,57 @@ func TestAcceptanceSummaryDownloadsNamedEvidence(t *testing.T) {
 		t.Fatalf("summary artifact inventory mismatch: %v", found)
 	}
 }
+
+func TestDocsTfplugindocsMetadataVerification(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_generate-docs.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow struct {
+		Jobs map[string]struct {
+			Steps []struct{ Name, Run string }
+		}
+	}
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	var script string
+	for _, step := range workflow.Jobs["generate"].Steps {
+		if step.Name == "Verify image-resident tfplugindocs" {
+			script = step.Run
+		}
+	}
+	if script == "" {
+		t.Fatal("documentation workflow has no tfplugindocs verification")
+	}
+	bin := t.TempDir()
+	for name, body := range map[string]string{
+		"tfplugindocs": "#!/bin/sh\nexit 0\n",
+		"go":           "#!/bin/sh\n[ \"$1\" = version ] && [ \"$2\" = -m ] || exit 2\nprintf '/fixture/tfplugindocs: go1.25.13\\n\\tmod\\tgithub.com/hashicorp/terraform-plugin-docs\\t%s\\th1:synthetic\\n' \"$TEST_DOCS_VERSION\"\nexit \"$TEST_DOCS_EXIT\"\n",
+	} {
+		if err := os.WriteFile(filepath.Join(bin, name), []byte(body), 0o700); err != nil {
+			t.Fatal(err)
+		}
+	}
+	for _, tc := range []struct {
+		name, version, exit string
+		wantSuccess         bool
+	}{
+		{"matching tabs", "v0.25.0", "0", true},
+		{"wrong version", "v0.24.0", "0", false},
+		{"metadata command failure", "v0.25.0", "1", false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			cmd := exec.Command("bash", "-e", "-c", script)
+			cmd.Env = append(os.Environ(), "PATH="+bin+string(os.PathListSeparator)+os.Getenv("PATH"),
+				"TEST_DOCS_VERSION="+tc.version, "TEST_DOCS_EXIT="+tc.exit)
+			output, err := cmd.CombinedOutput()
+			if (err == nil) != tc.wantSuccess {
+				t.Fatalf("success = %v, want %v: %s", err == nil, tc.wantSuccess, output)
+			}
+			if !strings.Contains(string(output), "\tmod\tgithub.com/hashicorp/terraform-plugin-docs\t"+tc.version) {
+				t.Fatalf("original module metadata was not printed: %s", output)
+			}
+		})
+	}
+}
