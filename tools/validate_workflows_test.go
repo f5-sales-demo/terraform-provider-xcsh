@@ -579,7 +579,7 @@ var expectedTriggerHashes = map[string]string{
 	"acc-tests.yml":         "e607182d5137134a1cefd9e453be5d90f3fd88d01080d9ea59d00d5242b39147",
 	"auto-merge.yml":        "8effa43649d3b4a53cffb5aabf06e4906c55c0875d15b5ddf86c73e2d5a9137c",
 	"discover-defaults.yml": "a096243c69275bdfc113bb1830a4ac0ce6a3c6c627bc62e5fad7c295315b943d",
-	"on-merge.yml":          "885a2bb5dcdd6421e55a4c45b4d1100e4b68817270baf1bfcb6fe4b072a2560c",
+	"on-merge.yml":          "a30c5350c8ef654c9b3bdbf106749d69276861211d924040a3b4caf1daea0df1",
 	"sync-openapi.yml":      "e9c7b7e72246dd9a3d8a549998232f3d436b2c563273c205cac2435c8c8bfdea",
 }
 
