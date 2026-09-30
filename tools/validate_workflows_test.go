@@ -148,6 +148,10 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 				"tools/pkg/schema/scan_test.go",
 				"internal/acctest/download_specs_action_test.go",
 				"internal/acctest/release_integrity_test.go",
+				"internal/acctest/generation_artifact_test.go",
+				"internal/acctest/generation_artifact_roundtrip_test.go",
+				"internal/acctest/parallel_build_aggregate_test.go",
+				"tools/performance_fork_isolation_test.go",
 				"scripts/generate-provider-docs.sh",
 				"scripts/check-spec-version-freshness.sh",
 				"scripts/test-check-spec-version-freshness.sh",
@@ -366,7 +370,7 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 		"_build-test.yml/vet":             {`test "$(go env GOVERSION)" = go1.25.13`},
 		"_build-test.yml/race":            {`test "$(go env GOVERSION)" = go1.25.13`},
 		"_build-test.yml/lint":            {`test "$(go env GOVERSION)" = go1.25.13`},
-		"_generate-docs.yml/generate":     {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
+		"_generate-docs.yml/generate":     {`test "$(go env GOVERSION)" = go1.25.13`, `$1 == "mod" && $2 == "github.com/hashicorp/terraform-plugin-docs" && $3 == "v0.25.0"`},
 		"_generate-provider.yml/generate": {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/cleanup":           {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/real-api-tests":    {`test "$(go env GOVERSION)" = go1.25.13`},
@@ -437,12 +441,21 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	}
 }
 
-func TestGitHubHostedAcceptanceJobsPreserveGoSetup(t *testing.T) {
+func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 	hostedContracts := map[string][]string{
 		"acc-tests.yml": {
 			"runs-on: ubuntu-latest",
 			"actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
 			"go-version: '1.25.13'",
+		},
+		"_generate-docs.yml": {
+			providerComputeRunnerExpression,
+			"actions/setup-go@",
+			"go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0",
+		},
+		"_generate-provider.yml": {
+			providerComputeRunnerExpression,
+			"actions/setup-go@",
 		},
 	}
 	for filename, fragments := range hostedContracts {
@@ -1223,6 +1236,61 @@ func TestAcceptanceSummaryDownloadsNamedEvidence(t *testing.T) {
 	}
 	if len(found) != len(expected) {
 		t.Fatalf("summary artifact inventory mismatch: %v", found)
+	}
+}
+
+func TestDocsTfplugindocsMetadataVerification(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_generate-docs.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow struct {
+		Jobs map[string]struct {
+			Steps []struct{ Name, Run string }
+		}
+	}
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	var script string
+	for _, step := range workflow.Jobs["generate"].Steps {
+		if step.Name == "Verify immutable generation toolchain" {
+			script = step.Run
+		}
+	}
+	if script == "" {
+		t.Fatal("documentation workflow has no tfplugindocs verification")
+	}
+	bin := t.TempDir()
+	for name, body := range map[string]string{
+		"tfplugindocs": "#!/bin/sh\nexit 0\n",
+		"terraform":    "#!/bin/sh\nprintf 'Terraform v1.16.3\\n'\n",
+		"go":           "#!/bin/sh\n[ \"$1\" = env ] && { echo go1.25.13; exit 0; }\n[ \"$1\" = version ] && [ \"$2\" = -m ] || exit 2\nprintf '/fixture/tfplugindocs: go1.25.13\\n\\tmod\\tgithub.com/hashicorp/terraform-plugin-docs\\t%s\\th1:synthetic\\n' \"$TEST_DOCS_VERSION\"\nexit \"$TEST_DOCS_EXIT\"\n",
+	} {
+		if err := os.WriteFile(filepath.Join(bin, name), []byte(body), 0o700); err != nil {
+			t.Fatal(err)
+		}
+	}
+	for _, tc := range []struct {
+		name, version, exit string
+		wantSuccess         bool
+	}{
+		{"matching tabs", "v0.25.0", "0", true},
+		{"wrong version", "v0.24.0", "0", false},
+		{"metadata command failure", "v0.25.0", "1", false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			cmd := exec.Command("bash", "-e", "-c", script)
+			cmd.Env = append(os.Environ(), "PATH="+bin+string(os.PathListSeparator)+os.Getenv("PATH"),
+				"TEST_DOCS_VERSION="+tc.version, "TEST_DOCS_EXIT="+tc.exit)
+			output, err := cmd.CombinedOutput()
+			if (err == nil) != tc.wantSuccess {
+				t.Fatalf("success = %v, want %v: %s", err == nil, tc.wantSuccess, output)
+			}
+			if !strings.Contains(string(output), "\tmod\tgithub.com/hashicorp/terraform-plugin-docs\t"+tc.version) {
+				t.Fatalf("original module metadata was not printed: %s", output)
+			}
+		})
 	}
 }
 

@@ -69,6 +69,12 @@ jobs:
         with:
           token: ${{ github.token }}
           spec-dir: ${{ inputs.spec-dir }}
+      - name: Set up Go for fork isolation
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
       - name: Verify immutable Go toolchain
         run: |
           go version

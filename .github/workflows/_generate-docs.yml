@@ -20,6 +20,10 @@ on:
         description: Expected SHA-256 digest of the provider patch
         type: string
         default: ''
+      provider-changed:
+        description: Expected changed state from the provider artifact producer
+        type: string
+        default: ''
       runner-label:
         description: Trusted runner label for generation
         type: string
@@ -83,6 +87,7 @@ jobs:
         env:
           EXPECTED_DIGEST: ${{ inputs.provider-digest }}
           EXPECTED_SOURCE_SHA: ${{ inputs.provider-source-sha }}
+          EXPECTED_PROVIDER_CHANGED: ${{ inputs.provider-changed }}
         run: |
           set -euo pipefail
           artifact_dir="$RUNNER_TEMP/provider-generation-input"
@@ -92,17 +97,20 @@ jobs:
           test "$source_sha" = "$EXPECTED_SOURCE_SHA"
           digest="sha256:$(sha256sum <"$patch" | awk '{print $1}')"
           test "$digest" = "$EXPECTED_DIGEST"
-          jq -e --arg source_sha "$source_sha" --arg digest "$digest" '
+          jq -e --arg source_sha "$source_sha" --arg digest "$digest" --argjson concurrency "$GO_PACKAGE_PARALLELISM" '
+            type == "object" and
+            (keys | sort) == ["artifact_kind", "changed", "go_concurrency", "patch_file", "patch_sha256", "schema_version", "source_sha", "tool_versions"] and
             .schema_version == 1 and
             .artifact_kind == "provider" and
             .source_sha == $source_sha and
             .patch_file == "provider-generation.patch" and
             .patch_sha256 == $digest and
             (.changed | type == "boolean") and
-            (.go_concurrency | type == "number") and
-            (.tool_versions.go | type == "string" and length > 0)
+            (.go_concurrency == $concurrency and ($concurrency == 1 or $concurrency == 4)) and
+            .tool_versions == {go:"go1.25.13"}
           ' "$manifest" >/dev/null
           changed=$(jq -r '.changed' "$manifest")
+          test "$changed" = "$EXPECTED_PROVIDER_CHANGED"
           if [ "$changed" = true ]; then
             test -s "$patch"
             git apply --check "$patch"
@@ -137,8 +145,8 @@ jobs:
           test "$(go env GOVERSION)" = go1.25.13
           terraform version | head -1 | grep -Fx 'Terraform v1.16.3'
           go version -m "$(command -v tfplugindocs)" |
-            tr '\t' ' ' |
-            grep -F 'mod github.com/hashicorp/terraform-plugin-docs v0.25.0'
+            tee /dev/stderr |
+            awk '$1 == "mod" && $2 == "github.com/hashicorp/terraform-plugin-docs" && $3 == "v0.25.0" {found=1} END {exit !found}'
       - name: Restore source-bound Go cache
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -149,6 +157,7 @@ jobs:
       - name: Generate documentation with runner profiling
         run: |
           set -euo pipefail
+          export GOFLAGS="-p=${GO_PACKAGE_PARALLELISM}"
           profile="$RUNNER_TEMP/provider-profile/documentation.json"
           mkdir -p "$(dirname "$profile")"
           if command -v runner-profile >/dev/null 2>&1; then
