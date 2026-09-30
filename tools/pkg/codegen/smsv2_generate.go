@@ -12,6 +12,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/generatedfile"
 )
 
 //go:embed templates/smsv2_contract_data_source.go.tmpl
@@ -114,13 +116,13 @@ var smsv2AzureRouteServerEBGPMultihop = smsv2CapabilityBoundaryContract{
 	if err != nil {
 		return nil, fmt.Errorf("format SMSv2 generated constants: %w", err)
 	}
-	if err := os.WriteFile(filepath.Join(outputDir, "smsv2_contract_generated.go"), formatted, 0o644); err != nil {
+	if err := generatedfile.WriteFile(filepath.Join(outputDir, "smsv2_contract_generated.go"), formatted, 0o644); err != nil {
 		return nil, fmt.Errorf("write SMSv2 generated constants: %w", err)
 	}
 	if err := generateKVMImageDataSource(contract.Providers.KVM.ImageResolution, outputDir); err != nil {
 		return nil, err
 	}
-	if err := os.WriteFile(filepath.Join(outputDir, "smsv2_contract_data_source.go"), smsv2ContractDataSourceTemplate, 0o644); err != nil {
+	if err := generatedfile.WriteFile(filepath.Join(outputDir, "smsv2_contract_data_source.go"), smsv2ContractDataSourceTemplate, 0o644); err != nil {
 		return nil, fmt.Errorf("write SMSv2 contract data source: %w", err)
 	}
 	return templates, nil
