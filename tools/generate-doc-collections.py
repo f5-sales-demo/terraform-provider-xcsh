@@ -680,7 +680,7 @@ class Collection:
             "- " + self.link(identifier) for identifier in dict.fromkeys(next_ids)
         )
         return (
-            "<!-- textlint-disable terminology: exact provider and upstream contract identifiers -->\n\n"
+            "<!-- Exact provider and upstream contract identifiers. -->\n\n<!-- textlint-disable terminology -->\n\n"
             + normalize_body("\n".join(lines).rstrip() + "\n")
         )
 
