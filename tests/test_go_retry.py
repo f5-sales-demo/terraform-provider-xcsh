@@ -17,9 +17,8 @@ class GoRetryTest(unittest.TestCase):
 
     def setUp(self):
         """Create an isolated PATH and a command that records every attempt."""
-        self.temporary = tempfile.TemporaryDirectory()
-        self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name)
+        self.root = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.root)
         self.record = self.root / "attempts.jsonl"
         self.python = shutil.which("python3")
         self.bash = shutil.which("bash")
