@@ -78,6 +78,7 @@ jobs:
             .github/actions/provider-workload-profile
             scripts/run-provider-benchmark.sh
             scripts/run-provider-benchmark-phase.sh
+            scripts/profile_provider_runtime.py
           sparse-checkout-cone-mode: false
       - name: Check out immutable shared profiler
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -141,6 +142,7 @@ jobs:
             .github/actions/provider-workload-profile
             scripts/run-provider-benchmark.sh
             scripts/run-provider-benchmark-phase.sh
+            scripts/profile_provider_runtime.py
           sparse-checkout-cone-mode: false
       - name: Check out immutable shared profiler
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
