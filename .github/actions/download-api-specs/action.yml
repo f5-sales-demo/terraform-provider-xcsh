@@ -299,4 +299,6 @@ runs:
 
         mkdir -p "$SPEC_DIR"
         find "$SPEC_DIR" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
+        # A reflink leaves destination pages cold on the EKS overlay filesystem.
+        # Copy verified bytes so generation reads the pages written by this step.
         cp -a --reflink=never "${STAGED_SPECS}/." "${SPEC_DIR}/"
