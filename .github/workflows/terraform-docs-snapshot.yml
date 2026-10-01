@@ -18,6 +18,7 @@ concurrency:
 
 jobs:
   publish:
+    name: Publish immutable Terraform documentation
     runs-on: managed-socketless
     permissions:
       contents: write # create immutable snapshot release and upload assets
