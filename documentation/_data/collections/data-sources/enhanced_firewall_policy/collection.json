@@ -1,0 +1,1529 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:enhanced_firewall_policy:fundamentals",
+    "id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+    "properties": {
+      "allow_all": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allow_all",
+        "schema_path": ["allow_all"]
+      },
+      "allowed_destinations": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allowed_destinations",
+        "schema_path": ["allowed_destinations"]
+      },
+      "allowed_destinations.prefix": {
+        "anchor": "schema-allowed_destinations--prefix",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allowed_destinations",
+        "schema_path": ["allowed_destinations", "prefix"]
+      },
+      "allowed_sources": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allowed_sources",
+        "schema_path": ["allowed_sources"]
+      },
+      "allowed_sources.prefix": {
+        "anchor": "schema-allowed_sources--prefix",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allowed_sources",
+        "schema_path": ["allowed_sources", "prefix"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "denied_destinations": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:denied_destinations",
+        "schema_path": ["denied_destinations"]
+      },
+      "denied_destinations.prefix": {
+        "anchor": "schema-denied_destinations--prefix",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:denied_destinations",
+        "schema_path": ["denied_destinations", "prefix"]
+      },
+      "denied_sources": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:denied_sources",
+        "schema_path": ["denied_sources"]
+      },
+      "denied_sources.prefix": {
+        "anchor": "schema-denied_sources--prefix",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:denied_sources",
+        "schema_path": ["denied_sources", "prefix"]
+      },
+      "deny_all": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:deny_all",
+        "schema_path": ["deny_all"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "rule_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list",
+        "schema_path": ["rule_list"]
+      },
+      "rule_list.rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+        "schema_path": ["rule_list", "rules"]
+      },
+      "rule_list.rules.advanced_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:advanced_action",
+        "schema_path": ["rule_list", "rules", "advanced_action"]
+      },
+      "rule_list.rules.advanced_action.action": {
+        "anchor": "schema-rule_list--rules--advanced_action--action",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:advanced_action",
+        "schema_path": ["rule_list", "rules", "advanced_action", "action"]
+      },
+      "rule_list.rules.all_destinations": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_destinations",
+        "schema_path": ["rule_list", "rules", "all_destinations"]
+      },
+      "rule_list.rules.all_sli_vips": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_sli_vips",
+        "schema_path": ["rule_list", "rules", "all_sli_vips"]
+      },
+      "rule_list.rules.all_slo_vips": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_slo_vips",
+        "schema_path": ["rule_list", "rules", "all_slo_vips"]
+      },
+      "rule_list.rules.all_sources": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_sources",
+        "schema_path": ["rule_list", "rules", "all_sources"]
+      },
+      "rule_list.rules.all_tcp_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_tcp_traffic",
+        "schema_path": ["rule_list", "rules", "all_tcp_traffic"]
+      },
+      "rule_list.rules.all_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_traffic",
+        "schema_path": ["rule_list", "rules", "all_traffic"]
+      },
+      "rule_list.rules.all_udp_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_udp_traffic",
+        "schema_path": ["rule_list", "rules", "all_udp_traffic"]
+      },
+      "rule_list.rules.allow": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:allow",
+        "schema_path": ["rule_list", "rules", "allow"]
+      },
+      "rule_list.rules.applications": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:applications",
+        "schema_path": ["rule_list", "rules", "applications"]
+      },
+      "rule_list.rules.applications.applications": {
+        "anchor": "schema-rule_list--rules--applications--applications",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:applications",
+        "schema_path": ["rule_list", "rules", "applications", "applications"]
+      },
+      "rule_list.rules.deny": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:deny",
+        "schema_path": ["rule_list", "rules", "deny"]
+      },
+      "rule_list.rules.destination_aws_vpc_ids": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_aws_vpc_ids",
+        "schema_path": ["rule_list", "rules", "destination_aws_vpc_ids"]
+      },
+      "rule_list.rules.destination_aws_vpc_ids.vpc_id": {
+        "anchor": "schema-rule_list--rules--destination_aws_vpc_ids--vpc_id",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_aws_vpc_ids",
+        "schema_path": ["rule_list", "rules", "destination_aws_vpc_ids", "vpc_id"]
+      },
+      "rule_list.rules.destination_ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "destination_ip_prefix_set"]
+      },
+      "rule_list.rules.destination_ip_prefix_set.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"]
+      },
+      "rule_list.rules.destination_ip_prefix_set.ref.kind": {
+        "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--kind",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "kind"]
+      },
+      "rule_list.rules.destination_ip_prefix_set.ref.name": {
+        "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--name",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "name"]
+      },
+      "rule_list.rules.destination_ip_prefix_set.ref.namespace": {
+        "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "namespace"]
+      },
+      "rule_list.rules.destination_ip_prefix_set.ref.tenant": {
+        "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "tenant"]
+      },
+      "rule_list.rules.destination_ip_prefix_set.ref.uid": {
+        "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--uid",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref", "uid"]
+      },
+      "rule_list.rules.destination_label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_label_selector",
+        "schema_path": ["rule_list", "rules", "destination_label_selector"]
+      },
+      "rule_list.rules.destination_label_selector.expressions": {
+        "anchor": "schema-rule_list--rules--destination_label_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_label_selector",
+        "schema_path": ["rule_list", "rules", "destination_label_selector", "expressions"]
+      },
+      "rule_list.rules.destination_prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_prefix_list",
+        "schema_path": ["rule_list", "rules", "destination_prefix_list"]
+      },
+      "rule_list.rules.destination_prefix_list.prefixes": {
+        "anchor": "schema-rule_list--rules--destination_prefix_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_prefix_list",
+        "schema_path": ["rule_list", "rules", "destination_prefix_list", "prefixes"]
+      },
+      "rule_list.rules.insert_service": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service",
+        "schema_path": ["rule_list", "rules", "insert_service"]
+      },
+      "rule_list.rules.insert_service.nfv_service": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
+        "schema_path": ["rule_list", "rules", "insert_service", "nfv_service"]
+      },
+      "rule_list.rules.insert_service.nfv_service.name": {
+        "anchor": "schema-rule_list--rules--insert_service--nfv_service--name",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
+        "schema_path": ["rule_list", "rules", "insert_service", "nfv_service", "name"]
+      },
+      "rule_list.rules.insert_service.nfv_service.namespace": {
+        "anchor": "schema-rule_list--rules--insert_service--nfv_service--namespace",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
+        "schema_path": ["rule_list", "rules", "insert_service", "nfv_service", "namespace"]
+      },
+      "rule_list.rules.insert_service.nfv_service.tenant": {
+        "anchor": "schema-rule_list--rules--insert_service--nfv_service--tenant",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
+        "schema_path": ["rule_list", "rules", "insert_service", "nfv_service", "tenant"]
+      },
+      "rule_list.rules.inside_destinations": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:inside_destinations",
+        "schema_path": ["rule_list", "rules", "inside_destinations"]
+      },
+      "rule_list.rules.inside_sources": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:inside_sources",
+        "schema_path": ["rule_list", "rules", "inside_sources"]
+      },
+      "rule_list.rules.label_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:label_matcher",
+        "schema_path": ["rule_list", "rules", "label_matcher"]
+      },
+      "rule_list.rules.label_matcher.keys": {
+        "anchor": "schema-rule_list--rules--label_matcher--keys",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:label_matcher",
+        "schema_path": ["rule_list", "rules", "label_matcher", "keys"]
+      },
+      "rule_list.rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:metadata",
+        "schema_path": ["rule_list", "rules", "metadata"]
+      },
+      "rule_list.rules.metadata.description_spec": {
+        "anchor": "schema-rule_list--rules--metadata--description_spec",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:metadata",
+        "schema_path": ["rule_list", "rules", "metadata", "description_spec"]
+      },
+      "rule_list.rules.metadata.name": {
+        "anchor": "schema-rule_list--rules--metadata--name",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:metadata",
+        "schema_path": ["rule_list", "rules", "metadata", "name"]
+      },
+      "rule_list.rules.outside_destinations": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:outside_destinations",
+        "schema_path": ["rule_list", "rules", "outside_destinations"]
+      },
+      "rule_list.rules.outside_sources": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:outside_sources",
+        "schema_path": ["rule_list", "rules", "outside_sources"]
+      },
+      "rule_list.rules.protocol_port_range": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:protocol_port_range",
+        "schema_path": ["rule_list", "rules", "protocol_port_range"]
+      },
+      "rule_list.rules.protocol_port_range.port_ranges": {
+        "anchor": "schema-rule_list--rules--protocol_port_range--port_ranges",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:protocol_port_range",
+        "schema_path": ["rule_list", "rules", "protocol_port_range", "port_ranges"]
+      },
+      "rule_list.rules.protocol_port_range.protocol": {
+        "anchor": "schema-rule_list--rules--protocol_port_range--protocol",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:protocol_port_range",
+        "schema_path": ["rule_list", "rules", "protocol_port_range", "protocol"]
+      },
+      "rule_list.rules.source_aws_vpc_ids": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids",
+        "schema_path": ["rule_list", "rules", "source_aws_vpc_ids"]
+      },
+      "rule_list.rules.source_aws_vpc_ids.vpc_id": {
+        "anchor": "schema-rule_list--rules--source_aws_vpc_ids--vpc_id",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids",
+        "schema_path": ["rule_list", "rules", "source_aws_vpc_ids", "vpc_id"]
+      },
+      "rule_list.rules.source_ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "source_ip_prefix_set"]
+      },
+      "rule_list.rules.source_ip_prefix_set.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "source_ip_prefix_set", "ref"]
+      },
+      "rule_list.rules.source_ip_prefix_set.ref.kind": {
+        "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--kind",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "source_ip_prefix_set", "ref", "kind"]
+      },
+      "rule_list.rules.source_ip_prefix_set.ref.name": {
+        "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--name",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "source_ip_prefix_set", "ref", "name"]
+      },
+      "rule_list.rules.source_ip_prefix_set.ref.namespace": {
+        "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "source_ip_prefix_set", "ref", "namespace"]
+      },
+      "rule_list.rules.source_ip_prefix_set.ref.tenant": {
+        "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "source_ip_prefix_set", "ref", "tenant"]
+      },
+      "rule_list.rules.source_ip_prefix_set.ref.uid": {
+        "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--uid",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
+        "schema_path": ["rule_list", "rules", "source_ip_prefix_set", "ref", "uid"]
+      },
+      "rule_list.rules.source_label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_label_selector",
+        "schema_path": ["rule_list", "rules", "source_label_selector"]
+      },
+      "rule_list.rules.source_label_selector.expressions": {
+        "anchor": "schema-rule_list--rules--source_label_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_label_selector",
+        "schema_path": ["rule_list", "rules", "source_label_selector", "expressions"]
+      },
+      "rule_list.rules.source_prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_prefix_list",
+        "schema_path": ["rule_list", "rules", "source_prefix_list"]
+      },
+      "rule_list.rules.source_prefix_list.prefixes": {
+        "anchor": "schema-rule_list--rules--source_prefix_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_prefix_list",
+        "schema_path": ["rule_list", "rules", "source_prefix_list", "prefixes"]
+      }
+    },
+    "provider_name": "enhanced_firewall_policy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1491,
+      "body_sha256": "sha256:7915b6ee3bb8c006d062c84591d511bfa8a50c9045bc70228b94eac4c777c09a",
+      "child_ids": [
+        "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/enhanced_firewall_policy/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/enhanced_firewall_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_enhanced_firewall_policy for xcsh_enhanced_firewall_policy.",
+      "title": "xcsh_enhanced_firewall_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 26187,
+      "body_sha256": "sha256:ec7ae14ab1fc33a839603c981f832a52280d20a467e61186eb131b046636a430",
+      "child_ids": [
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allow_all",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allowed_destinations",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allowed_sources",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:denied_destinations",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:denied_sources",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:deny_all",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:fundamentals",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_enhanced_firewall_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2431,
+      "body_sha256": "sha256:43bc47c2be264b2abec24f8f3862fec4beb8d22e7f15a5f8b0cf31dd88f83e67",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allow_all",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/allow_all/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--allow_all.md",
+      "role": "properties",
+      "schema_path": ["allow_all"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/allow_all/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allow_all for xcsh_enhanced_firewall_policy.",
+      "title": "allow_all",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2208,
+      "body_sha256": "sha256:2e791653cad5db37d04f1a17d995c9792d27cfe837b81d4890315aace5b0d122",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allowed_destinations",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/allowed_destinations/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--allowed_destinations.md",
+      "role": "properties",
+      "schema_path": ["allowed_destinations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/allowed_destinations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allowed_destinations for xcsh_enhanced_firewall_policy.",
+      "title": "allowed_destinations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2193,
+      "body_sha256": "sha256:9d1f9a465b5f6b7a60e84cad7702fe9cadd6473e7f89835f1fe3eb5b057ad618",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:allowed_sources",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/allowed_sources/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--allowed_sources.md",
+      "role": "properties",
+      "schema_path": ["allowed_sources"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/allowed_sources/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "allowed_sources for xcsh_enhanced_firewall_policy.",
+      "title": "allowed_sources",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2205,
+      "body_sha256": "sha256:957988237b7f1b073320cf9a5aeea04aade5f50b7163912df1266b1a4cb66550",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:denied_destinations",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/denied_destinations/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--denied_destinations.md",
+      "role": "properties",
+      "schema_path": ["denied_destinations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/denied_destinations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "denied_destinations for xcsh_enhanced_firewall_policy.",
+      "title": "denied_destinations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2190,
+      "body_sha256": "sha256:876e4024e74f370cb5b364b87466e2d4e7ac2bac74752fb4d81d814ff1281f9b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:denied_sources",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/denied_sources/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--denied_sources.md",
+      "role": "properties",
+      "schema_path": ["denied_sources"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/denied_sources/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "denied_sources for xcsh_enhanced_firewall_policy.",
+      "title": "denied_sources",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1100,
+      "body_sha256": "sha256:7357b0ec641e2d4b81a4fcd690629204ae0193f25253addc68cde86f70e5e334",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:deny_all",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/deny_all/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--deny_all.md",
+      "role": "properties",
+      "schema_path": ["deny_all"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/deny_all/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "deny_all for xcsh_enhanced_firewall_policy.",
+      "title": "deny_all",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1373,
+      "body_sha256": "sha256:acf14f0c30e92d8634fdebcd117aa5f51cc9f897672ae41d1383f7057e35b3de",
+      "child_ids": ["xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules"],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:reference",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 11831,
+      "body_sha256": "sha256:2f92cd40ffe07f24c50115ab8787569d4c13e0955b3f327c9feb7d7158bdb72e",
+      "child_ids": [
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:advanced_action",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_destinations",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_sli_vips",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_slo_vips",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_sources",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_tcp_traffic",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_traffic",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_udp_traffic",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:allow",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:applications",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:deny",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_aws_vpc_ids",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_label_selector",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_prefix_list",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:inside_destinations",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:inside_sources",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:label_matcher",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:metadata",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:outside_destinations",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:outside_sources",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:protocol_port_range",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_label_selector",
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_prefix_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2450,
+      "body_sha256": "sha256:1b5bfaba670bd7afa716d4f6eb9c8e1cfa8156b76a8cc8cbf6049a7eb7e6c0c6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:advanced_action",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/advanced_action/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--advanced_action.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "advanced_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/advanced_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.advanced_action for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.advanced_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1462,
+      "body_sha256": "sha256:3c3c912bd7f445dd2337e592bacb80004eb07608b27a8c47c1d69831cb06524c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_destinations",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_destinations/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--all_destinations.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_destinations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_destinations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_destinations for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.all_destinations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1427,
+      "body_sha256": "sha256:4cbf1ba0fbd24825022b41ccddc63fa47f1293acf2c68cac7de8cd9e0fff8ec7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_sli_vips",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_sli_vips/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--all_sli_vips.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_sli_vips"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_sli_vips/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_sli_vips for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.all_sli_vips",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1427,
+      "body_sha256": "sha256:85dd1969cb62a4ab05701d15f3617aeeb3a99c76b2c571d4a108895aa6036ffd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_slo_vips",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_slo_vips/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--all_slo_vips.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_slo_vips"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_slo_vips/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_slo_vips for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.all_slo_vips",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1447,
+      "body_sha256": "sha256:9a0a3be899078ba73110b8f369fe556e7d57fd0e359f1a8bc88be8684471ae69",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_sources",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_sources/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--all_sources.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_sources"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_sources/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_sources for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.all_sources",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1459,
+      "body_sha256": "sha256:4b51940b94747b458f86f6724719715585324bc015b99169b4ce85a976650160",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_tcp_traffic",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_tcp_traffic/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--all_tcp_traffic.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_tcp_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_tcp_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_tcp_traffic for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.all_tcp_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1447,
+      "body_sha256": "sha256:b5800214401052ea12d3f24af16d4ccb9b67d397dfb927a3abef3a13743bf8f4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_traffic",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_traffic/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--all_traffic.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_traffic for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.all_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1459,
+      "body_sha256": "sha256:6f3f5861699be8acd9533b0d709aab9625dcd319c8a63b54814653ee74654580",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:all_udp_traffic",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_udp_traffic/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--all_udp_traffic.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "all_udp_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/all_udp_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.all_udp_traffic for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.all_udp_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1413,
+      "body_sha256": "sha256:e34561f398ae9f0a80351b0a4c4846b613f8fca16d78f499d383d2b26e6bff5a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:allow",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/allow/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--allow.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "allow"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/allow/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.allow for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.allow",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2015,
+      "body_sha256": "sha256:f12fa12a0a46b81232876b6c6c42ad1cfc41652fe5267d13a86b2a35693aeaf0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:applications",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/applications/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--applications.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "applications"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/applications/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.applications for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.applications",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1411,
+      "body_sha256": "sha256:aa9cb85d3341c8f1db149969451f6a9fdaf9eaf1a2e14e0724388738bb1b9c97",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:deny",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/deny/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--deny.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "deny"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/deny/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.deny for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.deny",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2789,
+      "body_sha256": "sha256:e54085bf5d080353194d76880bcb5bf16218bbe84a5be9094813fdea86eea6de",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_aws_vpc_ids",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_aws_vpc_ids/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--destination_aws_vpc_ids.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "destination_aws_vpc_ids"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_aws_vpc_ids/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.destination_aws_vpc_ids for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.destination_aws_vpc_ids",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1791,
+      "body_sha256": "sha256:7f5047ee38bb8616551b5f0d1931f027ced67c092c4ed511451ab41a5ac20c6c",
+      "child_ids": [
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref"
+      ],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--destination_ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "destination_ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.destination_ip_prefix_set for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.destination_ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6854,
+      "body_sha256": "sha256:194a0487119e76c924904bef7609a4ca269cba2bf0a50352480e40c261d4172b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/ref/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--destination_ip_prefix_set--ref.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.destination_ip_prefix_set.ref for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.destination_ip_prefix_set.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4021,
+      "body_sha256": "sha256:0ece6a706fb90de440e883e34a9b66de7402123283776595dd6b697de5af73d7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_label_selector",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_label_selector/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--destination_label_selector.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "destination_label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.destination_label_selector for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.destination_label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2402,
+      "body_sha256": "sha256:6d68d143a8ac867af696099b9531fab56e79f0813fcd1947bea08da65068c013",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:destination_prefix_list",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_prefix_list/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--destination_prefix_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "destination_prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/destination_prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.destination_prefix_list for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.destination_prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1695,
+      "body_sha256": "sha256:dc2f31de53252f1724648f707ed4c375ce36f6741bad682416706005976f69aa",
+      "child_ids": [
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service"
+      ],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/insert_service/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--insert_service.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "insert_service"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/insert_service/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.insert_service for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.insert_service",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5868,
+      "body_sha256": "sha256:8ff5d01071cf07ded12d4a26e9d803843dc05514ff00a02f9846d9d953b8c98b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:insert_service",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/insert_service/nfv_service/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--insert_service--nfv_service.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "insert_service", "nfv_service"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/insert_service/nfv_service/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.insert_service.nfv_service for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.insert_service.nfv_service",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1471,
+      "body_sha256": "sha256:1b9ff5b1576d9e8efdd3194d1309b693bad12597607ae2f5900a381ce05485d0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:inside_destinations",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/inside_destinations/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--inside_destinations.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "inside_destinations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/inside_destinations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.inside_destinations for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.inside_destinations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1456,
+      "body_sha256": "sha256:de0706e7f8f2b254e32324b580d27d1a7473cc303e332f55c1f294b025c8ff04",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:inside_sources",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/inside_sources/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--inside_sources.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "inside_sources"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/inside_sources/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.inside_sources for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.inside_sources",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2944,
+      "body_sha256": "sha256:a98ae6d3431a2a1d706de6dfba875c28c653bd6ddb360ca1f8a1dd6f67133f71",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:label_matcher",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/label_matcher/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--label_matcher.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "label_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/label_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.label_matcher for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.label_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3726,
+      "body_sha256": "sha256:02b79a2ecb4be6b7a692e7abeb30806812f2e192b5b5330155397c1490d41bd8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:metadata",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/metadata/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.metadata for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1474,
+      "body_sha256": "sha256:e051379f71e58d41fcc4474e3fe0958d32e5bf0aacc6b5783afa9be8f1ab3208",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:outside_destinations",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/outside_destinations/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--outside_destinations.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "outside_destinations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/outside_destinations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.outside_destinations for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.outside_destinations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1459,
+      "body_sha256": "sha256:240743c7538fc2b5baa68564c5f0652369f429b3c21b182e00d012a567442533",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:outside_sources",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/outside_sources/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--outside_sources.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "outside_sources"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/outside_sources/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.outside_sources for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.outside_sources",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3476,
+      "body_sha256": "sha256:d2f6b04e3e3c4a7cb7304f0b9f648a92bed0c68ed04a9ab81e94a631c8b48f9c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:protocol_port_range",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/protocol_port_range/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--protocol_port_range.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "protocol_port_range"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/protocol_port_range/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.protocol_port_range for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.protocol_port_range",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2769,
+      "body_sha256": "sha256:911ad9549c8c9301421248456c4229181bf2a31f734ad926db55e519f370200e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_aws_vpc_ids/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--source_aws_vpc_ids.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "source_aws_vpc_ids"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_aws_vpc_ids/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.source_aws_vpc_ids for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.source_aws_vpc_ids",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1766,
+      "body_sha256": "sha256:e0b96d295aec58340c76151a0822be83bfc691c7bfb1439eb5bf521bf9c3cf59",
+      "child_ids": [
+        "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref"
+      ],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_ip_prefix_set/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--source_ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "source_ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.source_ip_prefix_set for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.source_ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6799,
+      "body_sha256": "sha256:e07d6b865afffd7b4013a10f4715564eb97bd77920a96d22d71b2fe1f7989fd5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_ip_prefix_set/ref/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--source_ip_prefix_set--ref.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "source_ip_prefix_set", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_ip_prefix_set/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.source_ip_prefix_set.ref for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.source_ip_prefix_set.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4006,
+      "body_sha256": "sha256:7f88d69cb38b725b269bcf40b345d218419ed9ce1d3be7e3fa91344014775b78",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_label_selector",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_label_selector/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--source_label_selector.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "source_label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.source_label_selector for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.source_label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2387,
+      "body_sha256": "sha256:d3dc1857473973b859b5b554e1a9a9569032a7f10d94d16d3a658cee3a2d9d90",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules:source_prefix_list",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:properties:rule_list:rules",
+      "path": "documentation/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_prefix_list/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--properties--rule_list--rules--source_prefix_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "source_prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/properties/rule_list/rules/source_prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.source_prefix_list for xcsh_enhanced_firewall_policy.",
+      "title": "rule_list.rules.source_prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 729,
+      "body_sha256": "sha256:1a38a0b133cab24a946a213a405527b29940dfa52c29f43f0309229e66b1051e",
+      "child_ids": ["xcsh-docs:data-sources:enhanced_firewall_policy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:examples",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:fundamentals",
+      "path": "documentation/data-sources/enhanced_firewall_policy/examples/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_enhanced_firewall_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1433,
+      "body_sha256": "sha256:6d9a3d61a855f3c0532d52cc7ea91ad02683da80e48ae7e5ee8d537b960930ad",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:4fad9180d1e11ef8fde0a09a6c59611ed259b2e0dc9e6684bd5a7a00db211172",
+        "source_path": "examples/data-sources/xcsh_enhanced_firewall_policy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:enhanced_firewall_policy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:enhanced_firewall_policy:examples",
+      "path": "documentation/data-sources/enhanced_firewall_policy/examples/data-source/index.md",
+      "provider_name": "enhanced_firewall_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--enhanced_firewall_policy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_enhanced_firewall_policy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["enhanced_firewall_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -11,8 +11,6 @@ terraform {
   }
 }
 
-# The API accepts this upgrade request immediately; convergence is asynchronous.
-# This action does not reconcile a site's pinned software_settings.
 action "xcsh_dns_zone_add_cryptokey" "example" {
   config {
   }

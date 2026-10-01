@@ -1,0 +1,274 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:trusted_ca_list:fundamentals",
+    "id": "xcsh-docs:resources:trusted_ca_list:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "trusted_ca_url": {
+        "anchor": "schema-trusted_ca_url",
+        "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
+        "schema_path": ["trusted_ca_url"]
+      }
+    },
+    "provider_name": "trusted_ca_list",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:trusted_ca_list:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1631,
+      "body_sha256": "sha256:774c98beda284e608439a0f1033bea42803bde51ef84a6592c3160d8594d8060",
+      "child_ids": [
+        "xcsh-docs:resources:trusted_ca_list:reference",
+        "xcsh-docs:resources:trusted_ca_list:examples",
+        "xcsh-docs:resources:trusted_ca_list:import",
+        "xcsh-docs:resources:trusted_ca_list:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:trusted_ca_list:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:trusted_ca_list:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/trusted_ca_list/index.md",
+      "provider_name": "trusted_ca_list",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/trusted_ca_list.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/trusted_ca_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_trusted_ca_list for xcsh_trusted_ca_list.",
+      "title": "xcsh_trusted_ca_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["trusted_ca_listCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10121,
+      "body_sha256": "sha256:799afdfbeabd0bbada47b79c7ed93a9d636e4d706b2cec3579937bc2aa7a7019",
+      "child_ids": ["xcsh-docs:resources:trusted_ca_list:properties:timeouts"],
+      "collection_id": "xcsh-docs:resources:trusted_ca_list:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:trusted_ca_list:reference",
+      "parent_id": "xcsh-docs:resources:trusted_ca_list:fundamentals",
+      "path": "documentation/resources/trusted_ca_list/properties/index.md",
+      "provider_name": "trusted_ca_list",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--trusted_ca_list--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/trusted_ca_list/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_trusted_ca_list.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["trusted_ca_listCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2249,
+      "body_sha256": "sha256:1304248b79647248bf8e199adf1de825ce0689a5a380c07b1d043392dc875412",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:trusted_ca_list:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:trusted_ca_list:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:trusted_ca_list:reference",
+      "path": "documentation/resources/trusted_ca_list/properties/timeouts/index.md",
+      "provider_name": "trusted_ca_list",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--trusted_ca_list--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/trusted_ca_list/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_trusted_ca_list.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["trusted_ca_listCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 651,
+      "body_sha256": "sha256:683b2354374689676c5e9422d8db868822f15829974920c82ae5f8a89e98b2f4",
+      "child_ids": ["xcsh-docs:resources:trusted_ca_list:example:resource"],
+      "collection_id": "xcsh-docs:resources:trusted_ca_list:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:trusted_ca_list:examples",
+      "parent_id": "xcsh-docs:resources:trusted_ca_list:fundamentals",
+      "path": "documentation/resources/trusted_ca_list/examples/index.md",
+      "provider_name": "trusted_ca_list",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--trusted_ca_list--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/trusted_ca_list/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_trusted_ca_list.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["trusted_ca_listCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1317,
+      "body_sha256": "sha256:d9e9cab79e96ac2459302e46a8bd23ae91ad8429e1fe64340a1627d47455a65d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:trusted_ca_list:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:98ef39907d2777d4837a31daa9bde5346e1139b6bb15f38e7c1bd69f44aac328",
+        "source_path": "examples/resources/xcsh_trusted_ca_list/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:trusted_ca_list:example:resource",
+      "parent_id": "xcsh-docs:resources:trusted_ca_list:examples",
+      "path": "documentation/resources/trusted_ca_list/examples/resource/index.md",
+      "provider_name": "trusted_ca_list",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--trusted_ca_list--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/trusted_ca_list/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_trusted_ca_list.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["trusted_ca_listCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 523,
+      "body_sha256": "sha256:43bbbfc672c54eebe0d13b11e9d01cfc33380b52f1657f2f8f962e957109ff1c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:trusted_ca_list:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:trusted_ca_list:import",
+      "parent_id": "xcsh-docs:resources:trusted_ca_list:fundamentals",
+      "path": "documentation/resources/trusted_ca_list/lifecycle/import/index.md",
+      "provider_name": "trusted_ca_list",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--trusted_ca_list--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/trusted_ca_list/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_trusted_ca_list.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["trusted_ca_listCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 583,
+      "body_sha256": "sha256:bcb4b1dead5dec476a730224e6e14a042eea32078ef18981001925d261ece0ce",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:trusted_ca_list:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:trusted_ca_list:timeouts",
+      "parent_id": "xcsh-docs:resources:trusted_ca_list:fundamentals",
+      "path": "documentation/resources/trusted_ca_list/lifecycle/timeouts/index.md",
+      "provider_name": "trusted_ca_list",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--trusted_ca_list--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/trusted_ca_list/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_trusted_ca_list.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["trusted_ca_listCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

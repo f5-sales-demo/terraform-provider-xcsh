@@ -1,0 +1,2065 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:discovery:fundamentals",
+    "id": "xcsh-docs:data-sources:discovery:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:discovery:reference",
+        "schema_path": ["annotations"]
+      },
+      "cluster_id": {
+        "anchor": "schema-cluster_id",
+        "document_id": "xcsh-docs:data-sources:discovery:reference",
+        "schema_path": ["cluster_id"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:discovery:reference",
+        "schema_path": ["description"]
+      },
+      "discovery_consul": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul",
+        "schema_path": ["discovery_consul"]
+      },
+      "discovery_consul.access_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info",
+        "schema_path": ["discovery_consul", "access_info"]
+      },
+      "discovery_consul.access_info.connection_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info",
+        "schema_path": ["discovery_consul", "access_info", "connection_info"]
+      },
+      "discovery_consul.access_info.connection_info.api_server": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--api_server",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info",
+        "schema_path": ["discovery_consul", "access_info", "connection_info", "api_server"]
+      },
+      "discovery_consul.access_info.connection_info.tls_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
+        "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info"]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.certificate": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--certificate",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
+        "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info", "certificate"]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.key_url": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url",
+        "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info", "key_url"]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.key_url.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "blindfold_secret_info"
+        ]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.key_url.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.key_url.blindfold_secret_info.location": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.key_url.blindfold_secret_info.store_provider": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.key_url.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "clear_secret_info"
+        ]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.key_url.clear_secret_info.provider_ref": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.key_url.clear_secret_info.url": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "clear_secret_info",
+          "url"
+        ]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.server_name": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--server_name",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
+        "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info", "server_name"]
+      },
+      "discovery_consul.access_info.connection_info.tls_info.trusted_ca_url": {
+        "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--trusted_ca_url",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
+        "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info", "trusted_ca_url"]
+      },
+      "discovery_consul.access_info.http_basic_auth_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info",
+        "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info"]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.passwd_url": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url",
+        "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url"]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.passwd_url.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "http_basic_auth_info",
+          "passwd_url",
+          "blindfold_secret_info"
+        ]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.passwd_url.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "http_basic_auth_info",
+          "passwd_url",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.passwd_url.blindfold_secret_info.location": {
+        "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "http_basic_auth_info",
+          "passwd_url",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.passwd_url.blindfold_secret_info.store_provider": {
+        "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "http_basic_auth_info",
+          "passwd_url",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.passwd_url.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info",
+        "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url", "clear_secret_info"]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.passwd_url.clear_secret_info.provider_ref": {
+        "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "http_basic_auth_info",
+          "passwd_url",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.passwd_url.clear_secret_info.url": {
+        "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info",
+        "schema_path": [
+          "discovery_consul",
+          "access_info",
+          "http_basic_auth_info",
+          "passwd_url",
+          "clear_secret_info",
+          "url"
+        ]
+      },
+      "discovery_consul.access_info.http_basic_auth_info.user_name": {
+        "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--user_name",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info",
+        "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "user_name"]
+      },
+      "discovery_consul.publish_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info",
+        "schema_path": ["discovery_consul", "publish_info"]
+      },
+      "discovery_consul.publish_info.disable_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:disable_spec",
+        "schema_path": ["discovery_consul", "publish_info", "disable_spec"]
+      },
+      "discovery_consul.publish_info.publish": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:publish",
+        "schema_path": ["discovery_consul", "publish_info", "publish"]
+      },
+      "discovery_k8s": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s",
+        "schema_path": ["discovery_k8s"]
+      },
+      "discovery_k8s.access_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info",
+        "schema_path": ["discovery_k8s", "access_info"]
+      },
+      "discovery_k8s.access_info.connection_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info",
+        "schema_path": ["discovery_k8s", "access_info", "connection_info"]
+      },
+      "discovery_k8s.access_info.connection_info.api_server": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--api_server",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info",
+        "schema_path": ["discovery_k8s", "access_info", "connection_info", "api_server"]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
+        "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info"]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.certificate": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--certificate",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
+        "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "certificate"]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.key_url": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url",
+        "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "key_url"]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.key_url.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_k8s",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "blindfold_secret_info"
+        ]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.key_url.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_k8s",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.key_url.blindfold_secret_info.location": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_k8s",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.key_url.blindfold_secret_info.store_provider": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_k8s",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.key_url.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info",
+        "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "key_url", "clear_secret_info"]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.key_url.clear_secret_info.provider_ref": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info",
+        "schema_path": [
+          "discovery_k8s",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.key_url.clear_secret_info.url": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info",
+        "schema_path": [
+          "discovery_k8s",
+          "access_info",
+          "connection_info",
+          "tls_info",
+          "key_url",
+          "clear_secret_info",
+          "url"
+        ]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.server_name": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--server_name",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
+        "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "server_name"]
+      },
+      "discovery_k8s.access_info.connection_info.tls_info.trusted_ca_url": {
+        "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--trusted_ca_url",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
+        "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "trusted_ca_url"]
+      },
+      "discovery_k8s.access_info.isolated": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:isolated",
+        "schema_path": ["discovery_k8s", "access_info", "isolated"]
+      },
+      "discovery_k8s.access_info.kubeconfig_url": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url",
+        "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url"]
+      },
+      "discovery_k8s.access_info.kubeconfig_url.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
+        "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "blindfold_secret_info"]
+      },
+      "discovery_k8s.access_info.kubeconfig_url.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
+        "schema_path": [
+          "discovery_k8s",
+          "access_info",
+          "kubeconfig_url",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "discovery_k8s.access_info.kubeconfig_url.blindfold_secret_info.location": {
+        "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
+        "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "blindfold_secret_info", "location"]
+      },
+      "discovery_k8s.access_info.kubeconfig_url.blindfold_secret_info.store_provider": {
+        "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
+        "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "blindfold_secret_info", "store_provider"]
+      },
+      "discovery_k8s.access_info.kubeconfig_url.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info",
+        "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "clear_secret_info"]
+      },
+      "discovery_k8s.access_info.kubeconfig_url.clear_secret_info.provider_ref": {
+        "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info",
+        "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "clear_secret_info", "provider_ref"]
+      },
+      "discovery_k8s.access_info.kubeconfig_url.clear_secret_info.url": {
+        "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info",
+        "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "clear_secret_info", "url"]
+      },
+      "discovery_k8s.access_info.reachable": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:reachable",
+        "schema_path": ["discovery_k8s", "access_info", "reachable"]
+      },
+      "discovery_k8s.default_all": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:default_all",
+        "schema_path": ["discovery_k8s", "default_all"]
+      },
+      "discovery_k8s.namespace_mapping": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping",
+        "schema_path": ["discovery_k8s", "namespace_mapping"]
+      },
+      "discovery_k8s.namespace_mapping.items": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items",
+        "schema_path": ["discovery_k8s", "namespace_mapping", "items"]
+      },
+      "discovery_k8s.namespace_mapping.items.namespace": {
+        "anchor": "schema-discovery_k8s--namespace_mapping--items--namespace",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items",
+        "schema_path": ["discovery_k8s", "namespace_mapping", "items", "namespace"]
+      },
+      "discovery_k8s.namespace_mapping.items.namespace_regex": {
+        "anchor": "schema-discovery_k8s--namespace_mapping--items--namespace_regex",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items",
+        "schema_path": ["discovery_k8s", "namespace_mapping", "items", "namespace_regex"]
+      },
+      "discovery_k8s.publish_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info",
+        "schema_path": ["discovery_k8s", "publish_info"]
+      },
+      "discovery_k8s.publish_info.disable_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:disable_spec",
+        "schema_path": ["discovery_k8s", "publish_info", "disable_spec"]
+      },
+      "discovery_k8s.publish_info.dns_delegation": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:dns_delegation",
+        "schema_path": ["discovery_k8s", "publish_info", "dns_delegation"]
+      },
+      "discovery_k8s.publish_info.dns_delegation.dns_mode": {
+        "anchor": "schema-discovery_k8s--publish_info--dns_delegation--dns_mode",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:dns_delegation",
+        "schema_path": ["discovery_k8s", "publish_info", "dns_delegation", "dns_mode"]
+      },
+      "discovery_k8s.publish_info.dns_delegation.subdomain": {
+        "anchor": "schema-discovery_k8s--publish_info--dns_delegation--subdomain",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:dns_delegation",
+        "schema_path": ["discovery_k8s", "publish_info", "dns_delegation", "subdomain"]
+      },
+      "discovery_k8s.publish_info.publish": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish",
+        "schema_path": ["discovery_k8s", "publish_info", "publish"]
+      },
+      "discovery_k8s.publish_info.publish.namespace": {
+        "anchor": "schema-discovery_k8s--publish_info--publish--namespace",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish",
+        "schema_path": ["discovery_k8s", "publish_info", "publish", "namespace"]
+      },
+      "discovery_k8s.publish_info.publish_fqdns": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish_fqdns",
+        "schema_path": ["discovery_k8s", "publish_info", "publish_fqdns"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:discovery:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:discovery:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:discovery:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:discovery:reference",
+        "schema_path": ["namespace"]
+      },
+      "no_cluster_id": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:no_cluster_id",
+        "schema_path": ["no_cluster_id"]
+      },
+      "where": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where",
+        "schema_path": ["where"]
+      },
+      "where.site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site",
+        "schema_path": ["where", "site"]
+      },
+      "where.site.disable_internet_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:disable_internet_vip",
+        "schema_path": ["where", "site", "disable_internet_vip"]
+      },
+      "where.site.enable_internet_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:enable_internet_vip",
+        "schema_path": ["where", "site", "enable_internet_vip"]
+      },
+      "where.site.network_type": {
+        "anchor": "schema-where--site--network_type",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site",
+        "schema_path": ["where", "site", "network_type"]
+      },
+      "where.site.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref"]
+      },
+      "where.site.ref.kind": {
+        "anchor": "schema-where--site--ref--kind",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "kind"]
+      },
+      "where.site.ref.name": {
+        "anchor": "schema-where--site--ref--name",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "name"]
+      },
+      "where.site.ref.namespace": {
+        "anchor": "schema-where--site--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "namespace"]
+      },
+      "where.site.ref.tenant": {
+        "anchor": "schema-where--site--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "tenant"]
+      },
+      "where.site.ref.uid": {
+        "anchor": "schema-where--site--ref--uid",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
+        "schema_path": ["where", "site", "ref", "uid"]
+      },
+      "where.virtual_network": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network",
+        "schema_path": ["where", "virtual_network"]
+      },
+      "where.virtual_network.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref"]
+      },
+      "where.virtual_network.ref.kind": {
+        "anchor": "schema-where--virtual_network--ref--kind",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "kind"]
+      },
+      "where.virtual_network.ref.name": {
+        "anchor": "schema-where--virtual_network--ref--name",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "name"]
+      },
+      "where.virtual_network.ref.namespace": {
+        "anchor": "schema-where--virtual_network--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "namespace"]
+      },
+      "where.virtual_network.ref.tenant": {
+        "anchor": "schema-where--virtual_network--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "tenant"]
+      },
+      "where.virtual_network.ref.uid": {
+        "anchor": "schema-where--virtual_network--ref--uid",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
+        "schema_path": ["where", "virtual_network", "ref", "uid"]
+      },
+      "where.virtual_site": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site",
+        "schema_path": ["where", "virtual_site"]
+      },
+      "where.virtual_site.disable_internet_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:disable_internet_vip",
+        "schema_path": ["where", "virtual_site", "disable_internet_vip"]
+      },
+      "where.virtual_site.enable_internet_vip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:enable_internet_vip",
+        "schema_path": ["where", "virtual_site", "enable_internet_vip"]
+      },
+      "where.virtual_site.network_type": {
+        "anchor": "schema-where--virtual_site--network_type",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site",
+        "schema_path": ["where", "virtual_site", "network_type"]
+      },
+      "where.virtual_site.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref"]
+      },
+      "where.virtual_site.ref.kind": {
+        "anchor": "schema-where--virtual_site--ref--kind",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "kind"]
+      },
+      "where.virtual_site.ref.name": {
+        "anchor": "schema-where--virtual_site--ref--name",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "name"]
+      },
+      "where.virtual_site.ref.namespace": {
+        "anchor": "schema-where--virtual_site--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "namespace"]
+      },
+      "where.virtual_site.ref.tenant": {
+        "anchor": "schema-where--virtual_site--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "tenant"]
+      },
+      "where.virtual_site.ref.uid": {
+        "anchor": "schema-where--virtual_site--ref--uid",
+        "document_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
+        "schema_path": ["where", "virtual_site", "ref", "uid"]
+      }
+    },
+    "provider_name": "discovery",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:discovery:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1369,
+      "body_sha256": "sha256:cb42d95d99e3631c911bf5c745b4f75c0460662914b6aa679ca940f1c96fc08b",
+      "child_ids": ["xcsh-docs:data-sources:discovery:reference", "xcsh-docs:data-sources:discovery:examples"],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/discovery/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/discovery.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_discovery for xcsh_discovery.",
+      "title": "xcsh_discovery",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 37765,
+      "body_sha256": "sha256:04779ced1dcd4404efe067636f2ac0b06e32b291b05f00f608778e1f59f3619a",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s",
+        "xcsh-docs:data-sources:discovery:properties:no_cluster_id",
+        "xcsh-docs:data-sources:discovery:properties:where"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:reference",
+      "parent_id": "xcsh-docs:data-sources:discovery:fundamentals",
+      "path": "documentation/data-sources/discovery/properties/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_discovery.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2090,
+      "body_sha256": "sha256:b4b9af66a313d05f7f2da4384b1d263953d7b47182aa3324f78cfde05b9ca365",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info",
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul",
+      "parent_id": "xcsh-docs:data-sources:discovery:reference",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul for xcsh_discovery.",
+      "title": "discovery_consul",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1829,
+      "body_sha256": "sha256:826c81136e95f23fee1bbab4f952655b64738d75896115e2f041a1777572e54a",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info",
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info for xcsh_discovery.",
+      "title": "discovery_consul.access_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2736,
+      "body_sha256": "sha256:e2be57cd4a06ae3bbe83d1c618c690681fb6e509abcae78d964cb2d673a955cf",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--connection_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info", "connection_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.connection_info for xcsh_discovery.",
+      "title": "discovery_consul.access_info.connection_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5695,
+      "body_sha256": "sha256:ba98fba563224a6f8286768f2be3a869c1a65d47a971f5f4fd47ecf837bef04d",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--connection_info--tls_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.connection_info.tls_info for xcsh_discovery.",
+      "title": "discovery_consul.access_info.connection_info.tls_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2852,
+      "body_sha256": "sha256:ed020f6b1a2d4782961c31538250657817aa9eaa05cf0560c1b69c8fc1746184",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--connection_info--tls_info--key_url.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info", "key_url"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.connection_info.tls_info.key_url for xcsh_discovery.",
+      "title": "discovery_consul.access_info.connection_info.tls_info.key_url",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5313,
+      "body_sha256": "sha256:d271a4a87900c0a2a4d10a17745816ee08e96ac0af3d36a80d2a53f4ab333e2a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--connection_info--tls_info--key_url--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": [
+        "discovery_consul",
+        "access_info",
+        "connection_info",
+        "tls_info",
+        "key_url",
+        "blindfold_secret_info"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.connection_info.tls_info.key_url.blindfold_secret_info for xcsh_discovery.",
+      "title": "discovery_consul.access_info.connection_info.tls_info.key_url.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4168,
+      "body_sha256": "sha256:b252314a2128739b501aa77c98a1d4e080f721c91e38f2e0a70f2c4e1de0bd37",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/clear_secret_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--connection_info--tls_info--key_url--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info", "key_url", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.connection_info.tls_info.key_url.clear_secret_info for xcsh_discovery.",
+      "title": "discovery_consul.access_info.connection_info.tls_info.key_url.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2544,
+      "body_sha256": "sha256:2d82c0c098407ab629a15fb9ecfceaa4352e9681692ead12ca71d4c26b571e15",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--http_basic_auth_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.http_basic_auth_info for xcsh_discovery.",
+      "title": "discovery_consul.access_info.http_basic_auth_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2642,
+      "body_sha256": "sha256:ffe4757fa3f4013f6675df737d6bde7569132bbf2a4aa53facde558dca78b0cb",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--http_basic_auth_info--passwd_url.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.http_basic_auth_info.passwd_url for xcsh_discovery.",
+      "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5107,
+      "body_sha256": "sha256:2e893143709f111b303186efbed121051f7f36de3a63ad124fe21d37e18479f5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/blindfold_secret_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--http_basic_auth_info--passwd_url--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.http_basic_auth_info.passwd_url.blindfold_secret_info for xcsh_discovery.",
+      "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3964,
+      "body_sha256": "sha256:7e85e9ff819292f63c3f61ac40909eadebdbe0fa8ad6d97631e26e6ff5fd3d58",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/clear_secret_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--access_info--http_basic_auth_info--passwd_url--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.access_info.http_basic_auth_info.passwd_url.clear_secret_info for xcsh_discovery.",
+      "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1903,
+      "body_sha256": "sha256:47458f4d872ddee5d8892cbc2e08c17af20355c1da5011fccdb4eab8d0373726",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:disable_spec",
+        "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:publish"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/publish_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--publish_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "publish_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.publish_info for xcsh_discovery.",
+      "title": "discovery_consul.publish_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1148,
+      "body_sha256": "sha256:aadcf7a0610f36620f8836f02edc5a8f8c12e5ab18146741779243c72b05f595",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:disable_spec",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/publish_info/disable_spec/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--publish_info--disable_spec.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "publish_info", "disable_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/disable_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.publish_info.disable_spec for xcsh_discovery.",
+      "title": "discovery_consul.publish_info.disable_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1395,
+      "body_sha256": "sha256:cda2a4778963f859385aaf948363790b7310a354a2474cdffc6f101f8ecf1c64",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:publish",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_consul/publish_info/publish/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_consul--publish_info--publish.md",
+      "role": "properties",
+      "schema_path": ["discovery_consul", "publish_info", "publish"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/publish/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_consul.publish_info.publish for xcsh_discovery.",
+      "title": "discovery_consul.publish_info.publish",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2320,
+      "body_sha256": "sha256:c99c912a68a6b4d93a2cdc2544828f950af97dcebd1c620684cfe874e1c39f03",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:default_all",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s",
+      "parent_id": "xcsh-docs:data-sources:discovery:reference",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s for xcsh_discovery.",
+      "title": "discovery_k8s",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2655,
+      "body_sha256": "sha256:171e597f30c5c3b46277e882a49a6bf2b2f0fcc08faa0846c246205495e22785",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:isolated",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:reachable"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info for xcsh_discovery.",
+      "title": "discovery_k8s.access_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2700,
+      "body_sha256": "sha256:afc377b26cfa06dbe7cd2fa1bea20b7134f797d176bc8cd83248fe12953f2fdb",
+      "child_ids": ["xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info"],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--connection_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "connection_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.connection_info for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.connection_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5647,
+      "body_sha256": "sha256:4febfb6c27bf377fff073eaab05f45665c22342fda0a34c74aaeafa91d781cc1",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--connection_info--tls_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.connection_info.tls_info for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.connection_info.tls_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2798,
+      "body_sha256": "sha256:5a4a520a3ff0504c07cb81090306008d1ba0fb8d77497f8d8baafcd4ac5b98dc",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--connection_info--tls_info--key_url.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "key_url"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.connection_info.tls_info.key_url for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.connection_info.tls_info.key_url",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5262,
+      "body_sha256": "sha256:e337d4b43b94a626a5b99e28f0b883d4357e880dbc3d32eda7e639ce53b80783",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--connection_info--tls_info--key_url--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": [
+        "discovery_k8s",
+        "access_info",
+        "connection_info",
+        "tls_info",
+        "key_url",
+        "blindfold_secret_info"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.connection_info.tls_info.key_url.blindfold_secret_info for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.connection_info.tls_info.key_url.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4120,
+      "body_sha256": "sha256:d0e9089bd78616b25de868b55827e12920c3f59e3e0632edb799c8ca30696862",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/clear_secret_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--connection_info--tls_info--key_url--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info", "key_url", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.connection_info.tls_info.key_url.clear_secret_info for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.connection_info.tls_info.key_url.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1367,
+      "body_sha256": "sha256:8ec3fdc60427f3a40f13df522f1511b7af572971851318182dd07bbee651fcea",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:isolated",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/isolated/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--isolated.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "isolated"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/isolated/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.isolated for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.isolated",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2226,
+      "body_sha256": "sha256:f426b20c47d6f29da3059c17cfd48399e7299e060b3c5fe670e52ebeadf63527",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--kubeconfig_url.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.kubeconfig_url for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.kubeconfig_url",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4716,
+      "body_sha256": "sha256:29679e12c46cb418441a95ca250da51dbb55e30eaff49e1ee66b9640f8820b38",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/blindfold_secret_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.kubeconfig_url.blindfold_secret_info for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.kubeconfig_url.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3594,
+      "body_sha256": "sha256:1f94c35a3ec0152f3b497ece7afde70cfb76422376fb7494c51d23322b520dc8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/clear_secret_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--kubeconfig_url--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.kubeconfig_url.clear_secret_info for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.kubeconfig_url.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1369,
+      "body_sha256": "sha256:75fb2068d6ae51bc9d603282d2674dcbef29ce48ce57ed5215d805e986b7b5af",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:reachable",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/reachable/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--access_info--reachable.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "access_info", "reachable"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/reachable/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.access_info.reachable for xcsh_discovery.",
+      "title": "discovery_k8s.access_info.reachable",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1199,
+      "body_sha256": "sha256:e2f435e7ce90358228be56856579d037ff57872ec534e2ea90dd8f29ed4aaba5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:default_all",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/default_all/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--default_all.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "default_all"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/default_all/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.default_all for xcsh_discovery.",
+      "title": "discovery_k8s.default_all",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1503,
+      "body_sha256": "sha256:78a34edd2923e27863e0c598a186cd91af2668edc3f3c26b8be4a9157312408a",
+      "child_ids": ["xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items"],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/namespace_mapping/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--namespace_mapping.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "namespace_mapping"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/namespace_mapping/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.namespace_mapping for xcsh_discovery.",
+      "title": "discovery_k8s.namespace_mapping",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4275,
+      "body_sha256": "sha256:c6ee74de9631beaca3b8030fc4c90dc057226bc27ad0b44290eb9a9ad0b50157",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/namespace_mapping/items/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--namespace_mapping--items.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "namespace_mapping", "items"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/namespace_mapping/items/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.namespace_mapping.items for xcsh_discovery.",
+      "title": "discovery_k8s.namespace_mapping.items",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2629,
+      "body_sha256": "sha256:8fedf5ed9c8f05258ca350cc1c39258f8b5a0ecd075ca0dde23998c12ce994fa",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:disable_spec",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:dns_delegation",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish",
+        "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish_fqdns"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--publish_info.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "publish_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.publish_info for xcsh_discovery.",
+      "title": "discovery_k8s.publish_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1124,
+      "body_sha256": "sha256:2b64fcb3bbd65a78594a1535d3ede6226f727d82034fef9a6b7bee21d8a854d3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:disable_spec",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/disable_spec/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--publish_info--disable_spec.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "publish_info", "disable_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/disable_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.publish_info.disable_spec for xcsh_discovery.",
+      "title": "discovery_k8s.publish_info.disable_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2942,
+      "body_sha256": "sha256:282d51f41e26081629845daa9a65f7d0d1387ff82d96ae925b618fa7fb577434",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:dns_delegation",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/dns_delegation/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--publish_info--dns_delegation.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "publish_info", "dns_delegation"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/dns_delegation/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.publish_info.dns_delegation for xcsh_discovery.",
+      "title": "discovery_k8s.publish_info.dns_delegation",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2909,
+      "body_sha256": "sha256:861e3af974c2b4eb365f195eafcedcfa6cc85fcf6794b858dbd121534d5761ec",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/publish/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--publish_info--publish.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "publish_info", "publish"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/publish/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.publish_info.publish for xcsh_discovery.",
+      "title": "discovery_k8s.publish_info.publish",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1407,
+      "body_sha256": "sha256:c677635398b41cd0f30f1a614b7df88814e2c5f7afd3ae8b3d3e05ec41e02db7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish_fqdns",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info",
+      "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/publish_fqdns/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--discovery_k8s--publish_info--publish_fqdns.md",
+      "role": "properties",
+      "schema_path": ["discovery_k8s", "publish_info", "publish_fqdns"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/publish_fqdns/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "discovery_k8s.publish_info.publish_fqdns for xcsh_discovery.",
+      "title": "discovery_k8s.publish_info.publish_fqdns",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1020,
+      "body_sha256": "sha256:1696ffd13f5cf033b921f74631d40f4a5bb0df651bb1ef32e2c660972eda4ec8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:no_cluster_id",
+      "parent_id": "xcsh-docs:data-sources:discovery:reference",
+      "path": "documentation/data-sources/discovery/properties/no_cluster_id/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--no_cluster_id.md",
+      "role": "properties",
+      "schema_path": ["no_cluster_id"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/no_cluster_id/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "no_cluster_id for xcsh_discovery.",
+      "title": "no_cluster_id",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2476,
+      "body_sha256": "sha256:bc73fb849fe9ac4faa61a395c2071229cad6daca15343f687d9da2e08fce1464",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:where:site",
+        "xcsh-docs:data-sources:discovery:properties:where:virtual_network",
+        "xcsh-docs:data-sources:discovery:properties:where:virtual_site"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where",
+      "parent_id": "xcsh-docs:data-sources:discovery:reference",
+      "path": "documentation/data-sources/discovery/properties/where/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where.md",
+      "role": "properties",
+      "schema_path": ["where"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where for xcsh_discovery.",
+      "title": "where",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7671,
+      "body_sha256": "sha256:17c665d9eacec5cd781928bb7118a1757cc26a0176210505e9960e5ca1456549",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:where:site:disable_internet_vip",
+        "xcsh-docs:data-sources:discovery:properties:where:site:enable_internet_vip",
+        "xcsh-docs:data-sources:discovery:properties:where:site:ref"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:site",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where",
+      "path": "documentation/data-sources/discovery/properties/where/site/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--site.md",
+      "role": "properties",
+      "schema_path": ["where", "site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.site for xcsh_discovery.",
+      "title": "where.site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1285,
+      "body_sha256": "sha256:e4d25c3d5f2edaae2db84a9485d17c9ce1ab15fe31df0b77f3137f0b709390d3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:site:disable_internet_vip",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where:site",
+      "path": "documentation/data-sources/discovery/properties/where/site/disable_internet_vip/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--site--disable_internet_vip.md",
+      "role": "properties",
+      "schema_path": ["where", "site", "disable_internet_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/disable_internet_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.site.disable_internet_vip for xcsh_discovery.",
+      "title": "where.site.disable_internet_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1283,
+      "body_sha256": "sha256:8e76db2fea9509cad2c202a21ede00b628db1df48314eb9b819ab67e23b3ed47",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:site:enable_internet_vip",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where:site",
+      "path": "documentation/data-sources/discovery/properties/where/site/enable_internet_vip/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--site--enable_internet_vip.md",
+      "role": "properties",
+      "schema_path": ["where", "site", "enable_internet_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/enable_internet_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.site.enable_internet_vip for xcsh_discovery.",
+      "title": "where.site.enable_internet_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6304,
+      "body_sha256": "sha256:3951201e5ad1bcf2d584ec1304627133cd96be365c1c0e569a4556a67bc7c7ad",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:site:ref",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where:site",
+      "path": "documentation/data-sources/discovery/properties/where/site/ref/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--site--ref.md",
+      "role": "properties",
+      "schema_path": ["where", "site", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.site.ref for xcsh_discovery.",
+      "title": "where.site.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1422,
+      "body_sha256": "sha256:a70c5b091a80b6514fc6f1d186b3d5b240f569ece4aef724363123fd82296563",
+      "child_ids": ["xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref"],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where",
+      "path": "documentation/data-sources/discovery/properties/where/virtual_network/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--virtual_network.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_network"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_network/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_network for xcsh_discovery.",
+      "title": "where.virtual_network",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6447,
+      "body_sha256": "sha256:611fa2a2c07bee3fc620142a6018faaef78f62b9a7eaeb28163591d35a8ffeed",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_network",
+      "path": "documentation/data-sources/discovery/properties/where/virtual_network/ref/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--virtual_network--ref.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_network", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_network/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_network.ref for xcsh_discovery.",
+      "title": "where.virtual_network.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7728,
+      "body_sha256": "sha256:12a7559a75490d103a0f78366c5834b6e1f2adf379f1694e13b6941a7bb72d7c",
+      "child_ids": [
+        "xcsh-docs:data-sources:discovery:properties:where:virtual_site:disable_internet_vip",
+        "xcsh-docs:data-sources:discovery:properties:where:virtual_site:enable_internet_vip",
+        "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref"
+      ],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where",
+      "path": "documentation/data-sources/discovery/properties/where/virtual_site/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--virtual_site.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_site"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_site for xcsh_discovery.",
+      "title": "where.virtual_site",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1333,
+      "body_sha256": "sha256:39782ac2faa2c318ccf85cc0b63e5a00a5e0a557ddff96d9e513e43f1739e9c6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:disable_internet_vip",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site",
+      "path": "documentation/data-sources/discovery/properties/where/virtual_site/disable_internet_vip/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--virtual_site--disable_internet_vip.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_site", "disable_internet_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/disable_internet_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_site.disable_internet_vip for xcsh_discovery.",
+      "title": "where.virtual_site.disable_internet_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1331,
+      "body_sha256": "sha256:d6415d60d005466e2f0432662ae5d1037156acd61e2fbfeec707a1f39a887ab5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:enable_internet_vip",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site",
+      "path": "documentation/data-sources/discovery/properties/where/virtual_site/enable_internet_vip/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--virtual_site--enable_internet_vip.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_site", "enable_internet_vip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/enable_internet_vip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_site.enable_internet_vip for xcsh_discovery.",
+      "title": "where.virtual_site.enable_internet_vip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6410,
+      "body_sha256": "sha256:695a8e9185d3001a3646b42061b6f2cb273a0e0cbb68f1005531d39fe97001c5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref",
+      "parent_id": "xcsh-docs:data-sources:discovery:properties:where:virtual_site",
+      "path": "documentation/data-sources/discovery/properties/where/virtual_site/ref/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--properties--where--virtual_site--ref.md",
+      "role": "properties",
+      "schema_path": ["where", "virtual_site", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "where.virtual_site.ref for xcsh_discovery.",
+      "title": "where.virtual_site.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 639,
+      "body_sha256": "sha256:7a352338b4272c2df74cc0c1316cbad81911ca660e40c86ef1a2343a0ba392a1",
+      "child_ids": ["xcsh-docs:data-sources:discovery:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:discovery:examples",
+      "parent_id": "xcsh-docs:data-sources:discovery:fundamentals",
+      "path": "documentation/data-sources/discovery/examples/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_discovery.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1242,
+      "body_sha256": "sha256:599b7d9678d8ff604ffe405310d651f88567d7fc4ae6e0a9f1c886515e46fb7f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:discovery:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:de2200d3e23389756392f1e95f9b7544c16ad111ecd7a837e1de4f6caed18861",
+        "source_path": "examples/data-sources/xcsh_discovery/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:discovery:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:discovery:examples",
+      "path": "documentation/data-sources/discovery/examples/data-source/index.md",
+      "provider_name": "discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--discovery--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_discovery.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,51 @@
+---
+page_title: "Resource"
+subcategory: ""
+description: "Resource for xcsh_network_policy_rule."
+xcsh_docs: {"aliases": [], "body_bytes": 1148, "body_sha256": "sha256:a271f6799b9fd1ea780df0a0290bd298d600c6fe099d277be12ca2116ff41924", "canonical_id": "xcsh-docs:resources:network_policy_rule:example:resource", "child_ids": [], "collection_id": "xcsh-docs:resources:network_policy_rule:collection", "completeness": "complete", "evidence": {"attribution": "Schema-derived minimal configuration validated with the checked-out provider.", "outcome": "valid configuration", "sha256": "sha256:0feaf66dfd5662ae652b573d32c61f50aa8eb63e0f1a54a1e0d029c6ad96ace9", "source_path": "examples/resources/xcsh_network_policy_rule/resource.tf", "validation": "terraform validate"}, "id": "xcsh-docs:resources:network_policy_rule:example:resource", "parent_id": "xcsh-docs:resources:network_policy_rule:examples", "path": "docs/guides/resources--network_policy_rule--example--resource.md", "provider_name": "network_policy_rule", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "publishing_destination": "registry", "role": "example", "schema_path": ["resource"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_policy_rule/examples/resource/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Resource for xcsh_network_policy_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_policy_ruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# Resource
+
+Breadcrumbs:
+
+- [xcsh_network_policy_rule](../resources/network_policy_rule.md)
+- [Examples](resources--network_policy_rule--examples.md)
+- Resource
+
+Schema-derived minimal configuration validated with the checked-out provider.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_network_policy_rule/resource.tf`; digest `sha256:0feaf66dfd5662ae652b573d32c61f50aa8eb63e0f1a54a1e0d029c6ad96ace9`.
+
+```terraform
+# NetworkPolicyRule Resource Example
+# Manages network policy rule with configured parameters in specified namespace in F5 Distributed Cloud.
+
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+# Basic NetworkPolicyRule configuration
+resource "xcsh_network_policy_rule" "example" {
+  name      = "example-network-policy-rule"
+  namespace = "staging"
+}
+```
+
+## Next pages
+
+- [Examples](resources--network_policy_rule--examples.md)
+- [xcsh_network_policy_rule](../resources/network_policy_rule.md)

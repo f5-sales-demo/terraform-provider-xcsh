@@ -1,0 +1,155 @@
+---
+page_title: "endpoint_subsets"
+subcategory: ""
+description: "endpoint_subsets for xcsh_cluster."
+xcsh_docs: {"aliases": [], "body_bytes": 4369, "body_sha256": "sha256:2084d7db3f08b091062f2ebad0d36cb1bcaa3e75299941803251709b60b381da", "canonical_id": "xcsh-docs:data-sources:cluster:properties:endpoint_subsets", "child_ids": [], "collection_id": "xcsh-docs:data-sources:cluster:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cluster:properties:endpoint_subsets", "parent_id": "xcsh-docs:data-sources:cluster:reference", "path": "docs/guides/data-sources--cluster--properties--endpoint_subsets.md", "provider_name": "cluster", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "properties", "schema_path": ["endpoint_subsets"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cluster/properties/endpoint_subsets/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "endpoint_subsets for xcsh_cluster.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["clusterCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# endpoint_subsets
+
+Breadcrumbs:
+
+- [xcsh_cluster](../data-sources/cluster.md)
+- [Property reference](data-sources--cluster--reference.md)
+- endpoint_subsets
+
+<a id="section"></a>
+
+Type: `"list"`. Computed.
+
+Configure endpoint groups based on metadata labels for traffic routing. Supports weighted
+distribution and session affinity across labeled endpoints.
+
+Upstream description:
+
+Cluster may be configured to divide its endpoints into subsets based on metadata attached to the
+endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected
+by the load balancer.
+
+Endpoint\_subsets is list of subsets for this cluster. Each entry in this list has definition for a
+subset (which is collection of keys)
+
+During routing, the route’s metadata match configuration is used to find a specific subset. If there
+is a subset with the exact keys and values specified by the route, the subset is used for load
+balancing. Otherwise, the fallback policy is used. The cluster’s subset configuration must,
+therefore, contain a definition that has the same keys as a given route in order for subset load
+balancing to occur.
+
+Example:
+
+RouteConfig
+
+routes: &#8203;- match: &#8203;- headers: \[\] path: path: /1.log query\_params: \[\]
+routeDestination: destinations: &#8203;- cluster: &#8203;- kind: cluster.object uid:
+00000000-0000-4000-8000-0b50b89d07a2 endpointSubsets: site: india
+
+EndpointConfig
+
+metadata: labels: deployment: debug site: india name: end-1 uid: end-1
+
+ClusterConfig
+
+gcSpec: defaultSubset: stage: production fallbackPolicy: DEFAULT\_SUBSET endpointSubsets: &#8203;-
+keys: &#8203;- site &#8203;- keys: &#8203;- stage &#8203;- app
+
+Assume the below endpoints are defined and associated with the cluster.
+
+Endpoint Labels -------- ------
+
+ep1 stage: production, site: india ep2 stage: deployment, site: us ep3 stage: production, app: hr
+ep4 site: india
+
+The following table describes some routes and the result of their application to the cluster. The
+subset definition for cluster is assumed to be same as given above in the ClusterConfig section
+
+RouteMatch Criteria Subset Reason ------------------- ------ ------
+
+site: india ep1, ep4 Subset of endpoints selected site: us ep2 Subset of endpoints selected app: hr
+ep1, ep3 Fallback: No subset selector for "app" alone stage: production, app: hr ep3 Subset of
+endpoints selected other: x ep1, ep3 Fallback: No subset selector for “other” (none) ep1, ep3
+Fallback: No subset requested.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 32,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "32"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "32"
+  }
+}
+```
+
+## Direct properties
+
+<a id="schema-endpoint_subsets--keys"></a>
+
+### keys property
+
+Type: `["list", "string"]`. Computed.
+
+List of keys that define a cluster subset class.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.max_items": "16"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.not_empty": "true",
+    "ves.io.schema.rules.repeated.max_items": "16"
+  }
+}
+```
+
+## Next pages
+
+- [Property reference](data-sources--cluster--reference.md)
+- [xcsh_cluster](../data-sources/cluster.md)

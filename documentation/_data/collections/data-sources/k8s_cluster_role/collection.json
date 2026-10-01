@@ -1,0 +1,360 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:k8s_cluster_role:fundamentals",
+    "id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+        "schema_path": ["id"]
+      },
+      "k8s_cluster_role_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:k8s_cluster_role_selector",
+        "schema_path": ["k8s_cluster_role_selector"]
+      },
+      "k8s_cluster_role_selector.expressions": {
+        "anchor": "schema-k8s_cluster_role_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:k8s_cluster_role_selector",
+        "schema_path": ["k8s_cluster_role_selector", "expressions"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+        "schema_path": ["namespace"]
+      },
+      "policy_rule_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list",
+        "schema_path": ["policy_rule_list"]
+      },
+      "policy_rule_list.policy_rule": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
+        "schema_path": ["policy_rule_list", "policy_rule"]
+      },
+      "policy_rule_list.policy_rule.non_resource_url_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+        "schema_path": ["policy_rule_list", "policy_rule", "non_resource_url_list"]
+      },
+      "policy_rule_list.policy_rule.non_resource_url_list.urls": {
+        "anchor": "schema-policy_rule_list--policy_rule--non_resource_url_list--urls",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+        "schema_path": ["policy_rule_list", "policy_rule", "non_resource_url_list", "urls"]
+      },
+      "policy_rule_list.policy_rule.non_resource_url_list.verbs": {
+        "anchor": "schema-policy_rule_list--policy_rule--non_resource_url_list--verbs",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+        "schema_path": ["policy_rule_list", "policy_rule", "non_resource_url_list", "verbs"]
+      },
+      "policy_rule_list.policy_rule.resource_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+        "schema_path": ["policy_rule_list", "policy_rule", "resource_list"]
+      },
+      "policy_rule_list.policy_rule.resource_list.api_groups": {
+        "anchor": "schema-policy_rule_list--policy_rule--resource_list--api_groups",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+        "schema_path": ["policy_rule_list", "policy_rule", "resource_list", "api_groups"]
+      },
+      "policy_rule_list.policy_rule.resource_list.resource_instances": {
+        "anchor": "schema-policy_rule_list--policy_rule--resource_list--resource_instances",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+        "schema_path": ["policy_rule_list", "policy_rule", "resource_list", "resource_instances"]
+      },
+      "policy_rule_list.policy_rule.resource_list.resource_types": {
+        "anchor": "schema-policy_rule_list--policy_rule--resource_list--resource_types",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+        "schema_path": ["policy_rule_list", "policy_rule", "resource_list", "resource_types"]
+      },
+      "policy_rule_list.policy_rule.resource_list.verbs": {
+        "anchor": "schema-policy_rule_list--policy_rule--resource_list--verbs",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+        "schema_path": ["policy_rule_list", "policy_rule", "resource_list", "verbs"]
+      },
+      "yaml": {
+        "anchor": "schema-yaml",
+        "document_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+        "schema_path": ["yaml"]
+      }
+    },
+    "provider_name": "k8s_cluster_role",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:k8s_cluster_role:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1435,
+      "body_sha256": "sha256:70a0e9f674a2c0a4b340a6bcc273c5bdf58f5d67bdd0c7fb562466306ce1cafb",
+      "child_ids": [
+        "xcsh-docs:data-sources:k8s_cluster_role:reference",
+        "xcsh-docs:data-sources:k8s_cluster_role:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/k8s_cluster_role/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/k8s_cluster_role.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_k8s_cluster_role for xcsh_k8s_cluster_role.",
+      "title": "xcsh_k8s_cluster_role",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 12211,
+      "body_sha256": "sha256:d3e6b4aa5f5a7181b171ff8113eece3be8e9c76c3e56d8964f792e0f9c7bd584",
+      "child_ids": [
+        "xcsh-docs:data-sources:k8s_cluster_role:properties:k8s_cluster_role_selector",
+        "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+      "parent_id": "xcsh-docs:data-sources:k8s_cluster_role:fundamentals",
+      "path": "documentation/data-sources/k8s_cluster_role/properties/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_cluster_role--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_k8s_cluster_role.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4233,
+      "body_sha256": "sha256:114549a35bbbe0b0026e26ce5796ab04a4a82d886ea616912cdb27bfd1d03b00",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:properties:k8s_cluster_role_selector",
+      "parent_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+      "path": "documentation/data-sources/k8s_cluster_role/properties/k8s_cluster_role_selector/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_cluster_role--properties--k8s_cluster_role_selector.md",
+      "role": "properties",
+      "schema_path": ["k8s_cluster_role_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/k8s_cluster_role_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "k8s_cluster_role_selector for xcsh_k8s_cluster_role.",
+      "title": "k8s_cluster_role_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1341,
+      "body_sha256": "sha256:12342173a37b7113def5a1b1ba985c4ec3b0abfbc14ef533ed08da381527b168",
+      "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule"],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list",
+      "parent_id": "xcsh-docs:data-sources:k8s_cluster_role:reference",
+      "path": "documentation/data-sources/k8s_cluster_role/properties/policy_rule_list/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_cluster_role--properties--policy_rule_list.md",
+      "role": "properties",
+      "schema_path": ["policy_rule_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/policy_rule_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "policy_rule_list for xcsh_k8s_cluster_role.",
+      "title": "policy_rule_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2788,
+      "body_sha256": "sha256:f4eb9c08db2665e0f0e89e3985c1b91116fba8554838c3d77e1461c125658b97",
+      "child_ids": [
+        "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+        "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
+      "parent_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list",
+      "path": "documentation/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_cluster_role--properties--policy_rule_list--policy_rule.md",
+      "role": "properties",
+      "schema_path": ["policy_rule_list", "policy_rule"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "policy_rule_list.policy_rule for xcsh_k8s_cluster_role.",
+      "title": "policy_rule_list.policy_rule",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4048,
+      "body_sha256": "sha256:7e8471e370e845e59fede401afe592edfff185dd234c1e44bdee5c1672055a73",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+      "parent_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
+      "path": "documentation/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/non_resource_url_list/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_cluster_role--properties--policy_rule_list--policy_rule--non_resource_url_list.md",
+      "role": "properties",
+      "schema_path": ["policy_rule_list", "policy_rule", "non_resource_url_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/non_resource_url_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "policy_rule_list.policy_rule.non_resource_url_list for xcsh_k8s_cluster_role.",
+      "title": "policy_rule_list.policy_rule.non_resource_url_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6500,
+      "body_sha256": "sha256:d0d3bb9eb0041f2e7430a5563fe16407ec851c7160849e36ba9f0e8dbdfd0cce",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+      "parent_id": "xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
+      "path": "documentation/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/resource_list/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_cluster_role--properties--policy_rule_list--policy_rule--resource_list.md",
+      "role": "properties",
+      "schema_path": ["policy_rule_list", "policy_rule", "resource_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/resource_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "policy_rule_list.policy_rule.resource_list for xcsh_k8s_cluster_role.",
+      "title": "policy_rule_list.policy_rule.resource_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 681,
+      "body_sha256": "sha256:d3f0514af26405b20d79c5d15a0149ff80723567817c719e6f98ae3d47579996",
+      "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:examples",
+      "parent_id": "xcsh-docs:data-sources:k8s_cluster_role:fundamentals",
+      "path": "documentation/data-sources/k8s_cluster_role/examples/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_cluster_role--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_k8s_cluster_role.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1328,
+      "body_sha256": "sha256:b97f4d4d013abeb414b847b9b434bee8ac80bf711f3040ecd7a39ad5ee19154b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:3a2a8196bb01ed845c9acfb23f02e2761ef76a0ab6bfc6ad04f8767ce9170112",
+        "source_path": "examples/data-sources/xcsh_k8s_cluster_role/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:k8s_cluster_role:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:k8s_cluster_role:examples",
+      "path": "documentation/data-sources/k8s_cluster_role/examples/data-source/index.md",
+      "provider_name": "k8s_cluster_role",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--k8s_cluster_role--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_k8s_cluster_role.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["k8s_cluster_roleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,328 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:ike2:fundamentals",
+    "id": "xcsh-docs:data-sources:ike2:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:ike2:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:ike2:reference",
+        "schema_path": ["description"]
+      },
+      "dh_group_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:ike2:properties:dh_group_set",
+        "schema_path": ["dh_group_set"]
+      },
+      "dh_group_set.dh_groups": {
+        "anchor": "schema-dh_group_set--dh_groups",
+        "document_id": "xcsh-docs:data-sources:ike2:properties:dh_group_set",
+        "schema_path": ["dh_group_set", "dh_groups"]
+      },
+      "disable_pfs": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:ike2:properties:disable_pfs",
+        "schema_path": ["disable_pfs"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:data-sources:ike2:reference", "schema_path": ["id"] },
+      "ike_keylifetime_hours": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:ike2:properties:ike_keylifetime_hours",
+        "schema_path": ["ike_keylifetime_hours"]
+      },
+      "ike_keylifetime_hours.duration": {
+        "anchor": "schema-ike_keylifetime_hours--duration",
+        "document_id": "xcsh-docs:data-sources:ike2:properties:ike_keylifetime_hours",
+        "schema_path": ["ike_keylifetime_hours", "duration"]
+      },
+      "ike_keylifetime_minutes": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:ike2:properties:ike_keylifetime_minutes",
+        "schema_path": ["ike_keylifetime_minutes"]
+      },
+      "ike_keylifetime_minutes.duration": {
+        "anchor": "schema-ike_keylifetime_minutes--duration",
+        "document_id": "xcsh-docs:data-sources:ike2:properties:ike_keylifetime_minutes",
+        "schema_path": ["ike_keylifetime_minutes", "duration"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:ike2:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:ike2:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:ike2:reference",
+        "schema_path": ["namespace"]
+      },
+      "use_default_keylifetime": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:ike2:properties:use_default_keylifetime",
+        "schema_path": ["use_default_keylifetime"]
+      }
+    },
+    "provider_name": "ike2",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:ike2:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1269,
+      "body_sha256": "sha256:0e29f611ee4fbb0b3721cb38a7bc6687caada1184722de03410966f7c9a915a7",
+      "child_ids": ["xcsh-docs:data-sources:ike2:reference", "xcsh-docs:data-sources:ike2:examples"],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:ike2:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/ike2/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/ike2.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_ike2 for xcsh_ike2.",
+      "title": "xcsh_ike2",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9661,
+      "body_sha256": "sha256:e6ec09298690995cb289fb7b9957090f98187e6651a7ce11c39a8c7abc1c44fa",
+      "child_ids": [
+        "xcsh-docs:data-sources:ike2:properties:dh_group_set",
+        "xcsh-docs:data-sources:ike2:properties:disable_pfs",
+        "xcsh-docs:data-sources:ike2:properties:ike_keylifetime_hours",
+        "xcsh-docs:data-sources:ike2:properties:ike_keylifetime_minutes",
+        "xcsh-docs:data-sources:ike2:properties:use_default_keylifetime"
+      ],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:ike2:reference",
+      "parent_id": "xcsh-docs:data-sources:ike2:fundamentals",
+      "path": "documentation/data-sources/ike2/properties/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--ike2--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_ike2.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2282,
+      "body_sha256": "sha256:c3b1f13f70ac88d06a760bc94dea90bebea8e15863ecd034e963bacea7941db7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:ike2:properties:dh_group_set",
+      "parent_id": "xcsh-docs:data-sources:ike2:reference",
+      "path": "documentation/data-sources/ike2/properties/dh_group_set/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--ike2--properties--dh_group_set.md",
+      "role": "properties",
+      "schema_path": ["dh_group_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/dh_group_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "dh_group_set for xcsh_ike2.",
+      "title": "dh_group_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1008,
+      "body_sha256": "sha256:cf7397baaa9da2705eddeebf706e864db5b5a3153a866af6338df2960669b232",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:ike2:properties:disable_pfs",
+      "parent_id": "xcsh-docs:data-sources:ike2:reference",
+      "path": "documentation/data-sources/ike2/properties/disable_pfs/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--ike2--properties--disable_pfs.md",
+      "role": "properties",
+      "schema_path": ["disable_pfs"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/disable_pfs/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disable_pfs for xcsh_ike2.",
+      "title": "disable_pfs",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2490,
+      "body_sha256": "sha256:c240ed666b84cb1f567529293a39f059c646123265f627d2fc4442fe95f44c65",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:ike2:properties:ike_keylifetime_hours",
+      "parent_id": "xcsh-docs:data-sources:ike2:reference",
+      "path": "documentation/data-sources/ike2/properties/ike_keylifetime_hours/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--ike2--properties--ike_keylifetime_hours.md",
+      "role": "properties",
+      "schema_path": ["ike_keylifetime_hours"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/ike_keylifetime_hours/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ike_keylifetime_hours for xcsh_ike2.",
+      "title": "ike_keylifetime_hours",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1859,
+      "body_sha256": "sha256:a5ec54f6a64eb55c20df07c78ae015e4f590695db57622b5dbc4839c1cdfee3d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:ike2:properties:ike_keylifetime_minutes",
+      "parent_id": "xcsh-docs:data-sources:ike2:reference",
+      "path": "documentation/data-sources/ike2/properties/ike_keylifetime_minutes/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--ike2--properties--ike_keylifetime_minutes.md",
+      "role": "properties",
+      "schema_path": ["ike_keylifetime_minutes"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/ike_keylifetime_minutes/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ike_keylifetime_minutes for xcsh_ike2.",
+      "title": "ike_keylifetime_minutes",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1044,
+      "body_sha256": "sha256:9fd3ee7ebd1d8901ce29ffecc54415e54000ffb10d49a82c505214fac8aed57d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:ike2:properties:use_default_keylifetime",
+      "parent_id": "xcsh-docs:data-sources:ike2:reference",
+      "path": "documentation/data-sources/ike2/properties/use_default_keylifetime/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--ike2--properties--use_default_keylifetime.md",
+      "role": "properties",
+      "schema_path": ["use_default_keylifetime"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/properties/use_default_keylifetime/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "use_default_keylifetime for xcsh_ike2.",
+      "title": "use_default_keylifetime",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 609,
+      "body_sha256": "sha256:40401a8696f076aeb78b0922f5569d4cf1e8674cee2e921f2e1b9ff92113a0ef",
+      "child_ids": ["xcsh-docs:data-sources:ike2:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:ike2:examples",
+      "parent_id": "xcsh-docs:data-sources:ike2:fundamentals",
+      "path": "documentation/data-sources/ike2/examples/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--ike2--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_ike2.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1177,
+      "body_sha256": "sha256:51efd7f20a2cd2de985082b7053951949bf3fe95742d537331862a8b899704b9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:ike2:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:db87600cf054124d776876313565955caf46f37f46627a7f890a5aaf280c673b",
+        "source_path": "examples/data-sources/xcsh_ike2/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:ike2:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:ike2:examples",
+      "path": "documentation/data-sources/ike2/examples/data-source/index.md",
+      "provider_name": "ike2",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--ike2--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike2/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_ike2.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["ike2CreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

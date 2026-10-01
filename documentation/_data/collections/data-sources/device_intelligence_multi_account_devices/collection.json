@@ -1,0 +1,272 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:fundamentals",
+    "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection",
+    "properties": {
+      "end_time": {
+        "anchor": "schema-end_time",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference",
+        "schema_path": ["end_time"]
+      },
+      "filters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters",
+        "schema_path": ["filters"]
+      },
+      "filters.global_filters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters"]
+      },
+      "filters.global_filters.key": {
+        "anchor": "schema-filters--global_filters--key",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "key"]
+      },
+      "filters.global_filters.op": {
+        "anchor": "schema-filters--global_filters--op",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "op"]
+      },
+      "filters.global_filters.values": {
+        "anchor": "schema-filters--global_filters--values",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "values"]
+      },
+      "filters.region_filter": {
+        "anchor": "schema-filters--region_filter",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters",
+        "schema_path": ["filters", "region_filter"]
+      },
+      "multi_account_devices": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:multi_account_devices",
+        "schema_path": ["multi_account_devices"]
+      },
+      "multi_account_devices.account_range": {
+        "anchor": "schema-multi_account_devices--account_range",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:multi_account_devices",
+        "schema_path": ["multi_account_devices", "account_range"]
+      },
+      "multi_account_devices.device_count": {
+        "anchor": "schema-multi_account_devices--device_count",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:multi_account_devices",
+        "schema_path": ["multi_account_devices", "device_count"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference",
+        "schema_path": ["namespace"]
+      },
+      "start_time": {
+        "anchor": "schema-start_time",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference",
+        "schema_path": ["start_time"]
+      }
+    },
+    "provider_name": "device_intelligence_multi_account_devices",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1424,
+      "body_sha256": "sha256:275aa7fde52a668e4d32b9b4950d77caa4e724465a6da2a2393d4fa9c1743a54",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference",
+        "xcsh-docs:data-sources:device_intelligence_multi_account_devices:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/device_intelligence_multi_account_devices/index.md",
+      "provider_name": "device_intelligence_multi_account_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/device_intelligence_multi_account_devices.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_device_intelligence_multi_account_devices for xcsh_device_intelligence_multi_account_devices.",
+      "title": "xcsh_device_intelligence_multi_account_devices",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5085,
+      "body_sha256": "sha256:6828014eecb3ef3eaa59d59ab4b31458256e8136530a8cb2a9584407504cf41f",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters",
+        "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:multi_account_devices"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:fundamentals",
+      "path": "documentation/data-sources/device_intelligence_multi_account_devices/properties/index.md",
+      "provider_name": "device_intelligence_multi_account_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_multi_account_devices--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_device_intelligence_multi_account_devices.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1764,
+      "body_sha256": "sha256:2a5e7f34879a99889cb91aa3d3ef3a50584e85d26d35b6b88d12fd80f729b177",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference",
+      "path": "documentation/data-sources/device_intelligence_multi_account_devices/properties/filters/index.md",
+      "provider_name": "device_intelligence_multi_account_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_multi_account_devices--properties--filters.md",
+      "role": "properties",
+      "schema_path": ["filters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/properties/filters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "filters for xcsh_device_intelligence_multi_account_devices.",
+      "title": "filters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5522,
+      "body_sha256": "sha256:067148f86cf3574e8fd14174c728c0d79c70524dbdae43b81fe982c30d7b9532",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters",
+      "path": "documentation/data-sources/device_intelligence_multi_account_devices/properties/filters/global_filters/index.md",
+      "provider_name": "device_intelligence_multi_account_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_multi_account_devices--properties--filters--global_filters.md",
+      "role": "properties",
+      "schema_path": ["filters", "global_filters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/properties/filters/global_filters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "filters.global_filters for xcsh_device_intelligence_multi_account_devices.",
+      "title": "filters.global_filters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1282,
+      "body_sha256": "sha256:c0296cdffa9354ae422d56035a885f8e19d6ad163b56aa2d8f388bbe13105860",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:multi_account_devices",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:reference",
+      "path": "documentation/data-sources/device_intelligence_multi_account_devices/properties/multi_account_devices/index.md",
+      "provider_name": "device_intelligence_multi_account_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_multi_account_devices--properties--multi_account_devices.md",
+      "role": "properties",
+      "schema_path": ["multi_account_devices"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/properties/multi_account_devices/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "multi_account_devices for xcsh_device_intelligence_multi_account_devices.",
+      "title": "multi_account_devices",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 831,
+      "body_sha256": "sha256:b1e79a4d93855a74e493ef0e6ce72dcd3334752c5328e052a9833e37d1292bc4",
+      "child_ids": ["xcsh-docs:data-sources:device_intelligence_multi_account_devices:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:examples",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:fundamentals",
+      "path": "documentation/data-sources/device_intelligence_multi_account_devices/examples/index.md",
+      "provider_name": "device_intelligence_multi_account_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_multi_account_devices--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_device_intelligence_multi_account_devices.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1523,
+      "body_sha256": "sha256:296de72305fd354e96b941eecd275e98c79306d0f60b82cd3bb5b5127a50da79",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:83db70480833f20bc19383610323bcf199f0707dd687a03af490d0098255cfcb",
+        "source_path": "examples/data-sources/xcsh_device_intelligence_multi_account_devices/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:examples",
+      "path": "documentation/data-sources/device_intelligence_multi_account_devices/examples/data-source/index.md",
+      "provider_name": "device_intelligence_multi_account_devices",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_multi_account_devices--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_multi_account_devices/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_device_intelligence_multi_account_devices.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

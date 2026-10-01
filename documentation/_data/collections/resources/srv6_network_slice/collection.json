@@ -1,0 +1,289 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:srv6_network_slice:fundamentals",
+    "id": "xcsh-docs:resources:srv6_network_slice:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["annotations"]
+      },
+      "connect_to_access_networks": {
+        "anchor": "schema-connect_to_access_networks",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["connect_to_access_networks"]
+      },
+      "connect_to_enterprise_networks": {
+        "anchor": "schema-connect_to_enterprise_networks",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["connect_to_enterprise_networks"]
+      },
+      "connect_to_internet": {
+        "anchor": "schema-connect_to_internet",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["connect_to_internet"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["namespace"]
+      },
+      "sid_prefixes": {
+        "anchor": "schema-sid_prefixes",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:reference",
+        "schema_path": ["sid_prefixes"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:srv6_network_slice:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "srv6_network_slice",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:srv6_network_slice:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1719,
+      "body_sha256": "sha256:fea96b6fd85b6863405cbcfd7edad71fb4775125a789a261b3ca7ae83d9dd64f",
+      "child_ids": [
+        "xcsh-docs:resources:srv6_network_slice:reference",
+        "xcsh-docs:resources:srv6_network_slice:examples",
+        "xcsh-docs:resources:srv6_network_slice:import",
+        "xcsh-docs:resources:srv6_network_slice:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:srv6_network_slice:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:srv6_network_slice:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/srv6_network_slice/index.md",
+      "provider_name": "srv6_network_slice",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/srv6_network_slice.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/srv6_network_slice/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_srv6_network_slice for xcsh_srv6_network_slice.",
+      "title": "xcsh_srv6_network_slice",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["srv6_network_sliceCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13574,
+      "body_sha256": "sha256:d773c0ce02050d1381c3c1fc694d8cba5268c1c9b58c4e5f335219ec64731408",
+      "child_ids": ["xcsh-docs:resources:srv6_network_slice:properties:timeouts"],
+      "collection_id": "xcsh-docs:resources:srv6_network_slice:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:srv6_network_slice:reference",
+      "parent_id": "xcsh-docs:resources:srv6_network_slice:fundamentals",
+      "path": "documentation/resources/srv6_network_slice/properties/index.md",
+      "provider_name": "srv6_network_slice",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--srv6_network_slice--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/srv6_network_slice/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_srv6_network_slice.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["srv6_network_sliceCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2267,
+      "body_sha256": "sha256:663ad2badb95887c840aacc998425be0ca49bb2fe2b4fc9fbc8800fc2c4c8a53",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:srv6_network_slice:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:srv6_network_slice:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:srv6_network_slice:reference",
+      "path": "documentation/resources/srv6_network_slice/properties/timeouts/index.md",
+      "provider_name": "srv6_network_slice",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--srv6_network_slice--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/srv6_network_slice/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_srv6_network_slice.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["srv6_network_sliceCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 669,
+      "body_sha256": "sha256:ad52a0ee6ac2751c911a4eaaea04f4b63f7bdccec8f274e6278591cee7a5d9d9",
+      "child_ids": ["xcsh-docs:resources:srv6_network_slice:example:resource"],
+      "collection_id": "xcsh-docs:resources:srv6_network_slice:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:srv6_network_slice:examples",
+      "parent_id": "xcsh-docs:resources:srv6_network_slice:fundamentals",
+      "path": "documentation/resources/srv6_network_slice/examples/index.md",
+      "provider_name": "srv6_network_slice",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--srv6_network_slice--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/srv6_network_slice/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_srv6_network_slice.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["srv6_network_sliceCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1394,
+      "body_sha256": "sha256:14f53a43f91c79bcc8c8c2d26b3070ca14c8904b66c127a214def0989108451d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:srv6_network_slice:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:28b76f9b2c2ac199134ab8ed152b0dff8fdb07e8a894ab2aa2291993080df8d0",
+        "source_path": "examples/resources/xcsh_srv6_network_slice/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:srv6_network_slice:example:resource",
+      "parent_id": "xcsh-docs:resources:srv6_network_slice:examples",
+      "path": "documentation/resources/srv6_network_slice/examples/resource/index.md",
+      "provider_name": "srv6_network_slice",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--srv6_network_slice--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/srv6_network_slice/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_srv6_network_slice.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["srv6_network_sliceCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 538,
+      "body_sha256": "sha256:dfc2c7d08719b1f493b4bde9d2a151807ea2072121df20063827277a0bf89a0c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:srv6_network_slice:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:srv6_network_slice:import",
+      "parent_id": "xcsh-docs:resources:srv6_network_slice:fundamentals",
+      "path": "documentation/resources/srv6_network_slice/lifecycle/import/index.md",
+      "provider_name": "srv6_network_slice",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--srv6_network_slice--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/srv6_network_slice/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_srv6_network_slice.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["srv6_network_sliceCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 598,
+      "body_sha256": "sha256:4afd27786b6bec7c0561e2dee16233a6224bb36270e7dfe4c0532a4b07b4ae5f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:srv6_network_slice:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:srv6_network_slice:timeouts",
+      "parent_id": "xcsh-docs:resources:srv6_network_slice:fundamentals",
+      "path": "documentation/resources/srv6_network_slice/lifecycle/timeouts/index.md",
+      "provider_name": "srv6_network_slice",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--srv6_network_slice--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/srv6_network_slice/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_srv6_network_slice.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["srv6_network_sliceCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

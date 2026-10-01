@@ -1,0 +1,282 @@
+---
+page_title: "default_pool.advanced_options.circuit_breaker"
+subcategory: "Load Balancing"
+description: "default_pool.advanced_options.circuit_breaker for xcsh_http_loadbalancer."
+xcsh_docs: {"aliases": [], "body_bytes": 8405, "body_sha256": "sha256:eae39d2ab8d7c77a881f3d3316bc151441035dc45dd3cce8267dd0de5039a4e0", "child_ids": [], "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:default_pool:advanced_options", "path": "documentation/data-sources/http_loadbalancer/properties/default_pool/advanced_options/circuit_breaker/index.md", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "properties", "schema_path": ["default_pool", "advanced_options", "circuit_breaker"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/default_pool/advanced_options/circuit_breaker/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "default_pool.advanced_options.circuit_breaker for xcsh_http_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# default_pool.advanced_options.circuit_breaker
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/)
+- [default_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/default_pool/)
+- [default_pool.advanced_options](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/default_pool/advanced_options/)
+- default_pool.advanced_options.circuit_breaker
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if
+the failures reach a certain threshold, automatically fail subsequent requests which allows to apply
+back pressure on downstream quickly.
+
+Upstream description:
+
+CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if
+the failures reach a certain threshold, automatically fail subsequent requests which allows to apply
+back pressure on downstream quickly.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+## Direct properties
+
+<a id="schema-default_pool--advanced_options--circuit_breaker--connection_limit"></a>
+
+### connection_limit property
+
+Type: `"number"`. Computed.
+
+The maximum number of connections that loadbalancer will establish to all hosts in an upstream
+cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single
+connection to each host. Remove endpoint out of load balancing decision, if number of connections..
+
+Upstream description:
+
+The maximum number of connections that loadbalancer will establish to all hosts in an upstream
+cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single
+connection to each host. Remove endpoint out of load balancing decision, if number of connections
+reach connection limit.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 32768,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "32768"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "32768"
+  }
+}
+```
+
+<a id="schema-default_pool--advanced_options--circuit_breaker--max_requests"></a>
+
+### max_requests property
+
+Type: `"number"`. Computed.
+
+The maximum number of requests that can be outstanding to all hosts in a cluster at any given time.
+In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the
+maximum connections (connection\_limit). Remove endpoint out of load balancing decision, if
+requests..
+
+Upstream description:
+
+The maximum number of requests that can be outstanding to all hosts in a cluster at any given time.
+In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the
+maximum connections (connection\_limit). Remove endpoint out of load balancing decision, if requests
+exceed this count.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 32768,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "32768"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "32768"
+  }
+}
+```
+
+<a id="schema-default_pool--advanced_options--circuit_breaker--pending_requests"></a>
+
+### pending_requests property
+
+Type: `"number"`. Computed.
+
+The maximum number of requests that will be queued while waiting for a ready connection pool
+connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes
+into play as the initial connection is created, as requests will be multiplexed immediately..
+
+Upstream description:
+
+The maximum number of requests that will be queued while waiting for a ready connection pool
+connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes
+into play as the initial connection is created, as requests will be multiplexed immediately
+afterwards. For HTTP/1.1, requests are added to the list of pending requests whenever there aren’t
+enough upstream connections available to immediately dispatch the request, so this circuit breaker
+will remain in play for the lifetime of the process. Remove endpoint out of load balancing decision,
+if pending request reach pending\_request.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 32768,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "32768"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "32768"
+  }
+}
+```
+
+<a id="schema-default_pool--advanced_options--circuit_breaker--priority"></a>
+
+### priority property
+
+Type: `"string"`. Computed.
+
+\[Enum: DEFAULT|HIGH\] Priority routing for each request. Different connection pools are used based
+on the priority selected for the request. Also, circuit-breaker configuration at destination cluster
+is chosen based on selected priority. Possible values are \`DEFAULT\`, \`HIGH\`. Defaults to
+\`DEFAULT\`.
+
+Upstream description:
+
+Priority routing for each request. Different connection pools are used based on the priority
+selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based
+on selected priority.
+
+Default routing mechanism High-Priority routing mechanism.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "DEFAULT",
+  "enum": [
+    "DEFAULT",
+    "HIGH"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-default_pool--advanced_options--circuit_breaker--retries"></a>
+
+### retries property
+
+Type: `"number"`. Computed.
+
+The maximum number of retries that can be outstanding to all hosts in a cluster at any given time.
+Remove endpoint out of load balancing decision, if retries for request exceed this count.
+
+Upstream description:
+
+The maximum number of retries that can be outstanding to all hosts in a cluster at any given time.
+Remove endpoint out of load balancing decision, if retries for request exceed this count.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 32768,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 0,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "32768"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "32768"
+  }
+}
+```
+
+## Next pages
+
+- [default_pool.advanced_options](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/default_pool/advanced_options/)
+- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

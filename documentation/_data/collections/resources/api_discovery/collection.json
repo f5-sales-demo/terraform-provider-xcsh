@@ -1,0 +1,853 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:api_discovery:fundamentals",
+    "id": "xcsh-docs:resources:api_discovery:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:api_discovery:reference",
+        "schema_path": ["annotations"]
+      },
+      "custom_auth_types": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
+        "schema_path": ["custom_auth_types"]
+      },
+      "custom_auth_types.parameter_name": {
+        "anchor": "schema-custom_auth_types--parameter_name",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
+        "schema_path": ["custom_auth_types", "parameter_name"]
+      },
+      "custom_auth_types.parameter_type": {
+        "anchor": "schema-custom_auth_types--parameter_type",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
+        "schema_path": ["custom_auth_types", "parameter_type"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:api_discovery:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:api_discovery:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:api_discovery:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:api_discovery:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:api_discovery:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:api_discovery:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "user_defined_api_discovery_policy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy",
+        "schema_path": ["user_defined_api_discovery_policy"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.labels": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:labels",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "labels"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "metadata"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.metadata.description_spec": {
+        "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--metadata--description_spec",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "metadata", "description_spec"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.metadata.name": {
+        "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--metadata--name",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "metadata", "name"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties", "exclusion"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:archive",
+        "schema_path": [
+          "user_defined_api_discovery_policy",
+          "discovery_rules",
+          "rule_properties",
+          "exclusion",
+          "archive"
+        ]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:ignore",
+        "schema_path": [
+          "user_defined_api_discovery_policy",
+          "discovery_rules",
+          "rule_properties",
+          "exclusion",
+          "ignore"
+        ]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+        "schema_path": [
+          "user_defined_api_discovery_policy",
+          "discovery_rules",
+          "rule_properties",
+          "http_header_criteria"
+        ]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.field_name": {
+        "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--field_name",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+        "schema_path": [
+          "user_defined_api_discovery_policy",
+          "discovery_rules",
+          "rule_properties",
+          "http_header_criteria",
+          "field_name"
+        ]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.location": {
+        "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--location",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+        "schema_path": [
+          "user_defined_api_discovery_policy",
+          "discovery_rules",
+          "rule_properties",
+          "http_header_criteria",
+          "location"
+        ]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.match_type": {
+        "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--match_type",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+        "schema_path": [
+          "user_defined_api_discovery_policy",
+          "discovery_rules",
+          "rule_properties",
+          "http_header_criteria",
+          "match_type"
+        ]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria.value": {
+        "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--value",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+        "schema_path": [
+          "user_defined_api_discovery_policy",
+          "discovery_rules",
+          "rule_properties",
+          "http_header_criteria",
+          "value"
+        ]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:inclusion",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties", "inclusion"]
+      },
+      "user_defined_api_discovery_policy.discovery_rules.rule_properties.pattern": {
+        "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--pattern",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
+        "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties", "pattern"]
+      },
+      "user_defined_api_discovery_policy.exclusive": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive",
+        "schema_path": ["user_defined_api_discovery_policy", "exclusive"]
+      },
+      "user_defined_api_discovery_policy.exclusive.archive": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:archive",
+        "schema_path": ["user_defined_api_discovery_policy", "exclusive", "archive"]
+      },
+      "user_defined_api_discovery_policy.exclusive.ignore": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:ignore",
+        "schema_path": ["user_defined_api_discovery_policy", "exclusive", "ignore"]
+      },
+      "user_defined_api_discovery_policy.inclusive": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:inclusive",
+        "schema_path": ["user_defined_api_discovery_policy", "inclusive"]
+      }
+    },
+    "provider_name": "api_discovery",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:api_discovery:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1621,
+      "body_sha256": "sha256:fd6e0048f94073192e79922dda324e8faf59212d730bc4d78da7aca0caea09b0",
+      "child_ids": [
+        "xcsh-docs:resources:api_discovery:reference",
+        "xcsh-docs:resources:api_discovery:examples",
+        "xcsh-docs:resources:api_discovery:import",
+        "xcsh-docs:resources:api_discovery:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/api_discovery/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/api_discovery.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_api_discovery for xcsh_api_discovery.",
+      "title": "xcsh_api_discovery",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 17423,
+      "body_sha256": "sha256:c80bbf98369815b18d5d8af75abf94c497b6ee0a192537ab3f40b571b7cd4461",
+      "child_ids": [
+        "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
+        "xcsh-docs:resources:api_discovery:properties:timeouts",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy"
+      ],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:reference",
+      "parent_id": "xcsh-docs:resources:api_discovery:fundamentals",
+      "path": "documentation/resources/api_discovery/properties/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_api_discovery.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4103,
+      "body_sha256": "sha256:e6275c12b5aaf531fbb65beaba4e8aee9ca45deafcba88ff05fc126c800c41d9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
+      "parent_id": "xcsh-docs:resources:api_discovery:reference",
+      "path": "documentation/resources/api_discovery/properties/custom_auth_types/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--custom_auth_types.md",
+      "role": "properties",
+      "schema_path": ["custom_auth_types"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/custom_auth_types/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "custom_auth_types for xcsh_api_discovery.",
+      "title": "custom_auth_types",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2237,
+      "body_sha256": "sha256:3d0872f96b51ed7652b524c0920725ad573f8b207b8e00910e812f96e2ec011d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:api_discovery:reference",
+      "path": "documentation/resources/api_discovery/properties/timeouts/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_api_discovery.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2601,
+      "body_sha256": "sha256:ad331ffc7b221c1f559d9269c8570fb7fe9ba3f1b0b3c9881d9de93fb1a9a3e4",
+      "child_ids": [
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:inclusive"
+      ],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy",
+      "parent_id": "xcsh-docs:resources:api_discovery:reference",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3476,
+      "body_sha256": "sha256:f73bc81b1beda924e52ae55d2da7706f7b7e544097d706a735257a9b795276b9",
+      "child_ids": [
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:labels",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties"
+      ],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "discovery_rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1606,
+      "body_sha256": "sha256:716b693285c3cb4235bcd38a96d76ea41dabf68d864b034ab2f4b73370cfce54",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:labels",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/labels/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules--labels.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "labels"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/labels/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules.labels for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules.labels",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4479,
+      "body_sha256": "sha256:ecacc815352fbe9d2754a70b4659479e06f77000ee3497a3021154cc9753fec0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/metadata/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules.metadata for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5082,
+      "body_sha256": "sha256:219163c315f775db220b5e0252087588cff7ab05fa1ebc14b7be20ebc4b58fa9",
+      "child_ids": [
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:inclusion"
+      ],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules--rule_properties.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules.rule_properties for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules.rule_properties",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3118,
+      "body_sha256": "sha256:34ae0a3f7764bfceab8579f956f9e27d2bc3c9eba70212e468ba8cc47c3ad08b",
+      "child_ids": [
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:archive",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:ignore"
+      ],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules--rule_properties--exclusion.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties", "exclusion"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2195,
+      "body_sha256": "sha256:b3ea22997df65738785088b07502527ebb67c4f2240f2695548db99654ac212f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:archive",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/archive/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules--rule_properties--exclusion--archive.md",
+      "role": "properties",
+      "schema_path": [
+        "user_defined_api_discovery_policy",
+        "discovery_rules",
+        "rule_properties",
+        "exclusion",
+        "archive"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/archive/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.archive",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2192,
+      "body_sha256": "sha256:419395df1439c50bd8eb90df4389d2a73004a181b6eca2b8fca8d821c0e24839",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:ignore",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/ignore/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules--rule_properties--exclusion--ignore.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties", "exclusion", "ignore"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/ignore/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules.rule_properties.exclusion.ignore",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6680,
+      "body_sha256": "sha256:bc2b1cb5d6fa622a32626163fe2797e0ab26d6a98aed5e24f89dda34fad51ee8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/http_header_criteria/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria.md",
+      "role": "properties",
+      "schema_path": [
+        "user_defined_api_discovery_policy",
+        "discovery_rules",
+        "rule_properties",
+        "http_header_criteria"
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/http_header_criteria/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules.rule_properties.http_header_criteria",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1912,
+      "body_sha256": "sha256:37b01b0ac70510eefd5c5fb24f1c7c5f88e5b1ec7966bd38e72d8fe9106b7033",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:inclusion",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/inclusion/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--discovery_rules--rule_properties--inclusion.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties", "inclusion"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/inclusion/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.discovery_rules.rule_properties.inclusion",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2372,
+      "body_sha256": "sha256:e76bed02d12a789178567d6e2bb573531e662d335adf73f4cb8564601f0e87cc",
+      "child_ids": [
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:archive",
+        "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:ignore"
+      ],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--exclusive.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "exclusive"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.exclusive for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.exclusive",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1577,
+      "body_sha256": "sha256:14a2232656f0d8311d32d3fb0e54d901289cc8f258a9c8967e60a44e91b966ee",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:archive",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/archive/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--exclusive--archive.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "exclusive", "archive"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/archive/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.exclusive.archive for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.exclusive.archive",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1574,
+      "body_sha256": "sha256:efd7958751e0886634a807e88234041f2aad16f2f0f3d0bf1e1d089954d6356c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:ignore",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/ignore/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--exclusive--ignore.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "exclusive", "ignore"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/ignore/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.exclusive.ignore for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.exclusive.ignore",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1431,
+      "body_sha256": "sha256:d41fe95ac628f79372fbe53d9d574f84bd291b6d6685cd238e328943bcb2ef2a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:inclusive",
+      "parent_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy",
+      "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/inclusive/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--properties--user_defined_api_discovery_policy--inclusive.md",
+      "role": "properties",
+      "schema_path": ["user_defined_api_discovery_policy", "inclusive"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/properties/user_defined_api_discovery_policy/inclusive/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "user_defined_api_discovery_policy.inclusive for xcsh_api_discovery.",
+      "title": "user_defined_api_discovery_policy.inclusive",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 639,
+      "body_sha256": "sha256:06b8f063d7265198e43901422d1818ac2634964aff596c445ad040a74a5b962d",
+      "child_ids": ["xcsh-docs:resources:api_discovery:example:resource"],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:examples",
+      "parent_id": "xcsh-docs:resources:api_discovery:fundamentals",
+      "path": "documentation/resources/api_discovery/examples/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_api_discovery.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1301,
+      "body_sha256": "sha256:0de41c306b9d67f0f60f00db5137e9b9b8963187d95c8f8698112ad5d0b747e2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:ff9af826f29fe467445464e3b92dcd212f9666dfb00feabd76aab3e247a3f9e6",
+        "source_path": "examples/resources/xcsh_api_discovery/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:api_discovery:example:resource",
+      "parent_id": "xcsh-docs:resources:api_discovery:examples",
+      "path": "documentation/resources/api_discovery/examples/resource/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_api_discovery.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 513,
+      "body_sha256": "sha256:b0ecb7fe4a4f85497a7563a27dd1e24e7e8f413d2eb50abc15becefb10534bfc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:import",
+      "parent_id": "xcsh-docs:resources:api_discovery:fundamentals",
+      "path": "documentation/resources/api_discovery/lifecycle/import/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_api_discovery.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 573,
+      "body_sha256": "sha256:9d4620949ad888a4bdcb7430c719e4e285e66b845a579e046492b2e2649de6e3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:api_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:api_discovery:timeouts",
+      "parent_id": "xcsh-docs:resources:api_discovery:fundamentals",
+      "path": "documentation/resources/api_discovery/lifecycle/timeouts/index.md",
+      "provider_name": "api_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--api_discovery--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/api_discovery/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_api_discovery.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["api_discoveryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,1295 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:tunnel:fundamentals",
+    "id": "xcsh-docs:resources:tunnel:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:tunnel:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:tunnel:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:tunnel:reference",
+        "schema_path": ["disable"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:tunnel:reference", "schema_path": ["id"] },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:tunnel:reference",
+        "schema_path": ["labels"]
+      },
+      "local_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip",
+        "schema_path": ["local_ip"]
+      },
+      "local_ip.intf": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
+        "schema_path": ["local_ip", "intf"]
+      },
+      "local_ip.intf.local_intf": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+        "schema_path": ["local_ip", "intf", "local_intf"]
+      },
+      "local_ip.intf.local_intf.kind": {
+        "anchor": "schema-local_ip--intf--local_intf--kind",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+        "schema_path": ["local_ip", "intf", "local_intf", "kind"]
+      },
+      "local_ip.intf.local_intf.name": {
+        "anchor": "schema-local_ip--intf--local_intf--name",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+        "schema_path": ["local_ip", "intf", "local_intf", "name"]
+      },
+      "local_ip.intf.local_intf.namespace": {
+        "anchor": "schema-local_ip--intf--local_intf--namespace",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+        "schema_path": ["local_ip", "intf", "local_intf", "namespace"]
+      },
+      "local_ip.intf.local_intf.tenant": {
+        "anchor": "schema-local_ip--intf--local_intf--tenant",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+        "schema_path": ["local_ip", "intf", "local_intf", "tenant"]
+      },
+      "local_ip.intf.local_intf.uid": {
+        "anchor": "schema-local_ip--intf--local_intf--uid",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+        "schema_path": ["local_ip", "intf", "local_intf", "uid"]
+      },
+      "local_ip.ip_address": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+        "schema_path": ["local_ip", "ip_address"]
+      },
+      "local_ip.ip_address.auto": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
+        "schema_path": ["local_ip", "ip_address", "auto"]
+      },
+      "local_ip.ip_address.ip_address": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+        "schema_path": ["local_ip", "ip_address", "ip_address"]
+      },
+      "local_ip.ip_address.ip_address.dual_stack": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack"]
+      },
+      "local_ip.ip_address.ip_address.dual_stack.ipv4": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv4"]
+      },
+      "local_ip.ip_address.ip_address.dual_stack.ipv4.addr": {
+        "anchor": "schema-local_ip--ip_address--ip_address--dual_stack--ipv4--addr",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv4", "addr"]
+      },
+      "local_ip.ip_address.ip_address.dual_stack.ipv6": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv6"]
+      },
+      "local_ip.ip_address.ip_address.dual_stack.ipv6.addr": {
+        "anchor": "schema-local_ip--ip_address--ip_address--dual_stack--ipv6--addr",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv6", "addr"]
+      },
+      "local_ip.ip_address.ip_address.ipv4": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "ipv4"]
+      },
+      "local_ip.ip_address.ip_address.ipv4.addr": {
+        "anchor": "schema-local_ip--ip_address--ip_address--ipv4--addr",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "ipv4", "addr"]
+      },
+      "local_ip.ip_address.ip_address.ipv6": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "ipv6"]
+      },
+      "local_ip.ip_address.ip_address.ipv6.addr": {
+        "anchor": "schema-local_ip--ip_address--ip_address--ipv6--addr",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+        "schema_path": ["local_ip", "ip_address", "ip_address", "ipv6", "addr"]
+      },
+      "local_ip.ip_address.virtual_network_type": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
+        "schema_path": ["local_ip", "ip_address", "virtual_network_type"]
+      },
+      "local_ip.ip_address.virtual_network_type.public": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+        "schema_path": ["local_ip", "ip_address", "virtual_network_type", "public"]
+      },
+      "local_ip.ip_address.virtual_network_type.site_local": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+        "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local"]
+      },
+      "local_ip.ip_address.virtual_network_type.site_local_inside": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
+        "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local_inside"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:tunnel:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:tunnel:reference",
+        "schema_path": ["namespace"]
+      },
+      "params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params",
+        "schema_path": ["params"]
+      },
+      "params.ipsec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec",
+        "schema_path": ["params", "ipsec"]
+      },
+      "params.ipsec.ipsec_psk": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
+        "schema_path": ["params", "ipsec", "ipsec_psk"]
+      },
+      "params.ipsec.ipsec_psk.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+        "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info"]
+      },
+      "params.ipsec.ipsec_psk.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+        "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info", "decryption_provider"]
+      },
+      "params.ipsec.ipsec_psk.blindfold_secret_info.location": {
+        "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+        "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info", "location"]
+      },
+      "params.ipsec.ipsec_psk.blindfold_secret_info.store_provider": {
+        "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+        "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info", "store_provider"]
+      },
+      "params.ipsec.ipsec_psk.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+        "schema_path": ["params", "ipsec", "ipsec_psk", "clear_secret_info"]
+      },
+      "params.ipsec.ipsec_psk.clear_secret_info.provider_ref": {
+        "anchor": "schema-params--ipsec--ipsec_psk--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+        "schema_path": ["params", "ipsec", "ipsec_psk", "clear_secret_info", "provider_ref"]
+      },
+      "params.ipsec.ipsec_psk.clear_secret_info.url": {
+        "anchor": "schema-params--ipsec--ipsec_psk--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+        "schema_path": ["params", "ipsec", "ipsec_psk", "clear_secret_info", "url"]
+      },
+      "remote_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip",
+        "schema_path": ["remote_ip"]
+      },
+      "remote_ip.endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
+        "schema_path": ["remote_ip", "endpoints"]
+      },
+      "remote_ip.endpoints.endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints",
+        "schema_path": ["remote_ip", "endpoints", "endpoints"]
+      },
+      "remote_ip.ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+        "schema_path": ["remote_ip", "ip"]
+      },
+      "remote_ip.ip.dual_stack": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+        "schema_path": ["remote_ip", "ip", "dual_stack"]
+      },
+      "remote_ip.ip.dual_stack.ipv4": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
+        "schema_path": ["remote_ip", "ip", "dual_stack", "ipv4"]
+      },
+      "remote_ip.ip.dual_stack.ipv4.addr": {
+        "anchor": "schema-remote_ip--ip--dual_stack--ipv4--addr",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
+        "schema_path": ["remote_ip", "ip", "dual_stack", "ipv4", "addr"]
+      },
+      "remote_ip.ip.dual_stack.ipv6": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6",
+        "schema_path": ["remote_ip", "ip", "dual_stack", "ipv6"]
+      },
+      "remote_ip.ip.dual_stack.ipv6.addr": {
+        "anchor": "schema-remote_ip--ip--dual_stack--ipv6--addr",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6",
+        "schema_path": ["remote_ip", "ip", "dual_stack", "ipv6", "addr"]
+      },
+      "remote_ip.ip.ipv4": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+        "schema_path": ["remote_ip", "ip", "ipv4"]
+      },
+      "remote_ip.ip.ipv4.addr": {
+        "anchor": "schema-remote_ip--ip--ipv4--addr",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+        "schema_path": ["remote_ip", "ip", "ipv4", "addr"]
+      },
+      "remote_ip.ip.ipv6": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+        "schema_path": ["remote_ip", "ip", "ipv6"]
+      },
+      "remote_ip.ip.ipv6.addr": {
+        "anchor": "schema-remote_ip--ip--ipv6--addr",
+        "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+        "schema_path": ["remote_ip", "ip", "ipv6", "addr"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "tunnel_type": {
+        "anchor": "schema-tunnel_type",
+        "document_id": "xcsh-docs:resources:tunnel:reference",
+        "schema_path": ["tunnel_type"]
+      }
+    },
+    "provider_name": "tunnel",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:tunnel:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1466,
+      "body_sha256": "sha256:ac63b94faf6a0f3dab7b6d32eba55712d382f0e15dfd03fac13d0c81237a2512",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:reference",
+        "xcsh-docs:resources:tunnel:examples",
+        "xcsh-docs:resources:tunnel:import",
+        "xcsh-docs:resources:tunnel:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/tunnel/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/tunnel.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_tunnel for xcsh_tunnel.",
+      "title": "xcsh_tunnel",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 20683,
+      "body_sha256": "sha256:468be3eaf8b1569055025d4d74d7a66660d80c4a94e9e547ed32ef90a9480df0",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:local_ip",
+        "xcsh-docs:resources:tunnel:properties:params",
+        "xcsh-docs:resources:tunnel:properties:remote_ip",
+        "xcsh-docs:resources:tunnel:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:reference",
+      "parent_id": "xcsh-docs:resources:tunnel:fundamentals",
+      "path": "documentation/resources/tunnel/properties/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_tunnel.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2257,
+      "body_sha256": "sha256:89c679a59809da8721a3e7f82e2e58b06aaf24ee073d4d45beea53a06bf4c55d",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:local_ip:intf",
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip",
+      "parent_id": "xcsh-docs:resources:tunnel:reference",
+      "path": "documentation/resources/tunnel/properties/local_ip/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip.md",
+      "role": "properties",
+      "schema_path": ["local_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip for xcsh_tunnel.",
+      "title": "local_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1430,
+      "body_sha256": "sha256:46d01543e5b792a6eb0398c83b85e2435778830714b628a1b4d6e500088d1031",
+      "child_ids": ["xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf"],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip",
+      "path": "documentation/resources/tunnel/properties/local_ip/intf/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--intf.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "intf"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/intf/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.intf for xcsh_tunnel.",
+      "title": "local_ip.intf",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6619,
+      "body_sha256": "sha256:043dc1df7e6f429036cce4e4e8dc334e6208f44db25f2c5696fa8d2022258928",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
+      "path": "documentation/resources/tunnel/properties/local_ip/intf/local_intf/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--intf--local_intf.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "intf", "local_intf"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/intf/local_intf/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.intf.local_intf for xcsh_tunnel.",
+      "title": "local_ip.intf.local_intf",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2335,
+      "body_sha256": "sha256:1e64b69ffef9e3f908584beb00b8c47a15688e300726677ceb361f8f8575a04d",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address for xcsh_tunnel.",
+      "title": "local_ip.ip_address",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1318,
+      "body_sha256": "sha256:6f07d138aed410c86a255df8f6e963c69633fe743153511187a3c1f142573a9d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/auto/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--auto.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "auto"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/auto/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.auto for xcsh_tunnel.",
+      "title": "local_ip.ip_address.auto",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2636,
+      "body_sha256": "sha256:3a22a3a9e5e173e0da2d3f4754644eaa1a135678fe37db50ee2d44e9e07bedf2",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--ip_address.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "ip_address"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.ip_address for xcsh_tunnel.",
+      "title": "local_ip.ip_address.ip_address",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2198,
+      "body_sha256": "sha256:497b3c289a88230d620b1942488cabd0c87c99ab0fa9fc54fa916f27c16a9814",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--ip_address--dual_stack.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.ip_address.dual_stack for xcsh_tunnel.",
+      "title": "local_ip.ip_address.ip_address.dual_stack",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2716,
+      "body_sha256": "sha256:ac22044bb794443da0151217d8515b3c955ab24c55bdcf70b59b3deed82e2bc6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv4/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--ip_address--dual_stack--ipv4.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv4"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv4/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.ip_address.dual_stack.ipv4 for xcsh_tunnel.",
+      "title": "local_ip.ip_address.ip_address.dual_stack.ipv4",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3226,
+      "body_sha256": "sha256:35cd9ca3c58b65669faa854754548730c29b912cbf00bab63b17f991015f4a03",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv6/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--ip_address--dual_stack--ipv6.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv6"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv6/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.ip_address.dual_stack.ipv6 for xcsh_tunnel.",
+      "title": "local_ip.ip_address.ip_address.dual_stack.ipv6",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2486,
+      "body_sha256": "sha256:bcb7dceaa7decae6c24a0944e9ae3e9370a06333dd38e32b586ff17ffd7eac08",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv4/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--ip_address--ipv4.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "ip_address", "ipv4"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv4/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.ip_address.ipv4 for xcsh_tunnel.",
+      "title": "local_ip.ip_address.ip_address.ipv4",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2996,
+      "body_sha256": "sha256:cdbb7bdead869e56bfea76386571e00fe8c4e6f9fada6f17b8ae9bdce18c9e34",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv6/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--ip_address--ipv6.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "ip_address", "ipv6"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv6/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.ip_address.ipv6 for xcsh_tunnel.",
+      "title": "local_ip.ip_address.ip_address.ipv6",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2882,
+      "body_sha256": "sha256:636542a9bedf8df930ef9ab73438034d50d8d2bc02c018493b83b8e1fb99e824",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+        "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--virtual_network_type.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "virtual_network_type"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.virtual_network_type for xcsh_tunnel.",
+      "title": "local_ip.ip_address.virtual_network_type",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1580,
+      "body_sha256": "sha256:1d9837d58da8902b1ced0dd88350c9b019f6b5319ba8c2b526f629625e828afd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/public/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--virtual_network_type--public.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "virtual_network_type", "public"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/public/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.virtual_network_type.public for xcsh_tunnel.",
+      "title": "local_ip.ip_address.virtual_network_type.public",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1592,
+      "body_sha256": "sha256:f5a1f3b8a4f0b98234390b1385d344a904939408fbf5b0e7c59a8cfa7e2bd998",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--virtual_network_type--site_local.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.virtual_network_type.site_local for xcsh_tunnel.",
+      "title": "local_ip.ip_address.virtual_network_type.site_local",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1613,
+      "body_sha256": "sha256:d9859906dc7eb7aaf4101dc2d5bf965ad27b01591ab9a62b112096b4ed499e00",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
+      "path": "documentation/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local_inside/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--local_ip--ip_address--virtual_network_type--site_local_inside.md",
+      "role": "properties",
+      "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local_inside"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local_inside/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "local_ip.ip_address.virtual_network_type.site_local_inside for xcsh_tunnel.",
+      "title": "local_ip.ip_address.virtual_network_type.site_local_inside",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1492,
+      "body_sha256": "sha256:32ace857029c50e31e5e48dc1a5912fbc601d0fe24211c303e694c430247fed4",
+      "child_ids": ["xcsh-docs:resources:tunnel:properties:params:ipsec"],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:params",
+      "parent_id": "xcsh-docs:resources:tunnel:reference",
+      "path": "documentation/resources/tunnel/properties/params/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--params.md",
+      "role": "properties",
+      "schema_path": ["params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "params for xcsh_tunnel.",
+      "title": "params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1517,
+      "body_sha256": "sha256:f08fb6750b6b8a0604c47df891c6728ed1f821e61f55b2978d76b8869ea1cc26",
+      "child_ids": ["xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk"],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:params:ipsec",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:params",
+      "path": "documentation/resources/tunnel/properties/params/ipsec/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--params--ipsec.md",
+      "role": "properties",
+      "schema_path": ["params", "ipsec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "params.ipsec for xcsh_tunnel.",
+      "title": "params.ipsec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2256,
+      "body_sha256": "sha256:773d3b2fc29094b8a3b5a39c6f93f1c1ed2804eb663947215e705b6729b7586a",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+        "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:params:ipsec",
+      "path": "documentation/resources/tunnel/properties/params/ipsec/ipsec_psk/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--params--ipsec--ipsec_psk.md",
+      "role": "properties",
+      "schema_path": ["params", "ipsec", "ipsec_psk"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "params.ipsec.ipsec_psk for xcsh_tunnel.",
+      "title": "params.ipsec.ipsec_psk",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4888,
+      "body_sha256": "sha256:46b8abba52c0d2c18b1233961a843b0741bf5cbdfea8706e972a712eac3c330f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
+      "path": "documentation/resources/tunnel/properties/params/ipsec/ipsec_psk/blindfold_secret_info/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--params--ipsec--ipsec_psk--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "params.ipsec.ipsec_psk.blindfold_secret_info for xcsh_tunnel.",
+      "title": "params.ipsec.ipsec_psk.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3775,
+      "body_sha256": "sha256:e25ae875e2f8066fcde7e8eca43f89d07de8cf64c13d301c6ca74b36216a6f2e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
+      "path": "documentation/resources/tunnel/properties/params/ipsec/ipsec_psk/clear_secret_info/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--params--ipsec--ipsec_psk--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["params", "ipsec", "ipsec_psk", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "params.ipsec.ipsec_psk.clear_secret_info for xcsh_tunnel.",
+      "title": "params.ipsec.ipsec_psk.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2178,
+      "body_sha256": "sha256:deb16d0b4f4cbab20482888334b74477dec826ec906911058b340b1a53fc9dc3",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
+        "xcsh-docs:resources:tunnel:properties:remote_ip:ip"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip",
+      "parent_id": "xcsh-docs:resources:tunnel:reference",
+      "path": "documentation/resources/tunnel/properties/remote_ip/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip.md",
+      "role": "properties",
+      "schema_path": ["remote_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip for xcsh_tunnel.",
+      "title": "remote_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1641,
+      "body_sha256": "sha256:4ceb56a5a2843022aab81cf05aacbe73903f503db8285bec347760a388158d8a",
+      "child_ids": ["xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints"],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip",
+      "path": "documentation/resources/tunnel/properties/remote_ip/endpoints/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip--endpoints.md",
+      "role": "properties",
+      "schema_path": ["remote_ip", "endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip.endpoints for xcsh_tunnel.",
+      "title": "remote_ip.endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2087,
+      "body_sha256": "sha256:e3228ef6c06b886cbba1a4d1997faf1a68c09635fa4d0ac3b233e0a201f7c05d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
+      "path": "documentation/resources/tunnel/properties/remote_ip/endpoints/endpoints/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip--endpoints--endpoints.md",
+      "role": "properties",
+      "schema_path": ["remote_ip", "endpoints", "endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/endpoints/endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip.endpoints.endpoints for xcsh_tunnel.",
+      "title": "remote_ip.endpoints.endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2282,
+      "body_sha256": "sha256:6725d31b412cb6d6533e2823cc1e900c75fb67cdd3d5cd58950a611bfb491336",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+        "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+        "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip",
+      "path": "documentation/resources/tunnel/properties/remote_ip/ip/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip--ip.md",
+      "role": "properties",
+      "schema_path": ["remote_ip", "ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip.ip for xcsh_tunnel.",
+      "title": "remote_ip.ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1854,
+      "body_sha256": "sha256:79bac51dfac1a47e1f97aa2d0b667b311c5690039bfd58add346413e0a3dadaa",
+      "child_ids": [
+        "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
+        "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6"
+      ],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+      "path": "documentation/resources/tunnel/properties/remote_ip/ip/dual_stack/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip--ip--dual_stack.md",
+      "role": "properties",
+      "schema_path": ["remote_ip", "ip", "dual_stack"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip.ip.dual_stack for xcsh_tunnel.",
+      "title": "remote_ip.ip.dual_stack",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2425,
+      "body_sha256": "sha256:2f1a9cc2bd54f406707a5d3b6326bd17e90219b3333f3a429226c29a38dc9d38",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+      "path": "documentation/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv4/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip--ip--dual_stack--ipv4.md",
+      "role": "properties",
+      "schema_path": ["remote_ip", "ip", "dual_stack", "ipv4"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv4/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip.ip.dual_stack.ipv4 for xcsh_tunnel.",
+      "title": "remote_ip.ip.dual_stack.ipv4",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2935,
+      "body_sha256": "sha256:2dfbbf16c1d67b96039621e66878965247d34b5a997eadc1b6ad3a4dc13a499f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+      "path": "documentation/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv6/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip--ip--dual_stack--ipv6.md",
+      "role": "properties",
+      "schema_path": ["remote_ip", "ip", "dual_stack", "ipv6"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv6/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip.ip.dual_stack.ipv6 for xcsh_tunnel.",
+      "title": "remote_ip.ip.dual_stack.ipv6",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2231,
+      "body_sha256": "sha256:4732ee9f43083622e19859e54bf19bba215beabb269fa4b271e5b857eae527bc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+      "path": "documentation/resources/tunnel/properties/remote_ip/ip/ipv4/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip--ip--ipv4.md",
+      "role": "properties",
+      "schema_path": ["remote_ip", "ip", "ipv4"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/ipv4/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip.ip.ipv4 for xcsh_tunnel.",
+      "title": "remote_ip.ip.ipv4",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2741,
+      "body_sha256": "sha256:b7e01d22ee4a74eb76aa3b34972fea8dba26e7bc8b8c9628e6805a462f17e777",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+      "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+      "path": "documentation/resources/tunnel/properties/remote_ip/ip/ipv6/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--remote_ip--ip--ipv6.md",
+      "role": "properties",
+      "schema_path": ["remote_ip", "ip", "ipv6"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/ipv6/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "remote_ip.ip.ipv6 for xcsh_tunnel.",
+      "title": "remote_ip.ip.ipv6",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2195,
+      "body_sha256": "sha256:0d52417f966048b4e0514f646f2b16fc2f7374eff8130be5c746a14ef30985a3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:tunnel:reference",
+      "path": "documentation/resources/tunnel/properties/timeouts/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_tunnel.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 597,
+      "body_sha256": "sha256:3da06493677d0386131f71c727b3e9a07b9c74f1bfaf26da22bfcc0fa5786205",
+      "child_ids": ["xcsh-docs:resources:tunnel:example:resource"],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:examples",
+      "parent_id": "xcsh-docs:resources:tunnel:fundamentals",
+      "path": "documentation/resources/tunnel/examples/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_tunnel.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1149,
+      "body_sha256": "sha256:4ad2373f1100278d74c10cca1b4d6f7d742c1780e5355a8f1964c309d2f03cf1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:d8686dd99ea2784f4ce424a8e06432fe8502eabcb7549c1f57d3a841fff62174",
+        "source_path": "examples/resources/xcsh_tunnel/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:tunnel:example:resource",
+      "parent_id": "xcsh-docs:resources:tunnel:examples",
+      "path": "documentation/resources/tunnel/examples/resource/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_tunnel.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 478,
+      "body_sha256": "sha256:86ad1f7a75f7c35f5b414d82b27164fd7714c336836b1f44ade7ab9064a77527",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:import",
+      "parent_id": "xcsh-docs:resources:tunnel:fundamentals",
+      "path": "documentation/resources/tunnel/lifecycle/import/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_tunnel.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 538,
+      "body_sha256": "sha256:450a49704c37e54660c31a12495d83b249544204c8809b8524cea789784f6a4f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:tunnel:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:tunnel:timeouts",
+      "parent_id": "xcsh-docs:resources:tunnel:fundamentals",
+      "path": "documentation/resources/tunnel/lifecycle/timeouts/index.md",
+      "provider_name": "tunnel",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--tunnel--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_tunnel.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["tunnelCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

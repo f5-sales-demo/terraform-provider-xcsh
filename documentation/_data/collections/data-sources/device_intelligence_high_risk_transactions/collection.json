@@ -1,0 +1,310 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:fundamentals",
+    "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+    "properties": {
+      "end_time": {
+        "anchor": "schema-end_time",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference",
+        "schema_path": ["end_time"]
+      },
+      "filters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters",
+        "schema_path": ["filters"]
+      },
+      "filters.global_filters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters"]
+      },
+      "filters.global_filters.key": {
+        "anchor": "schema-filters--global_filters--key",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "key"]
+      },
+      "filters.global_filters.op": {
+        "anchor": "schema-filters--global_filters--op",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "op"]
+      },
+      "filters.global_filters.values": {
+        "anchor": "schema-filters--global_filters--values",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "values"]
+      },
+      "filters.region_filter": {
+        "anchor": "schema-filters--region_filter",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters",
+        "schema_path": ["filters", "region_filter"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference",
+        "schema_path": ["namespace"]
+      },
+      "start_time": {
+        "anchor": "schema-start_time",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference",
+        "schema_path": ["start_time"]
+      },
+      "time_series_results": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results",
+        "schema_path": ["time_series_results"]
+      },
+      "time_series_results.series_key": {
+        "anchor": "schema-time_series_results--series_key",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results",
+        "schema_path": ["time_series_results", "series_key"]
+      },
+      "time_series_results.time_series": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results:time_series",
+        "schema_path": ["time_series_results", "time_series"]
+      },
+      "time_series_results.time_series.timestamp": {
+        "anchor": "schema-time_series_results--time_series--timestamp",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results:time_series",
+        "schema_path": ["time_series_results", "time_series", "timestamp"]
+      },
+      "time_series_results.time_series.value": {
+        "anchor": "schema-time_series_results--time_series--value",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results:time_series",
+        "schema_path": ["time_series_results", "time_series", "value"]
+      }
+    },
+    "provider_name": "device_intelligence_high_risk_transactions",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1432,
+      "body_sha256": "sha256:b4a574dac97c7b98d6b3e0afc13ffc021a93d1d261a2d7d7dfc341a1f17d5726",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference",
+        "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/device_intelligence_high_risk_transactions/index.md",
+      "provider_name": "device_intelligence_high_risk_transactions",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/device_intelligence_high_risk_transactions.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_device_intelligence_high_risk_transactions for xcsh_device_intelligence_high_risk_transactions.",
+      "title": "xcsh_device_intelligence_high_risk_transactions",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5635,
+      "body_sha256": "sha256:013d3cf8b5f779811ba16aa3f4745485c41aaa9db0b7c9093536d5b95d1c939f",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters",
+        "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:fundamentals",
+      "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/index.md",
+      "provider_name": "device_intelligence_high_risk_transactions",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_device_intelligence_high_risk_transactions.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1772,
+      "body_sha256": "sha256:368e762a9492550999bcc6f84130f99b9a4cf087611e5e2c9f17b13ddc996651",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters:global_filters"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference",
+      "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/filters/index.md",
+      "provider_name": "device_intelligence_high_risk_transactions",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--properties--filters.md",
+      "role": "properties",
+      "schema_path": ["filters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/properties/filters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "filters for xcsh_device_intelligence_high_risk_transactions.",
+      "title": "filters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5529,
+      "body_sha256": "sha256:bd3c33f2b95470342a64ec480d73dd1c398a2433d0da7a018bac81fa697b6749",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters:global_filters",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters",
+      "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/filters/global_filters/index.md",
+      "provider_name": "device_intelligence_high_risk_transactions",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--properties--filters--global_filters.md",
+      "role": "properties",
+      "schema_path": ["filters", "global_filters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/properties/filters/global_filters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "filters.global_filters for xcsh_device_intelligence_high_risk_transactions.",
+      "title": "filters.global_filters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1494,
+      "body_sha256": "sha256:49f345a53d025b2dc7ef0df8fb8861d5ba543433f8c719e6d1323e6454c0e09c",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results:time_series"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:reference",
+      "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/time_series_results/index.md",
+      "provider_name": "device_intelligence_high_risk_transactions",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--properties--time_series_results.md",
+      "role": "properties",
+      "schema_path": ["time_series_results"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/properties/time_series_results/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "time_series_results for xcsh_device_intelligence_high_risk_transactions.",
+      "title": "time_series_results",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1729,
+      "body_sha256": "sha256:a7c6f04ede359ae6c7fed2a410382cdca36517b679627fa5ac28570d5c319a18",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results:time_series",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results",
+      "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/time_series_results/time_series/index.md",
+      "provider_name": "device_intelligence_high_risk_transactions",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--properties--time_series_results--time_series.md",
+      "role": "properties",
+      "schema_path": ["time_series_results", "time_series"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/properties/time_series_results/time_series/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "time_series_results.time_series for xcsh_device_intelligence_high_risk_transactions.",
+      "title": "time_series_results.time_series",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 837,
+      "body_sha256": "sha256:9a5b027eec29c87a07b668a23229255c7df1ad6492ee03c796cf78ac2de42cf9",
+      "child_ids": ["xcsh-docs:data-sources:device_intelligence_high_risk_transactions:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:examples",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:fundamentals",
+      "path": "documentation/data-sources/device_intelligence_high_risk_transactions/examples/index.md",
+      "provider_name": "device_intelligence_high_risk_transactions",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_device_intelligence_high_risk_transactions.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1534,
+      "body_sha256": "sha256:e2f7bf2ca4be8cd78eadbc0e68624e0285bdfdbb779a231d4e9fb71929d552dc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:5f7ef7da7ff2c9994ec1cbab645c6c6f2e697ac5efc56e49ae4d09a5e717abc6",
+        "source_path": "examples/data-sources/xcsh_device_intelligence_high_risk_transactions/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:examples",
+      "path": "documentation/data-sources/device_intelligence_high_risk_transactions/examples/data-source/index.md",
+      "provider_name": "device_intelligence_high_risk_transactions",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_high_risk_transactions/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_device_intelligence_high_risk_transactions.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

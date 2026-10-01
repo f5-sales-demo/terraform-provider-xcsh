@@ -1,0 +1,934 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:cloud_credentials:fundamentals",
+    "id": "xcsh-docs:data-sources:cloud_credentials:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+        "schema_path": ["annotations"]
+      },
+      "aws_assume_role": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+        "schema_path": ["aws_assume_role"]
+      },
+      "aws_assume_role.custom_external_id": {
+        "anchor": "schema-aws_assume_role--custom_external_id",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+        "schema_path": ["aws_assume_role", "custom_external_id"]
+      },
+      "aws_assume_role.duration_seconds": {
+        "anchor": "schema-aws_assume_role--duration_seconds",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+        "schema_path": ["aws_assume_role", "duration_seconds"]
+      },
+      "aws_assume_role.external_id_is_optional": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
+        "schema_path": ["aws_assume_role", "external_id_is_optional"]
+      },
+      "aws_assume_role.external_id_is_tenant_id": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id",
+        "schema_path": ["aws_assume_role", "external_id_is_tenant_id"]
+      },
+      "aws_assume_role.role_arn": {
+        "anchor": "schema-aws_assume_role--role_arn",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+        "schema_path": ["aws_assume_role", "role_arn"]
+      },
+      "aws_assume_role.session_name": {
+        "anchor": "schema-aws_assume_role--session_name",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+        "schema_path": ["aws_assume_role", "session_name"]
+      },
+      "aws_assume_role.session_tags": {
+        "anchor": "schema-aws_assume_role--session_tags",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+        "schema_path": ["aws_assume_role", "session_tags"]
+      },
+      "aws_secret_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key",
+        "schema_path": ["aws_secret_key"]
+      },
+      "aws_secret_key.access_key": {
+        "anchor": "schema-aws_secret_key--access_key",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key",
+        "schema_path": ["aws_secret_key", "access_key"]
+      },
+      "aws_secret_key.secret_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key",
+        "schema_path": ["aws_secret_key", "secret_key"]
+      },
+      "aws_secret_key.secret_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+        "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info"]
+      },
+      "aws_secret_key.secret_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+        "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info", "decryption_provider"]
+      },
+      "aws_secret_key.secret_key.blindfold_secret_info.location": {
+        "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+        "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info", "location"]
+      },
+      "aws_secret_key.secret_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+        "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info", "store_provider"]
+      },
+      "aws_secret_key.secret_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+        "schema_path": ["aws_secret_key", "secret_key", "clear_secret_info"]
+      },
+      "aws_secret_key.secret_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-aws_secret_key--secret_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+        "schema_path": ["aws_secret_key", "secret_key", "clear_secret_info", "provider_ref"]
+      },
+      "aws_secret_key.secret_key.clear_secret_info.url": {
+        "anchor": "schema-aws_secret_key--secret_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+        "schema_path": ["aws_secret_key", "secret_key", "clear_secret_info", "url"]
+      },
+      "azure_client_secret": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret",
+        "schema_path": ["azure_client_secret"]
+      },
+      "azure_client_secret.client_id": {
+        "anchor": "schema-azure_client_secret--client_id",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret",
+        "schema_path": ["azure_client_secret", "client_id"]
+      },
+      "azure_client_secret.client_secret": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret",
+        "schema_path": ["azure_client_secret", "client_secret"]
+      },
+      "azure_client_secret.client_secret.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+        "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info"]
+      },
+      "azure_client_secret.client_secret.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+        "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info", "decryption_provider"]
+      },
+      "azure_client_secret.client_secret.blindfold_secret_info.location": {
+        "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+        "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info", "location"]
+      },
+      "azure_client_secret.client_secret.blindfold_secret_info.store_provider": {
+        "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+        "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info", "store_provider"]
+      },
+      "azure_client_secret.client_secret.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+        "schema_path": ["azure_client_secret", "client_secret", "clear_secret_info"]
+      },
+      "azure_client_secret.client_secret.clear_secret_info.provider_ref": {
+        "anchor": "schema-azure_client_secret--client_secret--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+        "schema_path": ["azure_client_secret", "client_secret", "clear_secret_info", "provider_ref"]
+      },
+      "azure_client_secret.client_secret.clear_secret_info.url": {
+        "anchor": "schema-azure_client_secret--client_secret--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+        "schema_path": ["azure_client_secret", "client_secret", "clear_secret_info", "url"]
+      },
+      "azure_client_secret.subscription_id": {
+        "anchor": "schema-azure_client_secret--subscription_id",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret",
+        "schema_path": ["azure_client_secret", "subscription_id"]
+      },
+      "azure_client_secret.tenant_id": {
+        "anchor": "schema-azure_client_secret--tenant_id",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret",
+        "schema_path": ["azure_client_secret", "tenant_id"]
+      },
+      "azure_pfx_certificate": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
+        "schema_path": ["azure_pfx_certificate"]
+      },
+      "azure_pfx_certificate.certificate_url": {
+        "anchor": "schema-azure_pfx_certificate--certificate_url",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
+        "schema_path": ["azure_pfx_certificate", "certificate_url"]
+      },
+      "azure_pfx_certificate.client_id": {
+        "anchor": "schema-azure_pfx_certificate--client_id",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
+        "schema_path": ["azure_pfx_certificate", "client_id"]
+      },
+      "azure_pfx_certificate.password": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password",
+        "schema_path": ["azure_pfx_certificate", "password"]
+      },
+      "azure_pfx_certificate.password.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+        "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info"]
+      },
+      "azure_pfx_certificate.password.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+        "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info", "decryption_provider"]
+      },
+      "azure_pfx_certificate.password.blindfold_secret_info.location": {
+        "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+        "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info", "location"]
+      },
+      "azure_pfx_certificate.password.blindfold_secret_info.store_provider": {
+        "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+        "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info", "store_provider"]
+      },
+      "azure_pfx_certificate.password.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+        "schema_path": ["azure_pfx_certificate", "password", "clear_secret_info"]
+      },
+      "azure_pfx_certificate.password.clear_secret_info.provider_ref": {
+        "anchor": "schema-azure_pfx_certificate--password--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+        "schema_path": ["azure_pfx_certificate", "password", "clear_secret_info", "provider_ref"]
+      },
+      "azure_pfx_certificate.password.clear_secret_info.url": {
+        "anchor": "schema-azure_pfx_certificate--password--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+        "schema_path": ["azure_pfx_certificate", "password", "clear_secret_info", "url"]
+      },
+      "azure_pfx_certificate.subscription_id": {
+        "anchor": "schema-azure_pfx_certificate--subscription_id",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
+        "schema_path": ["azure_pfx_certificate", "subscription_id"]
+      },
+      "azure_pfx_certificate.tenant_id": {
+        "anchor": "schema-azure_pfx_certificate--tenant_id",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
+        "schema_path": ["azure_pfx_certificate", "tenant_id"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+        "schema_path": ["description"]
+      },
+      "gcp_cred_file": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file",
+        "schema_path": ["gcp_cred_file"]
+      },
+      "gcp_cred_file.credential_file": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file",
+        "schema_path": ["gcp_cred_file", "credential_file"]
+      },
+      "gcp_cred_file.credential_file.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+        "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info"]
+      },
+      "gcp_cred_file.credential_file.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+        "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info", "decryption_provider"]
+      },
+      "gcp_cred_file.credential_file.blindfold_secret_info.location": {
+        "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+        "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info", "location"]
+      },
+      "gcp_cred_file.credential_file.blindfold_secret_info.store_provider": {
+        "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+        "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info", "store_provider"]
+      },
+      "gcp_cred_file.credential_file.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+        "schema_path": ["gcp_cred_file", "credential_file", "clear_secret_info"]
+      },
+      "gcp_cred_file.credential_file.clear_secret_info.provider_ref": {
+        "anchor": "schema-gcp_cred_file--credential_file--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+        "schema_path": ["gcp_cred_file", "credential_file", "clear_secret_info", "provider_ref"]
+      },
+      "gcp_cred_file.credential_file.clear_secret_info.url": {
+        "anchor": "schema-gcp_cred_file--credential_file--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+        "schema_path": ["gcp_cred_file", "credential_file", "clear_secret_info", "url"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+        "schema_path": ["namespace"]
+      }
+    },
+    "provider_name": "cloud_credentials",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:cloud_credentials:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1451,
+      "body_sha256": "sha256:c86c705e5645461d229bfbd47db5e3e4ebc3fb4b96e5ab1684b0bec7eb3e7f95",
+      "child_ids": [
+        "xcsh-docs:data-sources:cloud_credentials:reference",
+        "xcsh-docs:data-sources:cloud_credentials:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/cloud_credentials/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/cloud_credentials.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_cloud_credentials for xcsh_cloud_credentials.",
+      "title": "xcsh_cloud_credentials",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 22995,
+      "body_sha256": "sha256:1c027776c8a2907af44021252ee83278eff79c164938f7a6184161a32694d417",
+      "child_ids": [
+        "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+        "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key",
+        "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret",
+        "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
+        "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:reference",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:fundamentals",
+      "path": "documentation/data-sources/cloud_credentials/properties/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_cloud_credentials.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8263,
+      "body_sha256": "sha256:76ac3399e6f3545193fa430884c2f740785425ea992b99bfbbc63ad7a6321ca0",
+      "child_ids": [
+        "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
+        "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+      "path": "documentation/data-sources/cloud_credentials/properties/aws_assume_role/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--aws_assume_role.md",
+      "role": "properties",
+      "schema_path": ["aws_assume_role"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/aws_assume_role/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws_assume_role for xcsh_cloud_credentials.",
+      "title": "aws_assume_role",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1303,
+      "body_sha256": "sha256:a1a0f9183d9a673e688d3018787afa53fb8020e5bd1705a6d860963162b86d6c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+      "path": "documentation/data-sources/cloud_credentials/properties/aws_assume_role/external_id_is_optional/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--aws_assume_role--external_id_is_optional.md",
+      "role": "properties",
+      "schema_path": ["aws_assume_role", "external_id_is_optional"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/aws_assume_role/external_id_is_optional/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws_assume_role.external_id_is_optional for xcsh_cloud_credentials.",
+      "title": "aws_assume_role.external_id_is_optional",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1271,
+      "body_sha256": "sha256:93e7dd055cb4ac26978e03b2d396a380a1367a0ccb040252600f08122845ce66",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role",
+      "path": "documentation/data-sources/cloud_credentials/properties/aws_assume_role/external_id_is_tenant_id/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--aws_assume_role--external_id_is_tenant_id.md",
+      "role": "properties",
+      "schema_path": ["aws_assume_role", "external_id_is_tenant_id"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/aws_assume_role/external_id_is_tenant_id/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws_assume_role.external_id_is_tenant_id for xcsh_cloud_credentials.",
+      "title": "aws_assume_role.external_id_is_tenant_id",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2205,
+      "body_sha256": "sha256:97015bed8e856f2b735eac14d0859a66d461bbe1e1ec9b7bfebbc46c03459497",
+      "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key"],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+      "path": "documentation/data-sources/cloud_credentials/properties/aws_secret_key/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--aws_secret_key.md",
+      "role": "properties",
+      "schema_path": ["aws_secret_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/aws_secret_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws_secret_key for xcsh_cloud_credentials.",
+      "title": "aws_secret_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2026,
+      "body_sha256": "sha256:cffde9f426593c150b0a8aa1290f4ddfd2337928893d48802de1ad632b453bef",
+      "child_ids": [
+        "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+        "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key",
+      "path": "documentation/data-sources/cloud_credentials/properties/aws_secret_key/secret_key/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--aws_secret_key--secret_key.md",
+      "role": "properties",
+      "schema_path": ["aws_secret_key", "secret_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/aws_secret_key/secret_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws_secret_key.secret_key for xcsh_cloud_credentials.",
+      "title": "aws_secret_key.secret_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4496,
+      "body_sha256": "sha256:930dcda944800683ea3037a03894ccf23db2be65d7b9bc9c40ecff08e74372d2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key",
+      "path": "documentation/data-sources/cloud_credentials/properties/aws_secret_key/secret_key/blindfold_secret_info/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--aws_secret_key--secret_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/aws_secret_key/secret_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws_secret_key.secret_key.blindfold_secret_info for xcsh_cloud_credentials.",
+      "title": "aws_secret_key.secret_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3390,
+      "body_sha256": "sha256:98b6a1fdb0373cd6a7b2968f5536308aa262c933729889021d38bd486c77087d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key",
+      "path": "documentation/data-sources/cloud_credentials/properties/aws_secret_key/secret_key/clear_secret_info/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--aws_secret_key--secret_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["aws_secret_key", "secret_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/aws_secret_key/secret_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws_secret_key.secret_key.clear_secret_info for xcsh_cloud_credentials.",
+      "title": "aws_secret_key.secret_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4019,
+      "body_sha256": "sha256:489d206e67059448244cff396892e98d6ba84539314e7c5517b262be5d23cfe6",
+      "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret"],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+      "path": "documentation/data-sources/cloud_credentials/properties/azure_client_secret/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--azure_client_secret.md",
+      "role": "properties",
+      "schema_path": ["azure_client_secret"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/azure_client_secret/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "azure_client_secret for xcsh_cloud_credentials.",
+      "title": "azure_client_secret",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2110,
+      "body_sha256": "sha256:48cbfce9e9991a7dac1267a31b6e988df5fbe78f86ff67dda313f5ee865d59ac",
+      "child_ids": [
+        "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+        "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret",
+      "path": "documentation/data-sources/cloud_credentials/properties/azure_client_secret/client_secret/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--azure_client_secret--client_secret.md",
+      "role": "properties",
+      "schema_path": ["azure_client_secret", "client_secret"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/azure_client_secret/client_secret/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "azure_client_secret.client_secret for xcsh_cloud_credentials.",
+      "title": "azure_client_secret.client_secret",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4578,
+      "body_sha256": "sha256:0b241592f12d36a959fdc7abb1e7f0091134d3cfc534086809e4ff5ec20f7824",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret",
+      "path": "documentation/data-sources/cloud_credentials/properties/azure_client_secret/client_secret/blindfold_secret_info/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--azure_client_secret--client_secret--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/azure_client_secret/client_secret/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "azure_client_secret.client_secret.blindfold_secret_info for xcsh_cloud_credentials.",
+      "title": "azure_client_secret.client_secret.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3464,
+      "body_sha256": "sha256:5e33677a37af1f1c370814306fc1268f4a98166989f30b7bc086fcfb625b7a97",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret",
+      "path": "documentation/data-sources/cloud_credentials/properties/azure_client_secret/client_secret/clear_secret_info/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--azure_client_secret--client_secret--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["azure_client_secret", "client_secret", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/azure_client_secret/client_secret/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "azure_client_secret.client_secret.clear_secret_info for xcsh_cloud_credentials.",
+      "title": "azure_client_secret.client_secret.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5492,
+      "body_sha256": "sha256:df3fca7ed8c538a334d4cdaf79768c27dc5b6821c6e994bfc099e3b82092f92f",
+      "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password"],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+      "path": "documentation/data-sources/cloud_credentials/properties/azure_pfx_certificate/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--azure_pfx_certificate.md",
+      "role": "properties",
+      "schema_path": ["azure_pfx_certificate"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/azure_pfx_certificate/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "azure_pfx_certificate for xcsh_cloud_credentials.",
+      "title": "azure_pfx_certificate",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2094,
+      "body_sha256": "sha256:c6b6ab4c33823e1e46d65c59dbe946ebd616ff5225fd6800d0e8e5a8efee3558",
+      "child_ids": [
+        "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+        "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
+      "path": "documentation/data-sources/cloud_credentials/properties/azure_pfx_certificate/password/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--azure_pfx_certificate--password.md",
+      "role": "properties",
+      "schema_path": ["azure_pfx_certificate", "password"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/azure_pfx_certificate/password/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "azure_pfx_certificate.password for xcsh_cloud_credentials.",
+      "title": "azure_pfx_certificate.password",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4555,
+      "body_sha256": "sha256:c615831efdf6b76ab04e98f08bb7e3597cc611c47abb4d7782607153a0578c87",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password",
+      "path": "documentation/data-sources/cloud_credentials/properties/azure_pfx_certificate/password/blindfold_secret_info/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--azure_pfx_certificate--password--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/azure_pfx_certificate/password/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "azure_pfx_certificate.password.blindfold_secret_info for xcsh_cloud_credentials.",
+      "title": "azure_pfx_certificate.password.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3444,
+      "body_sha256": "sha256:d6e7d528a894fb4ca7fbc5440253603e153bca936f05d4d4d9085471df0fe6f5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password",
+      "path": "documentation/data-sources/cloud_credentials/properties/azure_pfx_certificate/password/clear_secret_info/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--azure_pfx_certificate--password--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["azure_pfx_certificate", "password", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/azure_pfx_certificate/password/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "azure_pfx_certificate.password.clear_secret_info for xcsh_cloud_credentials.",
+      "title": "azure_pfx_certificate.password.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1325,
+      "body_sha256": "sha256:d41e0e6935cf9c30e30e9fe80f688ded01e2fc2346ceaf5c578cd9a08962f3ca",
+      "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file"],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:reference",
+      "path": "documentation/data-sources/cloud_credentials/properties/gcp_cred_file/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--gcp_cred_file.md",
+      "role": "properties",
+      "schema_path": ["gcp_cred_file"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/gcp_cred_file/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp_cred_file for xcsh_cloud_credentials.",
+      "title": "gcp_cred_file",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2054,
+      "body_sha256": "sha256:1c7af369a798a1aeac9704f518b4194d3ecca3921ebca493b35cb6a283b93435",
+      "child_ids": [
+        "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+        "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file",
+      "path": "documentation/data-sources/cloud_credentials/properties/gcp_cred_file/credential_file/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--gcp_cred_file--credential_file.md",
+      "role": "properties",
+      "schema_path": ["gcp_cred_file", "credential_file"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/gcp_cred_file/credential_file/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp_cred_file.credential_file for xcsh_cloud_credentials.",
+      "title": "gcp_cred_file.credential_file",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4530,
+      "body_sha256": "sha256:5514ed042cd013bb1801d15a3d7e3a1968af44d33097ddc733639d26d17087e1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file",
+      "path": "documentation/data-sources/cloud_credentials/properties/gcp_cred_file/credential_file/blindfold_secret_info/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--gcp_cred_file--credential_file--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/gcp_cred_file/credential_file/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp_cred_file.credential_file.blindfold_secret_info for xcsh_cloud_credentials.",
+      "title": "gcp_cred_file.credential_file.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3420,
+      "body_sha256": "sha256:3e19ed3987bfaa90a1277c03ddd826a1653d2bb234db04435d3f5aa2c335fff4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file",
+      "path": "documentation/data-sources/cloud_credentials/properties/gcp_cred_file/credential_file/clear_secret_info/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--properties--gcp_cred_file--credential_file--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["gcp_cred_file", "credential_file", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/properties/gcp_cred_file/credential_file/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp_cred_file.credential_file.clear_secret_info for xcsh_cloud_credentials.",
+      "title": "gcp_cred_file.credential_file.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 687,
+      "body_sha256": "sha256:1ed83c7e6e7e438fd046d0bbc8b5f3090bc81f83a94c39a06a9a8e0ec13df99e",
+      "child_ids": ["xcsh-docs:data-sources:cloud_credentials:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_credentials:examples",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:fundamentals",
+      "path": "documentation/data-sources/cloud_credentials/examples/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_cloud_credentials.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1344,
+      "body_sha256": "sha256:7240e33e0d42ebf1e4f292210e3cdcf3a1d2e83058e6755d92463ec8bb9f2c52",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:6a62066c747f97e4baff52829aa9bc36ad62c8b9304220fe45b6e8d9ef9839f1",
+        "source_path": "examples/data-sources/xcsh_cloud_credentials/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:cloud_credentials:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:cloud_credentials:examples",
+      "path": "documentation/data-sources/cloud_credentials/examples/data-source/index.md",
+      "provider_name": "cloud_credentials",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_credentials--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_cloud_credentials.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_credentialsCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}
