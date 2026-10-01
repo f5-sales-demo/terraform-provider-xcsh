@@ -23,6 +23,26 @@ func TestGenerationArtifactRoundTrip(t *testing.T) {
 				t.Fatal(err)
 			}
 			writeReleaseTestFile(t, repo, "scripts/verify-tfplugindocs.sh", string(verifier), 0o600)
+			staging, err := os.ReadFile(filepath.Join(testRepositoryRoot(t), "scripts", "stage-documentation-manifest.py"))
+			if err != nil {
+				t.Fatal(err)
+			}
+			writeReleaseTestFile(t, repo, "scripts/stage-documentation-manifest.py", string(staging), 0o600)
+			writeDocumentationManifest := func() {
+				if err := os.MkdirAll(filepath.Join(repo, "documentation"), 0o700); err != nil {
+					t.Fatal(err)
+				}
+				fixture := filepath.Join(repo, "docs/fixture.md")
+				data, err := os.ReadFile(fixture)
+				if err != nil {
+					t.Fatal(err)
+				}
+				writeReleaseTestJSON(t, filepath.Join(repo, "documentation/generated-manifest.json"), map[string]any{
+					"files": map[string]any{"docs/fixture.md": map[string]any{"bytes": len(data), "sha256": "sha256:" + releaseTestSHA(t, fixture)}},
+				})
+			}
+			writeDocumentationManifest()
+
 			runReleaseTestCommand(t, repo, nil, "git", "init", "-q")
 			runReleaseTestCommand(t, repo, nil, "git", "config", "user.name", "Artifact Test")
 			runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "artifact@example.com")
@@ -61,6 +81,7 @@ func TestGenerationArtifactRoundTrip(t *testing.T) {
 			if scenario != "unchanged" {
 				writeReleaseTestFile(t, repo, "docs/fixture.md", "after\n", 0o600)
 			}
+			writeDocumentationManifest()
 			expectedTree := strings.TrimSpace(runReleaseTestCommand(t, repo, nil, "git", "add", "."))
 			_ = expectedTree
 			expectedTree = strings.TrimSpace(runReleaseTestCommand(t, repo, nil, "git", "write-tree"))

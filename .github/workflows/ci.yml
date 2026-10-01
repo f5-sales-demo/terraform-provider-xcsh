@@ -196,6 +196,9 @@ jobs:
         env:
           HEAD_REF: ${{ github.head_ref }}
         run: |
+          if [[ "$HEAD_REF" == auto-regenerate/* ]]; then
+            python3 scripts/stage-documentation-manifest.py --check-tracked
+          fi
           profile="$RUNNER_TEMP/provider-profile/documentation-validation.json"
           mkdir -p "$(dirname "$profile")"
           if command -v runner-profile >/dev/null 2>&1; then
