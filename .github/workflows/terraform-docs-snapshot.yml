@@ -29,7 +29,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Publish snapshot without rebuilding schemas
+      - name: Publish canonical snapshot without rebuilding schemas
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           POLICY_READ_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }} # administration permission for immutable-policy read only

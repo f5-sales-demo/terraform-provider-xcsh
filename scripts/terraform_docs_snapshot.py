@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish exact tagged docs Markdown without rebuilding provider schemas."""
+"""Publish exact tagged canonical documentation Markdown without rebuilding provider schemas."""
 
 import argparse
 import gzip
@@ -62,7 +62,9 @@ def metadata(relative: str, data: bytes) -> tuple[str, dict]:
             "id": "xcsh-docs:path:" + relative,
             "canonical_id": "xcsh-docs:path:" + relative,
             "path": relative,
-            "provider_type": "provider" if relative == "docs/index.md" else "guides",
+            "provider_type": "provider"
+            if relative == "documentation/index.md"
+            else "guides",
             "provider_name": "xcsh",
             "role": "overview",
             "schema_path": [],
@@ -80,6 +82,10 @@ def metadata(relative: str, data: bytes) -> tuple[str, dict]:
         ) or enriched.get("body_bytes") != len(body.encode()):
             message = f"metadata body mismatch: {relative}"
             raise ValueError(message)
+    enriched = {
+        **enriched,
+        "canonical_id": enriched.get("canonical_id", enriched["id"]),
+    }
     return body, enriched
 
 
@@ -139,7 +145,7 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
         message = "only stable vN.N.N provider tags are allowed"
         raise ValueError(message)
     commit = run("git", "rev-parse", tag + "^{commit}").decode().strip()
-    source = run("git", "archive", "--format=tar", tag, "docs")
+    source = run("git", "archive", "--format=tar", tag, "documentation")
     documents: list[dict[str, Any]] = []
     archive = io.BytesIO()
     with (
@@ -156,7 +162,7 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
                 not member.isfile()
                 or relative.is_absolute()
                 or ".." in relative.parts
-                or relative.parts[0] != "docs"
+                or relative.parts[0] != "documentation"
             ):
                 message = f"unsafe tagged document: {member.name}"
                 raise ValueError(message)
@@ -193,7 +199,8 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
         run("git", "show", tag + ":documentation/generated-manifest.json")
     )
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
+        "source_root": "documentation",
         "source_repository": REPOSITORY,
         "provider_version": tag,
         "source_commit": commit,
@@ -220,9 +227,10 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
         )
     assets["publication.json"] = encoded(
         {
-            "schema_version": 1,
+            "schema_version": 2,
+            "source_root": "documentation",
             "source_repository": REPOSITORY,
-            "release_tag": "docs-" + tag,
+            "release_tag": "documentation-" + tag,
             "provider_version": tag,
             "source_commit": commit,
             "provider_schema_digest": manifest["provider_schema_digest"],
@@ -255,7 +263,7 @@ def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
         run("git", "show", tag + ":documentation/generated-manifest.json")
     )
     for kind in ("resources", "data-sources", "actions", "ephemeral-resources"):
-        relative = f"docs/{kind}/index.md"
+        relative = f"documentation/{kind}/index.md"
         data = run("git", "show", tag + ":" + relative)
         evidence = generated["files"].get(relative)
         if (
@@ -267,7 +275,7 @@ def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
                 "provider release must contain manifest-owned corrected navigation"
             )
             raise ValueError(message)
-    docs_tag = "docs-" + tag
+    docs_tag = "documentation-" + tag
     existing = subprocess.run(  # noqa: S603 - fixed endpoint from validated tag
         [
             shutil.which("gh") or "/usr/bin/gh",
@@ -337,7 +345,7 @@ def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
         "--title",
         f"Terraform documentation {tag}",
         "--notes",
-        f"Exact docs/ Markdown from provider {tag} at {manifest['source_commit']}.",
+        f"Exact documentation/ Markdown from provider {tag} at {manifest['source_commit']}.",
         *(
             str(output / name)
             for name in sorted(file.name for file in output.iterdir() if file.is_file())
