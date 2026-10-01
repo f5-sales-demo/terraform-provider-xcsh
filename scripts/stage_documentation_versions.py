@@ -35,7 +35,7 @@ def select(releases: list[dict]) -> list[str]:
             for tag in published
             if VERSION.fullmatch(tag)
             and tuple(map(int, VERSION.fullmatch(tag).groups())) >= (12, 0, 6)
-            and "docs-" + tag in published
+            and "documentation-" + tag in published
         ),
         key=lambda tag: tuple(map(int, VERSION.fullmatch(tag).groups())),
     )

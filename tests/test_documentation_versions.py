@@ -31,7 +31,7 @@ class VersionTests(unittest.TestCase):
                 "immutable": True,
             },
             {
-                "tag_name": "docs-v12.0.7",
+                "tag_name": "documentation-v12.0.7",
                 "draft": False,
                 "prerelease": False,
                 "immutable": True,
@@ -43,7 +43,7 @@ class VersionTests(unittest.TestCase):
                 "immutable": True,
             },
             {
-                "tag_name": "docs-v12.0.6",
+                "tag_name": "documentation-v12.0.6",
                 "draft": False,
                 "prerelease": False,
                 "immutable": True,

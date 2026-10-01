@@ -89,9 +89,11 @@ def metadata(relative: str, data: bytes) -> tuple[str, dict]:
     return body, enriched
 
 
-def canonical_assets(tag: str) -> tuple[dict[str, bytes], dict]:
+def canonical_assets(
+    tag: str, source_root: str = "documentation"
+) -> tuple[dict[str, bytes], dict]:
     """Archive the complete canonical corpus, preserving exact source receipts."""
-    source = run("git", "archive", "--format=tar", tag, "documentation")
+    source = run("git", "archive", "--format=tar", tag, source_root)
     archive = io.BytesIO()
     files = []
     with (
@@ -102,11 +104,7 @@ def canonical_assets(tag: str) -> tuple[dict[str, bytes], dict]:
             if not member.isfile():
                 continue
             path = PurePosixPath(member.name)
-            if (
-                path.is_absolute()
-                or ".." in path.parts
-                or path.parts[0] != "documentation"
-            ):
+            if path.is_absolute() or ".." in path.parts or path.parts[0] != source_root:
                 msg = "unsafe canonical archive member"
                 raise ValueError(msg)
             stream = tagged.extractfile(member)
@@ -125,6 +123,7 @@ def canonical_assets(tag: str) -> tuple[dict[str, bytes], dict]:
     )
     manifest = {
         "schema_version": 1,
+        "source_root": source_root,
         "provider_version": tag,
         "source_commit": run("git", "rev-parse", tag + "^{commit}").decode().strip(),
         "provider_schema_digest": generated["provider_schema_digest"],
@@ -133,10 +132,17 @@ def canonical_assets(tag: str) -> tuple[dict[str, bytes], dict]:
     }
     compressed = bytearray(gzip.compress(archive.getvalue(), compresslevel=9, mtime=0))
     compressed[9] = 255
-    return {
-        "canonical-documentation.tar.gz": bytes(compressed),
-        "canonical-manifest.json": encoded(manifest),
-    }, manifest
+    archive_name = (
+        "canonical-documentation.tar.gz"
+        if source_root == "documentation"
+        else "registry-documentation.tar.gz"
+    )
+    manifest_name = (
+        "canonical-manifest.json"
+        if source_root == "documentation"
+        else "registry-manifest.json"
+    )
+    return {archive_name: bytes(compressed), manifest_name: encoded(manifest)}, manifest
 
 
 def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
@@ -222,6 +228,8 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
     if "documentation/registry-projection-manifest.json" in generated["files"]:
         canonical, _ = canonical_assets(tag)
         assets.update(canonical)
+        registry, _ = canonical_assets(tag, "docs")
+        assets.update(registry)
         assets["registry-projection-manifest.json"] = run(
             "git", "show", tag + ":documentation/registry-projection-manifest.json"
         )
