@@ -679,7 +679,10 @@ class Collection:
         lines.extend(
             "- " + self.link(identifier) for identifier in dict.fromkeys(next_ids)
         )
-        return normalize_body("\n".join(lines).rstrip() + "\n")
+        return (
+            "<!-- Exact provider and upstream contract identifiers. -->\n\n<!-- textlint-disable terminology -->\n\n"
+            + normalize_body("\n".join(lines).rstrip() + "\n")
+        )
 
 
 def frontmatter(page, body, category=""):
@@ -860,6 +863,11 @@ def registry_project(pages, categories):
             return f"[{label}]({relative}#{anchor})"
 
         body = normalize_body(LINK.sub(move_anchor, body))
+        if "<!-- textlint-disable terminology -->" not in body:
+            body = (
+                "<!-- Exact provider and upstream contract identifiers. -->\n\n<!-- textlint-disable terminology -->\n\n"
+                + body
+            )
         metadata_lines = metadata_text.splitlines()
         metadata = json.loads(
             next(
