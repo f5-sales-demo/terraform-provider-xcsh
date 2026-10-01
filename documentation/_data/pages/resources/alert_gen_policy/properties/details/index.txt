@@ -1,0 +1,257 @@
+---
+page_title: "details"
+subcategory: ""
+description: "details for xcsh_alert_gen_policy."
+xcsh_docs: {"aliases": [], "body_bytes": 4970, "body_sha256": "sha256:98d01bc2c73a4835f9773d6382886647c1f62137cc48bde4ec39c1d9f27d4bf2", "child_ids": [], "collection_id": "xcsh-docs:resources:alert_gen_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:alert_gen_policy:properties:details", "parent_id": "xcsh-docs:resources:alert_gen_policy:reference", "path": "documentation/resources/alert_gen_policy/properties/details/index.md", "provider_name": "alert_gen_policy", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "role": "properties", "schema_path": ["details"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/properties/details/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "details for xcsh_alert_gen_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_gen_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# details
+
+Breadcrumbs:
+
+- [xcsh_alert_gen_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/alert_gen_policy/)
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/alert_gen_policy/properties/)
+- details
+
+<a id="section"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Notification Details. Notification Details.
+
+Upstream description:
+
+Notification Details.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("alert_message",
+    "alert_message_details",
+    "alert_name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+details {
+  # Configure direct properties listed below.
+}
+```
+
+## Direct properties
+
+<a id="schema-details--alert_message"></a>
+
+### alert_message property
+
+Type: `"string"`. Optional.
+
+Alert Message. Alert Message.
+
+Upstream description:
+
+Alert Message.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(512),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 512,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 512,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "512"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "512"
+  }
+}
+```
+
+<a id="schema-details--alert_message_details"></a>
+
+### alert_message_details property
+
+Type: `"string"`. Optional.
+
+Alert Message Details. Detailed message of the alert.
+
+Upstream description:
+
+Detailed message of the alert.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.not_empty": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.not_empty": "true"
+  }
+}
+```
+
+<a id="schema-details--alert_name"></a>
+
+### alert_name property
+
+Type: `"string"`. Optional.
+
+Alert Name. Alert Name.
+
+Upstream description:
+
+Alert Name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(16),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "16"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "16"
+  }
+}
+```
+
+<a id="schema-details--severity"></a>
+
+### severity property
+
+Type: `"string"`. Optional.
+
+\[Enum: MINOR|MAJOR|CRITICAL\] List of alert severities Minor Major Critical. Possible values are
+\`MINOR\`, \`MAJOR\`, \`CRITICAL\`. Defaults to \`MINOR\`.
+
+Upstream description:
+
+List of alert severities
+
+Minor Major Critical.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("MINOR",
+    "MAJOR",
+    "CRITICAL"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "MINOR",
+  "enum": [
+    "MINOR",
+    "MAJOR",
+    "CRITICAL"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+## Next pages
+
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/alert_gen_policy/properties/)
+- [xcsh_alert_gen_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/alert_gen_policy/)

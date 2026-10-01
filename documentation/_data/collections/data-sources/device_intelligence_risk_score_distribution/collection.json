@@ -1,0 +1,272 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:fundamentals",
+    "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection",
+    "properties": {
+      "end_time": {
+        "anchor": "schema-end_time",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+        "schema_path": ["end_time"]
+      },
+      "filters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters",
+        "schema_path": ["filters"]
+      },
+      "filters.global_filters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters"]
+      },
+      "filters.global_filters.key": {
+        "anchor": "schema-filters--global_filters--key",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "key"]
+      },
+      "filters.global_filters.op": {
+        "anchor": "schema-filters--global_filters--op",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "op"]
+      },
+      "filters.global_filters.values": {
+        "anchor": "schema-filters--global_filters--values",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+        "schema_path": ["filters", "global_filters", "values"]
+      },
+      "filters.region_filter": {
+        "anchor": "schema-filters--region_filter",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters",
+        "schema_path": ["filters", "region_filter"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+        "schema_path": ["namespace"]
+      },
+      "risk_score_distribution": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution",
+        "schema_path": ["risk_score_distribution"]
+      },
+      "risk_score_distribution.device_count": {
+        "anchor": "schema-risk_score_distribution--device_count",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution",
+        "schema_path": ["risk_score_distribution", "device_count"]
+      },
+      "risk_score_distribution.risk_rank": {
+        "anchor": "schema-risk_score_distribution--risk_rank",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution",
+        "schema_path": ["risk_score_distribution", "risk_rank"]
+      },
+      "start_time": {
+        "anchor": "schema-start_time",
+        "document_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+        "schema_path": ["start_time"]
+      }
+    },
+    "provider_name": "device_intelligence_risk_score_distribution",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1440,
+      "body_sha256": "sha256:4702530f920d72381412994c5df501ef646e5ba9d609f86542e0a91f3eee203b",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+        "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/device_intelligence_risk_score_distribution/index.md",
+      "provider_name": "device_intelligence_risk_score_distribution",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/device_intelligence_risk_score_distribution.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_device_intelligence_risk_score_distribution for xcsh_device_intelligence_risk_score_distribution.",
+      "title": "xcsh_device_intelligence_risk_score_distribution",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5143,
+      "body_sha256": "sha256:6602f6c5ac75215e0846ef8e58bde75eb8aaced03b4b9e54fc4b6b4c90a58cda",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters",
+        "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:fundamentals",
+      "path": "documentation/data-sources/device_intelligence_risk_score_distribution/properties/index.md",
+      "provider_name": "device_intelligence_risk_score_distribution",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_risk_score_distribution--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_device_intelligence_risk_score_distribution.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1780,
+      "body_sha256": "sha256:49f0604de2fe87097127bff459244245c987b5afff1921a642a68d55bba85e27",
+      "child_ids": [
+        "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters"
+      ],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+      "path": "documentation/data-sources/device_intelligence_risk_score_distribution/properties/filters/index.md",
+      "provider_name": "device_intelligence_risk_score_distribution",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_risk_score_distribution--properties--filters.md",
+      "role": "properties",
+      "schema_path": ["filters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/properties/filters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "filters for xcsh_device_intelligence_risk_score_distribution.",
+      "title": "filters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5536,
+      "body_sha256": "sha256:a37c18725ee6ebf269115f93d4d450264db9f6112e4bb1202dbe599c324c5188",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters:global_filters",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:filters",
+      "path": "documentation/data-sources/device_intelligence_risk_score_distribution/properties/filters/global_filters/index.md",
+      "provider_name": "device_intelligence_risk_score_distribution",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_risk_score_distribution--properties--filters--global_filters.md",
+      "role": "properties",
+      "schema_path": ["filters", "global_filters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/properties/filters/global_filters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "filters.global_filters for xcsh_device_intelligence_risk_score_distribution.",
+      "title": "filters.global_filters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1251,
+      "body_sha256": "sha256:cc52e15e16d65082dcd9808c308edcc16da3ab887e6a1c15a3a72204b62d83d5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:properties:risk_score_distribution",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:reference",
+      "path": "documentation/data-sources/device_intelligence_risk_score_distribution/properties/risk_score_distribution/index.md",
+      "provider_name": "device_intelligence_risk_score_distribution",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_risk_score_distribution--properties--risk_score_distribution.md",
+      "role": "properties",
+      "schema_path": ["risk_score_distribution"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/properties/risk_score_distribution/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "risk_score_distribution for xcsh_device_intelligence_risk_score_distribution.",
+      "title": "risk_score_distribution",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 843,
+      "body_sha256": "sha256:cba682b9bb63b5108baa57f08a0f174b3d05e45a6b0a48c2d4cb0cd180f762e9",
+      "child_ids": ["xcsh-docs:data-sources:device_intelligence_risk_score_distribution:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:examples",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:fundamentals",
+      "path": "documentation/data-sources/device_intelligence_risk_score_distribution/examples/index.md",
+      "provider_name": "device_intelligence_risk_score_distribution",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_risk_score_distribution--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_device_intelligence_risk_score_distribution.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1545,
+      "body_sha256": "sha256:a7d4606a71e1a8d5d5cd57b3de29d1b18316dd8c5bc58155f32bc4ef55b8d43f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:c10972aeff2a32c44eb299757977d3dc58259ac93f292c8fdb4d0bb8272ceb96",
+        "source_path": "examples/data-sources/xcsh_device_intelligence_risk_score_distribution/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:device_intelligence_risk_score_distribution:examples",
+      "path": "documentation/data-sources/device_intelligence_risk_score_distribution/examples/data-source/index.md",
+      "provider_name": "device_intelligence_risk_score_distribution",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--device_intelligence_risk_score_distribution--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_risk_score_distribution/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_device_intelligence_risk_score_distribution.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,826 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:dns_lb_pool:fundamentals",
+    "id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+    "properties": {
+      "a_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool",
+        "schema_path": ["a_pool"]
+      },
+      "a_pool.disable_health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:disable_health_check",
+        "schema_path": ["a_pool", "disable_health_check"]
+      },
+      "a_pool.health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:health_check",
+        "schema_path": ["a_pool", "health_check"]
+      },
+      "a_pool.health_check.name": {
+        "anchor": "schema-a_pool--health_check--name",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:health_check",
+        "schema_path": ["a_pool", "health_check", "name"]
+      },
+      "a_pool.health_check.namespace": {
+        "anchor": "schema-a_pool--health_check--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:health_check",
+        "schema_path": ["a_pool", "health_check", "namespace"]
+      },
+      "a_pool.health_check.tenant": {
+        "anchor": "schema-a_pool--health_check--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:health_check",
+        "schema_path": ["a_pool", "health_check", "tenant"]
+      },
+      "a_pool.max_answers": {
+        "anchor": "schema-a_pool--max_answers",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool",
+        "schema_path": ["a_pool", "max_answers"]
+      },
+      "a_pool.members": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:members",
+        "schema_path": ["a_pool", "members"]
+      },
+      "a_pool.members.disable_spec": {
+        "anchor": "schema-a_pool--members--disable_spec",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:members",
+        "schema_path": ["a_pool", "members", "disable_spec"]
+      },
+      "a_pool.members.ip_endpoint": {
+        "anchor": "schema-a_pool--members--ip_endpoint",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:members",
+        "schema_path": ["a_pool", "members", "ip_endpoint"]
+      },
+      "a_pool.members.name": {
+        "anchor": "schema-a_pool--members--name",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:members",
+        "schema_path": ["a_pool", "members", "name"]
+      },
+      "a_pool.members.priority": {
+        "anchor": "schema-a_pool--members--priority",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:members",
+        "schema_path": ["a_pool", "members", "priority"]
+      },
+      "a_pool.members.ratio": {
+        "anchor": "schema-a_pool--members--ratio",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:members",
+        "schema_path": ["a_pool", "members", "ratio"]
+      },
+      "aaaa_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool",
+        "schema_path": ["aaaa_pool"]
+      },
+      "aaaa_pool.max_answers": {
+        "anchor": "schema-aaaa_pool--max_answers",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool",
+        "schema_path": ["aaaa_pool", "max_answers"]
+      },
+      "aaaa_pool.members": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members",
+        "schema_path": ["aaaa_pool", "members"]
+      },
+      "aaaa_pool.members.disable_spec": {
+        "anchor": "schema-aaaa_pool--members--disable_spec",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members",
+        "schema_path": ["aaaa_pool", "members", "disable_spec"]
+      },
+      "aaaa_pool.members.ip_endpoint": {
+        "anchor": "schema-aaaa_pool--members--ip_endpoint",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members",
+        "schema_path": ["aaaa_pool", "members", "ip_endpoint"]
+      },
+      "aaaa_pool.members.name": {
+        "anchor": "schema-aaaa_pool--members--name",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members",
+        "schema_path": ["aaaa_pool", "members", "name"]
+      },
+      "aaaa_pool.members.priority": {
+        "anchor": "schema-aaaa_pool--members--priority",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members",
+        "schema_path": ["aaaa_pool", "members", "priority"]
+      },
+      "aaaa_pool.members.ratio": {
+        "anchor": "schema-aaaa_pool--members--ratio",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members",
+        "schema_path": ["aaaa_pool", "members", "ratio"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+        "schema_path": ["annotations"]
+      },
+      "cname_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool",
+        "schema_path": ["cname_pool"]
+      },
+      "cname_pool.disable_health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:disable_health_check",
+        "schema_path": ["cname_pool", "disable_health_check"]
+      },
+      "cname_pool.health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:health_check",
+        "schema_path": ["cname_pool", "health_check"]
+      },
+      "cname_pool.health_check.name": {
+        "anchor": "schema-cname_pool--health_check--name",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:health_check",
+        "schema_path": ["cname_pool", "health_check", "name"]
+      },
+      "cname_pool.health_check.namespace": {
+        "anchor": "schema-cname_pool--health_check--namespace",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:health_check",
+        "schema_path": ["cname_pool", "health_check", "namespace"]
+      },
+      "cname_pool.health_check.tenant": {
+        "anchor": "schema-cname_pool--health_check--tenant",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:health_check",
+        "schema_path": ["cname_pool", "health_check", "tenant"]
+      },
+      "cname_pool.members": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members",
+        "schema_path": ["cname_pool", "members"]
+      },
+      "cname_pool.members.domain": {
+        "anchor": "schema-cname_pool--members--domain",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members",
+        "schema_path": ["cname_pool", "members", "domain"]
+      },
+      "cname_pool.members.final_translation": {
+        "anchor": "schema-cname_pool--members--final_translation",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members",
+        "schema_path": ["cname_pool", "members", "final_translation"]
+      },
+      "cname_pool.members.name": {
+        "anchor": "schema-cname_pool--members--name",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members",
+        "schema_path": ["cname_pool", "members", "name"]
+      },
+      "cname_pool.members.priority": {
+        "anchor": "schema-cname_pool--members--priority",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members",
+        "schema_path": ["cname_pool", "members", "priority"]
+      },
+      "cname_pool.members.ratio": {
+        "anchor": "schema-cname_pool--members--ratio",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members",
+        "schema_path": ["cname_pool", "members", "ratio"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+        "schema_path": ["labels"]
+      },
+      "load_balancing_mode": {
+        "anchor": "schema-load_balancing_mode",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+        "schema_path": ["load_balancing_mode"]
+      },
+      "mx_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool",
+        "schema_path": ["mx_pool"]
+      },
+      "mx_pool.max_answers": {
+        "anchor": "schema-mx_pool--max_answers",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool",
+        "schema_path": ["mx_pool", "max_answers"]
+      },
+      "mx_pool.members": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members",
+        "schema_path": ["mx_pool", "members"]
+      },
+      "mx_pool.members.domain": {
+        "anchor": "schema-mx_pool--members--domain",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members",
+        "schema_path": ["mx_pool", "members", "domain"]
+      },
+      "mx_pool.members.name": {
+        "anchor": "schema-mx_pool--members--name",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members",
+        "schema_path": ["mx_pool", "members", "name"]
+      },
+      "mx_pool.members.priority": {
+        "anchor": "schema-mx_pool--members--priority",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members",
+        "schema_path": ["mx_pool", "members", "priority"]
+      },
+      "mx_pool.members.ratio": {
+        "anchor": "schema-mx_pool--members--ratio",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members",
+        "schema_path": ["mx_pool", "members", "ratio"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+        "schema_path": ["namespace"]
+      },
+      "srv_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool",
+        "schema_path": ["srv_pool"]
+      },
+      "srv_pool.max_answers": {
+        "anchor": "schema-srv_pool--max_answers",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool",
+        "schema_path": ["srv_pool", "max_answers"]
+      },
+      "srv_pool.members": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+        "schema_path": ["srv_pool", "members"]
+      },
+      "srv_pool.members.final_translation": {
+        "anchor": "schema-srv_pool--members--final_translation",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+        "schema_path": ["srv_pool", "members", "final_translation"]
+      },
+      "srv_pool.members.name": {
+        "anchor": "schema-srv_pool--members--name",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+        "schema_path": ["srv_pool", "members", "name"]
+      },
+      "srv_pool.members.port": {
+        "anchor": "schema-srv_pool--members--port",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+        "schema_path": ["srv_pool", "members", "port"]
+      },
+      "srv_pool.members.priority": {
+        "anchor": "schema-srv_pool--members--priority",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+        "schema_path": ["srv_pool", "members", "priority"]
+      },
+      "srv_pool.members.ratio": {
+        "anchor": "schema-srv_pool--members--ratio",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+        "schema_path": ["srv_pool", "members", "ratio"]
+      },
+      "srv_pool.members.target": {
+        "anchor": "schema-srv_pool--members--target",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+        "schema_path": ["srv_pool", "members", "target"]
+      },
+      "srv_pool.members.weight": {
+        "anchor": "schema-srv_pool--members--weight",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+        "schema_path": ["srv_pool", "members", "weight"]
+      },
+      "ttl": {
+        "anchor": "schema-ttl",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+        "schema_path": ["ttl"]
+      },
+      "use_rrset_ttl": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:use_rrset_ttl",
+        "schema_path": ["use_rrset_ttl"]
+      }
+    },
+    "provider_name": "dns_lb_pool",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:dns_lb_pool:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1340,
+      "body_sha256": "sha256:3d5a54818a8dac369b0e37aea5cc3c36391de1e82fd9ba8d909d09f44a2c9845",
+      "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:reference", "xcsh-docs:data-sources:dns_lb_pool:examples"],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/dns_lb_pool/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/dns_lb_pool.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_dns_lb_pool for xcsh_dns_lb_pool.",
+      "title": "xcsh_dns_lb_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 21843,
+      "body_sha256": "sha256:a2515de64a956eb1757e04bba6c94cf852f0450d465b62683a828c4b502ded7b",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:use_rrset_ttl"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:fundamentals",
+      "path": "documentation/data-sources/dns_lb_pool/properties/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_dns_lb_pool.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3631,
+      "body_sha256": "sha256:e22cfbc1a4c16975d285287e648a25e3a51a52ee4654fc6a542867eda118cec6",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:disable_health_check",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:health_check",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:members"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+      "path": "documentation/data-sources/dns_lb_pool/properties/a_pool/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--a_pool.md",
+      "role": "properties",
+      "schema_path": ["a_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/a_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "a_pool for xcsh_dns_lb_pool.",
+      "title": "a_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1198,
+      "body_sha256": "sha256:b173da5ad3aa88a128a2dc930f0f884c2f2a842fdd16f9ff8f162254894c0410",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:disable_health_check",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/a_pool/disable_health_check/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--a_pool--disable_health_check.md",
+      "role": "properties",
+      "schema_path": ["a_pool", "disable_health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/a_pool/disable_health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "a_pool.disable_health_check for xcsh_dns_lb_pool.",
+      "title": "a_pool.disable_health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5286,
+      "body_sha256": "sha256:c5695bc6f375afe822d8ada65d973f46c49ef8f92626cac0061c3378d807874d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:health_check",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/a_pool/health_check/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--a_pool--health_check.md",
+      "role": "properties",
+      "schema_path": ["a_pool", "health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/a_pool/health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "a_pool.health_check for xcsh_dns_lb_pool.",
+      "title": "a_pool.health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6030,
+      "body_sha256": "sha256:b119ebf6d842bc4d34883daf6b8c4e228dda804385e4c9c062c7271832484f4e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool:members",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:a_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/a_pool/members/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--a_pool--members.md",
+      "role": "properties",
+      "schema_path": ["a_pool", "members"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/a_pool/members/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "a_pool.members for xcsh_dns_lb_pool.",
+      "title": "a_pool.members",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2135,
+      "body_sha256": "sha256:7164b549c17575f87483064591d598e1ad38be2c79a5d9d771f3dd5fd7684c70",
+      "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members"],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+      "path": "documentation/data-sources/dns_lb_pool/properties/aaaa_pool/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--aaaa_pool.md",
+      "role": "properties",
+      "schema_path": ["aaaa_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/aaaa_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aaaa_pool for xcsh_dns_lb_pool.",
+      "title": "aaaa_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6063,
+      "body_sha256": "sha256:9b687fe511cddacf0b54d4c44a7a2f8e60791c3fc2ae16cb4aebc5eebb288e94",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/aaaa_pool/members/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--aaaa_pool--members.md",
+      "role": "properties",
+      "schema_path": ["aaaa_pool", "members"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/aaaa_pool/members/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aaaa_pool.members for xcsh_dns_lb_pool.",
+      "title": "aaaa_pool.members",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1914,
+      "body_sha256": "sha256:c4e2e078d5f79a5684034f22c8a0bbe0a2c98bf760b39e624f232078ca4fb0bb",
+      "child_ids": [
+        "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:disable_health_check",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:health_check",
+        "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members"
+      ],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+      "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--cname_pool.md",
+      "role": "properties",
+      "schema_path": ["cname_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cname_pool for xcsh_dns_lb_pool.",
+      "title": "cname_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1222,
+      "body_sha256": "sha256:43e0ad65c0b66d2b8de8573052b84b0944b94f3a7f256163813148b39e980d61",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:disable_health_check",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/disable_health_check/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--cname_pool--disable_health_check.md",
+      "role": "properties",
+      "schema_path": ["cname_pool", "disable_health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/disable_health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cname_pool.disable_health_check for xcsh_dns_lb_pool.",
+      "title": "cname_pool.disable_health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5322,
+      "body_sha256": "sha256:76bb3425faf139c39803345eb7a5a2d4c3a37ab9cef681a96cd67a2c0ea017c9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:health_check",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/health_check/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--cname_pool--health_check.md",
+      "role": "properties",
+      "schema_path": ["cname_pool", "health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cname_pool.health_check for xcsh_dns_lb_pool.",
+      "title": "cname_pool.health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6450,
+      "body_sha256": "sha256:8a950382776df92b329908d64639fea2e88d7ca99af967f2523b930e4f9f83f1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/members/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--cname_pool--members.md",
+      "role": "properties",
+      "schema_path": ["cname_pool", "members"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/members/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cname_pool.members for xcsh_dns_lb_pool.",
+      "title": "cname_pool.members",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2121,
+      "body_sha256": "sha256:a4e0c32611f1cb15a1129a30df2597b3855f7b1f9fbb9e8cc28d393d72a002d7",
+      "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members"],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+      "path": "documentation/data-sources/dns_lb_pool/properties/mx_pool/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--mx_pool.md",
+      "role": "properties",
+      "schema_path": ["mx_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/mx_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mx_pool for xcsh_dns_lb_pool.",
+      "title": "mx_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5990,
+      "body_sha256": "sha256:16b2a327fcc4aaf5cf30059e48ebc86838b1d365e0317e46585215f95140f615",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/mx_pool/members/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--mx_pool--members.md",
+      "role": "properties",
+      "schema_path": ["mx_pool", "members"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/mx_pool/members/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mx_pool.members for xcsh_dns_lb_pool.",
+      "title": "mx_pool.members",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2128,
+      "body_sha256": "sha256:6ad0fcc61a44f30b10857e0f24de4ac49a35d40771378aa79dff177041526a78",
+      "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members"],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+      "path": "documentation/data-sources/dns_lb_pool/properties/srv_pool/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--srv_pool.md",
+      "role": "properties",
+      "schema_path": ["srv_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/srv_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "srv_pool for xcsh_dns_lb_pool.",
+      "title": "srv_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8808,
+      "body_sha256": "sha256:3a5126e55f100f782bc5aa77b6fe74f331964b967f52426e3f789428d397f67c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool",
+      "path": "documentation/data-sources/dns_lb_pool/properties/srv_pool/members/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--srv_pool--members.md",
+      "role": "properties",
+      "schema_path": ["srv_pool", "members"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/srv_pool/members/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "srv_pool.members for xcsh_dns_lb_pool.",
+      "title": "srv_pool.members",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1056,
+      "body_sha256": "sha256:4b34fa53eb6631a6bb8b94d012b02558490030fef7f2173cbb8937002f061b79",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:properties:use_rrset_ttl",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:reference",
+      "path": "documentation/data-sources/dns_lb_pool/properties/use_rrset_ttl/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--properties--use_rrset_ttl.md",
+      "role": "properties",
+      "schema_path": ["use_rrset_ttl"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/use_rrset_ttl/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "use_rrset_ttl for xcsh_dns_lb_pool.",
+      "title": "use_rrset_ttl",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 651,
+      "body_sha256": "sha256:62c9ba8a0b6e0db382cf1db631f4bb22b5a9aeb9fde6510e244532a035490ea8",
+      "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:dns_lb_pool:examples",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:fundamentals",
+      "path": "documentation/data-sources/dns_lb_pool/examples/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_dns_lb_pool.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1263,
+      "body_sha256": "sha256:1d1ccb52b05bd2392339df20e00e5a07b947e0fcf192db5c7088af5b6597ebf4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:9dddbd7b299906535a7d4a7f3de8f5eb6fae61134e8af1bbe57c031c456e2613",
+        "source_path": "examples/data-sources/xcsh_dns_lb_pool/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:dns_lb_pool:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:dns_lb_pool:examples",
+      "path": "documentation/data-sources/dns_lb_pool/examples/data-source/index.md",
+      "provider_name": "dns_lb_pool",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--dns_lb_pool--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_dns_lb_pool.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_lb_poolCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

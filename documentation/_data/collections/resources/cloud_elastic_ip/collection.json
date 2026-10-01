@@ -1,0 +1,333 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:cloud_elastic_ip:fundamentals",
+    "id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "schema_path": ["id"]
+      },
+      "item_count": {
+        "anchor": "schema-item_count",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "schema_path": ["item_count"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "schema_path": ["namespace"]
+      },
+      "site_ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:site_ref",
+        "schema_path": ["site_ref"]
+      },
+      "site_ref.kind": {
+        "anchor": "schema-site_ref--kind",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:site_ref",
+        "schema_path": ["site_ref", "kind"]
+      },
+      "site_ref.name": {
+        "anchor": "schema-site_ref--name",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:site_ref",
+        "schema_path": ["site_ref", "name"]
+      },
+      "site_ref.namespace": {
+        "anchor": "schema-site_ref--namespace",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:site_ref",
+        "schema_path": ["site_ref", "namespace"]
+      },
+      "site_ref.tenant": {
+        "anchor": "schema-site_ref--tenant",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:site_ref",
+        "schema_path": ["site_ref", "tenant"]
+      },
+      "site_ref.uid": {
+        "anchor": "schema-site_ref--uid",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:site_ref",
+        "schema_path": ["site_ref", "uid"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:cloud_elastic_ip:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "cloud_elastic_ip",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:cloud_elastic_ip:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1675,
+      "body_sha256": "sha256:f7d5db4a7ad77a0776cb6474a65ff5feeccb5c6c447a2bbccbc1305fc7159b23",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_elastic_ip:reference",
+        "xcsh-docs:resources:cloud_elastic_ip:examples",
+        "xcsh-docs:resources:cloud_elastic_ip:import",
+        "xcsh-docs:resources:cloud_elastic_ip:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_elastic_ip:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/cloud_elastic_ip/index.md",
+      "provider_name": "cloud_elastic_ip",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/cloud_elastic_ip.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_cloud_elastic_ip for xcsh_cloud_elastic_ip.",
+      "title": "xcsh_cloud_elastic_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_elastic_ipCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10624,
+      "body_sha256": "sha256:7e49c3673a8411e99df01af7cb629b3e7ca0c8ee6ebc0540952e60273cd35ea8",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_elastic_ip:properties:site_ref",
+        "xcsh-docs:resources:cloud_elastic_ip:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+      "parent_id": "xcsh-docs:resources:cloud_elastic_ip:fundamentals",
+      "path": "documentation/resources/cloud_elastic_ip/properties/index.md",
+      "provider_name": "cloud_elastic_ip",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_elastic_ip--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_cloud_elastic_ip.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_elastic_ipCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6384,
+      "body_sha256": "sha256:f33e1cc65123f9a12e2270f3d73d132c3e17d8dca66a5a23a29f501758c24748",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_elastic_ip:properties:site_ref",
+      "parent_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+      "path": "documentation/resources/cloud_elastic_ip/properties/site_ref/index.md",
+      "provider_name": "cloud_elastic_ip",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_elastic_ip--properties--site_ref.md",
+      "role": "properties",
+      "schema_path": ["site_ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/properties/site_ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_ref for xcsh_cloud_elastic_ip.",
+      "title": "site_ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_elastic_ipCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2255,
+      "body_sha256": "sha256:7d7f1a25047f306e19ea952bd6cd9b818cbc11b088e37877ae47f79732eee98a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_elastic_ip:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:cloud_elastic_ip:reference",
+      "path": "documentation/resources/cloud_elastic_ip/properties/timeouts/index.md",
+      "provider_name": "cloud_elastic_ip",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_elastic_ip--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_cloud_elastic_ip.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_elastic_ipCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 657,
+      "body_sha256": "sha256:228280cc841909fd2ae2cd2f6dc35b8d4c814e0b70d687ac670f3d3b31778ce8",
+      "child_ids": ["xcsh-docs:resources:cloud_elastic_ip:example:resource"],
+      "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_elastic_ip:examples",
+      "parent_id": "xcsh-docs:resources:cloud_elastic_ip:fundamentals",
+      "path": "documentation/resources/cloud_elastic_ip/examples/index.md",
+      "provider_name": "cloud_elastic_ip",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_elastic_ip--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_cloud_elastic_ip.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_elastic_ipCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1347,
+      "body_sha256": "sha256:a73c2e3dda4f60269b5fda65ed5508b148c1450003e7e8ca6284eca4563163a4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:e8be04df02915d54850afcd099a22da22eee85dc886b468e9bf65ca321094b18",
+        "source_path": "examples/resources/xcsh_cloud_elastic_ip/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:cloud_elastic_ip:example:resource",
+      "parent_id": "xcsh-docs:resources:cloud_elastic_ip:examples",
+      "path": "documentation/resources/cloud_elastic_ip/examples/resource/index.md",
+      "provider_name": "cloud_elastic_ip",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_elastic_ip--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_cloud_elastic_ip.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_elastic_ipCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 528,
+      "body_sha256": "sha256:9f549794f4707bd959e740deebd7b0caa4ee7a59352ced615a63d6e3320a1047",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_elastic_ip:import",
+      "parent_id": "xcsh-docs:resources:cloud_elastic_ip:fundamentals",
+      "path": "documentation/resources/cloud_elastic_ip/lifecycle/import/index.md",
+      "provider_name": "cloud_elastic_ip",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_elastic_ip--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_cloud_elastic_ip.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_elastic_ipCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 588,
+      "body_sha256": "sha256:7d0d1b8a75c295af76077d784c8c34e50f0b26b780db9a97c829f534eb7b3f05",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_elastic_ip:timeouts",
+      "parent_id": "xcsh-docs:resources:cloud_elastic_ip:fundamentals",
+      "path": "documentation/resources/cloud_elastic_ip/lifecycle/timeouts/index.md",
+      "provider_name": "cloud_elastic_ip",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_elastic_ip--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_cloud_elastic_ip.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_elastic_ipCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

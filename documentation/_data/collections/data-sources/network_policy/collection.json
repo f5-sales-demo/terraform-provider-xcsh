@@ -1,0 +1,1570 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:network_policy:fundamentals",
+    "id": "xcsh-docs:data-sources:network_policy:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:network_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:network_policy:reference",
+        "schema_path": ["description"]
+      },
+      "endpoint": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+        "schema_path": ["endpoint"]
+      },
+      "endpoint.any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:any",
+        "schema_path": ["endpoint", "any"]
+      },
+      "endpoint.inside_endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:inside_endpoints",
+        "schema_path": ["endpoint", "inside_endpoints"]
+      },
+      "endpoint.label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector",
+        "schema_path": ["endpoint", "label_selector"]
+      },
+      "endpoint.label_selector.expressions": {
+        "anchor": "schema-endpoint--label_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector",
+        "schema_path": ["endpoint", "label_selector", "expressions"]
+      },
+      "endpoint.outside_endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:outside_endpoints",
+        "schema_path": ["endpoint", "outside_endpoints"]
+      },
+      "endpoint.prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:prefix_list",
+        "schema_path": ["endpoint", "prefix_list"]
+      },
+      "endpoint.prefix_list.prefixes": {
+        "anchor": "schema-endpoint--prefix_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:endpoint:prefix_list",
+        "schema_path": ["endpoint", "prefix_list", "prefixes"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:network_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:network_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:network_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:network_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules",
+        "schema_path": ["rules"]
+      },
+      "rules.egress_rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+        "schema_path": ["rules", "egress_rules"]
+      },
+      "rules.egress_rules.action": {
+        "anchor": "schema-rules--egress_rules--action",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+        "schema_path": ["rules", "egress_rules", "action"]
+      },
+      "rules.egress_rules.adv_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:adv_action",
+        "schema_path": ["rules", "egress_rules", "adv_action"]
+      },
+      "rules.egress_rules.adv_action.action": {
+        "anchor": "schema-rules--egress_rules--adv_action--action",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:adv_action",
+        "schema_path": ["rules", "egress_rules", "adv_action", "action"]
+      },
+      "rules.egress_rules.all_tcp_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_tcp_traffic",
+        "schema_path": ["rules", "egress_rules", "all_tcp_traffic"]
+      },
+      "rules.egress_rules.all_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_traffic",
+        "schema_path": ["rules", "egress_rules", "all_traffic"]
+      },
+      "rules.egress_rules.all_udp_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_udp_traffic",
+        "schema_path": ["rules", "egress_rules", "all_udp_traffic"]
+      },
+      "rules.egress_rules.any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:any",
+        "schema_path": ["rules", "egress_rules", "any"]
+      },
+      "rules.egress_rules.applications": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:applications",
+        "schema_path": ["rules", "egress_rules", "applications"]
+      },
+      "rules.egress_rules.applications.applications": {
+        "anchor": "schema-rules--egress_rules--applications--applications",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:applications",
+        "schema_path": ["rules", "egress_rules", "applications", "applications"]
+      },
+      "rules.egress_rules.inside_endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:inside_endpoints",
+        "schema_path": ["rules", "egress_rules", "inside_endpoints"]
+      },
+      "rules.egress_rules.ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set",
+        "schema_path": ["rules", "egress_rules", "ip_prefix_set"]
+      },
+      "rules.egress_rules.ip_prefix_set.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "egress_rules", "ip_prefix_set", "ref"]
+      },
+      "rules.egress_rules.ip_prefix_set.ref.kind": {
+        "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--kind",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "egress_rules", "ip_prefix_set", "ref", "kind"]
+      },
+      "rules.egress_rules.ip_prefix_set.ref.name": {
+        "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--name",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "egress_rules", "ip_prefix_set", "ref", "name"]
+      },
+      "rules.egress_rules.ip_prefix_set.ref.namespace": {
+        "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "egress_rules", "ip_prefix_set", "ref", "namespace"]
+      },
+      "rules.egress_rules.ip_prefix_set.ref.tenant": {
+        "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "egress_rules", "ip_prefix_set", "ref", "tenant"]
+      },
+      "rules.egress_rules.ip_prefix_set.ref.uid": {
+        "anchor": "schema-rules--egress_rules--ip_prefix_set--ref--uid",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "egress_rules", "ip_prefix_set", "ref", "uid"]
+      },
+      "rules.egress_rules.label_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_matcher",
+        "schema_path": ["rules", "egress_rules", "label_matcher"]
+      },
+      "rules.egress_rules.label_matcher.keys": {
+        "anchor": "schema-rules--egress_rules--label_matcher--keys",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_matcher",
+        "schema_path": ["rules", "egress_rules", "label_matcher", "keys"]
+      },
+      "rules.egress_rules.label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_selector",
+        "schema_path": ["rules", "egress_rules", "label_selector"]
+      },
+      "rules.egress_rules.label_selector.expressions": {
+        "anchor": "schema-rules--egress_rules--label_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_selector",
+        "schema_path": ["rules", "egress_rules", "label_selector", "expressions"]
+      },
+      "rules.egress_rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:metadata",
+        "schema_path": ["rules", "egress_rules", "metadata"]
+      },
+      "rules.egress_rules.metadata.description_spec": {
+        "anchor": "schema-rules--egress_rules--metadata--description_spec",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:metadata",
+        "schema_path": ["rules", "egress_rules", "metadata", "description_spec"]
+      },
+      "rules.egress_rules.metadata.name": {
+        "anchor": "schema-rules--egress_rules--metadata--name",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:metadata",
+        "schema_path": ["rules", "egress_rules", "metadata", "name"]
+      },
+      "rules.egress_rules.outside_endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:outside_endpoints",
+        "schema_path": ["rules", "egress_rules", "outside_endpoints"]
+      },
+      "rules.egress_rules.prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:prefix_list",
+        "schema_path": ["rules", "egress_rules", "prefix_list"]
+      },
+      "rules.egress_rules.prefix_list.prefixes": {
+        "anchor": "schema-rules--egress_rules--prefix_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:prefix_list",
+        "schema_path": ["rules", "egress_rules", "prefix_list", "prefixes"]
+      },
+      "rules.egress_rules.protocol_port_range": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range",
+        "schema_path": ["rules", "egress_rules", "protocol_port_range"]
+      },
+      "rules.egress_rules.protocol_port_range.port_ranges": {
+        "anchor": "schema-rules--egress_rules--protocol_port_range--port_ranges",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range",
+        "schema_path": ["rules", "egress_rules", "protocol_port_range", "port_ranges"]
+      },
+      "rules.egress_rules.protocol_port_range.protocol": {
+        "anchor": "schema-rules--egress_rules--protocol_port_range--protocol",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range",
+        "schema_path": ["rules", "egress_rules", "protocol_port_range", "protocol"]
+      },
+      "rules.ingress_rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+        "schema_path": ["rules", "ingress_rules"]
+      },
+      "rules.ingress_rules.action": {
+        "anchor": "schema-rules--ingress_rules--action",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+        "schema_path": ["rules", "ingress_rules", "action"]
+      },
+      "rules.ingress_rules.adv_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:adv_action",
+        "schema_path": ["rules", "ingress_rules", "adv_action"]
+      },
+      "rules.ingress_rules.adv_action.action": {
+        "anchor": "schema-rules--ingress_rules--adv_action--action",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:adv_action",
+        "schema_path": ["rules", "ingress_rules", "adv_action", "action"]
+      },
+      "rules.ingress_rules.all_tcp_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_tcp_traffic",
+        "schema_path": ["rules", "ingress_rules", "all_tcp_traffic"]
+      },
+      "rules.ingress_rules.all_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_traffic",
+        "schema_path": ["rules", "ingress_rules", "all_traffic"]
+      },
+      "rules.ingress_rules.all_udp_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_udp_traffic",
+        "schema_path": ["rules", "ingress_rules", "all_udp_traffic"]
+      },
+      "rules.ingress_rules.any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:any",
+        "schema_path": ["rules", "ingress_rules", "any"]
+      },
+      "rules.ingress_rules.applications": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:applications",
+        "schema_path": ["rules", "ingress_rules", "applications"]
+      },
+      "rules.ingress_rules.applications.applications": {
+        "anchor": "schema-rules--ingress_rules--applications--applications",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:applications",
+        "schema_path": ["rules", "ingress_rules", "applications", "applications"]
+      },
+      "rules.ingress_rules.inside_endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:inside_endpoints",
+        "schema_path": ["rules", "ingress_rules", "inside_endpoints"]
+      },
+      "rules.ingress_rules.ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set",
+        "schema_path": ["rules", "ingress_rules", "ip_prefix_set"]
+      },
+      "rules.ingress_rules.ip_prefix_set.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "ingress_rules", "ip_prefix_set", "ref"]
+      },
+      "rules.ingress_rules.ip_prefix_set.ref.kind": {
+        "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--kind",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "ingress_rules", "ip_prefix_set", "ref", "kind"]
+      },
+      "rules.ingress_rules.ip_prefix_set.ref.name": {
+        "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--name",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "ingress_rules", "ip_prefix_set", "ref", "name"]
+      },
+      "rules.ingress_rules.ip_prefix_set.ref.namespace": {
+        "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--namespace",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "ingress_rules", "ip_prefix_set", "ref", "namespace"]
+      },
+      "rules.ingress_rules.ip_prefix_set.ref.tenant": {
+        "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--tenant",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "ingress_rules", "ip_prefix_set", "ref", "tenant"]
+      },
+      "rules.ingress_rules.ip_prefix_set.ref.uid": {
+        "anchor": "schema-rules--ingress_rules--ip_prefix_set--ref--uid",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
+        "schema_path": ["rules", "ingress_rules", "ip_prefix_set", "ref", "uid"]
+      },
+      "rules.ingress_rules.label_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_matcher",
+        "schema_path": ["rules", "ingress_rules", "label_matcher"]
+      },
+      "rules.ingress_rules.label_matcher.keys": {
+        "anchor": "schema-rules--ingress_rules--label_matcher--keys",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_matcher",
+        "schema_path": ["rules", "ingress_rules", "label_matcher", "keys"]
+      },
+      "rules.ingress_rules.label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_selector",
+        "schema_path": ["rules", "ingress_rules", "label_selector"]
+      },
+      "rules.ingress_rules.label_selector.expressions": {
+        "anchor": "schema-rules--ingress_rules--label_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_selector",
+        "schema_path": ["rules", "ingress_rules", "label_selector", "expressions"]
+      },
+      "rules.ingress_rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:metadata",
+        "schema_path": ["rules", "ingress_rules", "metadata"]
+      },
+      "rules.ingress_rules.metadata.description_spec": {
+        "anchor": "schema-rules--ingress_rules--metadata--description_spec",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:metadata",
+        "schema_path": ["rules", "ingress_rules", "metadata", "description_spec"]
+      },
+      "rules.ingress_rules.metadata.name": {
+        "anchor": "schema-rules--ingress_rules--metadata--name",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:metadata",
+        "schema_path": ["rules", "ingress_rules", "metadata", "name"]
+      },
+      "rules.ingress_rules.outside_endpoints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:outside_endpoints",
+        "schema_path": ["rules", "ingress_rules", "outside_endpoints"]
+      },
+      "rules.ingress_rules.prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:prefix_list",
+        "schema_path": ["rules", "ingress_rules", "prefix_list"]
+      },
+      "rules.ingress_rules.prefix_list.prefixes": {
+        "anchor": "schema-rules--ingress_rules--prefix_list--prefixes",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:prefix_list",
+        "schema_path": ["rules", "ingress_rules", "prefix_list", "prefixes"]
+      },
+      "rules.ingress_rules.protocol_port_range": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range",
+        "schema_path": ["rules", "ingress_rules", "protocol_port_range"]
+      },
+      "rules.ingress_rules.protocol_port_range.port_ranges": {
+        "anchor": "schema-rules--ingress_rules--protocol_port_range--port_ranges",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range",
+        "schema_path": ["rules", "ingress_rules", "protocol_port_range", "port_ranges"]
+      },
+      "rules.ingress_rules.protocol_port_range.protocol": {
+        "anchor": "schema-rules--ingress_rules--protocol_port_range--protocol",
+        "document_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range",
+        "schema_path": ["rules", "ingress_rules", "protocol_port_range", "protocol"]
+      }
+    },
+    "provider_name": "network_policy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:network_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1402,
+      "body_sha256": "sha256:982ff3d79a7e1f92dc5d0f32c0b261953bad6653e2afb0f1f8ab534e19c76d23",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_policy:reference",
+        "xcsh-docs:data-sources:network_policy:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/network_policy/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/network_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_network_policy for xcsh_network_policy.",
+      "title": "xcsh_network_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 24206,
+      "body_sha256": "sha256:e0807dc700f3307825339094378b3a9c9a16d36e5dcb84a3b7e14e006615cd31",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_policy:properties:endpoint",
+        "xcsh-docs:data-sources:network_policy:properties:rules"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:reference",
+      "parent_id": "xcsh-docs:data-sources:network_policy:fundamentals",
+      "path": "documentation/data-sources/network_policy/properties/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_network_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2607,
+      "body_sha256": "sha256:48221a2250755c9809b90c0f8cb1276fb2a88559c63b59b9d5878c28e929f0ed",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_policy:properties:endpoint:any",
+        "xcsh-docs:data-sources:network_policy:properties:endpoint:inside_endpoints",
+        "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector",
+        "xcsh-docs:data-sources:network_policy:properties:endpoint:outside_endpoints",
+        "xcsh-docs:data-sources:network_policy:properties:endpoint:prefix_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+      "parent_id": "xcsh-docs:data-sources:network_policy:reference",
+      "path": "documentation/data-sources/network_policy/properties/endpoint/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--endpoint.md",
+      "role": "properties",
+      "schema_path": ["endpoint"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "endpoint for xcsh_network_policy.",
+      "title": "endpoint",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1166,
+      "body_sha256": "sha256:a383bf1a5c73ac642840da06e9046032022e31305f3379d1437363ccc443c0e5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:endpoint:any",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+      "path": "documentation/data-sources/network_policy/properties/endpoint/any/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--endpoint--any.md",
+      "role": "properties",
+      "schema_path": ["endpoint", "any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "endpoint.any for xcsh_network_policy.",
+      "title": "endpoint.any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1192,
+      "body_sha256": "sha256:4053511a34f66f7a19751439316257661c60b50bb18e00b9817a34a8b0fafa4e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:endpoint:inside_endpoints",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+      "path": "documentation/data-sources/network_policy/properties/endpoint/inside_endpoints/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--endpoint--inside_endpoints.md",
+      "role": "properties",
+      "schema_path": ["endpoint", "inside_endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/inside_endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "endpoint.inside_endpoints for xcsh_network_policy.",
+      "title": "endpoint.inside_endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3734,
+      "body_sha256": "sha256:054313b8d6e5dd2e980226f6f4455018f9e3252feefc94ceadda3432b3ed5d88",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:endpoint:label_selector",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+      "path": "documentation/data-sources/network_policy/properties/endpoint/label_selector/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--endpoint--label_selector.md",
+      "role": "properties",
+      "schema_path": ["endpoint", "label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "endpoint.label_selector for xcsh_network_policy.",
+      "title": "endpoint.label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1194,
+      "body_sha256": "sha256:95502230402f5d51063ee2522eb1b2cded9cab5118cea16197cadcec5dbfd212",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:endpoint:outside_endpoints",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+      "path": "documentation/data-sources/network_policy/properties/endpoint/outside_endpoints/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--endpoint--outside_endpoints.md",
+      "role": "properties",
+      "schema_path": ["endpoint", "outside_endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/outside_endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "endpoint.outside_endpoints for xcsh_network_policy.",
+      "title": "endpoint.outside_endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2115,
+      "body_sha256": "sha256:6a30b58a140e737afdf0f985f9b14845a9a264d52de2f7557bc4073a491c0e6a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:endpoint:prefix_list",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:endpoint",
+      "path": "documentation/data-sources/network_policy/properties/endpoint/prefix_list/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--endpoint--prefix_list.md",
+      "role": "properties",
+      "schema_path": ["endpoint", "prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/endpoint/prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "endpoint.prefix_list for xcsh_network_policy.",
+      "title": "endpoint.prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1550,
+      "body_sha256": "sha256:a4d7a78dbc110bf3a0e0f4ba0adf614faec36764acb37e97f657adc11107c9d2",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules",
+      "parent_id": "xcsh-docs:data-sources:network_policy:reference",
+      "path": "documentation/data-sources/network_policy/properties/rules/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules.md",
+      "role": "properties",
+      "schema_path": ["rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules for xcsh_network_policy.",
+      "title": "rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7219,
+      "body_sha256": "sha256:9d09f9879af9cac755e0f8edd95cbbb55cf03eec8f0c060719552eff3380203c",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:adv_action",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_tcp_traffic",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_traffic",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_udp_traffic",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:any",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:applications",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:inside_endpoints",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_matcher",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_selector",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:metadata",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:outside_endpoints",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:prefix_list",
+        "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules for xcsh_network_policy.",
+      "title": "rules.egress_rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2368,
+      "body_sha256": "sha256:a7793721a070ad7e47ea68328dfeb5e8fb2a141673a3a2ae16006e505bcdb00b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:adv_action",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/adv_action/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--adv_action.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "adv_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/adv_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.adv_action for xcsh_network_policy.",
+      "title": "rules.egress_rules.adv_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1389,
+      "body_sha256": "sha256:bcf33c661ff28ffff2a99d1d7ee34bcd955fdf2319f9e149a99de207ee9c2ef6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_tcp_traffic",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/all_tcp_traffic/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--all_tcp_traffic.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "all_tcp_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/all_tcp_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.all_tcp_traffic for xcsh_network_policy.",
+      "title": "rules.egress_rules.all_tcp_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1377,
+      "body_sha256": "sha256:d29ab1a3e018a0c821e68e48036e3d5db676399474e0184f249113b486b9db85",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_traffic",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/all_traffic/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--all_traffic.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "all_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/all_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.all_traffic for xcsh_network_policy.",
+      "title": "rules.egress_rules.all_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1389,
+      "body_sha256": "sha256:c553a551145ec352f356a9def18bd3c4a58213576c1f0b07bac0f0b784b69ae5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:all_udp_traffic",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/all_udp_traffic/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--all_udp_traffic.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "all_udp_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/all_udp_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.all_udp_traffic for xcsh_network_policy.",
+      "title": "rules.egress_rules.all_udp_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1339,
+      "body_sha256": "sha256:37e1c24eb528a9cc1bcee20a3c2d637739c03009ae626c38656f596bc7d81377",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:any",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/any/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--any.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.any for xcsh_network_policy.",
+      "title": "rules.egress_rules.any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1948,
+      "body_sha256": "sha256:d6a9efb457ad47b9acdcb0d6fb7cc3ccb38b3d877939462687da9647d27fcca7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:applications",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/applications/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--applications.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "applications"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/applications/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.applications for xcsh_network_policy.",
+      "title": "rules.egress_rules.applications",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1365,
+      "body_sha256": "sha256:f6dbfac8ed918d288950b01a14195b121994e4c730017a9c41ee9c19c9c03320",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:inside_endpoints",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/inside_endpoints/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--inside_endpoints.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "inside_endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/inside_endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.inside_endpoints for xcsh_network_policy.",
+      "title": "rules.egress_rules.inside_endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1650,
+      "body_sha256": "sha256:46560244ec79fc74a9df67f3b658c6cc1f5d91a5aa56be0118c47fbc77656ba8",
+      "child_ids": ["xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref"],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/ip_prefix_set/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.ip_prefix_set for xcsh_network_policy.",
+      "title": "rules.egress_rules.ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6663,
+      "body_sha256": "sha256:54b86ab9d6bb20804ed08418bc0007a908ddb921a557f01b5a12873b98a49066",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set:ref",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:ip_prefix_set",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/ip_prefix_set/ref/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--ip_prefix_set--ref.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "ip_prefix_set", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/ip_prefix_set/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.ip_prefix_set.ref for xcsh_network_policy.",
+      "title": "rules.egress_rules.ip_prefix_set.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2877,
+      "body_sha256": "sha256:611c18d8fdae6d3959015943c685684ef83218314391763760f1a90056144aa2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_matcher",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/label_matcher/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--label_matcher.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "label_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/label_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.label_matcher for xcsh_network_policy.",
+      "title": "rules.egress_rules.label_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3918,
+      "body_sha256": "sha256:6e3e53a97a4c45d5457dc88b050c44e8d8b7aa5f75557e1178c18ddd81052a0f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:label_selector",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/label_selector/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--label_selector.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.label_selector for xcsh_network_policy.",
+      "title": "rules.egress_rules.label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3662,
+      "body_sha256": "sha256:f4518d496da02e91672a3be56ec37d9353c468f896247439fa37a841afc30e4b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:metadata",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/metadata/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.metadata for xcsh_network_policy.",
+      "title": "rules.egress_rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1367,
+      "body_sha256": "sha256:b5bad9a2e5a8fcadf4027775486473258ee2a38167c4e1c1bcab3989f8bfd984",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:outside_endpoints",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/outside_endpoints/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--outside_endpoints.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "outside_endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/outside_endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.outside_endpoints for xcsh_network_policy.",
+      "title": "rules.egress_rules.outside_endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2299,
+      "body_sha256": "sha256:2224c62ea8857f2f6d557600d4aedd69cece16236e3013790577ab8f7716677d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:prefix_list",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/prefix_list/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--prefix_list.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.prefix_list for xcsh_network_policy.",
+      "title": "rules.egress_rules.prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3412,
+      "body_sha256": "sha256:7fa78a07b0ed7c7fc6f22182c46b305bbfc2730b1d334ef16fa527c23818e33b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules:protocol_port_range",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:egress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/egress_rules/protocol_port_range/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--egress_rules--protocol_port_range.md",
+      "role": "properties",
+      "schema_path": ["rules", "egress_rules", "protocol_port_range"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/egress_rules/protocol_port_range/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.egress_rules.protocol_port_range for xcsh_network_policy.",
+      "title": "rules.egress_rules.protocol_port_range",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7262,
+      "body_sha256": "sha256:7fcb4d968c33e5361c42d625827278ceb977555621eb39071c1c82901d5c4196",
+      "child_ids": [
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:adv_action",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_tcp_traffic",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_traffic",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_udp_traffic",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:any",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:applications",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:inside_endpoints",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_matcher",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_selector",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:metadata",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:outside_endpoints",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:prefix_list",
+        "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range"
+      ],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules for xcsh_network_policy.",
+      "title": "rules.ingress_rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2375,
+      "body_sha256": "sha256:73b7501d6c97794c6001b8a43e225b5ecdbb40bb3acca2ac3815216495025940",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:adv_action",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/adv_action/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--adv_action.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "adv_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/adv_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.adv_action for xcsh_network_policy.",
+      "title": "rules.ingress_rules.adv_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1395,
+      "body_sha256": "sha256:fad2903a8ef1a0cf8c91a7830b68a21464c6b403812196766fc3ddf7e7d06475",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_tcp_traffic",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/all_tcp_traffic/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--all_tcp_traffic.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "all_tcp_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/all_tcp_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.all_tcp_traffic for xcsh_network_policy.",
+      "title": "rules.ingress_rules.all_tcp_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1383,
+      "body_sha256": "sha256:19e9faaf2985bcc99f41cdb5b6b023e0bfa2d2d49320a9050dd3034a59584fb1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_traffic",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/all_traffic/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--all_traffic.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "all_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/all_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.all_traffic for xcsh_network_policy.",
+      "title": "rules.ingress_rules.all_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1395,
+      "body_sha256": "sha256:8e58efa29ce30b3c362299bbcf96ed01e512e2b6b730f6077a535e6eba51855d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:all_udp_traffic",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/all_udp_traffic/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--all_udp_traffic.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "all_udp_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/all_udp_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.all_udp_traffic for xcsh_network_policy.",
+      "title": "rules.ingress_rules.all_udp_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1345,
+      "body_sha256": "sha256:85495cdb908c9d7de03e53787802afb8fd989acab4b39dd9ad125c721d5bce27",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:any",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/any/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--any.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.any for xcsh_network_policy.",
+      "title": "rules.ingress_rules.any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1955,
+      "body_sha256": "sha256:9434aca29489dd07687f8a11ceda1af559519d11e6f3c4c694777da9b518d7a0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:applications",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/applications/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--applications.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "applications"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/applications/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.applications for xcsh_network_policy.",
+      "title": "rules.ingress_rules.applications",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1371,
+      "body_sha256": "sha256:a312754fbd568014ec26dc6c325ddbe4fd67ecff33ea3222f071f43f3813491f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:inside_endpoints",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/inside_endpoints/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--inside_endpoints.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "inside_endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/inside_endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.inside_endpoints for xcsh_network_policy.",
+      "title": "rules.ingress_rules.inside_endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1659,
+      "body_sha256": "sha256:a596cd9b7d8f5cc61e8e5433f9da64af5a05f0364bb93dfe5c7578c36588a434",
+      "child_ids": ["xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref"],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/ip_prefix_set/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.ip_prefix_set for xcsh_network_policy.",
+      "title": "rules.ingress_rules.ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6676,
+      "body_sha256": "sha256:514028d126e390f7158b123771f5c8c80a6e7ac109249c47f87df61b28aa0714",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set:ref",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:ip_prefix_set",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/ip_prefix_set/ref/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--ip_prefix_set--ref.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "ip_prefix_set", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/ip_prefix_set/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.ip_prefix_set.ref for xcsh_network_policy.",
+      "title": "rules.ingress_rules.ip_prefix_set.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2884,
+      "body_sha256": "sha256:00174d89ac657155bb022eeaa21649106a582e48f2a648931140b469a9d9944e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_matcher",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/label_matcher/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--label_matcher.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "label_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/label_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.label_matcher for xcsh_network_policy.",
+      "title": "rules.ingress_rules.label_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3925,
+      "body_sha256": "sha256:df882cbceb751a71dd372ad1b8bfd421c57178ce7198284c2a40cc5d81b0bf5e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:label_selector",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/label_selector/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--label_selector.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.label_selector for xcsh_network_policy.",
+      "title": "rules.ingress_rules.label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3670,
+      "body_sha256": "sha256:e0e4d400e3ff0a6b96b7984f6ca938d70b315c8ab4944933ca31fb3ffe4132c1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:metadata",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/metadata/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.metadata for xcsh_network_policy.",
+      "title": "rules.ingress_rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1373,
+      "body_sha256": "sha256:ed76855ab40ed853aa8981c0112a67b5aaa1e85a5ce90d58c23589ffad71632c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:outside_endpoints",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/outside_endpoints/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--outside_endpoints.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "outside_endpoints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/outside_endpoints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.outside_endpoints for xcsh_network_policy.",
+      "title": "rules.ingress_rules.outside_endpoints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2306,
+      "body_sha256": "sha256:8fa3219ec21cb079c3b628877489eef68e8373434a7b8b57157fc1591f40e279",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:prefix_list",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/prefix_list/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--prefix_list.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.prefix_list for xcsh_network_policy.",
+      "title": "rules.ingress_rules.prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3420,
+      "body_sha256": "sha256:952b34a8d45fac6c48beabef2398b2bbbbf1676593366556e3f35e5b39c8ce27",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules:protocol_port_range",
+      "parent_id": "xcsh-docs:data-sources:network_policy:properties:rules:ingress_rules",
+      "path": "documentation/data-sources/network_policy/properties/rules/ingress_rules/protocol_port_range/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--properties--rules--ingress_rules--protocol_port_range.md",
+      "role": "properties",
+      "schema_path": ["rules", "ingress_rules", "protocol_port_range"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/properties/rules/ingress_rules/protocol_port_range/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ingress_rules.protocol_port_range for xcsh_network_policy.",
+      "title": "rules.ingress_rules.protocol_port_range",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 669,
+      "body_sha256": "sha256:13464dd5eaebc79d42ad1d69ac6a9b64216c4ed9999a99745b282077183758f3",
+      "child_ids": ["xcsh-docs:data-sources:network_policy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:network_policy:examples",
+      "parent_id": "xcsh-docs:data-sources:network_policy:fundamentals",
+      "path": "documentation/data-sources/network_policy/examples/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_network_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1305,
+      "body_sha256": "sha256:6abfc950aaad7ea890f34a620445df26ce7074372cdd67810257b6a7a4cc3671",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:network_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:6c10eea9b1a5304339370438b5c012d3317ee2ecb95c539f946182ee126b8c01",
+        "source_path": "examples/data-sources/xcsh_network_policy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:network_policy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:network_policy:examples",
+      "path": "documentation/data-sources/network_policy/examples/data-source/index.md",
+      "provider_name": "network_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--network_policy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_network_policy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["network_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,1487 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:rate_limiter_policy:fundamentals",
+    "id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "any_server": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:any_server",
+        "schema_path": ["any_server"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules",
+        "schema_path": ["rules"]
+      },
+      "rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
+        "schema_path": ["rules", "metadata"]
+      },
+      "rules.metadata.description_spec": {
+        "anchor": "schema-rules--metadata--description_spec",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
+        "schema_path": ["rules", "metadata", "description_spec"]
+      },
+      "rules.metadata.name": {
+        "anchor": "schema-rules--metadata--name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
+        "schema_path": ["rules", "metadata", "name"]
+      },
+      "rules.spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+        "schema_path": ["rules", "spec"]
+      },
+      "rules.spec.any_asn": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_asn",
+        "schema_path": ["rules", "spec", "any_asn"]
+      },
+      "rules.spec.any_country": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_country",
+        "schema_path": ["rules", "spec", "any_country"]
+      },
+      "rules.spec.any_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_ip",
+        "schema_path": ["rules", "spec", "any_ip"]
+      },
+      "rules.spec.apply_rate_limiter": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:apply_rate_limiter",
+        "schema_path": ["rules", "spec", "apply_rate_limiter"]
+      },
+      "rules.spec.asn_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_list",
+        "schema_path": ["rules", "spec", "asn_list"]
+      },
+      "rules.spec.asn_list.as_numbers": {
+        "anchor": "schema-rules--spec--asn_list--as_numbers",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_list",
+        "schema_path": ["rules", "spec", "asn_list", "as_numbers"]
+      },
+      "rules.spec.asn_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher",
+        "schema_path": ["rules", "spec", "asn_matcher"]
+      },
+      "rules.spec.asn_matcher.asn_sets": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
+        "schema_path": ["rules", "spec", "asn_matcher", "asn_sets"]
+      },
+      "rules.spec.asn_matcher.asn_sets.kind": {
+        "anchor": "schema-rules--spec--asn_matcher--asn_sets--kind",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
+        "schema_path": ["rules", "spec", "asn_matcher", "asn_sets", "kind"]
+      },
+      "rules.spec.asn_matcher.asn_sets.name": {
+        "anchor": "schema-rules--spec--asn_matcher--asn_sets--name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
+        "schema_path": ["rules", "spec", "asn_matcher", "asn_sets", "name"]
+      },
+      "rules.spec.asn_matcher.asn_sets.namespace": {
+        "anchor": "schema-rules--spec--asn_matcher--asn_sets--namespace",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
+        "schema_path": ["rules", "spec", "asn_matcher", "asn_sets", "namespace"]
+      },
+      "rules.spec.asn_matcher.asn_sets.tenant": {
+        "anchor": "schema-rules--spec--asn_matcher--asn_sets--tenant",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
+        "schema_path": ["rules", "spec", "asn_matcher", "asn_sets", "tenant"]
+      },
+      "rules.spec.asn_matcher.asn_sets.uid": {
+        "anchor": "schema-rules--spec--asn_matcher--asn_sets--uid",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
+        "schema_path": ["rules", "spec", "asn_matcher", "asn_sets", "uid"]
+      },
+      "rules.spec.bypass_rate_limiter": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:bypass_rate_limiter",
+        "schema_path": ["rules", "spec", "bypass_rate_limiter"]
+      },
+      "rules.spec.country_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
+        "schema_path": ["rules", "spec", "country_list"]
+      },
+      "rules.spec.country_list.country_codes": {
+        "anchor": "schema-rules--spec--country_list--country_codes",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
+        "schema_path": ["rules", "spec", "country_list", "country_codes"]
+      },
+      "rules.spec.country_list.invert_match": {
+        "anchor": "schema-rules--spec--country_list--invert_match",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
+        "schema_path": ["rules", "spec", "country_list", "invert_match"]
+      },
+      "rules.spec.custom_rate_limiter": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
+        "schema_path": ["rules", "spec", "custom_rate_limiter"]
+      },
+      "rules.spec.custom_rate_limiter.name": {
+        "anchor": "schema-rules--spec--custom_rate_limiter--name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
+        "schema_path": ["rules", "spec", "custom_rate_limiter", "name"]
+      },
+      "rules.spec.custom_rate_limiter.namespace": {
+        "anchor": "schema-rules--spec--custom_rate_limiter--namespace",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
+        "schema_path": ["rules", "spec", "custom_rate_limiter", "namespace"]
+      },
+      "rules.spec.custom_rate_limiter.tenant": {
+        "anchor": "schema-rules--spec--custom_rate_limiter--tenant",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
+        "schema_path": ["rules", "spec", "custom_rate_limiter", "tenant"]
+      },
+      "rules.spec.domain_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
+        "schema_path": ["rules", "spec", "domain_matcher"]
+      },
+      "rules.spec.domain_matcher.exact_values": {
+        "anchor": "schema-rules--spec--domain_matcher--exact_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
+        "schema_path": ["rules", "spec", "domain_matcher", "exact_values"]
+      },
+      "rules.spec.domain_matcher.regex_values": {
+        "anchor": "schema-rules--spec--domain_matcher--regex_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
+        "schema_path": ["rules", "spec", "domain_matcher", "regex_values"]
+      },
+      "rules.spec.headers": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
+        "schema_path": ["rules", "spec", "headers"]
+      },
+      "rules.spec.headers.check_not_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_not_present",
+        "schema_path": ["rules", "spec", "headers", "check_not_present"]
+      },
+      "rules.spec.headers.check_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_present",
+        "schema_path": ["rules", "spec", "headers", "check_present"]
+      },
+      "rules.spec.headers.invert_matcher": {
+        "anchor": "schema-rules--spec--headers--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
+        "schema_path": ["rules", "spec", "headers", "invert_matcher"]
+      },
+      "rules.spec.headers.item": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
+        "schema_path": ["rules", "spec", "headers", "item"]
+      },
+      "rules.spec.headers.item.exact_values": {
+        "anchor": "schema-rules--spec--headers--item--exact_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
+        "schema_path": ["rules", "spec", "headers", "item", "exact_values"]
+      },
+      "rules.spec.headers.item.regex_values": {
+        "anchor": "schema-rules--spec--headers--item--regex_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
+        "schema_path": ["rules", "spec", "headers", "item", "regex_values"]
+      },
+      "rules.spec.headers.item.transformers": {
+        "anchor": "schema-rules--spec--headers--item--transformers",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
+        "schema_path": ["rules", "spec", "headers", "item", "transformers"]
+      },
+      "rules.spec.headers.name": {
+        "anchor": "schema-rules--spec--headers--name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
+        "schema_path": ["rules", "spec", "headers", "name"]
+      },
+      "rules.spec.http_method": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
+        "schema_path": ["rules", "spec", "http_method"]
+      },
+      "rules.spec.http_method.invert_matcher": {
+        "anchor": "schema-rules--spec--http_method--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
+        "schema_path": ["rules", "spec", "http_method", "invert_matcher"]
+      },
+      "rules.spec.http_method.methods": {
+        "anchor": "schema-rules--spec--http_method--methods",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
+        "schema_path": ["rules", "spec", "http_method", "methods"]
+      },
+      "rules.spec.ip_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
+        "schema_path": ["rules", "spec", "ip_matcher"]
+      },
+      "rules.spec.ip_matcher.invert_matcher": {
+        "anchor": "schema-rules--spec--ip_matcher--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
+        "schema_path": ["rules", "spec", "ip_matcher", "invert_matcher"]
+      },
+      "rules.spec.ip_matcher.prefix_sets": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
+        "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets"]
+      },
+      "rules.spec.ip_matcher.prefix_sets.kind": {
+        "anchor": "schema-rules--spec--ip_matcher--prefix_sets--kind",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
+        "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets", "kind"]
+      },
+      "rules.spec.ip_matcher.prefix_sets.name": {
+        "anchor": "schema-rules--spec--ip_matcher--prefix_sets--name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
+        "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets", "name"]
+      },
+      "rules.spec.ip_matcher.prefix_sets.namespace": {
+        "anchor": "schema-rules--spec--ip_matcher--prefix_sets--namespace",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
+        "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets", "namespace"]
+      },
+      "rules.spec.ip_matcher.prefix_sets.tenant": {
+        "anchor": "schema-rules--spec--ip_matcher--prefix_sets--tenant",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
+        "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets", "tenant"]
+      },
+      "rules.spec.ip_matcher.prefix_sets.uid": {
+        "anchor": "schema-rules--spec--ip_matcher--prefix_sets--uid",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
+        "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets", "uid"]
+      },
+      "rules.spec.ip_prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
+        "schema_path": ["rules", "spec", "ip_prefix_list"]
+      },
+      "rules.spec.ip_prefix_list.invert_match": {
+        "anchor": "schema-rules--spec--ip_prefix_list--invert_match",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
+        "schema_path": ["rules", "spec", "ip_prefix_list", "invert_match"]
+      },
+      "rules.spec.ip_prefix_list.ip_prefixes": {
+        "anchor": "schema-rules--spec--ip_prefix_list--ip_prefixes",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
+        "schema_path": ["rules", "spec", "ip_prefix_list", "ip_prefixes"]
+      },
+      "rules.spec.path": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "schema_path": ["rules", "spec", "path"]
+      },
+      "rules.spec.path.encoded_path_matcher": {
+        "anchor": "schema-rules--spec--path--encoded_path_matcher",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "schema_path": ["rules", "spec", "path", "encoded_path_matcher"]
+      },
+      "rules.spec.path.exact_values": {
+        "anchor": "schema-rules--spec--path--exact_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "schema_path": ["rules", "spec", "path", "exact_values"]
+      },
+      "rules.spec.path.invert_matcher": {
+        "anchor": "schema-rules--spec--path--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "schema_path": ["rules", "spec", "path", "invert_matcher"]
+      },
+      "rules.spec.path.prefix_values": {
+        "anchor": "schema-rules--spec--path--prefix_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "schema_path": ["rules", "spec", "path", "prefix_values"]
+      },
+      "rules.spec.path.regex_values": {
+        "anchor": "schema-rules--spec--path--regex_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "schema_path": ["rules", "spec", "path", "regex_values"]
+      },
+      "rules.spec.path.suffix_values": {
+        "anchor": "schema-rules--spec--path--suffix_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "schema_path": ["rules", "spec", "path", "suffix_values"]
+      },
+      "rules.spec.path.transformers": {
+        "anchor": "schema-rules--spec--path--transformers",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "schema_path": ["rules", "spec", "path", "transformers"]
+      },
+      "rules.spec.segment_policy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
+        "schema_path": ["rules", "spec", "segment_policy"]
+      },
+      "rules.spec.segment_policy.dst_any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_any",
+        "schema_path": ["rules", "spec", "segment_policy", "dst_any"]
+      },
+      "rules.spec.segment_policy.dst_segments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments",
+        "schema_path": ["rules", "spec", "segment_policy", "dst_segments"]
+      },
+      "rules.spec.segment_policy.dst_segments.segments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
+        "schema_path": ["rules", "spec", "segment_policy", "dst_segments", "segments"]
+      },
+      "rules.spec.segment_policy.dst_segments.segments.name": {
+        "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
+        "schema_path": ["rules", "spec", "segment_policy", "dst_segments", "segments", "name"]
+      },
+      "rules.spec.segment_policy.dst_segments.segments.namespace": {
+        "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--namespace",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
+        "schema_path": ["rules", "spec", "segment_policy", "dst_segments", "segments", "namespace"]
+      },
+      "rules.spec.segment_policy.dst_segments.segments.tenant": {
+        "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--tenant",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
+        "schema_path": ["rules", "spec", "segment_policy", "dst_segments", "segments", "tenant"]
+      },
+      "rules.spec.segment_policy.intra_segment": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:intra_segment",
+        "schema_path": ["rules", "spec", "segment_policy", "intra_segment"]
+      },
+      "rules.spec.segment_policy.src_any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_any",
+        "schema_path": ["rules", "spec", "segment_policy", "src_any"]
+      },
+      "rules.spec.segment_policy.src_segments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments",
+        "schema_path": ["rules", "spec", "segment_policy", "src_segments"]
+      },
+      "rules.spec.segment_policy.src_segments.segments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
+        "schema_path": ["rules", "spec", "segment_policy", "src_segments", "segments"]
+      },
+      "rules.spec.segment_policy.src_segments.segments.name": {
+        "anchor": "schema-rules--spec--segment_policy--src_segments--segments--name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
+        "schema_path": ["rules", "spec", "segment_policy", "src_segments", "segments", "name"]
+      },
+      "rules.spec.segment_policy.src_segments.segments.namespace": {
+        "anchor": "schema-rules--spec--segment_policy--src_segments--segments--namespace",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
+        "schema_path": ["rules", "spec", "segment_policy", "src_segments", "segments", "namespace"]
+      },
+      "rules.spec.segment_policy.src_segments.segments.tenant": {
+        "anchor": "schema-rules--spec--segment_policy--src_segments--segments--tenant",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
+        "schema_path": ["rules", "spec", "segment_policy", "src_segments", "segments", "tenant"]
+      },
+      "server_name": {
+        "anchor": "schema-server_name",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+        "schema_path": ["server_name"]
+      },
+      "server_name_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
+        "schema_path": ["server_name_matcher"]
+      },
+      "server_name_matcher.exact_values": {
+        "anchor": "schema-server_name_matcher--exact_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
+        "schema_path": ["server_name_matcher", "exact_values"]
+      },
+      "server_name_matcher.regex_values": {
+        "anchor": "schema-server_name_matcher--regex_values",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
+        "schema_path": ["server_name_matcher", "regex_values"]
+      },
+      "server_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector",
+        "schema_path": ["server_selector"]
+      },
+      "server_selector.expressions": {
+        "anchor": "schema-server_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector",
+        "schema_path": ["server_selector", "expressions"]
+      }
+    },
+    "provider_name": "rate_limiter_policy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:rate_limiter_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1472,
+      "body_sha256": "sha256:684f97e46db75de6b7f1edc5844c5ae1625f876c9ee3618109ac4f25e7f63b9c",
+      "child_ids": [
+        "xcsh-docs:data-sources:rate_limiter_policy:reference",
+        "xcsh-docs:data-sources:rate_limiter_policy:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/rate_limiter_policy/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/rate_limiter_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_rate_limiter_policy for xcsh_rate_limiter_policy.",
+      "title": "xcsh_rate_limiter_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 28406,
+      "body_sha256": "sha256:86961517332916324ab83e70b68046a1c2675dec4d1b9af21e98bb2ae109a8e8",
+      "child_ids": [
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:any_server",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector"
+      ],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:fundamentals",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_rate_limiter_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1831,
+      "body_sha256": "sha256:7b12ce3480637e494e5de441f322ada31b697bd1bcc0d5e22840e45c60423704",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:any_server",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/any_server/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--any_server.md",
+      "role": "properties",
+      "schema_path": ["any_server"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/any_server/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "any_server for xcsh_rate_limiter_policy.",
+      "title": "any_server",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2367,
+      "body_sha256": "sha256:d66441bfcb15b60d444cff67fc329867cf53f273fb2dab03e4280ca1452a7783",
+      "child_ids": [
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec"
+      ],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules.md",
+      "role": "properties",
+      "schema_path": ["rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules for xcsh_rate_limiter_policy.",
+      "title": "rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3478,
+      "body_sha256": "sha256:00070fa8c2637efddcdfa4b9c8abf528f70646a550262064570a33825e423de7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/metadata/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.metadata for xcsh_rate_limiter_policy.",
+      "title": "rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6723,
+      "body_sha256": "sha256:7b92dab9a1c0ba7f8df5d8580b8061f2a2a9898075805109e0f4d2debac443e2",
+      "child_ids": [
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_asn",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_country",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_ip",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:apply_rate_limiter",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_list",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:bypass_rate_limiter",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy"
+      ],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec for xcsh_rate_limiter_policy.",
+      "title": "rules.spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1339,
+      "body_sha256": "sha256:dc294723fef3f64eaf2f4e15390d0a93fc74cc6c1573b3ec21a84f97fbccf070",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_asn",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/any_asn/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--any_asn.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "any_asn"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/any_asn/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.any_asn for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.any_asn",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1369,
+      "body_sha256": "sha256:bf7177cfc334000c187a83c5708d9c79f8e513e43b6ba8d301c0bbac378fe94b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_country",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/any_country/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--any_country.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "any_country"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/any_country/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.any_country for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.any_country",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1337,
+      "body_sha256": "sha256:4d3a88bacc705962d6956807341898c09c68783fb73f2b28ca506dad6f4d04d3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_ip",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/any_ip/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--any_ip.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "any_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/any_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.any_ip for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.any_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1390,
+      "body_sha256": "sha256:c2d65d89cb5bb24ac331128831632049d2bd2cf3e38b66c6365c7730e33d785b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:apply_rate_limiter",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/apply_rate_limiter/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--apply_rate_limiter.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "apply_rate_limiter"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/apply_rate_limiter/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.apply_rate_limiter for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.apply_rate_limiter",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3178,
+      "body_sha256": "sha256:c9b9553b8b20936633b14741165812402dde4b99960e7250f92853f5f6432dc3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_list",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/asn_list/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--asn_list.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "asn_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/asn_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.asn_list for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.asn_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1579,
+      "body_sha256": "sha256:5c8107b89788aafec8214305acb7f37d216b0800b127c3069797783711e8123c",
+      "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets"],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/asn_matcher/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--asn_matcher.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "asn_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/asn_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.asn_matcher for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.asn_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6715,
+      "body_sha256": "sha256:bdf49a9ad8dcdfce2b6816ece8825cf80f46a5fb9ddf8ed5300cc55191651cf3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/asn_matcher/asn_sets/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--asn_matcher--asn_sets.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "asn_matcher", "asn_sets"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/asn_matcher/asn_sets/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.asn_matcher.asn_sets for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.asn_matcher.asn_sets",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1393,
+      "body_sha256": "sha256:46b30a1bdf2b89e56044354ae8a3d721226de0da66e298817c5e634e545a8229",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:bypass_rate_limiter",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/bypass_rate_limiter/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--bypass_rate_limiter.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "bypass_rate_limiter"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/bypass_rate_limiter/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.bypass_rate_limiter for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.bypass_rate_limiter",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10325,
+      "body_sha256": "sha256:a591d1948795f0401a940c0b3693590c8aef7ce641767bcca24722f4c172d9d6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/country_list/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--country_list.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "country_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/country_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.country_list for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.country_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5534,
+      "body_sha256": "sha256:bbd8e7639a982b6239a4d1be58df0e032183a1d0caed65c3c548e789f5cf032c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/custom_rate_limiter/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--custom_rate_limiter.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "custom_rate_limiter"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/custom_rate_limiter/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.custom_rate_limiter for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.custom_rate_limiter",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4372,
+      "body_sha256": "sha256:4fa028a816557790094b383518da3090c06dcfbaf3976af6a9855478d76b814d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--domain_matcher.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "domain_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/domain_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.domain_matcher for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.domain_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5408,
+      "body_sha256": "sha256:2805b8f42354ef1f5aa5ac0ec1cdd05251cb77a1d9ed1b570775f51ae3fe6782",
+      "child_ids": [
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_not_present",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_present",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item"
+      ],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/headers/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--headers.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "headers"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/headers/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.headers for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.headers",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1563,
+      "body_sha256": "sha256:64250e17842ca2eabb78600db6097087cda9745367cd713e5bd89460b3a3538c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_not_present",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/headers/check_not_present/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--headers--check_not_present.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "headers", "check_not_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/headers/check_not_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.headers.check_not_present for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.headers.check_not_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1551,
+      "body_sha256": "sha256:e9406aaaa97fa086cc49fadeee8a156db9b9dd91efd8124d19a5c61906ed93c0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_present",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/headers/check_present/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--headers--check_present.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "headers", "check_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/headers/check_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.headers.check_present for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.headers.check_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5927,
+      "body_sha256": "sha256:4cd53c8aabcfe62fe652a38e8abd16e9b542a38686cf2b6b1dc0dd1d341b8882",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/headers/item/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--headers--item.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "headers", "item"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/headers/item/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.headers.item for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.headers.item",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3424,
+      "body_sha256": "sha256:442ff7d49fa75f5abcbd72d711c6c0a1bf96edb016ef27b01bd48c14a9f689b2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/http_method/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--http_method.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "http_method"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/http_method/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.http_method for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.http_method",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2189,
+      "body_sha256": "sha256:1bbb64c64f33e765ae8786d780ea1e751874693f65b8902d93e16855da9421e7",
+      "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets"],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/ip_matcher/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--ip_matcher.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "ip_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/ip_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.ip_matcher for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.ip_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6729,
+      "body_sha256": "sha256:da3bc45e646063bc9ef39d67c3b953576957aeaa72b10cb2d08c6072cc8de072",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/ip_matcher/prefix_sets/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--ip_matcher--prefix_sets.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/ip_matcher/prefix_sets/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.ip_matcher.prefix_sets for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.ip_matcher.prefix_sets",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2864,
+      "body_sha256": "sha256:af057d90dcaa096294efacd08673c15655636b2bf33d2b11e3bc97536abc161e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--ip_prefix_list.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "ip_prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/ip_prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.ip_prefix_list for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.ip_prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9436,
+      "body_sha256": "sha256:1e8fed5b1b4d14f03314b8af28918d3b4254703933222d96ae064e8e971b64c8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/path/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--path.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "path"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/path/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.path for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.path",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3236,
+      "body_sha256": "sha256:d13ae8777dae309e464532f3df5754294acb2ccd0eb8c1d63ed1f5270b1a9d95",
+      "child_ids": [
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_any",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:intra_segment",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_any",
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments"
+      ],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--segment_policy.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "segment_policy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.segment_policy for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.segment_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1557,
+      "body_sha256": "sha256:683cdeb9bdd49aa746b1fad76893c1c724fbdf9774a2b808c336af4dada86f44",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_any",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_any/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--segment_policy--dst_any.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "segment_policy", "dst_any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.segment_policy.dst_any for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.segment_policy.dst_any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1884,
+      "body_sha256": "sha256:14a3f336d9c17b10530340e9568e67171537e6700f16415d7981f6d53de93341",
+      "child_ids": [
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments"
+      ],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--segment_policy--dst_segments.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "segment_policy", "dst_segments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.segment_policy.dst_segments for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.segment_policy.dst_segments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5950,
+      "body_sha256": "sha256:4f2752504eee63e3a3328aad88a5fa5668cf4e480605ea8bd1adc0c89e6848e5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/segments/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--segment_policy--dst_segments--segments.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "segment_policy", "dst_segments", "segments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/dst_segments/segments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.segment_policy.dst_segments.segments for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.segment_policy.dst_segments.segments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1593,
+      "body_sha256": "sha256:a33d6c2e09840bcbff2a73302e242f694834824e063e5b8f596c1ea0330d218d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:intra_segment",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/intra_segment/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--segment_policy--intra_segment.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "segment_policy", "intra_segment"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/intra_segment/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.segment_policy.intra_segment for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.segment_policy.intra_segment",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1557,
+      "body_sha256": "sha256:d82acd620aa9924d0cd2d843092371756ade90d31129a7a479bb0f14bdf526de",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_any",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_any/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--segment_policy--src_any.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "segment_policy", "src_any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.segment_policy.src_any for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.segment_policy.src_any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1884,
+      "body_sha256": "sha256:f8e14c57a43255ee1df60b4222c66ca0a1e260c0d9bc30e089646254d2ea8522",
+      "child_ids": [
+        "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments"
+      ],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--segment_policy--src_segments.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "segment_policy", "src_segments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.segment_policy.src_segments for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.segment_policy.src_segments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5950,
+      "body_sha256": "sha256:6e837e538925dce8b4547e451110240e42c4ead429e242daf8a1fbda86b0e28c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/segments/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--rules--spec--segment_policy--src_segments--segments.md",
+      "role": "properties",
+      "schema_path": ["rules", "spec", "segment_policy", "src_segments", "segments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/rules/spec/segment_policy/src_segments/segments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.spec.segment_policy.src_segments.segments for xcsh_rate_limiter_policy.",
+      "title": "rules.spec.segment_policy.src_segments.segments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4095,
+      "body_sha256": "sha256:f526a9317a66709baf786641478ac2b298471a79c1994feba1bc80bfd7cb252f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/server_name_matcher/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--server_name_matcher.md",
+      "role": "properties",
+      "schema_path": ["server_name_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/server_name_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_name_matcher for xcsh_rate_limiter_policy.",
+      "title": "server_name_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3621,
+      "body_sha256": "sha256:56fc2b3e4ed8043cbb3afe4b605ceb1e368bbc292e65b3815f03a594b178ff6f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:reference",
+      "path": "documentation/data-sources/rate_limiter_policy/properties/server_selector/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--properties--server_selector.md",
+      "role": "properties",
+      "schema_path": ["server_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/properties/server_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "server_selector for xcsh_rate_limiter_policy.",
+      "title": "server_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 699,
+      "body_sha256": "sha256:53c27aa148681d4bfb19ac375b7b8c88a5450c112da596d80c79eb99bee718fb",
+      "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:examples",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:fundamentals",
+      "path": "documentation/data-sources/rate_limiter_policy/examples/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_rate_limiter_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1368,
+      "body_sha256": "sha256:68ed9f5fdd326bf3b8b14346db3b423a6f67170a9cd4eb786d732f94462749ff",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:rate_limiter_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:631ebdd1844abfdc3c403666a18c881b536cd51ce00cfb0a5d316458e5a24bba",
+        "source_path": "examples/data-sources/xcsh_rate_limiter_policy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:rate_limiter_policy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:rate_limiter_policy:examples",
+      "path": "documentation/data-sources/rate_limiter_policy/examples/data-source/index.md",
+      "provider_name": "rate_limiter_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--rate_limiter_policy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/rate_limiter_policy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_rate_limiter_policy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["rate_limiter_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,766 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:log_receiver:fundamentals",
+    "id": "xcsh-docs:resources:log_receiver:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:log_receiver:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:log_receiver:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:log_receiver:reference",
+        "schema_path": ["disable"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:log_receiver:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:log_receiver:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:log_receiver:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:log_receiver:reference",
+        "schema_path": ["namespace"]
+      },
+      "site_local": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:site_local",
+        "schema_path": ["site_local"]
+      },
+      "syslog": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog",
+        "schema_path": ["syslog"]
+      },
+      "syslog.syslog_rfc5424": {
+        "anchor": "schema-syslog--syslog_rfc5424",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog",
+        "schema_path": ["syslog", "syslog_rfc5424"]
+      },
+      "syslog.tcp_server": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tcp_server",
+        "schema_path": ["syslog", "tcp_server"]
+      },
+      "syslog.tcp_server.port": {
+        "anchor": "schema-syslog--tcp_server--port",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tcp_server",
+        "schema_path": ["syslog", "tcp_server", "port"]
+      },
+      "syslog.tcp_server.server_name": {
+        "anchor": "schema-syslog--tcp_server--server_name",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tcp_server",
+        "schema_path": ["syslog", "tcp_server", "server_name"]
+      },
+      "syslog.tls_server": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+        "schema_path": ["syslog", "tls_server"]
+      },
+      "syslog.tls_server.default_https_port": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:default_https_port",
+        "schema_path": ["syslog", "tls_server", "default_https_port"]
+      },
+      "syslog.tls_server.default_syslog_tls_port": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:default_syslog_tls_port",
+        "schema_path": ["syslog", "tls_server", "default_syslog_tls_port"]
+      },
+      "syslog.tls_server.mtls_disabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_disabled",
+        "schema_path": ["syslog", "tls_server", "mtls_disabled"]
+      },
+      "syslog.tls_server.mtls_enable": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable",
+        "schema_path": ["syslog", "tls_server", "mtls_enable"]
+      },
+      "syslog.tls_server.mtls_enable.certificate": {
+        "anchor": "schema-syslog--tls_server--mtls_enable--certificate",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable",
+        "schema_path": ["syslog", "tls_server", "mtls_enable", "certificate"]
+      },
+      "syslog.tls_server.mtls_enable.key_url": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url",
+        "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url"]
+      },
+      "syslog.tls_server.mtls_enable.key_url.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
+        "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "blindfold_secret_info"]
+      },
+      "syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-syslog--tls_server--mtls_enable--key_url--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
+        "schema_path": [
+          "syslog",
+          "tls_server",
+          "mtls_enable",
+          "key_url",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.location": {
+        "anchor": "schema-syslog--tls_server--mtls_enable--key_url--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
+        "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "blindfold_secret_info", "location"]
+      },
+      "syslog.tls_server.mtls_enable.key_url.blindfold_secret_info.store_provider": {
+        "anchor": "schema-syslog--tls_server--mtls_enable--key_url--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
+        "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "blindfold_secret_info", "store_provider"]
+      },
+      "syslog.tls_server.mtls_enable.key_url.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info",
+        "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "clear_secret_info"]
+      },
+      "syslog.tls_server.mtls_enable.key_url.clear_secret_info.provider_ref": {
+        "anchor": "schema-syslog--tls_server--mtls_enable--key_url--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info",
+        "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "clear_secret_info", "provider_ref"]
+      },
+      "syslog.tls_server.mtls_enable.key_url.clear_secret_info.url": {
+        "anchor": "schema-syslog--tls_server--mtls_enable--key_url--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info",
+        "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "clear_secret_info", "url"]
+      },
+      "syslog.tls_server.port": {
+        "anchor": "schema-syslog--tls_server--port",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+        "schema_path": ["syslog", "tls_server", "port"]
+      },
+      "syslog.tls_server.server_name": {
+        "anchor": "schema-syslog--tls_server--server_name",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+        "schema_path": ["syslog", "tls_server", "server_name"]
+      },
+      "syslog.tls_server.trusted_ca_url": {
+        "anchor": "schema-syslog--tls_server--trusted_ca_url",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+        "schema_path": ["syslog", "tls_server", "trusted_ca_url"]
+      },
+      "syslog.tls_server.volterra_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:volterra_ca",
+        "schema_path": ["syslog", "tls_server", "volterra_ca"]
+      },
+      "syslog.udp_server": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:udp_server",
+        "schema_path": ["syslog", "udp_server"]
+      },
+      "syslog.udp_server.port": {
+        "anchor": "schema-syslog--udp_server--port",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:udp_server",
+        "schema_path": ["syslog", "udp_server", "port"]
+      },
+      "syslog.udp_server.server_name": {
+        "anchor": "schema-syslog--udp_server--server_name",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:syslog:udp_server",
+        "schema_path": ["syslog", "udp_server", "server_name"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:log_receiver:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "log_receiver",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:log_receiver:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1531,
+      "body_sha256": "sha256:14a503a1f4a762bc9e617263cadeb3696a786f90dd5b3a11bab7b05f97db4727",
+      "child_ids": [
+        "xcsh-docs:resources:log_receiver:reference",
+        "xcsh-docs:resources:log_receiver:examples",
+        "xcsh-docs:resources:log_receiver:import",
+        "xcsh-docs:resources:log_receiver:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/log_receiver/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/log_receiver.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_log_receiver for xcsh_log_receiver.",
+      "title": "xcsh_log_receiver",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 15847,
+      "body_sha256": "sha256:ec74266a73d1f0fe1b1431d0736649517ab3271c1babc7499e11bc6e4b30dc66",
+      "child_ids": [
+        "xcsh-docs:resources:log_receiver:properties:site_local",
+        "xcsh-docs:resources:log_receiver:properties:syslog",
+        "xcsh-docs:resources:log_receiver:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:reference",
+      "parent_id": "xcsh-docs:resources:log_receiver:fundamentals",
+      "path": "documentation/resources/log_receiver/properties/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_log_receiver.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1086,
+      "body_sha256": "sha256:3239acbc7f5f14debc7fb0daec89f1ff7a1e5522894b445a38a7da0247b0ae1d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:site_local",
+      "parent_id": "xcsh-docs:resources:log_receiver:reference",
+      "path": "documentation/resources/log_receiver/properties/site_local/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--site_local.md",
+      "role": "properties",
+      "schema_path": ["site_local"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/site_local/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "site_local for xcsh_log_receiver.",
+      "title": "site_local",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3549,
+      "body_sha256": "sha256:f434eab6480309706472e0fda66abc7649780be4bcac1e8aabe71db4f58dd62c",
+      "child_ids": [
+        "xcsh-docs:resources:log_receiver:properties:syslog:tcp_server",
+        "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+        "xcsh-docs:resources:log_receiver:properties:syslog:udp_server"
+      ],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog",
+      "parent_id": "xcsh-docs:resources:log_receiver:reference",
+      "path": "documentation/resources/log_receiver/properties/syslog/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog.md",
+      "role": "properties",
+      "schema_path": ["syslog"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog for xcsh_log_receiver.",
+      "title": "syslog",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3707,
+      "body_sha256": "sha256:0297ed883ed5b21f138b21ac656dcbe408afa98a28f8833085c19f2230e87140",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tcp_server",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog",
+      "path": "documentation/resources/log_receiver/properties/syslog/tcp_server/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tcp_server.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tcp_server"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tcp_server/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tcp_server for xcsh_log_receiver.",
+      "title": "syslog.tcp_server",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7598,
+      "body_sha256": "sha256:4531bd44536283dc00aef25b7c1eb0291277ee843af6a5885b67ec8169f09b19",
+      "child_ids": [
+        "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:default_https_port",
+        "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:default_syslog_tls_port",
+        "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_disabled",
+        "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable",
+        "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:volterra_ca"
+      ],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server for xcsh_log_receiver.",
+      "title": "syslog.tls_server",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1392,
+      "body_sha256": "sha256:a9f1faeacce1a29a2ff27723bbf0d1ed66b2b74b9b5eb7a6fb24f2ea2542f60e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:default_https_port",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/default_https_port/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server--default_https_port.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server", "default_https_port"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/default_https_port/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server.default_https_port for xcsh_log_receiver.",
+      "title": "syslog.tls_server.default_https_port",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1407,
+      "body_sha256": "sha256:602ccfeba6355810a3542e4492ec3b89f23f8d4b29ddfe3fa22b94aa27b29b71",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:default_syslog_tls_port",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/default_syslog_tls_port/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server--default_syslog_tls_port.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server", "default_syslog_tls_port"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/default_syslog_tls_port/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server.default_syslog_tls_port for xcsh_log_receiver.",
+      "title": "syslog.tls_server.default_syslog_tls_port",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1377,
+      "body_sha256": "sha256:dfd15615c45c92565e2614d7ee2a38e76a45f2a31a4eed4ae234c4b2fee9dae0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_disabled",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/mtls_disabled/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server--mtls_disabled.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server", "mtls_disabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/mtls_disabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server.mtls_disabled for xcsh_log_receiver.",
+      "title": "syslog.tls_server.mtls_disabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3061,
+      "body_sha256": "sha256:25ed061685976cafe77b8e0ba65d1751ab5e7920824560481b70c943aef81ffe",
+      "child_ids": ["xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url"],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/mtls_enable/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server--mtls_enable.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server", "mtls_enable"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/mtls_enable/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server.mtls_enable for xcsh_log_receiver.",
+      "title": "syslog.tls_server.mtls_enable",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2646,
+      "body_sha256": "sha256:b0e66f149a73afde747af9ce8dccf50bdac1d810bf386ea0e64d2b81bbcc30fa",
+      "child_ids": [
+        "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
+        "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server--mtls_enable--key_url.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server.mtls_enable.key_url for xcsh_log_receiver.",
+      "title": "syslog.tls_server.mtls_enable.key_url",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5246,
+      "body_sha256": "sha256:6063fc90b02ebdb61983b44386ccab4c552d56f98a21e22339ed62f4c137010d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/blindfold_secret_info/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server--mtls_enable--key_url--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server.mtls_enable.key_url.blindfold_secret_info for xcsh_log_receiver.",
+      "title": "syslog.tls_server.mtls_enable.key_url.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4117,
+      "body_sha256": "sha256:7e4adca3c6e6f86136b8195e28bc3590f1b38f35ff363e6a0a3edc80be75d7d6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/clear_secret_info/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server--mtls_enable--key_url--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server", "mtls_enable", "key_url", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/mtls_enable/key_url/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server.mtls_enable.key_url.clear_secret_info for xcsh_log_receiver.",
+      "title": "syslog.tls_server.mtls_enable.key_url.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1393,
+      "body_sha256": "sha256:b2d992f65031fe980454443bd3832b63450838232d69cfee835eb62cf39f85b1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server:volterra_ca",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog:tls_server",
+      "path": "documentation/resources/log_receiver/properties/syslog/tls_server/volterra_ca/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--tls_server--volterra_ca.md",
+      "role": "properties",
+      "schema_path": ["syslog", "tls_server", "volterra_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/tls_server/volterra_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.tls_server.volterra_ca for xcsh_log_receiver.",
+      "title": "syslog.tls_server.volterra_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3707,
+      "body_sha256": "sha256:eb91119050e9db2079593bab8522549ac04a0e723f8d9871192fa400b6ba7fc4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:syslog:udp_server",
+      "parent_id": "xcsh-docs:resources:log_receiver:properties:syslog",
+      "path": "documentation/resources/log_receiver/properties/syslog/udp_server/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--syslog--udp_server.md",
+      "role": "properties",
+      "schema_path": ["syslog", "udp_server"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/syslog/udp_server/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "syslog.udp_server for xcsh_log_receiver.",
+      "title": "syslog.udp_server",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2231,
+      "body_sha256": "sha256:97ea946089822239048f931eee43d3e4ad52cf7e7541f9fd205c8aeafc404105",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:log_receiver:reference",
+      "path": "documentation/resources/log_receiver/properties/timeouts/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_log_receiver.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 633,
+      "body_sha256": "sha256:12f4bb38f555be90536f6e110186741b1b80b38c4ccc78cf1c7dae21537d9549",
+      "child_ids": ["xcsh-docs:resources:log_receiver:example:resource"],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:examples",
+      "parent_id": "xcsh-docs:resources:log_receiver:fundamentals",
+      "path": "documentation/resources/log_receiver/examples/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_log_receiver.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1233,
+      "body_sha256": "sha256:afd45808a7e02a952e4a3b85f3e1d765420eb7bc9e8a2f95877e214bb1913f69",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:5e9b1e9ee7893ce8f260198c000519dd49a791826b61c5ded6feeb808a6b615d",
+        "source_path": "examples/resources/xcsh_log_receiver/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:log_receiver:example:resource",
+      "parent_id": "xcsh-docs:resources:log_receiver:examples",
+      "path": "documentation/resources/log_receiver/examples/resource/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_log_receiver.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 508,
+      "body_sha256": "sha256:873d42bef18d374a3c32c26248de1c5f6288bfe7e048e02426a0da2f820f548b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:import",
+      "parent_id": "xcsh-docs:resources:log_receiver:fundamentals",
+      "path": "documentation/resources/log_receiver/lifecycle/import/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_log_receiver.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 568,
+      "body_sha256": "sha256:1ab9516c63361b31a2dfc84e4d57f5898e492fb951979276fa0e73b904084f5e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:log_receiver:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:log_receiver:timeouts",
+      "parent_id": "xcsh-docs:resources:log_receiver:fundamentals",
+      "path": "documentation/resources/log_receiver/lifecycle/timeouts/index.md",
+      "provider_name": "log_receiver",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--log_receiver--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_log_receiver.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["log_receiverCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

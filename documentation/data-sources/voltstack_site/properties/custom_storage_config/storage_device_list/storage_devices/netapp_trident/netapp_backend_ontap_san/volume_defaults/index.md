@@ -1,0 +1,461 @@
+---
+page_title: "custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults"
+subcategory: ""
+description: "custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults for xcsh_voltstack_site."
+xcsh_docs: {"aliases": [], "body_bytes": 12077, "body_sha256": "sha256:e3d1215e1ba9ae3daba1e3ed97f17dbd88fe79b5049fd11b453e6473f0ef3619", "child_ids": ["xcsh-docs:data-sources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults:no_qos"], "collection_id": "xcsh-docs:data-sources:voltstack_site:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults", "parent_id": "xcsh-docs:data-sources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san", "path": "documentation/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/index.md", "provider_name": "voltstack_site", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "properties", "schema_path": ["custom_storage_config", "storage_device_list", "storage_devices", "netapp_trident", "netapp_backend_ontap_san", "volume_defaults"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults for xcsh_voltstack_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["voltstack_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/)
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/)
+- [custom_storage_config](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/custom_storage_config/)
+- [custom_storage_config.storage_device_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/)
+- [custom_storage_config.storage_device_list.storage_devices](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/)
+- custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+It controls how each volume is provisioned by default using these OPTIONS in a special section of
+the configuration.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-qos_policy_choice": "[\"adaptive_qos_policy\",\"no_qos\",\"qos_policy\"]"
+}
+```
+
+## Direct properties
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--adaptive_qos_policy"></a>
+
+### adaptive_qos_policy property
+
+Type: `"string"`. Computed.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Exclusive with \[no\_qos qos\_policy\] Enter Adaptive QoS Policy Name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--encryption"></a>
+
+### encryption property
+
+Type: `"bool"`. Computed.
+
+Enable Encryption. Enable NetApp volume encryption.
+
+Upstream description:
+
+Enable NetApp volume encryption.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--export_policy"></a>
+
+### export_policy property
+
+Type: `"string"`. Computed.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Export policy to use.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [no_qos](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/no_qos/): complete subsection reference.
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--qos_policy"></a>
+
+### qos_policy property
+
+Type: `"string"`. Computed.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Exclusive with \[adaptive\_qos\_policy no\_qos\] Enter QoS Policy Name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "128",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--security_style"></a>
+
+### security_style property
+
+Type: `"string"`. Computed.
+
+Security Style. Security style for new volumes.
+
+Upstream description:
+
+Security style for new volumes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--snapshot_dir"></a>
+
+### snapshot_dir property
+
+Type: `"bool"`. Computed.
+
+Access to Snapshot Directory. Access to the .snapshot directory.
+
+Upstream description:
+
+Access to the .snapshot directory.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--snapshot_policy"></a>
+
+### snapshot_policy property
+
+Type: `"string"`. Computed.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Snapshot policy to use.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--snapshot_reserve"></a>
+
+### snapshot_reserve property
+
+Type: `"string"`. Computed.
+
+Percentage of volume reserved for snapshots. '0' if snapshot policy is 'none', else ''.
+
+Upstream description:
+
+Percentage of volume reserved for snapshots. "0" if snapshot policy is "none", else ""
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--space_reserve"></a>
+
+### space_reserve property
+
+Type: `"string"`. Computed.
+
+\[Enum: none|thick\] Space reservation mode; “none” (thin) or “volume” (thick). Possible values are
+\`none\`, \`thick\`.
+
+Upstream description:
+
+Space reservation mode; “none” (thin) or “volume” (thick)
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "enum": [
+    "none",
+    "thick"
+  ],
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"none\\\",\\\"thick\\\"]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"none\\\",\\\"thick\\\"]"
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--split_on_clone"></a>
+
+### split_on_clone property
+
+Type: `"bool"`. Computed.
+
+Split a clone from its parent upon creation.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--tiering_policy"></a>
+
+### tiering_policy property
+
+Type: `"string"`. Computed.
+
+Policy configuration for this feature.
+
+Upstream description:
+
+Tiering policy to use. "none" is default.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-custom_storage_config--storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--unix_permissions"></a>
+
+### unix_permissions property
+
+Type: `"number"`. Computed.
+
+Unix permission mode for new volumes. All allowed 777.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+## Next pages
+
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults.no_qos](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/no_qos/)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/)
+- [xcsh_voltstack_site](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/)

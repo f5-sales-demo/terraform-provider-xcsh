@@ -1,0 +1,285 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:policer:fundamentals",
+    "id": "xcsh-docs:resources:policer:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["annotations"]
+      },
+      "burst_size": {
+        "anchor": "schema-burst_size",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["burst_size"]
+      },
+      "committed_information_rate": {
+        "anchor": "schema-committed_information_rate",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["committed_information_rate"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["disable"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:policer:reference", "schema_path": ["id"] },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["namespace"]
+      },
+      "policer_mode": {
+        "anchor": "schema-policer_mode",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["policer_mode"]
+      },
+      "policer_type": {
+        "anchor": "schema-policer_type",
+        "document_id": "xcsh-docs:resources:policer:reference",
+        "schema_path": ["policer_type"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policer:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:policer:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:policer:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:policer:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:policer:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "policer",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:policer:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1586,
+      "body_sha256": "sha256:7a9d0967d1859ad81e0ff2b82cac123af14c34d1a1d81e407df691da6794e3d5",
+      "child_ids": [
+        "xcsh-docs:resources:policer:reference",
+        "xcsh-docs:resources:policer:examples",
+        "xcsh-docs:resources:policer:import",
+        "xcsh-docs:resources:policer:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policer:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/policer/index.md",
+      "provider_name": "policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/policer.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policer/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_policer for xcsh_policer.",
+      "title": "xcsh_policer",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13964,
+      "body_sha256": "sha256:0799c2485e5b9e385c91c9680ddec8e9cf8955ea27a610bf6e5b7a927f396f05",
+      "child_ids": ["xcsh-docs:resources:policer:properties:timeouts"],
+      "collection_id": "xcsh-docs:resources:policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policer:reference",
+      "parent_id": "xcsh-docs:resources:policer:fundamentals",
+      "path": "documentation/resources/policer/properties/index.md",
+      "provider_name": "policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policer--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policer/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_policer.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2201,
+      "body_sha256": "sha256:e60e560bf3b45602d6785e366b20740ab1857635e84f514172253e64934eebc8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policer:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:policer:reference",
+      "path": "documentation/resources/policer/properties/timeouts/index.md",
+      "provider_name": "policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policer--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policer/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_policer.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 603,
+      "body_sha256": "sha256:d5e637fc42d9c5c0662a68bed86192f1868358072e0d67f6a5ec26194bdaacdf",
+      "child_ids": ["xcsh-docs:resources:policer:example:resource"],
+      "collection_id": "xcsh-docs:resources:policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policer:examples",
+      "parent_id": "xcsh-docs:resources:policer:fundamentals",
+      "path": "documentation/resources/policer/examples/index.md",
+      "provider_name": "policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policer--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policer/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_policer.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1260,
+      "body_sha256": "sha256:43612a85637df1b9c2f196726f5503d9bb983c8dec7f33fd72f1346a78bd1ef4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policer:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:771424522ef5cd3615902f335201bca762afca86a171354ca7b9f6787dcaf443",
+        "source_path": "examples/resources/xcsh_policer/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:policer:example:resource",
+      "parent_id": "xcsh-docs:resources:policer:examples",
+      "path": "documentation/resources/policer/examples/resource/index.md",
+      "provider_name": "policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policer--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policer/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_policer.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 483,
+      "body_sha256": "sha256:c3cb924762865b7e2b661baa2d26d86f4f027e7874fb826ab5cfc1cce813ab74",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policer:import",
+      "parent_id": "xcsh-docs:resources:policer:fundamentals",
+      "path": "documentation/resources/policer/lifecycle/import/index.md",
+      "provider_name": "policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policer--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policer/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_policer.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 543,
+      "body_sha256": "sha256:9c5e39575d2bb403334dac3d47aa65e79789b992d8725f5daf20ade868fa33ee",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policer:timeouts",
+      "parent_id": "xcsh-docs:resources:policer:fundamentals",
+      "path": "documentation/resources/policer/lifecycle/timeouts/index.md",
+      "provider_name": "policer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policer--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policer/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_policer.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

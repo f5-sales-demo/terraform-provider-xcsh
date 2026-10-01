@@ -1,0 +1,43 @@
+---
+page_title: "endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and"
+subcategory: ""
+description: "endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and for xcsh_bot_endpoint_policy."
+xcsh_docs: {"aliases": [], "body_bytes": 4700, "body_sha256": "sha256:4da27b85ee440eeb7a9bdde6e96c54e117b7547ab3e2d13dd82d956e8414ebb1", "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:response_header_v2:response_header_and:response_header_operator:header:header_and", "child_ids": ["xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:response_header_v2:response_header_and:response_header_operator:header:header_and:response_header_match_v2"], "collection_id": "xcsh-docs:data-sources:bot_endpoint_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:response_header_v2:response_header_and:response_header_operator:header:header_and", "parent_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:response_header_v2:response_header_and:response_header_operator:header", "path": "docs/guides/data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--response_he--1bdc2f2c492873ce67a05538de03d263.md", "provider_name": "bot_endpoint_policy", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "properties", "schema_path": ["endpoint_policy_content", "protected_web_endpoints", "protected_web_endpoints", "transaction_result_criteria", "transaction_result_success", "response_header_v2", "response_header_and", "response_header_operator", "header", "header_and"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/transaction_result_criteria/transaction_result_success/response_header_v2/response_header_and/response_header_operator/header/header_and/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and for xcsh_bot_endpoint_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md)
+- [Property reference](data-sources--bot_endpoint_policy--reference.md)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--properties--endpoint_policy_content.md)
+- [endpoint_policy_content.protected_web_endpoints](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--response_header_v2.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--response_header_v2--response_header_and.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--response_he--cb9fd61d2884836612bb1e8246801608.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--response_he--59477e6ebf4294c786b6a5c034589790.md)
+- endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+Header Matcher. Response Header matcher Choice.
+
+## Direct properties
+
+- [response_header_match_v2](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--response_he--29f43953fa9cfbaebd383bdbcce99cf8.md): complete subsection reference.
+
+## Next pages
+
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and.response_header_match_v2](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--response_he--29f43953fa9cfbaebd383bdbcce99cf8.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--response_he--59477e6ebf4294c786b6a5c034589790.md)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md)

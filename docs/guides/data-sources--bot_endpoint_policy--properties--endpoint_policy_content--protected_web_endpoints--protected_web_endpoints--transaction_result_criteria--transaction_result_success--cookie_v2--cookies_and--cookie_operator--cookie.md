@@ -1,0 +1,54 @@
+---
+page_title: "endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie"
+subcategory: ""
+description: "endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie for xcsh_bot_endpoint_policy."
+xcsh_docs: {"aliases": [], "body_bytes": 6786, "body_sha256": "sha256:dd186e89909cd27b6fc612a5d1443ecbdf56b15d2b270db2381dd4e2021f7768", "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_and:cookie_operator:cookie", "child_ids": ["xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_and:cookie_operator:cookie:cookie_and", "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_and:cookie_operator:cookie:cookie_anything", "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_and:cookie_operator:cookie:cookie_none", "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_and:cookie_operator:cookie:cookie_not_present", "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_and:cookie_operator:cookie:cookie_or"], "collection_id": "xcsh-docs:data-sources:bot_endpoint_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_and:cookie_operator:cookie", "parent_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_and:cookie_operator", "path": "docs/guides/data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_and--cookie_operator--cookie.md", "provider_name": "bot_endpoint_policy", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "properties", "schema_path": ["endpoint_policy_content", "protected_web_endpoints", "protected_web_endpoints", "transaction_result_criteria", "transaction_result_success", "cookie_v2", "cookies_and", "cookie_operator", "cookie"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_and/cookie_operator/cookie/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie for xcsh_bot_endpoint_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md)
+- [Property reference](data-sources--bot_endpoint_policy--reference.md)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--properties--endpoint_policy_content.md)
+- [endpoint_policy_content.protected_web_endpoints](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_and.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_and--cookie_operator.md)
+- endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+Operator. Operator
+
+## Direct properties
+
+- [cookie_and](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--b01aa9ec98422ff83a3b249bb5ef0490.md): complete subsection reference.
+
+- [cookie_anything](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--d465564d41743dabd8723be71892ab0c.md): complete subsection reference.
+
+- [cookie_none](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--455e98bb4739524204dc2e1da2d08ebc.md): complete subsection reference.
+
+- [cookie_not_present](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--efb9ecece46cce7e1d24035256882c19.md): complete subsection reference.
+
+- [cookie_or](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_and--cookie_operator--cookie--cookie_or.md): complete subsection reference.
+
+## Next pages
+
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie.cookie_and](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--b01aa9ec98422ff83a3b249bb5ef0490.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie.cookie_anything](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--d465564d41743dabd8723be71892ab0c.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie.cookie_none](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--455e98bb4739524204dc2e1da2d08ebc.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie.cookie_not_present](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--efb9ecece46cce7e1d24035256882c19.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator.cookie.cookie_or](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_and--cookie_operator--cookie--cookie_or.md)
+- [endpoint_policy_content.protected_web_endpoints.protected_web_endpoints.transaction_result_criteria.transaction_result_success.cookie_v2.cookies_and.cookie_operator](data-sources--bot_endpoint_policy--properties--endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_and--cookie_operator.md)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md)

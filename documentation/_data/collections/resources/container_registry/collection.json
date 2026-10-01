@@ -1,0 +1,408 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:container_registry:fundamentals",
+    "id": "xcsh-docs:resources:container_registry:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["disable"]
+      },
+      "email": {
+        "anchor": "schema-email",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["email"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["namespace"]
+      },
+      "password": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:container_registry:properties:password",
+        "schema_path": ["password"]
+      },
+      "password.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:container_registry:properties:password:blindfold_secret_info",
+        "schema_path": ["password", "blindfold_secret_info"]
+      },
+      "password.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-password--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:container_registry:properties:password:blindfold_secret_info",
+        "schema_path": ["password", "blindfold_secret_info", "decryption_provider"]
+      },
+      "password.blindfold_secret_info.location": {
+        "anchor": "schema-password--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:container_registry:properties:password:blindfold_secret_info",
+        "schema_path": ["password", "blindfold_secret_info", "location"]
+      },
+      "password.blindfold_secret_info.store_provider": {
+        "anchor": "schema-password--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:container_registry:properties:password:blindfold_secret_info",
+        "schema_path": ["password", "blindfold_secret_info", "store_provider"]
+      },
+      "password.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:container_registry:properties:password:clear_secret_info",
+        "schema_path": ["password", "clear_secret_info"]
+      },
+      "password.clear_secret_info.provider_ref": {
+        "anchor": "schema-password--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:container_registry:properties:password:clear_secret_info",
+        "schema_path": ["password", "clear_secret_info", "provider_ref"]
+      },
+      "password.clear_secret_info.url": {
+        "anchor": "schema-password--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:container_registry:properties:password:clear_secret_info",
+        "schema_path": ["password", "clear_secret_info", "url"]
+      },
+      "registry": {
+        "anchor": "schema-registry",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["registry"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:container_registry:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:container_registry:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:container_registry:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:container_registry:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:container_registry:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      },
+      "user_name": {
+        "anchor": "schema-user_name",
+        "document_id": "xcsh-docs:resources:container_registry:reference",
+        "schema_path": ["user_name"]
+      }
+    },
+    "provider_name": "container_registry",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:container_registry:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1775,
+      "body_sha256": "sha256:fa0cdb312e2ff2cb00ec137c680fe3d0009466bb9374c3efc7d9608c68559e11",
+      "child_ids": [
+        "xcsh-docs:resources:container_registry:reference",
+        "xcsh-docs:resources:container_registry:examples",
+        "xcsh-docs:resources:container_registry:import",
+        "xcsh-docs:resources:container_registry:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/container_registry/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/container_registry.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_container_registry for xcsh_container_registry.",
+      "title": "xcsh_container_registry",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 14802,
+      "body_sha256": "sha256:c29643d46779c6cb8e348668000d2e49efcefdac05657e7b9807d2270319cc12",
+      "child_ids": [
+        "xcsh-docs:resources:container_registry:properties:password",
+        "xcsh-docs:resources:container_registry:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:reference",
+      "parent_id": "xcsh-docs:resources:container_registry:fundamentals",
+      "path": "documentation/resources/container_registry/properties/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_container_registry.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2036,
+      "body_sha256": "sha256:5f11e8b5ac415f6d3663ffbf3bc287e009d3b3ad126b8d400b735940f6947b61",
+      "child_ids": [
+        "xcsh-docs:resources:container_registry:properties:password:blindfold_secret_info",
+        "xcsh-docs:resources:container_registry:properties:password:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:properties:password",
+      "parent_id": "xcsh-docs:resources:container_registry:reference",
+      "path": "documentation/resources/container_registry/properties/password/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--properties--password.md",
+      "role": "properties",
+      "schema_path": ["password"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/password/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "password for xcsh_container_registry.",
+      "title": "password",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4620,
+      "body_sha256": "sha256:aaba373cd2fec3d10dce5a5ad311486b4293d2bebcce5f1625b93f5606bb3ba7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:properties:password:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:container_registry:properties:password",
+      "path": "documentation/resources/container_registry/properties/password/blindfold_secret_info/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--properties--password--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["password", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/password/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "password.blindfold_secret_info for xcsh_container_registry.",
+      "title": "password.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3523,
+      "body_sha256": "sha256:92f9a4ddcf8d17e9cd0279fe8ddd56ad08774d81561e07365a54b8d349f0f359",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:properties:password:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:container_registry:properties:password",
+      "path": "documentation/resources/container_registry/properties/password/clear_secret_info/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--properties--password--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["password", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/password/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "password.clear_secret_info for xcsh_container_registry.",
+      "title": "password.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2267,
+      "body_sha256": "sha256:1365b2ae3c3fda6a79147c278d9789fc90c0d987f550b226f4c7b2dd7f44ea51",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:container_registry:reference",
+      "path": "documentation/resources/container_registry/properties/timeouts/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_container_registry.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 669,
+      "body_sha256": "sha256:30f79db11777fe47e5449fd48b61ce4d658698c523b81b09b19a571ef8138285",
+      "child_ids": ["xcsh-docs:resources:container_registry:example:resource"],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:examples",
+      "parent_id": "xcsh-docs:resources:container_registry:fundamentals",
+      "path": "documentation/resources/container_registry/examples/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_container_registry.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1409,
+      "body_sha256": "sha256:ef042c989c9b631759b4ce169bdda8071415063d55ac71012747575edbf3df6b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:333d8100537c966abe2c10d8b88b6ea4b034dc0115a736110297064d1894694d",
+        "source_path": "examples/resources/xcsh_container_registry/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:container_registry:example:resource",
+      "parent_id": "xcsh-docs:resources:container_registry:examples",
+      "path": "documentation/resources/container_registry/examples/resource/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_container_registry.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 538,
+      "body_sha256": "sha256:9a31dd5b911a2fc8d8e22f8d702eb913e4ef4e05a1fe35cdd0d47b81b6fdac60",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:import",
+      "parent_id": "xcsh-docs:resources:container_registry:fundamentals",
+      "path": "documentation/resources/container_registry/lifecycle/import/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_container_registry.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 598,
+      "body_sha256": "sha256:15020d28258841bb64516476b539e962dc7d3872cd1b9a57a8d9c7aedf7b782c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:container_registry:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:container_registry:timeouts",
+      "parent_id": "xcsh-docs:resources:container_registry:fundamentals",
+      "path": "documentation/resources/container_registry/lifecycle/timeouts/index.md",
+      "provider_name": "container_registry",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--container_registry--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_container_registry.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["container_registryCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}
