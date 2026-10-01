@@ -316,6 +316,16 @@ esac
 		t.Fatal(err)
 	}
 
+	realCopy, err := exec.LookPath("cp")
+	if err != nil {
+		t.Fatal(err)
+	}
+	copyLog := filepath.Join(tmp, "copy.log")
+	copyStub := "#!/usr/bin/env bash\nprintf '%s\\n' \"$*\" >> \"$CP_LOG\"\nexec \"$REAL_CP\" \"$@\"\n"
+	if err := os.WriteFile(filepath.Join(binDir, "cp"), []byte(copyStub), 0o700); err != nil { //nolint:gosec // executable copy spy delegates to the real cp
+		t.Fatal(err)
+	}
+
 	actionEnv := []string{
 		"PATH=" + binDir + string(os.PathListSeparator) + os.Getenv("PATH"),
 		"SPEC_DIR=" + specDir,
@@ -337,6 +347,8 @@ esac
 		"CHANGES_FILE=" + filepath.Join(tmp, "upstream-contract-changes.json"),
 		"REMOVALS_FILE=" + filepath.Join(tmp, "upstream-contract-removals.json"),
 		"TAG_COMMIT=" + tagCommit,
+		"CP_LOG=" + copyLog,
+		"REAL_CP=" + realCopy,
 	}
 	cmd := exec.Command("bash", "--noprofile", "--norc", "-eo", "pipefail", "-c", script)
 	cmd.Dir = tmp
@@ -344,6 +356,20 @@ esac
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		t.Fatalf("exact-release download failed: %v\n%s", err, out)
+	}
+
+	copyBytes, err := os.ReadFile(copyLog) //nolint:gosec // isolated copy-spy log
+	if err != nil {
+		t.Fatal(err)
+	}
+	promotedByByteCopy := false
+	for _, invocation := range strings.Split(string(copyBytes), "\n") {
+		if strings.HasSuffix(invocation, " "+specDir+"/") {
+			promotedByByteCopy = strings.HasPrefix(invocation, "-a --reflink=never ")
+		}
+	}
+	if !promotedByByteCopy {
+		t.Fatalf("verified specs were not promoted by explicit byte copy:\n%s", copyBytes)
 	}
 
 	gotCatalog, err := os.ReadFile(filepath.Join(specDir, "api-catalog.json")) //nolint:gosec // isolated test path
