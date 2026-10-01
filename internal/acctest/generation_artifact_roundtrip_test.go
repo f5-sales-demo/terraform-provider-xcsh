@@ -29,6 +29,9 @@ func TestGenerationArtifactRoundTrip(t *testing.T) {
 			}
 			writeReleaseTestFile(t, repo, "scripts/stage-documentation-manifest.py", string(staging), 0o600)
 			writeDocumentationManifest := func() {
+				if err := os.MkdirAll(filepath.Join(repo, "documentation"), 0o700); err != nil {
+					t.Fatal(err)
+				}
 				fixture := filepath.Join(repo, "docs/fixture.md")
 				data, err := os.ReadFile(fixture)
 				if err != nil {
