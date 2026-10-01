@@ -38,4 +38,4 @@ jobs:
           if [ -n "$PROVIDER_TAG" ]; then
             args+=(--tag "$PROVIDER_TAG")
           fi
-          python3 scripts/terraform-docs-snapshot.py "${args[@]}"
+          python3 scripts/terraform_docs_snapshot.py "${args[@]}"

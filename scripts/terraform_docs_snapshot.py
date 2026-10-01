@@ -82,14 +82,14 @@ def metadata(relative: str, data: bytes) -> tuple[str, dict]:
     return body, enriched
 
 
-def snapshot(tag: str, output: Path) -> dict:
+def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
     """Package every Markdown file from one exact stable Git tag."""
     if not VERSION.fullmatch(tag):
         message = "only stable vN.N.N provider tags are allowed"
         raise ValueError(message)
     commit = run("git", "rev-parse", tag + "^{commit}").decode().strip()
     source = run("git", "archive", "--format=tar", tag, "docs")
-    documents = []
+    documents: list[dict[str, Any]] = []
     archive = io.BytesIO()
     with (
         tarfile.open(fileobj=io.BytesIO(source)) as tagged,
@@ -109,7 +109,11 @@ def snapshot(tag: str, output: Path) -> dict:
             ):
                 message = f"unsafe tagged document: {member.name}"
                 raise ValueError(message)
-            data = tagged.extractfile(member).read()
+            extracted = tagged.extractfile(member)
+            if extracted is None:
+                message = "tagged Markdown member has no file content"
+                raise ValueError(message)
+            data = extracted.read()
             body, meta = metadata(member.name, data)
             info = tarfile.TarInfo(member.name)
             info.size, info.mode, info.mtime = len(data), 0o644, 0
@@ -181,7 +185,7 @@ def snapshot(tag: str, output: Path) -> dict:
     return manifest
 
 
-def publish(tag: str, output: Path) -> None:
+def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
     """Publish assets atomically under repository immutable-release policy."""
     if not VERSION.fullmatch(tag):
         message = "only stable vN.N.N provider tags are allowed"
