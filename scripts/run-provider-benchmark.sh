@@ -79,8 +79,8 @@ python3 "$script_dir/profile_provider_runtime.py" \
   --repository "$GITHUB_REPOSITORY" \
   --commit "$source_sha" \
   --image-digest "$observed_image" \
-  -- "$script_dir/run-provider-benchmark-phase.sh" \
-  "$phase" "$concurrency" "$evidence_dir"
+  -- python3 "$script_dir/run_with_cache_writeback.py" "$evidence_dir" -- \
+  "$script_dir/run-provider-benchmark-phase.sh" "$phase" "$concurrency" "$evidence_dir"
 status=$?
 set -e
 
