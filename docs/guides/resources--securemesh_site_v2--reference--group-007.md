@@ -1663,7 +1663,7 @@ Breadcrumbs:
 
 Type: `["object", {}]`. Optional.
 
-Configuration parameter for f5 dns default.
+Configuration parameter for f5 DNS default.
 
 Upstream description:
 

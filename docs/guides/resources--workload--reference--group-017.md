@@ -12,7 +12,7 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 Type: `["list", "string"]`. Optional.
 
-Command to execute. Overrides the docker image's ENTRYPOINT.
+Command to execute. Overrides the Docker image's ENTRYPOINT.
 
 Provider validators and defaults (from schema source):
 

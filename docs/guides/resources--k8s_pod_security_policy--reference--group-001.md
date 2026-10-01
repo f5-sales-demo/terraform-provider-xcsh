@@ -1147,7 +1147,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Provider validators and defaults (from schema source):
 
@@ -1188,7 +1188,7 @@ allowed_capabilities {
 
 Type: `["list", "string"]`. Optional.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Provider validators and defaults (from schema source):
 
@@ -1430,7 +1430,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Provider validators and defaults (from schema source):
 
@@ -1471,7 +1471,7 @@ default_capabilities {
 
 Type: `["list", "string"]`. Optional.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Provider validators and defaults (from schema source):
 
@@ -1549,7 +1549,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Provider validators and defaults (from schema source):
 
@@ -1590,7 +1590,7 @@ drop_capabilities {
 
 Type: `["list", "string"]`. Optional.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Provider validators and defaults (from schema source):
 

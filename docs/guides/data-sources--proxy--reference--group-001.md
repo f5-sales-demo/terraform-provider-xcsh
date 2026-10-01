@@ -1263,7 +1263,7 @@ Breadcrumbs:
 
 Type: `["object", {}]`. Computed.
 
-Configuration parameter for disable dns masquerade.
+Configuration parameter for disable DNS masquerade.
 
 Upstream description:
 
@@ -1316,7 +1316,7 @@ Breadcrumbs:
 
 Type: `["object", {}]`. Computed.
 
-Configuration parameter for enable dns masquerade.
+Configuration parameter for enable DNS masquerade.
 
 Upstream description:
 

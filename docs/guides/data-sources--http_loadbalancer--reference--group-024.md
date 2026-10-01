@@ -784,7 +784,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Bot Defense Javascript Injection Configuration for inline bot defense deployments.
+Bot Defense JavaScript Injection Configuration for inline bot defense deployments.
 
 Receipt-pinned upstream constraints:
 
@@ -877,7 +877,7 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 Select Add item to configure your JavaScript tag. If adding both Bot Adv and Fraud, the Bot
-Javascript should be added first.
+JavaScript should be added first.
 
 Receipt-pinned upstream constraints:
 
@@ -1009,7 +1009,7 @@ Breadcrumbs:
 
 Type: `"list"`. Computed.
 
-Add the tag attributes you want to include in your Javascript tag.
+Add the tag attributes you want to include in your JavaScript tag.
 
 Receipt-pinned upstream constraints:
 

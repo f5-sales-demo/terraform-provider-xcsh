@@ -43,7 +43,7 @@ Key ID. Unique identifier for this resource
 
 Type: `"string"`. Optional.
 
-Namespace is always system for dns\_zone.
+Namespace is always system for DNS\_zone.
 
 Provider validators and defaults (from schema source):
 

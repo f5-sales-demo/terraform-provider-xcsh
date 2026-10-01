@@ -1426,7 +1426,7 @@ tag response header with a cookie to avoid Captcha challenge for subsequent requ
 CAPTCHA is mainly used as a security check to ensure only human users can pass through. Generally,
 computers or bots are not capable of solving a captcha.
 
-You can enable either Javascript challenge or Captcha challenge on a virtual host.
+You can enable either JavaScript challenge or Captcha challenge on a virtual host.
 
 Receipt-pinned upstream constraints:
 

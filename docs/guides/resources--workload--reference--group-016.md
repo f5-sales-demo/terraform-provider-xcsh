@@ -7301,7 +7301,7 @@ container {
 
 Type: `["list", "string"]`. Optional.
 
-Arguments to the entrypoint. Overrides the docker image's CMD.
+Arguments to the entrypoint. Overrides the Docker image's CMD.
 
 Provider validators and defaults (from schema source):
 

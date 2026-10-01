@@ -4072,7 +4072,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Configuration parameter for dns delegation.
+Configuration parameter for DNS delegation.
 
 Provider validators and defaults (from schema source):
 

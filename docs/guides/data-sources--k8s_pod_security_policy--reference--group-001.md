@@ -1014,7 +1014,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Receipt-pinned upstream constraints:
 
@@ -1041,7 +1041,7 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Receipt-pinned upstream constraints:
 
@@ -1253,7 +1253,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Receipt-pinned upstream constraints:
 
@@ -1280,7 +1280,7 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Receipt-pinned upstream constraints:
 
@@ -1350,7 +1350,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Receipt-pinned upstream constraints:
 
@@ -1377,7 +1377,7 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-List of capabilities that docker container has.
+List of capabilities that Docker container has.
 
 Receipt-pinned upstream constraints:
 

@@ -3490,7 +3490,7 @@ Breadcrumbs:
 
 Type: `"single"`. Computed.
 
-Configuration parameter for dns delegation.
+Configuration parameter for DNS delegation.
 
 Receipt-pinned upstream constraints:
 

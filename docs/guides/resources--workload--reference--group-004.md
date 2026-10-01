@@ -1119,7 +1119,7 @@ containers {
 
 Type: `["list", "string"]`. Optional.
 
-Arguments to the entrypoint. Overrides the docker image's CMD.
+Arguments to the entrypoint. Overrides the Docker image's CMD.
 
 Provider validators and defaults (from schema source):
 
@@ -1168,7 +1168,7 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Optional.
 
-Command to execute. Overrides the docker image's ENTRYPOINT.
+Command to execute. Overrides the Docker image's ENTRYPOINT.
 
 Provider validators and defaults (from schema source):
 

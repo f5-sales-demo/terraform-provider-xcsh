@@ -126,13 +126,13 @@ Receipt-pinned upstream constraints:
 
 Type: `"string"`. Computed.
 
-\[OneOf: dns\_name, dns\_name\_advanced, ip, service\_info\] Exclusive with \[dns\_name\_advanced IP
+\[OneOf: DNS\_name, DNS\_name\_advanced, ip, service\_info\] Exclusive with \[DNS\_name\_advanced IP
 service\_info\] Endpoint's IP address is discovered using DNS name resolution. The name given here
 is fully qualified domain name.
 
 Upstream description:
 
-Exclusive with \[dns\_name\_advanced IP service\_info\] Endpoint's IP address is discovered using
+Exclusive with \[DNS\_name\_advanced IP service\_info\] Endpoint's IP address is discovered using
 DNS name resolution. The name given here is fully qualified domain name.
 
 Receipt-pinned upstream constraints:
@@ -256,12 +256,12 @@ Unique identifier for the resource.
 
 Type: `"string"`. Computed.
 
-Exclusive with \[dns\_name dns\_name\_advanced service\_info\] Endpoint is reachable at the given
+Exclusive with \[DNS\_name DNS\_name\_advanced service\_info\] Endpoint is reachable at the given
 IPv4/IPv6 address.
 
 Upstream description:
 
-Exclusive with \[dns\_name dns\_name\_advanced service\_info\] Endpoint is reachable at the given
+Exclusive with \[DNS\_name DNS\_name\_advanced service\_info\] Endpoint is reachable at the given
 IPv4/IPv6 address.
 
 Receipt-pinned upstream constraints:

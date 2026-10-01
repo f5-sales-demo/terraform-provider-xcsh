@@ -1534,11 +1534,11 @@ Breadcrumbs:
 Type: `"single"`. Computed.
 
 \[OneOf: insecure\_registry\_list, no\_insecure\_registries; Default: no\_insecure\_registries\]
-Docker Insecure Registry List. List of docker insecure registries.
+Docker Insecure Registry List. List of Docker insecure registries.
 
 Upstream description:
 
-List of docker insecure registries.
+List of Docker insecure registries.
 
 Receipt-pinned upstream constraints:
 
@@ -1572,11 +1572,11 @@ Select alternatives according to the provider validators above.
 
 Type: `["list", "string"]`. Computed.
 
-List of docker insecure registries in format 'example.com:5000'.
+List of Docker insecure registries in format 'example.com:5000'.
 
 Upstream description:
 
-List of docker insecure registries in format "example.com:5000"
+List of Docker insecure registries in format "example.com:5000"
 
 Receipt-pinned upstream constraints:
 

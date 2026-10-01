@@ -6009,7 +6009,7 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-Bot Defense Javascript Injection Configuration for inline bot defense deployments.
+Bot Defense JavaScript Injection Configuration for inline bot defense deployments.
 
 Provider validators and defaults (from schema source):
 
@@ -6126,7 +6126,7 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Select Add item to configure your JavaScript tag. If adding both Bot Adv and Fraud, the Bot
-Javascript should be added first.
+JavaScript should be added first.
 
 Provider validators and defaults (from schema source):
 

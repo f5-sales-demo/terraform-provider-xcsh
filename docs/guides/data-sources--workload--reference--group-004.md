@@ -962,7 +962,7 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-Arguments to the entrypoint. Overrides the docker image's CMD.
+Arguments to the entrypoint. Overrides the Docker image's CMD.
 
 Receipt-pinned upstream constraints:
 
@@ -1003,7 +1003,7 @@ Receipt-pinned upstream constraints:
 
 Type: `["list", "string"]`. Computed.
 
-Command to execute. Overrides the docker image's ENTRYPOINT.
+Command to execute. Overrides the Docker image's ENTRYPOINT.
 
 Receipt-pinned upstream constraints:
 

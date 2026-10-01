@@ -25,7 +25,7 @@ Breadcrumbs:
 
 Type: `"object"`. list nested block, Optional.
 
-Add the tag attributes you want to include in your Javascript tag.
+Add the tag attributes you want to include in your JavaScript tag.
 
 Receipt-pinned upstream constraints:
 

@@ -693,7 +693,7 @@ Breadcrumbs:
 
 Type: `["object", {}]`. Computed.
 
-\[OneOf: audit\_logs, dns\_logs, request\_logs, security\_events\] Enable this option
+\[OneOf: audit\_logs, DNS\_logs, request\_logs, security\_events\] Enable this option
 
 Upstream description:
 

@@ -1767,11 +1767,11 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 \[OneOf: insecure\_registry\_list, no\_insecure\_registries; Default: no\_insecure\_registries\]
-Docker Insecure Registry List. List of docker insecure registries.
+Docker Insecure Registry List. List of Docker insecure registries.
 
 Upstream description:
 
-List of docker insecure registries.
+List of Docker insecure registries.
 
 Provider validators and defaults (from schema source):
 
@@ -1819,11 +1819,11 @@ insecure_registry_list {
 
 Type: `["list", "string"]`. Optional.
 
-List of docker insecure registries in format 'example.com:5000'.
+List of Docker insecure registries in format 'example.com:5000'.
 
 Upstream description:
 
-List of docker insecure registries in format "example.com:5000"
+List of Docker insecure registries in format "example.com:5000"
 
 Provider validators and defaults (from schema source):
 

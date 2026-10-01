@@ -4725,34 +4725,34 @@ Breadcrumbs:
 Type: `"single"`. Computed.
 
 Enables loadbalancer to perform client browser compatibility test by redirecting to a page with
-Javascript. With this feature enabled, only clients that are capable of executing Javascript(mostly
+JavaScript. With this feature enabled, only clients that are capable of executing JavaScript(mostly
 browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do..
 
 Upstream description:
 
 Enables loadbalancer to perform client browser compatibility test by redirecting to a page with
-Javascript.
+JavaScript.
 
-With this feature enabled, only clients that are capable of executing Javascript(mostly browsers)
+With this feature enabled, only clients that are capable of executing JavaScript(mostly browsers)
 will be allowed to complete the HTTP request.
 
-When loadbalancer is configured to do Javascript Challenge, it will redirect the browser to an HTML
-page on every new HTTP request. This HTML page will have Javascript embedded in it. Loadbalancer
+When loadbalancer is configured to do JavaScript Challenge, it will redirect the browser to an HTML
+page on every new HTTP request. This HTML page will have JavaScript embedded in it. Loadbalancer
 chooses a set of random numbers for every new client and sends these numbers along with an encrypted
-answer with the request such that it embed these numbers as input in the Javascript. Javascript will
+answer with the request such that it embed these numbers as input in the JavaScript. JavaScript will
 run on the requester browser and perform a complex Math operation. Script will submit the answer to
 loadbalancer. Loadbalancer will validate the answer by comparing the calculated answer with the
 decrypted answer (which was encrypted when it was sent back as reply) and allow the request to the
 upstream server only if the answer is correct. Loadbalancer will tag response header with a cookie
-to avoid Javascript challenge for subsequent requests.
+to avoid JavaScript challenge for subsequent requests.
 
-Javascript challenge serves following purposes \* Validate that the request is coming via a browser
-that is capable for running Javascript \* Force the browser to run a complex operation, f(X), that
+JavaScript challenge serves following purposes \* Validate that the request is coming via a browser
+that is capable for running JavaScript \* Force the browser to run a complex operation, f(X), that
 requires it to spend a large number of CPU cycles. This is to slow down a potential DoS attacker by
 making it difficult to launch a large request flood without having to spend even larger CPU cost at
 their end.
 
-You can enable either Javascript challenge or Captcha challenge on a virtual host.
+You can enable either JavaScript challenge or Captcha challenge on a virtual host.
 
 Receipt-pinned upstream constraints:
 
@@ -4881,7 +4881,7 @@ Receipt-pinned upstream constraints:
 
 Type: `"number"`. Computed.
 
-Delay introduced by Javascript, in milliseconds.
+Delay introduced by JavaScript, in milliseconds.
 
 Receipt-pinned upstream constraints:
 

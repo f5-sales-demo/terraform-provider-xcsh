@@ -276,6 +276,9 @@ def publication_body(text: str, context: str) -> str:
             parts[index],
         )
         terms = {
+            "Javascript": "JavaScript",
+            "dns": "DNS",
+            "docker": "Docker",
             "key value": "key-value",
             "name space": "namespace",
             "id": "ID",
@@ -293,7 +296,9 @@ def publication_body(text: str, context: str) -> str:
                 segments[offset] = re.sub(
                     r"\b" + re.escape(before) + r"\b", after, segments[offset]
                 )
-        part = "".join(segments).replace("[id](", "[ID](")
+        part = "".join(segments)
+        for before, after in terms.items():
+            part = part.replace("[" + before + "](", "[" + after + "](")
         parts[index] = re.sub(r"\n{3,}", "\n\n", part)
     return "\n\n".join(part.strip() for part in parts if part.strip()) + "\n\n"
 
