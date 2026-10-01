@@ -20,6 +20,7 @@ jobs:
   publish:
     name: Publish immutable Terraform documentation
     runs-on: managed-socketless
+    environment: terraform-documentation-publication
     permissions:
       contents: write # create immutable snapshot release and upload assets
     steps:
