@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_discovery"
+page_title: "xcsh_api_discovery landing"
 subcategory: ""
-description: "xcsh_api_discovery for xcsh_api_discovery."
-xcsh_docs: {"aliases": [], "body_bytes": 1285, "body_sha256": "sha256:4a3d693b3eadaa5e87823f87403ccb4b0b49da93e8090116670581844497a1a7", "canonical_id": "xcsh-docs:data-sources:api_discovery:fundamentals", "child_ids": ["xcsh-docs:data-sources:api_discovery:reference", "xcsh-docs:data-sources:api_discovery:examples"], "collection_id": "xcsh-docs:data-sources:api_discovery:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_discovery:fundamentals", "parent_id": null, "path": "docs/data-sources/api_discovery.md", "provider_name": "api_discovery", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_discovery/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_discovery for xcsh_api_discovery.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_discoveryCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_discovery landing."
 ---
+
+# xcsh_api_discovery landing
+
+<a id="canonical-3123302132003013-1112002130101021-3331313310310030-3002230123333210-1113203220331333-0131231011213031-0211202023001022-1322201233022220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_discovery
+<a id="canonical-2211200001301210-1002112010313312-3201001321221101-0032221010002131-3020310000230313-1130320213213000-1103203312022001-1013102220302032"></a>
+
+## xcsh_api_discovery — xcsh_api_discovery / 103223311022 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages API discovery creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2123103320323303-3200312303301021-2031321330212301-2111301131002310-0102220302332020-0310333332000013-0301323130301021-3331111333213002"></a>
+
+## Prerequisites — xcsh_api_discovery / 103223311022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2211223213311223-0033233121131120-3012332022333300-1220310102222311-0031002320012233-0002220010130013-3020323311331221-3201321103221120"></a>
+
+## Minimal configuration — xcsh_api_discovery / 103223311022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "api_discovery_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1233131230213200-3031011012111313-0001101130103320-1213320310332321-2012010312102221-2000123230103310-3130012120320011-2201022023013222"></a>
+
+## Root configuration — xcsh_api_discovery / 103223311022 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0011103202121001-3000020311012131-2330132203312213-3111223302112333-0312211220322000-3323322030220213-3033211321130223-3130212221011032"></a>
 
-- [Property reference](../guides/data-sources--api_discovery--reference.md)
-- [Examples](../guides/data-sources--api_discovery--examples.md)
+## Next pages — xcsh_api_discovery / 103223311022 / 6
+
+- [Property reference](../guides/data-sources--api_discovery--reference--group-001.md#canonical-0133003333000300-0333300330222003-3301102231120300-2100101330332332-0003023001213320-1011031212230301-3133222100223120-0311100220023310)
+- [Examples](../guides/data-sources--api_discovery--examples--group-001.md#canonical-3301213201311031-3110013301031111-0113212001331001-1333230011010331-3000023322111303-2320221233022331-1103132033021121-3232301013323113)

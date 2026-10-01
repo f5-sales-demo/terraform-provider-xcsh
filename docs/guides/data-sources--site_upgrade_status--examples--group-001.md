@@ -1,0 +1,94 @@
+---
+page_title: "xcsh_site_upgrade_status examples"
+subcategory: ""
+description: "Complete grouped canonical reference for xcsh_site_upgrade_status examples."
+---
+
+# xcsh_site_upgrade_status examples
+
+<a id="canonical-3223111323110230-0123231002213330-0202201232313001-1031031203203312-0001221101110320-3222113013223302-2012232221110223-2002010112100100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1323310113011022-2322201033301201-1310100120001331-1200103312112130-2112331233203111-1203202203212302-2332300033001211-1201203100211210"></a>
+
+## Examples — Examples / 103300013311 / 2
+
+Breadcrumbs:
+
+- [xcsh_site_upgrade_status](../data-sources/site_upgrade_status.md#canonical-0311103030013201-2023013222321300-1123321212232123-1232102210103331-2001110222022222-0103301221312320-3101213121122310-1101333312101011)
+- Examples
+
+<a id="canonical-0313123113221021-0203102220132330-2001331121301301-3111021022103100-0220131110101100-3013003032311011-3301320210233111-2201221011320310"></a>
+
+## Complete configurations — Examples / 103300013311 / 3
+
+- [Data source](data-sources--site_upgrade_status--examples--group-001.md#canonical-2300222103311212-2122102320121120-1002232212000123-0112301033311311-3211020331002101-0123231331013330-0322323313202022-3000302011202323): valid configuration.
+
+<a id="canonical-0220131322232010-3212220312121313-2103021233032130-2313301132203031-3110312330231122-1321232030111202-1300211003232232-2212101321103020"></a>
+
+## Next pages — Examples / 103300013311 / 4
+
+- [Data source](data-sources--site_upgrade_status--examples--group-001.md#canonical-2300222103311212-2122102320121120-1002232212000123-0112301033311311-3211020331002101-0123231331013330-0322323313202022-3000302011202323)
+- [xcsh_site_upgrade_status](../data-sources/site_upgrade_status.md#canonical-0311103030013201-2023013222321300-1123321212232123-1232102210103331-2001110222022222-0103301221312320-3101213121122310-1101333312101011)
+
+<a id="canonical-2300222103311212-2122102320121120-1002232212000123-0112301033311311-3211020331002101-0123231331013330-0322323313202022-3000302011202323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3121212231001032-1122311101320131-1113233201020312-1300112021100122-3002301010112323-0102010310233230-2002003110201111-3103231312111032"></a>
+
+## Data source — Data source / 120112032120 / 2
+
+Breadcrumbs:
+
+- [xcsh_site_upgrade_status](../data-sources/site_upgrade_status.md#canonical-0311103030013201-2023013222321300-1123321212232123-1232102210103331-2001110222022222-0103301221312320-3101213121122310-1101333312101011)
+- [Examples](data-sources--site_upgrade_status--examples--group-001.md#canonical-3223111323110230-0123231002213330-0202201232313001-1031031203203312-0001221101110320-3222113013223302-2012232221110223-2002010112100100)
+- Data source
+
+Schema-derived minimal configuration validated with the checked-out provider.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/data-sources/xcsh_site_upgrade_status/data-source.tf`; digest `sha256:3c8a578ab685be3268d5b0dab58926aa035dcddae8cb2d3ebaa0f6a17186a683`.
+
+```terraform
+# Observe upgrade eligibility or wait for supplied software and OS targets to
+# be installed with the site back ONLINE.
+
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 7.3.0"
+    }
+  }
+}
+
+data "xcsh_site_upgrade_status" "site" {
+  site = "example-smsv2-site"
+
+  expected_software_version = "crt-20260201-0179"
+  expected_os_version       = "9.2026.17"
+  wait                      = true
+  timeout_seconds           = 7200
+  poll_interval_seconds     = 30
+}
+
+output "upgrade_converged" {
+  value = data.xcsh_site_upgrade_status.site.target_converged
+}
+```
+
+<a id="canonical-2111023310203022-0210322113112222-0120330130223202-0211012121331212-3201220213113031-1102001033022330-2202012230320301-0200333023010200"></a>
+
+## Next pages — Data source / 120112032120 / 3
+
+- [Examples](data-sources--site_upgrade_status--examples--group-001.md#canonical-3223111323110230-0123231002213330-0202201232313001-1031031203203312-0001221101110320-3222113013223302-2012232221110223-2002010112100100)
+- [xcsh_site_upgrade_status](../data-sources/site_upgrade_status.md#canonical-0311103030013201-2023013222321300-1123321212232123-1232102210103331-2001110222022222-0103301221312320-3101213121122310-1101333312101011)

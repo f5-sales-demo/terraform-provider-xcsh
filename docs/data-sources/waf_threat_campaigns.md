@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_waf_threat_campaigns"
+page_title: "xcsh_waf_threat_campaigns landing"
 subcategory: ""
-description: "xcsh_waf_threat_campaigns for xcsh_waf_threat_campaigns."
-xcsh_docs: {"aliases": [], "body_bytes": 1137, "body_sha256": "sha256:f12b8055482d43fc53d833dc5d550a5cd6d607597f13601447e9bbad6be43330", "canonical_id": "xcsh-docs:data-sources:waf_threat_campaigns:fundamentals", "child_ids": ["xcsh-docs:data-sources:waf_threat_campaigns:reference", "xcsh-docs:data-sources:waf_threat_campaigns:examples"], "collection_id": "xcsh-docs:data-sources:waf_threat_campaigns:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:waf_threat_campaigns:fundamentals", "parent_id": null, "path": "docs/data-sources/waf_threat_campaigns.md", "provider_name": "waf_threat_campaigns", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_threat_campaigns/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_waf_threat_campaigns for xcsh_waf_threat_campaigns.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_waf_threat_campaigns landing."
 ---
+
+# xcsh_waf_threat_campaigns landing
+
+<a id="canonical-1323321121302311-1032111022111323-1120132100221231-1221202233212221-1010312121000210-3221113220023012-3001030210113301-0002023032103021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_waf_threat_campaigns
+<a id="canonical-3333101333101303-3302233113031323-0112000121223333-2100101223030220-2110122132122110-0100101011000300-2120203333313331-2233023213030110"></a>
+
+## xcsh_waf_threat_campaigns — xcsh_waf_threat_campaigns / 320120001231 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-## Prerequisites
+<a id="canonical-2301133010020232-2201103313313202-3100122312233320-3130310220010302-0030001330202303-0022211230202301-0223023323101020-0310200221232210"></a>
+
+## Prerequisites — xcsh_waf_threat_campaigns / 320120001231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3001203121320003-3102301011103230-0210123213021003-0131333123130311-1103303312021200-3102013121100202-3022013103200032-2120133221111200"></a>
+
+## Minimal configuration — xcsh_waf_threat_campaigns / 320120001231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,11 +56,15 @@ output "waf_threat_campaigns_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1313003021021011-3102022303302001-3120220021010000-3313112012012133-1001202310220303-0201230113222113-1000032103200001-2001132113021322"></a>
+
+## Root configuration — xcsh_waf_threat_campaigns / 320120001231 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1123022201213012-1131313122110023-0230030301022102-3323112222100311-3303232203130233-0001120213013022-3032200323323323-3010113233330301"></a>
 
-- [Property reference](../guides/data-sources--waf_threat_campaigns--reference.md)
-- [Examples](../guides/data-sources--waf_threat_campaigns--examples.md)
+## Next pages — xcsh_waf_threat_campaigns / 320120001231 / 6
+
+- [Property reference](../guides/data-sources--waf_threat_campaigns--reference--group-001.md#canonical-2312320213131010-2313332320110100-1222123311130230-1202203132203210-2221111330220221-2123233132102221-2022012303331212-0311010310111022)
+- [Examples](../guides/data-sources--waf_threat_campaigns--examples--group-001.md#canonical-0221210003110010-0311133122200121-3130132231312010-3310202213023302-0312010220323313-1001113102001320-0112122321211020-0023322002031120)

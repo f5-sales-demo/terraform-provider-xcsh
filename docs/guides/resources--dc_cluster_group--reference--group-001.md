@@ -1,0 +1,629 @@
+---
+page_title: "xcsh_dc_cluster_group reference"
+subcategory: ""
+description: "Complete grouped canonical reference for xcsh_dc_cluster_group reference."
+---
+
+# xcsh_dc_cluster_group reference
+
+<a id="canonical-3020323102031131-2120211103310111-3012300022003323-3023301231000121-3002020033132213-0201300331100120-3122330131102121-1132110021113321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0030120202132033-2003100000213323-0231220323201203-2230211311311103-1100222101013102-3301002313000031-1133021320101030-3312020111232223"></a>
+
+## Property reference — Property reference / 102122023001 / 2
+
+Breadcrumbs:
+
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+- Property reference
+
+<a id="canonical-0301032312220110-0130203321000120-0101122010211231-1113232120232323-0301010022301030-3020320223232001-2123323101001030-3311321103312231"></a>
+
+## Direct properties — Property reference / 102122023001 / 3
+
+<a id="canonical-0133223330313312-1020322132330302-3313010313023322-2022010110130201-2110000113313222-0122110322311010-0133300321030310-3312130101311230"></a>
+
+<a id="canonical-3110300313212133-0300013022203120-1331011320221110-3000102212211202-3221223313012210-0230102223320201-3011101330112110-1230321111133201"></a>
+
+## annotations property — Property reference / 102122023001 / 4
+
+Type: `["map", "string"]`. Optional.
+
+Annotations is an unstructured key-value map stored with a resource that may be set by external
+tools to store and retrieve arbitrary metadata.
+
+Upstream description:
+
+Annotations is an unstructured key-value map stored with a resource that may be set by external
+tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
+modifying objects.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.values.string.max_len": "1024",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.values.string.max_len": "1024",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-0232211012222112-3100332021330220-0221222332103222-3302002320232221-2202001033300212-0132310003222212-3321313311122323-1311332223233231"></a>
+
+<a id="canonical-1030201323331203-2002213323022002-2213100021321123-0033331101313232-0310033330022112-1003301103100211-1330100321022132-2231222001322311"></a>
+
+## description property — Property reference / 102122023001 / 5
+
+Type: `"string"`. Optional.
+
+Human readable description for the object.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 1200,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 1200
+    },
+    "category": "discovery",
+    "characterSet": {
+      "description": "Free text with UTF-8 support"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 1200,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "1200"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "1200"
+  }
+}
+```
+
+<a id="canonical-3333203023300101-3300221133300311-0200202010123300-1110003110100311-0132202002202311-2011132330132020-3013203322211023-1100301030013112"></a>
+
+<a id="canonical-0020323123131113-1333221322131120-0130223111002330-2230210111233002-2132100011301312-1223112101202212-2033133331210021-1101120111102333"></a>
+
+## disable property — Property reference / 102122023001 / 6
+
+Type: `"bool"`. Optional.
+
+A value of true administratively disables the object.
+
+Upstream description:
+
+A value of true will administratively disable the object.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1111311121221233-1213010133312300-2120211300210101-2021012033201310-0231112031131322-0013312332103131-2110121302131130-3312032310031000"></a>
+
+<a id="canonical-0332133313332021-0323323233311110-0331022121122130-0113003032101222-0103212022311332-0323122220011102-0332203030301313-2010013110003210"></a>
+
+## ID property — Property reference / 102122023001 / 7
+
+Type: `"string"`. Computed.
+
+Unique identifier for the resource.
+
+<a id="canonical-2031323132012212-3101023210202303-1021231212201223-1020001023121211-0132022001233220-2212030222331013-1102122323301020-2032202302223321"></a>
+
+<a id="canonical-0020111100030300-3110333132230132-1111323303320020-2033130230111323-3020032123130220-3200311112003320-0020133013123221-1233203230320031"></a>
+
+## labels property — Property reference / 102122023001 / 8
+
+Type: `["map", "string"]`. Optional.
+
+Labels is a user defined key-value map that can be attached to resources for organization and
+filtering.
+
+Upstream description:
+
+Map of string keys and values that can be used to organize and categorize (scope and select) objects
+as chosen by the user. Values specified here will be used by selector expression.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1220323333102103-2203113331310112-2120223002332321-3313332322303010-0313233302200122-3001000111201002-1202120020002120-1012301010131220"></a>
+
+<a id="canonical-3331200330302302-0031110033133313-3300030110012333-0320132212030013-0312333222123031-1201211020131312-2103000300320003-0223030232033313"></a>
+
+## name property — Property reference / 102122023001 / 9
+
+Type: `"string"`. Required.
+
+Name of the Dc Cluster Group. Must be unique within the namespace.
+
+Upstream description:
+
+This is the name of configuration object. It has to be unique within the namespace. It can only be
+specified during create API and cannot be changed during replace API. The value of name has to
+follow DNS-1035 format.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  validators.NameValidator(),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true"
+  }
+}
+```
+
+<a id="canonical-1121031332002212-0032122131303131-2220012301200021-3313001111330210-1231201311220203-3310232013121030-3132210322322123-2100131332201000"></a>
+
+<a id="canonical-1012101320001103-3122220231111220-0323110213232313-1000320111120102-2321103021131003-1222103233311220-0210032333011202-3013332331022211"></a>
+
+## namespace property — Property reference / 102122023001 / 10
+
+Type: `"string"`. Optional, Computed.
+
+Namespace for the Dc Cluster Group. The F5 XC API restricts this resource to the system namespace;
+it defaults to that value and may be omitted.
+
+Upstream description:
+
+This defines the workspace within which each the configuration object is to be created. Must be a
+DNS\_LABEL format. For a namespace object itself, namespace value will be ""
+
+Provider validators and defaults (from schema source):
+
+```go
+Default: stringdefault.StaticString("system")
+Validators: []validator.String{
+  validators.NamespaceValidator(),
+  stringvalidator.OneOf("system"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [timeouts](resources--dc_cluster_group--reference--group-001.md#canonical-3221033032013000-0232031300011123-3111110021220110-0033221012301112-2021211302222132-1321222310321030-0000122132210321-3220310132212012): complete subsection reference.
+
+- [type](resources--dc_cluster_group--reference--group-001.md#canonical-3110132011101032-2303210303323220-0123223130111211-2212123323110202-2013332020111101-3323132110301011-1202311001131331-3100003213112221): complete subsection reference.
+
+<a id="canonical-1103101212213232-2131321103033011-3333031011332222-0333201300310103-3130123020313322-0100103212332320-2303113112123302-2333033023323323"></a>
+
+## All schema paths — Property reference / 102122023001 / 11
+
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
+
+| Schema path | Complete reference |
+| --- | --- |
+| `annotations` | [annotations](resources--dc_cluster_group--reference--group-001.md#canonical-0133223330313312-1020322132330302-3313010313023322-2022010110130201-2110000113313222-0122110322311010-0133300321030310-3312130101311230) |
+| `description` | [description](resources--dc_cluster_group--reference--group-001.md#canonical-0232211012222112-3100332021330220-0221222332103222-3302002320232221-2202001033300212-0132310003222212-3321313311122323-1311332223233231) |
+| `disable` | [disable](resources--dc_cluster_group--reference--group-001.md#canonical-3333203023300101-3300221133300311-0200202010123300-1110003110100311-0132202002202311-2011132330132020-3013203322211023-1100301030013112) |
+| `id` | [ID](resources--dc_cluster_group--reference--group-001.md#canonical-1111311121221233-1213010133312300-2120211300210101-2021012033201310-0231112031131322-0013312332103131-2110121302131130-3312032310031000) |
+| `labels` | [labels](resources--dc_cluster_group--reference--group-001.md#canonical-2031323132012212-3101023210202303-1021231212201223-1020001023121211-0132022001233220-2212030222331013-1102122323301020-2032202302223321) |
+| `name` | [name](resources--dc_cluster_group--reference--group-001.md#canonical-1220323333102103-2203113331310112-2120223002332321-3313332322303010-0313233302200122-3001000111201002-1202120020002120-1012301010131220) |
+| `namespace` | [namespace](resources--dc_cluster_group--reference--group-001.md#canonical-1121031332002212-0032122131303131-2220012301200021-3313001111330210-1231201311220203-3310232013121030-3132210322322123-2100131332201000) |
+| `timeouts` | [timeouts](resources--dc_cluster_group--reference--group-001.md#canonical-1011213211301223-0120232321310103-2100321001102033-1312331110001331-0121021102211211-2213222203021113-1113311120022203-1333010220001102) |
+| `timeouts.create` | [timeouts.create](resources--dc_cluster_group--reference--group-001.md#canonical-1200103310013223-1331230330120312-2000230001310233-3221112001321302-0302032011330213-2032103101301200-0000213103131203-1132031232121132) |
+| `timeouts.delete` | [timeouts.delete](resources--dc_cluster_group--reference--group-001.md#canonical-1100310111003133-1133030032322111-0202333202213322-3212203001313111-3310011110011301-0113222110321202-2332031032020322-1211312321002002) |
+| `timeouts.read` | [timeouts.read](resources--dc_cluster_group--reference--group-001.md#canonical-2011333322113011-2102120200001213-2120100121323212-2330223313133213-1032320300021132-2122102112300103-2312100033121103-2002302202111212) |
+| `timeouts.update` | [timeouts.update](resources--dc_cluster_group--reference--group-001.md#canonical-2200020002330301-0300120023011003-2223221223131221-0320321212030123-3030120112311112-3131331210310213-0030132131321321-0003013011003002) |
+| `type` | [type](resources--dc_cluster_group--reference--group-001.md#canonical-3210233311300301-3212333102330113-1210231013010111-3032102003122001-0203022133333232-0003131231003130-0010222113012133-1223220133111232) |
+| `type.control_and_data_plane_mesh` | [type.control_and_data_plane_mesh](resources--dc_cluster_group--reference--group-001.md#canonical-1130212320132221-1021200203021211-3301220033211110-1001331302012111-3121300032110332-3113221231023212-1311102320032022-2032001321020131) |
+| `type.data_plane_mesh` | [type.data_plane_mesh](resources--dc_cluster_group--reference--group-001.md#canonical-3232011102201321-3333100203022311-2023333232123212-2310003001313122-1012232233101033-1013201320022233-0113333201101000-0130202300102300) |
+
+<a id="canonical-3222230313211330-0232212123021331-3122231231330132-3201312122030122-0033313211200032-0332303312012121-1323003221011130-3123222010210020"></a>
+
+## Next pages — Property reference / 102122023001 / 12
+
+- [timeouts](resources--dc_cluster_group--reference--group-001.md#canonical-3221033032013000-0232031300011123-3111110021220110-0033221012301112-2021211302222132-1321222310321030-0000122132210321-3220310132212012)
+- [type](resources--dc_cluster_group--reference--group-001.md#canonical-3110132011101032-2303210303323220-0123223130111211-2212123323110202-2013332020111101-3323132110301011-1202311001131331-3100003213112221)
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+
+<a id="canonical-3221033032013000-0232031300011123-3111110021220110-0033221012301112-2021211302222132-1321222310321030-0000122132210321-3220310132212012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2232121332220233-2122121310112032-0132320331011101-2133111213233202-3301310033020300-1233332331021012-3210323200101312-2200113010212010"></a>
+
+## timeouts — timeouts / 123333211323 / 2
+
+Breadcrumbs:
+
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+- [Property reference](resources--dc_cluster_group--reference--group-001.md#canonical-3020323102031131-2120211103310111-3012300022003323-3023301231000121-3002020033132213-0201300331100120-3122330131102121-1132110021113321)
+- timeouts
+
+<a id="canonical-1011213211301223-0120232321310103-2100321001102033-1312331110001331-0121021102211211-2213222203021113-1113311120022203-1333010220001102"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Terraform syntax:
+
+```terraform
+timeouts {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0102100302033313-3330332020020011-0100113130032000-2223121010012132-2002111212330032-2230331132033301-1033020101001100-2310320022033303"></a>
+
+## Direct properties — timeouts / 123333211323 / 3
+
+<a id="canonical-1200103310013223-1331230330120312-2000230001310233-3221112001321302-0302032011330213-2032103101301200-0000213103131203-1132031232121132"></a>
+
+<a id="canonical-3033223010003123-1200210103003003-2311033222110113-1123332132320303-1103010020110302-0010212130130103-2121201112023233-1312100112031311"></a>
+
+## create property — timeouts / 123333211323 / 4
+
+Type: `"string"`. Optional.
+
+A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
+of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
+(minutes), "h" (hours).
+
+<a id="canonical-1100310111003133-1133030032322111-0202333202213322-3212203001313111-3310011110011301-0113222110321202-2332031032020322-1211312321002002"></a>
+
+<a id="canonical-0110001223013302-0120033232321100-1120113232323102-2000100230013130-3103333333203312-2210020012123013-1111300333221030-0123113310231222"></a>
+
+## delete property — timeouts / 123333211323 / 5
+
+Type: `"string"`. Optional.
+
+A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
+of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
+(minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
+saved into state before the destroy operation occurs.
+
+<a id="canonical-2011333322113011-2102120200001213-2120100121323212-2330223313133213-1032320300021132-2122102112300103-2312100033121103-2002302202111212"></a>
+
+<a id="canonical-0100231122231202-1332230110333303-1100013130300011-3201210302133322-3010200200002132-3013020310203113-1231320333023313-2300001303220010"></a>
+
+## read property — timeouts / 123333211323 / 6
+
+Type: `"string"`. Optional.
+
+A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
+of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
+(minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
+is enabled.
+
+<a id="canonical-2200020002330301-0300120023011003-2223221223131221-0320321212030123-3030120112311112-3131331210310213-0030132131321321-0003013011003002"></a>
+
+<a id="canonical-1231303123200011-2203120022031320-2022232100021031-3131100331022322-0232331313212322-3112110321122023-2200113132331300-3331233012120201"></a>
+
+## update property — timeouts / 123333211323 / 7
+
+Type: `"string"`. Optional.
+
+A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
+of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
+(minutes), "h" (hours).
+
+<a id="canonical-2200010013001121-3021300102120232-0112321010303030-2301312211010132-3311211323233113-1233330003310201-3122132211013122-2003300213010101"></a>
+
+## Next pages — timeouts / 123333211323 / 8
+
+- [Property reference](resources--dc_cluster_group--reference--group-001.md#canonical-3020323102031131-2120211103310111-3012300022003323-3023301231000121-3002020033132213-0201300331100120-3122330131102121-1132110021113321)
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+
+<a id="canonical-3110132011101032-2303210303323220-0123223130111211-2212123323110202-2013332020111101-3323132110301011-1202311001131331-3100003213112221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3122033203133330-0102300020233331-2303103331110332-0120230020020320-2103310210221230-3333103323211300-3022012031031202-2302233101012201"></a>
+
+## type — type / 010210001223 / 2
+
+Breadcrumbs:
+
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+- [Property reference](resources--dc_cluster_group--reference--group-001.md#canonical-3020323102031131-2120211103310111-3012300022003323-3023301231000121-3002020033132213-0201300331100120-3122330131102121-1132110021113321)
+- type
+
+<a id="canonical-3210233311300301-3212333102330113-1210231013010111-3032102003122001-0203022133333232-0003131231003130-0010222113012133-1223220133111232"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+DC Cluster Group Mesh Type. Details of DC Cluster Group Mesh Type.
+
+Upstream description:
+
+Details of DC Cluster Group Mesh Type.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh",
+    "data_plane_mesh")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-dc_cluster_group_mesh_choice": "[\"control_and_data_plane_mesh\",\"data_plane_mesh\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+type {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2323310223331312-1130300313203213-2322102230301010-0322322131313112-0300121211110233-2102122101003120-2333110031313000-3310010003031210"></a>
+
+## Direct properties — type / 010210001223 / 3
+
+- [control_and_data_plane_mesh](resources--dc_cluster_group--reference--group-001.md#canonical-0200311211231101-3231031202003133-3121110031113210-2023321233130123-3002332022110202-2110230332101211-0310100113102021-0122022132222311): complete subsection reference.
+
+- [data_plane_mesh](resources--dc_cluster_group--reference--group-001.md#canonical-2320232132000312-1010113003001200-1311022122203122-2211313203022221-3112122033021320-3313203000022331-1320121233021221-3321202230320213): complete subsection reference.
+
+<a id="canonical-2012223232211333-3033131233313132-3313231123020012-3221313332313123-2331332212102211-2003012321301333-2023010123232333-2131131130000122"></a>
+
+## Next pages — type / 010210001223 / 4
+
+- [type.control_and_data_plane_mesh](resources--dc_cluster_group--reference--group-001.md#canonical-0200311211231101-3231031202003133-3121110031113210-2023321233130123-3002332022110202-2110230332101211-0310100113102021-0122022132222311)
+- [type.data_plane_mesh](resources--dc_cluster_group--reference--group-001.md#canonical-2320232132000312-1010113003001200-1311022122203122-2211313203022221-3112122033021320-3313203000022331-1320121233021221-3321202230320213)
+- [Property reference](resources--dc_cluster_group--reference--group-001.md#canonical-3020323102031131-2120211103310111-3012300022003323-3023301231000121-3002020033132213-0201300331100120-3122330131102121-1132110021113321)
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+
+<a id="canonical-0200311211231101-3231031202003133-3121110031113210-2023321233130123-3002332022110202-2110230332101211-0310100113102021-0122022132222311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1230022013223312-1230000313310210-2220112331121011-3222312122030003-2301231322110333-3101032111103123-0302010222003201-1333222323330131"></a>
+
+## type.control_and_data_plane_mesh — control_and_data_plane_mesh / 323220222123 / 2
+
+Breadcrumbs:
+
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+- [Property reference](resources--dc_cluster_group--reference--group-001.md#canonical-3020323102031131-2120211103310111-3012300022003323-3023301231000121-3002020033132213-0201300331100120-3122330131102121-1132110021113321)
+- [type](resources--dc_cluster_group--reference--group-001.md#canonical-3110132011101032-2303210303323220-0123223130111211-2212123323110202-2013332020111101-3323132110301011-1202311001131331-3100003213112221)
+- type.control_and_data_plane_mesh
+
+<a id="canonical-1130212320132221-1021200203021211-3301220033211110-1001331302012111-3121300032110332-3113221231023212-1311102320032022-2032001321020131"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+control_and_data_plane_mesh = {}
+```
+
+<a id="canonical-2013013032332123-1020130303222031-0110223222321030-1002211301121331-1212010011020100-3231112321020300-3333110020311102-1310323000231200"></a>
+
+## Direct properties — control_and_data_plane_mesh / 323220222123 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0020031103133002-0310201301220200-1012203200331132-0313103230111003-2021123113021313-1212201313120310-0130130200000332-2333110332230020"></a>
+
+## Next pages — control_and_data_plane_mesh / 323220222123 / 4
+
+- [type](resources--dc_cluster_group--reference--group-001.md#canonical-3110132011101032-2303210303323220-0123223130111211-2212123323110202-2013332020111101-3323132110301011-1202311001131331-3100003213112221)
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+
+<a id="canonical-2320232132000312-1010113003001200-1311022122203122-2211313203022221-3112122033021320-3313203000022331-1320121233021221-3321202230320213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2102210230002103-2302332010301123-0302132120210230-0030011110233200-2112013330331222-3021230123031202-3222220021200201-2321022021232132"></a>
+
+## type.data_plane_mesh — data_plane_mesh / 321323302321 / 2
+
+Breadcrumbs:
+
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)
+- [Property reference](resources--dc_cluster_group--reference--group-001.md#canonical-3020323102031131-2120211103310111-3012300022003323-3023301231000121-3002020033132213-0201300331100120-3122330131102121-1132110021113321)
+- [type](resources--dc_cluster_group--reference--group-001.md#canonical-3110132011101032-2303210303323220-0123223130111211-2212123323110202-2013332020111101-3323132110301011-1202311001131331-3100003213112221)
+- type.data_plane_mesh
+
+<a id="canonical-3232011102201321-3333100203022311-2023333232123212-2310003001313122-1012232233101033-1013201320022233-0113333201101000-0130202300102300"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+data_plane_mesh = {}
+```
+
+<a id="canonical-1102232101203201-0221211200223310-1130232322300002-2023231312321221-3000001203232212-1333113300303222-1301130212030231-0113103132022111"></a>
+
+## Direct properties — data_plane_mesh / 321323302321 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1300033013032330-2130030022111323-0010100233222002-1210031112131211-1032131021033200-3013202122312202-2333232332130303-1211233220132310"></a>
+
+## Next pages — data_plane_mesh / 321323302321 / 4
+
+- [type](resources--dc_cluster_group--reference--group-001.md#canonical-3110132011101032-2303210303323220-0123223130111211-2212123323110202-2013332020111101-3323132110301011-1202311001131331-3100003213112221)
+- [xcsh_dc_cluster_group](../resources/dc_cluster_group.md#canonical-0023121103022030-2302020033112202-0212333320231232-3001211200201011-0122330223232010-0110110123001022-0123201000313123-3333311302021321)

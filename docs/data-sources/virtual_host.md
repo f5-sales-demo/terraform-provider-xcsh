@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_virtual_host"
+page_title: "xcsh_virtual_host landing"
 subcategory: ""
-description: "xcsh_virtual_host for xcsh_virtual_host."
-xcsh_docs: {"aliases": [], "body_bytes": 1228, "body_sha256": "sha256:1ecae387ca851143a93ed2605f60b4210cd71f514ff6382a725692fba7328e58", "canonical_id": "xcsh-docs:data-sources:virtual_host:fundamentals", "child_ids": ["xcsh-docs:data-sources:virtual_host:reference", "xcsh-docs:data-sources:virtual_host:examples"], "collection_id": "xcsh-docs:data-sources:virtual_host:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:virtual_host:fundamentals", "parent_id": null, "path": "docs/data-sources/virtual_host.md", "provider_name": "virtual_host", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_host/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_virtual_host for xcsh_virtual_host.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["virtual_hostCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_virtual_host landing."
 ---
+
+# xcsh_virtual_host landing
+
+<a id="canonical-3003121122323110-3033220033233331-3332132022313023-0311020131102101-3230333213220101-3221133313021313-2331201132110012-2011123023323220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_virtual_host
+<a id="canonical-2122230022331011-1003232330101211-1300231320003323-1133123210003130-1221200123200301-0113110020223101-0310233012111011-2121103313031133"></a>
+
+## xcsh_virtual_host — xcsh_virtual_host / 110232203303 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages virtual host in a given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3101100330222212-1102220331202023-2211121103312310-0132021100200332-2123302031002132-3323303102233110-2213212313211001-1333300030132113"></a>
+
+## Prerequisites — xcsh_virtual_host / 110232203303 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1011011101002332-2303220002002231-1023303113132123-0331122121330021-0220010302231210-0011301011031302-0302120220223302-3323231103332231"></a>
+
+## Minimal configuration — xcsh_virtual_host / 110232203303 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "virtual_host_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2200233023331210-3122232120110233-0103330112011022-2120211133030210-0133012021321323-1220201323221003-2310230132021030-0300322232113230"></a>
+
+## Root configuration — xcsh_virtual_host / 110232203303 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1120213213011022-3130113113311312-0221210301303333-0113012322231203-2211213232112101-0033231232220211-2312300003120232-1222331330103002"></a>
 
-- [Property reference](../guides/data-sources--virtual_host--reference.md)
-- [Examples](../guides/data-sources--virtual_host--examples.md)
+## Next pages — xcsh_virtual_host / 110232203303 / 6
+
+- [Property reference](../guides/data-sources--virtual_host--reference--group-001.md#canonical-1331002312103212-0111200321323210-2012213313103303-2203323023011130-2212023000123013-2012220022323101-1032110322132213-0110330311221131)
+- [Examples](../guides/data-sources--virtual_host--examples--group-001.md#canonical-0100001331112310-1230100011301031-2230200220313033-0002101033032003-3322002302312013-3120010230021103-0322303302110022-2321033300201112)

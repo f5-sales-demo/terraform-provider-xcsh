@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dc_cluster_group"
+page_title: "xcsh_dc_cluster_group landing"
 subcategory: ""
-description: "xcsh_dc_cluster_group for xcsh_dc_cluster_group."
-xcsh_docs: {"aliases": [], "body_bytes": 1254, "body_sha256": "sha256:b45401edc08db15382c6c2ecfcdea7361382fc8c757aa967e419a69ccb47c3f1", "canonical_id": "xcsh-docs:data-sources:dc_cluster_group:fundamentals", "child_ids": ["xcsh-docs:data-sources:dc_cluster_group:reference", "xcsh-docs:data-sources:dc_cluster_group:examples"], "collection_id": "xcsh-docs:data-sources:dc_cluster_group:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dc_cluster_group:fundamentals", "parent_id": null, "path": "docs/data-sources/dc_cluster_group.md", "provider_name": "dc_cluster_group", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dc_cluster_group/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dc_cluster_group for xcsh_dc_cluster_group.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dc_cluster_groupCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dc_cluster_group landing."
 ---
+
+# xcsh_dc_cluster_group landing
+
+<a id="canonical-2200021000201211-3130032310312033-3013132131200022-0333300021021222-1220133033212100-0102010030313222-0332101231122310-0203313010012313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dc_cluster_group
+<a id="canonical-2113331020123111-3200221010133112-1110331200023212-3001103002110221-0301001102323010-3201311231111101-1303001120103233-3013130202031212"></a>
+
+## xcsh_dc_cluster_group — xcsh_dc_cluster_group / 323221022023 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages DC Cluster group in given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3213130221213130-3112231013112002-3121202213111231-2300111031132013-3333001030210033-1001010022202233-3001010030011123-1033132300222322"></a>
+
+## Prerequisites — xcsh_dc_cluster_group / 323221022023 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2203303020110231-3231101331110201-1232032100231312-2112222223200013-1110232333133010-0300202333021221-1030122031120321-2002303333212233"></a>
+
+## Minimal configuration — xcsh_dc_cluster_group / 323221022023 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "dc_cluster_group_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3223201102210111-3203202312330311-0010323323033311-1100102331103033-2230322223001201-2030032020233130-2002130231220310-0031032203132111"></a>
+
+## Root configuration — xcsh_dc_cluster_group / 323221022023 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1120012223301022-3200021220013212-0213201223331030-2312110011332103-0322303023303203-0201203023203013-2232320202232032-3332301131100201"></a>
 
-- [Property reference](../guides/data-sources--dc_cluster_group--reference.md)
-- [Examples](../guides/data-sources--dc_cluster_group--examples.md)
+## Next pages — xcsh_dc_cluster_group / 323221022023 / 6
+
+- [Property reference](../guides/data-sources--dc_cluster_group--reference--group-001.md#canonical-1010333130230311-1033232300311001-0022220103320030-1332313110202221-3021223120002030-2000202203133231-3233130200102213-2123030302321023)
+- [Examples](../guides/data-sources--dc_cluster_group--examples--group-001.md#canonical-1022213222022232-3222020310023000-0303221023121000-3320012211022120-1222303133213203-1303220103100323-0121022332201202-1103310100003021)

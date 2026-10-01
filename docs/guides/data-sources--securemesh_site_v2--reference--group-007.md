@@ -1,0 +1,4588 @@
+---
+page_title: "xcsh_securemesh_site_v2 reference"
+subcategory: ""
+description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 reference."
+---
+
+# xcsh_securemesh_site_v2 reference
+
+<a id="canonical-0013120321020300-0203211011031222-1233100301302333-3322112232222230-3232222130222321-1212103212200330-3312303222310103-1100133202301200"></a>
+
+## disable_ha — disable_ha / 020022110232 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- disable_ha
+
+<a id="canonical-0132230202122301-0103221330302020-3120332022111111-3011023230133200-2222102301133210-3012312331120302-3032131313012213-0302233013132131"></a>
+
+Type: `["object", {}]`. Computed.
+
+\[OneOf: disable\_ha, enable\_ha; Default: disable\_ha\] Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [disable_ha](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0132230202122301-0103221330302020-3120332022111111-3011023230133200-2222102301133210-3012312331120302-3032131313012213-0302233013132131)
+- [enable_ha](data-sources--securemesh_site_v2--reference--group-008.md#canonical-3211233100100031-3103102102120321-1332031312232001-3101332122200020-3002230333113213-1110220232103301-3012032300033212-0101023021030131)
+
+Select alternatives according to the provider validators above.
+
+<a id="canonical-2300212133103032-1302102330121132-3113221232001322-3120201103212011-0230213202201323-1203213033211231-0032110130330133-2330221223203202"></a>
+
+## Direct properties — disable_ha / 020022110232 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3203311300131113-1010200233212300-1221233330210001-1333230220221131-0133222211003120-1212023220231032-1031113321020302-2321210023310123"></a>
+
+## Next pages — disable_ha / 020022110232 / 4
+
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2000123210022123-3130010030010020-3222133323002330-1330102221233312-2223302333231222-3030012330222023-1201101333332131-1003200010130101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0210223233323222-1022223210220032-3012121331022231-2320232313202123-2130212330111000-0211113102032332-2100221210002310-0320223213330101"></a>
+
+## disable_log_anonymization — disable_log_anonymization / 021303121120 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- disable_log_anonymization
+
+<a id="canonical-1021322311031312-2210301210023112-2220120120031310-2012031113222000-3302202320023111-0020133311113230-3011331321113100-2013002001230220"></a>
+
+Type: `["object", {}]`. Computed.
+
+\[OneOf: disable\_log\_anonymization, enable\_log\_anonymization; Default:
+disable\_log\_anonymization\] Configuration parameter for disable log anonymization.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [disable_log_anonymization](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1021322311031312-2210301210023112-2220120120031310-2012031113222000-3302202320023111-0020133311113230-3011331321113100-2013002001230220)
+- [enable_log_anonymization](data-sources--securemesh_site_v2--reference--group-008.md#canonical-3331302221212203-3323202021101332-3001112312031103-2222220230221311-2030330022201232-3111303220131030-2123012011323110-3121000230103012)
+
+Select alternatives according to the provider validators above.
+
+<a id="canonical-3023012031023221-3312131111002021-0101111113231103-3211111122313120-1210323113121112-3302301012222023-3121301000200100-3021001122330303"></a>
+
+## Direct properties — disable_log_anonymization / 021303121120 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1301200331221021-0011022331302201-2212201232000110-3321100230100331-3200210331312221-2211200220323102-3001202110103012-1002033300301030"></a>
+
+## Next pages — disable_log_anonymization / 021303121120 / 4
+
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3230123220103000-0033000120201100-0013210112221103-0321230123310232-2021103220331321-3202332010302123-1100131023010011-1121000100310033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0001033301213200-1020232333302003-0332131333120003-3232300313020303-2223002111232212-0313133330030020-0102113130313212-1102312000232103"></a>
+
+## disable_management_network — disable_management_network / 231332221012 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- disable_management_network
+
+<a id="canonical-0012003310011133-2010011233320231-0310300202200103-0230122003012101-0130230001013031-3133333312030322-3101201130033011-1000302001003332"></a>
+
+Type: `["object", {}]`. Computed.
+
+\[OneOf: disable\_management\_network, enable\_management\_network; Default:
+disable\_management\_network\] Configuration parameter for disable management network.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [disable_management_network](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0012003310011133-2010011233320231-0310300202200103-0230122003012101-0130230001013031-3133333312030322-3101201130033011-1000302001003332)
+- [enable_management_network](data-sources--securemesh_site_v2--reference--group-008.md#canonical-1011220123303312-3312013212112132-2100333201032033-0001222021323210-3003111023322020-2112122032200301-3201011032332023-1210233120300212)
+
+Select alternatives according to the provider validators above.
+
+<a id="canonical-2313321133231110-3230002013110322-3322211201200020-1012111123010313-1120232012211232-2013201201222031-1110133211131210-2321021132302331"></a>
+
+## Direct properties — disable_management_network / 231332221012 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1210110132013002-0203332030213120-1102033011110110-0333022100023131-1102300300021222-1200001313203202-2001022222103000-0333030313121112"></a>
+
+## Next pages — disable_management_network / 231332221012 / 4
+
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1303210012021303-2101331133310130-1301011330021322-2131013133123011-2222000220311232-0321313100101021-0323131000000033-3113133310130133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0121012112100210-2232302112321102-0133032100302213-2132111103011232-1202200002002011-0011130010121121-0123021203031222-1301230100200203"></a>
+
+## disable_url_categorization — disable_url_categorization / 210032331032 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- disable_url_categorization
+
+<a id="canonical-2232202302121102-0000303330003210-3112131320211301-3332032213002012-1222000102010012-0002113003333331-1023121222123302-2003333130121010"></a>
+
+Type: `["object", {}]`. Computed.
+
+\[OneOf: disable\_url\_categorization, enable\_url\_categorization; Default:
+disable\_url\_categorization\] Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [disable_url_categorization](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2232202302121102-0000303330003210-3112131320211301-3332032213002012-1222000102010012-0002113003333331-1023121222123302-2003333130121010)
+- [enable_url_categorization](data-sources--securemesh_site_v2--reference--group-008.md#canonical-2233302131312021-3110100032103130-0303012032021213-0123013023101223-0101212113313013-1200303012100011-0220231123233023-0103330010211311)
+
+Select alternatives according to the provider validators above.
+
+<a id="canonical-1020213123010030-2022020222323001-2110130002222320-0233032030010011-1201020233210213-2120101300203110-0202320323120201-1233303131302322"></a>
+
+## Direct properties — disable_url_categorization / 210032331032 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2233123202222013-3112212030003220-1233112101010333-3223101131103220-3030301310222331-2031132203322320-1311003120233203-2230031122011002"></a>
+
+## Next pages — disable_url_categorization / 210032331032 / 4
+
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2033101211100010-1220310203010112-3120103121311033-2212322300003130-3102330211113333-1111203031331103-2033222133131322-0102310110021201"></a>
+
+## dns_ntp_config — dns_ntp_config / 223001110221 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- dns_ntp_config
+
+<a id="canonical-0002332311313230-0312123333320112-3000200021102122-0022302131302223-1231031332031020-3030012220123310-1322132230031323-1033201033102030"></a>
+
+Type: `"single"`. Computed.
+
+Specify DNS and NTP servers that will be used by the nodes in this Customer Edge site.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-dns_server_choice": "[\"custom_dns\",\"f5_dns_default\"]",
+  "x-ves-oneof-field-ntp_server_choice": "[\"custom_ntp\",\"f5_ntp_default\"]"
+}
+```
+
+<a id="canonical-0100332113201102-2211123233011220-3302232323121203-3120123202202013-2001031330022002-3330111203211221-3003130211010310-0113210321120023"></a>
+
+## Direct properties — dns_ntp_config / 223001110221 / 3
+
+- [custom_dns](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3110032110012333-3230211301010032-2002023330023010-1223321203001313-0222132202102110-2101301220132103-3220101032233213-0103303321111301): complete subsection reference.
+
+- [custom_ntp](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1311221211011010-0130031213233020-3003021213202022-1331131203313211-0132023222111032-1100011002003001-0300222032102230-0100223203113013): complete subsection reference.
+
+- [f5_dns_default](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3233222131313323-1003233023003111-0003232201200033-3311132211111313-0013112332022101-1321213313222332-1300221011201120-2003333330120023): complete subsection reference.
+
+- [f5_ntp_default](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2132120123300332-1111221321221000-1100101113130012-0023120230020230-2320003321320321-0002123200001013-1133010210311231-1111223201001112): complete subsection reference.
+
+<a id="canonical-0031000223220111-1210321003123223-0012112322313111-2030110231020120-3300220132222300-0200110210110320-2012323213123321-1001232130213313"></a>
+
+## Next pages — dns_ntp_config / 223001110221 / 4
+
+- [dns_ntp_config.custom_dns](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3110032110012333-3230211301010032-2002023330023010-1223321203001313-0222132202102110-2101301220132103-3220101032233213-0103303321111301)
+- [dns_ntp_config.custom_ntp](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1311221211011010-0130031213233020-3003021213202022-1331131203313211-0132023222111032-1100011002003001-0300222032102230-0100223203113013)
+- [dns_ntp_config.f5_dns_default](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3233222131313323-1003233023003111-0003232201200033-3311132211111313-0013112332022101-1321213313222332-1300221011201120-2003333330120023)
+- [dns_ntp_config.f5_ntp_default](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2132120123300332-1111221321221000-1100101113130012-0023120230020230-2320003321320321-0002123200001013-1133010210311231-1111223201001112)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3110032110012333-3230211301010032-2002023330023010-1223321203001313-0222132202102110-2101301220132103-3220101032233213-0103303321111301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1313231302012001-2020230020020133-1013232301012223-0332133103302131-3330111302111003-3102332010010311-3121120112322222-3321300231132113"></a>
+
+## dns_ntp_config.custom_dns — custom_dns / 331033322120 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [dns_ntp_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212)
+- dns_ntp_config.custom_dns
+
+<a id="canonical-0031033122123323-3212332020032303-2130103121330121-3321023213032333-0121111202203310-0100130101133202-0013300313013003-2203132330232100"></a>
+
+Type: `"single"`. Computed.
+
+DNS Servers. DNS Servers.
+
+Upstream description:
+
+DNS Servers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1113000121132002-3110032333011221-2201200222200110-0132231010122013-2131013113202122-1030231321303012-1313303321113201-3031220232033331"></a>
+
+## Direct properties — custom_dns / 331033322120 / 3
+
+<a id="canonical-2001220031102321-1330102032100000-2230131333011133-1022010332100222-0331033123131330-1031233022030020-0220303301210030-3331002322223313"></a>
+
+<a id="canonical-2320113330000333-2112221112310011-2013120132211232-3131312313303322-3203331300310110-2323312131022121-1121000120322301-2003222211233031"></a>
+
+## dns_servers property — custom_dns / 331033322120 / 4
+
+Type: `["list", "string"]`. Computed.
+
+DNS Servers. DNS Servers.
+
+Upstream description:
+
+DNS Servers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3312221021133111-1011210333232211-1212002120330013-1323220022321320-2013221102312232-3022200320101020-3000102313123101-3200031301130200"></a>
+
+## Next pages — custom_dns / 331033322120 / 5
+
+- [dns_ntp_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1311221211011010-0130031213233020-3003021213202022-1331131203313211-0132023222111032-1100011002003001-0300222032102230-0100223203113013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0202300022101302-3030112120220302-1330003332132033-0322001011301101-0320301002210021-1302302021303300-3013203200323021-0113200003203303"></a>
+
+## dns_ntp_config.custom_ntp — custom_ntp / 230310311300 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [dns_ntp_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212)
+- dns_ntp_config.custom_ntp
+
+<a id="canonical-1023310020011131-0232030133103320-2032000221031100-2122023011321300-2033032232330311-3303211021330032-1333300132230331-2300321012233303"></a>
+
+Type: `"single"`. Computed.
+
+NTP Servers. NTP Servers.
+
+Upstream description:
+
+NTP Servers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1102332013221101-1322033110333320-2330112122023022-0011111000201122-0211001121102200-3100010231000301-0210031331000103-3231031103120310"></a>
+
+## Direct properties — custom_ntp / 230310311300 / 3
+
+<a id="canonical-0200000221111130-0201020102131311-0003331213220132-2201221022200100-1232332000231113-1102111113331201-3313121233202303-0013322023330112"></a>
+
+<a id="canonical-3102100102203002-0102223032320323-3311121000101323-1100132101331123-2121032003322023-3311323130021301-1203301310000111-3113221110221131"></a>
+
+## ntp_servers property — custom_ntp / 230310311300 / 4
+
+Type: `["list", "string"]`. Computed.
+
+NTP Servers. NTP Servers.
+
+Upstream description:
+
+NTP Servers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "64",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1110302123332021-1322322330232231-0200121113222013-3120010232101220-3210131231123121-1223302212011021-3223302033310210-0121310022113202"></a>
+
+## Next pages — custom_ntp / 230310311300 / 5
+
+- [dns_ntp_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3233222131313323-1003233023003111-0003232201200033-3311132211111313-0013112332022101-1321213313222332-1300221011201120-2003333330120023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3123230233200003-1113133030032133-3010120203132301-3212331221132010-0323312201000100-1221333223332301-0021122312300322-1002211312130321"></a>
+
+## dns_ntp_config.f5_dns_default — f5_dns_default / 113013300021 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [dns_ntp_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212)
+- dns_ntp_config.f5_dns_default
+
+<a id="canonical-2100102103230303-0101132201332100-2010032101003032-2211320212232331-2110001213213002-2032110221020212-3200310112132303-1333111303002112"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for f5 DNS default.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3203202333112233-3332310021331333-3213020211133201-1203110022301321-2221031002103300-1330000112033333-1221301100131333-0130203013313123"></a>
+
+## Direct properties — f5_dns_default / 113013300021 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0110321120221332-2311133111122031-1330323002002030-3210323120210321-0210011210132033-2033223030221002-1020200032033030-3121313202211330"></a>
+
+## Next pages — f5_dns_default / 113013300021 / 4
+
+- [dns_ntp_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2132120123300332-1111221321221000-1100101113130012-0023120230020230-2320003321320321-0002123200001013-1133010210311231-1111223201001112"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3333003320222130-0113030023330002-2203212300323002-1131021313030103-2221220231102113-2300021230100002-2012310212031001-0332333030121012"></a>
+
+## dns_ntp_config.f5_ntp_default — f5_ntp_default / 120003213031 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [dns_ntp_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212)
+- dns_ntp_config.f5_ntp_default
+
+<a id="canonical-3100111020300312-1312030301121331-1123122000010313-0301222113201311-2131122121212103-3003033233321221-0020300301333010-0102231003222231"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for f5 ntp default.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3300313202212133-1131023301110230-3233232322000031-2203323231113021-1313213112003212-1031020122113112-0121110102311131-3121220323222112"></a>
+
+## Direct properties — f5_ntp_default / 120003213031 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1220333321031200-1223112130020202-2010122310232103-2121123323223203-1110233231201302-2330211203310323-1220133120020201-2311313023223330"></a>
+
+## Next pages — f5_ntp_default / 120003213031 / 4
+
+- [dns_ntp_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3330210130131331-1111102213112232-3103010133222311-1323003033030132-2002312332303123-2122020221132202-3030100123303333-1322230230022212)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3131200332220331-0222202112201201-2033010313333210-0021000000301020-3202123003322033-3112220030132213-1330202123231212-2210001312313310"></a>
+
+## eks_k8s — eks_k8s / 213333102112 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- eks_k8s
+
+<a id="canonical-1210330232100213-0122022322130222-1121212231100100-0101122022330310-2331312131201330-0213102211212320-2103021222312011-2231133210000122"></a>
+
+Type: `"single"`. Computed.
+
+Kubernetes Provider Type. Kubernetes Provider Type.
+
+Upstream description:
+
+Kubernetes Provider Type.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-anti_affinity_choice": "[\"disable_anti_affinity\",\"enable_anti_affinity\"]"
+}
+```
+
+<a id="canonical-2001031000201212-2302330323203320-0012100311230112-0001033223032111-1010320233031222-1203032022332301-1321021320302133-2000131031213022"></a>
+
+## Direct properties — eks_k8s / 213333102112 / 3
+
+<a id="canonical-3322123131121130-3130013022113221-3220121220023123-2333023031111023-2310301113032331-1003112321021333-1322130220110130-1113122113003003"></a>
+
+<a id="canonical-0112311023002201-1101013212111311-1101123133101310-2330202211310001-1131221320113211-2222321111003211-3030102222120320-0313213321030221"></a>
+
+## deployment_size property — eks_k8s / 213333102112 / 4
+
+Type: `"string"`. Computed.
+
+\[Enum: KUBERNETES\_DEPLOYMENT\_SIZE\_MEDIUM|KUBERNETES\_DEPLOYMENT\_SIZE\_LARGE\] Enum for
+Kubernetes deployment size OPTIONS - KUBERNETES\_DEPLOYMENT\_SIZE\_MEDIUM: Medium Medium deployment
+size with moderate resource requirements (8 vCPU, 32 GB memory). Suitable for most deployments. -
+KUBERNETES\_DEPLOYMENT\_SIZE\_LARGE: Large Large deployment size with higher resource.. Possible
+values are \`KUBERNETES\_DEPLOYMENT\_SIZE\_MEDIUM\`, \`KUBERNETES\_DEPLOYMENT\_SIZE\_LARGE\`.
+Defaults to \`KUBERNETES\_DEPLOYMENT\_SIZE\_MEDIUM\`.
+
+Upstream description:
+
+Enum for Kubernetes deployment size OPTIONS
+
+&#8203;- KUBERNETES\_DEPLOYMENT\_SIZE\_MEDIUM: Medium
+
+Medium deployment size with moderate resource requirements (8 vCPU, 32 GB memory). Suitable for most
+deployments. &#8203;- KUBERNETES\_DEPLOYMENT\_SIZE\_LARGE: Large
+
+Large deployment size with higher resource requirements (16 vCPU, 64 GB memory) for demanding
+workloads requiring additional performance and capacity.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "KUBERNETES_DEPLOYMENT_SIZE_MEDIUM",
+  "enum": [
+    "KUBERNETES_DEPLOYMENT_SIZE_MEDIUM",
+    "KUBERNETES_DEPLOYMENT_SIZE_LARGE"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [disable_anti_affinity](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0220230313222212-3002020202121000-0011203113203112-2221032030021033-3111021332200010-3023310033231230-3002332231233311-2003123011230133): complete subsection reference.
+
+- [enable_anti_affinity](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3132013131321030-0230231111323330-0110133210202030-1033301212132032-0031211122101322-2000233033010320-0233132211021221-0322023230121200): complete subsection reference.
+
+<a id="canonical-1122233023112332-1023313001233000-2211232011110323-2223313101211203-2001200230013101-0212221113221313-1302223110232321-0112211121130013"></a>
+
+<a id="canonical-2313331121031310-1302012033023013-3233212200113311-0101321222323203-0103323322003231-2323033011233203-1331311112311230-2230300210002230"></a>
+
+## labels property — eks_k8s / 213333102112 / 5
+
+Type: `["map", "string"]`. Computed.
+
+Add labels to control which Kubernetes nodes the VPM and related pods (etcd, VER, prometheus) are
+deployed to. Specify label key-value pairs that match the labels on your Kubernetes nodes. This uses
+Kubernetes nodeSelector to schedule pods only on nodes with matching labels.
+
+Upstream description:
+
+Add labels to control which Kubernetes nodes the VPM and related pods (etcd, VER, prometheus) are
+deployed to. Specify label key-value pairs that match the labels on your Kubernetes nodes. This uses
+Kubernetes nodeSelector to schedule pods only on nodes with matching labels.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "253",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.max_len": "63",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "253",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.max_len": "63",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  }
+}
+```
+
+- [not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321): complete subsection reference.
+
+<a id="canonical-3130230222201033-3213003330023232-3111321231100033-3332313011131132-1210213020113002-3222001013301001-3130221100132200-3030011321200232"></a>
+
+## Next pages — eks_k8s / 213333102112 / 6
+
+- [eks_k8s.disable_anti_affinity](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0220230313222212-3002020202121000-0011203113203112-2221032030021033-3111021332200010-3023310033231230-3002332231233311-2003123011230133)
+- [eks_k8s.enable_anti_affinity](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3132013131321030-0230231111323330-0110133210202030-1033301212132032-0031211122101322-2000233033010320-0233132211021221-0322023230121200)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0220230313222212-3002020202121000-0011203113203112-2221032030021033-3111021332200010-3023310033231230-3002332231233311-2003123011230133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1121311331323331-3302113303100323-0102332301001121-1232000320303212-2323221002111012-2000320222112013-3322131302012320-0101332030001130"></a>
+
+## eks_k8s.disable_anti_affinity — disable_anti_affinity / 320130330210 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- eks_k8s.disable_anti_affinity
+
+<a id="canonical-2013303231303103-2030120232123101-1020121002201012-0320202231200011-0310200331032112-2022201111032303-3202120212211113-1210311323112132"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable anti affinity.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3032331203001310-3311130133010233-2102000321100210-0003033232003232-0222001121000102-1312323233230312-1223230202311112-2313323102301012"></a>
+
+## Direct properties — disable_anti_affinity / 320130330210 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3222123101003233-0201103231300031-2133113301221002-0321120231021110-2213021103131210-0112213303203310-1021001320100131-3332333030233001"></a>
+
+## Next pages — disable_anti_affinity / 320130330210 / 4
+
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3132013131321030-0230231111323330-0110133210202030-1033301212132032-0031211122101322-2000233033010320-0233132211021221-0322023230121200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0033331101110003-1031303123200033-0223000223023011-2302131002112232-3023132201021203-1213330213213132-3310010021201233-3300200101331310"></a>
+
+## eks_k8s.enable_anti_affinity — enable_anti_affinity / 322323221310 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- eks_k8s.enable_anti_affinity
+
+<a id="canonical-2211012100211303-1030003031212032-2000312013000332-3113311001332301-3030123112231300-1133331301121020-1233310101110312-3320220013301300"></a>
+
+Type: `"single"`. Computed.
+
+Configuration for pod anti-affinity scheduling rules. Define multiple rules to control how different
+applications/components are distributed across your Kubernetes cluster.
+
+Upstream description:
+
+Configuration for pod anti-affinity scheduling rules. Define multiple rules to control how different
+applications/components are distributed across your Kubernetes cluster.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1110120000320100-1300111212131101-3200112132302203-0221121320221310-3030020102003323-1220112033021100-0310030223220020-3302321113210131"></a>
+
+## Direct properties — enable_anti_affinity / 322323221310 / 3
+
+- [rules](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3231321300323220-1103220122202303-3312300300332123-2000031302101130-2312002333000331-3133001233302121-2032123112102223-0102210303202212): complete subsection reference.
+
+<a id="canonical-2013233321222010-1331023203312333-2111322303132220-1320310003333203-3302030323311012-1111322231233200-1133312211201013-1110032012020132"></a>
+
+## Next pages — enable_anti_affinity / 322323221310 / 4
+
+- [eks_k8s.enable_anti_affinity.rules](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3231321300323220-1103220122202303-3312300300332123-2000031302101130-2312002333000331-3133001233302121-2032123112102223-0102210303202212)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3231321300323220-1103220122202303-3312300300332123-2000031302101130-2312002333000331-3133001233302121-2032123112102223-0102210303202212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1223322202111102-1200320003213101-0212201010322003-3002000203310121-3012111111113300-3303231323032332-3213122131110321-0111313222322220"></a>
+
+## eks_k8s.enable_anti_affinity.rules — rules / 100131100121 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.enable_anti_affinity](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3132013131321030-0230231111323330-0110133210202030-1033301212132032-0031211122101322-2000233033010320-0233132211021221-0322023230121200)
+- eks_k8s.enable_anti_affinity.rules
+
+<a id="canonical-1000133021302103-1130011222022231-2132112123202103-2223222111310210-0113031200020310-3301000132100010-3330211103013102-2200112031023012"></a>
+
+Type: `"list"`. Computed.
+
+Define one or more anti-affinity rules. Each rule specifies which pods (by labels) should be
+distributed across which topology domains.
+
+Upstream description:
+
+Define one or more anti-affinity rules. Each rule specifies which pods (by labels) should be
+distributed across which topology domains. Example: Rule 1 - Distribute VPM pods across nodes, Rule
+2 - Distribute Prometheus pods across zones.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 20,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 20,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "20",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "20",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0310010230123001-1120213102221101-1220101131032011-2013210003031103-3221302123030301-0011313321010233-0111010331312321-3123022112121133"></a>
+
+## Direct properties — rules / 100131100121 / 3
+
+<a id="canonical-3320003130332301-3023122332333323-1230322002231120-2133203311002201-3111012300301300-1333013011030303-3330003113110103-1312202201110213"></a>
+
+<a id="canonical-1212021132021100-2301122301223320-2121222220213011-0233022133023013-0003200302013023-2003031032122123-1312231112312003-1203033210011313"></a>
+
+## label_key property — rules / 100131100121 / 4
+
+Type: `"string"`. Computed.
+
+Specify the label key of the customer pods that CE pods should avoid being co-scheduled with.
+Combined with the label value below, this identifies the target pods.
+
+Upstream description:
+
+Specify the label key of the customer pods that CE pods should avoid being co-scheduled with.
+Combined with the label value below, this identifies the target pods.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 253,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 253,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "253",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "253",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-2300033210100221-1120330110011222-0001301100100002-1133002333022131-0022310130120222-2222222322223310-0210301221331131-0101221130101102"></a>
+
+<a id="canonical-1030111132111303-2213122233223102-1220322122333323-0321322322023010-1113110023000112-3203230001131310-3200121122103211-2223320022103231"></a>
+
+## label_value property — rules / 100131100121 / 5
+
+Type: `"string"`. Computed.
+
+Specify the label value that, together with the label key, identifies the customer pods to avoid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 63,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "63",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "63",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-0333331300103221-1130230120000021-3311301122230113-1032130132020230-0000122303202133-3031101033303000-3332122122300122-3022302122013213"></a>
+
+<a id="canonical-1321122323120220-1103020002102120-1303100012001013-1130102330210300-2131113122333321-2020203212120020-0011002122313030-3211101323333231"></a>
+
+## topology_keys property — rules / 100131100121 / 6
+
+Type: `["list", "string"]`. Computed.
+
+Specify one or more node label keys that define the scope of avoidance. For each topology key (e.g.,
+Kubernetes.I/O/hostname), CE pods will avoid nodes whose topology value matches a node already
+running a pod with the above specified label.
+
+Upstream description:
+
+Specify one or more node label keys that define the scope of avoidance. For each topology key (e.g.,
+Kubernetes.I/O/hostname), CE pods will avoid nodes whose topology value matches a node already
+running a pod with the above specified label. Example: with Kubernetes.I/O/hostname, CE pods are
+kept off any node running the matching customer pod.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 10,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 10,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_len": "253",
+    "ves.io.schema.rules.repeated.items.string.min_len": "1",
+    "ves.io.schema.rules.repeated.max_items": "10",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_len": "253",
+    "ves.io.schema.rules.repeated.items.string.min_len": "1",
+    "ves.io.schema.rules.repeated.max_items": "10",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0302122103232230-1200031002201332-2022212332113030-3222011020111101-0232031200033220-0233112220330113-0202010100112211-3101201332230230"></a>
+
+## Next pages — rules / 100131100121 / 7
+
+- [eks_k8s.enable_anti_affinity](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3132013131321030-0230231111323330-0110133210202030-1033301212132032-0031211122101322-2000233033010320-0233132211021221-0322023230121200)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3202023123211331-2312011102332030-2023021022130201-2122203301322313-0213323231020131-3231023203113130-0102132300203213-1300003132110123"></a>
+
+## eks_k8s.not_managed — not_managed / 001233003321 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- eks_k8s.not_managed
+
+<a id="canonical-0033311230223302-2222101230102113-1222313322001001-2211000312122323-2012322200221012-1330230122322130-1233012102110033-1031202102332211"></a>
+
+Type: `"single"`. Computed.
+
+Section will show nodes associated with this site.
+
+Upstream description:
+
+This section will show nodes associated with this site. Note: For sites that are not orchestrated by
+F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
+will be shown in this section.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2210221113333333-3011002302033030-0002323303113301-1110301333130100-2310100320311010-2331123132223132-0022013103323131-2233110131011122"></a>
+
+## Direct properties — not_managed / 001233003321 / 3
+
+- [node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010): complete subsection reference.
+
+<a id="canonical-2011133201310311-3031320033130230-2112000220010231-1312133020110032-2021303123323223-1310033031111320-0303320210131312-3213031330313220"></a>
+
+## Next pages — not_managed / 001233003321 / 4
+
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1320113113001323-0000132221231111-2003013301131300-0023013313101211-0033022011301013-0113022210023300-0012032330221133-3310032301213002"></a>
+
+## eks_k8s.not_managed.node_list — node_list / 030120103311 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- eks_k8s.not_managed.node_list
+
+<a id="canonical-0031201130301030-1333003100200331-0202022133020231-0213000221033133-2033322112133200-3313003223222013-3132120312212222-2023323200220111"></a>
+
+Type: `"list"`. Computed.
+
+Section will show nodes associated with this site.
+
+Upstream description:
+
+This section will show nodes associated with this site. Note: For sites that are not orchestrated by
+F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
+will be shown in this section.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3010101032022010-3310110213331202-2032201123331320-0210212101331203-3221202011031021-3213013002313201-3102303133101100-0332312021001302"></a>
+
+## Direct properties — node_list / 030120103311 / 3
+
+<a id="canonical-1113011033033110-0122210021101233-3121020200332122-3111322031020002-2013102012332213-2133130310231222-2330301131202201-0113000121302330"></a>
+
+<a id="canonical-3001133000133210-1033313310331001-3023220312123112-2110200322013020-0130220231003211-0312201312122011-0331220120032301-2120100300133233"></a>
+
+## hostname property — node_list / 030120103311 / 4
+
+Type: `"string"`. Computed.
+
+Hostname. Hostname for this Node.
+
+Upstream description:
+
+Hostname for this Node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "fqdn",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1123"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113): complete subsection reference.
+
+<a id="canonical-0302022131123113-2233310323033101-3321302302100120-1303322201211323-2131012103313020-3103311002022120-0130212230121333-0112022010022222"></a>
+
+<a id="canonical-3013023102322221-3312100123032121-2133120022001302-0201203013212021-3210232133232133-2002121011313221-0032323303011130-3303332003203130"></a>
+
+## public_ip property — node_list / 030120103311 / 5
+
+Type: `"string"`. Computed.
+
+Public IP. Public IP for this Node.
+
+Upstream description:
+
+Public IP for this Node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-0212100331011230-1202011222302202-3022231012203010-0132212233110330-1232333123020022-1310322213323002-1200311220130200-3211031202213230"></a>
+
+<a id="canonical-0001332033331000-0003022313031002-2232232010301130-0023112221200233-3021321121321102-0331210030112320-0313302002020023-3130332032121210"></a>
+
+## type property — node_list / 030120103311 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum: Control|Worker\] Type for this Node, can be Control or Worker. Possible values are
+\`Control\`, \`Worker\`.
+
+Upstream description:
+
+Type for this Node, can be Control or Worker.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "enum": [
+    "Control",
+    "Worker"
+  ],
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"Control\\\",\\\"Worker\\\"]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"Control\\\",\\\"Worker\\\"]"
+  }
+}
+```
+
+<a id="canonical-0101131331020011-2230131332202310-0032112213200233-3312333310000220-1302200021011323-0223032313022031-3113023010223131-1203011012020311"></a>
+
+## Next pages — node_list / 030120103311 / 7
+
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1000031221211303-0002210131102220-0132233102021331-3120203010112313-2312320133213102-0301223002201320-0011033022232001-3322230011201200"></a>
+
+## eks_k8s.not_managed.node_list.interface_list — interface_list / 332002201313 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- eks_k8s.not_managed.node_list.interface_list
+
+<a id="canonical-1121112011333001-2133010002220032-3300031222023231-1133301010230303-3321011331101112-1231133011203121-2032302100113330-1210001031303313"></a>
+
+Type: `"list"`. Computed.
+
+Manage interfaces belonging to this node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-2011012300002012-0102230112122201-1323133321101231-2021301333132332-2300233113333120-1133003233111030-0012210000102321-3223103010112212"></a>
+
+## Direct properties — interface_list / 332002201313 / 3
+
+- [bond_interface](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0033133322031212-2121200222321312-1002131121323023-1032000213222300-2002123332032020-3023311230322330-0033221220022020-2001332033032313): complete subsection reference.
+
+<a id="canonical-1200020220221122-0112302001321213-2213133233113303-3303003313113030-0003321022021133-2002220200001100-0323231003132223-2113012212131332"></a>
+
+<a id="canonical-0303310332313230-0212102313021233-3311322212013212-3313323223003203-3323110223312312-0323012302322220-3033313211333001-1213202130122112"></a>
+
+## description_spec property — interface_list / 332002201313 / 4
+
+Type: `"string"`. Computed.
+
+Interface Description. Description for this Interface.
+
+- [dhcp_client](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3011103132221220-0312310320321320-2313013102101231-2103133321330323-0313333032310233-1201033222300131-3213202330132230-0011313320331003): complete subsection reference.
+
+- [dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200): complete subsection reference.
+
+- [ethernet_interface](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1131021000302202-2211333103200323-1010313030211213-1132011213031030-3322133213033312-2112100133213102-2310102312233232-3020300331103132): complete subsection reference.
+
+- [ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101): complete subsection reference.
+
+<a id="canonical-1003001120033032-0100031100331021-0122201201101031-3330322230213113-0332102230031022-1233210022202030-2303011330230302-0101001111331033"></a>
+
+<a id="canonical-2320311203002233-2122311132023111-1221310223331322-3031322011101130-0122321332131301-1301112321000211-2231002320333302-0021102030120210"></a>
+
+## is_management property — interface_list / 332002201313 / 5
+
+Type: `"bool"`. Computed.
+
+Configuration for is\_management.
+
+<a id="canonical-0133310301111102-1102122121001020-2322110121112321-0121110010313333-2321113303331033-0233202033020211-2003201322203222-2120322212311121"></a>
+
+<a id="canonical-1202232112030021-1021210030311201-2210203011323211-1012213010223012-1133322303301223-2303000301102100-3033230223330131-2120110100233002"></a>
+
+## is_primary property — interface_list / 332002201313 / 6
+
+Type: `"bool"`. Computed.
+
+Configuration for is\_primary.
+
+<a id="canonical-3221211321321121-1222032212030200-2020311233312012-1220100003101303-1123221300121311-0133000022222222-1122220112202121-2333111302131020"></a>
+
+<a id="canonical-0321001131031313-0222300300202231-1031013113101331-0120103133003023-1221320203323302-0122200202133130-0001210232032300-0020300011212310"></a>
+
+## labels property — interface_list / 332002201313 / 7
+
+Type: `["map", "string"]`. Computed.
+
+Add Labels for this Interface, these labels can be used in firewall policy.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "16",
+    "ves.io.schema.rules.map.values.string.max_len": "64",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "16",
+    "ves.io.schema.rules.map.values.string.max_len": "64",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  }
+}
+```
+
+- [monitor](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021330301310310-1220312032020031-1323112300100300-2232101213301320-3021130211331011-3031022021111233-2120012002123211-0031031131022201): complete subsection reference.
+
+- [monitor_disabled](data-sources--securemesh_site_v2--reference--group-008.md#canonical-0111121012022320-1311122221221213-2110002321130211-3132031201011223-1233323212200301-3110331120222010-3020201010102302-1020300302222222): complete subsection reference.
+
+<a id="canonical-1230012010330302-2130133312120103-2021111313300310-1123333313222032-1333132210030202-2223312012301301-1202020232133011-3231022203112312"></a>
+
+<a id="canonical-2110220110220012-3331203123321320-2333300230032311-1110020023003301-1111303002001202-1101121101130010-3213200332033322-2231003323133023"></a>
+
+## mtu property — interface_list / 332002201313 / 8
+
+Type: `"number"`. Computed.
+
+Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between
+512 and 8000.
+
+Upstream description:
+
+Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between
+512 and 8000.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 8000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.ranges": "0,512-8000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.ranges": "0,512-8000"
+  }
+}
+```
+
+<a id="canonical-1022133003332112-2320200322203310-0130130231301202-2001323133200303-3211213232223010-0232210310311032-0300300021211012-3011213132001200"></a>
+
+<a id="canonical-1210231301201121-0313230131132211-1210331012302023-1203111213010202-0101302223322100-3302101001013201-2002301101322302-3300231212200023"></a>
+
+## name property — interface_list / 332002201313 / 9
+
+Type: `"string"`. Computed.
+
+Interface Name. Name of this Interface.
+
+Upstream description:
+
+Name of this Interface.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [network_option](data-sources--securemesh_site_v2--reference--group-008.md#canonical-2102310131120122-2032110030130200-2010122221222131-3021333301332000-1331202023210020-2121231331101220-2113020011333202-2113213011003300): complete subsection reference.
+
+- [no_ipv4_address](data-sources--securemesh_site_v2--reference--group-008.md#canonical-3102013231002313-0111010212231022-2010103213103201-3001331321231303-2302322113001313-0130313033202112-0322300313220011-1211220110121200): complete subsection reference.
+
+- [no_ipv6_address](data-sources--securemesh_site_v2--reference--group-008.md#canonical-3201230112230311-3202211312030231-0202111031212122-1023110330300221-3031320011121212-2031201103132231-1012022003323123-0211023111232312): complete subsection reference.
+
+<a id="canonical-3010020003110303-1320122132113122-0120332302011010-3330331200033121-3331120203233222-3203111033113031-3023031220111201-1330223222130032"></a>
+
+<a id="canonical-3033133011323013-2210122323003120-1002312202102110-2223332132020233-2300330321013112-1303320132203030-2010002302331122-3122213210033122"></a>
+
+## priority property — interface_list / 332002201313 / 10
+
+Type: `"number"`. Computed.
+
+For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
+used as active and interfaces with lower priority will be used as backup. If multiple interfaces
+have the same priority, ECMP will be used. Greater the value, higher the priority.
+
+Upstream description:
+
+For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
+used as active and interfaces with lower priority will be used as backup. If multiple interfaces
+have the same priority, ECMP will be used. Greater the value, higher the priority.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 255,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 0,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "255"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "255"
+  }
+}
+```
+
+- [site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-008.md#canonical-2210203003310011-1102320110002020-2332010022121032-0100200312312310-2322031112111212-2203232001332323-1111020320012013-3223200231010220): complete subsection reference.
+
+- [site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-008.md#canonical-1311331221011320-2031201013323003-2332112021201201-1022201202320130-0131031130311032-2231003130213013-2312121231203201-0303200211003233): complete subsection reference.
+
+- [static_ip](data-sources--securemesh_site_v2--reference--group-008.md#canonical-0020023021001010-2023100110032221-1222000330312221-3321233010211231-1223033231213222-1010132003310320-3001302122210020-1120231310102020): complete subsection reference.
+
+- [static_ipv6_address](data-sources--securemesh_site_v2--reference--group-008.md#canonical-1233233223022312-0100303230320213-1130131132010330-2120002001031011-1210302020311313-1320101100110003-0110023111310333-1132012333022011): complete subsection reference.
+
+- [vlan_interface](data-sources--securemesh_site_v2--reference--group-008.md#canonical-3120322323322000-0011013231203003-2110133003221231-1112222130322231-2122101000033001-1121333101203131-3210320210333031-0013222122132303): complete subsection reference.
+
+<a id="canonical-3131332030103330-3200201300010323-3312131213032231-2101310320233333-0100103323311131-3313213313012300-1013101200000221-2013213320310131"></a>
+
+## Next pages — interface_list / 332002201313 / 11
+
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0033133322031212-2121200222321312-1002131121323023-1032000213222300-2002123332032020-3023311230322330-0033221220022020-2001332033032313)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_client](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3011103132221220-0312310320321320-2313013102101231-2103133321330323-0313333032310233-1201033222300131-3213202330132230-0011313320331003)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [eks_k8s.not_managed.node_list.interface_list.ethernet_interface](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1131021000302202-2211333103200323-1010313030211213-1132011213031030-3322133213033312-2112100133213102-2310102312233232-3020300331103132)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.monitor](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021330301310310-1220312032020031-1323112300100300-2232101213301320-3021130211331011-3031022021111233-2120012002123211-0031031131022201)
+- [eks_k8s.not_managed.node_list.interface_list.monitor_disabled](data-sources--securemesh_site_v2--reference--group-008.md#canonical-0111121012022320-1311122221221213-2110002321130211-3132031201011223-1233323212200301-3110331120222010-3020201010102302-1020300302222222)
+- [eks_k8s.not_managed.node_list.interface_list.network_option](data-sources--securemesh_site_v2--reference--group-008.md#canonical-2102310131120122-2032110030130200-2010122221222131-3021333301332000-1331202023210020-2121231331101220-2113020011333202-2113213011003300)
+- [eks_k8s.not_managed.node_list.interface_list.no_ipv4_address](data-sources--securemesh_site_v2--reference--group-008.md#canonical-3102013231002313-0111010212231022-2010103213103201-3001331321231303-2302322113001313-0130313033202112-0322300313220011-1211220110121200)
+- [eks_k8s.not_managed.node_list.interface_list.no_ipv6_address](data-sources--securemesh_site_v2--reference--group-008.md#canonical-3201230112230311-3202211312030231-0202111031212122-1023110330300221-3031320011121212-2031201103132231-1012022003323123-0211023111232312)
+- [eks_k8s.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](data-sources--securemesh_site_v2--reference--group-008.md#canonical-2210203003310011-1102320110002020-2332010022121032-0100200312312310-2322031112111212-2203232001332323-1111020320012013-3223200231010220)
+- [eks_k8s.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](data-sources--securemesh_site_v2--reference--group-008.md#canonical-1311331221011320-2031201013323003-2332112021201201-1022201202320130-0131031130311032-2231003130213013-2312121231203201-0303200211003233)
+- [eks_k8s.not_managed.node_list.interface_list.static_ip](data-sources--securemesh_site_v2--reference--group-008.md#canonical-0020023021001010-2023100110032221-1222000330312221-3321233010211231-1223033231213222-1010132003310320-3001302122210020-1120231310102020)
+- [eks_k8s.not_managed.node_list.interface_list.static_ipv6_address](data-sources--securemesh_site_v2--reference--group-008.md#canonical-1233233223022312-0100303230320213-1130131132010330-2120002001031011-1210302020311313-1320101100110003-0110023111310333-1132012333022011)
+- [eks_k8s.not_managed.node_list.interface_list.vlan_interface](data-sources--securemesh_site_v2--reference--group-008.md#canonical-3120322323322000-0011013231203003-2110133003221231-1112222130322231-2122101000033001-1121333101203131-3210320210333031-0013222122132303)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0033133322031212-2121200222321312-1002131121323023-1032000213222300-2002123332032020-3023311230322330-0033221220022020-2001332033032313"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0323031010030002-3020032202232323-1111321033323323-0331320200011202-0221200301111110-0033013033211013-1023330011030312-1201322333222123"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.bond_interface — bond_interface / 130111111003 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- eks_k8s.not_managed.node_list.interface_list.bond_interface
+
+<a id="canonical-0321210221100113-2303201013302112-0003331130032010-3102312033022131-1101223000311320-3002003310022023-1230133122112320-3032102021331230"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for bond interface.
+
+Upstream description:
+
+Bond devices configuration for fleet.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-lacp_choice": "[\"active_backup\",\"lacp\"]"
+}
+```
+
+<a id="canonical-1232301123101123-0333033333102120-0031301320212112-2112123213022010-2013203011102211-3320300212200320-0230020301020032-2203201122132002"></a>
+
+## Direct properties — bond_interface / 130111111003 / 3
+
+- [active_backup](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0021000323202202-0023333301323233-1020223213313032-0203332100203302-0010130230121313-2222303110223301-2030313001123110-1331230321331230): complete subsection reference.
+
+<a id="canonical-1000312003011211-2111021102030021-1213221323233120-0030131010001301-3323111231320321-1120030101120230-2102322113302020-1201201232223110"></a>
+
+<a id="canonical-0000203311103323-0022000223313320-2230300113311020-0122212101100110-0213311000101333-1123213220203221-2100230112030023-2130012322130213"></a>
+
+## devices property — bond_interface / 130111111003 / 4
+
+Type: `["list", "string"]`. Computed.
+
+Ethernet devices that will make up this bond.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 8,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 8,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_len": "64",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_len": "64",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [lacp](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0023211123312100-2111310101030302-2301212111322230-1121311023100033-0230220120312101-3302013022332220-0223100032312322-3312121123220323): complete subsection reference.
+
+<a id="canonical-2211233202130021-3202121330330000-2130120310033303-0010001213132100-1033302321313221-3333223123113220-1121312000101120-2122133130212023"></a>
+
+<a id="canonical-3223123013012031-1033322130222122-2213323011110130-2323103230130020-2031321013323120-2200020133001301-3112323233033231-2303202221002023"></a>
+
+## link_polling_interval property — bond_interface / 130111111003 / 5
+
+Type: `"number"`. Computed.
+
+Link Polling Interval. Link polling interval in milliseconds.
+
+Upstream description:
+
+Link polling interval in milliseconds.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 5000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 500
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "500",
+    "ves.io.schema.rules.uint32.lte": "5000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "500",
+    "ves.io.schema.rules.uint32.lte": "5000"
+  }
+}
+```
+
+<a id="canonical-2210131223003301-3131222230213222-2212330300223222-1123213203220213-0020000031313113-2013011212331021-2201001230010311-1020111120101100"></a>
+
+<a id="canonical-1113100220132113-3300031310321220-3022012302322130-1020221022312201-3023003123230301-3011223101220001-2002013311010300-3300000032112010"></a>
+
+## link_up_delay property — bond_interface / 130111111003 / 6
+
+Type: `"number"`. Computed.
+
+Milliseconds wait before link is declared up.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 1000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "1000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "1000"
+  }
+}
+```
+
+<a id="canonical-2030211110333322-1333032122210100-1000333003221220-1100112013213123-2030302332003333-3310310310001133-1103313202310232-1322221303002331"></a>
+
+<a id="canonical-2031013022221231-1101222201012010-0231211112312111-0323023212210101-3110310313212301-1133113132130322-3122302330322320-2301002002102120"></a>
+
+## name property — bond_interface / 130111111003 / 7
+
+Type: `"string"`. Computed.
+
+Bond Device Name. Name for the Bond. Ex 'bond0'
+
+Upstream description:
+
+Name for the Bond. Ex 'bond0'
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64"
+  }
+}
+```
+
+<a id="canonical-3000001331120032-0112132000222300-1031102132303000-3021122113202112-0021222100311312-2110131100232011-0010231111022110-3331020222012303"></a>
+
+## Next pages — bond_interface / 130111111003 / 8
+
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface.active_backup](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0021000323202202-0023333301323233-1020223213313032-0203332100203302-0010130230121313-2222303110223301-2030313001123110-1331230321331230)
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface.lacp](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0023211123312100-2111310101030302-2301212111322230-1121311023100033-0230220120312101-3302013022332220-0223100032312322-3312121123220323)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0021000323202202-0023333301323233-1020223213313032-0203332100203302-0010130230121313-2222303110223301-2030313001123110-1331230321331230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3223010020302320-2231031301001210-2203211001120121-0031001101200023-2313223333230012-0030011200303122-0230122100332131-3211231113203011"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.bond_interface.active_backup — active_backup / 002323221231 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0033133322031212-2121200222321312-1002131121323023-1032000213222300-2002123332032020-3023311230322330-0033221220022020-2001332033032313)
+- eks_k8s.not_managed.node_list.interface_list.bond_interface.active_backup
+
+<a id="canonical-0310210010333132-1032202012132100-3230222122200122-1111113212310122-3313321320021011-0331103221021123-2013023312023131-2022231100223212"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for active backup.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3323301123110210-0232132201313101-3012313222032122-1101211332021020-2003030101210311-0123302031221012-0021101011132223-3031331132330200"></a>
+
+## Direct properties — active_backup / 002323221231 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3321210112122121-3303220130020031-3122330333120210-1320330332123233-0210002320202311-2232133012133023-3100221130322300-2323220111211130"></a>
+
+## Next pages — active_backup / 002323221231 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0033133322031212-2121200222321312-1002131121323023-1032000213222300-2002123332032020-3023311230322330-0033221220022020-2001332033032313)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0023211123312100-2111310101030302-2301212111322230-1121311023100033-0230220120312101-3302013022332220-0223100032312322-3312121123220323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2122120110111130-2320022223123003-3132101122310123-3211101011210131-2130020231011033-3132100133010300-3122233110312000-3003022013122133"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.bond_interface.lacp — lacp / 022321001202 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0033133322031212-2121200222321312-1002131121323023-1032000213222300-2002123332032020-3023311230322330-0033221220022020-2001332033032313)
+- eks_k8s.not_managed.node_list.interface_list.bond_interface.lacp
+
+<a id="canonical-1332022121223201-3220001333233021-0020231300232122-1102131301003333-3002001331330203-1113112231321322-3020200000132020-2222321023310002"></a>
+
+Type: `"single"`. Computed.
+
+LACP parameters. LACP parameters for the bond device.
+
+Upstream description:
+
+LACP parameters for the bond device.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1213300123211110-3331002323302312-0120131233330123-2022003232313121-2233110321021113-0201102302130300-2301323032011020-3002311313021012"></a>
+
+## Direct properties — lacp / 022321001202 / 3
+
+<a id="canonical-2011310120001321-2212201100302212-3030332321000131-0332011121002233-1320310121101312-0231011103311121-3100321313321030-0020012302223012"></a>
+
+<a id="canonical-3320111121110212-0311011300202113-1312230120023213-2300011021200303-3203322030023123-2333212323331122-3131323202312200-3011302301000321"></a>
+
+## rate property — lacp / 022321001202 / 4
+
+Type: `"number"`. Computed.
+
+Interval in seconds to transmit LACP packets.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 30,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "30"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "30"
+  }
+}
+```
+
+<a id="canonical-0310201130301111-0023220330103331-2023002123030312-1312330301011030-3311033301232002-3232130113202311-0223020201330302-0032313020231010"></a>
+
+## Next pages — lacp / 022321001202 / 5
+
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0033133322031212-2121200222321312-1002131121323023-1032000213222300-2002123332032020-3023311230322330-0033221220022020-2001332033032313)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3011103132221220-0312310320321320-2313013102101231-2103133321330323-0313333032310233-1201033222300131-3213202330132230-0011313320331003"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0211001330221020-0031100221311132-1233332021103322-3012032232100311-1231212323331232-0112203012002211-2102211122002111-2111000200233323"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_client — dhcp_client / 220300020032 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_client
+
+<a id="canonical-0222023020102031-1032112132303132-0321110322332123-1031321331033313-1213223003012001-2300202112100201-3021112113200103-1131101331132232"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3321311201223112-3033113113300231-2011310312010313-1311233100033103-1320230020003000-0010220031030022-1001232012310211-0012100012103000"></a>
+
+## Direct properties — dhcp_client / 220300020032 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1203233100021212-2012120333022212-1122131102230223-2230001300311122-1021212302102210-3121200021012030-1121121032211012-3102002032313133"></a>
+
+## Next pages — dhcp_client / 220300020032 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1131302023100030-1101333213101213-3000003100201233-3311323233231300-3220021032030223-0111230131113221-2210031322132303-2020120131122113"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server — dhcp_server / 112102112233 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server
+
+<a id="canonical-2023311022230300-2100332232123033-3011333321300010-1013013330201212-2211312120331000-1031103002312120-2201322311121200-0310113302032213"></a>
+
+Type: `"single"`. Computed.
+
+DHCPServerParametersType.
+
+Upstream description:
+
+DHCP server configuration for this interface.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-ves-oneof-field-interfaces_addressing_choice": "[\"automatic_from_end\",\"automatic_from_start\",\"interface_ip_map\"]"
+}
+```
+
+<a id="canonical-2211023022212131-0122203333333030-0121313030210221-3111010303321113-0211211323000121-1130122231122100-2010320213233320-0230320211120010"></a>
+
+## Direct properties — dhcp_server / 112102112233 / 3
+
+- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200110020221330-1310112211131000-2013203113110213-0331321102210221-0103011212001330-1111010300231212-3312120310330300-1333210321320322): complete subsection reference.
+
+- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0212012020230333-1320012122320212-1020030103223233-3010321103110113-1030100321233220-3000130330230203-0203333332122020-3131300302320021): complete subsection reference.
+
+- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301): complete subsection reference.
+
+<a id="canonical-1030131111120302-1322223131221123-3232311030103111-2020022020232223-1211201310000320-2022310010231030-0223201110031111-3001332031230233"></a>
+
+<a id="canonical-3202200123111332-0232230122202031-0031230202022331-1100200032200001-2110212001303122-0321012320010031-2222210310311020-1222101220220102"></a>
+
+## dhcp_option82_tag property — dhcp_server / 112102112233 / 4
+
+Type: `"string"`. Computed.
+
+DHCP option 82 tag.
+
+<a id="canonical-3232230013223320-1101220321103120-0303011001301101-0222100231132130-1203121201123022-0103233032332333-1111002133321310-3232001030202122"></a>
+
+<a id="canonical-1100030113020011-1200130002301003-0333300000101301-2222103121113320-0212132201120010-2110221011010111-3323112320313223-3231122222213210"></a>
+
+## fixed_ip_map property — dhcp_server / 112102112233 / 5
+
+Type: `["map", "string"]`. Computed.
+
+Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.mac": "true",
+    "ves.io.schema.rules.map.max_pairs": "128",
+    "ves.io.schema.rules.map.unique_values": "true",
+    "ves.io.schema.rules.map.values.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.mac": "true",
+    "ves.io.schema.rules.map.max_pairs": "128",
+    "ves.io.schema.rules.map.unique_values": "true",
+    "ves.io.schema.rules.map.values.string.ipv4": "true"
+  }
+}
+```
+
+- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1330312011331032-3023221132130002-0121310203132231-1213022033212012-1200311132233003-0103130200011121-0233320233323233-1113123230003312): complete subsection reference.
+
+<a id="canonical-3222000320223222-2200311101100011-2313200222203120-2212103123100120-3101121023021303-1001221033303210-3133233123120000-2110212110303211"></a>
+
+## Next pages — dhcp_server / 112102112233 / 6
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.automatic_from_end](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200110020221330-1310112211131000-2013203113110213-0331321102210221-0103011212001330-1111010300231212-3312120310330300-1333210321320322)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.automatic_from_start](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0212012020230333-1320012122320212-1020030103223233-3010321103110113-1030100321233220-3000130330230203-0203333332122020-3131300302320021)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.interface_ip_map](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1330312011331032-3023221132130002-0121310203132231-1213022033212012-1200311132233003-0103130200011121-0233320233323233-1113123230003312)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1200110020221330-1310112211131000-2013203113110213-0331321102210221-0103011212001330-1111010300231212-3312120310330300-1333210321320322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0030323033031203-2101212022301220-1302221330032212-3003212022213030-1230131011231331-1220230222030320-1313331130200033-1332322202030300"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server.automatic_from_end — automatic_from_end / 233321322011 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server.automatic_from_end
+
+<a id="canonical-3030020230022000-0212022120222201-2102113031323003-0010221011210022-0233223023111000-3213110323222012-3322321203030001-3101132022012303"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for automatic from end.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2202002130122022-2223222210133101-2002112110020303-0010101201212032-3101010231011301-3322101100022233-1032033020103211-1031312122032000"></a>
+
+## Direct properties — automatic_from_end / 233321322011 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3101123302001323-2001102032001333-2022122313120031-0322200230111122-3223002231302000-0130100131223233-2223232321021003-0000322031210322"></a>
+
+## Next pages — automatic_from_end / 233321322011 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0212012020230333-1320012122320212-1020030103223233-3010321103110113-1030100321233220-3000130330230203-0203333332122020-3131300302320021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0301210222021111-2002223121022020-2222111003220030-1210210322212330-1230121020110113-3220133121033102-0201120311211320-3301222022123313"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server.automatic_from_start — automatic_from_start / 022303020213 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server.automatic_from_start
+
+<a id="canonical-2131033120122112-1201033101332210-1312021211222111-2232323222032132-3221121120313121-1300311012210003-1233333232302200-0031003203300332"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for automatic from start.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0310002331101112-3000321011002222-2212100110301200-0223113333233330-3012100132101131-3111322000220010-0333203032321123-0031110232322312"></a>
+
+## Direct properties — automatic_from_start / 022303020213 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1120110130330000-3231022330103232-2011002010011103-3223123130120231-1202233202201122-0113200102113212-0000310230322103-2203211001101120"></a>
+
+## Next pages — automatic_from_start / 022303020213 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3100203233102010-0312302331023131-0113101300032121-1032231323011321-3003120011200022-1032133100023022-2020223303010332-0012222103111031"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks — dhcp_networks / 013321312231 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks
+
+<a id="canonical-1212320212320311-3313100032012013-3200001302330322-1120322111012010-1010122330222021-1330002302210123-2313010130311002-0113002312211011"></a>
+
+Type: `"list"`. Computed.
+
+List of networks from which DHCP Server can allocate IPv4 Addresses.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 1,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 1,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0232023023223313-3202020013022212-1122322032030220-2302100300120230-3022233213211310-1332102123112001-0122302213213202-2131032233211031"></a>
+
+## Direct properties — dhcp_networks / 013321312231 / 3
+
+<a id="canonical-0331030301232310-2020233210212023-0333001200331102-3320123231123103-1333103302100102-3130112300111120-2130220001310003-3133323223123311"></a>
+
+<a id="canonical-1013213313323030-1012113120331020-1101221211123003-3011021201231220-2003031012103101-0332101020232210-2001323102321321-0333000232031130"></a>
+
+## dgw_address property — dhcp_networks / 013321312231 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[first\_address last\_address\] Enter a IPv4 address from the network prefix to be
+used as the default gateway.
+
+Upstream description:
+
+Exclusive with \[first\_address last\_address\] Enter a IPv4 address from the network prefix to be
+used as the default gateway.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  }
+}
+```
+
+<a id="canonical-3103212232203300-3230012311322212-1011201313030000-1222001112130032-0333020012312202-3123200220000330-3101020021323111-1100211331322321"></a>
+
+<a id="canonical-3012101332103210-0323133001331121-1113032311330001-0112130210113120-2133102031330113-0003000100123021-0131302320120310-0130031123020330"></a>
+
+## dns_address property — dhcp_networks / 013321312231 / 5
+
+Type: `"string"`. Computed.
+
+Exclusive with \[same\_as\_dgw\] Enter a IPv4 address from the network prefix to be used as the DNS
+server.
+
+Upstream description:
+
+Exclusive with \[same\_as\_dgw\] Enter a IPv4 address from the network prefix to be used as the DNS
+server.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  }
+}
+```
+
+- [first_address](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1223322310233333-2210301013030231-3322130311320233-3231112313301032-0310022003013303-0301221320221022-1130233211120202-2212022211111323): complete subsection reference.
+
+- [last_address](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3212302301101023-0020303311013310-1310313022130232-3102230003222213-0221320113111203-1300110102000012-0331212101302221-3132011002212033): complete subsection reference.
+
+<a id="canonical-3210232031112200-1120101310230020-1022233030122213-3320202023221232-3221022001233021-0212123321032230-0233233203012202-0111032310003103"></a>
+
+<a id="canonical-0323210113103320-3302303111300233-1123030221323221-3320002212310102-3223123010311320-2111302112102203-2023013312200022-1220323111020332"></a>
+
+## network_prefix property — dhcp_networks / 013321312231 / 6
+
+Type: `"string"`. Computed.
+
+Exclusive with \[\] Set the network prefix for the site. Ex: 192.0.2.0/24.
+
+Upstream description:
+
+Exclusive with \[\] Set the network prefix for the site. Ex: 192.0.2.0/24.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-0103030301300030-2333101211031230-2221232010203331-3000232021100302-2112130132033321-1210230211131312-2300303213303013-2202122012100231"></a>
+
+<a id="canonical-1002010123220001-1031211213032321-3102112313122311-1133212112303201-3023022030333030-0202101133222110-2302020211230313-0213132123232123"></a>
+
+## pool_settings property — dhcp_networks / 013321312231 / 7
+
+Type: `"string"`. Computed.
+
+\[Enum: INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS|EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\]
+Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for
+IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.
+Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
+\`EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`. Defaults to
+\`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`.
+
+Upstream description:
+
+Identifies the how to pick the network for Interface.
+
+Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list
+are excluded from IP Address allocation.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+  "enum": [
+    "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [pools](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1220230310010110-1220130230103120-3000320122131230-0030111213111113-1011331001212132-0023113023301300-3023010033121331-3230203321302122): complete subsection reference.
+
+- [same_as_dgw](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3020113312232022-0120301202202211-3001231013222222-0221310212131201-3331210203133332-1013233010133133-2031003321231022-3001301310110210): complete subsection reference.
+
+<a id="canonical-1101322000033210-3222113330301232-2132101120222322-0112013011332323-3113012023000031-2101323110103331-2010011213231031-3001020320233113"></a>
+
+## Next pages — dhcp_networks / 013321312231 / 8
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1223322310233333-2210301013030231-3322130311320233-3231112313301032-0310022003013303-0301221320221022-1130233211120202-2212022211111323)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3212302301101023-0020303311013310-1310313022130232-3102230003222213-0221320113111203-1300110102000012-0331212101302221-3132011002212033)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1220230310010110-1220130230103120-3000320122131230-0030111213111113-1011331001212132-0023113023301300-3023010033121331-3230203321302122)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3020113312232022-0120301202202211-3001231013222222-0221310212131201-3331210203133332-1013233010133133-2031003321231022-3001301310110210)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1223322310233333-2210301013030231-3322130311320233-3231112313301032-0310022003013303-0301221320221022-1130233211120202-2212022211111323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3212312222300013-0230310313021210-2220220300203133-1312130333012203-0113232102010231-2202233223121303-3032203001201310-0312212100130121"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address — first_address / 331121012013 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address
+
+<a id="canonical-1332021223100133-1311232123321103-2032200031202313-3302230213231322-2330320303320112-2030103121332311-2022200023110313-1211120222301033"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1332202132012201-0310332221202133-0330330202113031-2222323103112100-0012311030320223-0112003103132330-1122302232101102-2221113223230202"></a>
+
+## Direct properties — first_address / 331121012013 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2313233311122032-1101101011120331-3322011031232220-3333300023120132-3201331022321133-1202221023020010-0203332001213331-3131013332312011"></a>
+
+## Next pages — first_address / 331121012013 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3212302301101023-0020303311013310-1310313022130232-3102230003222213-0221320113111203-1300110102000012-0331212101302221-3132011002212033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1330101031300230-3333022030330032-0210130231130210-0323300032311011-1302310230023221-3101311301200301-1202201220130303-1033011302002000"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address — last_address / 300331312132 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address
+
+<a id="canonical-2000313311013100-3002100010110102-0313001222003322-3222022321101103-1312030221131121-3200230203020312-3130013032020123-1332221031100011"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2221001220021320-2333301031012012-3130300333202023-2032101023032302-3210113012003202-3101012301101131-3031303200232022-0102000302100231"></a>
+
+## Direct properties — last_address / 300331312132 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2000330333312220-2222203332313021-1330212310123211-2000111123232021-2021011221133122-1221003201130310-2232200033133111-2031010023033113"></a>
+
+## Next pages — last_address / 300331312132 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1220230310010110-1220130230103120-3000320122131230-0030111213111113-1011331001212132-0023113023301300-3023010033121331-3230203321302122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2310112232020330-3330210300032010-2303210133003001-3211201210211132-0221223331031102-3201032003112222-0220233230320320-3012203311101132"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools — pools / 310131113212 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools
+
+<a id="canonical-3112331103031231-1210321132230031-1303101303322232-0311322001321001-3121212000100130-1221211032112101-2023102012022220-2000032031132312"></a>
+
+Type: `"list"`. Computed.
+
+List of non overlapping IP address ranges.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1101023132312301-0032210320013131-1103333223021203-3321111330032002-2202033333132210-3131321121303032-3331233233201331-1300103332301231"></a>
+
+## Direct properties — pools / 310131113212 / 3
+
+<a id="canonical-0002113011213313-1201132133021212-3122023103000013-1022212102130331-1203101222313203-1033002033213111-0300333031033311-0211030201102222"></a>
+
+<a id="canonical-2331222222130013-2100220011231102-3202302102333233-1012133101101311-2130312113111132-1033121123221303-1020110100231210-2201120112223200"></a>
+
+## end_ip property — pools / 310131113212 / 4
+
+Type: `"string"`. Computed.
+
+Ending IP of the pool range. In case of address allocator, offset is derived based on network
+prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.
+
+Upstream description:
+
+Ending IP of the pool range. In case of address allocator, offset is derived based on network
+prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  }
+}
+```
+
+<a id="canonical-1202221132212011-0221332231101201-3023200122221003-1003213330012221-0310020230333220-0200123211333031-2232310020321231-2133023010200212"></a>
+
+<a id="canonical-2030333321122202-1201320300332013-2100301131101133-1112223103032221-0302001233031102-2030000120211030-3300230213303223-2033300130121130"></a>
+
+## exclude property — pools / 310131113212 / 5
+
+Type: `"bool"`. Computed.
+
+Exclude this address range from DHCP allocation.
+
+<a id="canonical-0023302000113211-1223322321302221-1323012030130212-3301231012211110-3333013200201311-3331020111103101-1200311000322003-2303200033121112"></a>
+
+<a id="canonical-1102322202220200-2031220103121013-1323301320101222-3002003330022320-3033022323122012-0333111300123102-2031133113121100-1310131110330231"></a>
+
+## start_ip property — pools / 310131113212 / 6
+
+Type: `"string"`. Computed.
+
+Starting IP of the pool range. In case of address allocator, offset is derived based on network
+prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.
+
+Upstream description:
+
+Starting IP of the pool range. In case of address allocator, offset is derived based on network
+prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  }
+}
+```
+
+<a id="canonical-0123000013122123-1022111100022330-1012031322123123-0020101130113201-0001202002233210-2200112131103021-0212020213330010-1201112332301121"></a>
+
+## Next pages — pools / 310131113212 / 7
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3020113312232022-0120301202202211-3001231013222222-0221310212131201-3331210203133332-1013233010133133-2031003321231022-3001301310110210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0132330232223221-2030301313011112-3132123322323101-0103220232220030-2302322212120331-0222231102212321-3101103102300322-3011230331003301"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw — same_as_dgw / 313231203103 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw
+
+<a id="canonical-2021020103000112-2203001002102011-3232203201111223-3133330023112223-1110301032112210-3231110322101333-0003130200213223-2202031201200210"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for same as dgw.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1322330130203131-0211021313023113-1022222212313203-2202331031332221-0213222122021332-3222313120200322-3322111013120302-2111121222023020"></a>
+
+## Direct properties — same_as_dgw / 313231203103 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1012300031022003-2303330133202220-1230113001213333-3012231132003300-0113120313111030-3120332312012210-2020102102323203-0120232120102230"></a>
+
+## Next pages — same_as_dgw / 313231203103 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2133200012110212-3130033131010111-2133111213000131-2330233023221310-2110202230013112-3020211120012032-2200232001013033-2312321331333301)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1330312011331032-3023221132130002-0121310203132231-1213022033212012-1200311132233003-0103130200011121-0233320233323233-1113123230003312"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2203022313121203-2003110110011123-3231211303332321-3130231012320110-3220112020323031-3010002321023302-3232030102113032-2112001231030231"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.dhcp_server.interface_ip_map — interface_ip_map / 122211110121 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- eks_k8s.not_managed.node_list.interface_list.dhcp_server.interface_ip_map
+
+<a id="canonical-3013013030113311-3100301320321111-1023220023110311-3123002102111212-3323311333022122-0012213330000003-2322221313021022-0120021030030301"></a>
+
+Type: `"single"`. Computed.
+
+Interface IPv4 Assignments. Specify static IPv4 addresses per node.
+
+Upstream description:
+
+Specify static IPv4 addresses per node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2323231201032222-1320013220003110-2020331130012103-1223233220133031-1202132131101313-1233231301230312-3313102303123031-0313303022333313"></a>
+
+## Direct properties — interface_ip_map / 122211110121 / 3
+
+<a id="canonical-2023032323323330-2320100323302032-2130200013230313-3200331112110103-1211021032330113-2210003023233220-2122310313332000-3232112301122112"></a>
+
+<a id="canonical-3332103302323233-1220331120122223-0011010300322111-3133212320132232-2122000033201200-2131321033120112-1001220221033221-2013000002210123"></a>
+
+## interface_ip_map property — interface_ip_map / 122211110121 / 4
+
+Type: `["map", "string"]`. Computed.
+
+Specify static IPv4 addresses per site:node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv4": "true"
+  }
+}
+```
+
+<a id="canonical-1202322030003302-2320101023112303-0203023332230332-1132002003222002-1330232002331333-3103103110020230-2003003313203023-1133021032200132"></a>
+
+## Next pages — interface_ip_map / 122211110121 / 5
+
+- [eks_k8s.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3010300133021003-3120113030231212-1032110022121320-3220000000202021-3332221111300033-3121220313220121-2231123320133232-2201311123221200)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1131021000302202-2211333103200323-1010313030211213-1132011213031030-3322133213033312-2112100133213102-2310102312233232-3020300331103132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0222221000313231-3201023300310221-0320033303133121-0301023301102313-1102023312222130-1210023301203211-2332303310310113-1331013121001113"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ethernet_interface — ethernet_interface / 211203310323 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- eks_k8s.not_managed.node_list.interface_list.ethernet_interface
+
+<a id="canonical-0220110222303302-2230033102300033-0023122112002133-3100300001231112-2331201312313003-2203100121311121-0130003230020230-3003111032022000"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for ethernet interface.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2321333302301330-0210000001001313-2220202203331233-2221103233310012-0003212021030211-2310300301003111-1111103132013033-3120331321123333"></a>
+
+## Direct properties — ethernet_interface / 211203310323 / 3
+
+<a id="canonical-2210230321333231-2013203221220201-1113320032132011-3123223123322021-0121012013301322-2323320223200322-3310133202321211-1103102303211003"></a>
+
+<a id="canonical-0123010210200311-1223210003121020-2200311211230202-3023223001222322-1332132233021120-3211111232213213-0321331122110322-1101121301303231"></a>
+
+## device property — ethernet_interface / 211203310323 / 4
+
+Type: `"string"`. Computed.
+
+Select an Ethernet device from the discovered interfaces to configure. Once configured, this
+interface will be part of this sites dataplane and can participate in the networking services
+configured on this site.
+
+Upstream description:
+
+Select an Ethernet device from the discovered interfaces to configure. Once configured, this
+interface will be part of this sites dataplane and can participate in the networking services
+configured on this site.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "false",
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "false",
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-3230030122213000-2303133221121313-1013303323102120-2103331202332133-3332133100320210-2122011002130213-0121330132023023-1221210223130212"></a>
+
+<a id="canonical-1122133133113202-0011033303310223-2330320233232002-0302020333221132-0303220233223103-1020021223210121-1222200310202300-1322331303020013"></a>
+
+## mac property — ethernet_interface / 211203310323 / 5
+
+Type: `"string"`. Computed.
+
+MAC Address. Configuration parameter for mac
+
+Upstream description:
+
+Configuration parameter for mac
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "mac-address",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.mac": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.mac": "true"
+  }
+}
+```
+
+<a id="canonical-3222111020300213-3012333233000202-2022021333301220-0003300231233001-3122300201121222-2002122230133311-2320223330223212-0102212130022123"></a>
+
+## Next pages — ethernet_interface / 211203310323 / 6
+
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0133011103021002-2311202231103023-2012230020102320-1221223023331311-3121213010211202-0212311203211210-0003033231102102-0212001000311130"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config — ipv6_auto_config / 331131223311 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config
+
+<a id="canonical-3330032300013021-0303112230203221-1300231013211111-3122331131122313-2200300213320121-1120032012310022-0211330323032100-3121202331213103"></a>
+
+Type: `"single"`. Computed.
+
+IPV6AutoConfigType.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-autoconfig_choice": "[\"host\",\"router\"]"
+}
+```
+
+<a id="canonical-1012202031033012-0120303001033220-2202110112100221-1321310232232313-2121212022020030-1311013222333020-1233010223222313-2333100323010110"></a>
+
+## Direct properties — ipv6_auto_config / 331131223311 / 3
+
+- [host](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1223323130013211-3200122303110133-2212100320003201-3010210300121132-1301213232323102-2312230011102032-0130133002032133-2320213012003312): complete subsection reference.
+
+- [router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321): complete subsection reference.
+
+<a id="canonical-3303323222311301-1310121112212301-0100220112021002-3032332033131222-0011001300113312-1233111313022303-1012112313323221-2010121003220100"></a>
+
+## Next pages — ipv6_auto_config / 331131223311 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.host](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1223323130013211-3200122303110133-2212100320003201-3010210300121132-1301213232323102-2312230011102032-0130133002032133-2320213012003312)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1223323130013211-3200122303110133-2212100320003201-3010210300121132-1301213232323102-2312230011102032-0130133002032133-2320213012003312"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0000311023232122-2100111220131331-2103010320100230-0311033333101133-0332033221011213-0220302301212000-1232203120121222-0022312023101112"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.host — host / 113203200313 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.host
+
+<a id="canonical-2323231122013200-0303023012332201-3330110330303321-3213023220112002-1013212300201111-3311331223330133-3231002001203221-0022333130202323"></a>
+
+Type: `["object", {}]`. Computed.
+
+Hostname or IP address of the target server.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0021100211130303-2210122300133122-2301331210010030-1130013233111210-1130201002031202-0011212301210232-2211111332312313-0301200120021000"></a>
+
+## Direct properties — host / 113203200313 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2321321331000311-3031230130132130-0131323102001122-0010210131110003-0021022203323122-0133200030213132-0103000323310113-2211302030233222"></a>
+
+## Next pages — host / 113203200313 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2213221223223213-1011201212303130-0203100333012232-2011231211101011-1332202030313300-3113133013122211-0123330022330202-2111021113320133"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router — router / 022322210130 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router
+
+<a id="canonical-0223210333333012-3033121032012211-3101323133230211-2013030130332003-3021030203001111-2203132323023110-1002302202130311-2322023312011233"></a>
+
+Type: `"single"`. Computed.
+
+IPV6AutoConfigRouterType.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-address_choice": "[\"network_prefix\",\"stateful\"]"
+}
+```
+
+<a id="canonical-3202133321000323-2011131212023103-1322100000122333-1111130122320001-0031101303312003-1103332222120032-1121330230301212-0332102222301001"></a>
+
+## Direct properties — router / 022322210130 / 3
+
+- [dns_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120): complete subsection reference.
+
+<a id="canonical-2233022220333103-0110203110212122-3122122310010322-2030102232233131-2302020210121102-2233223322013232-2210221232031303-3121230330110112"></a>
+
+<a id="canonical-0201031333202110-1121113111323021-3222313122312202-3233021103102323-2120030020332000-2220323011111312-3113332230100113-1012331332320033"></a>
+
+## network_prefix property — router / 022322210130 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[stateful\] Network prefix that is used as Prefix information Allowed only /64
+prefix length as per RFC 4862.
+
+Upstream description:
+
+Exclusive with \[stateful\] Network prefix that is used as Prefix information Allowed only /64
+prefix length as per RFC 4862.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "pattern": ".*::/64$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true",
+    "ves.io.schema.rules.string.pattern": ".*::/64$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true",
+    "ves.io.schema.rules.string.pattern": ".*::/64$"
+  }
+}
+```
+
+- [stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002): complete subsection reference.
+
+<a id="canonical-0003232231303021-2232330101313032-1103330130323112-0031330303211213-1000021020120322-0303313002020202-3212032331200203-1332202233233102"></a>
+
+## Next pages — router / 022322210130 / 5
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2000322321132032-2121112122201103-2230112110023323-2311310113010310-1330002100233213-1013121322132103-0311222220030203-2201033330333003"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config — dns_config / 032200131232 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config
+
+<a id="canonical-1013211233312001-1212312133220121-0222132130202331-2111110002322200-2131220332101302-2232221133121022-2112120200101222-1230031311332003"></a>
+
+Type: `"single"`. Computed.
+
+IPV6DnsConfig.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-dns_choice": "[\"configured_list\",\"local_dns\"]"
+}
+```
+
+<a id="canonical-3301132333133203-2101121003211331-1133233033110222-3011010203013031-3011301303321002-0323321332312231-0200102110221123-1310301232110213"></a>
+
+## Direct properties — dns_config / 032200131232 / 3
+
+- [configured_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2102020220322111-1333122132300310-0103131322020202-2022312311330012-2032111102310031-1310133301300332-1220101121031303-3021010021203300): complete subsection reference.
+
+- [local_dns](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1210301201233123-1110231231203120-1100200322201210-2120111203300310-2220001103120330-0100032202210111-0133132032302312-0112023301311221): complete subsection reference.
+
+<a id="canonical-3120102232330013-3113113331031023-3312313220330123-3112021200012203-3332123101131130-2300021030223223-2111213121110332-2112230231101313"></a>
+
+## Next pages — dns_config / 032200131232 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2102020220322111-1333122132300310-0103131322020202-2022312311330012-2032111102310031-1310133301300332-1220101121031303-3021010021203300)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1210301201233123-1110231231203120-1100200322201210-2120111203300310-2220001103120330-0100032202210111-0133132032302312-0112023301311221)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2102020220322111-1333122132300310-0103131322020202-2022312311330012-2032111102310031-1310133301300332-1220101121031303-3021010021203300"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0000032133331222-2332303211030022-1113103300303032-2213102020000333-2102123102203320-2123023330323201-1332330033330012-0012220333200323"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list — configured_list / 232321322332 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.configured_list
+
+<a id="canonical-1213022121333032-0123130022332221-3323120222320210-1223013302220330-0012231001021231-0323232020003201-1333102030313232-2222303112100033"></a>
+
+Type: `"single"`. Computed.
+
+IPV6DnsList.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0332022001333220-2301321322202320-3110103322000100-3331001001222131-1212312031023020-0103011331102223-0020210102002230-1113303202301102"></a>
+
+## Direct properties — configured_list / 232321322332 / 3
+
+<a id="canonical-2120021030133232-2231301201003022-3013103331310032-3321330223220220-3223201213130333-3130131213310020-0102110320213312-2201213031222331"></a>
+
+<a id="canonical-2312020031021201-1210120032100030-2132220010123321-3100331132021030-3133323301123023-0232021133302133-1102123011222313-2231031003012221"></a>
+
+## dns_list property — configured_list / 232321322332 / 4
+
+Type: `["list", "string"]`. Computed.
+
+List of IPv6 Addresses acting as DNS servers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv6": "true",
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv6": "true",
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0230122023003111-1232102233312300-0332232230000102-3102223131231100-1333003310220022-1112213013310031-2330310213002131-1032201022320202"></a>
+
+## Next pages — configured_list / 232321322332 / 5
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1210301201233123-1110231231203120-1100200322201210-2120111203300310-2220001103120330-0100032202210111-0133132032302312-0112023301311221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1131332331103312-2030101220122200-0122232202122213-3013113303203112-2033111330332023-2133131233123302-2133002231322231-3020312010330133"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns — local_dns / 232320230332 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns
+
+<a id="canonical-2222030103331012-2030012301110302-0323210312110122-3110333120013032-2121323012020111-2210201202123011-0332001013110310-3313311003130311"></a>
+
+Type: `"single"`. Computed.
+
+IPV6LocalDnsAddress.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-local_dns_choice": "[\"configured_address\",\"first_address\",\"last_address\"]"
+}
+```
+
+<a id="canonical-1212330111013223-1222113103311223-3103213110323302-2232011023201103-1202221323021213-1020113212021231-1322321300101010-0222211311333323"></a>
+
+## Direct properties — local_dns / 232320230332 / 3
+
+<a id="canonical-3312233001323003-3101132222032123-3020321221012322-1222311132013303-2031212331023113-3100133033203011-3021232223021322-2233311100310203"></a>
+
+<a id="canonical-3303300131323330-1031101210122331-0221200123231133-1032011330332223-1032120331313100-2322333323031221-3031022101133013-3211320020302002"></a>
+
+## configured_address property — local_dns / 232320230332 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[first\_address last\_address\] Configured address from the network prefix is chosen
+as DNS server.
+
+Upstream description:
+
+Exclusive with \[first\_address last\_address\] Configured address from the network prefix is chosen
+as DNS server.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+- [first_address](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1103012300020202-3312322302031202-1022322122320020-3122310033130223-1313132010001223-2313102311130120-0303111322133133-0002100210003023): complete subsection reference.
+
+- [last_address](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3031301201133013-1131002022300220-1031112201131201-1330003312123300-1122032121012321-2110011000132101-3113303321020132-2031323212100212): complete subsection reference.
+
+<a id="canonical-2203331211010302-2210100130132100-0000313032103123-2302133323011211-2022101232020331-1010030210210331-1312202111212030-1323332101010132"></a>
+
+## Next pages — local_dns / 232320230332 / 5
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1103012300020202-3312322302031202-1022322122320020-3122310033130223-1313132010001223-2313102311130120-0303111322133133-0002100210003023)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3031301201133013-1131002022300220-1031112201131201-1330003312123300-1122032121012321-2110011000132101-3113303321020132-2031323212100212)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-1103012300020202-3312322302031202-1022322122320020-3122310033130223-1313132010001223-2313102311130120-0303111322133133-0002100210003023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1003132303102132-0101330113022131-0021010112323303-0222232122103113-0332030222121012-1323313301030031-0310202221132032-3321111020111203"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address — first_address / 310222003033 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1210301201233123-1110231231203120-1100200322201210-2120111203300310-2220001103120330-0100032202210111-0133132032302312-0112023301311221)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.first_address
+
+<a id="canonical-0021102132002030-3112030030300312-1213133323203000-1311313311223131-3320220130213111-3211313311211323-2101030030232011-3222131202030122"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3320010333230320-2021231012332011-2230310033131133-0002002022121033-2132031011132321-2122333330320003-0101100122333010-2102200100003310"></a>
+
+## Direct properties — first_address / 310222003033 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0203113031023022-0222132003233030-3221100021030310-0330301201022130-0220000012032330-3112021212103000-1213120233130022-1223333033322003"></a>
+
+## Next pages — first_address / 310222003033 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1210301201233123-1110231231203120-1100200322201210-2120111203300310-2220001103120330-0100032202210111-0133132032302312-0112023301311221)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-3031301201133013-1131002022300220-1031112201131201-1330003312123300-1122032121012321-2110011000132101-3113303321020132-2031323212100212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1302130231320110-2332021131110300-0123031212020232-1233113221202012-2330131110021302-1032131200312123-3230031223220003-1233330002110333"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address — last_address / 312311202311 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3311320311000323-0032323113323202-3323212021103011-1123130312033332-2001020021321010-1103010001011032-1023220323133202-3031220032331120)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1210301201233123-1110231231203120-1100200322201210-2120111203300310-2220001103120330-0100032202210111-0133132032302312-0112023301311221)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns.last_address
+
+<a id="canonical-2321003323220333-1031213331020101-3301212331232231-1303232303130033-1003220221031010-2213123121001021-3222312111232203-1312303233210320"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0120000101121310-0020222320010000-0231102310321032-1032033230303202-2022111231011021-0311332332213322-0230213200212303-1101033133102220"></a>
+
+## Direct properties — last_address / 312311202311 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2211121311223311-0022233221202203-2303301020210220-2020122120213100-0231211321223111-1321330223322131-1110213300012301-2132133233221202"></a>
+
+## Next pages — last_address / 312311202311 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config.local_dns](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1210301201233123-1110231231203120-1100200322201210-2120111203300310-2220001103120330-0100032202210111-0133132032302312-0112023301311221)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3110021312133120-1000330330323330-3222202213120122-0320211231032003-3122201300133303-3211313230103030-2321023130232302-2332010033333120"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful — stateful / 200222102133 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful
+
+<a id="canonical-3021332030122203-3013013301010100-2102330110122212-3130300223102300-0320100232213321-1323310110230222-0111031013001122-1232010123023332"></a>
+
+Type: `"single"`. Computed.
+
+DHCPIPV6 Stateful Server.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-interfaces_addressing_choice": "[\"automatic_from_end\",\"automatic_from_start\",\"interface_ip_map\"]"
+}
+```
+
+<a id="canonical-1121303230010323-2302111211123333-2222302121032031-1300320103202231-0332110330131132-0303021021203333-3313210103100012-1233220322022013"></a>
+
+## Direct properties — stateful / 200222102133 / 3
+
+- [automatic_from_end](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2101022031220113-0322322000100000-3313001030030101-1200302221123302-2233121222111113-3020201221130123-1111330211213233-0120023323232123): complete subsection reference.
+
+- [automatic_from_start](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0201233202320100-3312002132331123-3112133012223231-2222323130200210-3032030210322332-0132221323131112-2332020231103110-3030210113003233): complete subsection reference.
+
+- [dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010132122000111-0200232110303303-0330111320313312-2330201212200103-0203310320332233-0121310313012122-2322233210313002-2203200230202212): complete subsection reference.
+
+<a id="canonical-3230322133002002-2121201321223032-1002322123112203-1231001031322303-1200232110323012-0111311310311031-0213022300302102-1001332331013303"></a>
+
+<a id="canonical-1032310210222330-3313022120022333-2201212321110333-2120222211122010-3321323213112132-0302110001201010-0213000013312223-1121021302130101"></a>
+
+## fixed_ip_map property — stateful / 200222102133 / 4
+
+Type: `["map", "string"]`. Computed.
+
+Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
+addresses based on the MAC Address of the DHCP Client.
+
+Upstream description:
+
+Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
+addresses based on the MAC Address of the DHCP Client.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.mac": "true",
+    "ves.io.schema.rules.map.max_pairs": "128",
+    "ves.io.schema.rules.map.unique_values": "true",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.mac": "true",
+    "ves.io.schema.rules.map.max_pairs": "128",
+    "ves.io.schema.rules.map.unique_values": "true",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  }
+}
+```
+
+- [interface_ip_map](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0121311333000230-1102120020020113-3301202222113203-0130110233310201-1300011132113200-3030302112302203-3213011020103002-1131011023231002): complete subsection reference.
+
+<a id="canonical-2301130311313231-1200022211103130-1231300122122320-2110220313112111-2212011100221100-0002230222322132-3001030030321332-3023023100203102"></a>
+
+## Next pages — stateful / 200222102133 / 5
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2101022031220113-0322322000100000-3313001030030101-1200302221123302-2233121222111113-3020201221130123-1111330211213233-0120023323232123)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0201233202320100-3312002132331123-3112133012223231-2222323130200210-3032030210322332-0132221323131112-2332020231103110-3030210113003233)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010132122000111-0200232110303303-0330111320313312-2330201212200103-0203310320332233-0121310313012122-2322233210313002-2203200230202212)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map](data-sources--securemesh_site_v2--reference--group-007.md#canonical-0121311333000230-1102120020020113-3301202222113203-0130110233310201-1300011132113200-3030302112302203-3213011020103002-1131011023231002)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2101022031220113-0322322000100000-3313001030030101-1200302221123302-2233121222111113-3020201221130123-1111330211213233-0120023323232123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0033123102120210-2103130212332333-3223033022011332-2210112123321020-1322131313310122-0323021123133331-1120220302032011-3022133220221312"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end — automatic_from_end / 022001202301 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_end
+
+<a id="canonical-1111223320303230-2120200223333013-3231110322021230-1122311023301130-1323210231203211-2310001030320022-1212020100131030-0113203223321221"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for automatic from end.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1201120213032313-3113333110311200-2111211222321120-3311130103033222-3001333300223110-3021203201122322-2301012201301022-2331012320001310"></a>
+
+## Direct properties — automatic_from_end / 022001202301 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3101002323313331-3332230022120213-1323011310222113-0003133123222102-2220000300233230-1213212113230330-1003012033302202-1110332111030233"></a>
+
+## Next pages — automatic_from_end / 022001202301 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0201233202320100-3312002132331123-3112133012223231-2222323130200210-3032030210322332-0132221323131112-2332020231103110-3030210113003233"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0302123132201231-0223333003300033-0013031320021233-0030301230113330-0033203230133330-3220311031122010-3010032002221101-0130332130323300"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start — automatic_from_start / 133332120333 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.automatic_from_start
+
+<a id="canonical-3032012133103332-3131112102301330-2300123222223331-0310332200113300-2222301333132021-0310013221233323-2011301210332330-1011121010302102"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for automatic from start.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2211230122123030-1023321111213320-0100101021321101-0301003220311000-3230201103101201-0232131330120320-3012321111303113-2202322110110302"></a>
+
+## Direct properties — automatic_from_start / 133332120333 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3002022210301103-3322213332221230-1312211001013311-1200311011301031-3311123101222201-0011233021320120-0111312112133220-2332303112122100"></a>
+
+## Next pages — automatic_from_start / 133332120333 / 4
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2010132122000111-0200232110303303-0330111320313312-2330201212200103-0203310320332233-0121310313012122-2322233210313002-2203200230202212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3013002330201001-1201211001211131-1211102111011321-1012322210220011-1203311331202012-1010332221313313-0221003223221330-3301212211331323"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks — dhcp_networks / 203032020313 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks
+
+<a id="canonical-2313021121112303-1212203122131130-3201223032003001-1130023033011233-1221320032122123-2023202332233333-0222213121320220-1320312010030003"></a>
+
+Type: `"list"`. Computed.
+
+List of networks from which DHCP server can allocate IP addresses.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 1,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 1,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "1",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-2033123110320230-2131001203220122-2300130011121031-0021033311001023-3221322321302330-2111231110003233-2232102300202200-1103203030021131"></a>
+
+## Direct properties — dhcp_networks / 203032020313 / 3
+
+<a id="canonical-1323001033132313-3322333131001300-1333130123231220-1000312233012310-3202201331312223-2311321320320201-0111121210330311-3201132321311233"></a>
+
+<a id="canonical-3001033120201121-2113232323133220-1030133331231301-2320302213133121-0121330021111210-1133121221021102-3011003320012300-2300222311131210"></a>
+
+## network_prefix property — dhcp_networks / 203032020313 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[\] Network Prefix to be used for IPv6 address auto configuration.
+
+Upstream description:
+
+Exclusive with \[\] Network Prefix to be used for IPv6 address auto configuration.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-1132313130321031-1111131023110123-0330121221022021-1203120033111203-0323200102022310-2213301311322331-0012233323132101-0032102323320223"></a>
+
+<a id="canonical-2221213011303113-3233103222012033-0102203320101122-2300300210110021-3311220001211012-0020221021021220-1310123113032330-1121332033001030"></a>
+
+## pool_settings property — dhcp_networks / 203032020313 / 5
+
+Type: `"string"`. Computed.
+
+\[Enum: INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS|EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\]
+Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for
+IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.
+Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
+\`EXCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`. Defaults to
+\`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`.
+
+Upstream description:
+
+Identifies the how to pick the network for Interface.
+
+Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list
+are excluded from IP Address allocation.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+  "enum": [
+    "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+    "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [pools](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2321303202210133-1123030000031033-2232123232013100-1012321231331123-3233010201323302-3113333212323023-1011122003102112-3132132313113330): complete subsection reference.
+
+<a id="canonical-2223130210221232-0321202132000030-1002203030312233-1210303130301130-3322102111220322-3013322100103012-1331200112112221-0110020030032102"></a>
+
+## Next pages — dhcp_networks / 203032020313 / 6
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2321303202210133-1123030000031033-2232123232013100-1012321231331123-3233010201323302-3113333212323023-1011122003102112-3132132313113330)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2321303202210133-1123030000031033-2232123232013100-1012321231331123-3233010201323302-3113333212323023-1011122003102112-3132132313113330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0331131303130200-0312111031233023-0313021202201013-2220310332030311-2332322203200302-1102103011132211-3211200210002002-3210121211000021"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools — pools / 122232332012 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010132122000111-0200232110303303-0330111320313312-2330201212200103-0203310320332233-0121310313012122-2322233210313002-2203200230202212)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks.pools
+
+<a id="canonical-0012221010102033-2300301203003130-1201223110121212-0210100211121210-0312021112101331-1021122322011132-1310122212021113-3021311313300322"></a>
+
+Type: `"list"`. Computed.
+
+List of non overlapping IP address ranges.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-0012112131302000-1130312022001313-2330221200012000-0201100111332310-3110002211211301-1011013012123112-3310011122130223-2132222030220202"></a>
+
+## Direct properties — pools / 122232332012 / 3
+
+<a id="canonical-0132133021202213-0020213003232223-1002210012330121-3120110332022100-2022212311120030-0332103001310001-1133302031123023-1112300011232030"></a>
+
+<a id="canonical-2100333032103302-3202131202032003-0213310303113233-2322333313230033-0331030100001130-0113123022333032-0033231132222232-2313331231332103"></a>
+
+## end_ip property — pools / 122232332012 / 4
+
+Type: `"string"`. Computed.
+
+Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix.
+
+Upstream description:
+
+Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-1133021331223320-0001220221203332-3100212323321012-2032210233110223-3311002120220313-1321011110101200-0101231020010200-3332211032120001"></a>
+
+<a id="canonical-2101322130122101-3311212330200203-0111333112030213-1012122013223231-1010231203122212-2221313223010322-0023012013222212-0331021123200011"></a>
+
+## start_ip property — pools / 122232332012 / 5
+
+Type: `"string"`. Computed.
+
+Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix. 2001::1 with prefix length of 64, start offset is 5.
+
+Upstream description:
+
+Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on
+network prefix. 2001::1 with prefix length of 64, start offset is 5.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv6",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-2303221111231023-1212030221011300-2222002031131110-1200311133132223-3331210231233302-3033221003320022-1233001222322011-1233210011323321"></a>
+
+## Next pages — pools / 122232332012 / 6
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.dhcp_networks](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010132122000111-0200232110303303-0330111320313312-2330201212200103-0203310320332233-0121310313012122-2322233210313002-2203200230202212)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-0121311333000230-1102120020020113-3301202222113203-0130110233310201-1300011132113200-3030302112302203-3213011020103002-1131011023231002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3102313032213222-1330020122002331-2112010230232013-2120110031301233-3203202322030021-3230113230113330-2103230301002012-0320030011123200"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map — interface_ip_map / 332222220012 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2021112022303101-0201220131321121-0131213002211122-0320300111102212-2320113321321222-2213303122223310-2310233231023111-0300002201113101)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2231302202330301-0332223210023000-1222331123230011-0031232021100133-2233332123101113-0113211010002201-3120103122330300-1233312032013321)
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful.interface_ip_map
+
+<a id="canonical-3113232303122312-2012313312323331-1122211130313211-2310222310212103-1300103003323103-3323123122222121-0112330221003212-3220323131332123"></a>
+
+Type: `"single"`. Computed.
+
+Map of Interface IPv6 assignments per node.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0111301312130332-1002133102331122-3312013303232223-2332010130120230-2102321221022313-0211310301013311-3310100021301103-3322113132323002"></a>
+
+## Direct properties — interface_ip_map / 332222220012 / 3
+
+<a id="canonical-2121213310133220-3112102331310200-3200033023211301-1230013231331222-1010121323322222-0003030030000013-2220002302302111-0310213112202033"></a>
+
+<a id="canonical-3103202011123000-1021100320012010-0012011333112302-0111020200302001-0101300302030202-3103033113010330-0120202230220122-0031210122113202"></a>
+
+## interface_ip_map property — interface_ip_map / 332222220012 / 4
+
+Type: `["map", "string"]`. Computed.
+
+Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.
+
+Upstream description:
+
+Map of Site:Node to IPv6 address.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "128",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "64",
+    "ves.io.schema.rules.map.values.string.ipv6": "true"
+  }
+}
+```
+
+<a id="canonical-3010213331023022-3303030131112323-1010010123310200-0311302122013303-3320100213012103-3102030123233221-2002130122002312-2321221012013103"></a>
+
+## Next pages — interface_ip_map / 332222220012 / 5
+
+- [eks_k8s.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2010102121210030-2020230123133211-2332102200301123-0023312013000223-2012000332033021-3002013310212023-3121110213303221-2032000201110002)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2021330301310310-1220312032020031-1323112300100300-2232101213301320-3021130211331011-3031022021111233-2120012002123211-0031031131022201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3313113003213311-1201303213320122-0122003221310211-1120032300222031-3310210310322030-3232002220312320-2201113332132323-2001321100130310"></a>
+
+## eks_k8s.not_managed.node_list.interface_list.monitor — monitor / 223200213222 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [eks_k8s](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2123212200201001-0222322202022031-0020100300002010-0113030330021212-1020223223032332-0101032101031133-3131323330222223-2211012301313223)
+- [eks_k8s.not_managed](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1031123300132132-2103013123300313-2123212312013032-3110301103213122-0112203102312011-2122020203101133-3211333202022203-2310131103023321)
+- [eks_k8s.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-3002122333313300-3022320132131113-2011211113031112-3213211011220033-2130030033012321-0213311222101222-2310310112101100-2001223203001010)
+- [eks_k8s.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1200221011132303-1020103201121101-3003000110031103-1311200121323031-0003321123302220-1032232103101323-0200130222320020-3201132131111113)
+- eks_k8s.not_managed.node_list.interface_list.monitor
+
+<a id="canonical-1001320330202101-3120033321200213-2310030332223120-2233002130310211-0121202232302233-0300203111102101-2010332221331012-3231222002131203"></a>
+
+Type: `["object", {}]`. Computed.
+
+Link Quality Monitoring configuration for a network interface.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2220331200001210-2013311311123230-3111001000212230-1231020013310231-0333220022022232-0312010320310133-3322003010132033-0022320321301030"></a>
+
+## Direct properties — monitor / 223200213222 / 3
+
+This is an empty object or choice marker. It has no direct properties.

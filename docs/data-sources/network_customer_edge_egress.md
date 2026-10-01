@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_customer_edge_egress"
+page_title: "xcsh_network_customer_edge_egress landing"
 subcategory: ""
-description: "xcsh_network_customer_edge_egress for xcsh_network_customer_edge_egress."
-xcsh_docs: {"aliases": [], "body_bytes": 1766, "body_sha256": "sha256:9d65627b784c983824bdbd8f08818c69093a4b78635c95115969ba12f4b0f045", "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_customer_edge_egress:reference", "xcsh-docs:data-sources:network_customer_edge_egress:examples"], "collection_id": "xcsh-docs:data-sources:network_customer_edge_egress:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals", "parent_id": null, "path": "docs/data-sources/network_customer_edge_egress.md", "provider_name": "network_customer_edge_egress", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_customer_edge_egress/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_customer_edge_egress for xcsh_network_customer_edge_egress.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_customer_edge_egress landing."
 ---
+
+# xcsh_network_customer_edge_egress landing
+
+<a id="canonical-3220221103330020-3110221000233302-0211101212002003-1012001301133302-1131222331211321-2333221222011322-0330222303230333-2322220210010320"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_customer_edge_egress
+<a id="canonical-3130030120210132-1110133211303022-0022103310121003-2313333220313220-1112202100111223-3200133031330112-0332112133301100-2212210013303030"></a>
+
+## xcsh_network_customer_edge_egress — xcsh_network_customer_edge_egress / 030213233033 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Secure Mesh v2 registration IPv4 addresses and egress domains. Legacy Customer E
 intentionally excluded. Values are bundled from the pinned OpenAPI release; this data source
 performs no network request. Ports and traffic direction are not encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-2010133323202210-3031300103220313-1110213310000212-0212223102211032-2121023222122333-1201202022023110-1113021002313213-3210133123133031"></a>
+
+## Prerequisites — xcsh_network_customer_edge_egress / 030213233033 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1101102020220111-3233021131331200-3003030123001030-1332322010322121-3323011121000033-0220201303213232-1221110210301330-3121113200330310"></a>
+
+## Minimal configuration — xcsh_network_customer_edge_egress / 030213233033 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,11 +63,15 @@ output "secure_mesh_v2_https_egress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2222011310002330-0321303212120121-2022010121311222-2223103100222211-0303112221202221-3002023033212230-3211230022110001-2130123031220110"></a>
+
+## Root configuration — xcsh_network_customer_edge_egress / 030213233033 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0110203020032232-0212322113132011-0112313232321020-1103230032202333-1020222211311330-1211321020131300-1003031312231123-1000101213232121"></a>
 
-- [Property reference](../guides/data-sources--network_customer_edge_egress--reference.md)
-- [Examples](../guides/data-sources--network_customer_edge_egress--examples.md)
+## Next pages — xcsh_network_customer_edge_egress / 030213233033 / 6
+
+- [Property reference](../guides/data-sources--network_customer_edge_egress--reference--group-001.md#canonical-3330330333211022-3210001223230133-2222131201231022-2130313303130101-2303311233122033-0012211213111320-0130220120201232-0201122200232020)
+- [Examples](../guides/data-sources--network_customer_edge_egress--examples--group-001.md#canonical-1333101203321301-3201210223302323-2122211312232210-3013232221331311-2120221213012230-0300222231222110-1301202011101010-2223303330333200)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_sensitive_data_policy"
+page_title: "xcsh_sensitive_data_policy landing"
 subcategory: "Security"
-description: "xcsh_sensitive_data_policy for xcsh_sensitive_data_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1407, "body_sha256": "sha256:a8a92708bf976ea10e1abe186c75a7bf0652e4b0217d1b7e252ecb9633d62c48", "canonical_id": "xcsh-docs:data-sources:sensitive_data_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:sensitive_data_policy:reference", "xcsh-docs:data-sources:sensitive_data_policy:examples"], "collection_id": "xcsh-docs:data-sources:sensitive_data_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:sensitive_data_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/sensitive_data_policy.md", "provider_name": "sensitive_data_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/sensitive_data_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_sensitive_data_policy for xcsh_sensitive_data_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["sensitive_data_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_sensitive_data_policy landing."
 ---
+
+# xcsh_sensitive_data_policy landing
+
+<a id="canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_sensitive_data_policy
+<a id="canonical-1300212100123023-3210220133321202-1220230121332313-2203030113010001-1210120130312302-1100131332330103-1033112201011120-0012100220320223"></a>
+
+## xcsh_sensitive_data_policy — xcsh_sensitive_data_policy / 012000121333 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages sensitive\_data\_policy creates a new object in the storage backend for metadata.namespace
 in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0112001111200001-2110003331121023-3013303033011132-0331033022231003-1103130201033113-2002212113231201-0103102312233132-2001213331021203"></a>
+
+## Prerequisites — xcsh_sensitive_data_policy / 012000121333 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-## Minimal configuration
+<a id="canonical-3202301103221232-1212100332121120-1231301321323301-2333000232003112-3322110233300013-2213112021231033-1120110101111323-1021102223233100"></a>
+
+## Minimal configuration — xcsh_sensitive_data_policy / 012000121333 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "sensitive_data_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1302330222113321-2233021220300122-1332202210103121-1220011022132330-0103322200023302-1120220101101222-1010112300332103-2323030330232120"></a>
+
+## Root configuration — xcsh_sensitive_data_policy / 012000121333 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3231332323133220-0010012230002000-3213020220123220-0233301101223002-2303202113312020-1201323030100303-0031330230032312-2301000020031333"></a>
 
-- [Property reference](../guides/data-sources--sensitive_data_policy--reference.md)
-- [Examples](../guides/data-sources--sensitive_data_policy--examples.md)
+## Next pages — xcsh_sensitive_data_policy / 012000121333 / 6
+
+- [Property reference](../guides/data-sources--sensitive_data_policy--reference--group-001.md#canonical-2012220221230301-2110311100333312-1310211131030013-1101130223100303-2002300211120322-3233031313000120-3123212231312123-0033113022332033)
+- [Examples](../guides/data-sources--sensitive_data_policy--examples--group-001.md#canonical-3130112210311310-3220231221203112-2212010312211031-2031330001130100-3203332022210322-0021312303111210-0231223120331200-2020130310211003)

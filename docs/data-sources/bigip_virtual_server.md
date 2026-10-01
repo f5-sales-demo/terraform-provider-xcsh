@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bigip_virtual_server"
+page_title: "xcsh_bigip_virtual_server landing"
 subcategory: ""
-description: "xcsh_bigip_virtual_server for xcsh_bigip_virtual_server."
-xcsh_docs: {"aliases": [], "body_bytes": 1384, "body_sha256": "sha256:05c03fb9fc743f0f2a9f7d6cf5928a735deabb00af0456189d56e08bf396e4e6", "canonical_id": "xcsh-docs:data-sources:bigip_virtual_server:fundamentals", "child_ids": ["xcsh-docs:data-sources:bigip_virtual_server:reference", "xcsh-docs:data-sources:bigip_virtual_server:examples"], "collection_id": "xcsh-docs:data-sources:bigip_virtual_server:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bigip_virtual_server:fundamentals", "parent_id": null, "path": "docs/data-sources/bigip_virtual_server.md", "provider_name": "bigip_virtual_server", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bigip_virtual_server/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bigip_virtual_server for xcsh_bigip_virtual_server.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bigip_virtual_server landing."
 ---
+
+# xcsh_bigip_virtual_server landing
+
+<a id="canonical-1131322003302203-3133232130331303-3111132332133231-2012331201133203-0022310012333001-0003330233211211-0333312201021000-3230332012332020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bigip_virtual_server
+<a id="canonical-0210313202101202-1132323200111113-1003010021301132-0321330330322311-1322210213132130-1022310222220211-1230212212332300-1030003230222021"></a>
+
+## xcsh_bigip_virtual_server — xcsh_bigip_virtual_server / 023330323312 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a BIG-IP Virtual Server resource in F5 Distributed Cloud for big-ip virtual server
 specification. configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-0220322213000110-3311323012120201-3121200232231001-2020020220300133-1023121113213003-3013001021332010-1023310222312331-3113103302032122"></a>
+
+## Prerequisites — xcsh_bigip_virtual_server / 023330323312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2002301130103223-2132230311030200-1103003303011100-3220022103001023-0200323122312212-3222312333300222-0001231022132332-0302012013321100"></a>
+
+## Minimal configuration — xcsh_bigip_virtual_server / 023330323312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "bigip_virtual_server_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3203100322120320-0230301323221033-3103122112202311-0201221223313022-0033320322101321-0132230022131231-1320113120313220-3212203013300121"></a>
+
+## Root configuration — xcsh_bigip_virtual_server / 023330323312 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2132331213023030-0322132313012233-0231022231330010-2102322320013021-0201110032200301-1002210312211101-0331323001232202-2122301013111113"></a>
 
-- [Property reference](../guides/data-sources--bigip_virtual_server--reference.md)
-- [Examples](../guides/data-sources--bigip_virtual_server--examples.md)
+## Next pages — xcsh_bigip_virtual_server / 023330323312 / 6
+
+- [Property reference](../guides/data-sources--bigip_virtual_server--reference--group-001.md#canonical-0330103300101033-0110313212121312-2131323221121012-0122222202113110-1131132021023000-3330131201331123-1312102120012011-0302013001211333)
+- [Examples](../guides/data-sources--bigip_virtual_server--examples--group-001.md#canonical-2000033203001131-3130300110310212-0300112012011003-2122112212020211-2211220000232300-3001213332210023-3101102332301333-2331331103233121)

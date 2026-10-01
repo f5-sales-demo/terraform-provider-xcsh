@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_flow_anomaly"
+page_title: "xcsh_flow_anomaly landing"
 subcategory: ""
-description: "xcsh_flow_anomaly for xcsh_flow_anomaly."
-xcsh_docs: {"aliases": [], "body_bytes": 1288, "body_sha256": "sha256:fe0285861db41c5150992d54c2b393589dde28e3e01cf6106a4593286776aaf6", "canonical_id": "xcsh-docs:data-sources:flow_anomaly:fundamentals", "child_ids": ["xcsh-docs:data-sources:flow_anomaly:reference", "xcsh-docs:data-sources:flow_anomaly:examples"], "collection_id": "xcsh-docs:data-sources:flow_anomaly:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:flow_anomaly:fundamentals", "parent_id": null, "path": "docs/data-sources/flow_anomaly.md", "provider_name": "flow_anomaly", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/flow_anomaly/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_flow_anomaly for xcsh_flow_anomaly.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_flow_anomaly landing."
 ---
+
+# xcsh_flow_anomaly landing
+
+<a id="canonical-0312230310200021-0201113122010203-1131300233200330-3312031303122031-2123011133112231-0220012002020113-3221033120022133-2323011011020301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_flow_anomaly
+<a id="canonical-3301000113300302-2223001211312210-0210201323023321-3133123303103113-0033013200023313-2232221113331113-0212302100030301-0310102232310212"></a>
+
+## xcsh_flow_anomaly — xcsh_flow_anomaly / 312230211100 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Flow Anomaly resource in F5 Distributed Cloud for flow anomaly specification.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-3311001323312010-3111202201123211-1220022002032220-2001222112233323-3010003203002223-3011310010021211-2232130101333233-3233210013013221"></a>
+
+## Prerequisites — xcsh_flow_anomaly / 312230211100 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1010010202223102-0002322330222012-0321202212233321-0330303102032202-0032101013231332-1333131113031012-2331212211021210-0330231120013100"></a>
+
+## Minimal configuration — xcsh_flow_anomaly / 312230211100 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "flow_anomaly_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2222331120010102-3201221130221121-0102320230311320-2323203022202233-2302022122300022-0332123230203320-2331122103230133-3110210100201032"></a>
+
+## Root configuration — xcsh_flow_anomaly / 312230211100 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2222323133301001-1032301131332213-1220130010130232-0022010300003203-3200013223213231-3103001201131121-2102323220022231-2110233210202100"></a>
 
-- [Property reference](../guides/data-sources--flow_anomaly--reference.md)
-- [Examples](../guides/data-sources--flow_anomaly--examples.md)
+## Next pages — xcsh_flow_anomaly / 312230211100 / 6
+
+- [Property reference](../guides/data-sources--flow_anomaly--reference--group-001.md#canonical-1001030133000121-1133022331020113-1013220120013233-1103310331100231-0302200102302313-0033012100301122-3101322032301330-3222201320301020)
+- [Examples](../guides/data-sources--flow_anomaly--examples--group-001.md#canonical-0031303121031111-2101233103332332-1111232203311200-1020331010130100-2112300023012211-0110010000123031-0231120103103031-0301300123130200)

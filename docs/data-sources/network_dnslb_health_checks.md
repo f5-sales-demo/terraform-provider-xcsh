@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_dnslb_health_checks"
+page_title: "xcsh_network_dnslb_health_checks landing"
 subcategory: ""
-description: "xcsh_network_dnslb_health_checks for xcsh_network_dnslb_health_checks."
-xcsh_docs: {"aliases": [], "body_bytes": 1498, "body_sha256": "sha256:948aa0a8695c4efa0cdd3003c084fcb341a18148ae69b0f9ab156abba6210830", "canonical_id": "xcsh-docs:data-sources:network_dnslb_health_checks:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_dnslb_health_checks:reference", "xcsh-docs:data-sources:network_dnslb_health_checks:examples"], "collection_id": "xcsh-docs:data-sources:network_dnslb_health_checks:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_dnslb_health_checks:fundamentals", "parent_id": null, "path": "docs/data-sources/network_dnslb_health_checks.md", "provider_name": "network_dnslb_health_checks", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_dnslb_health_checks/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_dnslb_health_checks for xcsh_network_dnslb_health_checks.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_dnslb_health_checks landing."
 ---
+
+# xcsh_network_dnslb_health_checks landing
+
+<a id="canonical-1333320111300032-2212003230021231-1213001111023002-3323113032220220-3102221212223011-3012000302133013-0331320230013312-1210133113122312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_dnslb_health_checks
+<a id="canonical-0110310233112032-3102103212300022-3232132332030231-2011020023302032-1003020123322322-0002001013303330-3000100110203103-1010202210202023"></a>
+
+## xcsh_network_dnslb_health_checks — xcsh_network_dnslb_health_checks / 013302220332 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ DNS Load Balancer health-check probe IPv4 addresses. Values are bundled from the
 release; this data source performs no network request. Ports and traffic direction are not encoded
 in the manifest.
 
-## Prerequisites
+<a id="canonical-3320203000033231-0003112100222212-1321020020200300-2200020210110223-3322323220230202-3132323032020231-3223212223021321-1231223333031133"></a>
+
+## Prerequisites — xcsh_network_dnslb_health_checks / 013302220332 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0112213312001313-1301312123302002-2001202213331212-1213112203220312-0202212010000210-0313330231133323-2201001222301021-1300021020332020"></a>
+
+## Minimal configuration — xcsh_network_dnslb_health_checks / 013302220332 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "https_health_check_ingress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2210133113000000-0313023302032300-2021132233330320-2212001000112101-3031010320011320-0111100321100310-3110023232113232-1121100112131332"></a>
+
+## Root configuration — xcsh_network_dnslb_health_checks / 013302220332 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0130313201121111-3013311301302212-1311111022222223-3103202322231123-0201320113122232-0131100123300301-0333133203032103-3003312230331313"></a>
 
-- [Property reference](../guides/data-sources--network_dnslb_health_checks--reference.md)
-- [Examples](../guides/data-sources--network_dnslb_health_checks--examples.md)
+## Next pages — xcsh_network_dnslb_health_checks / 013302220332 / 6
+
+- [Property reference](../guides/data-sources--network_dnslb_health_checks--reference--group-001.md#canonical-3223033123011120-0230303232120302-3331202330201322-3220130233113211-1303113102133001-0312222023330311-3123201131202200-2232113203112322)
+- [Examples](../guides/data-sources--network_dnslb_health_checks--examples--group-001.md#canonical-0303310301112000-3100222121100210-2121303122313213-2313222313312303-0311232030113220-1220132333221233-3321201233332121-3112130311120012)

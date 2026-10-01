@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bgp"
+page_title: "xcsh_bgp landing"
 subcategory: ""
-description: "xcsh_bgp for xcsh_bgp."
-xcsh_docs: {"aliases": [], "body_bytes": 1254, "body_sha256": "sha256:8640c8309362a4decdb89835fd9c5181f7784001c53c9acdc93fea08e8132dcd", "canonical_id": "xcsh-docs:data-sources:bgp:fundamentals", "child_ids": ["xcsh-docs:data-sources:bgp:reference", "xcsh-docs:data-sources:bgp:examples"], "collection_id": "xcsh-docs:data-sources:bgp:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bgp:fundamentals", "parent_id": null, "path": "docs/data-sources/bgp.md", "provider_name": "bgp", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bgp for xcsh_bgp.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bgpCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bgp landing."
 ---
+
+# xcsh_bgp landing
+
+<a id="canonical-0330230310333303-2102033020231123-2303123101223012-3213333103231032-1203320012331320-3031311033301202-3020310230132101-0011223030112231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bgp
+<a id="canonical-0120312330231102-2001033031020113-0122111231120101-0322331321120322-1313111012113023-1223003222333221-0223332211233322-2022311111031223"></a>
+
+## xcsh_bgp — xcsh_bgp / 210030210010 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with
 external bgp servers. it is created by users in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-0020301301230123-2223132010210332-3100000302120222-2311013322201123-0131213331230333-1321220333100133-0213301210231323-2223323332012210"></a>
+
+## Prerequisites — xcsh_bgp / 210030210010 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1231310231002323-1023130301002231-0310101220011310-3102323130200311-3133101303213202-3133203123211202-1200310100110030-3033300110122032"></a>
+
+## Minimal configuration — xcsh_bgp / 210030210010 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "bgp_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1121010212331120-2122111030013001-3013221120212033-3320110020011010-3030000201210033-1232012232120120-0232123102311311-1113303222113033"></a>
+
+## Root configuration — xcsh_bgp / 210030210010 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3130121123223120-1023321331221022-2101320300032202-1100203003311211-2313231002313100-2112000220210030-0031120001301313-2132102122011332"></a>
 
-- [Property reference](../guides/data-sources--bgp--reference.md)
-- [Examples](../guides/data-sources--bgp--examples.md)
+## Next pages — xcsh_bgp / 210030210010 / 6
+
+- [Property reference](../guides/data-sources--bgp--reference--group-001.md#canonical-2133002300232122-2112123312313302-3002130002300113-2210220333320001-3000003311122210-2013212232010312-0200311202002111-2023102231001120)
+- [Examples](../guides/data-sources--bgp--examples--group-001.md#canonical-0011333200121323-1202013222010111-0303012103322321-1132212333033031-2001120120213230-0113023223130122-0310112310322311-2002111203001003)

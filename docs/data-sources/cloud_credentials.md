@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_credentials"
+page_title: "xcsh_cloud_credentials landing"
 subcategory: "Infrastructure"
-description: "xcsh_cloud_credentials for xcsh_cloud_credentials."
-xcsh_docs: {"aliases": [], "body_bytes": 1366, "body_sha256": "sha256:c4e32b7d4ea6557cebe1c8497907e8c23101c43a6958c77dd7a0ad75870334d6", "canonical_id": "xcsh-docs:data-sources:cloud_credentials:fundamentals", "child_ids": ["xcsh-docs:data-sources:cloud_credentials:reference", "xcsh-docs:data-sources:cloud_credentials:examples"], "collection_id": "xcsh-docs:data-sources:cloud_credentials:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cloud_credentials:fundamentals", "parent_id": null, "path": "docs/data-sources/cloud_credentials.md", "provider_name": "cloud_credentials", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_credentials/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_credentials for xcsh_cloud_credentials.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_credentialsCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_credentials landing."
 ---
+
+# xcsh_cloud_credentials landing
+
+<a id="canonical-2110132231330011-2002032233012103-3311330333333101-3203113311300130-0003233333122123-0313221211032211-0002232311213001-2011013113113313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_credentials
+<a id="canonical-1330203331000232-2010033311313223-3313303201023030-3020301030001330-0020103123310212-3300101122130131-0003332202301030-2212311303033223"></a>
+
+## xcsh_cloud_credentials — xcsh_cloud_credentials / 330300302320 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud\_credentials
 object. configuration.
 
-## Prerequisites
+<a id="canonical-1210121131011232-1013001231222002-3201330212133013-2123232313332320-3200102122110031-3202230020220310-0210303113313013-1131011133312012"></a>
+
+## Prerequisites — xcsh_cloud_credentials / 330300302320 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-0211122030001123-1300300312122001-0120131203212221-1132231112211313-3023123012133100-1110333332231023-0301003003002123-1322200200020132"></a>
+
+## Minimal configuration — xcsh_cloud_credentials / 330300302320 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "cloud_credentials_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3023313303021132-0212200301331020-3002322022222133-3313212010230012-1111022310033100-1023133011011022-0303111000032333-1000302323102221"></a>
+
+## Root configuration — xcsh_cloud_credentials / 330300302320 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2121301221003121-2111220013210231-0331102111231320-1223300210022220-1012223112332301-0023002330021121-0102113113000301-3020000101000013"></a>
 
-- [Property reference](../guides/data-sources--cloud_credentials--reference.md)
-- [Examples](../guides/data-sources--cloud_credentials--examples.md)
+## Next pages — xcsh_cloud_credentials / 330300302320 / 6
+
+- [Property reference](../guides/data-sources--cloud_credentials--reference--group-001.md#canonical-1222110032121311-2010213320102211-0010322021330012-3032221320121332-0111232230211002-0322333203023001-1112333021213333-0303111020330003)
+- [Examples](../guides/data-sources--cloud_credentials--examples--group-001.md#canonical-1311212303012203-1120120003000323-0002010120133202-0033322333331231-0123120001201200-2223210332033123-3332013103003310-1033310232212120)

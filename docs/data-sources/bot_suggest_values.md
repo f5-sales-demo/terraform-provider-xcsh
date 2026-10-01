@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_suggest_values"
+page_title: "xcsh_bot_suggest_values landing"
 subcategory: ""
-description: "xcsh_bot_suggest_values for xcsh_bot_suggest_values."
-xcsh_docs: {"aliases": [], "body_bytes": 1157, "body_sha256": "sha256:e6e94edf7a2b7fb426916e024f611ba37310faa675bce80e24ea2e05b994b8a0", "canonical_id": "xcsh-docs:data-sources:bot_suggest_values:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_suggest_values:reference", "xcsh-docs:data-sources:bot_suggest_values:examples"], "collection_id": "xcsh-docs:data-sources:bot_suggest_values:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_suggest_values:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_suggest_values.md", "provider_name": "bot_suggest_values", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_suggest_values/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_suggest_values for xcsh_bot_suggest_values.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_suggest_values landing."
 ---
+
+# xcsh_bot_suggest_values landing
+
+<a id="canonical-3223113331303120-3211131233310020-2103101120000000-3302331313210231-3330320100131032-1303233132310303-1120022100002302-3203202022101303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_suggest_values
+<a id="canonical-2211230323210210-2020200013111103-3112032213221003-3131222020220301-1100333220021313-1330103311110211-2313130120221320-3030221113322130"></a>
+
+## xcsh_bot_suggest_values — xcsh_bot_suggest_values / 201212222312 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-0130021020013001-1312302220011202-2221313133302310-1001032302021200-1133320002332311-2302212031111033-2320000202312320-1212303130333000"></a>
+
+## Prerequisites — xcsh_bot_suggest_values / 201212222312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2312322120322200-3221322203111011-0301101023031120-1030133111210203-2310103310201032-0002233301031122-1123303113203322-2012010113103203"></a>
+
+## Minimal configuration — xcsh_bot_suggest_values / 201212222312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "bot_suggest_values_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1002003312120030-1110031201312120-0331313313332301-0001021330222221-0032311110020322-1013011201133303-3300203000111211-1330303330313210"></a>
+
+## Root configuration — xcsh_bot_suggest_values / 201212222312 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0003110110113103-2220201112102330-3123301022210133-2103333210133010-0000323322011331-1010300300120212-1203331001032111-3322112300220313"></a>
 
-- [Property reference](../guides/data-sources--bot_suggest_values--reference.md)
-- [Examples](../guides/data-sources--bot_suggest_values--examples.md)
+## Next pages — xcsh_bot_suggest_values / 201212222312 / 6
+
+- [Property reference](../guides/data-sources--bot_suggest_values--reference--group-001.md#canonical-0133311012330202-3003220301112011-3121011301000332-0123101221021012-1323031211013031-1311312133320211-3120303313001021-1311000323111302)
+- [Examples](../guides/data-sources--bot_suggest_values--examples--group-001.md#canonical-3023011213133012-0111020023130020-1102232223001103-1310002010213032-0302100103210013-3130303103311003-0123122011212000-3022210211021131)

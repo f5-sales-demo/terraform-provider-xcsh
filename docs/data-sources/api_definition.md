@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_definition"
+page_title: "xcsh_api_definition landing"
 subcategory: "API Management"
-description: "xcsh_api_definition for xcsh_api_definition."
-xcsh_docs: {"aliases": [], "body_bytes": 1350, "body_sha256": "sha256:9b0f7d9739b7e17c7f4254480819d0d19e8f5b65cea88df687ec106e77f69f83", "canonical_id": "xcsh-docs:data-sources:api_definition:fundamentals", "child_ids": ["xcsh-docs:data-sources:api_definition:reference", "xcsh-docs:data-sources:api_definition:examples"], "collection_id": "xcsh-docs:data-sources:api_definition:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_definition:fundamentals", "parent_id": null, "path": "docs/data-sources/api_definition.md", "provider_name": "api_definition", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_definition/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_definition for xcsh_api_definition.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_definitionCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_definition landing."
 ---
+
+# xcsh_api_definition landing
+
+<a id="canonical-0131330321032121-2132003011332230-3320101012003002-0031333012123021-2120322202223330-2130200123310010-3012310330331120-1130223111032223"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_definition
+<a id="canonical-1202120233131113-3113032201100112-0201001233000122-3002312133013101-3132032331122001-3312310310111130-0101321120202302-3323320331123333"></a>
+
+## xcsh_api_definition — xcsh_api_definition / 122202321013 / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages API Definition in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3332003320003211-0303032223021013-0330031013331322-0313331113020130-1012111201320023-2111222302320103-0202022333231320-0003123111133133"></a>
+
+## Prerequisites — xcsh_api_definition / 122202321013 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Optional integrations: `api_endpoint`.
 
 - api_endpoint: Endpoints defined by this API
 
-## Minimal configuration
+<a id="canonical-0311211220231022-3103333321232310-0302112012010010-1233100312303211-0013301120131323-0110032301031331-1301320023101013-0301232231023300"></a>
+
+## Minimal configuration — xcsh_api_definition / 122202321013 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,11 +65,15 @@ output "api_definition_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1103132202133312-1230210321111013-3313220321332223-2232200002030133-1221201010131033-2020133200032312-0321323312133120-1312230221211012"></a>
+
+## Root configuration — xcsh_api_definition / 122202321013 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0202020132303211-0222101212012033-0321102000302203-0100031033210001-3321011103321321-2201323003201333-1300330001312122-0202330232202210"></a>
 
-- [Property reference](../guides/data-sources--api_definition--reference.md)
-- [Examples](../guides/data-sources--api_definition--examples.md)
+## Next pages — xcsh_api_definition / 122202321013 / 6
+
+- [Property reference](../guides/data-sources--api_definition--reference--group-001.md#canonical-3322310000110031-3303331030310132-3201123301111320-0223031203232010-1233333113000003-1023202201203132-0311103213220013-0232300212311123)
+- [Examples](../guides/data-sources--api_definition--examples--group-001.md#canonical-1033121102020132-2320020110333032-2102300020133012-3123220022131120-3112301032313011-1100003031333322-3012330310222003-3302320212221331)

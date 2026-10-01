@@ -1,0 +1,4921 @@
+---
+page_title: "xcsh_global_log_receiver reference"
+subcategory: ""
+description: "Complete grouped canonical reference for xcsh_global_log_receiver reference."
+---
+
+# xcsh_global_log_receiver reference
+
+<a id="canonical-1102222010312223-0112330233212300-3223021302303333-1211110110201103-0000120203221200-1102101000303232-1322022113012303-2112302223213331"></a>
+
+## http_receiver.auth_token.token.clear_secret_info — clear_secret_info / 131201011113 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.auth_token](data-sources--global_log_receiver--reference--group-002.md#canonical-3323032303112012-3022221132311311-2010023233121102-3130133130021112-2211023322231311-1131213033021222-3220020013010221-3010030100310012)
+- [http_receiver.auth_token.token](data-sources--global_log_receiver--reference--group-002.md#canonical-2201133021212200-2303301223000231-3102300001331113-3023110323032000-3213313102021101-1310223123221022-2010313010210032-0323030222002033)
+- http_receiver.auth_token.token.clear_secret_info
+
+<a id="canonical-1101010302032113-1203123130203303-3220122113321002-2113031301001331-0123112023310021-2331231311001010-2031002312030112-3203101331230122"></a>
+
+Type: `"single"`. Computed.
+
+ClearSecretInfoType specifies information about the Secret that is not encrypted.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3222303013320312-0212302313322322-1133213213000303-0130103333211202-3231031003303331-0011323301000013-0302303222130201-1302313222221201"></a>
+
+## Direct properties — clear_secret_info / 131201011113 / 3
+
+<a id="canonical-3133000002133303-2103223113130302-0111121112010311-0123131331213103-1223222001302020-1301132031013121-1210200123103121-0233222021201221"></a>
+
+<a id="canonical-1002330330212302-1321030222210300-2233011003131012-2012110210120203-2223210010312030-1333001033133301-1012021233323011-0333323312110301"></a>
+
+## provider_ref property — clear_secret_info / 131201011113 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+<a id="canonical-3333011102322313-3302133232110023-3031310310133201-1212320332310130-2100131311010201-0013010331102123-2232212331112123-3233001303332101"></a>
+
+<a id="canonical-1033031110023320-0221303132111111-3220213332312201-0120131033001323-1320210013213002-2120220133112131-1212122231102322-3222312133133021"></a>
+
+## URL property — clear_secret_info / 131201011113 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Upstream description:
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
+    "validation": {
+      "rfc": "RFC 3986"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-3313013103100232-2101022320222030-3000322323330203-1103101311311220-1110233132201301-2102213320210321-1023101130222202-3010222002200212"></a>
+
+## Next pages — clear_secret_info / 131201011113 / 6
+
+- [http_receiver.auth_token.token](data-sources--global_log_receiver--reference--group-002.md#canonical-2201133021212200-2303301223000231-3102300001331113-3023110323032000-3213313102021101-1310223123221022-2010313010210032-0323030222002033)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1323033310020132-0332013212020031-0212133332203131-1102212322332103-0133202002022001-1321122021112302-0003122230101102-1103000322223201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2202203301323201-1103213102030312-1202232002002122-0230323200222001-3301332313330123-0301301030223232-1220311033300112-3100011323023112"></a>
+
+## http_receiver.batch — batch / 312133232232 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- http_receiver.batch
+
+<a id="canonical-3033002330211213-2112021121332210-0032223330233100-0232112000221301-0101211123332200-2111212201311020-1130122003111211-1201230201202100"></a>
+
+Type: `"single"`. Computed.
+
+Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-batch_bytes": "[\"max_bytes\",\"max_bytes_disabled\"]",
+  "x-ves-oneof-field-batch_events": "[\"max_events\",\"max_events_disabled\"]",
+  "x-ves-oneof-field-batch_timeout": "[\"timeout_seconds\",\"timeout_seconds_default\"]"
+}
+```
+
+<a id="canonical-2131213200031003-0203332011031123-0120013022220012-1333000023323002-0010311032011133-1021203013312203-0301011302221213-3223113111301123"></a>
+
+## Direct properties — batch / 312133232232 / 3
+
+<a id="canonical-3120300312102212-2203000021131022-1120000010211023-1023012100011313-2230221201010213-0100320122111321-1010330211121020-0110200302030300"></a>
+
+<a id="canonical-2221021123013321-3113133121020033-2133123120311231-0121011303301110-0321320110101031-1133302300312023-1020311231223102-1020300213231010"></a>
+
+## max_bytes property — batch / 312133232232 / 4
+
+Type: `"number"`. Computed.
+
+Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
+than this many bytes.
+
+Upstream description:
+
+Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
+than this many bytes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 10485760,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 4096
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "4096",
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "4096",
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  }
+}
+```
+
+- [max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-2133301222203022-1101003231200000-1203302021212111-0020202020312322-0220230003301132-2003321130003113-0002233030020211-1121121033222203): complete subsection reference.
+
+<a id="canonical-2221101300030012-3321002023010312-1322213010011003-3200311300100302-0020200203301110-2101310002232013-3000102321031103-1130230131220102"></a>
+
+<a id="canonical-2002331121120312-2011031310332133-1010000230132321-1223101333310132-0132111012313123-1233312100013011-1230103002012101-3003132131113220"></a>
+
+## max_events property — batch / 312133232232 / 5
+
+Type: `"number"`. Computed.
+
+Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
+the batch.
+
+Upstream description:
+
+Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
+the batch.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 2000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 32
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "32",
+    "ves.io.schema.rules.uint32.lte": "2000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "32",
+    "ves.io.schema.rules.uint32.lte": "2000"
+  }
+}
+```
+
+- [max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1311211113012122-1110331310330102-3213202210330323-1333123300311320-1122300102202201-1332032132102320-2012302123011100-2022011020000230): complete subsection reference.
+
+<a id="canonical-0102003133003300-1303311322102213-3212332232031303-0031013110013002-2213020320202111-1011213011001030-2100201113323131-0311032330122333"></a>
+
+<a id="canonical-1330212022222220-3210332002131201-0231033330130220-3311012010030130-0031033230100013-2010203303331331-3232231022020232-3332110113323112"></a>
+
+## timeout_seconds property — batch / 312133232232 / 6
+
+Type: `"string"`. Computed.
+
+Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
+
+Upstream description:
+
+Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "format": "uint64",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint64.gte": "300",
+    "ves.io.schema.rules.uint64.lte": "3600"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint64.gte": "300",
+    "ves.io.schema.rules.uint64.lte": "3600"
+  }
+}
+```
+
+- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-3301010000122032-3033331111021210-0102322010313311-1123200212213001-3331312102132101-1003112223213230-3033011002332220-1110301211003000): complete subsection reference.
+
+<a id="canonical-1030202233230311-0032303323201300-0332303200133333-0223210012220312-1203313332213012-0131223211231010-1302023221023310-1112220030221033"></a>
+
+## Next pages — batch / 312133232232 / 7
+
+- [http_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-2133301222203022-1101003231200000-1203302021212111-0020202020312322-0220230003301132-2003321130003113-0002233030020211-1121121033222203)
+- [http_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1311211113012122-1110331310330102-3213202210330323-1333123300311320-1122300102202201-1332032132102320-2012302123011100-2022011020000230)
+- [http_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-3301010000122032-3033331111021210-0102322010313311-1123200212213001-3331312102132101-1003112223213230-3033011002332220-1110301211003000)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2133301222203022-1101003231200000-1203302021212111-0020202020312322-0220230003301132-2003321130003113-0002233030020211-1121121033222203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2302111123030000-0213211212131212-0023121332331222-3122233330301330-2301112123310133-2212332130320310-3312022121211220-2211220202232103"></a>
+
+## http_receiver.batch.max_bytes_disabled — max_bytes_disabled / 303023100010 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-1323033310020132-0332013212020031-0212133332203131-1102212322332103-0133202002022001-1321122021112302-0003122230101102-1103000322223201)
+- http_receiver.batch.max_bytes_disabled
+
+<a id="canonical-0003000123021323-1203210121303101-1130112333130202-0212312121313220-0021001213033012-1131120323201311-2321202011321203-1323123301333111"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1000310320301130-1113103222222000-1013123113031030-2213133010123110-0012232231210100-2233211132211312-0202103011311300-1111220111121321"></a>
+
+## Direct properties — max_bytes_disabled / 303023100010 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0003002122211002-1100310213022221-2012121212132031-0112310030032011-0032331030211100-1122223120012230-2030300120131213-3331102230112111"></a>
+
+## Next pages — max_bytes_disabled / 303023100010 / 4
+
+- [http_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-1323033310020132-0332013212020031-0212133332203131-1102212322332103-0133202002022001-1321122021112302-0003122230101102-1103000322223201)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1311211113012122-1110331310330102-3213202210330323-1333123300311320-1122300102202201-1332032132102320-2012302123011100-2022011020000230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0303230201222302-2102020313130230-1101311123011030-2330333012201300-2130102011222303-1012221313013012-3103032111032032-2132312023110010"></a>
+
+## http_receiver.batch.max_events_disabled — max_events_disabled / 331121300323 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-1323033310020132-0332013212020031-0212133332203131-1102212322332103-0133202002022001-1321122021112302-0003122230101102-1103000322223201)
+- http_receiver.batch.max_events_disabled
+
+<a id="canonical-1013132311021110-2211212013131133-0022002233233033-2303313010110012-1212313033112133-3010012102112030-0123311220033203-1310230101230000"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0201013130102002-1132232222332201-0111221101211300-0022001013203011-1010022010223300-3322032222223113-3202103110011222-1132321332301031"></a>
+
+## Direct properties — max_events_disabled / 331121300323 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0312232213003210-0322211031001202-1233300323303330-0211310231313023-0002303231322202-1112132133220121-2110312223010312-0312332002011311"></a>
+
+## Next pages — max_events_disabled / 331121300323 / 4
+
+- [http_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-1323033310020132-0332013212020031-0212133332203131-1102212322332103-0133202002022001-1321122021112302-0003122230101102-1103000322223201)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3301010000122032-3033331111021210-0102322010313311-1123200212213001-3331312102132101-1003112223213230-3033011002332220-1110301211003000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1233133321102103-2213020103332232-2200011203101013-2311013223030320-3322131031222102-2221201020211301-0103002310120302-0023130322011323"></a>
+
+## http_receiver.batch.timeout_seconds_default — timeout_seconds_default / 311000211202 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-1323033310020132-0332013212020031-0212133332203131-1102212322332103-0133202002022001-1321122021112302-0003122230101102-1103000322223201)
+- http_receiver.batch.timeout_seconds_default
+
+<a id="canonical-0032213100301021-1200320130203012-1221102031021231-3223030013123122-2101232113013112-2232003223310313-2222031210301032-3100011331102013"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0221313011020102-3322021022023100-1113331201010200-1100213022013201-2133002221201230-3211012321203330-2101322013320123-2333222003110310"></a>
+
+## Direct properties — timeout_seconds_default / 311000211202 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1120210212112102-3121023030033300-1110302302211232-1313010112311313-3123031211333000-1121121331001301-3212231213311132-1003311132112032"></a>
+
+## Next pages — timeout_seconds_default / 311000211202 / 4
+
+- [http_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-1323033310020132-0332013212020031-0212133332203131-1102212322332103-0133202002022001-1321122021112302-0003122230101102-1103000322223201)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1131223203223130-2000122203303022-1023002322213322-2120332113101311-3003321112120110-2022230313200233-1310131000132331-0100333201211202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3103222132322032-1302203223130223-1020012200113123-2130332310120232-0033231122131103-2221322101330133-0103300101202003-2013201330110110"></a>
+
+## http_receiver.compression — compression / 313010012333 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- http_receiver.compression
+
+<a id="canonical-1230110031111023-2110110002013300-2331231310011020-0030213032233130-0121121133031320-3301012011020222-1101230213201022-2332132321133123"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for compression.
+
+Upstream description:
+
+Compression Type.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-compression_choice": "[\"compression_default\",\"compression_gzip\",\"compression_none\"]"
+}
+```
+
+<a id="canonical-0003001232130023-1133323302311130-3030231132230032-1113212202012311-1210122122333132-2030133023332101-0002101101112102-3023032221302111"></a>
+
+## Direct properties — compression / 313010012333 / 3
+
+- [compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-0323033223122320-2023310003200132-3011103233122001-3230312221132131-3320311112121012-2013222310022000-3323010113020333-0011133331012012): complete subsection reference.
+
+- [compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-2200031021200203-1013321021000212-2322313221131000-1132332101301223-1221020101021213-2203311130221111-0311020003210211-3011313110303321): complete subsection reference.
+
+- [compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-3303023230322120-0212332020300101-2322122210232001-3212032303212200-1203103200230002-0133132032131013-3302010111001101-0000320111003002): complete subsection reference.
+
+<a id="canonical-0203223122010323-0333113303003021-1001112311033322-2112101123021230-1220013022010132-1000103103323021-0333121103112222-1332210321311031"></a>
+
+## Next pages — compression / 313010012333 / 4
+
+- [http_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-0323033223122320-2023310003200132-3011103233122001-3230312221132131-3320311112121012-2013222310022000-3323010113020333-0011133331012012)
+- [http_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-2200031021200203-1013321021000212-2322313221131000-1132332101301223-1221020101021213-2203311130221111-0311020003210211-3011313110303321)
+- [http_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-3303023230322120-0212332020300101-2322122210232001-3212032303212200-1203103200230002-0133132032131013-3302010111001101-0000320111003002)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0323033223122320-2023310003200132-3011103233122001-3230312221132131-3320311112121012-2013222310022000-3323010113020333-0011133331012012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0311100021223213-2012303202101123-1121111330213211-0232220100011130-3120220123011031-2333320213303111-3113231122310013-0212222111301213"></a>
+
+## http_receiver.compression.compression_default — compression_default / 300013210030 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-1131223203223130-2000122203303022-1023002322213322-2120332113101311-3003321112120110-2022230313200233-1310131000132331-0100333201211202)
+- http_receiver.compression.compression_default
+
+<a id="canonical-1100121131310320-3232022323322030-2230333220200230-1311012303002011-2101201211100131-3112213313232330-3100103301211101-1222303030122322"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for compression default.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3330031101330003-3222322321221101-1322032231002110-1123210221112002-0322030130021130-2131132210312120-2112303013300100-1023212001210130"></a>
+
+## Direct properties — compression_default / 300013210030 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1313123113001330-2321312301221222-3202020122020133-0121212202012030-3332001021313100-1320201022131303-3031111130310002-0021332131313210"></a>
+
+## Next pages — compression_default / 300013210030 / 4
+
+- [http_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-1131223203223130-2000122203303022-1023002322213322-2120332113101311-3003321112120110-2022230313200233-1310131000132331-0100333201211202)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2200031021200203-1013321021000212-2322313221131000-1132332101301223-1221020101021213-2203311130221111-0311020003210211-3011313110303321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2231111310313331-3023333120202200-3303321200002132-0121121311023311-0000223033133331-1211031031023221-3031212330112301-1300321223303110"></a>
+
+## http_receiver.compression.compression_gzip — compression_gzip / 020201120213 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-1131223203223130-2000122203303022-1023002322213322-2120332113101311-3003321112120110-2022230313200233-1310131000132331-0100333201211202)
+- http_receiver.compression.compression_gzip
+
+<a id="canonical-2301200110202101-2112323302023131-0323300123313122-2230102222020032-3232323112132210-0022330123000220-3331332103013230-3100030110131230"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0112202112202012-0020110212120332-0300013031223021-2312332310022022-0111301231013000-2030110332332331-3303021323101021-1003002302330220"></a>
+
+## Direct properties — compression_gzip / 020201120213 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2133021120012332-1032301112221021-1323112120122212-3122013132233110-1120033310003123-0022013311112203-3031210332310121-3301103202322122"></a>
+
+## Next pages — compression_gzip / 020201120213 / 4
+
+- [http_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-1131223203223130-2000122203303022-1023002322213322-2120332113101311-3003321112120110-2022230313200233-1310131000132331-0100333201211202)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3303023230322120-0212332020300101-2322122210232001-3212032303212200-1203103200230002-0133132032131013-3302010111001101-0000320111003002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2222112112120223-1102001302123200-2223220021122331-1012212111020332-3021301333032131-3200323233233212-2013111111210032-3131201331302032"></a>
+
+## http_receiver.compression.compression_none — compression_none / 212201231021 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-1131223203223130-2000122203303022-1023002322213322-2120332113101311-3003321112120110-2022230313200233-1310131000132331-0100333201211202)
+- http_receiver.compression.compression_none
+
+<a id="canonical-3321022233022230-1131021301100122-0322000321023003-2330000103121000-2203233233200210-1132221011232232-2113123112021132-2210033101323203"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for compression none.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2023330222111022-2032102211212111-2323030220012132-2103012330100301-2001201113003123-2023222211121321-3332003023210220-2232301323101230"></a>
+
+## Direct properties — compression_none / 212201231021 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3210000000030110-3332020121321101-2112202032210130-3023102031113213-1331030020112300-3020102333331210-1022232333000312-3102110002230133"></a>
+
+## Next pages — compression_none / 212201231021 / 4
+
+- [http_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-1131223203223130-2000122203303022-1023002322213322-2120332113101311-3003321112120110-2022230313200233-1310131000132331-0100333201211202)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3203222233032313-0213102110222011-2300132012120130-2123230023320010-0202222331102302-2230031332332231-2220302333122321-2010013030330222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1101001233312120-3200221021123032-0332123033112130-0101023233133023-2003023002311300-3131220133220210-3100331130110031-0203033311032333"></a>
+
+## http_receiver.no_tls — no_tls / 232112232231 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- http_receiver.no_tls
+
+<a id="canonical-1311130223100102-1002321010003212-3312331023231130-3133110201012032-0132132030023130-0222030110203332-2001333212132132-3203001321102320"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3133033022320001-0200213303021300-1211112121123020-3303012010311133-0101333001333011-0130320003133121-3332212312133323-1133011220012312"></a>
+
+## Direct properties — no_tls / 232112232231 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1123001212013331-0031101301000100-2312332321113102-2103022111133223-3300032330221220-0210320021212210-0032331023023201-1000020301033322"></a>
+
+## Next pages — no_tls / 232112232231 / 4
+
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3103003023300212-2312322033300103-2032101203222102-3331121013101010-0223003230120133-0213313000111331-0030202120222022-2102021101221033"></a>
+
+## http_receiver.use_tls — use_tls / 011101011210 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- http_receiver.use_tls
+
+<a id="canonical-2222103220232031-2031032010121130-2211221233312033-0332301331300312-2120012113132301-1213303302130011-2202233100003010-2022303330332120"></a>
+
+Type: `"single"`. Computed.
+
+TLS Parameters for client connection to the endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-ca_choice": "[\"no_ca\",\"trusted_ca_url\"]",
+  "x-ves-oneof-field-mtls_choice": "[\"mtls_disabled\",\"mtls_enable\"]",
+  "x-ves-oneof-field-verify_certificate": "[\"disable_verify_certificate\",\"enable_verify_certificate\"]",
+  "x-ves-oneof-field-verify_hostname": "[\"disable_verify_hostname\",\"enable_verify_hostname\"]"
+}
+```
+
+<a id="canonical-1313031311221100-3221213022221233-2103110302223013-0223032020312330-1021212332222012-2031133310331111-2032230112113111-1201031212032033"></a>
+
+## Direct properties — use_tls / 011101011210 / 3
+
+- [disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-3121210011330223-0011111000110101-1030131212012132-2102023131112230-2220102020223101-2322231221313100-3232012030001031-1332131102220010): complete subsection reference.
+
+- [disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-0023301120112000-3120122331121331-1122230222132231-2221031123010011-0312011213312333-0022213312120331-2211202002220002-2132230200032101): complete subsection reference.
+
+- [enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-0120130211222022-3201212221100103-1101202210112001-1211110200113300-0103321001132022-2131230210313302-3300121031322300-1130330013133133): complete subsection reference.
+
+- [enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-0111321111331201-1120111320131111-1121213021103220-3222102320100220-1021233221102302-3331200100022003-1030220103333200-3221310112302033): complete subsection reference.
+
+- [mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1221213212132032-2030312030121210-2101011333001223-2013110011120031-0212322100331312-0303103123212310-2311112312030320-2303223110233330): complete subsection reference.
+
+- [mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-3013001012332100-1311123110003032-0230112313223203-2032232022012302-3123112231323032-2103101220012102-1323131022301203-0011200000223032): complete subsection reference.
+
+- [no_ca](data-sources--global_log_receiver--reference--group-003.md#canonical-3113211300002122-3331111132231131-0202303003230033-0100302132213000-2302200133221203-0310001301322232-2010131303313100-1133201010330223): complete subsection reference.
+
+<a id="canonical-0302313312222112-0030303133011212-3021220013013321-3123013131232303-3211233023211032-2030212111022112-0133112030200120-0003100032123032"></a>
+
+<a id="canonical-3030030110223210-1000111011333032-3122333022310120-1121023130021012-3100130032120031-0200302112000201-2023121100032103-3221221232332320"></a>
+
+## trusted_ca_url property — use_tls / 011101011210 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[no\_ca\] The URL or value for trusted Server CA certificate or certificate chain
+Certificates in PEM format including the PEM headers.
+
+Upstream description:
+
+Exclusive with \[no\_ca\] The URL or value for trusted Server CA certificate or certificate chain
+Certificates in PEM format including the PEM headers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.truststore_url": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.truststore_url": "true"
+  }
+}
+```
+
+<a id="canonical-2132323133123332-2302203211301021-3033011101030220-3333321322002012-0230310101212002-3330200031033300-3200210213131211-2030021033122100"></a>
+
+## Next pages — use_tls / 011101011210 / 5
+
+- [http_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-3121210011330223-0011111000110101-1030131212012132-2102023131112230-2220102020223101-2322231221313100-3232012030001031-1332131102220010)
+- [http_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-0023301120112000-3120122331121331-1122230222132231-2221031123010011-0312011213312333-0022213312120331-2211202002220002-2132230200032101)
+- [http_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-0120130211222022-3201212221100103-1101202210112001-1211110200113300-0103321001132022-2131230210313302-3300121031322300-1130330013133133)
+- [http_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-0111321111331201-1120111320131111-1121213021103220-3222102320100220-1021233221102302-3331200100022003-1030220103333200-3221310112302033)
+- [http_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1221213212132032-2030312030121210-2101011333001223-2013110011120031-0212322100331312-0303103123212310-2311112312030320-2303223110233330)
+- [http_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-3013001012332100-1311123110003032-0230112313223203-2032232022012302-3123112231323032-2103101220012102-1323131022301203-0011200000223032)
+- [http_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-003.md#canonical-3113211300002122-3331111132231131-0202303003230033-0100302132213000-2302200133221203-0310001301322232-2010131303313100-1133201010330223)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3121210011330223-0011111000110101-1030131212012132-2102023131112230-2220102020223101-2322231221313100-3232012030001031-1332131102220010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1131321323100111-0102302003003321-3330222122321213-0222232221232021-3213322301300231-1110222020112111-0230222303111131-1122030313121112"></a>
+
+## http_receiver.use_tls.disable_verify_certificate — disable_verify_certificate / 012233030302 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- http_receiver.use_tls.disable_verify_certificate
+
+<a id="canonical-1012311323221212-1102020011022033-2323111232000032-1111101011332113-1331301002323202-0301331220010002-1003330322203033-1022303203233220"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable verify certificate.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0332001303203233-2203110020233122-1020320130200122-1132031110032330-3121103312302003-1321210232323221-0221123211220132-2001033313121323"></a>
+
+## Direct properties — disable_verify_certificate / 012233030302 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2201100303022111-2202001033201000-3331112013321020-2332131311120210-1133310232320322-0113312323232322-2212321201010013-2333020110013033"></a>
+
+## Next pages — disable_verify_certificate / 012233030302 / 4
+
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0023301120112000-3120122331121331-1122230222132231-2221031123010011-0312011213312333-0022213312120331-2211202002220002-2132230200032101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3212003112032031-2020110330133111-1100200212210130-3112103112001212-3132022311230302-1133020123332213-0100301223203231-2102333001210312"></a>
+
+## http_receiver.use_tls.disable_verify_hostname — disable_verify_hostname / 121313211003 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- http_receiver.use_tls.disable_verify_hostname
+
+<a id="canonical-2300022131232303-0333023333023330-3301102313132320-3003310311323320-0320312230101203-2003111011031200-1012120022112223-2021122200120100"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3013320002122232-2332122100013003-2100232113032031-3220321223130012-0130030101301322-1313030121201120-3230030221231213-1230123133000303"></a>
+
+## Direct properties — disable_verify_hostname / 121313211003 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3001031000012000-1010312300023013-0223210312002221-2100023131013011-1031031202132130-3310121233020132-3120011032202131-1100313322222131"></a>
+
+## Next pages — disable_verify_hostname / 121313211003 / 4
+
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0120130211222022-3201212221100103-1101202210112001-1211110200113300-0103321001132022-2131230210313302-3300121031322300-1130330013133133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1010231132311131-3021133020132222-3210313221101323-1013223101232230-1030131111131313-0231113023122130-0121302012100022-1002300322033121"></a>
+
+## http_receiver.use_tls.enable_verify_certificate — enable_verify_certificate / 030302003320 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- http_receiver.use_tls.enable_verify_certificate
+
+<a id="canonical-3232301210023212-0212212322110103-2200322003223232-1221013221010220-1121321120032311-2332122323030113-1331031302030120-2332110300022131"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for enable verify certificate.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1031322203310000-1213012201212032-0233002002233320-0222112110331023-3132021032130031-1110133013112223-3033033020303310-3231310330312130"></a>
+
+## Direct properties — enable_verify_certificate / 030302003320 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1321032301013200-2322212020212310-0320102020112121-2132013302132003-1023000020222331-2221302100310300-1201120133322100-3223122100010310"></a>
+
+## Next pages — enable_verify_certificate / 030302003320 / 4
+
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0111321111331201-1120111320131111-1121213021103220-3222102320100220-1021233221102302-3331200100022003-1030220103333200-3221310112302033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1103101201123302-0321212013202021-1101003312202213-0112200000230332-0113122101222213-3130102321012301-0302323113102131-1122220231112232"></a>
+
+## http_receiver.use_tls.enable_verify_hostname — enable_verify_hostname / 113212032001 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- http_receiver.use_tls.enable_verify_hostname
+
+<a id="canonical-3320320313031323-0100101101321230-0313122233131211-3313212130113120-3001211033122312-2100120310000110-3303320002133330-0011231032020230"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2212302023220130-2330003202003022-2200120311311322-1022000113220102-3110302220303233-0012231001033230-2203121032131301-0211303301120123"></a>
+
+## Direct properties — enable_verify_hostname / 113212032001 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3123302102333323-2000000330232003-3012131223002111-1321313333121212-3203032333002232-3231311031232321-3102223000011300-3011212213020233"></a>
+
+## Next pages — enable_verify_hostname / 113212032001 / 4
+
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1221213212132032-2030312030121210-2101011333001223-2013110011120031-0212322100331312-0303103123212310-2311112312030320-2303223110233330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0110022131330323-1222103303213333-2220120230211320-2330112003203230-1120321220010221-2122111221330002-1210110033002320-0230331123230112"></a>
+
+## http_receiver.use_tls.mtls_disabled — mtls_disabled / 233232221012 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- http_receiver.use_tls.mtls_disabled
+
+<a id="canonical-0010222301110230-0311211203023000-3010201033013031-0331230300332203-1213100321300013-0020200332123210-2113021203110132-3302233303222012"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0321222021013030-1302330132312123-0003132121020122-1312332232301233-0232011221320310-0212123032133122-1332323102133210-2333232101012122"></a>
+
+## Direct properties — mtls_disabled / 233232221012 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0201131222333230-2200220301001303-2312103233222322-2220011323231022-3101133322033330-0201303320303022-2312101221132213-1312101331113031"></a>
+
+## Next pages — mtls_disabled / 233232221012 / 4
+
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3013001012332100-1311123110003032-0230112313223203-2032232022012302-3123112231323032-2103101220012102-1323131022301203-0011200000223032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1210213221233321-3232202032100321-0013003200221033-3211200333030001-2032110011231002-0103120210312130-1110221323323102-0122000102223103"></a>
+
+## http_receiver.use_tls.mtls_enable — mtls_enable / 230110202122 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- http_receiver.use_tls.mtls_enable
+
+<a id="canonical-2113120302213213-1123011121122130-3212233323101200-3310302003320121-3223232330321201-0232202133330102-0021012322103320-2301311211223020"></a>
+
+Type: `"single"`. Computed.
+
+MTLS Client config allows configuration of mTLS client OPTIONS.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0312012033301300-3213222000223320-3330323230303212-0312212200323101-3203200302233320-0112320111330023-1320033003303300-0223032321202230"></a>
+
+## Direct properties — mtls_enable / 230110202122 / 3
+
+<a id="canonical-3011232331102121-2330330322002033-2201333131022212-3123023222300013-3123221233010012-3301202013213232-3202322230223333-3213002333212222"></a>
+
+<a id="canonical-1102212020031120-2331211221012222-0023013312130110-2301210301230002-3120231331000011-2333311001023130-0302022100101013-0031022213023222"></a>
+
+## certificate property — mtls_enable / 230110202122 / 4
+
+Type: `"string"`. Computed.
+
+Client certificate is PEM-encoded certificate or certificate-chain.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "formatDescription": "PEM-encoded X.509 certificate, max 5MB",
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 100,
+    "pattern": "^-----BEGIN CERTIFICATE-----\\n.*\\n-----END CERTIFICATE-----$",
+    "validation": {
+      "standard": "PEM"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+- [key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-1133103010301301-0020232210020321-3030310100333102-3111211210210310-0231202311212021-0213010021023320-3010322033133313-2332103233321312): complete subsection reference.
+
+<a id="canonical-1101210000123203-1332310310220002-0000013021111303-1003203312231310-0201301011021221-3231112130033320-3302021130033133-3102001123033301"></a>
+
+## Next pages — mtls_enable / 230110202122 / 5
+
+- [http_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-1133103010301301-0020232210020321-3030310100333102-3111211210210310-0231202311212021-0213010021023320-3010322033133313-2332103233321312)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1133103010301301-0020232210020321-3030310100333102-3111211210210310-0231202311212021-0213010021023320-3010322033133313-2332103233321312"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1033133203311120-0231120222012303-1203022001302311-1230333332312120-2212322000000010-0210032223100033-0233032232120201-3320133130330122"></a>
+
+## http_receiver.use_tls.mtls_enable.key_url — key_url / 221031112230 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [http_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-3013001012332100-1311123110003032-0230112313223203-2032232022012302-3123112231323032-2103101220012102-1323131022301203-0011200000223032)
+- http_receiver.use_tls.mtls_enable.key_url
+
+<a id="canonical-1113302222312031-0310021301203101-2021332030311232-1232130111100222-0303001200231112-0303012311213320-3202212012111113-3200112103330102"></a>
+
+Type: `"single"`. Computed.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+<a id="canonical-0130333332130000-3003233220201033-0213112121200003-0310021120112030-3201113112231321-0212002302031121-1113213300232030-3312020112031202"></a>
+
+## Direct properties — key_url / 221031112230 / 3
+
+- [blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-3311023020321022-3001233101130221-2312333032200203-2103220012320313-2232031301023023-3122033131233113-2201020311101323-0321013002212311): complete subsection reference.
+
+- [clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-0102312301010323-0101310233032311-3203011200311011-1323233023200231-2201020323132312-3220133231222220-2123300110200312-1010333011223212): complete subsection reference.
+
+<a id="canonical-0103010102103323-0100222230312020-1123113133013202-2212103002033033-0021011220222002-0302000210121200-1303331023312213-3322122203202103"></a>
+
+## Next pages — key_url / 221031112230 / 4
+
+- [http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-3311023020321022-3001233101130221-2312333032200203-2103220012320313-2232031301023023-3122033131233113-2201020311101323-0321013002212311)
+- [http_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-0102312301010323-0101310233032311-3203011200311011-1323233023200231-2201020323132312-3220133231222220-2123300110200312-1010333011223212)
+- [http_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-3013001012332100-1311123110003032-0230112313223203-2032232022012302-3123112231323032-2103101220012102-1323131022301203-0011200000223032)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3311023020321022-3001233101130221-2312333032200203-2103220012320313-2232031301023023-3122033131233113-2201020311101323-0321013002212311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2130200123032301-0332303301100211-0102132113330212-3313001203132221-1002123322032121-3231333001121012-3122023032132010-0132211333101033"></a>
+
+## http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info — blindfold_secret_info / 122122310113 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [http_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-3013001012332100-1311123110003032-0230112313223203-2032232022012302-3123112231323032-2103101220012102-1323131022301203-0011200000223032)
+- [http_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-1133103010301301-0020232210020321-3030310100333102-3111211210210310-0231202311212021-0213010021023320-3010322033133313-2332103233321312)
+- http_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info
+
+<a id="canonical-1313132100103300-2200020030302011-1223231310013233-0103203020020031-2003212223032200-3313032311120013-0321200000320303-1032002021021101"></a>
+
+Type: `"single"`. Computed.
+
+BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0221302231203321-2032122001201230-0223230223001032-0212221310223330-1312333301302011-0232320221023203-1312231222013113-1220103133323003"></a>
+
+## Direct properties — blindfold_secret_info / 122122310113 / 3
+
+<a id="canonical-1321022223131123-1331320221102321-1122301032020222-3012132233001103-3132031312203023-1023303322300312-2300223303102230-0133331310112201"></a>
+
+<a id="canonical-0220200322031021-1303201122121223-2210301020130220-3200330321032221-3313110211000303-1000010311033123-1003211333310123-0212210322003111"></a>
+
+## decryption_provider property — blindfold_secret_info / 122122310113 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the backend Secret
+Management service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3003300203011300-3330100031310112-3123212021122332-3321031300113210-3031111322030303-0003300203233330-0133103031011231-2132201003100100"></a>
+
+<a id="canonical-1211311333130230-1322120210213131-1211012130303300-1030012212310013-3310013012233330-2200333310321213-3330310231333133-2003330111212013"></a>
+
+## location property — blindfold_secret_info / 122122310113 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Upstream description:
+
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "content",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 131072,
+    "metadata": {
+      "category": "content",
+      "confidence": 1.0,
+      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
+      "source": "manual-override",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 4
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-0021021202012031-2030011233031213-2020202332312033-2123101131202030-3130123233222133-2231320310030123-1132310301101033-2322001113221133"></a>
+
+<a id="canonical-1211102120212002-3203020001121030-3121333111320031-2331313333112203-1112123001130321-0220023200303131-0300213132320010-3312010122010321"></a>
+
+## store_provider property — blindfold_secret_info / 122122310113 / 6
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Upstream description:
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2321232030220321-1021023312030233-2010211303222002-0233032233112332-1201022230101003-0030312332232333-2112002033203221-2002021211001121"></a>
+
+## Next pages — blindfold_secret_info / 122122310113 / 7
+
+- [http_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-1133103010301301-0020232210020321-3030310100333102-3111211210210310-0231202311212021-0213010021023320-3010322033133313-2332103233321312)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0102312301010323-0101310233032311-3203011200311011-1323233023200231-2201020323132312-3220133231222220-2123300110200312-1010333011223212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2323212031101032-3302303010132230-1012020301002123-2011301332323001-2002033310233223-1011323331032322-3000021000133011-1112302102303021"></a>
+
+## http_receiver.use_tls.mtls_enable.key_url.clear_secret_info — clear_secret_info / 102320133021 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [http_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-3013001012332100-1311123110003032-0230112313223203-2032232022012302-3123112231323032-2103101220012102-1323131022301203-0011200000223032)
+- [http_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-1133103010301301-0020232210020321-3030310100333102-3111211210210310-0231202311212021-0213010021023320-3010322033133313-2332103233321312)
+- http_receiver.use_tls.mtls_enable.key_url.clear_secret_info
+
+<a id="canonical-3213122221111213-0130101301002232-1023211111130201-2011230120121000-0013203010303301-0313131121311333-3133112230023002-1221331111133202"></a>
+
+Type: `"single"`. Computed.
+
+ClearSecretInfoType specifies information about the Secret that is not encrypted.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2020111213231010-3132203130220200-1211020210120030-1023301111332312-1130302032022203-2222203021230321-2222231020003302-1011223000030323"></a>
+
+## Direct properties — clear_secret_info / 102320133021 / 3
+
+<a id="canonical-1012123123310222-3001133331320300-1001331222101302-1120312301001233-2212011231120332-3231312102211222-3023003001031130-0222320020333331"></a>
+
+<a id="canonical-2233022320330312-3121010010201013-2320220303220222-3223111332220222-0013202313332322-0111313132012010-2020111122331122-2212201033020310"></a>
+
+## provider_ref property — clear_secret_info / 102320133021 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+<a id="canonical-2021121112020000-3302012323231110-0002100122232233-1330322333103002-2323322132211202-2100123301003120-3012000313313032-3003000230002212"></a>
+
+<a id="canonical-0000120313321113-0013203200310222-2222021223112111-2313213122331231-0332212103333200-3301113300101331-2202003301131331-2021310231321130"></a>
+
+## URL property — clear_secret_info / 102320133021 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Upstream description:
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
+    "validation": {
+      "rfc": "RFC 3986"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-2333212200210002-1223132212133221-0110312202200203-3200102100212302-2313102121013022-0033012132103133-0323312233321113-3213332001033131"></a>
+
+## Next pages — clear_secret_info / 102320133021 / 6
+
+- [http_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-1133103010301301-0020232210020321-3030310100333102-3111211210210310-0231202311212021-0213010021023320-3010322033133313-2332103233321312)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3113211300002122-3331111132231131-0202303003230033-0100302132213000-2302200133221203-0310001301322232-2010131303313100-1133201010330223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2233131310121112-2223302131220330-1030112120003023-2202101223323221-0323300011023010-0302002123022002-1301021121323210-0301231333322203"></a>
+
+## http_receiver.use_tls.no_ca — no_ca / 210101331301 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [http_receiver](data-sources--global_log_receiver--reference--group-002.md#canonical-3002110111321220-1221133112112010-0201220110211203-1222310310010201-2223203011101013-2311130130220133-2202213221131000-1102223113102220)
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- http_receiver.use_tls.no_ca
+
+<a id="canonical-1130022333100312-2220220200023033-2002231330211320-3113330221112013-3110303002101020-2210033032213230-3231301230010201-1311100130023201"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2230212331121100-2001330100202210-3112320033123203-3230020021113202-2103231031322321-2100132231013130-1103110331202021-3120022313001202"></a>
+
+## Direct properties — no_ca / 210101331301 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0223011311233012-2131333202132133-1201223223313302-3331202002112033-2122021330310120-3130102120022122-2203032303213202-1000203133211003"></a>
+
+## Next pages — no_ca / 210101331301 / 4
+
+- [http_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3032101331313202-0222233102113001-2122201030333033-1030300200032230-3113223102221213-1101102032232110-0300220211303010-0112200301102330)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0213101131210113-2033333232222333-3001203222010011-2313311223120211-2311332012213113-1120031131200010-0120013230203203-1102000023231021"></a>
+
+## kafka_receiver — kafka_receiver / 321023200030 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- kafka_receiver
+
+<a id="canonical-2203013201303101-3030330033021301-1103130222112033-1122003330112030-1222132131131010-1103203132001032-2212100031032010-3020032111211321"></a>
+
+Type: `"single"`. Computed.
+
+Kafka Configuration for Global Log Receiver.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-tls_choice": "[\"no_tls\",\"use_tls\"]"
+}
+```
+
+<a id="canonical-3202131330133030-2230030222030103-0201113130112122-3100000033101102-0203030320101221-0110001323033221-2123032013321103-0301023031232010"></a>
+
+## Direct properties — kafka_receiver / 321023200030 / 3
+
+- [batch](data-sources--global_log_receiver--reference--group-003.md#canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131): complete subsection reference.
+
+<a id="canonical-1332023031001203-2013031021030231-2333220022313323-3231313313301031-1130012101013112-0211011313200030-2223223120313020-1032231122221331"></a>
+
+<a id="canonical-1200112012300312-0021310012001302-0031221002121102-3311030133221031-3201101213302320-3022303231110332-2103302010111333-2213023003022332"></a>
+
+## bootstrap_servers property — kafka_receiver / 321023200030 / 4
+
+Type: `["list", "string"]`. Computed.
+
+List of host:port pairs of the Kafka brokers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 8,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 8,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.hostport": "true",
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.hostport": "true",
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [compression](data-sources--global_log_receiver--reference--group-003.md#canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322): complete subsection reference.
+
+<a id="canonical-2012333120313110-1131020310021033-0032333230112121-0300112112131013-0122211121323213-0033323201201223-2003132232121221-0222322101330123"></a>
+
+<a id="canonical-1330002132310311-3211211021202303-2001121010112122-0202332000223000-0330221130331201-2323320320000101-3321100312331203-2031201321112103"></a>
+
+## kafka_topic property — kafka_receiver / 321023200030 / 5
+
+Type: `"string"`. Computed.
+
+The Kafka topic name to write events to.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 255,
+  "minLength": 3,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 255,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 3,
+    "pattern": "^[a-zA-Z0-9\\\\._\\\\-]+$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "255",
+    "ves.io.schema.rules.string.min_len": "3",
+    "ves.io.schema.rules.string.pattern": "^[a-zA-Z0-9\\\\._\\\\-]+$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "255",
+    "ves.io.schema.rules.string.min_len": "3",
+    "ves.io.schema.rules.string.pattern": "^[a-zA-Z0-9\\\\._\\\\-]+$"
+  }
+}
+```
+
+- [no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3030211300033120-1323113022231332-1023203302233310-3233200230030213-1320011330333112-3032010023113013-0322311302022211-0013221012322101): complete subsection reference.
+
+- [use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210): complete subsection reference.
+
+<a id="canonical-1230002102322100-1230331100011123-3330122212033023-0100311210101302-3133010300220100-2313003132122000-1213230313222110-2233331002332331"></a>
+
+## Next pages — kafka_receiver / 321023200030 / 6
+
+- [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131)
+- [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322)
+- [kafka_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-3030211300033120-1323113022231332-1023203302233310-3233200230030213-1320011330333112-3032010023113013-0322311302022211-0013221012322101)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3221301301122211-3313201312113120-0201030113313022-3113032332313021-2103112221322333-0200231332132013-0101121102113032-0002131001221030"></a>
+
+## kafka_receiver.batch — batch / 001211131220 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- kafka_receiver.batch
+
+<a id="canonical-1103322123332110-2312301222223013-3030323302031000-3033210312300312-0200330221132131-3012110022100232-2021001131233012-0002011100001301"></a>
+
+Type: `"single"`. Computed.
+
+Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-batch_bytes": "[\"max_bytes\",\"max_bytes_disabled\"]",
+  "x-ves-oneof-field-batch_events": "[\"max_events\",\"max_events_disabled\"]",
+  "x-ves-oneof-field-batch_timeout": "[\"timeout_seconds\",\"timeout_seconds_default\"]"
+}
+```
+
+<a id="canonical-2230103321330121-1230002200033212-0303010321232031-2130022310323013-0312203130100022-1332013220333030-0232333300220122-1233302323311110"></a>
+
+## Direct properties — batch / 001211131220 / 3
+
+<a id="canonical-2012330020221010-1211133223123213-1200110031230300-2021131210323110-1032021203313023-1031201211223211-1111300301111030-3023013110313030"></a>
+
+<a id="canonical-2000230320010021-0012011021201201-2021210133200331-0000112220102323-1131311302323120-1313221232002231-0033121302103211-1220222000233203"></a>
+
+## max_bytes property — batch / 001211131220 / 4
+
+Type: `"number"`. Computed.
+
+Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
+than this many bytes.
+
+Upstream description:
+
+Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
+than this many bytes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 10485760,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 4096
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "4096",
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "4096",
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  }
+}
+```
+
+- [max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1221013032033203-2220320223000221-1101111120033010-1111003220333023-0211322232233322-2322013313133113-2223200103320231-2131123210001012): complete subsection reference.
+
+<a id="canonical-3303232321010230-0212022230010300-0000203323230112-1330122203020013-1132300202120332-3312122123322020-0131132302123210-3310102022322131"></a>
+
+<a id="canonical-2330321020001232-2102113023333231-0210113310223030-0323233333013213-1321003030022003-2222301312002303-3330213221223233-0010130312133010"></a>
+
+## max_events property — batch / 001211131220 / 5
+
+Type: `"number"`. Computed.
+
+Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
+the batch.
+
+Upstream description:
+
+Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
+the batch.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 2000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 32
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "32",
+    "ves.io.schema.rules.uint32.lte": "2000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "32",
+    "ves.io.schema.rules.uint32.lte": "2000"
+  }
+}
+```
+
+- [max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-0230232211003013-0003322213330001-3130320332030120-1110231100023121-0133331110003103-1031312123332113-2220033111232022-0223020223331223): complete subsection reference.
+
+<a id="canonical-2311311020333333-0300321223100302-0023121312213012-1203021023302230-0030231012010132-0221311033221333-3333032311201332-3030000231333232"></a>
+
+<a id="canonical-1210032012301203-3003133323210000-2101231022123331-1323120013333032-3023000003213202-2231002322210320-0211132013203311-3322112001313131"></a>
+
+## timeout_seconds property — batch / 001211131220 / 6
+
+Type: `"string"`. Computed.
+
+Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
+
+Upstream description:
+
+Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "format": "uint64",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint64.gte": "300",
+    "ves.io.schema.rules.uint64.lte": "3600"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint64.gte": "300",
+    "ves.io.schema.rules.uint64.lte": "3600"
+  }
+}
+```
+
+- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-3012302003103120-0333332201212300-3000202332101100-1122002101303221-3123031221303313-2310113123303010-1223123020212331-2030010223202002): complete subsection reference.
+
+<a id="canonical-0032201331012230-0110021130122323-2021013110020211-1020111222311010-1220101312002011-2233120201012131-1001213333223213-1130300221013233"></a>
+
+## Next pages — batch / 001211131220 / 7
+
+- [kafka_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1221013032033203-2220320223000221-1101111120033010-1111003220333023-0211322232233322-2322013313133113-2223200103320231-2131123210001012)
+- [kafka_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-0230232211003013-0003322213330001-3130320332030120-1110231100023121-0133331110003103-1031312123332113-2220033111232022-0223020223331223)
+- [kafka_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-3012302003103120-0333332201212300-3000202332101100-1122002101303221-3123031221303313-2310113123303010-1223123020212331-2030010223202002)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1221013032033203-2220320223000221-1101111120033010-1111003220333023-0211322232233322-2322013313133113-2223200103320231-2131123210001012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0010130011131321-0021011220222330-2100123230332000-0200203102113020-1001210313031221-1302212113322121-2021001123113033-3322020110110320"></a>
+
+## kafka_receiver.batch.max_bytes_disabled — max_bytes_disabled / 200232013332 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131)
+- kafka_receiver.batch.max_bytes_disabled
+
+<a id="canonical-3112302132301323-1021330023022202-0111232333331202-0300130322031002-1030022130133302-3033223132301201-2303113313220032-0203120131221221"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2221221300130030-2022002220322301-1333020131111011-1100200102122200-3123313320221331-3233210322102120-0103311231012010-0212120301203020"></a>
+
+## Direct properties — max_bytes_disabled / 200232013332 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0122133130212300-0212213120213112-0131223210130022-0122002100222310-3322210202331232-3033001313123213-1330101320020110-0110303113022012"></a>
+
+## Next pages — max_bytes_disabled / 200232013332 / 4
+
+- [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0230232211003013-0003322213330001-3130320332030120-1110231100023121-0133331110003103-1031312123332113-2220033111232022-0223020223331223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1023333112212113-1212200313101330-3023323201131013-3002103000312002-2230230113201321-1300210331320102-3232303331012131-3330210233033332"></a>
+
+## kafka_receiver.batch.max_events_disabled — max_events_disabled / 113313212033 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131)
+- kafka_receiver.batch.max_events_disabled
+
+<a id="canonical-3330200310000303-2103100211320103-1010331303313002-2202100201230130-3211200203200012-0031302130330332-1301010332101201-3220103200030020"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3003022212332023-1330011112210210-3233030121310133-3120302101123012-3202013302120001-0110012331221113-3230313303200101-3111103212233002"></a>
+
+## Direct properties — max_events_disabled / 113313212033 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3112223020102122-3030223103000310-0002100312001130-0221333023020302-1100103120223133-1303003211233023-1130301102213320-2200203212103120"></a>
+
+## Next pages — max_events_disabled / 113313212033 / 4
+
+- [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3012302003103120-0333332201212300-3000202332101100-1122002101303221-3123031221303313-2310113123303010-1223123020212331-2030010223202002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1123233320333033-2302000001020231-1223001032231023-2223122113231300-3332130302120221-3122001220022222-0231213311303022-1313031213001021"></a>
+
+## kafka_receiver.batch.timeout_seconds_default — timeout_seconds_default / 102010203231 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131)
+- kafka_receiver.batch.timeout_seconds_default
+
+<a id="canonical-3132213100123201-3103312231110023-1221200233103133-1222331202010101-1103021133320201-1300010213133301-0000212033130022-0032210302112303"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1023330002321121-2331000112222100-3222220223201011-2301123311321013-3012123032333112-3030202110030210-0021022111011120-1211000130022101"></a>
+
+## Direct properties — timeout_seconds_default / 102010203231 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2003133033311200-2112210300221321-3031201021313322-1303223123121221-1100331033031031-2200033133313312-3222032322013332-0100310332302301"></a>
+
+## Next pages — timeout_seconds_default / 102010203231 / 4
+
+- [kafka_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-2101111322112303-1120032221330021-1031320201133133-3312123101031222-3111100003311222-2231313323211022-2032230032221231-3132302202013131)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1102030012320301-0103020310320302-2000203310333020-2213131222023003-2212121121010210-3332011310012000-2300021321030131-2020131202203320"></a>
+
+## kafka_receiver.compression — compression / 011022123133 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- kafka_receiver.compression
+
+<a id="canonical-3122313310131001-0022220321013131-3310132233222032-2201132223011310-1233121232201212-1223222103112023-3302122222032323-1331330312133220"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for compression.
+
+Upstream description:
+
+Compression Type.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-compression_choice": "[\"compression_default\",\"compression_gzip\",\"compression_none\"]"
+}
+```
+
+<a id="canonical-3220223213230013-0023020000333032-1321333321233220-0210233130010233-0220223123323230-0321003220310011-1110300203113301-1021220211222103"></a>
+
+## Direct properties — compression / 011022123133 / 3
+
+- [compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-3011020122320201-2321110010212201-3211110223201012-1123133020102123-3010300003111203-3020022021032311-2212030201231203-0321123302202302): complete subsection reference.
+
+- [compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-3300213310211013-0330221230303311-0020113230330102-1020321303332003-1123001230200101-1120301011310301-3213133333120330-1200303211330210): complete subsection reference.
+
+- [compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-0333332011320132-3330201313222031-2022301122201310-0222101221003311-3132032133313213-3210011211122221-1101222210331020-0331320020033232): complete subsection reference.
+
+<a id="canonical-3113020030102230-0220210303121003-1310101201230100-2102312331033312-1321201003003230-0111332310121013-1031213112111131-2212321200313002"></a>
+
+## Next pages — compression / 011022123133 / 4
+
+- [kafka_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-3011020122320201-2321110010212201-3211110223201012-1123133020102123-3010300003111203-3020022021032311-2212030201231203-0321123302202302)
+- [kafka_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-3300213310211013-0330221230303311-0020113230330102-1020321303332003-1123001230200101-1120301011310301-3213133333120330-1200303211330210)
+- [kafka_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-0333332011320132-3330201313222031-2022301122201310-0222101221003311-3132032133313213-3210011211122221-1101222210331020-0331320020033232)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3011020122320201-2321110010212201-3211110223201012-1123133020102123-3010300003111203-3020022021032311-2212030201231203-0321123302202302"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2000120003230323-1231113331012222-3223200122321322-3321113031313101-0231233101323132-1320122121211321-1313233122201323-0301020113221110"></a>
+
+## kafka_receiver.compression.compression_default — compression_default / 032101101101 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322)
+- kafka_receiver.compression.compression_default
+
+<a id="canonical-3020100312300133-1000020221310322-0333010222100321-1320231212103302-0101021311211113-1203021120112312-2322202303212202-0213010003200103"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for compression default.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1023200033133130-1130211210130013-2310222122111310-2322311021020110-2023232102023230-2110220021130230-1223000330333202-1323111132112103"></a>
+
+## Direct properties — compression_default / 032101101101 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3333303211002212-0001201010212320-2321211111230123-2100120011211201-1020031132112322-2133220102132102-2120113313123332-2021202302320312"></a>
+
+## Next pages — compression_default / 032101101101 / 4
+
+- [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3300213310211013-0330221230303311-0020113230330102-1020321303332003-1123001230200101-1120301011310301-3213133333120330-1200303211330210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2021012002133130-2023022000301011-3221033303013223-1003301232202023-0111311110121331-3012010000332213-1232121003210022-1032321320302323"></a>
+
+## kafka_receiver.compression.compression_gzip — compression_gzip / 030320033232 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322)
+- kafka_receiver.compression.compression_gzip
+
+<a id="canonical-2011112302112310-3303121002333320-2220113131113232-3013210311202323-2210302001230003-0000022221121002-3120210123110001-2213000333120011"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0122333231321222-0003202332023103-1130202020332131-2333123221333312-3302211200110010-1313303213023200-0330311113222301-1220013003200331"></a>
+
+## Direct properties — compression_gzip / 030320033232 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1322022323033220-2112330331111033-3322030110100122-2032011000313110-2200330313331032-1001012132302322-1010210320031122-3330010221202103"></a>
+
+## Next pages — compression_gzip / 030320033232 / 4
+
+- [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0333332011320132-3330201313222031-2022301122201310-0222101221003311-3132032133313213-3210011211122221-1101222210331020-0331320020033232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3231111201121322-2130112123032132-2312313012021000-2300113220010121-0101033120020132-0123120033321323-1201113301213231-2000333121023213"></a>
+
+## kafka_receiver.compression.compression_none — compression_none / 220030111223 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322)
+- kafka_receiver.compression.compression_none
+
+<a id="canonical-3201322230122102-2200203201202022-2001133323103333-0313122001013132-1313020333221231-1032123012310031-0211103130030101-2332311212020003"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for compression none.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0220023212023311-3022311123201311-3100233130313031-3230110201202023-1030230231323101-2312110330223331-2233033131000212-1211113302333300"></a>
+
+## Direct properties — compression_none / 220030111223 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1333031223000230-0113332000322023-2012331110310312-2030030220200012-0112303031303323-3121122311213023-0321132002021322-0001203322332120"></a>
+
+## Next pages — compression_none / 220030111223 / 4
+
+- [kafka_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-2322211302002023-0221320330100320-3311021103023112-0113301202202302-0023200222201123-1212001312313332-1221100211201320-2133103013012322)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3030211300033120-1323113022231332-1023203302233310-3233200230030213-1320011330333112-3032010023113013-0322311302022211-0013221012322101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1313220131000110-0002332101021333-2230011003230313-2323323032010323-1310322130122322-2000311301223133-1001213233021011-3022312121302332"></a>
+
+## kafka_receiver.no_tls — no_tls / 123212002310 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- kafka_receiver.no_tls
+
+<a id="canonical-2331001030323113-1111330223311321-3200012112103010-3333010100231012-3233301323323300-3201212022021030-1030010322201101-0212123032221022"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2001110002303011-3332202113221221-2320131022211232-0202030331031202-1100301122133222-3133111113132210-1003022012122110-2111121311300121"></a>
+
+## Direct properties — no_tls / 123212002310 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3030132302130013-3200102020000233-0203012033002000-0301311111230001-0132213300131222-1302112031032233-1122321310233200-3331123230111331"></a>
+
+## Next pages — no_tls / 123212002310 / 4
+
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0300313233310033-2011012320311101-0020132113213322-2103112111310122-2311001032330210-2013132020121131-0203323213202101-3131232102122113"></a>
+
+## kafka_receiver.use_tls — use_tls / 211301323201 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- kafka_receiver.use_tls
+
+<a id="canonical-3330132200100100-0020102213030203-2233233303310310-0302331011332221-2020111331103031-1012333222101213-0331200301100212-0232233220311331"></a>
+
+Type: `"single"`. Computed.
+
+TLS Parameters for client connection to the endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-ca_choice": "[\"no_ca\",\"trusted_ca_url\"]",
+  "x-ves-oneof-field-mtls_choice": "[\"mtls_disabled\",\"mtls_enable\"]",
+  "x-ves-oneof-field-verify_certificate": "[\"disable_verify_certificate\",\"enable_verify_certificate\"]",
+  "x-ves-oneof-field-verify_hostname": "[\"disable_verify_hostname\",\"enable_verify_hostname\"]"
+}
+```
+
+<a id="canonical-3021322122132121-3223322230213022-3133311011310020-1031022011032102-2223323010130230-0321020110332210-1011321203212233-1220311032001103"></a>
+
+## Direct properties — use_tls / 211301323201 / 3
+
+- [disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-2113022112332013-3022133121223332-3311203120123321-0112032101010223-2133001033033101-0303302123210212-3131311231123121-0210320123022310): complete subsection reference.
+
+- [disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-1101221011132122-2211001012033112-3313111312132101-2133320033300111-3133013000210202-3033112120101310-3011000101012313-1332311321222131): complete subsection reference.
+
+- [enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-2201112000030222-0223232021001202-3223130121200320-3131200321223323-1333023323031310-3312200122321031-0221233021112012-3221113131300013): complete subsection reference.
+
+- [enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-1303210202210020-3021300233113012-2103311122232100-0132012121130002-1120030111331200-1220223300303020-3101012121231003-2100323333233023): complete subsection reference.
+
+- [mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-0320122110232312-0212313331031130-2231012230110120-0011203330231122-2020231213301332-3021200303322002-0010212102011213-2013310213212031): complete subsection reference.
+
+- [mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-1201231113022120-1200133201312002-3002301323003121-2033213120211230-0131220130030100-2131032203333322-3312211321220321-0223112000332010): complete subsection reference.
+
+- [no_ca](data-sources--global_log_receiver--reference--group-003.md#canonical-1232311211211321-3322003303301101-2300121102210211-2233323313033033-1111322213122101-2212001312010312-1111312200311300-1201200111020023): complete subsection reference.
+
+<a id="canonical-0231203313002022-1201122033032121-2323203200101030-0013002101233001-2233330320211102-2002300300301022-0230301231132210-1303300201021310"></a>
+
+<a id="canonical-0113112222333002-2130202202303021-0233221322103200-3130131113333121-3212321022320201-1312330120131022-0223220032011223-2102121011103021"></a>
+
+## trusted_ca_url property — use_tls / 211301323201 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[no\_ca\] The URL or value for trusted Server CA certificate or certificate chain
+Certificates in PEM format including the PEM headers.
+
+Upstream description:
+
+Exclusive with \[no\_ca\] The URL or value for trusted Server CA certificate or certificate chain
+Certificates in PEM format including the PEM headers.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.truststore_url": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.truststore_url": "true"
+  }
+}
+```
+
+<a id="canonical-3133232120201102-2230201332133030-2122020012300323-1302211100323020-0133210030331310-1023001113330202-1213332212311330-2223320222312032"></a>
+
+## Next pages — use_tls / 211301323201 / 5
+
+- [kafka_receiver.use_tls.disable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-2113022112332013-3022133121223332-3311203120123321-0112032101010223-2133001033033101-0303302123210212-3131311231123121-0210320123022310)
+- [kafka_receiver.use_tls.disable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-1101221011132122-2211001012033112-3313111312132101-2133320033300111-3133013000210202-3033112120101310-3011000101012313-1332311321222131)
+- [kafka_receiver.use_tls.enable_verify_certificate](data-sources--global_log_receiver--reference--group-003.md#canonical-2201112000030222-0223232021001202-3223130121200320-3131200321223323-1333023323031310-3312200122321031-0221233021112012-3221113131300013)
+- [kafka_receiver.use_tls.enable_verify_hostname](data-sources--global_log_receiver--reference--group-003.md#canonical-1303210202210020-3021300233113012-2103311122232100-0132012121130002-1120030111331200-1220223300303020-3101012121231003-2100323333233023)
+- [kafka_receiver.use_tls.mtls_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-0320122110232312-0212313331031130-2231012230110120-0011203330231122-2020231213301332-3021200303322002-0010212102011213-2013310213212031)
+- [kafka_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-1201231113022120-1200133201312002-3002301323003121-2033213120211230-0131220130030100-2131032203333322-3312211321220321-0223112000332010)
+- [kafka_receiver.use_tls.no_ca](data-sources--global_log_receiver--reference--group-003.md#canonical-1232311211211321-3322003303301101-2300121102210211-2233323313033033-1111322213122101-2212001312010312-1111312200311300-1201200111020023)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2113022112332013-3022133121223332-3311203120123321-0112032101010223-2133001033033101-0303302123210212-3131311231123121-0210320123022310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3323322213021010-1101331301301213-0222113321022133-0001232113231023-0202213203212302-2110213231323310-1131011022113021-2311032011020013"></a>
+
+## kafka_receiver.use_tls.disable_verify_certificate — disable_verify_certificate / 201312323011 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- kafka_receiver.use_tls.disable_verify_certificate
+
+<a id="canonical-1223201221313231-0031123331012030-1030320120200222-2220312320121030-2333303213300310-3201211320023330-2231232033010012-2202302021202300"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable verify certificate.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2002231012113221-1233121221013012-2233122201030111-3102201312031223-2303302100000031-3020132121103222-3111013023230103-3101103111332302"></a>
+
+## Direct properties — disable_verify_certificate / 201312323011 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3102111223323012-0122213001002121-2031223022023313-2030303100300220-3213233000222032-0331310323312231-1020123101122010-3011120013120002"></a>
+
+## Next pages — disable_verify_certificate / 201312323011 / 4
+
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1101221011132122-2211001012033112-3313111312132101-2133320033300111-3133013000210202-3033112120101310-3011000101012313-1332311321222131"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3203312102111110-3112221000230211-1301301022322203-3212200110131032-3322212230000232-3232323330100000-1100022220300230-2113312311320330"></a>
+
+## kafka_receiver.use_tls.disable_verify_hostname — disable_verify_hostname / 310030222130 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- kafka_receiver.use_tls.disable_verify_hostname
+
+<a id="canonical-1021002132200323-1222113013010021-0201231111300321-2000110302031311-2021130313333232-2220200301223021-0022310003211231-2320101022100033"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0201032102030102-2332330103113221-2030320311210133-2332110110103130-2102131222323310-2320210131123321-3001111103332310-0230230303032001"></a>
+
+## Direct properties — disable_verify_hostname / 310030222130 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1320020313333001-0131011332120331-1201220311112330-3122130211323000-2110011020130312-0201112203210021-3210230221132312-1031322120120332"></a>
+
+## Next pages — disable_verify_hostname / 310030222130 / 4
+
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2201112000030222-0223232021001202-3223130121200320-3131200321223323-1333023323031310-3312200122321031-0221233021112012-3221113131300013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0200123021121121-2313000003323101-1033022303310311-1000223000231323-3122303011322012-1310110103320202-0322332322133133-2121000103131022"></a>
+
+## kafka_receiver.use_tls.enable_verify_certificate — enable_verify_certificate / 112131330233 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- kafka_receiver.use_tls.enable_verify_certificate
+
+<a id="canonical-1103211111121003-0132101102312313-3220310300312323-3012120102112300-2032301000302131-0230022213221213-3333130301313132-2103211130222302"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for enable verify certificate.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3130223330211333-1112312310130221-1022120323102332-2120113233011111-3131030221023002-1230320312122323-1100110030323100-0003202313130322"></a>
+
+## Direct properties — enable_verify_certificate / 112131330233 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1223010121313220-3012013100303321-2130322003213322-1112203133121110-2210301110322330-2033132312032123-1032210210032310-1031232031231112"></a>
+
+## Next pages — enable_verify_certificate / 112131330233 / 4
+
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1303210202210020-3021300233113012-2103311122232100-0132012121130002-1120030111331200-1220223300303020-3101012121231003-2100323333233023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1121111003303022-1113210102020110-3031101201212202-3323331331312222-2011021122123200-2122022213120220-3303032203022331-0023001001031202"></a>
+
+## kafka_receiver.use_tls.enable_verify_hostname — enable_verify_hostname / 010322313020 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- kafka_receiver.use_tls.enable_verify_hostname
+
+<a id="canonical-3302011300132310-0001201322302032-0213032210102320-3212102222230210-3122233221232320-3033332223300020-2303331322332333-2201103203022210"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1333102033210031-3000220331123220-0332210312311023-2123230222032301-2010332011111100-1113103200133011-0111022012013321-0222000100230322"></a>
+
+## Direct properties — enable_verify_hostname / 010322313020 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2121332133012123-2221123201323312-2211202323031002-2032223102010110-3310130122133222-1233323133312103-0021302000322032-2020102332132121"></a>
+
+## Next pages — enable_verify_hostname / 010322313020 / 4
+
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0320122110232312-0212313331031130-2231012230110120-0011203330231122-2020231213301332-3021200303322002-0010212102011213-2013310213212031"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0021013120231211-0220130031231030-3210203322000201-0332313122123223-1302331203200213-0102111210312121-1300030201031120-2231312200312320"></a>
+
+## kafka_receiver.use_tls.mtls_disabled — mtls_disabled / 321323312213 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- kafka_receiver.use_tls.mtls_disabled
+
+<a id="canonical-2012100003222003-1233022313301120-1202032301021033-2131330033301310-2300200000211030-3202023103132133-2003201201123232-1212300302130113"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0100322311233013-1310023031102333-3011313112012012-3312032213320302-0012203321320122-0232313130111212-1321320233130221-2122311133231122"></a>
+
+## Direct properties — mtls_disabled / 321323312213 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1000003320003200-1131302133131101-2010030303030123-2211020220130023-3222200200102330-3132311220203010-1312113322033001-2021011020002020"></a>
+
+## Next pages — mtls_disabled / 321323312213 / 4
+
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1201231113022120-1200133201312002-3002301323003121-2033213120211230-0131220130030100-2131032203333322-3312211321220321-0223112000332010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2200310002203210-3210231032210012-0031131013302011-1022012223221211-3013010121333231-3202122123110121-3113011233231201-1110101221031033"></a>
+
+## kafka_receiver.use_tls.mtls_enable — mtls_enable / 311210323302 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- kafka_receiver.use_tls.mtls_enable
+
+<a id="canonical-1033200222323211-2320212012032013-3131002201001211-2013131003222232-1203022133203000-2021031231321210-2112122300322010-2202002121230202"></a>
+
+Type: `"single"`. Computed.
+
+MTLS Client config allows configuration of mTLS client OPTIONS.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0311030111301223-0200202212321021-2211221310320221-3213323113300101-2013131230103103-0000132330232200-2101031200212111-2332311202003313"></a>
+
+## Direct properties — mtls_enable / 311210323302 / 3
+
+<a id="canonical-0122122313131013-1210211301200301-1211003300100120-0311211011232311-2203033120323220-0203201103000120-2132113123012311-0331233100002102"></a>
+
+<a id="canonical-0211322111023120-2113201213013203-0230100233011111-3111210221332033-0111203322223311-1131000232112212-0011111010101112-3112011311020131"></a>
+
+## certificate property — mtls_enable / 311210323302 / 4
+
+Type: `"string"`. Computed.
+
+Client certificate is PEM-encoded certificate or certificate-chain.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "formatDescription": "PEM-encoded X.509 certificate, max 5MB",
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 100,
+    "pattern": "^-----BEGIN CERTIFICATE-----\\n.*\\n-----END CERTIFICATE-----$",
+    "validation": {
+      "standard": "PEM"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+- [key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-2222122111310200-1310132022011200-3323332100011131-1213112103002021-1033303210022120-1010302010313212-2123222120011011-1230303122201211): complete subsection reference.
+
+<a id="canonical-3313102022230110-2013210232222113-2210332122200112-0011230211112021-1123222021332331-0322333122212222-0222011203130100-2223110020102313"></a>
+
+## Next pages — mtls_enable / 311210323302 / 5
+
+- [kafka_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-2222122111310200-1310132022011200-3323332100011131-1213112103002021-1033303210022120-1010302010313212-2123222120011011-1230303122201211)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2222122111310200-1310132022011200-3323332100011131-1213112103002021-1033303210022120-1010302010313212-2123222120011011-1230303122201211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2321113023020310-3202020002002030-2203322033033132-2202212113232211-0201121003231120-0113222310330222-3322210130200101-2102211323022233"></a>
+
+## kafka_receiver.use_tls.mtls_enable.key_url — key_url / 213020213102 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [kafka_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-1201231113022120-1200133201312002-3002301323003121-2033213120211230-0131220130030100-2131032203333322-3312211321220321-0223112000332010)
+- kafka_receiver.use_tls.mtls_enable.key_url
+
+<a id="canonical-3311122312201101-1321301021320310-3220323330121130-1201303312223123-3300312323213101-0103033331232022-1233001321313330-2231101120111233"></a>
+
+Type: `"single"`. Computed.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+<a id="canonical-3133320330202032-1302110023001223-2301020323331331-0322330312020021-3102201102302122-2012102022130211-2023002130121301-2123031203232103"></a>
+
+## Direct properties — key_url / 213020213102 / 3
+
+- [blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-0011220232102223-3120012301131310-0211131122200031-1202000111331113-3301112312321033-0121022001301003-1323123103031113-2322213033001210): complete subsection reference.
+
+- [clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1302122213102100-3120132021301020-2102031210132333-3200030001232311-1333002033031221-2330012220223232-2003222232332301-2231030312201113): complete subsection reference.
+
+<a id="canonical-0133002023322311-0220021032031133-0303222333011113-1332321311210323-2032123230102010-2021032031301000-1222322332032221-2100003130130012"></a>
+
+## Next pages — key_url / 213020213102 / 4
+
+- [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-0011220232102223-3120012301131310-0211131122200031-1202000111331113-3301112312321033-0121022001301003-1323123103031113-2322213033001210)
+- [kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1302122213102100-3120132021301020-2102031210132333-3200030001232311-1333002033031221-2330012220223232-2003222232332301-2231030312201113)
+- [kafka_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-1201231113022120-1200133201312002-3002301323003121-2033213120211230-0131220130030100-2131032203333322-3312211321220321-0223112000332010)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0011220232102223-3120012301131310-0211131122200031-1202000111331113-3301112312321033-0121022001301003-1323123103031113-2322213033001210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0330123330120321-3010230100233021-2102321331100223-3001230020310330-1012302211331330-1131211103111032-3203001211213312-2120323132331301"></a>
+
+## kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info — blindfold_secret_info / 012030033330 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [kafka_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-1201231113022120-1200133201312002-3002301323003121-2033213120211230-0131220130030100-2131032203333322-3312211321220321-0223112000332010)
+- [kafka_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-2222122111310200-1310132022011200-3323332100011131-1213112103002021-1033303210022120-1010302010313212-2123222120011011-1230303122201211)
+- kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info
+
+<a id="canonical-0011011202120123-0021102131000112-3210332212001312-1031121022013120-0312332002221022-0023130221310331-0002300203011102-3022013223202011"></a>
+
+Type: `"single"`. Computed.
+
+BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3310333013020100-2022002002003222-0033001301101003-1002131333030323-1310321322323233-3310323100200323-1103201002113010-1303223030210301"></a>
+
+## Direct properties — blindfold_secret_info / 012030033330 / 3
+
+<a id="canonical-1222112120321313-2313031003233123-2300131113101213-1212022030112223-0023221110313133-3102301311112221-1221110010113320-1332302131101211"></a>
+
+<a id="canonical-3322231033222011-1233010223303000-3321301203032013-2232121011213011-3111011330001110-0110003010232113-0213222332313002-2001103321330303"></a>
+
+## decryption_provider property — blindfold_secret_info / 012030033330 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the backend Secret
+Management service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2210003301020133-0333331332133030-3031331300323302-1133230210022031-1121032202001020-1020123322020101-1302132031103333-2300321211133130"></a>
+
+<a id="canonical-3103322120220332-0311130221223222-2132321313013030-0203032322200211-3100230233030121-0020111001202010-3113210321231210-2110310002200301"></a>
+
+## location property — blindfold_secret_info / 012030033330 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Upstream description:
+
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "content",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 131072,
+    "metadata": {
+      "category": "content",
+      "confidence": 1.0,
+      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
+      "source": "manual-override",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 4
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-2303221022012133-0310013031323222-2312023323111101-3203131313123231-1333332000302110-2232012130030033-1220123123323230-0232121022031010"></a>
+
+<a id="canonical-3112330023133231-2222012331303020-3332212321100113-1220200323113302-1131331333032302-2213032122200010-3033113103101001-2101232222103200"></a>
+
+## store_provider property — blindfold_secret_info / 012030033330 / 6
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Upstream description:
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3212100131031023-1213010010310131-2303301001012121-1013110302111321-2221000231012333-3121311302323111-1001121232000313-2022301101332111"></a>
+
+## Next pages — blindfold_secret_info / 012030033330 / 7
+
+- [kafka_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-2222122111310200-1310132022011200-3323332100011131-1213112103002021-1033303210022120-1010302010313212-2123222120011011-1230303122201211)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1302122213102100-3120132021301020-2102031210132333-3200030001232311-1333002033031221-2330012220223232-2003222232332301-2231030312201113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1101322221112122-3113032001120213-0331302102201230-3203100122012003-0101331100032333-3032200013032113-1221303001022310-2213031020120321"></a>
+
+## kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info — clear_secret_info / 121122330032 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [kafka_receiver.use_tls.mtls_enable](data-sources--global_log_receiver--reference--group-003.md#canonical-1201231113022120-1200133201312002-3002301323003121-2033213120211230-0131220130030100-2131032203333322-3312211321220321-0223112000332010)
+- [kafka_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-2222122111310200-1310132022011200-3323332100011131-1213112103002021-1033303210022120-1010302010313212-2123222120011011-1230303122201211)
+- kafka_receiver.use_tls.mtls_enable.key_url.clear_secret_info
+
+<a id="canonical-2201011011210212-0111313312010303-3300222233031030-2130331000323300-3033202002200033-1303022313230333-1120330003022233-2001311103233300"></a>
+
+Type: `"single"`. Computed.
+
+ClearSecretInfoType specifies information about the Secret that is not encrypted.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3212212232030113-0113322021133200-0020232212101332-2101002001021133-1020213211233210-1011210302211021-0301100300233001-0123330300033312"></a>
+
+## Direct properties — clear_secret_info / 121122330032 / 3
+
+<a id="canonical-2121112010001300-2222021231100003-0132200232330133-1111121122100011-3300303310332212-2200332121003012-1312120020310230-2332012133031121"></a>
+
+<a id="canonical-0001311330012331-0122230012323021-2323210201330320-3203100312131233-1031112102103200-1003302223333113-1220010020310032-1131200033132103"></a>
+
+## provider_ref property — clear_secret_info / 121122330032 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+<a id="canonical-2030131233002212-2120212302120310-3323113020220031-2102233313023301-1120311233101131-3103123301010231-0323321323102022-3123211313311203"></a>
+
+<a id="canonical-0133122323231331-1001031313110033-2130230132301030-1201122131131311-1330330303120103-0222020130302100-1212201130312331-0203102103112011"></a>
+
+## URL property — clear_secret_info / 121122330032 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Upstream description:
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
+    "validation": {
+      "rfc": "RFC 3986"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-0001102202033133-2000232220230011-1113223130031122-1032120313132220-2033003102032023-1123233020301211-0011301232033030-2311303132212331"></a>
+
+## Next pages — clear_secret_info / 121122330032 / 6
+
+- [kafka_receiver.use_tls.mtls_enable.key_url](data-sources--global_log_receiver--reference--group-003.md#canonical-2222122111310200-1310132022011200-3323332100011131-1213112103002021-1033303210022120-1010302010313212-2123222120011011-1230303122201211)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1232311211211321-3322003303301101-2300121102210211-2233323313033033-1111322213122101-2212001312010312-1111312200311300-1201200111020023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1320003330220332-0230300020110202-2222033122111232-2110021121232002-3333023313122022-0113323212203322-2223301331002102-0221322200300132"></a>
+
+## kafka_receiver.use_tls.no_ca — no_ca / 112101313301 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [kafka_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2302232221211301-1023330311131303-2131023213032202-2233001323102332-1100202333303230-1210103123023323-2203330332112122-0212332220012331)
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- kafka_receiver.use_tls.no_ca
+
+<a id="canonical-2203302101301230-1301203331100223-1032001221101212-1103110311322233-3032330010321003-3030113030302222-2203130222002333-3121011132121102"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2303112203323030-3023203013220022-1133001233201230-2210332020113230-3322030322011221-3033012120022000-2011313330012031-1132303212112121"></a>
+
+## Direct properties — no_ca / 112101313301 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3120210121301222-1221221111110133-1130000233133022-2102310332223303-3103102133330121-3321201202110021-1201111302111113-1210302023201132"></a>
+
+## Next pages — no_ca / 112101313301 / 4
+
+- [kafka_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2202203223111223-3132210101332220-3320222310120203-3231120010211331-0231320233232231-1020203212300220-2022230100333130-3011123320220210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1321221003221000-3020021031003121-1133010123132233-3123122132212312-0303211012313032-1023213323021003-1222210022321210-1013202101032332"></a>
+
+## new_relic_receiver — new_relic_receiver / 301311200300 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- new_relic_receiver
+
+<a id="canonical-3132102203031223-0300022203231020-2033232013233211-3131300201011022-0210221130300123-2213111030003231-1002103002302030-1301031211011001"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for new relic receiver.
+
+Upstream description:
+
+Configuration for NewRelic endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-endpoint_choice": "[\"eu\",\"us\"]"
+}
+```
+
+<a id="canonical-0012210332123311-1122221302103233-0303222313211012-2232012202101031-1032110130323133-1220010330102030-1030023312331330-3122222023122201"></a>
+
+## Direct properties — new_relic_receiver / 301311200300 / 3
+
+- [api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-2211310101013202-2223001023310323-3031310222032320-3233233120202231-0101322122330110-1132232033003313-0230330322030212-0213101112010303): complete subsection reference.
+
+- [eu](data-sources--global_log_receiver--reference--group-003.md#canonical-3300010212112002-3213231331131321-2331110230220010-2012032031333333-0321230230113030-2111100323020013-3113212012233230-0110103010023113): complete subsection reference.
+
+- [us](data-sources--global_log_receiver--reference--group-003.md#canonical-3012303210122113-2313212321310023-3132111332302132-0011323210220302-3103132011013301-3021100321221320-2203201323101102-2002031320002012): complete subsection reference.
+
+<a id="canonical-3113232132123130-0113113321300233-2002101313001130-3023101230312022-0022133322110233-3012222233301130-1213030000322321-2132123330223132"></a>
+
+## Next pages — new_relic_receiver / 301311200300 / 4
+
+- [new_relic_receiver.api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-2211310101013202-2223001023310323-3031310222032320-3233233120202231-0101322122330110-1132232033003313-0230330322030212-0213101112010303)
+- [new_relic_receiver.eu](data-sources--global_log_receiver--reference--group-003.md#canonical-3300010212112002-3213231331131321-2331110230220010-2012032031333333-0321230230113030-2111100323020013-3113212012233230-0110103010023113)
+- [new_relic_receiver.us](data-sources--global_log_receiver--reference--group-003.md#canonical-3012303210122113-2313212321310023-3132111332302132-0011323210220302-3103132011013301-3021100321221320-2203201323101102-2002031320002012)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2211310101013202-2223001023310323-3031310222032320-3233233120202231-0101322122330110-1132232033003313-0230330322030212-0213101112010303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1101003100212023-0132332121010000-0231203003301120-0311000301322211-3212122112120112-2312113122321131-2321332112130110-0233233221302112"></a>
+
+## new_relic_receiver.api_key — api_key / 222011233033 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- new_relic_receiver.api_key
+
+<a id="canonical-1300211121201200-2001033220100202-1220231130130320-0012300201031003-0332101013010033-0213323210133310-2311223210302030-2231013130131301"></a>
+
+Type: `"single"`. Computed.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+<a id="canonical-2310132030200200-0231013212203000-0322313301322203-0311231313010110-3230122013022022-0301000010321323-2012330120332221-3310131122113330"></a>
+
+## Direct properties — api_key / 222011233033 / 3
+
+- [blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-0123001111011103-1013010100301101-1212323323100111-3331023101321021-3022311012301132-0321303310102333-0001021212221210-2010110203012101): complete subsection reference.
+
+- [clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1320221211133021-1033300103012120-1112030330032201-1031201332123101-1323200101300013-2222012210121020-2200130103311203-2032232322030331): complete subsection reference.
+
+<a id="canonical-1231210130121012-0132313102320210-2023102213110031-1211300021312332-0323313011332123-1312013231003213-2203121123220000-0103212320233011"></a>
+
+## Next pages — api_key / 222011233033 / 4
+
+- [new_relic_receiver.api_key.blindfold_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-0123001111011103-1013010100301101-1212323323100111-3331023101321021-3022311012301132-0321303310102333-0001021212221210-2010110203012101)
+- [new_relic_receiver.api_key.clear_secret_info](data-sources--global_log_receiver--reference--group-003.md#canonical-1320221211133021-1033300103012120-1112030330032201-1031201332123101-1323200101300013-2222012210121020-2200130103311203-2032232322030331)
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0123001111011103-1013010100301101-1212323323100111-3331023101321021-3022311012301132-0321303310102333-0001021212221210-2010110203012101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3130001030221312-2101200311301121-1032003021131113-1033033302313002-3312110210102120-0021221133032032-0301002013220302-2201121123122020"></a>
+
+## new_relic_receiver.api_key.blindfold_secret_info — blindfold_secret_info / 000121030111 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- [new_relic_receiver.api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-2211310101013202-2223001023310323-3031310222032320-3233233120202231-0101322122330110-1132232033003313-0230330322030212-0213101112010303)
+- new_relic_receiver.api_key.blindfold_secret_info
+
+<a id="canonical-1231103320103313-0102121031223030-2020310333300022-2323333332210101-0002332301310230-0123212010130013-1211123003310003-1132310233032003"></a>
+
+Type: `"single"`. Computed.
+
+BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2133032322111103-2221201203012230-3011331313032111-3033223321031330-3112213320000130-1101203132131033-3303330213030200-1110231303310213"></a>
+
+## Direct properties — blindfold_secret_info / 000121030111 / 3
+
+<a id="canonical-3132200230032303-0233301133220223-3032032223020331-2023113011302323-0012322003311013-2222230022123322-1101213120232013-1220321010031022"></a>
+
+<a id="canonical-1203132010311032-0032331112321223-1211120031121212-1133122022003030-1221033320001102-2100323202202203-1010110133103130-3312313321203001"></a>
+
+## decryption_provider property — blindfold_secret_info / 000121030111 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the backend Secret
+Management service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0023020303322230-0331201222021023-1130131230003033-3003300320320332-1302012331211332-1101001013122122-1303121302022012-2210332312003021"></a>
+
+<a id="canonical-0331233220112013-3330223322232322-3130233122212302-3122333333001203-1113103320331020-3130231212113331-2110030202300330-3301030110033310"></a>
+
+## location property — blindfold_secret_info / 000121030111 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Upstream description:
+
+Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
+store provider is an HTTP/HTTPS location.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "content",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 131072,
+    "metadata": {
+      "category": "content",
+      "confidence": 1.0,
+      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
+      "source": "manual-override",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 4
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-2303332202301320-2010103010213131-1311021030310322-0302330302103011-0302313123130101-0112023013123310-3110122123330021-3211210013102210"></a>
+
+<a id="canonical-0313203031110203-2203103131231310-2001022010200210-0120230203232113-2032033200321102-3101111233031301-1300023011130301-3133221103122223"></a>
+
+## store_provider property — blindfold_secret_info / 000121030111 / 6
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Upstream description:
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3212132302303013-0001323130310123-3330301011012030-0331332121232301-1133300132232331-2110011323320213-2022231031230003-3000232312330323"></a>
+
+## Next pages — blindfold_secret_info / 000121030111 / 7
+
+- [new_relic_receiver.api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-2211310101013202-2223001023310323-3031310222032320-3233233120202231-0101322122330110-1132232033003313-0230330322030212-0213101112010303)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1320221211133021-1033300103012120-1112030330032201-1031201332123101-1323200101300013-2222012210121020-2200130103311203-2032232322030331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0123231002001221-3031113202331203-1333100230103111-2002123203012030-3310231320131302-2233012221130003-3100012312022002-1120230332311132"></a>
+
+## new_relic_receiver.api_key.clear_secret_info — clear_secret_info / 012111202303 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- [new_relic_receiver.api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-2211310101013202-2223001023310323-3031310222032320-3233233120202231-0101322122330110-1132232033003313-0230330322030212-0213101112010303)
+- new_relic_receiver.api_key.clear_secret_info
+
+<a id="canonical-2323323320223303-3313101021211333-2301212210131022-2201131020203033-3112310311333132-3213130123202303-2110301011331223-1312030212011001"></a>
+
+Type: `"single"`. Computed.
+
+ClearSecretInfoType specifies information about the Secret that is not encrypted.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3320211223000031-2223020021011331-1231003010101203-3020010011303302-0221301120201313-0113001221211012-0000223102210132-1131331122021030"></a>
+
+## Direct properties — clear_secret_info / 012111202303 / 3
+
+<a id="canonical-0021210323230210-0122010012121103-2132130022322213-2231300003033233-0201110023113311-3123033000133323-2023013122330331-2232103200220021"></a>
+
+<a id="canonical-0311102323231000-3332300220000220-1212300202032102-3130133303111132-2311210301103012-3123133320321210-2333202321121203-0101103001231231"></a>
+
+## provider_ref property — clear_secret_info / 012111202303 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the store to GET
+encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
+
+<a id="canonical-1211122201032320-0213133231011120-3332212030010222-3030013103103303-0231033203102122-3231023133011302-3311231202321332-0333230323212212"></a>
+
+<a id="canonical-2222031311123200-0212101113121002-0020213111231003-0323313021010111-1330103321303132-2312130233000032-1320111133103330-0023032230011233"></a>
+
+## URL property — clear_secret_info / 012111202303 / 5
+
+Type: `"string"`. Computed, Sensitive.
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Upstream description:
+
+URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
+needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
+base64 decoding.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 131072,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 131072
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
+    "maxLength": 131072,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
+    "validation": {
+      "rfc": "RFC 3986"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-f5xc-sensitive": true,
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "131072",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+<a id="canonical-3103003311013130-2101322332331332-3131121203231031-1031023022230323-0101000100213110-2113122200003130-2101131111111323-3022101320201320"></a>
+
+## Next pages — clear_secret_info / 012111202303 / 6
+
+- [new_relic_receiver.api_key](data-sources--global_log_receiver--reference--group-003.md#canonical-2211310101013202-2223001023310323-3031310222032320-3233233120202231-0101322122330110-1132232033003313-0230330322030212-0213101112010303)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3300010212112002-3213231331131321-2331110230220010-2012032031333333-0321230230113030-2111100323020013-3113212012233230-0110103010023113"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2213030023222032-2120310033320002-0232031210132133-0111333020222312-2210003033321213-2103211021003231-3110130312202202-3213330330232201"></a>
+
+## new_relic_receiver.eu — eu / 131002130023 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- new_relic_receiver.eu
+
+<a id="canonical-2221130203203000-3332120110030003-2022323311313023-0133113023001023-1211033233002101-3201012312233330-0301012221233111-1210121212320222"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1101333112101201-1122112003123031-3010003110130100-0322312220121213-2220201223020131-1223110223313311-3001103103011001-3203132223002112"></a>
+
+## Direct properties — eu / 131002130023 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1230223211022022-2333302103220033-0132112303013021-1310000013022132-3223030122000003-3300220210023222-1020310223233121-1023030322233303"></a>
+
+## Next pages — eu / 131002130023 / 4
+
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3012303210122113-2313212321310023-3132111332302132-0011323210220302-3103132011013301-3021100321221320-2203201323101102-2002031320002012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1010333022221300-1112313101113301-3332202032323300-1023302130301020-3231320303221211-1231301300020333-2200100001303133-2032102230311002"></a>
+
+## new_relic_receiver.us — us / 111022331222 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- new_relic_receiver.us
+
+<a id="canonical-3302121330210213-0222031021210020-0021100300123132-2333202101020311-2103330133110230-2021332010033231-2132332113232213-2200020021210010"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2131320022010033-1201313010232012-0210312101100323-1233102212332110-3202211133032030-0011001120012013-3002201030233110-2311301110232232"></a>
+
+## Direct properties — us / 111022331222 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2212020122323302-2232010312331232-0020020211211021-1221032010000130-0132221021103212-1003213100100332-2331021011112101-0130103003021101"></a>
+
+## Next pages — us / 111022331222 / 4
+
+- [new_relic_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-1222203022011122-1213111132203013-1201312120332200-3233301331202013-3012133313300230-3320033231321122-3201112101101230-3232031212020130)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3222301230023030-0001112112122320-3100220123111200-3201120222111311-1330032121023233-1201222312320311-1111331322201210-0133312301312020"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0202200202303131-0011331203333330-2120310100112031-0000200002133011-3112313002302232-0330213303231012-0213311002131232-0111230020103310"></a>
+
+## ns_all — ns_all / 112230120333 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- ns_all
+
+<a id="canonical-1030120112010331-2230012313100203-3132133213000333-1232233330012101-3233322300200100-0011332212003301-2110203211000302-1101000123003013"></a>
+
+Type: `["object", {}]`. Computed.
+
+\[OneOf: ns\_all, ns\_current, ns\_list\] Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [ns_all](data-sources--global_log_receiver--reference--group-003.md#canonical-1030120112010331-2230012313100203-3132133213000333-1232233330012101-3233322300200100-0011332212003301-2110203211000302-1101000123003013)
+- [ns_current](data-sources--global_log_receiver--reference--group-003.md#canonical-2200320110300010-3121021332001011-2113033313031130-3212321003321130-2223103133200223-0313021133310311-2200213300131303-3022101333300002)
+- [ns_list](data-sources--global_log_receiver--reference--group-003.md#canonical-3011000200300333-3300013030233023-1333110132103131-0000012030212002-1311112102002200-3110313322002301-2002302330131301-1220022231112010)
+
+Select alternatives according to the provider validators above.
+
+<a id="canonical-1010002312300201-0103201303230023-3021122213000210-1220030013233200-2013332330301321-1220023220111211-0203130200032220-0323222302031201"></a>
+
+## Direct properties — ns_all / 112230120333 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1101332031110310-2332111331133113-3111203033032310-2133030321233100-1201131132022023-3111000000230132-0011201232213232-3112311301312301"></a>
+
+## Next pages — ns_all / 112230120333 / 4
+
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3213312020222012-2002220201233002-0031302031132022-2311120330010033-0031032202323202-0022102301032121-0321103001233122-0001120123201310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0013011111202011-2310130122200320-1320331213023203-1313013213132133-0110300110120330-3030002000222000-2312030032210030-3001232210023233"></a>
+
+## ns_current — ns_current / 120312122202 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- ns_current
+
+<a id="canonical-2200320110300010-3121021332001011-2113033313031130-3212321003321130-2223103133200223-0313021133310311-2200213300131303-3022101333300002"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option. Defaults to \`map\[\]\`. Server applies default when omitted.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1221330112202312-0221132010122001-0203210030310131-0313223101010102-3021033103123300-1200112131313130-3301300202332011-3020301011133202"></a>
+
+## Direct properties — ns_current / 120312122202 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0100121302200030-2231233131103220-2010322303101001-2203022220023231-0323312213301231-3011010213100031-3320211002212201-2332330003321233"></a>
+
+## Next pages — ns_current / 120312122202 / 4
+
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3303120033132301-0202221321231331-0130123312332131-0202000200222232-3021322301011113-1000013103130021-2133210101223030-0302330311022122"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0003000010302032-0310300030113233-1220121332321331-1322311121023303-0331323120230221-3323321133211233-2303320210013321-1110012211330102"></a>
+
+## ns_list — ns_list / 201232213322 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- ns_list
+
+<a id="canonical-3011000200300333-3300013030233023-1333110132103131-0000012030212002-1311112102002200-3110313322002301-2002302330131301-1220022231112010"></a>
+
+Type: `"single"`. Computed.
+
+Namespace List. Namespace List.
+
+Upstream description:
+
+Namespace List.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1000212101021003-2301023033020003-3233033013231230-1202103122201133-1031311323302221-3233110333233232-3022102331022203-0111202031012131"></a>
+
+## Direct properties — ns_list / 201232213322 / 3
+
+<a id="canonical-2313233010230233-3102101333201310-0211211210103002-2031201102321311-2323001203320232-0300122212203320-2222220003322323-3130132302111012"></a>
+
+<a id="canonical-1333202222000312-1303301223322202-1213111200200213-1223231303223113-2112310023321002-2100023222023110-1121010031012002-1021130303201221"></a>
+
+## namespaces property — ns_list / 201232213322 / 4
+
+Type: `["list", "string"]`. Computed.
+
+Namespaces. List of namespaces to stream logs for.
+
+Upstream description:
+
+List of namespaces to stream logs for.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16"
+  }
+}
+```
+
+<a id="canonical-2221031211330310-2210120020012131-1002232331300120-2001132311033320-2131210203211301-3112312313031113-1323232330200020-3202001311221310"></a>
+
+## Next pages — ns_list / 201232213322 / 5
+
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1303131222320021-3230010111332203-2021233332033231-0201213121320112-1130122221032232-0113112320210002-2200331203232113-2212131213131033"></a>
+
+## qradar_receiver — qradar_receiver / 212111200311 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- qradar_receiver
+
+<a id="canonical-1203320123322112-0003220233010101-0221021023303230-1311333320232133-2123212302200211-3330303321331111-3000310130102210-0323203022331310"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for qradar receiver.
+
+Upstream description:
+
+Configuration for IBM QRadar endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-tls_choice": "[\"no_tls\",\"use_tls\"]"
+}
+```
+
+<a id="canonical-1003223232323233-2032202110013303-3213033230320330-0023220132013130-1320132332211331-3222220302133030-3033331030223023-2020123013310002"></a>
+
+## Direct properties — qradar_receiver / 212111200311 / 3
+
+- [batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201): complete subsection reference.
+
+- [compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210): complete subsection reference.
+
+- [no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-1111323021212322-2212331021332333-0210102220332333-3123222111000123-2131031111023130-0021122202312123-3301311202111330-0212010322032212): complete subsection reference.
+
+<a id="canonical-1312101322230223-1133303032220313-2202202302223232-2100022232122321-2210100103132030-3120331221320220-2000210101030023-0023130122110010"></a>
+
+<a id="canonical-3212311102001333-2333313122322221-1313310032000103-1103333030201300-3133030311100100-1332220001033323-1220023032312233-0033223030012331"></a>
+
+## URI property — qradar_receiver / 212111200311 / 4
+
+Type: `"string"`. Computed.
+
+Log Source Collector URL is the URL of the IBM QRadar Log Source Collector to send logs to,.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "uri",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.uri_ref": "true"
+  }
+}
+```
+
+- [use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2211202023111213-2221103322110030-2331033132202121-2012102021320112-1030223320201110-0000011010011333-0011001031321121-2233020113012311): complete subsection reference.
+
+<a id="canonical-3301210132113130-2232022230113123-1112032101021303-3132212001220011-3302100322002322-0121310301021330-3311330223023001-3222121210302033"></a>
+
+## Next pages — qradar_receiver / 212111200311 / 5
+
+- [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201)
+- [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210)
+- [qradar_receiver.no_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-1111323021212322-2212331021332333-0210102220332333-3123222111000123-2131031111023130-0021122202312123-3301311202111330-0212010322032212)
+- [qradar_receiver.use_tls](data-sources--global_log_receiver--reference--group-003.md#canonical-2211202023111213-2221103322110030-2331033132202121-2012102021320112-1030223320201110-0000011010011333-0011001031321121-2233020113012311)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0312023101003111-3100322321213030-0231021303021131-3321032011122023-2320103323332221-0322222312131332-2313213202210023-0030230330102321"></a>
+
+## qradar_receiver.batch — batch / 333223023230 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- qradar_receiver.batch
+
+<a id="canonical-0120311201302311-3111210120211230-2122322000322312-3121321102322130-0201003100023323-1031310221123110-1113000112023303-1112322133203001"></a>
+
+Type: `"single"`. Computed.
+
+Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-batch_bytes": "[\"max_bytes\",\"max_bytes_disabled\"]",
+  "x-ves-oneof-field-batch_events": "[\"max_events\",\"max_events_disabled\"]",
+  "x-ves-oneof-field-batch_timeout": "[\"timeout_seconds\",\"timeout_seconds_default\"]"
+}
+```
+
+<a id="canonical-3221211202200211-3032133320232133-2332121113320023-2100333121310111-1020010122332213-3232033001100110-2030020010031133-0230320031100021"></a>
+
+## Direct properties — batch / 333223023230 / 3
+
+<a id="canonical-3320011112101313-0001012302000200-2131121221330311-1333213212103130-1301023010220101-0001212321120222-3020201322000230-0213003113230003"></a>
+
+<a id="canonical-1220022013223030-3010013230003233-2100100023103233-2211330213212302-2320321310201322-1003223232131232-3133112202202130-1233222002202201"></a>
+
+## max_bytes property — batch / 333223023230 / 4
+
+Type: `"number"`. Computed.
+
+Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
+than this many bytes.
+
+Upstream description:
+
+Exclusive with \[max\_bytes\_disabled\] Send batch to endpoint after the batch is equal to or larger
+than this many bytes.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 10485760,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 4096
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "4096",
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "4096",
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  }
+}
+```
+
+- [max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-2200132301231210-0332202300230101-1121030321210011-0330130023223313-0100001113121002-1123232200121023-2212111021302031-3133112210010032): complete subsection reference.
+
+<a id="canonical-0113221213010220-3233322030121102-1210122003310100-1231231221201231-0003210210030030-2313311101322011-3221211230120202-1113020023013122"></a>
+
+<a id="canonical-1133022231223330-0002013020302133-2333013232203210-1122200022230023-3331101300310200-2003303322300121-3032012222120331-0210113003011332"></a>
+
+## max_events property — batch / 333223023230 / 5
+
+Type: `"number"`. Computed.
+
+Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
+the batch.
+
+Upstream description:
+
+Exclusive with \[max\_events\_disabled\] Send batch to endpoint after this many log messages are in
+the batch.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 2000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 32
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "32",
+    "ves.io.schema.rules.uint32.lte": "2000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "32",
+    "ves.io.schema.rules.uint32.lte": "2000"
+  }
+}
+```
+
+- [max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1021103113033123-2102331111033223-2231230310312330-0311210103301023-1320113210023031-0030223003232112-3323321213032103-3312322300110210): complete subsection reference.
+
+<a id="canonical-1101001232300231-3202223232301000-2322123000330201-0333302321032133-1010322103121022-2021031201332232-2322210001131320-2100321320111120"></a>
+
+<a id="canonical-0013111202101211-3033102001111310-3310122210300233-1201221221323231-2300000013231102-2120003100230001-2133333102031120-0310201103121033"></a>
+
+## timeout_seconds property — batch / 333223023230 / 6
+
+Type: `"string"`. Computed.
+
+Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
+
+Upstream description:
+
+Exclusive with \[timeout\_seconds\_default\] Send batch to the endpoint after this many seconds.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "format": "uint64",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint64.gte": "300",
+    "ves.io.schema.rules.uint64.lte": "3600"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint64.gte": "300",
+    "ves.io.schema.rules.uint64.lte": "3600"
+  }
+}
+```
+
+- [timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-1011233013203000-1221133102312110-3003203110130230-2130221213200310-3111113320011202-3201200100313310-0222201313021301-2312300112113231): complete subsection reference.
+
+<a id="canonical-2213122031003033-0332000023232112-1301122312201101-0000221011103102-2111202112121020-3123312310133310-2231033001032300-1200002322220021"></a>
+
+## Next pages — batch / 333223023230 / 7
+
+- [qradar_receiver.batch.max_bytes_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-2200132301231210-0332202300230101-1121030321210011-0330130023223313-0100001113121002-1123232200121023-2212111021302031-3133112210010032)
+- [qradar_receiver.batch.max_events_disabled](data-sources--global_log_receiver--reference--group-003.md#canonical-1021103113033123-2102331111033223-2231230310312330-0311210103301023-1320113210023031-0030223003232112-3323321213032103-3312322300110210)
+- [qradar_receiver.batch.timeout_seconds_default](data-sources--global_log_receiver--reference--group-003.md#canonical-1011233013203000-1221133102312110-3003203110130230-2130221213200310-3111113320011202-3201200100313310-0222201313021301-2312300112113231)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2200132301231210-0332202300230101-1121030321210011-0330130023223313-0100001113121002-1123232200121023-2212111021302031-3133112210010032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2003103120130303-1021212020000020-1312203323313332-1122223203202110-0333222103032201-2032301012120220-3131012321100333-2321133033110202"></a>
+
+## qradar_receiver.batch.max_bytes_disabled — max_bytes_disabled / 330030301321 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201)
+- qradar_receiver.batch.max_bytes_disabled
+
+<a id="canonical-3202322303333020-3303230033331023-1201223030333100-3012213120120320-2200000201122112-1032223133233331-0123331313110312-0010320310011321"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1321022302003213-0131111212310022-1123003310032113-2121202320002213-3121302302223300-0203020210113322-3113010202131331-3130233133030002"></a>
+
+## Direct properties — max_bytes_disabled / 330030301321 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0311203212320010-1312330300103231-2011313122301303-0000212120113232-3132033203202312-2001000031013132-1001003230232031-3020002002023002"></a>
+
+## Next pages — max_bytes_disabled / 330030301321 / 4
+
+- [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1021103113033123-2102331111033223-2231230310312330-0311210103301023-1320113210023031-0030223003232112-3323321213032103-3312322300110210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0310323312310332-1000100313211232-3323022313311111-1101012011332011-3123111203201003-1311131023003133-1030301131311010-3001113120322122"></a>
+
+## qradar_receiver.batch.max_events_disabled — max_events_disabled / 331212000111 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201)
+- qradar_receiver.batch.max_events_disabled
+
+<a id="canonical-3101000111023132-2300323013100103-2131022300011113-2032323020123303-1100332032023321-1103303321201100-3112200011110133-0300302313213231"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2000113022322032-3123103121012102-3111100230023321-0010010130020102-1202310331320133-0321202012312330-2130312301122030-2233220232012023"></a>
+
+## Direct properties — max_events_disabled / 331212000111 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0000200013112222-3211301231311003-3223331311211222-1032011123132010-0222320110210112-2333322321220323-1122003020130210-1021123102003201"></a>
+
+## Next pages — max_events_disabled / 331212000111 / 4
+
+- [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1011233013203000-1221133102312110-3003203110130230-2130221213200310-3111113320011202-3201200100313310-0222201313021301-2312300112113231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3212110122113002-2032130323200222-2232201331331212-3300110312021002-3003310302030101-0303121110023131-1103121010111211-0310101002313110"></a>
+
+## qradar_receiver.batch.timeout_seconds_default — timeout_seconds_default / 002003312300 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201)
+- qradar_receiver.batch.timeout_seconds_default
+
+<a id="canonical-2013111300311330-1132223122303330-3211202100302101-3302133113020101-2220213212112020-2223201233000102-3320020330002220-0101103133132313"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0231122032202102-2022131132202030-3220201322123122-2300213221211313-1112013022012333-1311200100122203-3131231311211330-3321203300132113"></a>
+
+## Direct properties — timeout_seconds_default / 002003312300 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1201331112101111-3233110133113230-1210301113233030-3001202210003102-3320102302300131-3102232210103221-1331213203022121-2020020021200031"></a>
+
+## Next pages — timeout_seconds_default / 002003312300 / 4
+
+- [qradar_receiver.batch](data-sources--global_log_receiver--reference--group-003.md#canonical-3322102130323103-1103332202002221-0010102101231230-1122230223022300-2103102121313033-1201330301311321-1311300322122211-2310302202321201)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2133122332221222-1020120232303331-3022301313011100-2033023010231113-3120303032123213-3023230331213001-0002030323002121-1132312203312131"></a>
+
+## qradar_receiver.compression — compression / 131031312011 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- qradar_receiver.compression
+
+<a id="canonical-0303032320311320-0122021323231033-0230220210031231-1100133131230133-2332121013033202-2023113010300300-0000121330111301-0032023111332002"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for compression.
+
+Upstream description:
+
+Compression Type.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-compression_choice": "[\"compression_default\",\"compression_gzip\",\"compression_none\"]"
+}
+```
+
+<a id="canonical-1210021133101322-2302000322331112-2010223301230232-0300013020232322-3031313213022013-3230201122210002-0120203220210021-0300002003110123"></a>
+
+## Direct properties — compression / 131031312011 / 3
+
+- [compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-2000320120121120-0112110202122300-1330131332321202-0133101320032010-1311102023301213-1310233032121122-1033313111132120-3020330120013003): complete subsection reference.
+
+- [compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-2021221123300320-3213123120231213-1233322013302011-0123311130313303-3022301210010301-3113213030223032-3133222203021201-2030220200110111): complete subsection reference.
+
+- [compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-3023302011231113-2020311331130023-1211211120210031-0000111011130232-1203002223332021-2032100003232100-3323301311010202-3332122213300103): complete subsection reference.
+
+<a id="canonical-2000300332023133-2110203330202030-0020200201133320-2001121031033100-2001333323002322-2010331102010212-3111331123302010-1312133130201001"></a>
+
+## Next pages — compression / 131031312011 / 4
+
+- [qradar_receiver.compression.compression_default](data-sources--global_log_receiver--reference--group-003.md#canonical-2000320120121120-0112110202122300-1330131332321202-0133101320032010-1311102023301213-1310233032121122-1033313111132120-3020330120013003)
+- [qradar_receiver.compression.compression_gzip](data-sources--global_log_receiver--reference--group-003.md#canonical-2021221123300320-3213123120231213-1233322013302011-0123311130313303-3022301210010301-3113213030223032-3133222203021201-2030220200110111)
+- [qradar_receiver.compression.compression_none](data-sources--global_log_receiver--reference--group-003.md#canonical-3023302011231113-2020311331130023-1211211120210031-0000111011130232-1203002223332021-2032100003232100-3323301311010202-3332122213300103)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2000320120121120-0112110202122300-1330131332321202-0133101320032010-1311102023301213-1310233032121122-1033313111132120-3020330120013003"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2302023311110223-0101321103112023-1303322111031231-3033213232102132-2100301132113123-3231133013113122-1313333110322132-2032001121311132"></a>
+
+## qradar_receiver.compression.compression_default — compression_default / 022230120331 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210)
+- qradar_receiver.compression.compression_default
+
+<a id="canonical-1033113110202130-1121122202002322-3010013321332001-1323131133032231-3312203100210202-2113303332112311-1102322112221223-0001213121222003"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for compression default.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1012022110202310-0131030303303102-1031133003032121-0102320301021223-0223213011022203-2010202202021133-1213002002321303-0132302323121020"></a>
+
+## Direct properties — compression_default / 022230120331 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3010220033320030-3203011301103113-2203332100322312-3221323020101112-1202312032310213-0012001232201002-3201132020203020-3101321003202223"></a>
+
+## Next pages — compression_default / 022230120331 / 4
+
+- [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2021221123300320-3213123120231213-1233322013302011-0123311130313303-3022301210010301-3113213030223032-3133222203021201-2030220200110111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2211301312200301-1000012313023210-2000003101003031-2030122122321112-3033002031012203-1200132213023130-2030131003001121-1013030201200220"></a>
+
+## qradar_receiver.compression.compression_gzip — compression_gzip / 313222002201 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210)
+- qradar_receiver.compression.compression_gzip
+
+<a id="canonical-3233321202021213-1230302303101303-1311033122322023-0111302223230222-3033131101333112-0023100202311013-3031312221330122-0003132100302210"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0032003233212030-1331132121312302-2230030103223212-2113100021300203-0000121133130001-3033310332310233-0210221301131320-3233212333302300"></a>
+
+## Direct properties — compression_gzip / 313222002201 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2113000220111100-1230123212211022-0200300022200010-2012123311321000-1010101303112111-2221311202203112-0233223313011102-2131202222231023"></a>
+
+## Next pages — compression_gzip / 313222002201 / 4
+
+- [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-3023302011231113-2020311331130023-1211211120210031-0000111011130232-1203002223332021-2032100003232100-3323301311010202-3332122213300103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2012121110312222-3201120113320330-2110321103303112-2010230001023002-0020321100333003-2302010101021103-1200012303322002-2310223031322030"></a>
+
+## qradar_receiver.compression.compression_none — compression_none / 110021020123 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210)
+- qradar_receiver.compression.compression_none
+
+<a id="canonical-1030203010111302-0132031201202133-2130302302311311-1023013202200013-2031312021213332-3023310332121022-1201022101003101-3112332223303023"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for compression none.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0301123302131031-1133223020012122-1301002031211333-1322312103112213-2001230130120013-1021130130112121-2030223232122031-0310121012030332"></a>
+
+## Direct properties — compression_none / 110021020123 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1232013131230322-3112031123001023-3131201110102332-3002011311000003-1212333011311221-3131021103323231-3020203011231212-2201130310113122"></a>
+
+## Next pages — compression_none / 110021020123 / 4
+
+- [qradar_receiver.compression](data-sources--global_log_receiver--reference--group-003.md#canonical-0133213013222302-3031001203313320-2133001120310023-1222022232203032-3010013010213131-2112130321123312-3132123030112013-2130321233302210)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-1111323021212322-2212331021332333-0210102220332333-3123222111000123-2131031111023130-0021122202312123-3301311202111330-0212010322032212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1123230112100200-1002212313022210-0022212230110302-2000233332331111-0210013320023213-3311001023102110-3211030112122010-2232122212230133"></a>
+
+## qradar_receiver.no_tls — no_tls / 102223222313 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- qradar_receiver.no_tls
+
+<a id="canonical-1311221010330131-0100030122201013-0123222200333120-2221022230023332-0133123010211132-0300332331311303-2303010213100302-1300031202112222"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3000333010302222-2231020321133221-1331132310311003-1131323312222232-0110330211122332-0330221222112110-2033213111210323-0322232201023003"></a>
+
+## Direct properties — no_tls / 102223222313 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2332013233030202-3301101301302002-2302010213110323-2202120120103322-2103223121322210-1122300103113233-1000203133210223-2220313031120010"></a>
+
+## Next pages — no_tls / 102223222313 / 4
+
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+
+<a id="canonical-2211202023111213-2221103322110030-2331033132202121-2012102021320112-1030223320201110-0000011010011333-0011001031321121-2233020113012311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0103100211120011-1220121033220122-0002110310330303-2030332020023011-2231110301122211-1002132110201113-3133002220313133-0000212033323330"></a>
+
+## qradar_receiver.use_tls — use_tls / 302210111102 / 2
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md#canonical-2323320303310003-2020233210110100-2302013311201021-3011012223132222-3230012021230210-1210312103103112-3000110300302123-2103022323231330)
+- [Property reference](data-sources--global_log_receiver--reference--group-001.md#canonical-1301322323030333-2002133101301233-0213101202103030-1023010223023313-1031330331332322-1212200100011013-2110333022013330-1120323212103332)
+- [qradar_receiver](data-sources--global_log_receiver--reference--group-003.md#canonical-2321021321022332-2312230013122032-1100112310202133-0112002300022123-2320312003031221-1122032002223023-3311231012221300-1220003101032203)
+- qradar_receiver.use_tls
+
+<a id="canonical-2230220303112210-1332303332023323-0303300310322223-1021010001233001-2201000221131021-3113101123232032-1210221030233301-0323022013221302"></a>
+
+Type: `"single"`. Computed.
+
+TLS Parameters for client connection to the endpoint.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-ca_choice": "[\"no_ca\",\"trusted_ca_url\"]",
+  "x-ves-oneof-field-mtls_choice": "[\"mtls_disabled\",\"mtls_enable\"]",
+  "x-ves-oneof-field-verify_certificate": "[\"disable_verify_certificate\",\"enable_verify_certificate\"]",
+  "x-ves-oneof-field-verify_hostname": "[\"disable_verify_hostname\",\"enable_verify_hostname\"]"
+}
+```
+
+<a id="canonical-1231112300233130-3332022202122230-2212123210213313-1103202313133123-2133322223331322-0230133212233213-0102233203302021-3322301021013002"></a>
+
+## Direct properties — use_tls / 302210111102 / 3
+
+- [disable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-3322301302112011-3033121332333012-0200331303130332-2222122221010101-0133233123032301-3122001023223333-3012013311301003-2311002323231113): complete subsection reference.
+
+- [disable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-3033133203030300-0320022320111230-3121103002223122-2122001121220300-3311303212110211-3320101231000322-2200213311010132-1203010311323000): complete subsection reference.
+
+- [enable_verify_certificate](data-sources--global_log_receiver--reference--group-004.md#canonical-0123123233012122-2113301330223202-2121020331223201-2212321333001230-1013330210322033-3012011223301023-1101221120323310-1121100232112320): complete subsection reference.
+
+- [enable_verify_hostname](data-sources--global_log_receiver--reference--group-004.md#canonical-1020030030331112-0002020320132001-3321213311203211-2131010110102120-2030222032200022-1112312303103323-0211132122023330-2002320301320102): complete subsection reference.
+
+- [mtls_disabled](data-sources--global_log_receiver--reference--group-004.md#canonical-3030223213022232-2013002132203010-1232301312001002-3012003330012130-1332310031333330-0313232120113211-0310122233131202-2332020002320113): complete subsection reference.
+
+- [mtls_enable](data-sources--global_log_receiver--reference--group-004.md#canonical-3021121332121230-0330221320320012-3133230012110201-0303030120101330-0230220010223321-3300011031303222-0211300131003300-0131002021233113): complete subsection reference.
+
+- [no_ca](data-sources--global_log_receiver--reference--group-004.md#canonical-1321113003023032-3133333102202200-3330133200020201-2210231001033103-1113301003303003-0302111220002111-0312310133310112-2033030022002322): complete subsection reference.
+
+<a id="canonical-3323001230003112-2032112220213030-2223112202201301-2022033202030013-3103202312020201-0202121133200210-1023023220031012-3100220201130302"></a>

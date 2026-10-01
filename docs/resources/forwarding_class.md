@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_forwarding_class"
+page_title: "xcsh_forwarding_class landing"
 subcategory: ""
-description: "xcsh_forwarding_class for xcsh_forwarding_class."
-xcsh_docs: {"aliases": [], "body_bytes": 1493, "body_sha256": "sha256:cccfa67a1d4c9ac6111db3ef76cec6067b4f8d4f0b1bccfa66e3377e655eda38", "canonical_id": "xcsh-docs:resources:forwarding_class:fundamentals", "child_ids": ["xcsh-docs:resources:forwarding_class:reference", "xcsh-docs:resources:forwarding_class:examples", "xcsh-docs:resources:forwarding_class:import", "xcsh-docs:resources:forwarding_class:timeouts"], "collection_id": "xcsh-docs:resources:forwarding_class:collection", "completeness": "complete", "id": "xcsh-docs:resources:forwarding_class:fundamentals", "parent_id": null, "path": "docs/resources/forwarding_class.md", "provider_name": "forwarding_class", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forwarding_class/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_forwarding_class for xcsh_forwarding_class.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["forwarding_classCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_forwarding_class landing."
 ---
+
+# xcsh_forwarding_class landing
+
+<a id="canonical-2311030223121110-0200300102200301-0213002201300200-1210221011312013-2203303003202231-0033212100202321-0010322230031303-1000220313130212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_forwarding_class
+<a id="canonical-3013123331103333-1231201230223330-0321113230130220-1323311021011303-0303211131330320-2211212233003100-0300031101022233-2002130220122102"></a>
+
+## xcsh_forwarding_class — xcsh_forwarding_class / 233021033120 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users
 in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-0211012220210220-2201210122201010-2123232210120201-0333223032130201-3021220123312001-1032210130032201-2131022322300001-1023113023120301"></a>
+
+## Prerequisites — xcsh_forwarding_class / 233021033120 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1220020231322321-1221102123023130-2300102111100012-1110133031033231-2332112323030201-1303213102302120-3223013311112033-2333120120321323"></a>
+
+## Minimal configuration — xcsh_forwarding_class / 233021033120 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_forwarding_class" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0203303123012011-2122003120330102-1310022023000302-2002322110111211-2020203010212230-1312233201100001-3232110200010323-1010320323113003"></a>
+
+## Root configuration — xcsh_forwarding_class / 233021033120 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1001012123112102-2211131310210210-3123122103133021-1301020212131132-3310133002332321-1210032133111100-3003330131213312-0113132003303021"></a>
 
-- [Property reference](../guides/resources--forwarding_class--reference.md)
-- [Examples](../guides/resources--forwarding_class--examples.md)
-- [Import](../guides/resources--forwarding_class--import.md)
-- [Timeouts](../guides/resources--forwarding_class--timeouts.md)
+## Next pages — xcsh_forwarding_class / 233021033120 / 6
+
+- [Property reference](../guides/resources--forwarding_class--reference--group-001.md#canonical-0102111112020232-1131131013230311-1223320113131321-1013330221212303-3022123312213323-3323312223011303-2202303002230110-1331212022130030)
+- [Examples](../guides/resources--forwarding_class--examples--group-001.md#canonical-1121111133103312-1312010112003212-2002312232032321-0022321033300030-1300301001320300-2220313031122222-2232333122231221-0111320013023222)
+- [Import](../guides/resources--forwarding_class--lifecycle--group-001.md#canonical-1211101330330220-2322333121023332-2313121232330110-3122301132213330-3200103033112131-2321133230121200-1133230222020303-0100110310320131)
+- [Timeouts](../guides/resources--forwarding_class--lifecycle--group-001.md#canonical-3311003020230302-2133230220213031-1223113232012000-1102320013201012-1313011131333203-0022010333301233-3112131212121010-0032011233222323)

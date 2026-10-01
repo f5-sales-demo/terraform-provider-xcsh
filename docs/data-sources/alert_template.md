@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_template"
+page_title: "xcsh_alert_template landing"
 subcategory: ""
-description: "xcsh_alert_template for xcsh_alert_template."
-xcsh_docs: {"aliases": [], "body_bytes": 1232, "body_sha256": "sha256:fb81ffa258b8ef658ae10d88daf8399290db5dfe6e4019c762c6e433107f889d", "canonical_id": "xcsh-docs:data-sources:alert_template:fundamentals", "child_ids": ["xcsh-docs:data-sources:alert_template:reference", "xcsh-docs:data-sources:alert_template:examples"], "collection_id": "xcsh-docs:data-sources:alert_template:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:alert_template:fundamentals", "parent_id": null, "path": "docs/data-sources/alert_template.md", "provider_name": "alert_template", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_template/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_template for xcsh_alert_template.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_templateCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_template landing."
 ---
+
+# xcsh_alert_template landing
+
+<a id="canonical-1003131020323200-2102322313132332-1330100113320011-3213311001122330-0122322231213130-1212212131231012-1332020002133101-0232021330332020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_template
+<a id="canonical-0321122002322322-3103320112200330-3313030010310202-3321323322121031-0221113021232023-2103013012010121-2320000132321313-1230122113132201"></a>
+
+## xcsh_alert_template — xcsh_alert_template / 332321222231 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Domain to protect in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1212231303112211-1122032113322311-0013331210031033-2112222120121121-0103313010123213-0132023210110110-2100021231103213-1133132232121101"></a>
+
+## Prerequisites — xcsh_alert_template / 332321222231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3113203100310310-2002123021312011-2123213100213020-0320013033333021-2321120203113111-0013003212303223-0112321121213101-2133311112121330"></a>
+
+## Minimal configuration — xcsh_alert_template / 332321222231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "alert_template_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3111121222302213-2232012011232320-2313300213222030-2113021013103001-0202120203211110-0211202100130322-1212222133112110-1012220203110123"></a>
+
+## Root configuration — xcsh_alert_template / 332321222231 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2331021313303120-1002300203310313-2232001313323023-1320230200200032-0122000302133002-3322203031123110-1313000230122331-2331131213303232"></a>
 
-- [Property reference](../guides/data-sources--alert_template--reference.md)
-- [Examples](../guides/data-sources--alert_template--examples.md)
+## Next pages — xcsh_alert_template / 332321222231 / 6
+
+- [Property reference](../guides/data-sources--alert_template--reference--group-001.md#canonical-3212223031032323-0020230301002003-0212033002000323-0113313121231200-0223110303221321-0303212201023311-3001013320003100-1303010003111200)
+- [Examples](../guides/data-sources--alert_template--examples--group-001.md#canonical-3213301303320332-3211020211111123-0131003133300303-0130333120222113-3302133011010030-2202002310102011-0320232133100203-2233310233010231)

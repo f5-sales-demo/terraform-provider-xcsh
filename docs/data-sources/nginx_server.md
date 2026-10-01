@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_nginx_server"
+page_title: "xcsh_nginx_server landing"
 subcategory: ""
-description: "xcsh_nginx_server for xcsh_nginx_server."
-xcsh_docs: {"aliases": [], "body_bytes": 1298, "body_sha256": "sha256:4326d65ce92d013b480c8583aadd11c45e63957545f8d16bff19a47b1abb907e", "canonical_id": "xcsh-docs:data-sources:nginx_server:fundamentals", "child_ids": ["xcsh-docs:data-sources:nginx_server:reference", "xcsh-docs:data-sources:nginx_server:examples"], "collection_id": "xcsh-docs:data-sources:nginx_server:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nginx_server:fundamentals", "parent_id": null, "path": "docs/data-sources/nginx_server.md", "provider_name": "nginx_server", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_server/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_nginx_server for xcsh_nginx_server.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_nginx_server landing."
 ---
+
+# xcsh_nginx_server landing
+
+<a id="canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_nginx_server
+<a id="canonical-3013003001232002-3022311302001302-1323332000023002-3022123030011313-0030122323202221-1320230321313002-1213200033022323-2121102123023133"></a>
+
+## xcsh_nginx_server — xcsh_nginx_server / 020222131020 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Nginx Server resource in F5 Distributed Cloud for get nginx server block configuration.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-2220110033130101-3023112000313010-1312000123210021-1103211123010012-2032110031001231-2322313230130210-3320210220332202-2213322131313122"></a>
+
+## Prerequisites — xcsh_nginx_server / 020222131020 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3223010222010133-1221001221311213-1033122300012232-0333013031031303-2001202012023231-1322321120331033-2011000013121133-1321301330111001"></a>
+
+## Minimal configuration — xcsh_nginx_server / 020222131020 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "nginx_server_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2012230211222320-3123310002332202-1312003210221220-2132022201230113-2110221322201103-2303102132003132-1100312031002102-2103001031002100"></a>
+
+## Root configuration — xcsh_nginx_server / 020222131020 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0323202121223131-0030310312200031-0031331112322232-1112121123130311-1221211220300022-0320310010032003-3100131132003102-0333013223032213"></a>
 
-- [Property reference](../guides/data-sources--nginx_server--reference.md)
-- [Examples](../guides/data-sources--nginx_server--examples.md)
+## Next pages — xcsh_nginx_server / 020222131020 / 6
+
+- [Property reference](../guides/data-sources--nginx_server--reference--group-001.md#canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010)
+- [Examples](../guides/data-sources--nginx_server--examples--group-001.md#canonical-2300333101313203-3301002102123333-2223020201133011-3223003103223111-2010103032122130-3001221310203300-2300030133223022-2102202303301131)

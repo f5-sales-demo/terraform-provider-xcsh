@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_user_account"
+page_title: "xcsh_cloud_user_account landing"
 subcategory: ""
-description: "xcsh_cloud_user_account for xcsh_cloud_user_account."
-xcsh_docs: {"aliases": [], "body_bytes": 1349, "body_sha256": "sha256:9d22a985b0120ebefe92667723b9e1ce29531613c147f2b357593ac388a7a340", "canonical_id": "xcsh-docs:data-sources:cloud_user_account:fundamentals", "child_ids": ["xcsh-docs:data-sources:cloud_user_account:reference", "xcsh-docs:data-sources:cloud_user_account:examples"], "collection_id": "xcsh-docs:data-sources:cloud_user_account:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cloud_user_account:fundamentals", "parent_id": null, "path": "docs/data-sources/cloud_user_account.md", "provider_name": "cloud_user_account", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_user_account/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_user_account for xcsh_cloud_user_account.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_user_accountCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_user_account landing."
 ---
+
+# xcsh_cloud_user_account landing
+
+<a id="canonical-0121211201030010-3301133113320101-0332001123222101-1302203102030320-0332022000333203-1320110312000030-2303311122303231-1222130130102021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_user_account
+<a id="canonical-2313320133003030-2120011021303333-3103131000032311-0010012133012321-3022002212111220-1122113332232031-2321231011013322-1232030322232203"></a>
+
+## xcsh_cloud_user_account — xcsh_cloud_user_account / 011223333330 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Cloud User Account resource in F5 Distributed Cloud for cloud user account object create
 specifications. configuration.
 
-## Prerequisites
+<a id="canonical-0222100221122300-2130303311103323-0311132220001022-2023123301120003-1332200111101133-2323202122003331-0211001302130131-2120212223323131"></a>
+
+## Prerequisites — xcsh_cloud_user_account / 011223333330 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1332311133231312-3100213021000221-2230302011321300-0320122113203032-3232302232232210-3012113121333012-3102221301130013-3110103001122302"></a>
+
+## Minimal configuration — xcsh_cloud_user_account / 011223333330 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cloud_user_account_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2211000322030122-1210232111021003-3322213322001230-3321021031213001-3233022213130130-3133031303230112-2211130332132101-3133333001212013"></a>
+
+## Root configuration — xcsh_cloud_user_account / 011223333330 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3020323320222122-1320033201023302-2303033303103220-3312210231231002-1333003321013203-2001130022023032-3313331030033322-3000200201322330"></a>
 
-- [Property reference](../guides/data-sources--cloud_user_account--reference.md)
-- [Examples](../guides/data-sources--cloud_user_account--examples.md)
+## Next pages — xcsh_cloud_user_account / 011223333330 / 6
+
+- [Property reference](../guides/data-sources--cloud_user_account--reference--group-001.md#canonical-2100003020103021-2211222133012112-2230221333311312-3001210132102132-0320331210120102-2221113213322121-0212112321020330-1011211032013131)
+- [Examples](../guides/data-sources--cloud_user_account--examples--group-001.md#canonical-1123022031022212-3210322222220211-3221011130302320-0003311301312322-2122213221222103-0021320102020113-1330120011222112-0023310231123313)

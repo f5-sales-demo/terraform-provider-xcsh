@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_voltstack_site"
+page_title: "xcsh_voltstack_site landing"
 subcategory: ""
-description: "xcsh_voltstack_site for xcsh_voltstack_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1490, "body_sha256": "sha256:97234b3c803856c33d7777d0bd307fc87b61c8216740905e1eb5b993d33fcac4", "canonical_id": "xcsh-docs:resources:voltstack_site:fundamentals", "child_ids": ["xcsh-docs:resources:voltstack_site:reference", "xcsh-docs:resources:voltstack_site:examples", "xcsh-docs:resources:voltstack_site:import", "xcsh-docs:resources:voltstack_site:timeouts"], "collection_id": "xcsh-docs:resources:voltstack_site:collection", "completeness": "complete", "id": "xcsh-docs:resources:voltstack_site:fundamentals", "parent_id": null, "path": "docs/resources/voltstack_site.md", "provider_name": "voltstack_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/voltstack_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_voltstack_site for xcsh_voltstack_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["voltstack_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_voltstack_site landing."
 ---
+
+# xcsh_voltstack_site landing
+
+<a id="canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_voltstack_site
+<a id="canonical-3223001322322300-2032212221112202-0132332333223130-1103222213003232-2031011321321100-3021303213300102-0303203130103121-0230110022101022"></a>
+
+## xcsh_voltstack_site — xcsh_voltstack_site / 031101031002 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Voltstack Site resource in F5 Distributed Cloud for deploying App Stack edge computing
 sites.
 
-## Prerequisites
+<a id="canonical-1123012233332122-2031312303000231-2013332312323301-1323120330030202-2333333222300212-2221013001122100-1023222320311231-0132103213332203"></a>
+
+## Prerequisites — xcsh_voltstack_site / 031101031002 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3112000030030001-3221132213120211-0320330111133121-1103022122101331-3012302331112322-3230220123033110-0323232110132011-2110211031001303"></a>
+
+## Minimal configuration — xcsh_voltstack_site / 031101031002 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_voltstack_site" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1011332112321102-3110311110030033-3133113120122023-3101231102223103-3311223200122101-0302332232030211-1230330320232231-3132101112031101"></a>
+
+## Root configuration — xcsh_voltstack_site / 031101031002 / 5
 
 Required root properties: `name`, `namespace`, `volterra_certified_hw`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1010130333200130-0332100133033013-1121331233033321-3101101120122312-3222110212223130-1302331033311201-1103333101113113-1211331002221331"></a>
 
-- [Property reference](../guides/resources--voltstack_site--reference.md)
-- [Examples](../guides/resources--voltstack_site--examples.md)
-- [Import](../guides/resources--voltstack_site--import.md)
-- [Timeouts](../guides/resources--voltstack_site--timeouts.md)
+## Next pages — xcsh_voltstack_site / 031101031002 / 6
+
+- [Property reference](../guides/resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [Examples](../guides/resources--voltstack_site--examples--group-001.md#canonical-2000120202312222-2211323300223201-1032311002123102-1200033311312000-1331122302231313-3032010120220020-0133200201003101-1110323012110322)
+- [Import](../guides/resources--voltstack_site--lifecycle--group-001.md#canonical-0001301210130033-2313220120202202-0122322100020213-3322311011313122-1331323103212023-0130101233313000-1130211013231321-2032020313003323)
+- [Timeouts](../guides/resources--voltstack_site--lifecycle--group-001.md#canonical-3001231222312003-2312011002231211-2132333103221211-0000132323313321-3332000300200311-1200011220111021-1203123203102220-1033213231320111)

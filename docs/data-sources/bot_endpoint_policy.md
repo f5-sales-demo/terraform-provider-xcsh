@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_endpoint_policy"
+page_title: "xcsh_bot_endpoint_policy landing"
 subcategory: ""
-description: "xcsh_bot_endpoint_policy for xcsh_bot_endpoint_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1360, "body_sha256": "sha256:e5ea34da2317d8108c6ada954c931bfb595e469a5c76571bc271fc88fb6bf387", "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_endpoint_policy:reference", "xcsh-docs:data-sources:bot_endpoint_policy:examples"], "collection_id": "xcsh-docs:data-sources:bot_endpoint_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_endpoint_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_endpoint_policy.md", "provider_name": "bot_endpoint_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_endpoint_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_endpoint_policy for xcsh_bot_endpoint_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_endpoint_policy landing."
 ---
+
+# xcsh_bot_endpoint_policy landing
+
+<a id="canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_endpoint_policy
+<a id="canonical-2200200103020330-0123111323131100-3101132031103310-3030023211222331-2021030121320233-0112021311300100-2300130032231121-0010203313300130"></a>
+
+## xcsh_bot_endpoint_policy — xcsh_bot_endpoint_policy / 202201020020 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Bot Endpoint Policy resource in F5 Distributed Cloud for get bot endpoint policy.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-0000330000102122-2301311113031333-3210210233012221-1032011311330112-2022332103321012-3331223202223133-0001320202102232-3013033121223122"></a>
+
+## Prerequisites — xcsh_bot_endpoint_policy / 202201020020 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2332110003013331-2103013011033033-1020230200330303-1121003223002221-2312322111231102-2202232302022123-2033003003120222-0312022120020100"></a>
+
+## Minimal configuration — xcsh_bot_endpoint_policy / 202201020020 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "bot_endpoint_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3222033320303230-2321112020131223-2133132322103201-2022320033203322-2123112012012121-0301123031000111-0331332222320110-2303331100101130"></a>
+
+## Root configuration — xcsh_bot_endpoint_policy / 202201020020 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1103201202322112-3102322111113020-0233210331121201-3301313023302203-3330232310231122-2311023232010120-2010321230210223-2003002131131031"></a>
 
-- [Property reference](../guides/data-sources--bot_endpoint_policy--reference.md)
-- [Examples](../guides/data-sources--bot_endpoint_policy--examples.md)
+## Next pages — xcsh_bot_endpoint_policy / 202201020020 / 6
+
+- [Property reference](../guides/data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [Examples](../guides/data-sources--bot_endpoint_policy--examples--group-001.md#canonical-3303333021232001-0201323230023222-2012023013012233-3023322031312202-3310031131032123-0323231120222213-0220003001000000-0232003211310310)

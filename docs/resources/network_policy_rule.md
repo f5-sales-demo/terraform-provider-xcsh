@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_policy_rule"
+page_title: "xcsh_network_policy_rule landing"
 subcategory: ""
-description: "xcsh_network_policy_rule for xcsh_network_policy_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1468, "body_sha256": "sha256:244f78a0ac888d945f4468a8581a98c8f9d467a54057d64c3369292d7e5ab5a5", "canonical_id": "xcsh-docs:resources:network_policy_rule:fundamentals", "child_ids": ["xcsh-docs:resources:network_policy_rule:reference", "xcsh-docs:resources:network_policy_rule:examples", "xcsh-docs:resources:network_policy_rule:import", "xcsh-docs:resources:network_policy_rule:timeouts"], "collection_id": "xcsh-docs:resources:network_policy_rule:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_policy_rule:fundamentals", "parent_id": null, "path": "docs/resources/network_policy_rule.md", "provider_name": "network_policy_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_policy_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_policy_rule for xcsh_network_policy_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_policy_ruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_policy_rule landing."
 ---
+
+# xcsh_network_policy_rule landing
+
+<a id="canonical-2112020201001103-2201031331322001-0223011022132003-2100033230200220-3103222330021332-3321002202302211-2131122200310202-1220303211023221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_policy_rule
+<a id="canonical-3022102103333102-2033320230331030-2131203121121101-3123332233022033-2003222302331311-1021103301331321-1121031133032213-1000210001030021"></a>
+
+## xcsh_network_policy_rule — xcsh_network_policy_rule / 021102130301 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages network policy rule with configured parameters in specified namespace in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-0022011003102021-3000103230132231-2211012023302100-0310110222113121-1312130000212103-0032120223330101-2332310200001022-1312333211003202"></a>
+
+## Prerequisites — xcsh_network_policy_rule / 021102130301 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1332032211303113-0300100131132303-2310030330110211-3023230033113300-2102121211112213-3212320310223113-3130100221002032-3313021210303101"></a>
+
+## Minimal configuration — xcsh_network_policy_rule / 021102130301 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_network_policy_rule" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1031103223330320-0103311100232212-0230212213021330-3011110110312323-1130213222221112-3300031133013230-0332032301323110-0322002213120013"></a>
+
+## Root configuration — xcsh_network_policy_rule / 021102130301 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2013222101330212-1233023110302333-1021101210132310-2223232000231103-1103231201300131-1200130131131310-3033012220231011-3312331003101232"></a>
 
-- [Property reference](../guides/resources--network_policy_rule--reference.md)
-- [Examples](../guides/resources--network_policy_rule--examples.md)
-- [Import](../guides/resources--network_policy_rule--import.md)
-- [Timeouts](../guides/resources--network_policy_rule--timeouts.md)
+## Next pages — xcsh_network_policy_rule / 021102130301 / 6
+
+- [Property reference](../guides/resources--network_policy_rule--reference--group-001.md#canonical-3012303312123012-2212103332102002-1022222311101132-2300213221103332-2210103322300222-0100331323202201-2332222132333001-2303211101203300)
+- [Examples](../guides/resources--network_policy_rule--examples--group-001.md#canonical-0332032102031030-3122310133212130-3301012133100130-0213200313233111-3110022130033331-2331310200120230-1230030121103030-3020102112122231)
+- [Import](../guides/resources--network_policy_rule--lifecycle--group-001.md#canonical-0001132230022202-3122001332130110-1010122332130112-2231032100322333-1031010012332133-1231322322323201-0110103113230313-3120322203033011)
+- [Timeouts](../guides/resources--network_policy_rule--lifecycle--group-001.md#canonical-0111030200102323-0210123122230303-2331001311100323-1330300322122201-2220122033232023-2033323223023202-1323301211222332-2320030303030022)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_geo_location_set"
+page_title: "xcsh_geo_location_set landing"
 subcategory: ""
-description: "xcsh_geo_location_set for xcsh_geo_location_set."
-xcsh_docs: {"aliases": [], "body_bytes": 1316, "body_sha256": "sha256:abf3957501aa75a52ace2c43ee51c7ed196a00b4195cb06ee99b4beb435170af", "canonical_id": "xcsh-docs:resources:geo_location_set:fundamentals", "child_ids": ["xcsh-docs:resources:geo_location_set:reference", "xcsh-docs:resources:geo_location_set:examples", "xcsh-docs:resources:geo_location_set:import", "xcsh-docs:resources:geo_location_set:timeouts"], "collection_id": "xcsh-docs:resources:geo_location_set:collection", "completeness": "complete", "id": "xcsh-docs:resources:geo_location_set:fundamentals", "parent_id": null, "path": "docs/resources/geo_location_set.md", "provider_name": "geo_location_set", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/geo_location_set/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_geo_location_set for xcsh_geo_location_set.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["geo_location_setCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_geo_location_set landing."
 ---
+
+# xcsh_geo_location_set landing
+
+<a id="canonical-3103011222330300-2233200322023210-0200023031210213-3231332213130232-1013021130033033-2013330101030012-3301030030300101-3321313130311100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_geo_location_set
+<a id="canonical-3202023000013110-0033022132212111-1233233322203313-2212123220131333-1333121200102013-2210022121221302-2330023220202121-2020223023031301"></a>
+
+## xcsh_geo_location_set — xcsh_geo_location_set / 032101313330 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Geolocation Set in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3321303202231120-0311011130020012-1213320010000231-0111302221232121-2203223120022203-1210230200300211-1132121132133312-2211003022123321"></a>
+
+## Prerequisites — xcsh_geo_location_set / 032101313330 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2222221023022101-2301122110311010-1130310010111211-0103333203120111-1030202120110100-3231012332131010-3001032031113102-1211320210002013"></a>
+
+## Minimal configuration — xcsh_geo_location_set / 032101313330 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_geo_location_set" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0022231302032333-0300023102002010-1133102122332013-0332003000311332-1310132302012031-0233010233010221-0113333123031013-3121201313211101"></a>
+
+## Root configuration — xcsh_geo_location_set / 032101313330 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2203211330311331-1233202122130001-3321300110332312-1230020310002022-3123111122101311-2000303132322213-3012131312022221-0232200000322300"></a>
 
-- [Property reference](../guides/resources--geo_location_set--reference.md)
-- [Examples](../guides/resources--geo_location_set--examples.md)
-- [Import](../guides/resources--geo_location_set--import.md)
-- [Timeouts](../guides/resources--geo_location_set--timeouts.md)
+## Next pages — xcsh_geo_location_set / 032101313330 / 6
+
+- [Property reference](../guides/resources--geo_location_set--reference--group-001.md#canonical-1123112132012331-2320021312120003-1120132113110332-0331323012021123-1320320333300013-2001331312211030-0311313333232210-2132322132112012)
+- [Examples](../guides/resources--geo_location_set--examples--group-001.md#canonical-0223332013113021-0001332130320020-0311010023022210-2023020203101321-1102220131101130-1210211322100322-0210031310303333-2200320122323013)
+- [Import](../guides/resources--geo_location_set--lifecycle--group-001.md#canonical-3301032132000130-1032133211221023-2031110121122332-0010222332232302-0130021133030310-3123101011102310-3211122100122121-3301113232230002)
+- [Timeouts](../guides/resources--geo_location_set--lifecycle--group-001.md#canonical-3123230222023010-3201310023201202-3031220130310010-3332020111133300-1210132122103321-1303233103132322-0031202021023202-2021102233122032)

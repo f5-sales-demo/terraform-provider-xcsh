@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_global_log_receiver"
+page_title: "xcsh_network_global_log_receiver landing"
 subcategory: ""
-description: "xcsh_network_global_log_receiver for xcsh_network_global_log_receiver."
-xcsh_docs: {"aliases": [], "body_bytes": 1621, "body_sha256": "sha256:1304d97e7e87b0c55af40061e5dbc9b0a86393505e6ccd2563b34a2cda1e8234", "canonical_id": "xcsh-docs:data-sources:network_global_log_receiver:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_global_log_receiver:reference", "xcsh-docs:data-sources:network_global_log_receiver:examples"], "collection_id": "xcsh-docs:data-sources:network_global_log_receiver:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_global_log_receiver:fundamentals", "parent_id": null, "path": "docs/data-sources/network_global_log_receiver.md", "provider_name": "network_global_log_receiver", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_global_log_receiver/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_global_log_receiver for xcsh_network_global_log_receiver.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_global_log_receiver landing."
 ---
+
+# xcsh_network_global_log_receiver landing
+
+<a id="canonical-0211012321131230-2013331210022130-2003210011323120-3212212113100323-3012123311310320-2030302302201323-1222230131301120-2020212031212211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_global_log_receiver
+<a id="canonical-0013022210233321-1032203021233313-2303330212222011-2032111212233310-1203223331201310-1232230220233320-1300220030032221-2033121033320203"></a>
+
+## xcsh_network_global_log_receiver — xcsh_network_global_log_receiver / 230031111133 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Global Log Receiver destinations. Published source entries mix CIDRs and individ
 Values are bundled from the pinned OpenAPI release; this data source performs no network request.
 Ports and traffic direction are not encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-3001202301103331-0122002302132001-1101131330310000-0321200231113123-2322113213232333-3322311303000221-1300012203032222-3232031230310210"></a>
+
+## Prerequisites — xcsh_network_global_log_receiver / 230031111133 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2331122230133301-1232030101213010-1233130111322111-2310020231232130-2111301333212002-0313210103232331-2233030303232202-2223010020201302"></a>
+
+## Minimal configuration — xcsh_network_global_log_receiver / 230031111133 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "tls_syslog_egress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1132301322123021-0220230101011300-1302203231222200-3301112230233301-1132332132103023-1111232210121000-0111311022010312-3030122313213003"></a>
+
+## Root configuration — xcsh_network_global_log_receiver / 230031111133 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2101000333301303-2301113213221033-3332221322020303-1331330233032312-3233000330122231-0000213223311332-1033133110033032-2011000200033113"></a>
 
-- [Property reference](../guides/data-sources--network_global_log_receiver--reference.md)
-- [Examples](../guides/data-sources--network_global_log_receiver--examples.md)
+## Next pages — xcsh_network_global_log_receiver / 230031111133 / 6
+
+- [Property reference](../guides/data-sources--network_global_log_receiver--reference--group-001.md#canonical-1302231310000103-2202232011203310-1003230012120012-3310013102103212-0201101202113030-3013331321011231-2133210011232031-2132201131331033)
+- [Examples](../guides/data-sources--network_global_log_receiver--examples--group-001.md#canonical-1202301023031320-0303231001313120-3320311200012201-0033111103031111-3021010033100212-0120003332131331-3000011313101011-0011210102011131)

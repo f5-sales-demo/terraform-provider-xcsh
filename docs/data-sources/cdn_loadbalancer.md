@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cdn_loadbalancer"
+page_title: "xcsh_cdn_loadbalancer landing"
 subcategory: "Load Balancing"
-description: "xcsh_cdn_loadbalancer for xcsh_cdn_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1449, "body_sha256": "sha256:b5a5ebae3fdbabb7a1ce0bc3887ad50055c01ec67556a846ee50a846d7bb70b7", "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:data-sources:cdn_loadbalancer:reference", "xcsh-docs:data-sources:cdn_loadbalancer:examples"], "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:fundamentals", "parent_id": null, "path": "docs/data-sources/cdn_loadbalancer.md", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cdn_loadbalancer for xcsh_cdn_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cdn_loadbalancer landing."
 ---
+
+# xcsh_cdn_loadbalancer landing
+
+<a id="canonical-0131031313232111-3220331123332012-0312332120231130-2123203201020201-3310121233132331-3122031122130322-2333201200113231-1123033220323222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cdn_loadbalancer
+<a id="canonical-2133230233223102-3022332321032303-2320031230230013-3231313031033321-0011001232030001-2002001002031013-0311011310311122-1013300121123103"></a>
+
+## xcsh_cdn_loadbalancer — xcsh_cdn_loadbalancer / 330301310330 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a CDN Load Balancer resource in F5 Distributed Cloud for content delivery and edge caching
 with load balancing.
 
-## Prerequisites
+<a id="canonical-1103011120313023-2131212232312311-1313012022211103-3103330311221230-1112002010321313-2023233300023132-1212331320321311-2232032122330300"></a>
+
+## Prerequisites — xcsh_cdn_loadbalancer / 330301310330 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `cdn_origin_pool`.
 
 - cdn_origin_pool: Origin servers for CDN content
 
-## Minimal configuration
+<a id="canonical-3101012120301301-2000333222121221-0031120330222112-0232312333030210-0022201030311111-2310133032022111-0030203300300313-0122103222020021"></a>
+
+## Minimal configuration — xcsh_cdn_loadbalancer / 330301310330 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,11 +66,15 @@ output "cdn_loadbalancer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2103220203221301-3133113200130132-0323232132230223-3032013020322003-2033321133000130-0310331300002303-0212300302310311-2222012022122333"></a>
+
+## Root configuration — xcsh_cdn_loadbalancer / 330301310330 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3031110313310110-1001112332001333-0331230023320000-2300311130113211-0112210111123211-2102313010301301-0221121000323233-1000302000233300"></a>
 
-- [Property reference](../guides/data-sources--cdn_loadbalancer--reference.md)
-- [Examples](../guides/data-sources--cdn_loadbalancer--examples.md)
+## Next pages — xcsh_cdn_loadbalancer / 330301310330 / 6
+
+- [Property reference](../guides/data-sources--cdn_loadbalancer--reference--group-001.md#canonical-1131232031102311-1311132230333002-2103010130221322-3211022033121010-2010132101303220-1213122123033021-1002230232002302-2212020120301223)
+- [Examples](../guides/data-sources--cdn_loadbalancer--examples--group-001.md#canonical-3110121132323313-0011302232310122-0300300101301303-0101333112121220-3330120023223101-1130020331101223-0203301010301122-3330120123222302)

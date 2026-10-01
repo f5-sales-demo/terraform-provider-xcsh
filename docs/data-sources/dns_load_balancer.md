@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_load_balancer"
+page_title: "xcsh_dns_load_balancer landing"
 subcategory: "DNS"
-description: "xcsh_dns_load_balancer for xcsh_dns_load_balancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1421, "body_sha256": "sha256:a019cb109aabaf453fa4d682ebfeec1866cf66bcad03ceda964f8d28dbca8335", "canonical_id": "xcsh-docs:data-sources:dns_load_balancer:fundamentals", "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:reference", "xcsh-docs:data-sources:dns_load_balancer:examples"], "collection_id": "xcsh-docs:data-sources:dns_load_balancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_load_balancer:fundamentals", "parent_id": null, "path": "docs/data-sources/dns_load_balancer.md", "provider_name": "dns_load_balancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_load_balancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_load_balancer for xcsh_dns_load_balancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_load_balancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_load_balancer landing."
 ---
+
+# xcsh_dns_load_balancer landing
+
+<a id="canonical-1203213300333030-1201131231332213-0311011110313002-2212212103302030-0333010310130302-0012333213231220-3200033212123102-0230103000222103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_load_balancer
+<a id="canonical-2322031313020131-2332122323331301-1030301011113021-3130313021333130-0213213310323003-0321300211230133-0333122310332330-3011202232202331"></a>
+
+## xcsh_dns_load_balancer — xcsh_dns_load_balancer / 110333031210 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3213121031121123-0311103221111023-3033221303331022-0030303001003231-3022031111123313-1321312322322202-2011302033230101-1211032013011211"></a>
+
+## Prerequisites — xcsh_dns_load_balancer / 110333031210 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Required dependencies: `dns_zone`.
 
 - dns_zone: Parent zone for DNS records
 
-## Minimal configuration
+<a id="canonical-3212111101021303-3211211213311310-2112231010033012-1113100123302213-1010333212133221-1122131031230311-3210131132110020-3333011301002103"></a>
+
+## Minimal configuration — xcsh_dns_load_balancer / 110333031210 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,11 +66,15 @@ output "dns_load_balancer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3032130032003220-2112233000110321-0220233220311122-0310200212032032-1222002310213321-1033320112322330-1103310001122112-1201200210222221"></a>
+
+## Root configuration — xcsh_dns_load_balancer / 110333031210 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0311133333213213-3110231311232201-3333230120320100-0231123332300233-3331313033112330-3213021120221330-0122012012223310-2112203120023110"></a>
 
-- [Property reference](../guides/data-sources--dns_load_balancer--reference.md)
-- [Examples](../guides/data-sources--dns_load_balancer--examples.md)
+## Next pages — xcsh_dns_load_balancer / 110333031210 / 6
+
+- [Property reference](../guides/data-sources--dns_load_balancer--reference--group-001.md#canonical-3132200331022103-0202102030232123-3221123330030310-3132333003123202-1220120012203031-2132331133031102-0103322031301112-1330312100102222)
+- [Examples](../guides/data-sources--dns_load_balancer--examples--group-001.md#canonical-1103031313232103-1010000131011003-3223220023303122-0210012223013222-2333202231003212-0333030130323003-3131202221232220-1110102010021310)

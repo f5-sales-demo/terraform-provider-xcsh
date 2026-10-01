@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_waf_bot_signatures"
+page_title: "xcsh_waf_bot_signatures landing"
 subcategory: ""
-description: "xcsh_waf_bot_signatures for xcsh_waf_bot_signatures."
-xcsh_docs: {"aliases": [], "body_bytes": 1132, "body_sha256": "sha256:79100802af21c9a688757ef4f79cdffe1b22e1e6da81000eaae5c6973e0a12cb", "canonical_id": "xcsh-docs:data-sources:waf_bot_signatures:fundamentals", "child_ids": ["xcsh-docs:data-sources:waf_bot_signatures:reference", "xcsh-docs:data-sources:waf_bot_signatures:examples"], "collection_id": "xcsh-docs:data-sources:waf_bot_signatures:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:waf_bot_signatures:fundamentals", "parent_id": null, "path": "docs/data-sources/waf_bot_signatures.md", "provider_name": "waf_bot_signatures", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_bot_signatures/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_waf_bot_signatures for xcsh_waf_bot_signatures.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_waf_bot_signatures landing."
 ---
+
+# xcsh_waf_bot_signatures landing
+
+<a id="canonical-1232013323203331-2030333000300300-3031302123320310-3302000013332010-1200120322302012-2021223130131323-2112213021213111-3103303123120210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_waf_bot_signatures
+<a id="canonical-0222220223311211-3321132201013310-1001233023332131-3011111202303213-0230010323131011-3032103030230321-0322321002232211-3011113023131113"></a>
+
+## xcsh_waf_bot_signatures — xcsh_waf_bot_signatures / 210323200022 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Bot detection and defense configuration.
 
-## Prerequisites
+<a id="canonical-1200103230011002-0212231011013103-0102100012211220-2301113121323001-3001320211330333-3200003322323322-0110211223121223-0332333330002221"></a>
+
+## Prerequisites — xcsh_waf_bot_signatures / 210323200022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3331032120132003-2102313130131021-0310123221112012-1312303031301013-1110302002301213-1130211313230302-1213302323003001-0001121200232323"></a>
+
+## Minimal configuration — xcsh_waf_bot_signatures / 210323200022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,11 +56,15 @@ output "waf_bot_signatures_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3120201233302112-0121021013111032-2210211332300332-2031113231322301-2221231121021031-0332033303231233-3032012120013122-1313201113032302"></a>
+
+## Root configuration — xcsh_waf_bot_signatures / 210323200022 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2023320302300123-2003200210321201-2301303210033121-1113112022232121-1210212102123001-2221310011101202-1001011032201230-1110030213222020"></a>
 
-- [Property reference](../guides/data-sources--waf_bot_signatures--reference.md)
-- [Examples](../guides/data-sources--waf_bot_signatures--examples.md)
+## Next pages — xcsh_waf_bot_signatures / 210323200022 / 6
+
+- [Property reference](../guides/data-sources--waf_bot_signatures--reference--group-001.md#canonical-0202302311100230-1213232002201200-1112333313213300-1120210203201311-3310221133022103-2132301023122012-0230333001330220-0113223112221303)
+- [Examples](../guides/data-sources--waf_bot_signatures--examples--group-001.md#canonical-0221322122210100-2300022313321102-2033010210311101-2201221100231320-3020012201200310-1222222312200201-3033013013221222-3211032233120313)

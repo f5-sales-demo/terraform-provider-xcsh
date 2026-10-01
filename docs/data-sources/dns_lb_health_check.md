@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_lb_health_check"
+page_title: "xcsh_dns_lb_health_check landing"
 subcategory: ""
-description: "xcsh_dns_lb_health_check for xcsh_dns_lb_health_check."
-xcsh_docs: {"aliases": [], "body_bytes": 1341, "body_sha256": "sha256:c409547c77bf59cab5700f0117ae7ec7c4520b3672f489b64ba0a2c6e4ce1945", "canonical_id": "xcsh-docs:data-sources:dns_lb_health_check:fundamentals", "child_ids": ["xcsh-docs:data-sources:dns_lb_health_check:reference", "xcsh-docs:data-sources:dns_lb_health_check:examples"], "collection_id": "xcsh-docs:data-sources:dns_lb_health_check:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_health_check:fundamentals", "parent_id": null, "path": "docs/data-sources/dns_lb_health_check.md", "provider_name": "dns_lb_health_check", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_health_check/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_lb_health_check for xcsh_dns_lb_health_check.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_lb_health_checkCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_lb_health_check landing."
 ---
+
+# xcsh_dns_lb_health_check landing
+
+<a id="canonical-3100122033112233-3012231223301113-3200002222023330-1201232003223131-2023031121303302-1301302210202321-2031302202212103-1331213200311221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_lb_health_check
+<a id="canonical-3032312001130133-0013023112003100-1313003203033123-1030001312010232-0330300322320102-1132113031303003-2321112232223113-3113002011011231"></a>
+
+## xcsh_dns_lb_health_check — xcsh_dns_lb_health_check / 022002330010 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages DNS Load Balancer Health Check in a given namespace. If one already exist it will give a
 error in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0312221301002310-3302003102010301-1202222001000211-2000223123313223-1000202100213211-2110212201013330-0122332203132010-0102031201332332"></a>
+
+## Prerequisites — xcsh_dns_lb_health_check / 022002330010 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0010223313003013-1011000012320131-0210100311002332-0020200331013103-3212312110032220-2231010132201220-2130310321003323-0200022123202302"></a>
+
+## Minimal configuration — xcsh_dns_lb_health_check / 022002330010 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "dns_lb_health_check_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1330131320220033-2123003323030221-1213001013310302-1003032033020132-3003002302212332-1213130221131213-3102211330310013-2033200032030103"></a>
+
+## Root configuration — xcsh_dns_lb_health_check / 022002330010 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0323330213123023-2313333123212110-1302020030030102-0212223100210033-0010020200110300-0112331021122023-1133232111102233-0332032102032231"></a>
 
-- [Property reference](../guides/data-sources--dns_lb_health_check--reference.md)
-- [Examples](../guides/data-sources--dns_lb_health_check--examples.md)
+## Next pages — xcsh_dns_lb_health_check / 022002330010 / 6
+
+- [Property reference](../guides/data-sources--dns_lb_health_check--reference--group-001.md#canonical-3120123222202123-1012301220221110-0112203121332121-2102322302132322-2211003220321202-1031302101200212-1132031013203122-0302130033110030)
+- [Examples](../guides/data-sources--dns_lb_health_check--examples--group-001.md#canonical-1100310202032332-3100202312011332-3023002312200212-2123103002011211-3032130332210023-3033222223332222-3012210210300001-2201111013023133)

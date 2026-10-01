@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_log_receiver"
+page_title: "xcsh_log_receiver landing"
 subcategory: "Monitoring"
-description: "xcsh_log_receiver for xcsh_log_receiver."
-xcsh_docs: {"aliases": [], "body_bytes": 1342, "body_sha256": "sha256:d7b9fd47237665c77b5814050f4bccb788eb6dc0124a020e129efd58bffe9b6f", "canonical_id": "xcsh-docs:resources:log_receiver:fundamentals", "child_ids": ["xcsh-docs:resources:log_receiver:reference", "xcsh-docs:resources:log_receiver:examples", "xcsh-docs:resources:log_receiver:import", "xcsh-docs:resources:log_receiver:timeouts"], "collection_id": "xcsh-docs:resources:log_receiver:collection", "completeness": "complete", "id": "xcsh-docs:resources:log_receiver:fundamentals", "parent_id": null, "path": "docs/resources/log_receiver.md", "provider_name": "log_receiver", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/log_receiver/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_log_receiver for xcsh_log_receiver.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["log_receiverCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_log_receiver landing."
 ---
+
+# xcsh_log_receiver landing
+
+<a id="canonical-0313113102130312-2233123212112332-3122330131100323-1311101313033113-0013312121123022-2311322331111110-1300111301210312-0111133031122003"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_log_receiver
+<a id="canonical-3303033210203230-2011302203031313-1212312232033331-0221321133233222-0130030222020211-3301120300302130-1233121311013302-0023222311300011"></a>
+
+## xcsh_log_receiver — xcsh_log_receiver / 001200110112 / 2
 
 Breadcrumbs:
 
@@ -17,13 +22,17 @@ Breadcrumbs:
 
 Manages new Log Receiver object in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0332201320312012-3120311102021121-3303230210302011-0323131203100232-2030133300110101-2301211322313021-3102033023002333-3132120010202123"></a>
+
+## Prerequisites — xcsh_log_receiver / 001200110112 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-1201112130123033-0033010222023102-2102133321112121-1222320223112230-3201212221202331-0131233321313311-2203011211232123-2301213101210230"></a>
+
+## Minimal configuration — xcsh_log_receiver / 001200110112 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,13 +58,17 @@ resource "xcsh_log_receiver" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2022130212000200-3010223302203030-0120311202213220-0300023232023013-1212121232310212-2223223110310211-0030132030013103-3010331023323010"></a>
+
+## Root configuration — xcsh_log_receiver / 001200110112 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1330031333312012-1231230232120001-0202122311221212-1320103311111232-3132203133330220-3121110002322211-3111122022010330-1332230230210213"></a>
 
-- [Property reference](../guides/resources--log_receiver--reference.md)
-- [Examples](../guides/resources--log_receiver--examples.md)
-- [Import](../guides/resources--log_receiver--import.md)
-- [Timeouts](../guides/resources--log_receiver--timeouts.md)
+## Next pages — xcsh_log_receiver / 001200110112 / 6
+
+- [Property reference](../guides/resources--log_receiver--reference--group-001.md#canonical-3233000213200330-1021301100302120-2322002222223311-3211232003101211-3002210023303303-3302330021002111-0231132130121221-0233101103123201)
+- [Examples](../guides/resources--log_receiver--examples--group-001.md#canonical-0101332232122303-0002030101233212-3100332320223031-3313332101002120-3223320021112202-0120333120203012-2101332223200021-3100030120332330)
+- [Import](../guides/resources--log_receiver--lifecycle--group-001.md#canonical-3123223113211002-2122000132323322-0202030313031023-2331001321000232-0120013032201311-1230233312003002-0122233323122202-3221300302102201)
+- [Timeouts](../guides/resources--log_receiver--lifecycle--group-001.md#canonical-3230233203023020-2100232101131133-1332102211333320-1020000113103212-0002323321022100-1011211103213030-1132302033010300-2231100010130121)

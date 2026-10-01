@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_region"
+page_title: "xcsh_cloud_region landing"
 subcategory: ""
-description: "xcsh_cloud_region for xcsh_cloud_region."
-xcsh_docs: {"aliases": [], "body_bytes": 1284, "body_sha256": "sha256:4dc5823f16903b0a6b5bf448123cbcafd6e442a169bd33d0ef9beda0215787ae", "canonical_id": "xcsh-docs:data-sources:cloud_region:fundamentals", "child_ids": ["xcsh-docs:data-sources:cloud_region:reference", "xcsh-docs:data-sources:cloud_region:examples"], "collection_id": "xcsh-docs:data-sources:cloud_region:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cloud_region:fundamentals", "parent_id": null, "path": "docs/data-sources/cloud_region.md", "provider_name": "cloud_region", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_region/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_region for xcsh_cloud_region.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_region landing."
 ---
+
+# xcsh_cloud_region landing
+
+<a id="canonical-1312131213131300-2032133001002132-0000012113013011-3311003200233300-1320113133322101-0123111332203012-2202233202001321-2113202320323303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_region
+<a id="canonical-3020030110223333-3121310013311311-0230033311031202-3332031231022111-2301131203033113-3130223301012130-1211002302112313-0213203211331013"></a>
+
+## xcsh_cloud_region — xcsh_cloud_region / 000000123031 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Cloud Region resource in F5 Distributed Cloud for cloud re specification. configuration.
 (read-only data source)
 
-## Prerequisites
+<a id="canonical-0301201322123032-3013121231211122-0001013123130303-1310320321202133-3020000112230001-3230202320223321-0331310203103303-2020120332110232"></a>
+
+## Prerequisites — xcsh_cloud_region / 000000123031 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3322231323333310-2220212221120313-0212302120120000-1110100203231302-3122232232013233-0001310122031312-2022323112030210-2323103131100110"></a>
+
+## Minimal configuration — xcsh_cloud_region / 000000123031 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cloud_region_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1103202112002113-2330102300103222-1200300111211320-1231033212003230-3202113203310320-1332313013212031-3102201130210200-0330011230013320"></a>
+
+## Root configuration — xcsh_cloud_region / 000000123031 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0313111101120012-2233011122200130-1130331002233312-3013031023001023-1120033010022013-1022112201201210-2123312130203301-0220030323333013"></a>
 
-- [Property reference](../guides/data-sources--cloud_region--reference.md)
-- [Examples](../guides/data-sources--cloud_region--examples.md)
+## Next pages — xcsh_cloud_region / 000000123031 / 6
+
+- [Property reference](../guides/data-sources--cloud_region--reference--group-001.md#canonical-1110122010012032-2131203101013123-0321120130133102-2023302312022110-2201320321102001-2021000331031320-3100331122100231-2101010311313120)
+- [Examples](../guides/data-sources--cloud_region--examples--group-001.md#canonical-1113021303031313-2130103003133303-3102332131232032-0123302311230122-1221023131133130-0211322133230023-1313233232000301-0100320222200220)

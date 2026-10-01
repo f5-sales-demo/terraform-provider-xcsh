@@ -29,7 +29,7 @@ Use each normalized Regional Edge CIDR as a separate ingress-rule source:
       description       = "HTTPS ingress from an F5XC Regional Edge"
     }
 
-The [complete AWS example](../../examples/guides/network-allowlist-aws-origin/main.tf)
+The [complete AWS example](https://github.com/f5-sales-demo/terraform-provider-xcsh/blob/main/examples/guides/network-allowlist-aws-origin/main.tf)
 is validated against a mocked AWS provider.
 
 See the canonical data-source examples for explicit DNS TCP/UDP 53 ingress,

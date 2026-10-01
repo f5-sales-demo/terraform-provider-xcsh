@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cdn_purge_command"
+page_title: "xcsh_cdn_purge_command landing"
 subcategory: ""
-description: "xcsh_cdn_purge_command for xcsh_cdn_purge_command."
-xcsh_docs: {"aliases": [], "body_bytes": 1453, "body_sha256": "sha256:41f4c7b1d6f24f9a441e1fa0bc2abbd1f66b69667fc2a1311e1fa6ea016ed10a", "canonical_id": "xcsh-docs:resources:cdn_purge_command:fundamentals", "child_ids": ["xcsh-docs:resources:cdn_purge_command:reference", "xcsh-docs:resources:cdn_purge_command:examples", "xcsh-docs:resources:cdn_purge_command:import", "xcsh-docs:resources:cdn_purge_command:timeouts"], "collection_id": "xcsh-docs:resources:cdn_purge_command:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_purge_command:fundamentals", "parent_id": null, "path": "docs/resources/cdn_purge_command.md", "provider_name": "cdn_purge_command", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cdn_purge_command for xcsh_cdn_purge_command.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cdn_purge_commandCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cdn_purge_command landing."
 ---
+
+# xcsh_cdn_purge_command landing
+
+<a id="canonical-0023022220111331-3102221003101103-0013330220230321-0113210333131330-1333010132202103-2320102103332311-0323220121121123-1132022333100211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cdn_purge_command
+<a id="canonical-2101101133032332-3211203010332031-0202330101223113-0012220210311111-0333001321032233-0023302122001021-0212311220033220-2021110301230211"></a>
+
+## xcsh_cdn_purge_command — xcsh_cdn_purge_command / 210032111330 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a CDN Purge Command resource in F5 Distributed Cloud for cdn purge command specification.
 configuration.
 
-## Prerequisites
+<a id="canonical-3013332021111010-2122332013112012-3320030311103220-3221212201010330-1303220011110030-0302200010333021-3032323102033111-1310302231313311"></a>
+
+## Prerequisites — xcsh_cdn_purge_command / 210032111330 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1211021320202302-3011221213103122-2312030321121033-3023231220321232-1003122112013130-1303333232203313-1012103032312013-0101010301033223"></a>
+
+## Minimal configuration — xcsh_cdn_purge_command / 210032111330 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_cdn_purge_command" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2012031213031321-3123210120313223-1303320112302322-0112133330310333-2313303033302102-0033321033311023-0311100123101320-3312231312023323"></a>
+
+## Root configuration — xcsh_cdn_purge_command / 210032111330 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1232323312303123-0103300230300122-1212001121002220-1212111231321200-2213230122030322-1133201200010222-3320122103301211-2331301113300112"></a>
 
-- [Property reference](../guides/resources--cdn_purge_command--reference.md)
-- [Examples](../guides/resources--cdn_purge_command--examples.md)
-- [Import](../guides/resources--cdn_purge_command--import.md)
-- [Timeouts](../guides/resources--cdn_purge_command--timeouts.md)
+## Next pages — xcsh_cdn_purge_command / 210032111330 / 6
+
+- [Property reference](../guides/resources--cdn_purge_command--reference--group-001.md#canonical-0031133333032031-1202232013003002-3122211020121123-0122133210330011-2311331103310102-1022210232331223-3030132130110223-1122200112310302)
+- [Examples](../guides/resources--cdn_purge_command--examples--group-001.md#canonical-1213321202020020-1110201131212332-3220110122310332-0101202001133221-3021211132222120-3032102012001031-2302002331310030-1110002322303332)
+- [Import](../guides/resources--cdn_purge_command--lifecycle--group-001.md#canonical-3303030121222012-1321313321113120-0103303012220020-0202332011012301-2013130212202000-3020222222110312-0010202121123222-3312300302301321)
+- [Timeouts](../guides/resources--cdn_purge_command--lifecycle--group-001.md#canonical-0103230121303002-2321303320211100-1223133220032230-3330333113322313-0030110012130021-1311000212233321-3300231200233332-3312033133310100)

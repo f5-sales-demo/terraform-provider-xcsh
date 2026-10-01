@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_tunnel"
+page_title: "xcsh_tunnel landing"
 subcategory: ""
-description: "xcsh_tunnel for xcsh_tunnel."
-xcsh_docs: {"aliases": [], "body_bytes": 1277, "body_sha256": "sha256:f5eb03758382a76a32d681042fd665d76a147b727ee731c5b429abaf4588173d", "canonical_id": "xcsh-docs:resources:tunnel:fundamentals", "child_ids": ["xcsh-docs:resources:tunnel:reference", "xcsh-docs:resources:tunnel:examples", "xcsh-docs:resources:tunnel:import", "xcsh-docs:resources:tunnel:timeouts"], "collection_id": "xcsh-docs:resources:tunnel:collection", "completeness": "complete", "id": "xcsh-docs:resources:tunnel:fundamentals", "parent_id": null, "path": "docs/resources/tunnel.md", "provider_name": "tunnel", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_tunnel for xcsh_tunnel.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tunnelCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_tunnel landing."
 ---
+
+# xcsh_tunnel landing
+
+<a id="canonical-0203021123133200-3211200030212033-1303111112231210-3132112211210223-1120012223230031-3120003313300332-1222213113111002-3111033220000122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_tunnel
+<a id="canonical-2031221213301312-3111123132220303-1231032313022321-3101222331032013-3002111212320203-0210023101232223-3033220331201130-0201320210330002"></a>
+
+## xcsh_tunnel — xcsh_tunnel / 232113330233 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages tunnel in a given namespace. If one already exist it will give a error in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-1023112322003022-0230120000113303-0010321033232020-2233102102000202-2313010233021311-3103020033131112-1023310021021303-0300012022210013"></a>
+
+## Prerequisites — xcsh_tunnel / 232113330233 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2321221031301210-3233303311321322-3222011030002230-3011002021023100-0300322320233213-1033333020010210-3002200321030201-3333121303333103"></a>
+
+## Minimal configuration — xcsh_tunnel / 232113330233 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_tunnel" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0021221000031003-1113220222121033-1013311213001130-2213321330203030-3222023200300123-3333312022030221-0121311001030323-1303033023011310"></a>
+
+## Root configuration — xcsh_tunnel / 232113330233 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2130130032311000-3213133210011021-3321302030132320-3003320200312200-2133133033003303-1300131222103021-2203210312131213-0212030102313003"></a>
 
-- [Property reference](../guides/resources--tunnel--reference.md)
-- [Examples](../guides/resources--tunnel--examples.md)
-- [Import](../guides/resources--tunnel--import.md)
-- [Timeouts](../guides/resources--tunnel--timeouts.md)
+## Next pages — xcsh_tunnel / 232113330233 / 6
+
+- [Property reference](../guides/resources--tunnel--reference--group-001.md#canonical-0200201231331322-0303330032131211-1023201331203011-0231303320312231-3020103211200302-0321300301031220-0123132320301220-2202331313303213)
+- [Examples](../guides/resources--tunnel--examples--group-001.md#canonical-2313003312031200-0221021012003310-1331120231133012-0101333030122330-2020203002311013-1011200200333123-1332322203132332-2103103231221131)
+- [Import](../guides/resources--tunnel--lifecycle--group-001.md#canonical-1010131233201320-3203100203112233-3100302112033223-0210030201322003-2330312321130221-1233203330313332-3012322103303101-1330312132300010)
+- [Timeouts](../guides/resources--tunnel--lifecycle--group-001.md#canonical-1230003013201103-3320232012332123-0002112120313013-2100112000101101-2332120012312230-1233133320102023-0200313112202101-3301003112311131)

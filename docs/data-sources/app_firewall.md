@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_app_firewall"
+page_title: "xcsh_app_firewall landing"
 subcategory: "Security"
-description: "xcsh_app_firewall for xcsh_app_firewall."
-xcsh_docs: {"aliases": [], "body_bytes": 1344, "body_sha256": "sha256:897beef1adc32a52066e2c4f5248147a5361f4bd54d9db9f768d0fa1a509cf74", "canonical_id": "xcsh-docs:data-sources:app_firewall:fundamentals", "child_ids": ["xcsh-docs:data-sources:app_firewall:reference", "xcsh-docs:data-sources:app_firewall:examples"], "collection_id": "xcsh-docs:data-sources:app_firewall:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:app_firewall:fundamentals", "parent_id": null, "path": "docs/data-sources/app_firewall.md", "provider_name": "app_firewall", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_app_firewall for xcsh_app_firewall.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["app_firewallCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_app_firewall landing."
 ---
+
+# xcsh_app_firewall landing
+
+<a id="canonical-0320023201111121-3000130210130132-3330020030101023-0011302221323021-1102320231200030-1023333300332200-0122301003313000-0301011232103312"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_app_firewall
+<a id="canonical-2001301102011232-2101232311220033-1330130031031213-1323110313232333-3333112002220332-1000001230101112-1012311123120201-3110302111223213"></a>
+
+## xcsh_app_firewall — xcsh_app_firewall / 100221013032 / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages Application Firewall in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1001301300220312-3023010133133312-2023100020300000-0312133021302003-3123230222111320-3100003201012311-0101213320213023-1302003023010203"></a>
+
+## Prerequisites — xcsh_app_firewall / 100221013032 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Optional integrations: `service_policy`.
 
 - service_policy: Fine-grained access control rules
 
-## Minimal configuration
+<a id="canonical-2032220221012033-1120302311103201-3203033231102333-0301220233302012-1133332002002233-0320131303231132-1330033201031212-1130113001110320"></a>
+
+## Minimal configuration — xcsh_app_firewall / 100221013032 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,11 +65,15 @@ output "app_firewall_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1322302021233133-2032333221220102-3020212120133212-2233101222001330-1130323122220012-0030321030120133-2233010330312113-2210312113211311"></a>
+
+## Root configuration — xcsh_app_firewall / 100221013032 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1020202320032300-2322310021221323-0001112201133310-1330312101330131-3200221330003303-1003123131111011-0020203130232220-0213103011102312"></a>
 
-- [Property reference](../guides/data-sources--app_firewall--reference.md)
-- [Examples](../guides/data-sources--app_firewall--examples.md)
+## Next pages — xcsh_app_firewall / 100221013032 / 6
+
+- [Property reference](../guides/data-sources--app_firewall--reference--group-001.md#canonical-3230302312020213-0303301210111010-3121313101331331-1312303103033320-1333333032122033-3200221010203202-3031313132223223-3102110120032111)
+- [Examples](../guides/data-sources--app_firewall--examples--group-001.md#canonical-3131132132112300-2031210311300023-1320230303032133-2101121211031120-0000302131110002-0122121020210203-3302311013131221-3301311322210103)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_data_group"
+page_title: "xcsh_data_group landing"
 subcategory: ""
-description: "xcsh_data_group for xcsh_data_group."
-xcsh_docs: {"aliases": [], "body_bytes": 1325, "body_sha256": "sha256:42299bf4545b8c5abf14c30bd3b8993051729e2f229f07b7a1b8b487b4c400a5", "canonical_id": "xcsh-docs:resources:data_group:fundamentals", "child_ids": ["xcsh-docs:resources:data_group:reference", "xcsh-docs:resources:data_group:examples", "xcsh-docs:resources:data_group:import", "xcsh-docs:resources:data_group:timeouts"], "collection_id": "xcsh-docs:resources:data_group:collection", "completeness": "complete", "id": "xcsh-docs:resources:data_group:fundamentals", "parent_id": null, "path": "docs/resources/data_group.md", "provider_name": "data_group", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/data_group/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_data_group for xcsh_data_group.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["data_groupCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_data_group landing."
 ---
+
+# xcsh_data_group landing
+
+<a id="canonical-2033221010300023-0310201310213312-1111123303023302-1002002103313121-0023323222202020-3323233223120112-1122030002313100-3103222111013031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_data_group
+<a id="canonical-1303012102001233-0320311113023113-2122020021211213-2332020030332022-3311130320333331-3102200212213002-2230021333300300-3202130021212001"></a>
+
+## xcsh_data_group — xcsh_data_group / 333200233230 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages data group in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2013012200230231-2010023203203223-2213332123131013-1200021133103331-1331231323133123-1111210222310033-0210012102023130-1012010220012022"></a>
+
+## Prerequisites — xcsh_data_group / 333200233230 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3022033000012331-1012103202013121-1122112223331201-0000300320223311-3111002312232213-2223233211330011-0320300012102332-0312312230002203"></a>
+
+## Minimal configuration — xcsh_data_group / 333200233230 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_data_group" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3311030320201211-2001210013031200-1031031120303031-2023031212030332-1012222302100112-0010322333221323-2330303223113020-0233302121022120"></a>
+
+## Root configuration — xcsh_data_group / 333200233230 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3123312330101033-1020121301112310-1332133310101120-2232313022131000-2012220110231313-0221323312000120-1003210103301121-3203320103002110"></a>
 
-- [Property reference](../guides/resources--data_group--reference.md)
-- [Examples](../guides/resources--data_group--examples.md)
-- [Import](../guides/resources--data_group--import.md)
-- [Timeouts](../guides/resources--data_group--timeouts.md)
+## Next pages — xcsh_data_group / 333200233230 / 6
+
+- [Property reference](../guides/resources--data_group--reference--group-001.md#canonical-3231031010332101-1122313002132323-2311122213023231-0030023331302232-0222213302220303-1210001020031210-3202112323203130-1223123303002132)
+- [Examples](../guides/resources--data_group--examples--group-001.md#canonical-0131022103021013-3130012323223332-0301313022112003-2121303301303310-1011331110202103-3203133023212013-3322012222320133-0213210000232313)
+- [Import](../guides/resources--data_group--lifecycle--group-001.md#canonical-2111123311200222-3203112331122322-1220233301001222-3103133230001300-0133003221020111-2031030310131100-1331233001021222-2101103022011212)
+- [Timeouts](../guides/resources--data_group--lifecycle--group-001.md#canonical-2213321113330302-0020013301200300-2001002123202303-2103313113322331-1120120300302231-0010211300321201-0013102013223130-3201302332221103)

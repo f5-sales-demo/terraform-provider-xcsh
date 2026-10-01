@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_connect"
+page_title: "xcsh_cloud_connect landing"
 subcategory: ""
-description: "xcsh_cloud_connect for xcsh_cloud_connect."
-xcsh_docs: {"aliases": [], "body_bytes": 1286, "body_sha256": "sha256:0e7c7638b62338a13dcb61455101ed3baf6f394d376052f18af86ab8e3f66d67", "canonical_id": "xcsh-docs:data-sources:cloud_connect:fundamentals", "child_ids": ["xcsh-docs:data-sources:cloud_connect:reference", "xcsh-docs:data-sources:cloud_connect:examples"], "collection_id": "xcsh-docs:data-sources:cloud_connect:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cloud_connect:fundamentals", "parent_id": null, "path": "docs/data-sources/cloud_connect.md", "provider_name": "cloud_connect", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_connect/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_connect for xcsh_cloud_connect.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_connectCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_connect landing."
 ---
+
+# xcsh_cloud_connect landing
+
+<a id="canonical-2011032310310033-3311323122002031-2213302012003111-3033233110012013-2021203231210000-3221202000202111-0001331133100330-3301210132312000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_connect
+<a id="canonical-1210031232332020-3103231002201323-1020221102132122-3302030311001003-1110221010312233-1322310321200123-3020310120223223-2130301111113101"></a>
+
+## xcsh_cloud_connect — xcsh_cloud_connect / 012322212112 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud
 provider networks.
 
-## Prerequisites
+<a id="canonical-1112012320302232-2202210303210231-3223313211031023-2323102123023211-1312100030103200-3131203202101331-2321000013131323-2303131133223113"></a>
+
+## Prerequisites — xcsh_cloud_connect / 012322212112 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1320102132011031-0130232331031020-2030310032310123-3212323200021300-2113323233322112-2223212220301123-2013230012023122-1302213130111313"></a>
+
+## Minimal configuration — xcsh_cloud_connect / 012322212112 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cloud_connect_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1332030032221121-1013100122323303-2203001223000320-0101330032122100-0133011001221110-2320112313132220-0322033322013102-3321202311021121"></a>
+
+## Root configuration — xcsh_cloud_connect / 012322212112 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1220310100232130-2032011003303212-3101300120022023-1220331211312131-0310312200322222-1020303221220203-0011221030322310-2311313332210111"></a>
 
-- [Property reference](../guides/data-sources--cloud_connect--reference.md)
-- [Examples](../guides/data-sources--cloud_connect--examples.md)
+## Next pages — xcsh_cloud_connect / 012322212112 / 6
+
+- [Property reference](../guides/data-sources--cloud_connect--reference--group-001.md#canonical-0222032211111313-0003010022101312-0310023330122333-0201122213032311-0122213101110201-2002020111110210-1221320313132123-3300313332231200)
+- [Examples](../guides/data-sources--cloud_connect--examples--group-001.md#canonical-0032101013232201-0133023230030221-0133202133332200-2113320033202103-3000331130231101-0120212200131012-2110110121212222-1031033003011033)

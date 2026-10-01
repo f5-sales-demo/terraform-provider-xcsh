@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_enhanced_firewall_policy"
+page_title: "xcsh_enhanced_firewall_policy landing"
 subcategory: ""
-description: "xcsh_enhanced_firewall_policy for xcsh_enhanced_firewall_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1406, "body_sha256": "sha256:e2c812d62088e6335795592047dfa20852b2b2e5c91dd7c2ab1311b1d7cebc7a", "canonical_id": "xcsh-docs:data-sources:enhanced_firewall_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:enhanced_firewall_policy:reference", "xcsh-docs:data-sources:enhanced_firewall_policy:examples"], "collection_id": "xcsh-docs:data-sources:enhanced_firewall_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:enhanced_firewall_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/enhanced_firewall_policy.md", "provider_name": "enhanced_firewall_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/enhanced_firewall_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_enhanced_firewall_policy for xcsh_enhanced_firewall_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["enhanced_firewall_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_enhanced_firewall_policy landing."
 ---
+
+# xcsh_enhanced_firewall_policy landing
+
+<a id="canonical-1311231100333113-0230113312212103-1202110301210321-3202021333320231-3003331110212213-2102231103013021-0332332202022123-1300223100313200"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_enhanced_firewall_policy
+<a id="canonical-1100201213220203-1303333013101031-2113332230211212-3230122011221213-1032332331303301-0120130013110300-1331311010330001-3200022103012110"></a>
+
+## xcsh_enhanced_firewall_policy — xcsh_enhanced_firewall_policy / 322131231320 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Enhanced Firewall Policy resource in F5 Distributed Cloud for enhanced firewall policy
 specification. configuration.
 
-## Prerequisites
+<a id="canonical-1002330000003031-1202021221331321-2112121033032223-0303231100202101-3322331032320313-3233302322321220-3133023212233210-2100311200012020"></a>
+
+## Prerequisites — xcsh_enhanced_firewall_policy / 322131231320 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3233003310302001-3330231221210223-1022331330331131-2030100113112000-2320201122303031-2121012312132003-3320311033310303-0123001130320120"></a>
+
+## Minimal configuration — xcsh_enhanced_firewall_policy / 322131231320 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "enhanced_firewall_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2113013000311000-0033231112031323-1301002310132001-0123200233223312-0000203303210011-1112012331200010-0132322113323130-2110333122223333"></a>
+
+## Root configuration — xcsh_enhanced_firewall_policy / 322131231320 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3013112132023030-3332221211120030-1321210330331301-2013101212311112-2001300130133233-2101223312200332-0003103132123211-3312220132211202"></a>
 
-- [Property reference](../guides/data-sources--enhanced_firewall_policy--reference.md)
-- [Examples](../guides/data-sources--enhanced_firewall_policy--examples.md)
+## Next pages — xcsh_enhanced_firewall_policy / 322131231320 / 6
+
+- [Property reference](../guides/data-sources--enhanced_firewall_policy--reference--group-001.md#canonical-1212330032022110-0300203031202310-3023323111320103-2002220303320001-1002031021230030-3103301111003102-1131210302121020-3222312110012110)
+- [Examples](../guides/data-sources--enhanced_firewall_policy--examples--group-001.md#canonical-1300302000322233-2111321030302220-3121311302320112-2002001221120313-1021122233212310-2103002013113012-1001001012133113-0222002222302222)

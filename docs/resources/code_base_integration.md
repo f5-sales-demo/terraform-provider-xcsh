@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_code_base_integration"
+page_title: "xcsh_code_base_integration landing"
 subcategory: ""
-description: "xcsh_code_base_integration for xcsh_code_base_integration."
-xcsh_docs: {"aliases": [], "body_bytes": 1388, "body_sha256": "sha256:56824819eef96709cb76189ef9a323ba6de40b8c4f4d517e880612d25fddce86", "canonical_id": "xcsh-docs:resources:code_base_integration:fundamentals", "child_ids": ["xcsh-docs:resources:code_base_integration:reference", "xcsh-docs:resources:code_base_integration:examples", "xcsh-docs:resources:code_base_integration:import", "xcsh-docs:resources:code_base_integration:timeouts"], "collection_id": "xcsh-docs:resources:code_base_integration:collection", "completeness": "complete", "id": "xcsh-docs:resources:code_base_integration:fundamentals", "parent_id": null, "path": "docs/resources/code_base_integration.md", "provider_name": "code_base_integration", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_code_base_integration for xcsh_code_base_integration.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["code_base_integrationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_code_base_integration landing."
 ---
+
+# xcsh_code_base_integration landing
+
+<a id="canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_code_base_integration
+<a id="canonical-2011022122303032-1100122203130333-2112331021322222-3101233022223303-0312130323211131-2302220320233311-0302011311312322-3131031303200200"></a>
+
+## xcsh_code_base_integration — xcsh_code_base_integration / 022332231011 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages integration details in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1022323001130110-2132211033012201-1132011320333320-3221313012101020-0023023021223323-3022112203131111-3021221131213311-2301111120313020"></a>
+
+## Prerequisites — xcsh_code_base_integration / 022332231011 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0033301131222223-0110020202223210-1123131211022321-1321133231112201-2320022031030112-0013030230113110-0130030012101032-2100332321310022"></a>
+
+## Minimal configuration — xcsh_code_base_integration / 022332231011 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_code_base_integration" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0000113221002123-3103132202231221-0222102233200102-3001111120300123-0302112122213120-1303030000032000-3001113310311200-3031211133202003"></a>
+
+## Root configuration — xcsh_code_base_integration / 022332231011 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0121332000131322-1301031021203133-0132320032322211-0121022112213202-0220001302021220-3123021212121102-1312120021113321-1112212330302112"></a>
 
-- [Property reference](../guides/resources--code_base_integration--reference.md)
-- [Examples](../guides/resources--code_base_integration--examples.md)
-- [Import](../guides/resources--code_base_integration--import.md)
-- [Timeouts](../guides/resources--code_base_integration--timeouts.md)
+## Next pages — xcsh_code_base_integration / 022332231011 / 6
+
+- [Property reference](../guides/resources--code_base_integration--reference--group-001.md#canonical-3201211231020022-1303102222210030-3112011321321210-1331302320202012-1010230332303213-3001110101231222-2201322210333200-0201300000023201)
+- [Examples](../guides/resources--code_base_integration--examples--group-001.md#canonical-3223311312113011-0300001102331331-3332332231201211-3013102320020123-3131313102303221-3001032000113130-3330213021233132-2201232013021000)
+- [Import](../guides/resources--code_base_integration--lifecycle--group-001.md#canonical-3221201113223001-3231030320310302-0302020203002021-2300323111020211-1313111010003203-1011012213310200-0203213003300121-0032101100122213)
+- [Timeouts](../guides/resources--code_base_integration--lifecycle--group-001.md#canonical-0222111310312010-2131330212103322-1120331221020202-1131312111120123-3021321201202020-2232121111320023-3023033102222302-1220123101101220)

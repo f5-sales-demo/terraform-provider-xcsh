@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_peer_threat_types"
+page_title: "xcsh_bot_peer_threat_types landing"
 subcategory: ""
-description: "xcsh_bot_peer_threat_types for xcsh_bot_peer_threat_types."
-xcsh_docs: {"aliases": [], "body_bytes": 1180, "body_sha256": "sha256:9d2a40d5ae1d50754c590170950ccc089313a266720823ca9855d997785b6cf5", "canonical_id": "xcsh-docs:data-sources:bot_peer_threat_types:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_peer_threat_types:reference", "xcsh-docs:data-sources:bot_peer_threat_types:examples"], "collection_id": "xcsh-docs:data-sources:bot_peer_threat_types:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_peer_threat_types:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_peer_threat_types.md", "provider_name": "bot_peer_threat_types", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_threat_types/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_peer_threat_types for xcsh_bot_peer_threat_types.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_peer_threat_types landing."
 ---
+
+# xcsh_bot_peer_threat_types landing
+
+<a id="canonical-2013010020311013-0321123032202111-3000312123121121-3301311011300221-1213110110313232-0030311231210211-3033301232310333-0010002333121001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_peer_threat_types
+<a id="canonical-0131022002022233-2130203231131112-0321203132121212-3020021021112223-1110221321110202-2110320310010100-3211111200310110-0303212102010311"></a>
+
+## xcsh_bot_peer_threat_types — xcsh_bot_peer_threat_types / 032132033312 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-2302123121312022-2301001213302311-0321121223321302-2311320221330100-3231232013033111-2331332212213121-3321322300001321-3232102311211020"></a>
+
+## Prerequisites — xcsh_bot_peer_threat_types / 032132033312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3200322122021332-0220330313313301-2313130302303322-3203011022123000-3033131131201003-3012333211001203-3310302010123223-3020030322012212"></a>
+
+## Minimal configuration — xcsh_bot_peer_threat_types / 032132033312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "bot_peer_threat_types_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3130010313200023-2001232232200312-0231303122311022-1120022323233022-1211223002122332-0012310212220212-0033132320233132-2022321232333023"></a>
+
+## Root configuration — xcsh_bot_peer_threat_types / 032132033312 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0103321012300232-0311132030110322-1102113323320220-2321012020121120-1333301130103321-3113230012210302-2023112101032232-1232011211233003"></a>
 
-- [Property reference](../guides/data-sources--bot_peer_threat_types--reference.md)
-- [Examples](../guides/data-sources--bot_peer_threat_types--examples.md)
+## Next pages — xcsh_bot_peer_threat_types / 032132033312 / 6
+
+- [Property reference](../guides/data-sources--bot_peer_threat_types--reference--group-001.md#canonical-3332100122232332-3333313223020231-0231003300003111-0203331223221022-1130001020133313-3333032112000312-2231220001303011-2221222230201332)
+- [Examples](../guides/data-sources--bot_peer_threat_types--examples--group-001.md#canonical-1103132310203222-1120313020330113-0011321100311123-1333222112230011-3120013033102012-3030123330103203-1122100100321000-2210030210131031)

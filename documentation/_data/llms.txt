@@ -345,3 +345,5 @@ Load fundamentals first, then the property reference or immediate children. Fetc
 - [actions/site_upgrade_sw](https://f5-sales-demo.github.io/terraform-provider-xcsh/actions/site_upgrade_sw/): Request an in-place site software upgrade.
 - [ephemeral-resources/artifact_registry_token](https://f5-sales-demo.github.io/terraform-provider-xcsh/ephemeral-resources/artifact_registry_token/): Authentication credential for access control.
 - [ephemeral-resources/kubernetes_manifests](https://f5-sales-demo.github.io/terraform-provider-xcsh/ephemeral-resources/kubernetes_manifests/): Kubernetes workload configuration.
+- [Provider setup and authentication](https://f5-sales-demo.github.io/terraform-provider-xcsh/provider/setup/)
+- [network-allowlists guide](https://f5-sales-demo.github.io/terraform-provider-xcsh/guides/network-allowlists/)

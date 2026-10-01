@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protocol_policer"
+page_title: "xcsh_protocol_policer landing"
 subcategory: ""
-description: "xcsh_protocol_policer for xcsh_protocol_policer."
-xcsh_docs: {"aliases": [], "body_bytes": 1552, "body_sha256": "sha256:a138e53423b51aeb425f29e90fd5a1946b185a1145373e23b3437cf44a12bd81", "canonical_id": "xcsh-docs:resources:protocol_policer:fundamentals", "child_ids": ["xcsh-docs:resources:protocol_policer:reference", "xcsh-docs:resources:protocol_policer:examples", "xcsh-docs:resources:protocol_policer:import", "xcsh-docs:resources:protocol_policer:timeouts"], "collection_id": "xcsh-docs:resources:protocol_policer:collection", "completeness": "complete", "id": "xcsh-docs:resources:protocol_policer:fundamentals", "parent_id": null, "path": "docs/resources/protocol_policer.md", "provider_name": "protocol_policer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protocol_policer for xcsh_protocol_policer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protocol_policerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protocol_policer landing."
 ---
+
+# xcsh_protocol_policer landing
+
+<a id="canonical-3330333012213023-3331002310331112-1210012223120003-2212223210101200-3103330300201100-0230232202320033-0111223122201102-2133311232122222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protocol_policer
+<a id="canonical-3011002312232231-3111211001010102-0200300213221201-1133203123013211-0212302303102322-3123203020301013-2010112123031132-0111213002200110"></a>
+
+## xcsh_protocol_policer — xcsh_protocol_policer / 230030202133 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages protocol\_policer object, protocol\_policer object contains list of L4 protocol match
 condition and corresponding traffic rate limits in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2301103302120000-2130011211313133-1103323232200323-1202021211313020-2030010231223212-0133113120020212-2033003311310010-0320221132030210"></a>
+
+## Prerequisites — xcsh_protocol_policer / 230030202133 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3223032203312320-1032303220022021-2033330332201213-1002010323330102-0031332123121100-1100022232111003-2000301301122220-1222330232221123"></a>
+
+## Minimal configuration — xcsh_protocol_policer / 230030202133 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_protocol_policer" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0111312201211230-1221303133212213-0123230001201311-0113123231113020-0210110333120113-3202331113002320-0211322120132013-3213111101002301"></a>
+
+## Root configuration — xcsh_protocol_policer / 230030202133 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3001302220211032-0232123002112100-1323200323232303-0233132110010003-1230333300132302-3211030003001112-3232313330223312-1310310131003230"></a>
 
-- [Property reference](../guides/resources--protocol_policer--reference.md)
-- [Examples](../guides/resources--protocol_policer--examples.md)
-- [Import](../guides/resources--protocol_policer--import.md)
-- [Timeouts](../guides/resources--protocol_policer--timeouts.md)
+## Next pages — xcsh_protocol_policer / 230030202133 / 6
+
+- [Property reference](../guides/resources--protocol_policer--reference--group-001.md#canonical-2131200202001010-0000130302120213-0011120213023122-1123322102232000-1023213310323311-0232321203023223-1310032211102313-0221101102322221)
+- [Examples](../guides/resources--protocol_policer--examples--group-001.md#canonical-3120323230231032-0233303201201322-3001301212102012-1331313222310222-2110131022000020-0021030121331322-0212120110332220-1100023333311320)
+- [Import](../guides/resources--protocol_policer--lifecycle--group-001.md#canonical-3221123312303112-3311203013001203-0033320131200123-3200112203231013-3000220022021011-2310130301103122-1002320123130221-3331020133303130)
+- [Timeouts](../guides/resources--protocol_policer--lifecycle--group-001.md#canonical-0031311000210302-3210212120013022-1120330010223111-0311320231312013-3101110213011101-2232320221232323-2100103033032213-3222033322212201)

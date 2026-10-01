@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_fast_acl_rule"
+page_title: "xcsh_fast_acl_rule landing"
 subcategory: ""
-description: "xcsh_fast_acl_rule for xcsh_fast_acl_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1446, "body_sha256": "sha256:3848db2ad6c152115f3cdfc65614525d20b8bbe0186e2d811e0876ccecc2ac55", "canonical_id": "xcsh-docs:resources:fast_acl_rule:fundamentals", "child_ids": ["xcsh-docs:resources:fast_acl_rule:reference", "xcsh-docs:resources:fast_acl_rule:examples", "xcsh-docs:resources:fast_acl_rule:import", "xcsh-docs:resources:fast_acl_rule:timeouts"], "collection_id": "xcsh-docs:resources:fast_acl_rule:collection", "completeness": "complete", "id": "xcsh-docs:resources:fast_acl_rule:fundamentals", "parent_id": null, "path": "docs/resources/fast_acl_rule.md", "provider_name": "fast_acl_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fast_acl_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_fast_acl_rule for xcsh_fast_acl_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["fast_acl_ruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_fast_acl_rule landing."
 ---
+
+# xcsh_fast_acl_rule landing
+
+<a id="canonical-3211210133012011-3013232222012110-0223303130203332-3111320233310102-0302012020022011-2023213303223030-1010212231200312-0211302221203302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_fast_acl_rule
+<a id="canonical-3003201310222011-3303111213330203-0312011113033301-0313331221010012-1030331231310202-3031333331321113-2023122032333330-1321320323230021"></a>
+
+## xcsh_fast_acl_rule — xcsh_fast_acl_rule / 011301003110 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1013022003311300-2031023300133013-2221313211212203-0020122300001323-1221302202020230-2322231323112123-3333233121323201-0111221031301303"></a>
+
+## Prerequisites — xcsh_fast_acl_rule / 011301003110 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0212301333201320-3322120203213203-2203211103111021-3312220323100033-3210333100121012-3212001021230202-1123101100330021-2223222030021022"></a>
+
+## Minimal configuration — xcsh_fast_acl_rule / 011301003110 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_fast_acl_rule" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3013301311212122-3231200002302103-2032201210322201-2332221130030230-0320003032201100-3102302210331203-2321011312020201-1220132301232131"></a>
+
+## Root configuration — xcsh_fast_acl_rule / 011301003110 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3233022203112131-2103333033120111-2010100123001232-3033312030232313-0033302021033211-1022021331013032-2010010330133110-3110101023223223"></a>
 
-- [Property reference](../guides/resources--fast_acl_rule--reference.md)
-- [Examples](../guides/resources--fast_acl_rule--examples.md)
-- [Import](../guides/resources--fast_acl_rule--import.md)
-- [Timeouts](../guides/resources--fast_acl_rule--timeouts.md)
+## Next pages — xcsh_fast_acl_rule / 011301003110 / 6
+
+- [Property reference](../guides/resources--fast_acl_rule--reference--group-001.md#canonical-0011333330012010-1222121310111312-3121011031301112-1122322123011322-2031013302131013-2030220000333201-3233233332230221-2203000100020232)
+- [Examples](../guides/resources--fast_acl_rule--examples--group-001.md#canonical-2332303311010220-2331002222330022-3222333230321022-3200311020123320-1001311302002013-0210110221030102-3230030311031021-3002010323233311)
+- [Import](../guides/resources--fast_acl_rule--lifecycle--group-001.md#canonical-3102010323103301-2013303330301003-0033012121311313-2330203230320023-1310322012120331-2310300012202032-3000222200323132-3232022211230200)
+- [Timeouts](../guides/resources--fast_acl_rule--lifecycle--group-001.md#canonical-1221202020011101-3021301202112232-0231031001121230-2013120320112213-3100113102131011-2132333311232321-1003121303030011-2123110032233313)

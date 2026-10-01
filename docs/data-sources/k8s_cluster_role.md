@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_k8s_cluster_role"
+page_title: "xcsh_k8s_cluster_role landing"
 subcategory: "Container"
-description: "xcsh_k8s_cluster_role for xcsh_k8s_cluster_role."
-xcsh_docs: {"aliases": [], "body_bytes": 1350, "body_sha256": "sha256:bd3d6546208cd8830c8a020c43855ea14716cc3239c65cbfb182d2f132901af3", "canonical_id": "xcsh-docs:data-sources:k8s_cluster_role:fundamentals", "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role:reference", "xcsh-docs:data-sources:k8s_cluster_role:examples"], "collection_id": "xcsh-docs:data-sources:k8s_cluster_role:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:k8s_cluster_role:fundamentals", "parent_id": null, "path": "docs/data-sources/k8s_cluster_role.md", "provider_name": "k8s_cluster_role", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_cluster_role for xcsh_k8s_cluster_role.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_cluster_roleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_k8s_cluster_role landing."
 ---
+
+# xcsh_k8s_cluster_role landing
+
+<a id="canonical-2232121312000210-3132130123201003-2131123201312211-2021232000312101-1032012313201322-3103300020131231-0202213330300122-0302302323323122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_k8s_cluster_role
+<a id="canonical-3332030130310213-0022032201323322-3023032202113022-1021333201300213-1322211031111003-3232333221130230-1222101320331132-0110123332032031"></a>
+
+## xcsh_k8s_cluster_role — xcsh_k8s_cluster_role / 333330020112 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages k8s\_cluster\_role will create the object in the storage backend for namespace
 metadata.namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3230020332323312-1020132230103132-2130110330320333-2230132103122012-3121122000311122-2032011231010003-0231312021320311-3021003221103233"></a>
+
+## Prerequisites — xcsh_k8s_cluster_role / 333330020112 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-## Minimal configuration
+<a id="canonical-2333011023210213-3103221231301011-3002213001103031-0012001223023112-0001220321101330-0233002121210301-1211322213312331-3020220211101230"></a>
+
+## Minimal configuration — xcsh_k8s_cluster_role / 333330020112 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "k8s_cluster_role_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1213121030021323-3211323230032002-0013022231133033-3213021210033101-0001130213113122-3002230320302311-1101333001322122-0320113230221032"></a>
+
+## Root configuration — xcsh_k8s_cluster_role / 333330020112 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2130313232003310-0222322211203213-1330211130231003-2212201230310033-3013312300010310-2112022223112220-3203032110033220-0032301133103032"></a>
 
-- [Property reference](../guides/data-sources--k8s_cluster_role--reference.md)
-- [Examples](../guides/data-sources--k8s_cluster_role--examples.md)
+## Next pages — xcsh_k8s_cluster_role / 333330020112 / 6
+
+- [Property reference](../guides/data-sources--k8s_cluster_role--reference--group-001.md#canonical-2001310313031232-3003303113031320-0000111202132223-2030000001211031-3123033320222313-3312102121311301-3321002322000112-3233122202001100)
+- [Examples](../guides/data-sources--k8s_cluster_role--examples--group-001.md#canonical-2020200223133133-1213011132112100-3201302032210003-2331332220121210-0033322213031201-3101003002030200-1103001321300103-2312010013201210)

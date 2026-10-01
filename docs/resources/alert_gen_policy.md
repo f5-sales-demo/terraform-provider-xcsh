@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_gen_policy"
+page_title: "xcsh_alert_gen_policy landing"
 subcategory: ""
-description: "xcsh_alert_gen_policy for xcsh_alert_gen_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1346, "body_sha256": "sha256:08629b09060224c28155a39f35c17a8b738c2a51cd4f5480b2c531e5208eb768", "canonical_id": "xcsh-docs:resources:alert_gen_policy:fundamentals", "child_ids": ["xcsh-docs:resources:alert_gen_policy:reference", "xcsh-docs:resources:alert_gen_policy:examples", "xcsh-docs:resources:alert_gen_policy:import", "xcsh-docs:resources:alert_gen_policy:timeouts"], "collection_id": "xcsh-docs:resources:alert_gen_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:alert_gen_policy:fundamentals", "parent_id": null, "path": "docs/resources/alert_gen_policy.md", "provider_name": "alert_gen_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_gen_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_gen_policy for xcsh_alert_gen_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_gen_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_gen_policy landing."
 ---
+
+# xcsh_alert_gen_policy landing
+
+<a id="canonical-2201222232120330-1303130313333202-2020210123203131-3130311000211300-3201232201020110-2210203113113010-2232121111101221-3030222001111001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_gen_policy
+<a id="canonical-0321133211320201-1013333010200110-3313123303133033-3231312013003320-2220011131333313-0223301121100121-2102311111303231-0203310332122032"></a>
+
+## xcsh_alert_gen_policy — xcsh_alert_gen_policy / 211223021320 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Alert Generation Policy in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3213000232212203-2033121300022301-1111322202313320-1333301000013022-3221223322223232-3130001101011012-3323323101022220-1030221102212322"></a>
+
+## Prerequisites — xcsh_alert_gen_policy / 211223021320 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0030202313111330-1110120301231000-0022331120002313-3022000111131102-1201201100310122-0003202033022022-2211310113112302-0322332233313230"></a>
+
+## Minimal configuration — xcsh_alert_gen_policy / 211223021320 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_alert_gen_policy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0332130133330132-1001303302301013-1111032222321223-1300313321332131-1322003302300003-3001221032130030-1132201310310200-1031100311230032"></a>
+
+## Root configuration — xcsh_alert_gen_policy / 211223021320 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1030231203333123-1322331123311303-1021021020103313-1203031032002222-3003030110011232-1001322011311133-1211122301100303-3112200321202012"></a>
 
-- [Property reference](../guides/resources--alert_gen_policy--reference.md)
-- [Examples](../guides/resources--alert_gen_policy--examples.md)
-- [Import](../guides/resources--alert_gen_policy--import.md)
-- [Timeouts](../guides/resources--alert_gen_policy--timeouts.md)
+## Next pages — xcsh_alert_gen_policy / 211223021320 / 6
+
+- [Property reference](../guides/resources--alert_gen_policy--reference--group-001.md#canonical-0113323010121111-3310031311010033-0120221122230330-1032002302130100-3011003320313103-0332032231313220-3233111110000200-2012111221210303)
+- [Examples](../guides/resources--alert_gen_policy--examples--group-001.md#canonical-1333311220130202-1032210111110011-0220332203212331-1012033311301010-2031321003013300-0312030101013302-0002322233120201-1110333102211333)
+- [Import](../guides/resources--alert_gen_policy--lifecycle--group-001.md#canonical-1103101021010221-2231010233003223-1320220111303111-0312011221230000-2132221132030030-1203131200111010-1303223102220113-0221200020321012)
+- [Timeouts](../guides/resources--alert_gen_policy--lifecycle--group-001.md#canonical-2203233101331112-3132232220332331-3132000013020003-3311232002232333-2133322212003010-3230223012222220-2112113223211330-3330202203113113)

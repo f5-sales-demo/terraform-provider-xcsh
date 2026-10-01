@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bgp_routing_policy"
+page_title: "xcsh_bgp_routing_policy landing"
 subcategory: ""
-description: "xcsh_bgp_routing_policy for xcsh_bgp_routing_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1467, "body_sha256": "sha256:83fb1a0722c33c99145029847c8a9a850fbeed6c62eca04a2cac376edab35955", "canonical_id": "xcsh-docs:data-sources:bgp_routing_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:bgp_routing_policy:reference", "xcsh-docs:data-sources:bgp_routing_policy:examples"], "collection_id": "xcsh-docs:data-sources:bgp_routing_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bgp_routing_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/bgp_routing_policy.md", "provider_name": "bgp_routing_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp_routing_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bgp_routing_policy for xcsh_bgp_routing_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bgp_routing_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bgp_routing_policy landing."
 ---
+
+# xcsh_bgp_routing_policy landing
+
+<a id="canonical-3102200322103130-1203312020030213-3201133013110033-0210200032321012-3332210321102311-1131021302223032-2111203312332010-3101223110212011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bgp_routing_policy
+<a id="canonical-3101331032301321-1133133323103302-2233300222232202-1112033022223330-3332013131331023-0102132132303302-3211310023213111-2120300102130011"></a>
+
+## xcsh_bgp_routing_policy — xcsh_bgp_routing_policy / 131122101022 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing po
 rules containing match criteria and action to be applied. these rules help control routes which are
 imported or exported to bgp peers. configuration.
 
-## Prerequisites
+<a id="canonical-0211132013111321-2210332103302212-3032123130302003-1321302000031321-0331320133222030-2333212203203000-3323122202031222-3210030333112330"></a>
+
+## Prerequisites — xcsh_bgp_routing_policy / 131122101022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0233322022300200-0123123103213321-2200002000233210-3032233331011132-0301213300021322-0012010121223133-3230203320032120-3310232001201113"></a>
+
+## Minimal configuration — xcsh_bgp_routing_policy / 131122101022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "bgp_routing_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2331301130200201-0013122102301133-2122233322301330-0320021303200000-2011012230021021-2222003321202213-1010131321033332-0332200211231332"></a>
+
+## Root configuration — xcsh_bgp_routing_policy / 131122101022 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3103302030133011-2100122132031302-1121100002313313-0003211123330310-3122021022333021-2211030211202231-1233323112230221-0021013302330310"></a>
 
-- [Property reference](../guides/data-sources--bgp_routing_policy--reference.md)
-- [Examples](../guides/data-sources--bgp_routing_policy--examples.md)
+## Next pages — xcsh_bgp_routing_policy / 131122101022 / 6
+
+- [Property reference](../guides/data-sources--bgp_routing_policy--reference--group-001.md#canonical-3230302232032223-2102321002200133-1031202010123210-2300211332133213-2202101301330130-1113310322000130-1210320002212323-0301110213023323)
+- [Examples](../guides/data-sources--bgp_routing_policy--examples--group-001.md#canonical-0020013202220313-1110310122121231-1203301102111331-0112321221000103-2101220000303302-1202101110220103-3131301330003222-3113021201320212)

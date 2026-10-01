@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_fast_acl_rule"
+page_title: "xcsh_fast_acl_rule landing"
 subcategory: ""
-description: "xcsh_fast_acl_rule for xcsh_fast_acl_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1291, "body_sha256": "sha256:3a1073930e38c942860e8efedc134959851afab6ff9c7e5263b7ee2324158339", "canonical_id": "xcsh-docs:data-sources:fast_acl_rule:fundamentals", "child_ids": ["xcsh-docs:data-sources:fast_acl_rule:reference", "xcsh-docs:data-sources:fast_acl_rule:examples"], "collection_id": "xcsh-docs:data-sources:fast_acl_rule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:fast_acl_rule:fundamentals", "parent_id": null, "path": "docs/data-sources/fast_acl_rule.md", "provider_name": "fast_acl_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_fast_acl_rule for xcsh_fast_acl_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["fast_acl_ruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_fast_acl_rule landing."
 ---
+
+# xcsh_fast_acl_rule landing
+
+<a id="canonical-2322211232231123-2000222302002322-0230323221110333-3020201120001310-3010102231232032-3203221031003230-1300331222110232-2023131232010032"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_fast_acl_rule
+<a id="canonical-3003102221322103-1301202021333011-0230110020031113-3113300200211123-3321203103133120-1013130232023232-2201012010301102-3001333212223213"></a>
+
+## xcsh_fast_acl_rule — xcsh_fast_acl_rule / 012030223132 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2322010131311222-0121221312210132-3132320101110201-3131232113101331-0220113112012330-1312120222021220-3102322202131013-1002120211130322"></a>
+
+## Prerequisites — xcsh_fast_acl_rule / 012030223132 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3201022321330102-1031121321013320-3210320311132222-1132332332302030-3121321311232203-2002120012332101-0321103332033200-2332111221200110"></a>
+
+## Minimal configuration — xcsh_fast_acl_rule / 012030223132 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "fast_acl_rule_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0212113122101310-3010223203121001-0133002021010332-1333103322033303-0031000321313312-1020203131212203-1332313032000120-3101202211002221"></a>
+
+## Root configuration — xcsh_fast_acl_rule / 012030223132 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2233310230111301-3130101213230220-1321132300001130-2000133013003030-1202012122112320-2300011100213000-2310332101032003-1302103022112200"></a>
 
-- [Property reference](../guides/data-sources--fast_acl_rule--reference.md)
-- [Examples](../guides/data-sources--fast_acl_rule--examples.md)
+## Next pages — xcsh_fast_acl_rule / 012030223132 / 6
+
+- [Property reference](../guides/data-sources--fast_acl_rule--reference--group-001.md#canonical-0130033020112332-1320113013031122-3323102231201130-2302010233220010-0332222213110322-3330103313001312-0313202331310301-0031300023203130)
+- [Examples](../guides/data-sources--fast_acl_rule--examples--group-001.md#canonical-3211232130101212-1130233301203323-3130113131323113-0011112033203332-2221012002203030-2101332011200103-0103233112100130-3302123121230230)

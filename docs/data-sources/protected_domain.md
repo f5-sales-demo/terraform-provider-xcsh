@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protected_domain"
+page_title: "xcsh_protected_domain landing"
 subcategory: ""
-description: "xcsh_protected_domain for xcsh_protected_domain."
-xcsh_docs: {"aliases": [], "body_bytes": 1252, "body_sha256": "sha256:bc3cd2d0a73c40e8c24453202fc7bda469c7ad2f65c7b43de77fef04906dc61e", "canonical_id": "xcsh-docs:data-sources:protected_domain:fundamentals", "child_ids": ["xcsh-docs:data-sources:protected_domain:reference", "xcsh-docs:data-sources:protected_domain:examples"], "collection_id": "xcsh-docs:data-sources:protected_domain:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_domain:fundamentals", "parent_id": null, "path": "docs/data-sources/protected_domain.md", "provider_name": "protected_domain", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_domain/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protected_domain for xcsh_protected_domain.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protected_domainCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protected_domain landing."
 ---
+
+# xcsh_protected_domain landing
+
+<a id="canonical-0332111003332231-3231333320302220-0013131312310303-3021021201222321-0302322122212110-0022133313313221-1010303303020331-2102022101100033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protected_domain
+<a id="canonical-0230023120333310-2021222020333111-1210220330230021-2012110320121012-1230123102301202-3322333011121313-2210311011222120-1113310233103003"></a>
+
+## xcsh_protected_domain — xcsh_protected_domain / 331203033231 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Domain to protect in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0132001100121122-2232230303313322-1333322212113011-0233021322330020-1012022013033211-1312121313320121-0030122203010232-2010313030320323"></a>
+
+## Prerequisites — xcsh_protected_domain / 331203033231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3012211222032102-3201123000210002-0221023321100010-0120130202020011-2001033300313230-3321311010213332-3223021011323202-0330132123323311"></a>
+
+## Minimal configuration — xcsh_protected_domain / 331203033231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "protected_domain_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1331321000321022-1330031302131020-3310030310032102-0003001003122021-0230213313020233-3012112302032213-3322012232111233-1302320133220012"></a>
+
+## Root configuration — xcsh_protected_domain / 331203033231 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1003113300010311-3221212132132312-0101313213200322-0120203113331301-3121200333012212-3123133032200111-2301302231321300-0110100000133200"></a>
 
-- [Property reference](../guides/data-sources--protected_domain--reference.md)
-- [Examples](../guides/data-sources--protected_domain--examples.md)
+## Next pages — xcsh_protected_domain / 331203033231 / 6
+
+- [Property reference](../guides/data-sources--protected_domain--reference--group-001.md#canonical-0100212211301123-0131201333311010-0332012111101032-1203123003220200-0132003223232101-2021312112301101-0321113310100202-2032033113330123)
+- [Examples](../guides/data-sources--protected_domain--examples--group-001.md#canonical-3030223231010012-3322000022222331-0212010302300020-3010113221023011-3121313131011111-0203010312301030-0122222022013100-1201023111230012)

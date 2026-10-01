@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_virtual_network"
+page_title: "xcsh_virtual_network landing"
 subcategory: "Networking"
-description: "xcsh_virtual_network for xcsh_virtual_network."
-xcsh_docs: {"aliases": [], "body_bytes": 1375, "body_sha256": "sha256:1a4055194bdd7ccaebc9e158efcf2fb3ca93b2ec8958cb5717d1dbfc7a307467", "canonical_id": "xcsh-docs:data-sources:virtual_network:fundamentals", "child_ids": ["xcsh-docs:data-sources:virtual_network:reference", "xcsh-docs:data-sources:virtual_network:examples"], "collection_id": "xcsh-docs:data-sources:virtual_network:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:virtual_network:fundamentals", "parent_id": null, "path": "docs/data-sources/virtual_network.md", "provider_name": "virtual_network", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/virtual_network/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_virtual_network for xcsh_virtual_network.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["virtual_networkCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_virtual_network landing."
 ---
+
+# xcsh_virtual_network landing
+
+<a id="canonical-2112023310021033-2012123022032122-0030112331222000-3101313021113310-0300312330333113-3110103330132201-2330310010223213-3013312303120122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_virtual_network
+<a id="canonical-1322013023321033-3322330303012001-0321213301222101-2023102222121030-0330333120310332-0222023231020001-1030320220123303-1031100323320110"></a>
+
+## xcsh_virtual_network — xcsh_virtual_network / 003202110231 / 2
 
 Breadcrumbs:
 
@@ -17,7 +22,9 @@ Breadcrumbs:
 
 Manages virtual network in given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2210102003131101-3001211222312221-2333233311023002-0211011233112230-0131331113313100-0322302020221333-2312011312031223-3231230033203020"></a>
+
+## Prerequisites — xcsh_virtual_network / 003202110231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -27,7 +34,9 @@ Optional integrations: `network_connector`.
 
 - network_connector: Connect to external networks
 
-## Minimal configuration
+<a id="canonical-0302131101101011-1213232110323000-3000003203030301-1302301032201230-1320301112332003-3211120032301301-2112031110003012-0130123211323112"></a>
+
+## Minimal configuration — xcsh_virtual_network / 003202110231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,11 +65,15 @@ output "virtual_network_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1331232103203330-1013100330123301-0110320020221310-2210022102221302-0132322332100331-2103120220220300-1123320032323002-0232303333112021"></a>
+
+## Root configuration — xcsh_virtual_network / 003202110231 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0200120001022133-0313011022313323-2011210131230210-2112021301012230-2232131223222120-1323100031112111-2330313213332322-3210130111301131"></a>
 
-- [Property reference](../guides/data-sources--virtual_network--reference.md)
-- [Examples](../guides/data-sources--virtual_network--examples.md)
+## Next pages — xcsh_virtual_network / 003202110231 / 6
+
+- [Property reference](../guides/data-sources--virtual_network--reference--group-001.md#canonical-2130101021323011-3002330133321312-3110103001302103-2133320321012310-3010320330020032-1032031113023113-3330002130320310-0200303030321113)
+- [Examples](../guides/data-sources--virtual_network--examples--group-001.md#canonical-2222201120130020-1313132202212131-3101301212113322-0001333200121000-2022312231231133-2330203232100230-0333321232313201-2322110020333313)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_segment"
+page_title: "xcsh_segment landing"
 subcategory: ""
-description: "xcsh_segment for xcsh_segment."
-xcsh_docs: {"aliases": [], "body_bytes": 1275, "body_sha256": "sha256:84f8d00e28bd233e7f354f88b7e2482c07e8c3ca9d982e041cede574a6b6dce3", "canonical_id": "xcsh-docs:resources:segment:fundamentals", "child_ids": ["xcsh-docs:resources:segment:reference", "xcsh-docs:resources:segment:examples", "xcsh-docs:resources:segment:import", "xcsh-docs:resources:segment:timeouts"], "collection_id": "xcsh-docs:resources:segment:collection", "completeness": "complete", "id": "xcsh-docs:resources:segment:fundamentals", "parent_id": null, "path": "docs/resources/segment.md", "provider_name": "segment", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/segment/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_segment for xcsh_segment.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["segmentCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_segment landing."
 ---
+
+# xcsh_segment landing
+
+<a id="canonical-0101112303102030-3002312202122100-1330003103220202-0000333232013010-1103110310200110-1220311303213310-0313003331122333-2030222122100100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_segment
+<a id="canonical-0123201331031031-1210023021033313-0310303031121003-3101002032300130-0123032213221121-2230331003110133-2032131220020312-0110313222331233"></a>
+
+## xcsh_segment — xcsh_segment / 003012121312 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
 
-## Prerequisites
+<a id="canonical-1130122332330212-2203313120221023-1233300001333033-1210312002023332-2023021213201112-3101010011310013-3032100233220120-3033313310132212"></a>
+
+## Prerequisites — xcsh_segment / 003012121312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0312223312130121-1032001333221303-1111301133330230-0133123131203313-1013021130133023-3312130201011003-3202103032210332-2220221100030101"></a>
+
+## Minimal configuration — xcsh_segment / 003012121312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_segment" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0332321323021233-2002233120002031-2211323210331112-3032013103221322-3032012332311023-0100313020002321-3332203133211201-1002012030303132"></a>
+
+## Root configuration — xcsh_segment / 003012121312 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1212332230310323-2202113113313313-0232322132032000-1103210023113312-2211320020113232-0000133031010122-3030130210013121-1011131202203311"></a>
 
-- [Property reference](../guides/resources--segment--reference.md)
-- [Examples](../guides/resources--segment--examples.md)
-- [Import](../guides/resources--segment--import.md)
-- [Timeouts](../guides/resources--segment--timeouts.md)
+## Next pages — xcsh_segment / 003012121312 / 6
+
+- [Property reference](../guides/resources--segment--reference--group-001.md#canonical-0333310231313321-0120303030320002-3001033000112301-0230202002331312-0213020300113131-0011002021012330-3202203300010331-3312231333130010)
+- [Examples](../guides/resources--segment--examples--group-001.md#canonical-0010012020032131-0303310301013201-0301311230200021-1232232112301310-2303121301123012-3012332033211130-2330330030312333-0313210121303333)
+- [Import](../guides/resources--segment--lifecycle--group-001.md#canonical-1001002102021311-1203023103330002-2021312223200031-3213233012332321-2031323020033021-2230320332123133-0002031022101301-2032211323110003)
+- [Timeouts](../guides/resources--segment--lifecycle--group-001.md#canonical-0202030120332322-0103222002111101-3123322313103321-0102031123023031-2102001323002030-2331311110220013-0222030302113113-2223010002210213)

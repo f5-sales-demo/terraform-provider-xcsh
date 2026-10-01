@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_k8s_pod_security_admission"
+page_title: "xcsh_k8s_pod_security_admission landing"
 subcategory: ""
-description: "xcsh_k8s_pod_security_admission for xcsh_k8s_pod_security_admission."
-xcsh_docs: {"aliases": [], "body_bytes": 1531, "body_sha256": "sha256:ffabf0e2f3f387d83c28b9c0a9d03b5104c53091fb95a039b39109be7aa563fd", "canonical_id": "xcsh-docs:resources:k8s_pod_security_admission:fundamentals", "child_ids": ["xcsh-docs:resources:k8s_pod_security_admission:reference", "xcsh-docs:resources:k8s_pod_security_admission:examples", "xcsh-docs:resources:k8s_pod_security_admission:import", "xcsh-docs:resources:k8s_pod_security_admission:timeouts"], "collection_id": "xcsh-docs:resources:k8s_pod_security_admission:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_pod_security_admission:fundamentals", "parent_id": null, "path": "docs/resources/k8s_pod_security_admission.md", "provider_name": "k8s_pod_security_admission", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_admission/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_pod_security_admission for xcsh_k8s_pod_security_admission.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_pod_security_admissionCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_k8s_pod_security_admission landing."
 ---
+
+# xcsh_k8s_pod_security_admission landing
+
+<a id="canonical-0313313203122132-2133320121222233-2103022302032133-2001003113030010-1331332233310223-0122000131122000-1030032313322310-3110123301232023"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_k8s_pod_security_admission
+<a id="canonical-2310011233323001-0303012221002330-2002010310222221-3301320220222133-2121030331211131-1202322033213232-2201102201301223-2132120023032031"></a>
+
+## xcsh_k8s_pod_security_admission — xcsh_k8s_pod_security_admission / 323000233312 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages k8s\_pod\_security\_admission will create the object in the storage backend in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1132123203323123-3010012232202320-0021113312002010-3313101021200230-2222101201322320-3203312331011300-2312302333321233-1020012333231112"></a>
+
+## Prerequisites — xcsh_k8s_pod_security_admission / 323000233312 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2330300100002013-0221231101032103-2221202323332023-1130320333111322-3221011223101123-2032203303333322-3330120031122001-3023033203030230"></a>
+
+## Minimal configuration — xcsh_k8s_pod_security_admission / 323000233312 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_k8s_pod_security_admission" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0301023200113020-2332033322122302-1311300232010312-3012211111022122-2112320203103200-1302302323031103-0103121120321133-0222022333201320"></a>
+
+## Root configuration — xcsh_k8s_pod_security_admission / 323000233312 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0123230232111202-1232122021102131-0102123000300010-1313130303320002-1020302322120331-2130121033200200-1013311211033101-0301303003033122"></a>
 
-- [Property reference](../guides/resources--k8s_pod_security_admission--reference.md)
-- [Examples](../guides/resources--k8s_pod_security_admission--examples.md)
-- [Import](../guides/resources--k8s_pod_security_admission--import.md)
-- [Timeouts](../guides/resources--k8s_pod_security_admission--timeouts.md)
+## Next pages — xcsh_k8s_pod_security_admission / 323000233312 / 6
+
+- [Property reference](../guides/resources--k8s_pod_security_admission--reference--group-001.md#canonical-2222333310123013-1221301313132132-3120203303322302-2023312113233133-3221130101113030-0021200233133103-2011300211002132-0212001303010330)
+- [Examples](../guides/resources--k8s_pod_security_admission--examples--group-001.md#canonical-3303212110021111-0310330201010013-3130321323000001-2103313102022233-1213301323300113-2112033122032222-1032310313122120-3020321110323322)
+- [Import](../guides/resources--k8s_pod_security_admission--lifecycle--group-001.md#canonical-1332322211301202-3112300032013110-3333012330223211-2030001100132313-1030222133313333-3012033302200111-0012121021232011-3133300211112002)
+- [Timeouts](../guides/resources--k8s_pod_security_admission--lifecycle--group-001.md#canonical-2212300120320230-3120103030130113-0231311023023312-1233230202100000-3022100210320223-1300113310302113-0212331330311010-0002130132010200)

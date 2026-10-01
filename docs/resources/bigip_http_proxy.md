@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bigip_http_proxy"
+page_title: "xcsh_bigip_http_proxy landing"
 subcategory: ""
-description: "xcsh_bigip_http_proxy for xcsh_bigip_http_proxy."
-xcsh_docs: {"aliases": [], "body_bytes": 1398, "body_sha256": "sha256:94955c40036d7beaf427f09885875c3f33037fc24262682c57c0ded3a9f38361", "canonical_id": "xcsh-docs:resources:bigip_http_proxy:fundamentals", "child_ids": ["xcsh-docs:resources:bigip_http_proxy:reference", "xcsh-docs:resources:bigip_http_proxy:examples", "xcsh-docs:resources:bigip_http_proxy:import", "xcsh-docs:resources:bigip_http_proxy:timeouts"], "collection_id": "xcsh-docs:resources:bigip_http_proxy:collection", "completeness": "complete", "id": "xcsh-docs:resources:bigip_http_proxy:fundamentals", "parent_id": null, "path": "docs/resources/bigip_http_proxy.md", "provider_name": "bigip_http_proxy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bigip_http_proxy for xcsh_bigip_http_proxy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bigip_http_proxyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bigip_http_proxy landing."
 ---
+
+# xcsh_bigip_http_proxy landing
+
+<a id="canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bigip_http_proxy
+<a id="canonical-2121112130220303-2321333123102201-3331020133033113-0103221231201031-2022122211230222-0003031232000033-0113232221132212-0311121312132332"></a>
+
+## xcsh_bigip_http_proxy — xcsh_bigip_http_proxy / 113222002000 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1021302023102320-2032223000121021-1320220123300110-1131110222023331-0312203112120201-1320300021120122-3123322013222000-3123300323323120"></a>
+
+## Prerequisites — xcsh_bigip_http_proxy / 113222002000 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2033131021221102-2130223333002332-0212333000203322-2213231221132210-2322100103323030-0021333022300000-0223100123322213-1232331213333301"></a>
+
+## Minimal configuration — xcsh_bigip_http_proxy / 113222002000 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_bigip_http_proxy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3023232331011211-0103011112120333-0301221301022103-0030111101331312-3332022323010313-3011022312232222-2112213122213020-0232233001113130"></a>
+
+## Root configuration — xcsh_bigip_http_proxy / 113222002000 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2232231201132031-1031033021032322-2102211033300001-2321101211003303-1022003000310320-1103220311331102-3302221133003223-0033323300323310"></a>
 
-- [Property reference](../guides/resources--bigip_http_proxy--reference.md)
-- [Examples](../guides/resources--bigip_http_proxy--examples.md)
-- [Import](../guides/resources--bigip_http_proxy--import.md)
-- [Timeouts](../guides/resources--bigip_http_proxy--timeouts.md)
+## Next pages — xcsh_bigip_http_proxy / 113222002000 / 6
+
+- [Property reference](../guides/resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [Examples](../guides/resources--bigip_http_proxy--examples--group-001.md#canonical-2313230102320310-0012132010302323-1000322011120020-3200011232313003-3222013112301030-1323130302012001-0002211033301020-3013021303331210)
+- [Import](../guides/resources--bigip_http_proxy--lifecycle--group-001.md#canonical-1322100321131123-3311223313323113-2230001002103133-3100231312000321-0222001120321210-2322202312220231-1131001322001222-2203201230031012)
+- [Timeouts](../guides/resources--bigip_http_proxy--lifecycle--group-001.md#canonical-0032021232021322-1031002130311031-0030320223103110-3032103003210012-0231113002003300-0110201030322130-2013333120332300-1323202131121211)

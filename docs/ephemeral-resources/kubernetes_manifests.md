@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_kubernetes_manifests"
+page_title: "xcsh_kubernetes_manifests landing"
 subcategory: ""
-description: "xcsh_kubernetes_manifests for xcsh_kubernetes_manifests."
-xcsh_docs: {"aliases": [], "body_bytes": 1186, "body_sha256": "sha256:1b4f6c7739b68e80f620e687b0ce29dc29256a4d73c9d0618494b8cea79f128f", "canonical_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals", "child_ids": ["xcsh-docs:ephemeral-resources:kubernetes_manifests:reference", "xcsh-docs:ephemeral-resources:kubernetes_manifests:examples", "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle"], "collection_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:collection", "completeness": "complete", "id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:fundamentals", "parent_id": null, "path": "docs/ephemeral-resources/kubernetes_manifests.md", "provider_name": "kubernetes_manifests", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "ephemeral-resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/kubernetes_manifests/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_kubernetes_manifests for xcsh_kubernetes_manifests.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_kubernetes_manifests landing."
 ---
+
+# xcsh_kubernetes_manifests landing
+
+<a id="canonical-3020030201123201-1030130333132003-2002102001021330-1320220001031302-0001300203331022-2100320312131223-1211321010102033-2012323132111020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_kubernetes_manifests
+<a id="canonical-2322300123203200-3003033311220331-0201030101303200-3000122131010301-3032112310310112-1220331321001211-1303111202313231-0203021012320310"></a>
+
+## xcsh_kubernetes_manifests — xcsh_kubernetes_manifests / 230131313131 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Kubernetes workload configuration.
 
-## Prerequisites
+<a id="canonical-3022021122313200-2300213210323013-2312200321022113-0210321100220120-2321230330000202-2311212310001213-3130123302021223-3312133120002033"></a>
+
+## Prerequisites — xcsh_kubernetes_manifests / 230131313131 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2333112210221333-0120031130201020-1023310302111203-2221101212322022-2131112302223120-2113332031322200-3111221311010313-1302222311320101"></a>
+
+## Minimal configuration — xcsh_kubernetes_manifests / 230131313131 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -44,12 +53,16 @@ ephemeral "xcsh_kubernetes_manifests" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2011230000021013-0103000301233031-3100001113230033-1001312131000200-2112121103332031-3130032213012333-3310110200220000-1032221211200001"></a>
+
+## Root configuration — xcsh_kubernetes_manifests / 230131313131 / 5
 
 Required root properties: `site`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2333201000033111-0213103233000311-3303122222202002-1330120002030103-0110333303212132-2021000321013123-0211220002110230-2231113212300023"></a>
 
-- [Property reference](../guides/ephemeral-resources--kubernetes_manifests--reference.md)
-- [Examples](../guides/ephemeral-resources--kubernetes_manifests--examples.md)
-- [Lifecycle](../guides/ephemeral-resources--kubernetes_manifests--lifecycle.md)
+## Next pages — xcsh_kubernetes_manifests / 230131313131 / 6
+
+- [Property reference](../guides/ephemeral-resources--kubernetes_manifests--reference--group-001.md#canonical-0222301022001323-1002221032030331-0321231112233121-0131212101033121-3023002220100301-3312321000102011-3211011101131320-3232112012103020)
+- [Examples](../guides/ephemeral-resources--kubernetes_manifests--examples--group-001.md#canonical-3322303333023100-0233011223022113-0321002001333230-3022113113012233-1012213220103312-0221022122302132-3102202230320101-0230032011113332)
+- [Lifecycle](../guides/ephemeral-resources--kubernetes_manifests--lifecycle--group-001.md#canonical-0131231131103223-3323102110011201-2331133102210002-1032333031030023-1132222323221120-0003011021302021-0020120030303000-2130113320101312)

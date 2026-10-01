@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_policy"
+page_title: "xcsh_network_policy landing"
 subcategory: "Security"
-description: "xcsh_network_policy for xcsh_network_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1317, "body_sha256": "sha256:87c79b5fd91c91ce7776509e3705dd847ff22ce7f16d89bd6d91f7643867f505", "canonical_id": "xcsh-docs:data-sources:network_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_policy:reference", "xcsh-docs:data-sources:network_policy:examples"], "collection_id": "xcsh-docs:data-sources:network_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/network_policy.md", "provider_name": "network_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_policy for xcsh_network_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_policy landing."
 ---
+
+# xcsh_network_policy landing
+
+<a id="canonical-0310211312011330-3122113202012230-1220102020331323-3311020133111313-2012202311123131-3000120301000221-0313212120103323-3000022233312033"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_policy
+<a id="canonical-3320123132302311-2111213221231110-1021121233301232-0330222332222331-2012322012231123-2223130020013003-2200120332022211-2033212203021210"></a>
+
+## xcsh_network_policy — xcsh_network_policy / 310312030111 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages new network policy with configured parameters in specified namespace in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-3212301123132011-2032303033201222-3013010331010000-0313013112333123-2222010231030131-2301112033321013-1030231013123110-0332031332000122"></a>
+
+## Prerequisites — xcsh_network_policy / 310312030111 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-3011230320013312-1012022000303222-1301033032000213-0221322023312003-3333312032121222-3003101222030200-3322312121023202-2313231001011011"></a>
+
+## Minimal configuration — xcsh_network_policy / 310312030111 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "network_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3200223232021311-0002102020002102-3031211203201111-1302211203122212-1303123013223121-3211201212222333-1200301001002131-1133031203332320"></a>
+
+## Root configuration — xcsh_network_policy / 310312030111 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1013111301010233-2301130013131030-0132123233332333-1100223133333001-1213303210022032-1212221013011231-2332133131230012-2113301123310113"></a>
 
-- [Property reference](../guides/data-sources--network_policy--reference.md)
-- [Examples](../guides/data-sources--network_policy--examples.md)
+## Next pages — xcsh_network_policy / 310312030111 / 6
+
+- [Property reference](../guides/data-sources--network_policy--reference--group-001.md#canonical-1311103202221102-1230113110322222-0330120323322123-0223212230313111-1113112233013330-2101223313322112-3011012123300123-2111301323113333)
+- [Examples](../guides/data-sources--network_policy--examples--group-001.md#canonical-3101310111230003-2031330022332131-3120112210211023-0111230213001020-2002212100121322-2120101311133223-3111333310021231-2312101332310311)

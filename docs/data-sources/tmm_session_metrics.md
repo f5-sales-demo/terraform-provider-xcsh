@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_tmm_session_metrics"
+page_title: "xcsh_tmm_session_metrics landing"
 subcategory: ""
-description: "xcsh_tmm_session_metrics for xcsh_tmm_session_metrics."
-xcsh_docs: {"aliases": [], "body_bytes": 1165, "body_sha256": "sha256:51c1fe005131e8f82fa8f99969f5d5e359c10cbb4a05ed5715f9e21fe68d9259", "canonical_id": "xcsh-docs:data-sources:tmm_session_metrics:fundamentals", "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:reference", "xcsh-docs:data-sources:tmm_session_metrics:examples"], "collection_id": "xcsh-docs:data-sources:tmm_session_metrics:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:tmm_session_metrics:fundamentals", "parent_id": null, "path": "docs/data-sources/tmm_session_metrics.md", "provider_name": "tmm_session_metrics", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tmm_session_metrics/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_tmm_session_metrics for xcsh_tmm_session_metrics.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_tmm_session_metrics landing."
 ---
+
+# xcsh_tmm_session_metrics landing
+
+<a id="canonical-0001230110001322-3111312333111112-1132331032100110-2331112112213012-0233311131222231-0011030021132123-2021311322012101-1333301310111303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_tmm_session_metrics
+<a id="canonical-0313012001123323-0031223112301120-0021201323111301-2210222020123320-3331101121201332-3201112030121213-1020333010310131-2221022232101132"></a>
+
+## xcsh_tmm_session_metrics — xcsh_tmm_session_metrics / 213331222022 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-1023122002213312-3130330001113020-0212100211320232-0131120103322012-0131133002020231-0320222300201200-1021022220011032-1232300220200221"></a>
+
+## Prerequisites — xcsh_tmm_session_metrics / 213331222022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3031210331211113-0020220020132230-3300312310211122-3001311130120212-1112010132023321-1120031322010313-3100220110120333-3310300000201013"></a>
+
+## Minimal configuration — xcsh_tmm_session_metrics / 213331222022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "tmm_session_metrics_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1330132221032210-0100031320231101-3321212121021003-3322303023202032-0313202230001120-1303202103102123-1203011231010313-3030222232321231"></a>
+
+## Root configuration — xcsh_tmm_session_metrics / 213331222022 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2220102200101030-3212201021112020-3210003233113312-0013232002013123-0031311203112201-3233200311102012-1231203301232023-0222322031211100"></a>
 
-- [Property reference](../guides/data-sources--tmm_session_metrics--reference.md)
-- [Examples](../guides/data-sources--tmm_session_metrics--examples.md)
+## Next pages — xcsh_tmm_session_metrics / 213331222022 / 6
+
+- [Property reference](../guides/data-sources--tmm_session_metrics--reference--group-001.md#canonical-1102133100011312-3223013330330031-0122231013233021-3302021011031130-2012012221022001-0001110032023221-2202110303032301-2312300333322010)
+- [Examples](../guides/data-sources--tmm_session_metrics--examples--group-001.md#canonical-1233211223130102-1300331332213330-1230330121133120-1002001001303333-0120223112101120-0033020020330023-1032001313021023-2023222120223131)

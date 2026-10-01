@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_origin_pool"
+page_title: "xcsh_origin_pool landing"
 subcategory: "Load Balancing"
-description: "xcsh_origin_pool for xcsh_origin_pool."
-xcsh_docs: {"aliases": [], "body_bytes": 1534, "body_sha256": "sha256:14e43e6261c4fd30373027f9090a2463048599dda659391e644b6a35a628f6a1", "canonical_id": "xcsh-docs:resources:origin_pool:fundamentals", "child_ids": ["xcsh-docs:resources:origin_pool:reference", "xcsh-docs:resources:origin_pool:examples", "xcsh-docs:resources:origin_pool:import", "xcsh-docs:resources:origin_pool:timeouts"], "collection_id": "xcsh-docs:resources:origin_pool:collection", "completeness": "complete", "id": "xcsh-docs:resources:origin_pool:fundamentals", "parent_id": null, "path": "docs/resources/origin_pool.md", "provider_name": "origin_pool", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_origin_pool for xcsh_origin_pool.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["origin_poolCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_origin_pool landing."
 ---
+
+# xcsh_origin_pool landing
+
+<a id="canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_origin_pool
+<a id="canonical-1213010323203211-2110313030320333-0300322032200311-1222020331112010-3133113233113331-3101111130203123-0221320223131112-1001312003031110"></a>
+
+## xcsh_origin_pool — xcsh_origin_pool / 113323003331 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load
 balancer targets.
 
-## Prerequisites
+<a id="canonical-2311232010312030-0230030133033320-3210202230122210-2112223102033022-0310202201200130-3003010323001300-0331303121322131-1310230130110200"></a>
+
+## Prerequisites — xcsh_origin_pool / 113323003331 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Optional integrations: `healthcheck`.
 
 - healthcheck: Monitor origin server health
 
-## Minimal configuration
+<a id="canonical-0022331102212230-0100300213222222-3232221102102110-0322313011232020-2301203302020132-3320213300000303-0011311210321203-1232132133310300"></a>
+
+## Minimal configuration — xcsh_origin_pool / 113323003331 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,13 +63,17 @@ resource "xcsh_origin_pool" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3022201302003313-3331200310121132-1221231333003121-3311022230113232-3203322332203032-1021230031002321-0120221212110330-3233221321110221"></a>
+
+## Root configuration — xcsh_origin_pool / 113323003331 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1221101322332110-1211223203100301-1311210111313230-3332303303323322-3300300320310000-0213133121103310-3203222230033220-0211333311200121"></a>
 
-- [Property reference](../guides/resources--origin_pool--reference.md)
-- [Examples](../guides/resources--origin_pool--examples.md)
-- [Import](../guides/resources--origin_pool--import.md)
-- [Timeouts](../guides/resources--origin_pool--timeouts.md)
+## Next pages — xcsh_origin_pool / 113323003331 / 6
+
+- [Property reference](../guides/resources--origin_pool--reference--group-001.md#canonical-3212012302103133-0133102110013031-2131221222021021-2000212221110230-2323033002013033-2112321312312211-0213033122012333-3133112201301013)
+- [Examples](../guides/resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- [Import](../guides/resources--origin_pool--lifecycle--group-001.md#canonical-0131233233010320-2210122211033302-1313031331011222-0232223230333231-2013323113332310-1213133202312123-0102221103222303-2021130232003233)
+- [Timeouts](../guides/resources--origin_pool--lifecycle--group-001.md#canonical-0212313030122302-0102202012132131-0133203121302213-3222132223330033-0312123203032231-1332000122012233-1103232200303321-0113120332101203)

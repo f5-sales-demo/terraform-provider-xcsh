@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_virtual_site"
+page_title: "xcsh_virtual_site landing"
 subcategory: "Infrastructure"
-description: "xcsh_virtual_site for xcsh_virtual_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1372, "body_sha256": "sha256:e2d430783488b6cd1a6b2c20cdcb272b6b7d37a6fd393bd2d8d9a88a2c763846", "canonical_id": "xcsh-docs:resources:virtual_site:fundamentals", "child_ids": ["xcsh-docs:resources:virtual_site:reference", "xcsh-docs:resources:virtual_site:examples", "xcsh-docs:resources:virtual_site:import", "xcsh-docs:resources:virtual_site:timeouts"], "collection_id": "xcsh-docs:resources:virtual_site:collection", "completeness": "complete", "id": "xcsh-docs:resources:virtual_site:fundamentals", "parent_id": null, "path": "docs/resources/virtual_site.md", "provider_name": "virtual_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_virtual_site for xcsh_virtual_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["virtual_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_virtual_site landing."
 ---
+
+# xcsh_virtual_site landing
+
+<a id="canonical-0021200012330233-0110101013310110-3130112023213001-0301030013233201-0302311302331132-3122030310203321-2022313333210003-2333313130301011"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_virtual_site
+<a id="canonical-3310311032032131-2233301220332202-1220330212312322-3310331313312220-0203323113320221-1303213033021123-2221132120322321-0221030110230301"></a>
+
+## xcsh_virtual_site — xcsh_virtual_site / 032000212311 / 2
 
 Breadcrumbs:
 
@@ -17,13 +22,17 @@ Breadcrumbs:
 
 Manages virtual site object in given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1333230212032200-3202011000201120-3101211323213000-2322202230230330-1013130021211010-2330301112003203-0113231132103130-1233023232110210"></a>
+
+## Prerequisites — xcsh_virtual_site / 032000212311 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-3231011201031320-2031100121231100-2320121000022211-3102023223301200-0310313031231020-0112230103130033-0203200001311002-2332101330300320"></a>
+
+## Minimal configuration — xcsh_virtual_site / 032000212311 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,13 +58,17 @@ resource "xcsh_virtual_site" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0011012221103032-1013303100302322-2122020131130020-2233022333032303-2030111333102213-0323200033213032-3210201312310322-2012002320120101"></a>
+
+## Root configuration — xcsh_virtual_site / 032000212311 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3000231310311120-1102023013221323-0313331000320311-0101132100012023-3010330010210032-3312121021011313-2202303003123330-0230031310121123"></a>
 
-- [Property reference](../guides/resources--virtual_site--reference.md)
-- [Examples](../guides/resources--virtual_site--examples.md)
-- [Import](../guides/resources--virtual_site--import.md)
-- [Timeouts](../guides/resources--virtual_site--timeouts.md)
+## Next pages — xcsh_virtual_site / 032000212311 / 6
+
+- [Property reference](../guides/resources--virtual_site--reference--group-001.md#canonical-3012320130112032-2032311131023201-2230001222123031-0023020210201003-3230331331010002-2310130201122230-2211332320033010-2101122120231312)
+- [Examples](../guides/resources--virtual_site--examples--group-001.md#canonical-2012211220121122-0020110113010220-0003310321031112-3022120221101003-0102001113103033-3213021033123003-3333023021232031-2133232021100201)
+- [Import](../guides/resources--virtual_site--lifecycle--group-001.md#canonical-2203103200003320-0013322321202333-1222011210030202-0100100121022331-0211122210202331-0002010031312231-2303212101221333-0021010102001201)
+- [Timeouts](../guides/resources--virtual_site--lifecycle--group-001.md#canonical-1312112231301022-1010302223000312-2320130133100200-1233100132013300-1030220122310030-3223321110303221-0121302221211021-1203221232222231)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_segment_connection"
+page_title: "xcsh_segment_connection landing"
 subcategory: ""
-description: "xcsh_segment_connection for xcsh_segment_connection."
-xcsh_docs: {"aliases": [], "body_bytes": 1359, "body_sha256": "sha256:58628d2be10ba1ee9497dbdb07c9c53599c3a69a2cf551a10f51a9da84f273f7", "canonical_id": "xcsh-docs:data-sources:segment_connection:fundamentals", "child_ids": ["xcsh-docs:data-sources:segment_connection:reference", "xcsh-docs:data-sources:segment_connection:examples"], "collection_id": "xcsh-docs:data-sources:segment_connection:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:segment_connection:fundamentals", "parent_id": null, "path": "docs/data-sources/segment_connection.md", "provider_name": "segment_connection", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/segment_connection/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_segment_connection for xcsh_segment_connection.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_segment_connection landing."
 ---
+
+# xcsh_segment_connection landing
+
+<a id="canonical-0030011210101331-2323210032230002-1133223312021002-2000100321331332-0221323131333131-3323103302112300-2012332113200223-2222011321202323"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_segment_connection
+<a id="canonical-2212312200332232-1100323323310233-1113223110313010-1013201101333201-1101201322021123-0113132212123121-0030100333210320-2133231301020103"></a>
+
+## xcsh_segment_connection — xcsh_segment_connection / 122221110003 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Segment Connection resource in F5 Distributed Cloud for segment connector specification.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-0112030331220313-0010031203103001-1211122203211322-0032130003113033-3221122310301123-2223130023023032-0022302030033302-2032130103320322"></a>
+
+## Prerequisites — xcsh_segment_connection / 122221110003 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2032312022221232-2212301100100113-0103012110312000-0012020022111023-1010122301112321-2300120203331301-2223100201133113-0330130303012013"></a>
+
+## Minimal configuration — xcsh_segment_connection / 122221110003 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "segment_connection_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0133030323023131-2131310310102323-3033113212313131-0203330212200203-0231101310313112-1033112332022322-3221333211022201-2020213330112233"></a>
+
+## Root configuration — xcsh_segment_connection / 122221110003 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3022311032223231-1233210230210021-1102121132210022-0220000231100100-1113203003312033-3211213312131122-0200201221332231-1002031232103203"></a>
 
-- [Property reference](../guides/data-sources--segment_connection--reference.md)
-- [Examples](../guides/data-sources--segment_connection--examples.md)
+## Next pages — xcsh_segment_connection / 122221110003 / 6
+
+- [Property reference](../guides/data-sources--segment_connection--reference--group-001.md#canonical-0003210303213121-2323131312120331-1130122231112013-3023230312113302-3230113000232230-2013030312321311-3301212320311012-0202202131321213)
+- [Examples](../guides/data-sources--segment_connection--examples--group-001.md#canonical-0210323013221130-1201212220333012-3110212033212013-0023101300000031-2133232101000320-2013333303022112-0013110032021210-1030002313233133)

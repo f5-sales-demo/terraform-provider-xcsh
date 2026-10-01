@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_policy"
+page_title: "xcsh_alert_policy landing"
 subcategory: "Monitoring"
-description: "xcsh_alert_policy for xcsh_alert_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1252, "body_sha256": "sha256:8002648fbfecf6508673f36eb0e3f04262f2205f4ca8a4ca687b0f5a48f39fd0", "canonical_id": "xcsh-docs:data-sources:alert_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:alert_policy:reference", "xcsh-docs:data-sources:alert_policy:examples"], "collection_id": "xcsh-docs:data-sources:alert_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:alert_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/alert_policy.md", "provider_name": "alert_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_policy for xcsh_alert_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_policy landing."
 ---
+
+# xcsh_alert_policy landing
+
+<a id="canonical-0320032130000223-0013312111113203-3221033200310232-1301022120210012-3300321311100201-0013103020333103-2030012213311032-1033111200111130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_policy
+<a id="canonical-0032310100001320-0003100320332330-0321131313303332-0322000120120102-0231121202220123-0333203011222231-0320112102313132-3131322002221233"></a>
+
+## xcsh_alert_policy — xcsh_alert_policy / 213313032121 / 2
 
 Breadcrumbs:
 
@@ -17,13 +22,17 @@ Breadcrumbs:
 
 Manages new Alert Policy Object in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2023130201312201-0121213302231332-1001331310130212-1011331130222110-1333011000210200-1012020030300313-2301302110200300-2113201310230323"></a>
+
+## Prerequisites — xcsh_alert_policy / 213313032121 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-0201201200120122-3010133112023031-0313001000123130-1203011312320321-3320113312223032-2121210330202013-3122001102311233-3132011211103223"></a>
+
+## Minimal configuration — xcsh_alert_policy / 213313032121 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "alert_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1033221110330022-3313202003101233-1120032202210130-1030013023213033-1201021211201312-1213100312230320-1321030130011202-1312032021311131"></a>
+
+## Root configuration — xcsh_alert_policy / 213313032121 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0330120110012122-1313103123000311-1030132130201300-3222220332301220-0202130022120032-2011023133311113-3002103323223120-1132322000120300"></a>
 
-- [Property reference](../guides/data-sources--alert_policy--reference.md)
-- [Examples](../guides/data-sources--alert_policy--examples.md)
+## Next pages — xcsh_alert_policy / 213313032121 / 6
+
+- [Property reference](../guides/data-sources--alert_policy--reference--group-001.md#canonical-2112221201120012-2232133313303133-2202012021221221-3312133021112123-2200311330232132-2302002223011013-0001113332303200-1210002023212123)
+- [Examples](../guides/data-sources--alert_policy--examples--group-001.md#canonical-0331200133120203-2223103130311131-1313003123311020-2320233233111301-0201023120200322-1100113321132123-0333222333022022-0211023101101221)

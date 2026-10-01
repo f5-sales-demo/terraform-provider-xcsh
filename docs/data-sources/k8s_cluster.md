@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_k8s_cluster"
+page_title: "xcsh_k8s_cluster landing"
 subcategory: ""
-description: "xcsh_k8s_cluster for xcsh_k8s_cluster."
-xcsh_docs: {"aliases": [], "body_bytes": 1262, "body_sha256": "sha256:c0d1fc3b1f9bb1fff85da6afb488c896d8049461481ed6f2029b2e369bcfc7e2", "canonical_id": "xcsh-docs:data-sources:k8s_cluster:fundamentals", "child_ids": ["xcsh-docs:data-sources:k8s_cluster:reference", "xcsh-docs:data-sources:k8s_cluster:examples"], "collection_id": "xcsh-docs:data-sources:k8s_cluster:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:k8s_cluster:fundamentals", "parent_id": null, "path": "docs/data-sources/k8s_cluster.md", "provider_name": "k8s_cluster", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_cluster for xcsh_k8s_cluster.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_clusterCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_k8s_cluster landing."
 ---
+
+# xcsh_k8s_cluster landing
+
+<a id="canonical-2000311330312211-0123113023320022-2103000112130233-2031113012021222-1321333000120232-2032001010223110-2212310010223100-2220321212212021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_k8s_cluster
+<a id="canonical-2010103022320020-1101102201233112-3301213203231211-3113211023033320-2121332312222033-3132103102003230-1201210002321300-2303303103212012"></a>
+
+## xcsh_k8s_cluster — xcsh_k8s_cluster / 200001320301 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages k8s\_cluster will create the object in the storage backend for namespace metadata.namespace
 in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0011001020023211-3000200132323302-1320301211213300-2332331001322123-3300111031021322-1101120200213232-0300102313321203-2211122131133100"></a>
+
+## Prerequisites — xcsh_k8s_cluster / 200001320301 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0122021301313032-2011223030132202-2022331332132211-1233310001222213-1002301012212202-2211302031212130-0133331203131101-3011310200100033"></a>
+
+## Minimal configuration — xcsh_k8s_cluster / 200001320301 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "k8s_cluster_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2212232012311011-0032213133101032-1002211222022213-2200133002203322-3022102312302210-1320210213300332-2321001101000111-1310133333020023"></a>
+
+## Root configuration — xcsh_k8s_cluster / 200001320301 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3213200102033201-3302233112201131-0121202213102010-0212311212211030-1213330200010001-1132131022121321-3331012223203231-2102232311331202"></a>
 
-- [Property reference](../guides/data-sources--k8s_cluster--reference.md)
-- [Examples](../guides/data-sources--k8s_cluster--examples.md)
+## Next pages — xcsh_k8s_cluster / 200001320301 / 6
+
+- [Property reference](../guides/data-sources--k8s_cluster--reference--group-001.md#canonical-3033230002010003-2101221133021022-3231320222110033-2211321111123201-3112303022332033-3030211103323301-0213323130131201-1011002120120200)
+- [Examples](../guides/data-sources--k8s_cluster--examples--group-001.md#canonical-1300311003300211-0021113101021312-1011223033312022-3031202223113030-2221120113003302-3130200302121023-3030033231132300-2310320031320232)

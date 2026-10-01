@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_policer"
+page_title: "xcsh_policer landing"
 subcategory: ""
-description: "xcsh_policer for xcsh_policer."
-xcsh_docs: {"aliases": [], "body_bytes": 1397, "body_sha256": "sha256:39fb232d4a984959e32bc3234c8ca5b395c4ca3cd9a878e1ec2deadf72fc95a2", "canonical_id": "xcsh-docs:resources:policer:fundamentals", "child_ids": ["xcsh-docs:resources:policer:reference", "xcsh-docs:resources:policer:examples", "xcsh-docs:resources:policer:import", "xcsh-docs:resources:policer:timeouts"], "collection_id": "xcsh-docs:resources:policer:collection", "completeness": "complete", "id": "xcsh-docs:resources:policer:fundamentals", "parent_id": null, "path": "docs/resources/policer.md", "provider_name": "policer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_policer for xcsh_policer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["policerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_policer landing."
 ---
+
+# xcsh_policer landing
+
+<a id="canonical-2122311132312033-0121013211002130-0311121323112230-0010131112301322-1312303210110212-3032113221002232-1112102011022312-1111003020123113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_policer
+<a id="canonical-1200023133211110-2220212101310300-2010003312311003-1213012031200030-3312102021132101-1211021120102332-0113202301300133-2231112021321322"></a>
+
+## xcsh_policer — xcsh_policer / 011320130322 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new policer with traffic rate limits in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0330323203000312-3123203213202311-1123221032320023-1103100023103201-3223111000322331-3111001023112021-0213223022030100-2033122301330101"></a>
+
+## Prerequisites — xcsh_policer / 011320130322 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1203330311200003-3322020012032130-1130233013211300-0132102212110021-3031301222111302-3232323221020303-3021033020330333-0111213022110130"></a>
+
+## Minimal configuration — xcsh_policer / 011320130322 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_policer" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0230111103120202-1120021203323203-1003101020220322-0222032212232103-0002332230011130-1033220303032133-3012331032031001-0220002102222322"></a>
+
+## Root configuration — xcsh_policer / 011320130322 / 5
 
 Required root properties: `burst_size`, `committed_information_rate`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1130022130311123-3311220222100320-3322200130320202-1212013031113303-3031120122330211-0210122113031333-2332133131123312-3112122003210100"></a>
 
-- [Property reference](../guides/resources--policer--reference.md)
-- [Examples](../guides/resources--policer--examples.md)
-- [Import](../guides/resources--policer--import.md)
-- [Timeouts](../guides/resources--policer--timeouts.md)
+## Next pages — xcsh_policer / 011320130322 / 6
+
+- [Property reference](../guides/resources--policer--reference--group-001.md#canonical-0211330131013020-2310303133111013-2220323023232330-2223132030123020-2011122031201112-2310200001103220-1221101020202030-3311103200011300)
+- [Examples](../guides/resources--policer--examples--group-001.md#canonical-1311202001001303-0121132302210321-3212302221232023-2331311030121133-2003102010101310-2221203033211131-3300210210103331-2100210312012321)
+- [Import](../guides/resources--policer--lifecycle--group-001.md#canonical-1203212110220131-0233233101122320-0213000303323231-0320300032332300-1100131122030312-3033202030310222-0302021222001310-2322311101201010)
+- [Timeouts](../guides/resources--policer--lifecycle--group-001.md#canonical-3022231033111130-2123221132203121-2331112202031112-2311031330310120-0330323002203313-2111123200132110-3001232302213013-1232033322113021)

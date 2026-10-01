@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_alert_gen_policy"
+page_title: "xcsh_alert_gen_policy landing"
 subcategory: ""
-description: "xcsh_alert_gen_policy for xcsh_alert_gen_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1256, "body_sha256": "sha256:40345d7d9934fd00d2f42ba316e7dba79e960b12b49c47dfd34fcd5cee8edb47", "canonical_id": "xcsh-docs:data-sources:alert_gen_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:alert_gen_policy:reference", "xcsh-docs:data-sources:alert_gen_policy:examples"], "collection_id": "xcsh-docs:data-sources:alert_gen_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:alert_gen_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/alert_gen_policy.md", "provider_name": "alert_gen_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_gen_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_alert_gen_policy for xcsh_alert_gen_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["alert_gen_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_alert_gen_policy landing."
 ---
+
+# xcsh_alert_gen_policy landing
+
+<a id="canonical-1212223311231031-2303130101102331-2121323302132120-3001003212230233-2233103321211211-1300022131031130-1101122301003332-3330023301222220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_alert_gen_policy
+<a id="canonical-0303323232001230-2302101211232022-1301032201020132-0132031031211103-2023221221130233-1011230211303022-1312122121233232-2232103000011202"></a>
+
+## xcsh_alert_gen_policy — xcsh_alert_gen_policy / 202123101032 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Alert Generation Policy in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2020111012232213-3322100320322320-0202201132333211-0023103203211331-2323120130220033-0113103101313213-2001003212322200-2111310223022113"></a>
+
+## Prerequisites — xcsh_alert_gen_policy / 202123101032 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1321320212130112-1330121323323311-2123030032232313-3211020010311002-0011120203302102-3022131212021101-1310101132232222-3321010202132021"></a>
+
+## Minimal configuration — xcsh_alert_gen_policy / 202123101032 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "alert_gen_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1303112103210103-2231310331001210-1110221202131310-3322002321330211-3111231103331000-1020233122302201-1100100112023220-1122023033112000"></a>
+
+## Root configuration — xcsh_alert_gen_policy / 202123101032 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0010013322211313-2132020332313320-2122100213023111-1313323333300002-0233102123103133-3131230231111211-2001133013310313-2112000020222322"></a>
 
-- [Property reference](../guides/data-sources--alert_gen_policy--reference.md)
-- [Examples](../guides/data-sources--alert_gen_policy--examples.md)
+## Next pages — xcsh_alert_gen_policy / 202123101032 / 6
+
+- [Property reference](../guides/data-sources--alert_gen_policy--reference--group-001.md#canonical-0232203323003000-0030100311001232-1132202033111113-0322101230133330-0330113102210010-3303033232211100-3200031120003321-1033030031110112)
+- [Examples](../guides/data-sources--alert_gen_policy--examples--group-001.md#canonical-3101133110101332-1212313230200233-0212133030031121-3000033232011331-3002320201122210-1121300201310231-3102220301010033-0300333030203210)

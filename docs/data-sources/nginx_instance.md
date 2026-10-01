@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_nginx_instance"
+page_title: "xcsh_nginx_instance landing"
 subcategory: ""
-description: "xcsh_nginx_instance for xcsh_nginx_instance."
-xcsh_docs: {"aliases": [], "body_bytes": 1316, "body_sha256": "sha256:300fb968460d118723bf09f439410904ef643c12545bc3df337831fd50233c14", "canonical_id": "xcsh-docs:data-sources:nginx_instance:fundamentals", "child_ids": ["xcsh-docs:data-sources:nginx_instance:reference", "xcsh-docs:data-sources:nginx_instance:examples"], "collection_id": "xcsh-docs:data-sources:nginx_instance:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:nginx_instance:fundamentals", "parent_id": null, "path": "docs/data-sources/nginx_instance.md", "provider_name": "nginx_instance", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_nginx_instance for xcsh_nginx_instance.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_nginx_instance landing."
 ---
+
+# xcsh_nginx_instance landing
+
+<a id="canonical-2321323302121221-3000233313231030-0313213302223310-1121122112023213-0213032333202311-2032313311010213-0230302320211113-0011100303031122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_nginx_instance
+<a id="canonical-1210013210202330-1111101310331201-1231113330101210-2211120203300321-3212022010220031-1310311111033120-1322232320212032-3020213230203121"></a>
+
+## xcsh_nginx_instance — xcsh_nginx_instance / 203211121103 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Nginx Instance resource in F5 Distributed Cloud for get nginx instance configuration.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-2221113301320101-1022130211101311-1311101020231303-2310023300232033-1301311012000321-0233121021012200-3022312030030301-1011101233132033"></a>
+
+## Prerequisites — xcsh_nginx_instance / 203211121103 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1231321223210011-3321223210111331-2310011303003000-3102131313330330-2012022212132121-2100123123030230-3003202231333003-3113013122123013"></a>
+
+## Minimal configuration — xcsh_nginx_instance / 203211121103 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "nginx_instance_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2213331303230331-3211111323132201-1021012033112211-2130323003332210-2021013002111312-3310003032001022-1011322122010313-1210300303111020"></a>
+
+## Root configuration — xcsh_nginx_instance / 203211121103 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2323022133032202-2100330031311012-0022021031031011-3331303020303220-3312003301202301-3103230113000130-0130013203300101-2233322203231122"></a>
 
-- [Property reference](../guides/data-sources--nginx_instance--reference.md)
-- [Examples](../guides/data-sources--nginx_instance--examples.md)
+## Next pages — xcsh_nginx_instance / 203211121103 / 6
+
+- [Property reference](../guides/data-sources--nginx_instance--reference--group-001.md#canonical-3131110011123322-2133331020011210-3000121001113220-1122300010232133-0220211102033013-2121023120220133-1222111233001023-2003132120300201)
+- [Examples](../guides/data-sources--nginx_instance--examples--group-001.md#canonical-3301303331101130-2132231102232100-1003302031313130-1320220321332032-1231103011131003-0133223332130313-0113112313121212-3303112113112031)

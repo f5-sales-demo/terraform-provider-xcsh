@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_securemesh_site"
+page_title: "xcsh_securemesh_site landing"
 subcategory: ""
-description: "xcsh_securemesh_site for xcsh_securemesh_site."
-xcsh_docs: {"aliases": [], "body_bytes": 1538, "body_sha256": "sha256:fefbfc95b67d0078f6518e73559bf48348c0403260ef4e39cce1bd2162c3d128", "canonical_id": "xcsh-docs:resources:securemesh_site:fundamentals", "child_ids": ["xcsh-docs:resources:securemesh_site:reference", "xcsh-docs:resources:securemesh_site:examples", "xcsh-docs:resources:securemesh_site:import", "xcsh-docs:resources:securemesh_site:timeouts"], "collection_id": "xcsh-docs:resources:securemesh_site:collection", "completeness": "complete", "id": "xcsh-docs:resources:securemesh_site:fundamentals", "parent_id": null, "path": "docs/resources/securemesh_site.md", "provider_name": "securemesh_site", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/securemesh_site/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_securemesh_site for xcsh_securemesh_site.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["securemesh_siteCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_securemesh_site landing."
 ---
+
+# xcsh_securemesh_site landing
+
+<a id="canonical-0221210100300032-1323301000110203-0003200133200010-1121101320113033-1203000110031002-2332032100223330-3220112032322030-1011202210112330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_securemesh_site
+<a id="canonical-2320112311100213-3221312103222301-3323130113200330-0013313332201032-0023133122103132-2103110221032211-3300032301203223-2310330233222133"></a>
+
+## xcsh_securemesh_site — xcsh_securemesh_site / 120203013002 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Securemesh Site resource in F5 Distributed Cloud for deploying secure mesh edge sites with
 distributed security.
 
-## Prerequisites
+<a id="canonical-1010030203322233-2022031130230122-2333213223333221-1021333122202023-3001001103002011-2201221331022233-3001000320301033-3112313122333302"></a>
+
+## Prerequisites — xcsh_securemesh_site / 120203013002 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0101223110333110-2100030011303032-2121133100000023-3100211201320021-2110222331223221-2232022223002232-2233002022131013-1312011311310200"></a>
+
+## Minimal configuration — xcsh_securemesh_site / 120203013002 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_securemesh_site" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2000220313032200-1302213203211333-0112231001323210-1022232102131310-2313213031222000-0301220001023001-0232001331132302-1033112312012001"></a>
+
+## Root configuration — xcsh_securemesh_site / 120203013002 / 5
 
 Required root properties: `name`, `namespace`, `volterra_certified_hw`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1012102332303100-1113112332021002-0332002110030313-0033203011133121-3220212313321123-2121102211100231-0201132133123020-3132011323322200"></a>
 
-- [Property reference](../guides/resources--securemesh_site--reference.md)
-- [Examples](../guides/resources--securemesh_site--examples.md)
-- [Import](../guides/resources--securemesh_site--import.md)
-- [Timeouts](../guides/resources--securemesh_site--timeouts.md)
+## Next pages — xcsh_securemesh_site / 120203013002 / 6
+
+- [Property reference](../guides/resources--securemesh_site--reference--group-001.md#canonical-0230321021201222-1111001300121312-3000300333211231-1100002333330020-1322112003322030-0300113022223332-3302330011112221-3302300032302122)
+- [Examples](../guides/resources--securemesh_site--examples--group-001.md#canonical-3111120021123011-3221120323311113-3112101230310313-2310212131101013-1131333203200301-3002303212200130-3110220100102222-1333003331113232)
+- [Import](../guides/resources--securemesh_site--lifecycle--group-001.md#canonical-3122221033201210-1330233003220311-1230032331223330-0321123221100133-1103011020120301-0300103102121102-3202333110231012-1031103103100130)
+- [Timeouts](../guides/resources--securemesh_site--lifecycle--group-001.md#canonical-1223112033021212-2212111023211300-2103120133201002-1021301213112131-2210323320220301-1023111213221130-0100112021311110-0002011213223123)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_token"
+page_title: "xcsh_token landing"
 subcategory: "Identity"
-description: "xcsh_token for xcsh_token."
-xcsh_docs: {"aliases": [], "body_bytes": 1302, "body_sha256": "sha256:9e1e10b7ce2395b03de0518eb695806b0d6064775fc528dff946703769ce5de9", "canonical_id": "xcsh-docs:data-sources:token:fundamentals", "child_ids": ["xcsh-docs:data-sources:token:reference", "xcsh-docs:data-sources:token:examples"], "collection_id": "xcsh-docs:data-sources:token:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:token:fundamentals", "parent_id": null, "path": "docs/data-sources/token.md", "provider_name": "token", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/token/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_token for xcsh_token.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tokenCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_token landing."
 ---
+
+# xcsh_token landing
+
+<a id="canonical-2000130020133110-1113012332320202-2223121002312130-2001210311231111-3323332201023323-2311120322030210-1131312201010133-0322033200102202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_token
+<a id="canonical-2210031320213220-2221033201122022-0231022103102103-2200332230112113-3013201322023232-1032331013232200-3222322323300200-2001222130323033"></a>
+
+## xcsh_token — xcsh_token / 220130112203 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages new token. Token object is used to manage site admission. User must generate token before
 provisioning and pass this token to site during it's registration in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0011132222101320-1103133131213002-1313311013002301-3101330013302313-3003303010203000-0330022121032303-2220231223020023-1221111012223132"></a>
+
+## Prerequisites — xcsh_token / 220130112203 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-3321022300220213-0310231111113313-2331010311010010-0120031133101011-1022102213220130-1312320333321022-1122312013130002-3333212023122201"></a>
+
+## Minimal configuration — xcsh_token / 220130112203 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "token_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1100332231111133-2023203330203111-1113212203011003-1333121111133033-2030102311313331-3231012103102213-0232013200022001-3021323333111201"></a>
+
+## Root configuration — xcsh_token / 220130112203 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0231331203320010-1233003221213221-3201022200110102-1301321110020303-1300330012311033-0212211203212221-1232203130212331-1320131323002303"></a>
 
-- [Property reference](../guides/data-sources--token--reference.md)
-- [Examples](../guides/data-sources--token--examples.md)
+## Next pages — xcsh_token / 220130112203 / 6
+
+- [Property reference](../guides/data-sources--token--reference--group-001.md#canonical-1302021003003321-1033031123003102-3221300113210300-3012332223200031-1300210333011012-3120203201330301-0001020001012101-1203222133001122)
+- [Examples](../guides/data-sources--token--examples--group-001.md#canonical-1020321111222301-2033123121331132-3331211233301231-1202000032310201-3201211232323022-2130002310311310-3103122312103310-0031001213131320)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_testing"
+page_title: "xcsh_api_testing landing"
 subcategory: ""
-description: "xcsh_api_testing for xcsh_api_testing."
-xcsh_docs: {"aliases": [], "body_bytes": 1207, "body_sha256": "sha256:3b3ee6762bafc2f46d19ba98edcdec61c4b81c2dd17db17ceb46f7d5720b8807", "canonical_id": "xcsh-docs:data-sources:api_testing:fundamentals", "child_ids": ["xcsh-docs:data-sources:api_testing:reference", "xcsh-docs:data-sources:api_testing:examples"], "collection_id": "xcsh-docs:data-sources:api_testing:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_testing:fundamentals", "parent_id": null, "path": "docs/data-sources/api_testing.md", "provider_name": "api_testing", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_testing/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_testing for xcsh_api_testing.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_testingCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_testing landing."
 ---
+
+# xcsh_api_testing landing
+
+<a id="canonical-1103130220132111-1121033102212030-2032323111203320-0101012101310232-3300331302031232-1332131330231320-0212001110131013-1010030122002230"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_testing
+<a id="canonical-1033102311002231-0212131312132223-0312233100030312-1231012333001220-2013301101012303-2033323121120303-0102200223212103-3000003201232023"></a>
+
+## xcsh_api_testing — xcsh_api_testing / 322222302231 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a API Testing resource in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0001331130301010-2212031133230332-2321112123013030-0210123113101321-2102103111223022-3201323331221123-3230000330203233-2113010212301313"></a>
+
+## Prerequisites — xcsh_api_testing / 322222302231 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3230012021322313-1111011332003131-0133332302133031-0223103102210100-3201133110023202-0132303000320230-0333033332001201-2222123202121231"></a>
+
+## Minimal configuration — xcsh_api_testing / 322222302231 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "api_testing_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0211333101022000-1321322303321000-1103110201032332-1033022112020003-3122031101323133-0023320113321312-0231221200220101-3230303330322332"></a>
+
+## Root configuration — xcsh_api_testing / 322222302231 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1130111200000320-2300203111101203-1111011203030021-3300132313123023-1203133210022231-3111330333301112-2121023020321111-3332102110321103"></a>
 
-- [Property reference](../guides/data-sources--api_testing--reference.md)
-- [Examples](../guides/data-sources--api_testing--examples.md)
+## Next pages — xcsh_api_testing / 322222302231 / 6
+
+- [Property reference](../guides/data-sources--api_testing--reference--group-001.md#canonical-3002213323001033-3300321333010022-1122133200032233-1213022031201310-3110232103211233-0103222003311303-0323133133201020-2103123031102103)
+- [Examples](../guides/data-sources--api_testing--examples--group-001.md#canonical-2332231100103211-2032311033113031-3002312201302303-1303231131130130-0310212022223232-1201123210232101-0230031123302302-0012222311112303)

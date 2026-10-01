@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_detection_rule"
+page_title: "xcsh_bot_detection_rule landing"
 subcategory: ""
-description: "xcsh_bot_detection_rule for xcsh_bot_detection_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1348, "body_sha256": "sha256:8e64122cf99b2ee282aafc6f7d7c4bdef35178a7fcb51cfcc9473001886e52cf", "canonical_id": "xcsh-docs:data-sources:bot_detection_rule:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_detection_rule:reference", "xcsh-docs:data-sources:bot_detection_rule:examples"], "collection_id": "xcsh-docs:data-sources:bot_detection_rule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_detection_rule:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_detection_rule.md", "provider_name": "bot_detection_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_detection_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_detection_rule for xcsh_bot_detection_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_detection_rule landing."
 ---
+
+# xcsh_bot_detection_rule landing
+
+<a id="canonical-2221001030010210-1213310213300133-3302112123210020-1030311021023312-0232211203112101-3232200001000312-1300200232311310-2121130011001102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_detection_rule
+<a id="canonical-1022132333001300-3030200322223030-2301210023010310-2302003221231002-1103001111013001-2020031033003323-1111100312322013-1000100331012322"></a>
+
+## xcsh_bot_detection_rule — xcsh_bot_detection_rule / 132332110020 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Bot Detection Rule resource in F5 Distributed Cloud for get bot detection rule.
 configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-2202332131012312-0200201222211000-1202323010023220-0121102223330000-2001323322001000-3213230020113201-2133130201012122-3010220212120331"></a>
+
+## Prerequisites — xcsh_bot_detection_rule / 132332110020 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2320211121020211-1213031113021003-3221333303312232-3122212211023032-1103011231011001-3032202210103130-1300031113123231-0013122123021323"></a>
+
+## Minimal configuration — xcsh_bot_detection_rule / 132332110020 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "bot_detection_rule_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1221310003303322-1002200130331300-0021020221001030-2323223331332122-3221020002003031-2213232211330333-3022110103102303-0101011332310031"></a>
+
+## Root configuration — xcsh_bot_detection_rule / 132332110020 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2121223123312231-3203030012113122-2333122103022112-0032133322000311-0330023020002313-1310102130212100-3013133203333000-3031333330313113"></a>
 
-- [Property reference](../guides/data-sources--bot_detection_rule--reference.md)
-- [Examples](../guides/data-sources--bot_detection_rule--examples.md)
+## Next pages — xcsh_bot_detection_rule / 132332110020 / 6
+
+- [Property reference](../guides/data-sources--bot_detection_rule--reference--group-001.md#canonical-1300000332213130-3231303130200131-1302120313303120-2230111331211100-2123003010122200-3002313113113213-0321013203213000-2322013230021313)
+- [Examples](../guides/data-sources--bot_detection_rule--examples--group-001.md#canonical-2232113313332232-3000000211312211-0303233303022011-1332301232323032-0121030001232203-3300030203332032-0221121030302230-0100313323330002)

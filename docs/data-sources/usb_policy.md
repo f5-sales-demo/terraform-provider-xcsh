@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_usb_policy"
+page_title: "xcsh_usb_policy landing"
 subcategory: ""
-description: "xcsh_usb_policy for xcsh_usb_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1196, "body_sha256": "sha256:4e4711d6fa22f1de28fbff8bf37a8bd7bcc8b41306fe373f56770174f21bb18e", "canonical_id": "xcsh-docs:data-sources:usb_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:usb_policy:reference", "xcsh-docs:data-sources:usb_policy:examples"], "collection_id": "xcsh-docs:data-sources:usb_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:usb_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/usb_policy.md", "provider_name": "usb_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/usb_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_usb_policy for xcsh_usb_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["usb_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_usb_policy landing."
 ---
+
+# xcsh_usb_policy landing
+
+<a id="canonical-3133321203222121-0333232330020202-2311221201233121-1211132233302312-0010122132101103-2031031312101012-3000023221320113-0202220320111000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_usb_policy
+<a id="canonical-2122200012113103-3133321121322230-0210011200213313-1010122001123302-2102211220303222-3233211210123201-2211113323210230-0210213120032200"></a>
+
+## xcsh_usb_policy — xcsh_usb_policy / 103003130333 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages new USB policy object in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0122211320213132-1313220031221310-2222113203112011-2231220001230312-1023221230333100-0113003020201020-3123030130213300-3203232200012022"></a>
+
+## Prerequisites — xcsh_usb_policy / 103003130333 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2131133132233230-3333000312032113-1002112102232112-0133312303222311-2212023213010200-0111002020113231-2100301302131322-3201220100100123"></a>
+
+## Minimal configuration — xcsh_usb_policy / 103003130333 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "usb_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3331313012322112-1133333013032021-0101312102202222-3303113021011201-0231230031030023-1303032330200122-0100131010320230-3222121003012012"></a>
+
+## Root configuration — xcsh_usb_policy / 103003130333 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0312033120200131-0220323302321301-3023321322332212-3002222030021030-1103123332132102-0223221031302102-3020323222333001-3020110201102111"></a>
 
-- [Property reference](../guides/data-sources--usb_policy--reference.md)
-- [Examples](../guides/data-sources--usb_policy--examples.md)
+## Next pages — xcsh_usb_policy / 103003130333 / 6
+
+- [Property reference](../guides/data-sources--usb_policy--reference--group-001.md#canonical-1000132301302331-1210321310212233-2332001022201121-3133211123011103-2123333120333133-1000202023301002-2333222023302121-1001000003033000)
+- [Examples](../guides/data-sources--usb_policy--examples--group-001.md#canonical-0102202312010132-3223213230021232-3100232232131311-1301000132200210-0022013310320310-1011103100213320-3113320310021033-0000003311301213)

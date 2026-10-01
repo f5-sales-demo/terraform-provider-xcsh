@@ -1,0 +1,446 @@
+---
+page_title: "xcsh_device_intelligence_high_risk_transactions reference"
+subcategory: ""
+description: "Complete grouped canonical reference for xcsh_device_intelligence_high_risk_transactions reference."
+---
+
+# xcsh_device_intelligence_high_risk_transactions reference
+
+<a id="canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1303021211313322-3310311032010010-0301001320322122-1210100233302033-1320333212222211-3123130123330313-2222300110133001-0010111203032213"></a>
+
+## Property reference — Property reference / 123031033002 / 2
+
+Breadcrumbs:
+
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- Property reference
+
+<a id="canonical-0230300331330100-3323003131023032-3313103001123010-1210313333003012-2202001032002132-0111200321010003-0322201230133300-1021303001200130"></a>
+
+## Direct properties — Property reference / 123031033002 / 3
+
+<a id="canonical-1123223300303123-0333002112001013-2031302321021200-3230012000203000-0101210320031321-1333233022101022-0220311233102130-3113113021010110"></a>
+
+<a id="canonical-0212113333220321-2010220112132012-1231123211013020-1020132333320111-3313232323212122-1011322102230311-3210331310012300-0300222201303313"></a>
+
+## end_time property — Property reference / 123031033002 / 4
+
+Type: `"string"`. Optional.
+
+End time of the query period Format: unix\_timestamp|RFC 3339 Optional: If not specified, then the
+end\_time will be evaluated to start\_time+10m If start\_time is not specified, then the end\_time
+will be evaluated to &lt;current time&gt;.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011): complete subsection reference.
+
+<a id="canonical-3111110130122101-2032100111003133-1011221111203313-0320322222031302-2101332003301200-1202002311331321-0111133222302131-2311121012200211"></a>
+
+<a id="canonical-3030012103231300-3201311313001013-2000003021030001-1010222301300133-3011021330023321-2102222233200120-0100221010331031-0132201230203330"></a>
+
+## namespace property — Property reference / 123031033002 / 5
+
+Type: `"string"`. Required.
+
+Namespace. Namespace name.
+
+<a id="canonical-1101221233331330-2020201120012202-2120023230110331-3120000013030212-1332123020331203-2313213312031001-3132032332013100-2213202231101001"></a>
+
+<a id="canonical-0302203230002131-3100301013320113-3020121311011233-1113221310222032-3011233232332101-2012332310333130-1031110012001131-2233212200103022"></a>
+
+## start_time property — Property reference / 123031033002 / 6
+
+Type: `"string"`. Optional.
+
+Start time of the query period Format: unix\_timestamp|RFC 3339 Optional: If not specified, then the
+start\_time will be evaluated to end\_time-10m If end\_time is not specified, then the start\_time
+will be evaluated to &lt;current time&gt;-10m.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001): complete subsection reference.
+
+<a id="canonical-0012331323300232-1131131222320000-2233110113223133-0111203212300022-0133302022133232-2023112021031311-1303032020032303-3310002310200030"></a>
+
+## All schema paths — Property reference / 123031033002 / 7
+
+Each exact path has one authoritative reference destination. Collection element indices are runtime positions; schema paths name the subsection.
+
+| Schema path | Complete reference |
+| --- | --- |
+| `end_time` | [end_time](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1123223300303123-0333002112001013-2031302321021200-3230012000203000-0101210320031321-1333233022101022-0220311233102130-3113113021010110) |
+| `filters` | [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3022312302130113-3102112233233133-0221120031110312-3303022131312123-2011033213303133-2013222020130332-3220321313210012-1333120321033010) |
+| `filters.global_filters` | [filters.global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3300222003302303-2133320133112023-1010213020232013-3332220210012210-2330100321023122-0000012123212121-2001031121123103-1233331133012010) |
+| `filters.global_filters.key` | [filters.global_filters.key](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0301003130220123-0013310213111111-2022332302303232-1123222001222311-0032112213011020-2323120200111232-2310011211313120-3001011301011301) |
+| `filters.global_filters.op` | [filters.global_filters.op](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3200312203322233-0303011112220321-2202230230021202-0110222313220212-2211323031333333-0200030320332231-0121113021320002-3133113001032200) |
+| `filters.global_filters.values` | [filters.global_filters.values](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2221213322300001-0113032220032121-3012222011013312-1313020012000133-1112100112021122-1121200022020212-2132303000302121-1100013023020212) |
+| `filters.region_filter` | [filters.region_filter](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3321330000211321-1213201001200203-2320131201221210-0333110120021032-2230202033211033-0222223300011021-3330302123110131-2223101103003210) |
+| `namespace` | [namespace](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-3111110130122101-2032100111003133-1011221111203313-0320322222031302-2101332003301200-1202002311331321-0111133222302131-2311121012200211) |
+| `start_time` | [start_time](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1101221233331330-2020201120012202-2120023230110331-3120000013030212-1332123020331203-2313213312031001-3132032332013100-2213202231101001) |
+| `time_series_results` | [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2013210322222131-1131203030321032-0102210033113112-2013033010132220-0332320121312133-3320211010112332-1110033010001021-3022230030330222) |
+| `time_series_results.series_key` | [time_series_results.series_key](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2221102113200133-3113320233013310-3113013112311110-1231122123023002-2213213100131300-0113203110102331-2100021121120123-2211102203122333) |
+| `time_series_results.time_series` | [time_series_results.time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2122122000112211-2131323031330302-1010012033212022-1330331120203112-0213000000200111-1113102010322210-3021312321132210-2213333233110222) |
+| `time_series_results.time_series.timestamp` | [time_series_results.time_series.timestamp](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2311330000310330-1123010030132013-0233301113232002-2033133032101220-2323201232033312-2102032032102123-1122320033230233-0132022333013022) |
+| `time_series_results.time_series.value` | [time_series_results.time_series.value](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1312313012002332-2130213112123303-2123033102003200-3202331001320002-1131110023212110-3112202212013011-1120112123303300-0131130303112021) |
+
+<a id="canonical-3303203102023321-0033122001130302-1102112103211232-2102123232230001-3311021113203200-0033330011113100-0212020021222202-1200033131013320"></a>
+
+## Next pages — Property reference / 123031033002 / 8
+
+- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011)
+- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+
+<a id="canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3110211211002131-3122201033122203-2020022310021013-1200332221130303-1203212321322322-2112200123030201-1003213202320110-0201213020201103"></a>
+
+## filters — filters / 110121111300 / 2
+
+Breadcrumbs:
+
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- filters
+
+<a id="canonical-3022312302130113-3102112233233133-0221120031110312-3303022131312123-2011033213303133-2013222020130332-3220321313210012-1333120321033010"></a>
+
+Type: `"single"`. Optional.
+
+Global Filters. Query Global Filters.
+
+<a id="canonical-1003010211232300-3320010133231002-2310002210331223-0011210312213233-0231032213133021-3100112123000203-1210210333330203-0121230033201103"></a>
+
+## Direct properties — filters / 110121111300 / 3
+
+- [global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1031110220102322-1132022331000100-2321101123013321-3300210203002202-3031033010003200-2001000000021103-0323130000102223-1013330033032233): complete subsection reference.
+
+<a id="canonical-3321330000211321-1213201001200203-2320131201221210-0333110120021032-2230202033211033-0222223300011021-3330302123110131-2223101103003210"></a>
+
+<a id="canonical-0020003202330010-3000101103110222-0203110121201032-3231133131213021-0300030113230232-3301203033123001-1211301130022200-1332000003123101"></a>
+
+## region_filter property — filters / 110121111300 / 4
+
+Type: `"string"`. Optional.
+
+\[Enum: US|EU|ASIA|CA\] Defines a selection for Bot Defense region - US: US United States of America
+&#8203;- EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada. Possible values are \`US\`, \`EU\`,
+\`ASIA\`, \`CA\`. Defaults to \`US\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("US",
+    "EU",
+    "ASIA",
+    "CA"),
+}
+```
+
+<a id="canonical-1100313311330232-0332210003130023-2232120313010233-0302002033323022-0001002101200322-2300120223111031-2202033011221201-0212320332200323"></a>
+
+## Next pages — filters / 110121111300 / 5
+
+- [filters.global_filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1031110220102322-1132022331000100-2321101123013321-3300210203002202-3031033010003200-2001000000021103-0323130000102223-1013330033032233)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+
+<a id="canonical-1031110220102322-1132022331000100-2321101123013321-3300210203002202-3031033010003200-2001000000021103-0323130000102223-1013330033032233"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1013322231113012-3033320002112303-0033032313033220-0301202310022112-1332223332031101-1102300012113330-3113000110013010-0331022022022211"></a>
+
+## filters.global_filters — global_filters / 112210233110 / 2
+
+Breadcrumbs:
+
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011)
+- filters.global_filters
+
+<a id="canonical-3300222003302303-2133320133112023-1010213020232013-3332220210012210-2330100321023122-0000012123212121-2001031121123103-1233331133012010"></a>
+
+Type: `"list"`. Optional.
+
+Global Filters. List of global filters.
+
+<a id="canonical-0302102320031312-3030131311321001-1310220000221221-3333023003222212-1210000123031113-0010030200120022-3031102120212322-3132331131010000"></a>
+
+## Direct properties — global_filters / 112210233110 / 3
+
+<a id="canonical-0301003130220123-0013310213111111-2022332302303232-1123222001222311-0032112213011020-2323120200111232-2310011211313120-3001011301011301"></a>
+
+<a id="canonical-1023330000003000-3310223022213212-1113320031111101-2033022002201302-1003222313321330-2221022103333022-0302200202232130-2221122033131000"></a>
+
+## key property — global_filters / 112210233110 / 4
+
+Type: `"string"`. Optional.
+
+\[Enum:
+TIMESTAMP|USERNAME|CLIENT\_TOKEN|IP\_ADDRESS|ASN|AS\_ORGANIZATION|COUNTRY|METHOD|HOST|PATH|URL|REFERER|TRAFFIC\_CHANNEL|IS\_ATTACK|BOT\_REASON|TRAFFIC\_TYPE|THREAT\_TYPE|SDK\_VERSION|ACTION\_TAKEN|COOKIE\_AGE|BOT\_COOKIE|USER\_AGENT|USER\_AGENT\_OS\_FAMILY|USER\_AGENT\_FAMILY|BROWSER\_FINGERPRINT|USER\_FINGERPRINT|HEADER\_FINGERPRINT|DEVICE\_ID|FLOW|AGENT|APPLICATION\_NAME|PROTECTED\_APPLICATION|RESPONSE\_CODE|SERVER\_RESPONSE\_CODE|TRANSACTION\_RESULT|MOBILE\_TRANSACTION\_INSIGHT|WEB\_TRANSACTION\_INSIGHT|TRIGGERED\_RULE|FLOW\_CATEGORY|FLOW\_LABEL|ENDPOINT\_NAME|ENDPOINT\_LABEL|BOT\_ENDPOINT\_POLICY|KNOWN\_BOT\_NAME|KNOWN\_BOT\_CATEGORY|KNOWN\_BOT\_PROVIDER|KNOWN\_BOT\_CATEGORY\_TYPE|KNOWN\_BOT\_MITIGATION|ABSOLUTE|PERCENTAGE|TREND|ENDPOINT\_POLICY\]
+Key for query filter - TIMESTAMP: Timestamp Filter Key Use Timestamp as key to query. Possible
+values are \`TIMESTAMP\`, \`USERNAME\`, \`CLIENT\_TOKEN\`, \`IP\_ADDRESS\`, \`ASN\`,
+\`AS\_ORGANIZATION\`, \`COUNTRY\`, \`METHOD\`, \`HOST\`, \`PATH\`, \`URL\`, \`REFERER\`,
+\`TRAFFIC\_CHANNEL\`, \`IS\_ATTACK\`, \`BOT\_REASON\`, \`TRAFFIC\_TYPE\`, \`THREAT\_TYPE\`,
+\`SDK\_VERSION\`, \`ACTION\_TAKEN\`, \`COOKIE\_AGE\`, \`BOT\_COOKIE\`, \`USER\_AGENT\`,
+\`USER\_AGENT\_OS\_FAMILY\`, \`USER\_AGENT\_FAMILY\`, \`BROWSER\_FINGERPRINT\`,
+\`USER\_FINGERPRINT\`, \`HEADER\_FINGERPRINT\`, \`DEVICE\_ID\`, \`FLOW\`, \`AGENT\`,
+\`APPLICATION\_NAME\`, \`PROTECTED\_APPLICATION\`, \`RESPONSE\_CODE\`, \`SERVER\_RESPONSE\_CODE\`,
+\`TRANSACTION\_RESULT\`, \`MOBILE\_TRANSACTION\_INSIGHT\`, \`WEB\_TRANSACTION\_INSIGHT\`,
+\`TRIGGERED\_RULE\`, \`FLOW\_CATEGORY\`, \`FLOW\_LABEL\`, \`ENDPOINT\_NAME\`, \`ENDPOINT\_LABEL\`,
+\`BOT\_ENDPOINT\_POLICY\`, \`KNOWN\_BOT\_NAME\`, \`KNOWN\_BOT\_CATEGORY\`, \`KNOWN\_BOT\_PROVIDER\`,
+\`KNOWN\_BOT\_CATEGORY\_TYPE\`, \`KNOWN\_BOT\_MITIGATION\`, \`ABSOLUTE\`, \`PERCENTAGE\`, \`TREND\`,
+\`ENDPOINT\_POLICY\`. Defaults to \`TIMESTAMP\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("TIMESTAMP",
+    "USERNAME",
+    "CLIENT_TOKEN",
+    "IP_ADDRESS",
+    "ASN",
+    "AS_ORGANIZATION",
+    "COUNTRY",
+    "METHOD",
+    "HOST",
+    "PATH",
+    "URL",
+    "REFERER",
+    "TRAFFIC_CHANNEL",
+    "IS_ATTACK",
+    "BOT_REASON",
+    "TRAFFIC_TYPE",
+    "THREAT_TYPE",
+    "SDK_VERSION",
+    "ACTION_TAKEN",
+    "COOKIE_AGE",
+    "BOT_COOKIE",
+    "USER_AGENT",
+    "USER_AGENT_OS_FAMILY",
+    "USER_AGENT_FAMILY",
+    "BROWSER_FINGERPRINT",
+    "USER_FINGERPRINT",
+    "HEADER_FINGERPRINT",
+    "DEVICE_ID",
+    "FLOW",
+    "AGENT",
+    "APPLICATION_NAME",
+    "PROTECTED_APPLICATION",
+    "RESPONSE_CODE",
+    "SERVER_RESPONSE_CODE",
+    "TRANSACTION_RESULT",
+    "MOBILE_TRANSACTION_INSIGHT",
+    "WEB_TRANSACTION_INSIGHT",
+    "TRIGGERED_RULE",
+    "FLOW_CATEGORY",
+    "FLOW_LABEL",
+    "ENDPOINT_NAME",
+    "ENDPOINT_LABEL",
+    "BOT_ENDPOINT_POLICY",
+    "KNOWN_BOT_NAME",
+    "KNOWN_BOT_CATEGORY",
+    "KNOWN_BOT_PROVIDER",
+    "KNOWN_BOT_CATEGORY_TYPE",
+    "KNOWN_BOT_MITIGATION",
+    "ABSOLUTE",
+    "PERCENTAGE",
+    "TREND",
+    "ENDPOINT_POLICY"),
+}
+```
+
+<a id="canonical-3200312203322233-0303011112220321-2202230230021202-0110222313220212-2211323031333333-0200030320332231-0121113021320002-3133113001032200"></a>
+
+<a id="canonical-3320001320133133-1120101220030102-1201330032030221-2230330212000023-3000002320233103-0210113202222101-0201002312303013-2032231122302130"></a>
+
+## op property — global_filters / 112210233110 / 5
+
+Type: `"string"`. Optional.
+
+\[Enum:
+IN|NOT\_IN|MATCHES\_REGEX|DOES\_NOT\_MATCH\_REGEX|INCLUDES|DOES\_NOT\_INCLUDE|STARTS\_WITH|ENDS\_WITH\]
+Operator for query filter - IN: Filter Operator Specifies that query result includes filter values -
+NOT\_IN: Filter Operator Specifies that query result excludes filter values - MATCHES\_REGEX: Filter
+Operator Specifies that query result matches filter regular expression - DOES\_NOT\_MATCH\_REGEX: Filter..
+Possible values are \`IN\`, \`NOT\_IN\`, \`MATCHES\_REGEX\`, \`DOES\_NOT\_MATCH\_REGEX\`,
+\`INCLUDES\`, \`DOES\_NOT\_INCLUDE\`, \`STARTS\_WITH\`, \`ENDS\_WITH\`. Defaults to \`IN\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("IN",
+    "NOT_IN",
+    "MATCHES_REGEX",
+    "DOES_NOT_MATCH_REGEX",
+    "INCLUDES",
+    "DOES_NOT_INCLUDE",
+    "STARTS_WITH",
+    "ENDS_WITH"),
+}
+```
+
+<a id="canonical-2221213322300001-0113032220032121-3012222011013312-1313020012000133-1112100112021122-1121200022020212-2132303000302121-1100013023020212"></a>
+
+<a id="canonical-3000032101011222-0113202213030021-1200013013102222-1320023303322210-0113121122312313-3330011312222300-1023223312200110-2111331202100300"></a>
+
+## values property — global_filters / 112210233110 / 6
+
+Type: `["list", "string"]`. Optional.
+
+Values. An unordered list of filter strings.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeBetween(1, 64),
+}
+```
+
+<a id="canonical-0300020132000100-0321310020021021-1300300231301123-0323213220103010-2323323110103112-2301231211020330-1321132321123201-1033020231020003"></a>
+
+## Next pages — global_filters / 112210233110 / 7
+
+- [filters](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+
+<a id="canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2310220002002123-1110111120230300-0332022311031313-3322100033231333-3000333201032131-3023300013320201-2310133011130022-1300111023310231"></a>
+
+## time_series_results — time_series_results / 212002003033 / 2
+
+Breadcrumbs:
+
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- time_series_results
+
+<a id="canonical-2013210322222131-1131203030321032-0102210033113112-2013033010132220-0332320121312133-3320211010112332-1110033010001021-3022230030330222"></a>
+
+Type: `"list"`. Computed.
+
+Collection of time series grouped by a series key.
+
+<a id="canonical-0000203301333000-1123111100101111-2231232210110330-0111001003132133-0312103230110301-1132303032111123-0202012012033330-1111012020232121"></a>
+
+## Direct properties — time_series_results / 212002003033 / 3
+
+<a id="canonical-2221102113200133-3113320233013310-3113013112311110-1231122123023002-2213213100131300-0113203110102331-2100021121120123-2211102203122333"></a>
+
+<a id="canonical-1001203031301233-3301212023120122-2012123133131231-1320113230001023-3333110330303320-0231033220210133-1022213033221330-3330001003231120"></a>
+
+## series_key property — time_series_results / 212002003033 / 4
+
+Type: `"string"`. Computed.
+
+Identifier for the time series (e.g., 'total', 'high\_risk').
+
+- [time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1103330333220221-1330301211031103-2300031012001033-1321100232023320-3102010201013032-3301230000320123-0013032102112133-0131033330033331): complete subsection reference.
+
+<a id="canonical-3113113233111202-3203330333213212-3312231021311100-1121101110200102-3210310310223101-0221320023120102-1131203023322012-0330102212120211"></a>
+
+## Next pages — time_series_results / 212002003033 / 5
+
+- [time_series_results.time_series](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1103330333220221-1330301211031103-2300031012001033-1321100232023320-3102010201013032-3301230000320123-0013032102112133-0131033330033331)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+
+<a id="canonical-1103330333220221-1330301211031103-2300031012001033-1321100232023320-3102010201013032-3301230000320123-0013032102112133-0131033330033331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3213030223230212-2032023013012000-0103320303000223-1031000101013303-3330230010023031-2211011112303010-1331311320223333-3103210231021110"></a>
+
+## time_series_results.time_series — time_series / 221233330331 / 2
+
+Breadcrumbs:
+
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)
+- [Property reference](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222)
+- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001)
+- time_series_results.time_series
+
+<a id="canonical-2122122000112211-2131323031330302-1010012033212022-1330331120203112-0213000000200111-1113102010322210-3021312321132210-2213333233110222"></a>
+
+Type: `"list"`. Computed.
+
+Sequence of timestamped values for this series.
+
+<a id="canonical-0312130203330221-1131232010001113-3132221212222121-2030123120322113-3202322023020103-0122001113003112-1103122133312331-2113222212320330"></a>
+
+## Direct properties — time_series / 221233330331 / 3
+
+<a id="canonical-2311330000310330-1123010030132013-0233301113232002-2033133032101220-2323201232033312-2102032032102123-1122320033230233-0132022333013022"></a>
+
+<a id="canonical-2310311022103022-2202031032313132-3012111033033302-0331130302030203-2011103332032131-3020033102201200-0200010110010022-1333130210030231"></a>
+
+## timestamp property — time_series / 221233330331 / 4
+
+Type: `"string"`. Computed.
+
+Timestamp (epoch seconds). Unix epoch timestamp in seconds.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(20, 1024),
+  stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z?$`),
+    ""),
+}
+```
+
+<a id="canonical-1312313012002332-2130213112123303-2123033102003200-3202331001320002-1131110023212110-3112202212013011-1120112123303300-0131130303112021"></a>
+
+<a id="canonical-0213033333301001-0230001021011222-3103303322130030-1103321012003210-3200032330332233-1320031201211202-2113220302212203-2133022103203200"></a>
+
+## value property — time_series / 221233330331 / 5
+
+Type: `"string"`. Computed.
+
+Value. Value observed at the given timestamp.
+
+<a id="canonical-1332112322133231-0331331111133112-3312013013220103-3011330013233312-1312321302130001-3002133131121303-0202032223121301-3220232021023311"></a>
+
+## Next pages — time_series / 221233330331 / 6
+
+- [time_series_results](data-sources--device_intelligence_high_risk_transactions--reference--group-001.md#canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001)
+- [xcsh_device_intelligence_high_risk_transactions](../data-sources/device_intelligence_high_risk_transactions.md#canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103)

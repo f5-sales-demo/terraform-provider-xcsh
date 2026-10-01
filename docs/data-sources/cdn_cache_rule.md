@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cdn_cache_rule"
+page_title: "xcsh_cdn_cache_rule landing"
 subcategory: ""
-description: "xcsh_cdn_cache_rule for xcsh_cdn_cache_rule."
-xcsh_docs: {"aliases": [], "body_bytes": 1288, "body_sha256": "sha256:65ac46cb08d066279c0f048255a5d2442df1e28c3ac63aaaa75cb024fefa2b6a", "canonical_id": "xcsh-docs:data-sources:cdn_cache_rule:fundamentals", "child_ids": ["xcsh-docs:data-sources:cdn_cache_rule:reference", "xcsh-docs:data-sources:cdn_cache_rule:examples"], "collection_id": "xcsh-docs:data-sources:cdn_cache_rule:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_cache_rule:fundamentals", "parent_id": null, "path": "docs/data-sources/cdn_cache_rule.md", "provider_name": "cdn_cache_rule", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_cache_rule/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cdn_cache_rule for xcsh_cdn_cache_rule.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cdn_cache_ruleCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cdn_cache_rule landing."
 ---
+
+# xcsh_cdn_cache_rule landing
+
+<a id="canonical-1302132311222223-2013120100100131-2322023003310212-2230310003033201-2101302310132220-3120031003232130-1130213222020202-2012321300112021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cdn_cache_rule
+<a id="canonical-3331121330323002-0000332222131030-1101000203030102-0211133211001122-0033011112310123-1223311203310200-1212121130011130-1001301321113330"></a>
+
+## xcsh_cdn_cache_rule — xcsh_cdn_cache_rule / 212113313011 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification.
 configuration.
 
-## Prerequisites
+<a id="canonical-0320100012000202-0113300012200010-3120123012232012-2230300101120133-2333310223010122-0113112310133221-1111201200231222-2310311232131320"></a>
+
+## Prerequisites — xcsh_cdn_cache_rule / 212113313011 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2333320112310222-0320222133222321-2221103311332033-0332010203131101-2031133312202032-0022010031211002-0103322332210131-1120010102000123"></a>
+
+## Minimal configuration — xcsh_cdn_cache_rule / 212113313011 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cdn_cache_rule_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3122230312131112-0222220201021010-1003101011330322-2100000111103011-0230232120310321-3023333232003211-3220311232020301-0030221203221100"></a>
+
+## Root configuration — xcsh_cdn_cache_rule / 212113313011 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3023231202001220-3303122332131020-2002200222201011-0201213100230112-1002331112001212-1013303332230112-3020122230333131-1101202330301033"></a>
 
-- [Property reference](../guides/data-sources--cdn_cache_rule--reference.md)
-- [Examples](../guides/data-sources--cdn_cache_rule--examples.md)
+## Next pages — xcsh_cdn_cache_rule / 212113313011 / 6
+
+- [Property reference](../guides/data-sources--cdn_cache_rule--reference--group-001.md#canonical-2320313102000230-1230033101112212-1013201230012001-2233112321110123-2313202103031130-1022000000100313-3212211012111121-2302303321033121)
+- [Examples](../guides/data-sources--cdn_cache_rule--examples--group-001.md#canonical-1123232111331111-0131132300333101-3320021113101203-1311110200002032-3130303103303300-0112302233013033-1211133123333011-3211232123213233)

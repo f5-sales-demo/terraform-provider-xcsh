@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_addon_service"
+page_title: "xcsh_addon_service landing"
 subcategory: ""
-description: "xcsh_addon_service for xcsh_addon_service."
-xcsh_docs: {"aliases": [], "body_bytes": 1688, "body_sha256": "sha256:cee09b7fe4ad126f9f0d25d50feed7405929d325c782d62f11be4be92b3cd8a4", "canonical_id": "xcsh-docs:data-sources:addon_service:fundamentals", "child_ids": ["xcsh-docs:data-sources:addon_service:reference", "xcsh-docs:data-sources:addon_service:examples"], "collection_id": "xcsh-docs:data-sources:addon_service:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:addon_service:fundamentals", "parent_id": null, "path": "docs/data-sources/addon_service.md", "provider_name": "addon_service", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/addon_service/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_addon_service for xcsh_addon_service.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_addon_service landing."
 ---
+
+# xcsh_addon_service landing
+
+<a id="canonical-2330122101113210-0031213211000013-0113320231112112-2023300013333011-1030201010131303-2332021031023321-1030302210322030-1132200333322121"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_addon_service
+<a id="canonical-0222300023323320-1120303213101123-0000333102301300-0011210212103011-1123123011233123-2003021323100112-0321002211020032-2323301303120033"></a>
+
+## xcsh_addon_service — xcsh_addon_service / 100103200212 / 2
 
 Breadcrumbs:
 
@@ -25,11 +30,15 @@ addon service details including tier requirements and activation type.
 subscribe to an addon service, please use the F5 Distributed Cloud Console or contact your account
 team.
 
-## Prerequisites
+<a id="canonical-1300323231110133-0332002223001011-0000321103111201-3310121012312022-2322303030101123-1022030103330031-3002321220312013-3233221223003010"></a>
+
+## Prerequisites — xcsh_addon_service / 100103200212 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1002011313023013-2323210222313112-1000132332033311-0313101202113302-3102232211110122-1331213233011203-1332103020102030-1022211103213202"></a>
+
+## Minimal configuration — xcsh_addon_service / 100103200212 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,11 +67,15 @@ output "addon_service_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3103223022031110-0323130123112021-2231010000103322-0113211302222311-0023130033201112-3000122033332303-2123102113303013-3312110003300203"></a>
+
+## Root configuration — xcsh_addon_service / 100103200212 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0023023102203030-3213011321312000-0120101310302232-0033121323011221-2212023131313021-0131230120111330-3113000012023002-2003331030010200"></a>
 
-- [Property reference](../guides/data-sources--addon_service--reference.md)
-- [Examples](../guides/data-sources--addon_service--examples.md)
+## Next pages — xcsh_addon_service / 100103200212 / 6
+
+- [Property reference](../guides/data-sources--addon_service--reference--group-001.md#canonical-0101311200030200-2033233113311222-3123301302321122-2232020112101123-3323000031131011-2103311130212112-2210113200221131-3330200122001111)
+- [Examples](../guides/data-sources--addon_service--examples--group-001.md#canonical-2200032121332322-2232122133010113-2030311301331333-0012110031130233-2230232102303223-1021131330013322-3112031330020320-3332012230232033)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_application_profiles"
+page_title: "xcsh_application_profiles landing"
 subcategory: ""
-description: "xcsh_application_profiles for xcsh_application_profiles."
-xcsh_docs: {"aliases": [], "body_bytes": 1361, "body_sha256": "sha256:86a4205c105f7cbf332747780955b3cd6f01bcc4c58bb00dc902677d326d8046", "canonical_id": "xcsh-docs:data-sources:application_profiles:fundamentals", "child_ids": ["xcsh-docs:data-sources:application_profiles:reference", "xcsh-docs:data-sources:application_profiles:examples"], "collection_id": "xcsh-docs:data-sources:application_profiles:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:application_profiles:fundamentals", "parent_id": null, "path": "docs/data-sources/application_profiles.md", "provider_name": "application_profiles", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_application_profiles for xcsh_application_profiles.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["application_profilesCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_application_profiles landing."
 ---
+
+# xcsh_application_profiles landing
+
+<a id="canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_application_profiles
+<a id="canonical-2131132111100302-3130203010211213-2112200101113333-1233221322012231-3103021203203031-3200200312221302-1030103102212123-3200320103022033"></a>
+
+## xcsh_application_profiles — xcsh_application_profiles / 322300103330 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Application Profiles in a given namespace. If one already exists it will give an error in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3232032322233212-2332202013010022-3032133013230001-3023331022003030-1003121223101102-1201133331331023-0313002230323211-0300003200302313"></a>
+
+## Prerequisites — xcsh_application_profiles / 322300103330 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1321022020012303-2012032313122011-2231132313200021-3100222212031312-3033010312223223-3000121023330132-2002203323211120-2121103332323323"></a>
+
+## Minimal configuration — xcsh_application_profiles / 322300103330 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "application_profiles_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3022311201013032-0001013100213223-1330001033210222-2103211031213320-1210221123032013-1302122121311112-1231000210201233-0003121103213000"></a>
+
+## Root configuration — xcsh_application_profiles / 322300103330 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3132232110130220-1200000301323013-3213221232012133-2103113231023022-3323021300020311-1012020310232123-2233320300232230-1333021310112001"></a>
 
-- [Property reference](../guides/data-sources--application_profiles--reference.md)
-- [Examples](../guides/data-sources--application_profiles--examples.md)
+## Next pages — xcsh_application_profiles / 322300103330 / 6
+
+- [Property reference](../guides/data-sources--application_profiles--reference--group-001.md#canonical-3100202011322300-0311322111330123-0130031222313021-0003030210210221-2333312022200112-1223301232231311-3102021102011321-0333231203003231)
+- [Examples](../guides/data-sources--application_profiles--examples--group-001.md#canonical-1033011113233320-1301333330113200-2100233022211032-0313022133301123-2122221113330300-0232313020112220-3023003000001232-2122011022223110)

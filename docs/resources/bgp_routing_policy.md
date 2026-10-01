@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bgp_routing_policy"
+page_title: "xcsh_bgp_routing_policy landing"
 subcategory: ""
-description: "xcsh_bgp_routing_policy for xcsh_bgp_routing_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1656, "body_sha256": "sha256:e508fcca457a4a60990d06ea95c032d22859534a14f3e3f71a0b4cd65ebeb846", "canonical_id": "xcsh-docs:resources:bgp_routing_policy:fundamentals", "child_ids": ["xcsh-docs:resources:bgp_routing_policy:reference", "xcsh-docs:resources:bgp_routing_policy:examples", "xcsh-docs:resources:bgp_routing_policy:import", "xcsh-docs:resources:bgp_routing_policy:timeouts"], "collection_id": "xcsh-docs:resources:bgp_routing_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:bgp_routing_policy:fundamentals", "parent_id": null, "path": "docs/resources/bgp_routing_policy.md", "provider_name": "bgp_routing_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bgp_routing_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bgp_routing_policy for xcsh_bgp_routing_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bgp_routing_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bgp_routing_policy landing."
 ---
+
+# xcsh_bgp_routing_policy landing
+
+<a id="canonical-2211022302323020-0302320013313033-3100300331020023-2001230222330132-3112010301102323-1231210203133211-2221203232121211-3030023302033111"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bgp_routing_policy
+<a id="canonical-0010233123020113-2112013102000233-0311110323210031-3332301232131233-3300231032321121-2323313303133332-1321310222331323-0233332303211312"></a>
+
+## xcsh_bgp_routing_policy — xcsh_bgp_routing_policy / 130102120230 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing po
 rules containing match criteria and action to be applied. these rules help control routes which are
 imported or exported to bgp peers. configuration.
 
-## Prerequisites
+<a id="canonical-1133122312133012-2012123313233300-1320122031030331-3203022112013330-1032320132221320-1320123120232310-3120003010102232-0220311132131303"></a>
+
+## Prerequisites — xcsh_bgp_routing_policy / 130102120230 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3300223022220133-0001010233301303-1301231022220212-1132122023030212-3231201201033323-0120123312033220-1002331112120021-2321031113013133"></a>
+
+## Minimal configuration — xcsh_bgp_routing_policy / 130102120230 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,13 +58,17 @@ resource "xcsh_bgp_routing_policy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2333210203300000-0302013112003210-3300213321312031-2210200103321220-3112023101033023-2311120200212021-0111102302231022-0223120300331223"></a>
+
+## Root configuration — xcsh_bgp_routing_policy / 130102120230 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0002013131230121-3332010102102031-3223002020003033-1021002200122230-0213222110321302-0132310222210110-2121023303130001-3121130222102303"></a>
 
-- [Property reference](../guides/resources--bgp_routing_policy--reference.md)
-- [Examples](../guides/resources--bgp_routing_policy--examples.md)
-- [Import](../guides/resources--bgp_routing_policy--import.md)
-- [Timeouts](../guides/resources--bgp_routing_policy--timeouts.md)
+## Next pages — xcsh_bgp_routing_policy / 130102120230 / 6
+
+- [Property reference](../guides/resources--bgp_routing_policy--reference--group-001.md#canonical-3013023032130133-2230102223310123-1322330103333212-1200321223212002-1322231010210000-3322131101112111-3313131023323000-0210322222303302)
+- [Examples](../guides/resources--bgp_routing_policy--examples--group-001.md#canonical-3331233210211201-3320122310001331-0023303210033213-0203331202113223-3301130030300021-1123131122130332-2312033221301123-0012312032021332)
+- [Import](../guides/resources--bgp_routing_policy--lifecycle--group-001.md#canonical-2302332132300333-3331212230301322-0010133130121333-3300022001310330-0013021003132133-1012303231133310-2013223122322102-2201023220333122)
+- [Timeouts](../guides/resources--bgp_routing_policy--lifecycle--group-001.md#canonical-3011210220032132-0311203232030113-2232331101211323-3021302230332101-3023122011320231-0301202132130313-2013212223101003-1212210112231311)

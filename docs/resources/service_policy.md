@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_service_policy"
+page_title: "xcsh_service_policy landing"
 subcategory: "Security"
-description: "xcsh_service_policy for xcsh_service_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1479, "body_sha256": "sha256:ed988348828b7a8f273ce40efffde75694a4e40e60fee2ef2c60f4857c293ce8", "canonical_id": "xcsh-docs:resources:service_policy:fundamentals", "child_ids": ["xcsh-docs:resources:service_policy:reference", "xcsh-docs:resources:service_policy:examples", "xcsh-docs:resources:service_policy:import", "xcsh-docs:resources:service_policy:timeouts"], "collection_id": "xcsh-docs:resources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy:fundamentals", "parent_id": null, "path": "docs/resources/service_policy.md", "provider_name": "service_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_service_policy for xcsh_service_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_service_policy landing."
 ---
+
+# xcsh_service_policy landing
+
+<a id="canonical-3130230113123200-0200122303013133-3003310003113113-2022033310201211-3303333001012130-2333023010121030-2132303102102003-2201111001022301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_service_policy
+<a id="canonical-3100022012222301-0202331022231111-0223122212030130-3001221021310002-1230031221131332-3012031100020030-2203312021111200-2200112032322030"></a>
+
+## xcsh_service_policy — xcsh_service_policy / 020230230023 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages service\_policy creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1200323013023133-0200112012122112-2203110330201113-1222101330021100-2311303310330121-2313101022020101-2100232201222131-1233331303201022"></a>
+
+## Prerequisites — xcsh_service_policy / 020230230023 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-## Minimal configuration
+<a id="canonical-1313110032110233-2102320321020311-1011202212333201-1201331012023022-0000322121320233-1201223310131201-1231023023130023-0332122011121032"></a>
+
+## Minimal configuration — xcsh_service_policy / 020230230023 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_service_policy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2031323010331003-1020122222213303-3313133110011302-1303120121323211-1132213033331232-0330320311322103-1332331212321321-2012320110000312"></a>
+
+## Root configuration — xcsh_service_policy / 020230230023 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2122232112332320-0100332031120311-2103222021012333-1011003022012330-1223203110321330-2231312130100003-0333013031312311-0100033212013203"></a>
 
-- [Property reference](../guides/resources--service_policy--reference.md)
-- [Examples](../guides/resources--service_policy--examples.md)
-- [Import](../guides/resources--service_policy--import.md)
-- [Timeouts](../guides/resources--service_policy--timeouts.md)
+## Next pages — xcsh_service_policy / 020230230023 / 6
+
+- [Property reference](../guides/resources--service_policy--reference--group-001.md#canonical-3233121223111310-1123021201111211-2020111333013010-3123332230330123-3220120121331001-3202000010100310-1011313102310030-1312202213103330)
+- [Examples](../guides/resources--service_policy--examples--group-001.md#canonical-1220321203332321-0223210020200002-3001003033013233-2101111202111230-3201121300222213-2000333221301112-3223311102130320-3311232312310321)
+- [Import](../guides/resources--service_policy--lifecycle--group-001.md#canonical-3001210010320130-2032113022230020-3233101011020330-3120033130332021-2132221202012233-0010012202130213-0110100100330330-1301210030303010)
+- [Timeouts](../guides/resources--service_policy--lifecycle--group-001.md#canonical-1020100312322001-0022102320010322-0313030322230202-1311032033323020-0020123001102001-2112020233021011-2222201222200103-3312223323002112)

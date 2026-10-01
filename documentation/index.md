@@ -346,3 +346,6 @@ description: "Complete Terraform provider documentation collections."
 - [actions: xcsh_site_upgrade_sw](https://f5-sales-demo.github.io/terraform-provider-xcsh/actions/site_upgrade_sw/)
 - [ephemeral-resources: xcsh_artifact_registry_token](https://f5-sales-demo.github.io/terraform-provider-xcsh/ephemeral-resources/artifact_registry_token/)
 - [ephemeral-resources: xcsh_kubernetes_manifests](https://f5-sales-demo.github.io/terraform-provider-xcsh/ephemeral-resources/kubernetes_manifests/)
+
+- [Provider setup and authentication](https://f5-sales-demo.github.io/terraform-provider-xcsh/provider/setup/)
+- [network-allowlists guide](https://f5-sales-demo.github.io/terraform-provider-xcsh/guides/network-allowlists/)

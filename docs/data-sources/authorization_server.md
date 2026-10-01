@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_authorization_server"
+page_title: "xcsh_authorization_server landing"
 subcategory: ""
-description: "xcsh_authorization_server for xcsh_authorization_server."
-xcsh_docs: {"aliases": [], "body_bytes": 1363, "body_sha256": "sha256:8020268a160d1be1c735c5c4cee9160296e6816fbb83d8fa167fa5ce76afa4c7", "canonical_id": "xcsh-docs:data-sources:authorization_server:fundamentals", "child_ids": ["xcsh-docs:data-sources:authorization_server:reference", "xcsh-docs:data-sources:authorization_server:examples"], "collection_id": "xcsh-docs:data-sources:authorization_server:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:authorization_server:fundamentals", "parent_id": null, "path": "docs/data-sources/authorization_server.md", "provider_name": "authorization_server", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authorization_server/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_authorization_server for xcsh_authorization_server.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["authorization_serverCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_authorization_server landing."
 ---
+
+# xcsh_authorization_server landing
+
+<a id="canonical-3021220012103201-0130032102230113-0221231210301022-2323112200300110-3212010013210200-3300200232211023-2113102021313101-1310130133021322"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_authorization_server
+<a id="canonical-2200311330321203-3103000031013013-2120202023132321-1001011013103121-1210102302221010-2221210111312113-1333032332300202-3200203120121131"></a>
+
+## xcsh_authorization_server — xcsh_authorization_server / 133330320022 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages authorization\_server creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1311000001303010-2101333302210231-1313222221030021-0300123023013033-3130231320223211-3233021123330320-0123231031111323-1131212313203032"></a>
+
+## Prerequisites — xcsh_authorization_server / 133330320022 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3303023210120023-0113300130110220-0313213111302122-0333012003303023-0323010122313322-1000021301232111-0133032020123210-1203011020312311"></a>
+
+## Minimal configuration — xcsh_authorization_server / 133330320022 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "authorization_server_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1312302200222003-0313332211310211-2232312010212212-1231330120332211-0112223332221011-3021330323222133-0323233100133030-0101220110231310"></a>
+
+## Root configuration — xcsh_authorization_server / 133330320022 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2213020303320010-3102202213303220-0202300023232033-3022312031130030-2322020310113212-2301313032113111-2213133303020221-2102221002200111"></a>
 
-- [Property reference](../guides/data-sources--authorization_server--reference.md)
-- [Examples](../guides/data-sources--authorization_server--examples.md)
+## Next pages — xcsh_authorization_server / 133330320022 / 6
+
+- [Property reference](../guides/data-sources--authorization_server--reference--group-001.md#canonical-1033321203032211-3120322231302331-2201330321022031-2230022113210210-1333130133303221-2233013123102231-1302133330012130-3023121200332031)
+- [Examples](../guides/data-sources--authorization_server--examples--group-001.md#canonical-2033301013221130-0030022030303002-3031133301332223-3230301213310203-1301033002012133-1023011313333003-3130221223113223-2321031313000012)

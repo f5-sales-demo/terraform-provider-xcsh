@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_enhanced_firewall_policy"
+page_title: "xcsh_enhanced_firewall_policy landing"
 subcategory: ""
-description: "xcsh_enhanced_firewall_policy for xcsh_enhanced_firewall_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1551, "body_sha256": "sha256:9aff7c4284749310f454e1e81c380438caef7149825906d6e4e3325b461f4272", "canonical_id": "xcsh-docs:resources:enhanced_firewall_policy:fundamentals", "child_ids": ["xcsh-docs:resources:enhanced_firewall_policy:reference", "xcsh-docs:resources:enhanced_firewall_policy:examples", "xcsh-docs:resources:enhanced_firewall_policy:import", "xcsh-docs:resources:enhanced_firewall_policy:timeouts"], "collection_id": "xcsh-docs:resources:enhanced_firewall_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:enhanced_firewall_policy:fundamentals", "parent_id": null, "path": "docs/resources/enhanced_firewall_policy.md", "provider_name": "enhanced_firewall_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_enhanced_firewall_policy for xcsh_enhanced_firewall_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["enhanced_firewall_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_enhanced_firewall_policy landing."
 ---
+
+# xcsh_enhanced_firewall_policy landing
+
+<a id="canonical-0230122003121113-2121322323013210-0332210003313031-3130130121001020-0320301310111013-2131011113313110-1232313200113310-3023330120001120"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_enhanced_firewall_policy
+<a id="canonical-0321003301132132-0013110203021102-1223110222123030-2203020123322210-0201320210220002-1333311003303110-2120102123022123-2232030010302300"></a>
+
+## xcsh_enhanced_firewall_policy — xcsh_enhanced_firewall_policy / 310232200013 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Enhanced Firewall Policy resource in F5 Distributed Cloud for enhanced firewall policy
 specification. configuration.
 
-## Prerequisites
+<a id="canonical-1012130223132300-1213031022302103-1121313102220201-1210003303112101-0131311200002303-2123031210010312-3300233300033321-2331331103210133"></a>
+
+## Prerequisites — xcsh_enhanced_firewall_policy / 310232200013 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2103303013233103-2302231233210123-2310003303232120-3022320233121323-3121012201002302-1233102132133112-3223233133302213-3103131300221220"></a>
+
+## Minimal configuration — xcsh_enhanced_firewall_policy / 310232200013 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_enhanced_firewall_policy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1322213300011313-0003331310010033-2012331120232022-3130132230320033-1303321110103101-0130212202322100-3302331120113013-3021122200013020"></a>
+
+## Root configuration — xcsh_enhanced_firewall_policy / 310232200013 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1103320311320121-2310003021023202-2301011221213323-3212031330001131-0233203002112102-1201011113301221-3222131100332113-1211331213031133"></a>
 
-- [Property reference](../guides/resources--enhanced_firewall_policy--reference.md)
-- [Examples](../guides/resources--enhanced_firewall_policy--examples.md)
-- [Import](../guides/resources--enhanced_firewall_policy--import.md)
-- [Timeouts](../guides/resources--enhanced_firewall_policy--timeouts.md)
+## Next pages — xcsh_enhanced_firewall_policy / 310232200013 / 6
+
+- [Property reference](../guides/resources--enhanced_firewall_policy--reference--group-001.md#canonical-3120211302012031-2120323122122020-0210103121120212-1321311022000233-2100211332133033-0032332233212111-3203333123232212-3220222311000331)
+- [Examples](../guides/resources--enhanced_firewall_policy--examples--group-001.md#canonical-0300121330133313-2033001313033321-1102113313303112-3122233131133213-3012030223103201-1312010030303003-3313002333002221-0002221303031112)
+- [Import](../guides/resources--enhanced_firewall_policy--lifecycle--group-001.md#canonical-2221333202332223-3112120322020302-3333133330010331-0101031033323203-3213323110231223-1232301211322232-0223233122212010-1322311123303200)
+- [Timeouts](../guides/resources--enhanced_firewall_policy--lifecycle--group-001.md#canonical-2012131022321103-3221101033202120-0212002002103111-1022312030110320-3233033120100013-0223011130002023-2132302330220001-0013313110103220)

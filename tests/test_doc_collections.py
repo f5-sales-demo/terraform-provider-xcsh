@@ -277,7 +277,7 @@ class CollectionTests(unittest.TestCase):
             )
             outputs = DOCS.registry_project(pages, {reference["collection_id"]: ""})
             parts = [
-                text for path, text in outputs.items() if "reference--part-" in path
+                text for path, text in outputs.items() if "reference--group-" in path
             ]
             self.assertGreater(len(parts), 1)
             for row in rows:
@@ -297,6 +297,66 @@ class CollectionTests(unittest.TestCase):
         del outputs["docs/resources/fixture.md"]
         with self.assertRaisesRegex(ValueError, "missing navigation target"):
             DOCS.registry_navigation(surface, outputs)
+
+    def test_complete_registry_projection_coverage(self):
+        manifest_path = ROOT / "documentation/registry-projection-manifest.json"
+        if not manifest_path.exists():
+            self.skipTest("grouped generation precedes corpus acceptance")
+        projection = json.loads(manifest_path.read_text())
+        index = json.loads(
+            (ROOT / "documentation/terraform-llms-index.json").read_text()
+        )
+        pages = {page["id"]: page for page in index["pages"]}
+        represented = {
+            section["canonical_id"]
+            for shard in projection["section_manifests"]
+            for section in json.loads((ROOT / shard["path"]).read_text())["sections"]
+        }
+        self.assertEqual(represented, set(pages))
+        self.assertTrue(
+            any(page["provider_type"] == "provider" for page in pages.values())
+        )
+        self.assertTrue(
+            any(page["provider_type"] == "guides" for page in pages.values())
+        )
+        self.assertEqual(
+            sum(len(collection["properties"]) for collection in index["collections"]),
+            39557,
+        )
+        sections = [
+            section
+            for shard in projection["section_manifests"]
+            for section in json.loads((ROOT / shard["path"]).read_text())["sections"]
+        ]
+        section_by_page: dict[str, list[dict]] = {}
+        for section in sections:
+            section_by_page.setdefault(section["canonical_id"], []).append(section)
+            page = pages[section["canonical_id"]]
+            self.assertEqual(section["canonical_source_sha256"], page["body_sha256"])
+            self.assertIn(section["mode"], ("embedded", "canonical-link"))
+            if section["mode"] == "canonical-link":
+                self.assertIn("/versions/", section["canonical_url"])
+                self.assertTrue(section["reason"])
+        texts = {}
+        for path, evidence in projection["files"].items():
+            data = (ROOT / path).read_bytes()
+            self.assertEqual(len(data), evidence["bytes"])
+            self.assertEqual(DOCS.digest(data), evidence["sha256"])
+            self.assertLessEqual(len(data), 500000)
+            texts[path] = data.decode()
+        for collection in index["collections"]:
+            for target in collection["properties"].values():
+                anchors = [
+                    section
+                    for section in section_by_page[target["document_id"]]
+                    if target["anchor"] in dict(section["anchor_map"])
+                ]
+                self.assertTrue(anchors, target)
+                for section in anchors:
+                    self.assertIn(
+                        'id="' + dict(section["anchor_map"])[target["anchor"]] + '"',
+                        texts[section["registry_path"]],
+                    )
 
     def test_generated_manifest_and_progressive_http_navigation(self):
         manifest_file = ROOT / "documentation/generated-manifest.json"

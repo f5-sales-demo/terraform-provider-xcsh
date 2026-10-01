@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_discovery"
+page_title: "xcsh_discovery landing"
 subcategory: ""
-description: "xcsh_discovery for xcsh_discovery."
-xcsh_docs: {"aliases": [], "body_bytes": 1453, "body_sha256": "sha256:59da7be21b7aaea7bc47d22711d1ff432e01173205affaffad7b33531cece543", "canonical_id": "xcsh-docs:resources:discovery:fundamentals", "child_ids": ["xcsh-docs:resources:discovery:reference", "xcsh-docs:resources:discovery:examples", "xcsh-docs:resources:discovery:import", "xcsh-docs:resources:discovery:timeouts"], "collection_id": "xcsh-docs:resources:discovery:collection", "completeness": "complete", "id": "xcsh-docs:resources:discovery:fundamentals", "parent_id": null, "path": "docs/resources/discovery.md", "provider_name": "discovery", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/discovery/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_discovery for xcsh_discovery.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["discoveryCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_discovery landing."
 ---
+
+# xcsh_discovery landing
+
+<a id="canonical-3201131300321232-1303201100223230-3111121223110010-2301312203313103-1133001130100300-0132321013103013-3122130213231330-3003233233303202"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_discovery
+<a id="canonical-2230322100133032-1032130310311133-3202223023121120-3301222012231102-2111222021323222-3300301112111102-1122221302020013-1012200223312133"></a>
+
+## xcsh_discovery — xcsh_discovery / 331130132013 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site
 or virtual site in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-1233303032000021-0130323301112023-2300132023313122-0301001120210122-0023002220023000-1123322022330303-3201332222233321-0222311222310203"></a>
+
+## Prerequisites — xcsh_discovery / 331130132013 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3202002000012000-3222223202231312-3221002101102032-2213113323131111-3323133220022222-2100003100103131-1312202020332120-0002131323100230"></a>
+
+## Minimal configuration — xcsh_discovery / 331130132013 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_discovery" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1222020120212131-2330002003111201-1033113133102221-3120121233303232-1212302202133223-3200222020131232-1321031123130132-0313131332302121"></a>
+
+## Root configuration — xcsh_discovery / 331130132013 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3310022110111201-0100012222002231-1020002222133003-1320223303230032-3111302333201131-0233310011011201-3211331331003231-3113001010232330"></a>
 
-- [Property reference](../guides/resources--discovery--reference.md)
-- [Examples](../guides/resources--discovery--examples.md)
-- [Import](../guides/resources--discovery--import.md)
-- [Timeouts](../guides/resources--discovery--timeouts.md)
+## Next pages — xcsh_discovery / 331130132013 / 6
+
+- [Property reference](../guides/resources--discovery--reference--group-001.md#canonical-1000122023131121-1311020012032030-2231333201001000-3132033312130132-3123110232132122-0111031230023103-1231303130211110-1311211000221222)
+- [Examples](../guides/resources--discovery--examples--group-001.md#canonical-0302301231230113-2120313302220013-1021221011331111-2001300103031013-3110221312211320-0012310022011122-0031200230200333-0110131331330233)
+- [Import](../guides/resources--discovery--lifecycle--group-001.md#canonical-1313311020210021-3020033220313300-1322001302302330-2131100313112221-0110231330303020-2121121002302101-2003332221010300-3030100033333011)
+- [Timeouts](../guides/resources--discovery--lifecycle--group-001.md#canonical-3320213313210301-2322320001013033-0321323121023112-2330203111032133-2001303103233203-0221013112330320-3030121031001013-2122031130000130)

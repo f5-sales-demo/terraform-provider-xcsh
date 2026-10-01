@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_log_receiver"
+page_title: "xcsh_log_receiver landing"
 subcategory: "Monitoring"
-description: "xcsh_log_receiver for xcsh_log_receiver."
-xcsh_docs: {"aliases": [], "body_bytes": 1252, "body_sha256": "sha256:a247af3a1a08ccb3faa378c71f66b6846cbd4b6a6412d3e1076466a4a1b7917e", "canonical_id": "xcsh-docs:data-sources:log_receiver:fundamentals", "child_ids": ["xcsh-docs:data-sources:log_receiver:reference", "xcsh-docs:data-sources:log_receiver:examples"], "collection_id": "xcsh-docs:data-sources:log_receiver:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:log_receiver:fundamentals", "parent_id": null, "path": "docs/data-sources/log_receiver.md", "provider_name": "log_receiver", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_log_receiver for xcsh_log_receiver.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["log_receiverCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_log_receiver landing."
 ---
+
+# xcsh_log_receiver landing
+
+<a id="canonical-1010023232010022-3110032022020213-2301223122100323-3033320312300203-0103220200031300-1202020311303233-2022232121113022-3202200022031102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_log_receiver
+<a id="canonical-2303221233002022-3323000231230130-0310220300323332-1321303121333013-1000121123111201-0022312120310031-0300311312110331-1023110200211313"></a>
+
+## xcsh_log_receiver — xcsh_log_receiver / 133212303321 / 2
 
 Breadcrumbs:
 
@@ -17,13 +22,17 @@ Breadcrumbs:
 
 Manages new Log Receiver object in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3210021130101000-2021031022023123-0322110010230310-3322202011200223-2132322022133013-3100311000130302-3101132222313100-3120302220120210"></a>
+
+## Prerequisites — xcsh_log_receiver / 133212303321 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-3023320011200132-3013033200313222-1312003131200110-2001121231230301-0303112210103132-2011333333132221-3122111130323221-3112330220303303"></a>
+
+## Minimal configuration — xcsh_log_receiver / 133212303321 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "log_receiver_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2121033211000333-2021023102313201-3102032112020013-1113330202203003-1000211112123000-0313210322330013-1112221111232001-0133201303021113"></a>
+
+## Root configuration — xcsh_log_receiver / 133212303321 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0003112200220133-1230313132221200-3131031200003211-3213202330123000-2331331022211022-1301030112130023-3023202011120310-0033131201230101"></a>
 
-- [Property reference](../guides/data-sources--log_receiver--reference.md)
-- [Examples](../guides/data-sources--log_receiver--examples.md)
+## Next pages — xcsh_log_receiver / 133212303321 / 6
+
+- [Property reference](../guides/data-sources--log_receiver--reference--group-001.md#canonical-1302313133112100-1032210321010113-2121123223230031-3320110111212311-0021101303320010-2103020131022310-0310113002022220-3112011312012233)
+- [Examples](../guides/data-sources--log_receiver--examples--group-001.md#canonical-2223011232000332-3200032103323313-3320133300222033-2022032003330100-2001123102211220-2202121202312110-3031022223312223-3300202332132331)

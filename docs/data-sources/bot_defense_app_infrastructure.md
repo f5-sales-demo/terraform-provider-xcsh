@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_defense_app_infrastructure"
+page_title: "xcsh_bot_defense_app_infrastructure landing"
 subcategory: ""
-description: "xcsh_bot_defense_app_infrastructure for xcsh_bot_defense_app_infrastructure."
-xcsh_docs: {"aliases": [], "body_bytes": 1422, "body_sha256": "sha256:db4638a78b12ee72796b0908b536a0511f7af48545986e05ae2cce9e633be68c", "canonical_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_defense_app_infrastructure:reference", "xcsh-docs:data-sources:bot_defense_app_infrastructure:examples"], "collection_id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_defense_app_infrastructure:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_defense_app_infrastructure.md", "provider_name": "bot_defense_app_infrastructure", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_defense_app_infrastructure/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_defense_app_infrastructure for xcsh_bot_defense_app_infrastructure.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bot_defense_app_infrastructureCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_defense_app_infrastructure landing."
 ---
+
+# xcsh_bot_defense_app_infrastructure landing
+
+<a id="canonical-3303122223102311-0202101033323122-0020322211123301-2100013330111310-1031210220113020-3201200231330321-3231001213311211-2220120313100211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_defense_app_infrastructure
+<a id="canonical-3001113203212113-3020303112220301-2013333123111122-3111030212212202-1122230303133230-2313333220030333-3012303133232113-3310101313022313"></a>
+
+## xcsh_bot_defense_app_infrastructure — xcsh_bot_defense_app_infrastructure / 320333302110 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1312230222023203-1033301021301020-0233030021221133-3032011112310320-0031200203010100-0012112023101302-3230310231032333-1120230120300322"></a>
+
+## Prerequisites — xcsh_bot_defense_app_infrastructure / 320333302110 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0301301033211032-0112212302113300-1233123012313330-0031303211223112-0312103020023031-0210311313131111-0000203202323210-3013021303032331"></a>
+
+## Minimal configuration — xcsh_bot_defense_app_infrastructure / 320333302110 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "bot_defense_app_infrastructure_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2132102103133300-3200221223101232-0100200232322233-2132131200031331-1103022321320123-2233012102030123-0020302330112110-3230332110322130"></a>
+
+## Root configuration — xcsh_bot_defense_app_infrastructure / 320333302110 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0323203012220310-2311000231000201-1130231230211002-1003210312120311-3211320323322221-1311133001002130-1223312310120123-2311022033133122"></a>
 
-- [Property reference](../guides/data-sources--bot_defense_app_infrastructure--reference.md)
-- [Examples](../guides/data-sources--bot_defense_app_infrastructure--examples.md)
+## Next pages — xcsh_bot_defense_app_infrastructure / 320333302110 / 6
+
+- [Property reference](../guides/data-sources--bot_defense_app_infrastructure--reference--group-001.md#canonical-2132310132221331-3023323033302023-2020313301002322-3022221322122223-3020302132133032-3320001331003303-2321302323320112-2100121000233122)
+- [Examples](../guides/data-sources--bot_defense_app_infrastructure--examples--group-001.md#canonical-2203320102322222-3033130103223000-2221233312330220-3132103002232130-3311323002122313-1102223020232110-3002130020332031-3121022001133130)

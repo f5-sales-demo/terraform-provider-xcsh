@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_smsv2_contract"
+page_title: "xcsh_smsv2_contract landing"
 subcategory: ""
-description: "xcsh_smsv2_contract for xcsh_smsv2_contract."
-xcsh_docs: {"aliases": [], "body_bytes": 2030, "body_sha256": "sha256:ec92e904974ccbc86c33f43d93eb437a180907102dbea2c1d277ee1edd4aa136", "canonical_id": "xcsh-docs:data-sources:smsv2_contract:fundamentals", "child_ids": ["xcsh-docs:data-sources:smsv2_contract:reference", "xcsh-docs:data-sources:smsv2_contract:examples"], "collection_id": "xcsh-docs:data-sources:smsv2_contract:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:smsv2_contract:fundamentals", "parent_id": null, "path": "docs/data-sources/smsv2_contract.md", "provider_name": "smsv2_contract", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/smsv2_contract/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_smsv2_contract for xcsh_smsv2_contract.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_smsv2_contract landing."
 ---
+
+# xcsh_smsv2_contract landing
+
+<a id="canonical-3131310111322210-1120220333113231-0203221002232000-0033221002232031-3333312322003013-3120013232102311-0030302003133323-0212121103011131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_smsv2_contract
+<a id="canonical-1111102100021210-2010212132031011-1021331132031301-0101121303201021-2130211110211211-0001101232031023-3103101120333102-2202230230311311"></a>
+
+## xcsh_smsv2_contract — xcsh_smsv2_contract / 011110122002 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Publishes the immutable clean-break SMSv2 AWS, Azure, and KVM capability contracts compiled into
 this provider release.
 
-## Prerequisites
+<a id="canonical-2012110021333203-2021203212211232-2000101100212301-0112103301132212-1010122220311213-3123211002221223-1200033223133103-2032231301101322"></a>
+
+## Prerequisites — xcsh_smsv2_contract / 011110122002 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3001120213212031-3230202302320301-0300232102013112-0102233002010310-2130301302223200-1032103120302232-3331122203023303-3203023002223020"></a>
+
+## Minimal configuration — xcsh_smsv2_contract / 011110122002 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,11 +68,15 @@ output "smsv2_contract" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0211013211332311-3102211332101133-2133133003320312-3203311231001202-3021332033033301-1030133333232012-3333303122302320-0323012303233302"></a>
+
+## Root configuration — xcsh_smsv2_contract / 011110122002 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1221103202311111-3233203213011121-0021122233021303-0003300121230323-2103311110300003-3230321102031211-3111031222133110-0300223132133211"></a>
 
-- [Property reference](../guides/data-sources--smsv2_contract--reference.md)
-- [Examples](../guides/data-sources--smsv2_contract--examples.md)
+## Next pages — xcsh_smsv2_contract / 011110122002 / 6
+
+- [Property reference](../guides/data-sources--smsv2_contract--reference--group-001.md#canonical-2232311231011322-0030001303101003-3113022301021321-2022203112032301-3321212110130112-3122331000100210-1110021311120232-0302332010100121)
+- [Examples](../guides/data-sources--smsv2_contract--examples--group-001.md#canonical-3030331213122021-0110310112010102-3102312212320202-0330203101112213-2021110020232010-0103021002202230-0113302220300300-1231113210020030)

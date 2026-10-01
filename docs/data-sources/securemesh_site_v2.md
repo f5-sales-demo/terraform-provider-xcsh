@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_securemesh_site_v2"
+page_title: "xcsh_securemesh_site_v2 landing"
 subcategory: ""
-description: "xcsh_securemesh_site_v2 for xcsh_securemesh_site_v2."
-xcsh_docs: {"aliases": [], "body_bytes": 1343, "body_sha256": "sha256:18c190794d01aa4de12f32ced450e92ee4ab2a1ca8f28a0af5c9549c6092dc40", "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:fundamentals", "child_ids": ["xcsh-docs:data-sources:securemesh_site_v2:reference", "xcsh-docs:data-sources:securemesh_site_v2:examples"], "collection_id": "xcsh-docs:data-sources:securemesh_site_v2:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:securemesh_site_v2:fundamentals", "parent_id": null, "path": "docs/data-sources/securemesh_site_v2.md", "provider_name": "securemesh_site_v2", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/securemesh_site_v2/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_securemesh_site_v2 for xcsh_securemesh_site_v2.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["securemesh_site_v2CreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 landing."
 ---
+
+# xcsh_securemesh_site_v2 landing
+
+<a id="canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_securemesh_site_v2
+<a id="canonical-3213203332132233-3312022013013023-1200121310020213-3110333231311223-3233313230010111-2020300203121022-1132330222020101-2022211211320103"></a>
+
+## xcsh_securemesh_site_v2 — xcsh_securemesh_site_v2 / 232002200110 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites
 with security and networking controls.
 
-## Prerequisites
+<a id="canonical-0022310220023221-1201022012130220-3220320231001011-1322010332301230-3131113203311030-0020001321211120-0002221213230220-0130003200111111"></a>
+
+## Prerequisites — xcsh_securemesh_site_v2 / 232002200110 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3022101202101120-3102021313030013-2211000202003313-1101123333313133-1023303000233011-2121121330333312-0023213313303010-1011220102222212"></a>
+
+## Minimal configuration — xcsh_securemesh_site_v2 / 232002200110 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "securemesh_site_v2_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3103020203120230-1210330002133121-1212131230331132-1001012333203230-1332211011221233-2203210222333321-2121202322213212-1212133230310013"></a>
+
+## Root configuration — xcsh_securemesh_site_v2 / 232002200110 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2223011103111123-3120202330321311-0030111221302201-0323202130223201-0101332333203012-0121310302011032-3321022113112033-0321020133233132"></a>
 
-- [Property reference](../guides/data-sources--securemesh_site_v2--reference.md)
-- [Examples](../guides/data-sources--securemesh_site_v2--examples.md)
+## Next pages — xcsh_securemesh_site_v2 / 232002200110 / 6
+
+- [Property reference](../guides/data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [Examples](../guides/data-sources--securemesh_site_v2--examples--group-001.md#canonical-3131012331030122-2111321213311303-0210231321111013-3130330201023003-3230320203231321-3301312023320210-0310032311033233-3332203200033313)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protected_application"
+page_title: "xcsh_protected_application landing"
 subcategory: ""
-description: "xcsh_protected_application for xcsh_protected_application."
-xcsh_docs: {"aliases": [], "body_bytes": 1426, "body_sha256": "sha256:439c71a3f35a829b2038a68d8fe47f15800418787470fc80c4c90e233080cbd7", "canonical_id": "xcsh-docs:resources:protected_application:fundamentals", "child_ids": ["xcsh-docs:resources:protected_application:reference", "xcsh-docs:resources:protected_application:examples", "xcsh-docs:resources:protected_application:import", "xcsh-docs:resources:protected_application:timeouts"], "collection_id": "xcsh-docs:resources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:resources:protected_application:fundamentals", "parent_id": null, "path": "docs/resources/protected_application.md", "provider_name": "protected_application", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protected_application for xcsh_protected_application.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protected_application landing."
 ---
+
+# xcsh_protected_application landing
+
+<a id="canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protected_application
+<a id="canonical-2213321303013320-1212112001103103-2231212110213102-3301322012313300-3021031032032331-1233330211233000-3001210320031213-2021131301102123"></a>
+
+## xcsh_protected_application — xcsh_protected_application / 303322032323 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages applications protected by Bot Defense in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3032110132130212-0311323122203122-0200220203123301-2112021121301101-3012031033010333-1020202202223202-1203222200002233-3110111110030212"></a>
+
+## Prerequisites — xcsh_protected_application / 303322032323 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1201030033033201-3030332013302033-3113210300200310-1030013332001223-3331110322220002-2302222223133230-0201132000031203-2023112000111032"></a>
+
+## Minimal configuration — xcsh_protected_application / 303322032323 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_protected_application" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3012210120022120-1320131101013112-0303032021032110-1201132333022121-3023313230323011-2202111230200220-1011213323103301-1212120313132113"></a>
+
+## Root configuration — xcsh_protected_application / 303322032323 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3303100033013323-0301213120102221-3100132323312301-2100103232023321-2101320012330130-3012300331202113-3132301113013011-1011221333002032"></a>
 
-- [Property reference](../guides/resources--protected_application--reference.md)
-- [Examples](../guides/resources--protected_application--examples.md)
-- [Import](../guides/resources--protected_application--import.md)
-- [Timeouts](../guides/resources--protected_application--timeouts.md)
+## Next pages — xcsh_protected_application / 303322032323 / 6
+
+- [Property reference](../guides/resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
+- [Examples](../guides/resources--protected_application--examples--group-001.md#canonical-0110110122211031-1102303221021232-0000022301112032-0310000330222201-3210220230020020-2312030223300300-2231200033133123-0312331122232112)
+- [Import](../guides/resources--protected_application--lifecycle--group-001.md#canonical-0112302200331003-2330231312231032-1202220233011001-2023010321003301-0312222323010120-2000220100001223-0223021100133221-2331002221210112)
+- [Timeouts](../guides/resources--protected_application--lifecycle--group-001.md#canonical-2200213232111023-0231000313103130-1301320103311030-2213110320101110-2300002211003322-3130013301323220-3123031221222331-2332330312012311)

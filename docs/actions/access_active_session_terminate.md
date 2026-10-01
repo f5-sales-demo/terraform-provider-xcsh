@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_access_active_session_terminate"
+page_title: "xcsh_access_active_session_terminate landing"
 subcategory: ""
-description: "xcsh_access_active_session_terminate for xcsh_access_active_session_terminate."
-xcsh_docs: {"aliases": [], "body_bytes": 1270, "body_sha256": "sha256:08b3a427ab9c8bed0a438ca61c8ad533402cc61287e5952bb120fa055f44cf65", "canonical_id": "xcsh-docs:actions:access_active_session_terminate:fundamentals", "child_ids": ["xcsh-docs:actions:access_active_session_terminate:reference", "xcsh-docs:actions:access_active_session_terminate:examples", "xcsh-docs:actions:access_active_session_terminate:lifecycle"], "collection_id": "xcsh-docs:actions:access_active_session_terminate:collection", "completeness": "complete", "id": "xcsh-docs:actions:access_active_session_terminate:fundamentals", "parent_id": null, "path": "docs/actions/access_active_session_terminate.md", "provider_name": "access_active_session_terminate", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "actions", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/actions/access_active_session_terminate/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_access_active_session_terminate for xcsh_access_active_session_terminate.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_access_active_session_terminate landing."
 ---
+
+# xcsh_access_active_session_terminate landing
+
+<a id="canonical-0233012110120301-2112002303202012-1202012200302211-1131130003102111-0002212030201223-3120132220230001-3123332221233323-3312211113313020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_access_active_session_terminate
+<a id="canonical-2133202300013012-3003000200003323-1113313122010330-3300132013002131-0233202013202013-3223112113033232-3223103011002313-1122010032212231"></a>
+
+## xcsh_access_active_session_terminate — xcsh_access_active_session_terminate / 013311211032 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource deletion operation.
 
-## Prerequisites
+<a id="canonical-2312000312232202-0003323101332011-1130033100131120-2022203023123202-0031101232022021-3003310230012132-0331222112213020-1220320211132222"></a>
+
+## Prerequisites — xcsh_access_active_session_terminate / 013311211032 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1010030301101113-1111131312002233-2021310230220110-0113232113223023-1300300123332122-1020213013110320-3332133011031020-3231110112021100"></a>
+
+## Minimal configuration — xcsh_access_active_session_terminate / 013311211032 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,12 +56,16 @@ action "xcsh_access_active_session_terminate" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1303323230103011-0111010112301200-1113122300211323-1132021333312302-1110012223202110-1103301303210210-0103033232311100-1020020322222110"></a>
+
+## Root configuration — xcsh_access_active_session_terminate / 013311211032 / 5
 
 Required root properties: `id`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3223201003130110-3331032203113113-3200120101101020-1312333210200311-0233120011101112-3030032023110321-1203301133322300-2022202203131221"></a>
 
-- [Property reference](../guides/actions--access_active_session_terminate--reference.md)
-- [Examples](../guides/actions--access_active_session_terminate--examples.md)
-- [Lifecycle](../guides/actions--access_active_session_terminate--lifecycle.md)
+## Next pages — xcsh_access_active_session_terminate / 013311211032 / 6
+
+- [Property reference](../guides/actions--access_active_session_terminate--reference--group-001.md#canonical-2012103202003132-2120211331100001-2211110200100202-0002003131013320-2231102211210130-1202110020003233-0223030110331233-3332210231120222)
+- [Examples](../guides/actions--access_active_session_terminate--examples--group-001.md#canonical-1133133321103132-3331000032332003-2020202330010032-1212111000232113-3101033331232202-1333332030010121-2032311020210022-3013131203021012)
+- [Lifecycle](../guides/actions--access_active_session_terminate--lifecycle--group-001.md#canonical-0021200100200122-2121200111121212-2203321100011030-3331302303110333-2013121000211001-3010130202311122-0110312020333203-1300330200022113)

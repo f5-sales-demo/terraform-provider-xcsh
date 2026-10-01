@@ -6,6 +6,7 @@ import gzip
 import hashlib
 import io
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -88,6 +89,62 @@ def metadata(relative: str, data: bytes) -> tuple[str, dict]:
     return body, enriched
 
 
+def canonical_assets(
+    tag: str, source_root: str = "documentation"
+) -> tuple[dict[str, bytes], dict]:
+    """Archive the complete canonical corpus, preserving exact source receipts."""
+    source = run("git", "archive", "--format=tar", tag, source_root)
+    archive = io.BytesIO()
+    files = []
+    with (
+        tarfile.open(fileobj=io.BytesIO(source)) as tagged,
+        tarfile.open(fileobj=archive, mode="w", format=tarfile.PAX_FORMAT) as target,
+    ):
+        for member in sorted(tagged, key=lambda item: item.name):
+            if not member.isfile():
+                continue
+            path = PurePosixPath(member.name)
+            if path.is_absolute() or ".." in path.parts or path.parts[0] != source_root:
+                msg = "unsafe canonical archive member"
+                raise ValueError(msg)
+            stream = tagged.extractfile(member)
+            if stream is None:
+                msg = "missing canonical archive content"
+                raise ValueError(msg)
+            data = stream.read()
+            info = tarfile.TarInfo(member.name)
+            info.size, info.mode, info.mtime = len(data), 0o644, 0
+            target.addfile(info, io.BytesIO(data))
+            files.append(
+                {"path": member.name, "size_bytes": len(data), "sha256": sha(data)}
+            )
+    generated = json.loads(
+        run("git", "show", tag + ":documentation/generated-manifest.json")
+    )
+    manifest = {
+        "schema_version": 1,
+        "source_root": source_root,
+        "provider_version": tag,
+        "source_commit": run("git", "rev-parse", tag + "^{commit}").decode().strip(),
+        "provider_schema_digest": generated["provider_schema_digest"],
+        "spec_pin_digest": generated["spec_pin_digest"],
+        "files": files,
+    }
+    compressed = bytearray(gzip.compress(archive.getvalue(), compresslevel=9, mtime=0))
+    compressed[9] = 255
+    archive_name = (
+        "canonical-documentation.tar.gz"
+        if source_root == "documentation"
+        else "registry-documentation.tar.gz"
+    )
+    manifest_name = (
+        "canonical-manifest.json"
+        if source_root == "documentation"
+        else "registry-manifest.json"
+    )
+    return {archive_name: bytes(compressed), manifest_name: encoded(manifest)}, manifest
+
+
 def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
     """Package every Markdown file from one exact stable Git tag."""
     if not VERSION.fullmatch(tag):
@@ -168,6 +225,14 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
     compressed = bytearray(assets["terraform-docs.tar.gz"])
     compressed[9] = 255
     assets["terraform-docs.tar.gz"] = bytes(compressed)
+    if "documentation/registry-projection-manifest.json" in generated["files"]:
+        canonical, _ = canonical_assets(tag)
+        assets.update(canonical)
+        registry, _ = canonical_assets(tag, "docs")
+        assets.update(registry)
+        assets["registry-projection-manifest.json"] = run(
+            "git", "show", tag + ":documentation/registry-projection-manifest.json"
+        )
     assets["publication.json"] = encoded(
         {
             "schema_version": 2,
@@ -234,12 +299,7 @@ def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
             message = "existing snapshot is not published and immutable"
             raise ValueError(message)
         snapshot(tag, output)
-        names = {
-            "terraform-docs.tar.gz",
-            "manifest.json",
-            "publication.json",
-            "SHA256SUMS",
-        }
+        names = {file.name for file in output.iterdir() if file.is_file()}
         published = {asset["name"]: asset for asset in previous["assets"]}
         if set(published) != names:
             message = "existing snapshot asset membership mismatch"
@@ -257,7 +317,21 @@ def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
     if b"404" not in existing.stderr:
         message = "snapshot release lookup failed"
         raise RuntimeError(message)
-    policy = json.loads(run("gh", "api", f"repos/{REPOSITORY}/immutable-releases"))
+    policy_environment = dict(os.environ)
+    if os.environ.get("POLICY_READ_TOKEN"):
+        policy_environment["GH_TOKEN"] = os.environ["POLICY_READ_TOKEN"]
+    policy = json.loads(
+        subprocess.run(  # noqa: S603 - fixed administration read endpoint
+            [
+                shutil.which("gh") or "/usr/bin/gh",
+                "api",
+                f"repos/{REPOSITORY}/immutable-releases",
+            ],
+            env=policy_environment,
+            check=True,
+            capture_output=True,
+        ).stdout
+    )
     if not policy.get("enabled"):
         message = "immutable releases must be enabled"
         raise ValueError(message)
@@ -282,12 +356,7 @@ def publish(tag: str, output: Path) -> None:  # pylint: disable=too-many-locals
         f"Exact documentation/ Markdown from provider {tag} at {manifest['source_commit']}.",
         *(
             str(output / name)
-            for name in (
-                "terraform-docs.tar.gz",
-                "manifest.json",
-                "publication.json",
-                "SHA256SUMS",
-            )
+            for name in sorted(file.name for file in output.iterdir() if file.is_file())
         ),
     )
     run(

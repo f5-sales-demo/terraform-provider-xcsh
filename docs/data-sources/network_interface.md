@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_interface"
+page_title: "xcsh_network_interface landing"
 subcategory: ""
-description: "xcsh_network_interface for xcsh_network_interface."
-xcsh_docs: {"aliases": [], "body_bytes": 1399, "body_sha256": "sha256:68e36f6c8b7aa8841bdeefe464d0654d93d6a7624203ec90e46957dc1c816c0f", "canonical_id": "xcsh-docs:data-sources:network_interface:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_interface:reference", "xcsh-docs:data-sources:network_interface:examples"], "collection_id": "xcsh-docs:data-sources:network_interface:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_interface:fundamentals", "parent_id": null, "path": "docs/data-sources/network_interface.md", "provider_name": "network_interface", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_interface/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_interface for xcsh_network_interface.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_interfaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_interface landing."
 ---
+
+# xcsh_network_interface landing
+
+<a id="canonical-0223201022310111-1331122211222221-0131301133002101-2112333331010103-2323032232200011-1030201303202000-3333303002001111-1111003100202132"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_interface
+<a id="canonical-2021211123103203-0201223321222303-2332232022101223-1013030100032301-2211121010333233-1210230030302113-3123031001023112-1112002331033210"></a>
+
+## xcsh_network_interface — xcsh_network_interface / 220132001322 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Network Interface resource in F5 Distributed Cloud for network interface represents
 configuration of a network device. it is created by users in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-1002310032300210-2333110333023232-2012332210001020-0310323121011213-3101333301000122-1112323300032132-0313132310012012-0012133323023332"></a>
+
+## Prerequisites — xcsh_network_interface / 220132001322 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1011210301133323-1320123200002220-2302301332001320-0101203301300222-3100203332121100-3133231233001112-0002011200303030-1003222323322003"></a>
+
+## Minimal configuration — xcsh_network_interface / 220132001322 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "network_interface_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2301220122330301-2022213011021302-3320220103133003-3300010320220003-3022021302122033-3332003201220101-1132323300112302-0001210323222230"></a>
+
+## Root configuration — xcsh_network_interface / 220132001322 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0102120223231111-1330323100230320-1311022330121301-3230010031223013-0210223221332113-1221112002333132-0130223011213001-2001331023021030"></a>
 
-- [Property reference](../guides/data-sources--network_interface--reference.md)
-- [Examples](../guides/data-sources--network_interface--examples.md)
+## Next pages — xcsh_network_interface / 220132001322 / 6
+
+- [Property reference](../guides/data-sources--network_interface--reference--group-001.md#canonical-1302132230310323-3010120302021230-0003303202100320-0132133203003123-0323321101130000-0302213333112232-2221001130100010-1233331100132210)
+- [Examples](../guides/data-sources--network_interface--examples--group-001.md#canonical-2133221333220133-3003232131233011-0323131130131010-0032031132202203-3203132322000010-3200121132023132-3333031110011010-0230013230113030)

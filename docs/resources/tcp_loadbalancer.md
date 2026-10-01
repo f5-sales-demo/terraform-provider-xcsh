@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_tcp_loadbalancer"
+page_title: "xcsh_tcp_loadbalancer landing"
 subcategory: "Load Balancing"
-description: "xcsh_tcp_loadbalancer for xcsh_tcp_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1669, "body_sha256": "sha256:856ee3da33c99b25bae5082019e84832cbeeb68495a149a77d3f9fde4463ad47", "canonical_id": "xcsh-docs:resources:tcp_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:reference", "xcsh-docs:resources:tcp_loadbalancer:examples", "xcsh-docs:resources:tcp_loadbalancer:import", "xcsh-docs:resources:tcp_loadbalancer:timeouts"], "collection_id": "xcsh-docs:resources:tcp_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:tcp_loadbalancer:fundamentals", "parent_id": null, "path": "docs/resources/tcp_loadbalancer.md", "provider_name": "tcp_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_tcp_loadbalancer for xcsh_tcp_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tcp_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_tcp_loadbalancer landing."
 ---
+
+# xcsh_tcp_loadbalancer landing
+
+<a id="canonical-3323211002020332-1021200301211012-2311222223233022-1102201001122211-1023322232300130-0300323320330112-1021022331100101-3210113012102001"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_tcp_loadbalancer
+<a id="canonical-3012303130230330-2222001010311302-3022023322100201-1010102331303312-2023301333223313-3131331332223331-3011032200310230-2011032021303113"></a>
+
+## xcsh_tcp_loadbalancer — xcsh_tcp_loadbalancer / 022110331212 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across
 origin pools.
 
-## Prerequisites
+<a id="canonical-1003020231311212-0113020122312100-1031122322130313-2310131301322213-0230210100033002-2330030230213233-1223310112200322-2013222212323123"></a>
+
+## Prerequisites — xcsh_tcp_loadbalancer / 022110331212 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -32,7 +39,9 @@ Optional integrations: `healthcheck`.
 
 - healthcheck: Monitor origin server health
 
-## Minimal configuration
+<a id="canonical-1111011322033212-2023031113030211-0221020133223033-0122233233310110-0212201221033302-2121133102301103-1101101011101010-0211132000212203"></a>
+
+## Minimal configuration — xcsh_tcp_loadbalancer / 022110331212 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -58,13 +67,17 @@ resource "xcsh_tcp_loadbalancer" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3232302022001112-3201233332301111-1301001123201221-0133322033121210-3010133231013330-2320300311122030-0321103223220010-0023122130102300"></a>
+
+## Root configuration — xcsh_tcp_loadbalancer / 022110331212 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2211013010100200-2131130133310202-2103130323303231-3020113201021220-1230213000310313-2020231003011303-1200302112103120-0230032220322320"></a>
 
-- [Property reference](../guides/resources--tcp_loadbalancer--reference.md)
-- [Examples](../guides/resources--tcp_loadbalancer--examples.md)
-- [Import](../guides/resources--tcp_loadbalancer--import.md)
-- [Timeouts](../guides/resources--tcp_loadbalancer--timeouts.md)
+## Next pages — xcsh_tcp_loadbalancer / 022110331212 / 6
+
+- [Property reference](../guides/resources--tcp_loadbalancer--reference--group-001.md#canonical-2012213313231232-3113222123311030-1312023102102220-1333030303022022-3132112211312313-0310133313220331-3313212213313330-2132122131111001)
+- [Examples](../guides/resources--tcp_loadbalancer--examples--group-001.md#canonical-0323311213221221-0113310031031222-1330121211223312-1203013310022301-2100320220013120-3302231301121302-0132302333323132-0011101322313000)
+- [Import](../guides/resources--tcp_loadbalancer--lifecycle--group-001.md#canonical-0010103130330001-3321333010133010-0123010301022122-0013201010103131-2103100023233113-3300122101333230-2102201103021130-2001121313201221)
+- [Timeouts](../guides/resources--tcp_loadbalancer--lifecycle--group-001.md#canonical-0113230333002312-3121321100313030-2332210230213110-1001203203302201-2030120211111123-2000020211011020-2322332023011313-3212203323213223)

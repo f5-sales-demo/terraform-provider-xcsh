@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_http_loadbalancer"
+page_title: "xcsh_http_loadbalancer landing"
 subcategory: "Load Balancing"
-description: "xcsh_http_loadbalancer for xcsh_http_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1799, "body_sha256": "sha256:c2eebb3f29bb2e1a136ce2c6ef104eccf45c7c8c170dcecf60a857c285e21393", "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:data-sources:http_loadbalancer:reference", "xcsh-docs:data-sources:http_loadbalancer:examples"], "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:fundamentals", "parent_id": null, "path": "docs/data-sources/http_loadbalancer.md", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_http_loadbalancer for xcsh_http_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_http_loadbalancer landing."
 ---
+
+# xcsh_http_loadbalancer landing
+
+<a id="canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_http_loadbalancer
+<a id="canonical-1012320023103100-2021101201301330-1102131330311221-1123032031312213-3223221110303021-2213013011100312-1212310022320323-1002322101130230"></a>
+
+## xcsh_http_loadbalancer — xcsh_http_loadbalancer / 232121230112 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic
 with routing and security controls.
 
-## Prerequisites
+<a id="canonical-2021312201200231-2030132231200220-3123120130301302-3121012001022003-2100310221330203-0221313121002131-0112113103331301-1332012021023301"></a>
+
+## Prerequisites — xcsh_http_loadbalancer / 232121230112 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -38,7 +45,9 @@ Optional integrations: `healthcheck`, `app_firewall`, `certificate`, `rate_limit
 
 - rate_limiter: Protect against traffic spikes
 
-## Minimal configuration
+<a id="canonical-0031030113301023-0211331023211003-3232131200133010-1112013321133032-1311112222020022-1013110032331022-1311312310002313-0300221232031303"></a>
+
+## Minimal configuration — xcsh_http_loadbalancer / 232121230112 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -67,11 +76,15 @@ output "http_loadbalancer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2012113111302033-3221011212002332-2233001100103320-1133220023003031-1321322303222131-2130203202021331-1100111102101022-3122233101211133"></a>
+
+## Root configuration — xcsh_http_loadbalancer / 232121230112 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0322130023010103-3130101030013122-1112023322331100-2203330112313202-2132113330122310-2123223003201213-0121311332011232-3203330230320130"></a>
 
-- [Property reference](../guides/data-sources--http_loadbalancer--reference.md)
-- [Examples](../guides/data-sources--http_loadbalancer--examples.md)
+## Next pages — xcsh_http_loadbalancer / 232121230112 / 6
+
+- [Property reference](../guides/data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [Examples](../guides/data-sources--http_loadbalancer--examples--group-001.md#canonical-2012103322223222-2130303310322103-3112301200231103-1003312232213332-1311123122123311-3322111313213332-3221000203301021-1012200122123110)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_external_connector"
+page_title: "xcsh_external_connector landing"
 subcategory: ""
-description: "xcsh_external_connector for xcsh_external_connector."
-xcsh_docs: {"aliases": [], "body_bytes": 1351, "body_sha256": "sha256:3807f7d3e8901a778dbda43bb12e5e522cc2b4eab84d2efc7fa73293f40eaac3", "canonical_id": "xcsh-docs:data-sources:external_connector:fundamentals", "child_ids": ["xcsh-docs:data-sources:external_connector:reference", "xcsh-docs:data-sources:external_connector:examples"], "collection_id": "xcsh-docs:data-sources:external_connector:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:external_connector:fundamentals", "parent_id": null, "path": "docs/data-sources/external_connector.md", "provider_name": "external_connector", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/external_connector/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_external_connector for xcsh_external_connector.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["external_connectorCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_external_connector landing."
 ---
+
+# xcsh_external_connector landing
+
+<a id="canonical-0300201230203033-0013121300121302-3330301212212211-1322111000002113-3130220122033010-0213230233320030-2021033121223032-3220131000330112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_external_connector
+<a id="canonical-0332023133101310-2030330231121232-0013331211220020-2021001331323322-2323131220331023-3003111101120233-2323120322122312-1211322110221110"></a>
+
+## xcsh_external_connector — xcsh_external_connector / 333011212021 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a External Connector resource in F5 Distributed Cloud for external\_connector configuration
 specification. configuration.
 
-## Prerequisites
+<a id="canonical-1111320131101213-0231013201023220-2231032112332233-0030330022330201-2321322221230100-3100221303232021-2010202331312313-1120000302332302"></a>
+
+## Prerequisites — xcsh_external_connector / 333011212021 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2313123032201102-1011222222131023-3322331112020323-2103013303322300-2112001003102032-1312020111130022-3113301223121100-0020221101223211"></a>
+
+## Minimal configuration — xcsh_external_connector / 333011212021 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "external_connector_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3200112312111122-1113102011213032-1323310233031113-0122303201132013-1322120201120311-3220202312301131-1022322131020032-1213011303212023"></a>
+
+## Root configuration — xcsh_external_connector / 333011212021 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2031321010123100-3331232203001103-0301022212330322-0012331022331211-0303301133131033-2032100131320003-0022121312103023-3312202031123022"></a>
 
-- [Property reference](../guides/data-sources--external_connector--reference.md)
-- [Examples](../guides/data-sources--external_connector--examples.md)
+## Next pages — xcsh_external_connector / 333011212021 / 6
+
+- [Property reference](../guides/data-sources--external_connector--reference--group-001.md#canonical-1233001313220202-0330031300031121-2122102203322002-0320020033102030-1000131023310231-2120311131221020-3130000033333030-3202120133013332)
+- [Examples](../guides/data-sources--external_connector--examples--group-001.md#canonical-1123210132313011-1012021123322001-3100001220223320-0001132020312132-3132011113011320-0130333103100101-3033032111330123-0030221132300301)

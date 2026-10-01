@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_authentication"
+page_title: "xcsh_authentication landing"
 subcategory: ""
-description: "xcsh_authentication for xcsh_authentication."
-xcsh_docs: {"aliases": [], "body_bytes": 1242, "body_sha256": "sha256:f584a4c31d81209440b88a7f427396fecb33d6b1362854dd3ed7925918a27e4e", "canonical_id": "xcsh-docs:data-sources:authentication:fundamentals", "child_ids": ["xcsh-docs:data-sources:authentication:reference", "xcsh-docs:data-sources:authentication:examples"], "collection_id": "xcsh-docs:data-sources:authentication:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:authentication:fundamentals", "parent_id": null, "path": "docs/data-sources/authentication.md", "provider_name": "authentication", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/authentication/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_authentication for xcsh_authentication.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["authenticationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_authentication landing."
 ---
+
+# xcsh_authentication landing
+
+<a id="canonical-3330131022001332-3012131003233201-0203110311220323-2121221200223033-3213320331001200-2020031013302300-0110311123332221-2120122213100103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_authentication
+<a id="canonical-1213000100303323-3231321233222210-3232031203200201-0332321103200211-0120100322112233-3000312002001311-1213013332112202-3230201102310223"></a>
+
+## xcsh_authentication — xcsh_authentication / 012303230213 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a Authentication resource in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1221331000101303-1200030331131132-0122220120313322-3231212221100121-0300133032003130-3233332022100002-1233301302002313-1103301203300310"></a>
+
+## Prerequisites — xcsh_authentication / 012303230213 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0023213333303333-1300302331303233-1110113002012233-3112312121220202-0231130212122033-3301230130222330-0100120232233310-0220130122031012"></a>
+
+## Minimal configuration — xcsh_authentication / 012303230213 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "authentication_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3310310010222120-0230131112312021-0102312023323331-0222320110202222-0113130130033301-3102022113010222-3233102010013022-3021232131222133"></a>
+
+## Root configuration — xcsh_authentication / 012303230213 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1321220122123022-3321131220111210-2212011011321333-3023111032200031-2320112331112102-0333311132130210-2031020112011110-1200101202031312"></a>
 
-- [Property reference](../guides/data-sources--authentication--reference.md)
-- [Examples](../guides/data-sources--authentication--examples.md)
+## Next pages — xcsh_authentication / 012303230213 / 6
+
+- [Property reference](../guides/data-sources--authentication--reference--group-001.md#canonical-2002323222211220-0230023001010221-0122022322200120-0100003312210032-3002222000120032-3021211330022230-1032122111002303-1111303000311210)
+- [Examples](../guides/data-sources--authentication--examples--group-001.md#canonical-3311100333131130-3203031113312032-0213122233111110-1002111313031302-0000011213332103-0001333330310320-1333121200120313-0112111020223000)

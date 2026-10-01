@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_tenant_configuration"
+page_title: "xcsh_tenant_configuration landing"
 subcategory: ""
-description: "xcsh_tenant_configuration for xcsh_tenant_configuration."
-xcsh_docs: {"aliases": [], "body_bytes": 1497, "body_sha256": "sha256:f026c1390881dce872cba2f68aa388016c2368fa4a29aa6cf9bb2a8f5682b4c7", "canonical_id": "xcsh-docs:resources:tenant_configuration:fundamentals", "child_ids": ["xcsh-docs:resources:tenant_configuration:reference", "xcsh-docs:resources:tenant_configuration:examples", "xcsh-docs:resources:tenant_configuration:import", "xcsh-docs:resources:tenant_configuration:timeouts"], "collection_id": "xcsh-docs:resources:tenant_configuration:collection", "completeness": "complete", "id": "xcsh-docs:resources:tenant_configuration:fundamentals", "parent_id": null, "path": "docs/resources/tenant_configuration.md", "provider_name": "tenant_configuration", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tenant_configuration/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_tenant_configuration for xcsh_tenant_configuration.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tenant_configurationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_tenant_configuration landing."
 ---
+
+# xcsh_tenant_configuration landing
+
+<a id="canonical-1332002001332233-1210102233002221-2012331111221332-0021003130222001-2121012132303322-1111132333301312-0120220102202112-3223020331300310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_tenant_configuration
+<a id="canonical-1120211231212100-0203032332033110-2203031132211323-1123102232211012-3030111210200013-0030331230221022-0313223233200012-0001220332231300"></a>
+
+## xcsh_tenant_configuration — xcsh_tenant_configuration / 201211222002 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Tenant Configuration resource in F5 Distributed Cloud for tenant configuration
 specification. configuration.
 
-## Prerequisites
+<a id="canonical-1230311130030320-3023130020013232-2110020310322133-0122213100112222-2313022200200112-0310302210031312-3102130123323301-1301233121230112"></a>
+
+## Prerequisites — xcsh_tenant_configuration / 201211222002 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1203013311202330-0313102303301212-2320102112310301-2221101001010000-1102032232233301-3210310103122123-1312233102332333-2300003330210323"></a>
+
+## Minimal configuration — xcsh_tenant_configuration / 201211222002 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_tenant_configuration" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2302320102221331-3223111222203033-3213303102330013-2331311231201111-3321233103131211-2221131033102201-2301113021320200-3110120100300001"></a>
+
+## Root configuration — xcsh_tenant_configuration / 201211222002 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1100202222301321-2221221131003130-2222323003010031-1001011232223011-0320001202300330-1323010332013213-2233122133033030-0002312211132232"></a>
 
-- [Property reference](../guides/resources--tenant_configuration--reference.md)
-- [Examples](../guides/resources--tenant_configuration--examples.md)
-- [Import](../guides/resources--tenant_configuration--import.md)
-- [Timeouts](../guides/resources--tenant_configuration--timeouts.md)
+## Next pages — xcsh_tenant_configuration / 201211222002 / 6
+
+- [Property reference](../guides/resources--tenant_configuration--reference--group-001.md#canonical-0112010312211210-2330131301100232-0100013221012023-0100320210300013-2333113013332121-3020301131332100-2310323331122100-1302302023032202)
+- [Examples](../guides/resources--tenant_configuration--examples--group-001.md#canonical-3301102230300102-1113221230011001-0313201222210020-0100103213313001-3101010331113231-1023101022310003-1011322233030322-2330023033203213)
+- [Import](../guides/resources--tenant_configuration--lifecycle--group-001.md#canonical-2111222301210110-0322113322233301-0220023023110102-0313333133103330-2123200121120022-0013200202301033-2001310232311332-2322212221312132)
+- [Timeouts](../guides/resources--tenant_configuration--lifecycle--group-001.md#canonical-3000203121022221-0322312110331130-3221022112320110-1202021120303011-0112300123222302-2120333232302311-1000223012223200-3301202000233023)

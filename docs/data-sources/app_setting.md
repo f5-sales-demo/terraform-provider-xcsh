@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_app_setting"
+page_title: "xcsh_app_setting landing"
 subcategory: ""
-description: "xcsh_app_setting for xcsh_app_setting."
-xcsh_docs: {"aliases": [], "body_bytes": 1242, "body_sha256": "sha256:ced14c9911a9d10d39809af833156d8a8e889d7242614556444dcfd6ab0c96fe", "canonical_id": "xcsh-docs:data-sources:app_setting:fundamentals", "child_ids": ["xcsh-docs:data-sources:app_setting:reference", "xcsh-docs:data-sources:app_setting:examples"], "collection_id": "xcsh-docs:data-sources:app_setting:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:app_setting:fundamentals", "parent_id": null, "path": "docs/data-sources/app_setting.md", "provider_name": "app_setting", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_setting/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_app_setting for xcsh_app_setting.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["app_settingCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_app_setting landing."
 ---
+
+# xcsh_app_setting landing
+
+<a id="canonical-3100101210131302-0032023222032213-0211302130230231-2121201111122113-3321222320011111-1020123133110021-0000133011122133-0323230333123021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_app_setting
+<a id="canonical-0020302222220032-0313000323300113-2003020020231222-1121012133330302-3123002103033313-2031213022012332-0311113101210210-0133030332020103"></a>
+
+## xcsh_app_setting — xcsh_app_setting / 012003022120 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages App setting configuration in namespace metadata.namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2323331103110030-2212220303001102-3221312013310100-3321310322010301-0310312033300332-2201202310332011-3102323033120223-0223112023020020"></a>
+
+## Prerequisites — xcsh_app_setting / 012003022120 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1331232021003031-1330310101301221-0001133222022111-1012122313101101-1201130132312012-3313132332220323-1003212203032110-1112113203011310"></a>
+
+## Minimal configuration — xcsh_app_setting / 012003022120 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "app_setting_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2033133120131300-1331010223303013-0222101011302012-0123320213222322-0123012103230000-0020330013321222-1311200110121331-0133232133121300"></a>
+
+## Root configuration — xcsh_app_setting / 012003022120 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3130123030021122-0331322313022330-2312232233320020-2012121203330331-2002022310110300-0302312301013032-2013330222003320-0200310310103002"></a>
 
-- [Property reference](../guides/data-sources--app_setting--reference.md)
-- [Examples](../guides/data-sources--app_setting--examples.md)
+## Next pages — xcsh_app_setting / 012003022120 / 6
+
+- [Property reference](../guides/data-sources--app_setting--reference--group-001.md#canonical-3030321030220121-1133302033120230-3303020323031023-3130002021022220-1312302212132220-1002031103221223-2303312102023000-0130231011221303)
+- [Examples](../guides/data-sources--app_setting--examples--group-001.md#canonical-2202211201021322-2102221330322113-3202223232211020-1000321030231200-0020132132111010-1232020333012302-0023302221031020-1233033303312331)

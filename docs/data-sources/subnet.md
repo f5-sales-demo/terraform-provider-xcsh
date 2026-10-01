@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_subnet"
+page_title: "xcsh_subnet landing"
 subcategory: ""
-description: "xcsh_subnet for xcsh_subnet."
-xcsh_docs: {"aliases": [], "body_bytes": 1282, "body_sha256": "sha256:70fac10dafcc0b43e2f3149338b70d26fe8624e961533ab826989fbdecb1e3da", "canonical_id": "xcsh-docs:data-sources:subnet:fundamentals", "child_ids": ["xcsh-docs:data-sources:subnet:reference", "xcsh-docs:data-sources:subnet:examples"], "collection_id": "xcsh-docs:data-sources:subnet:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:subnet:fundamentals", "parent_id": null, "path": "docs/data-sources/subnet.md", "provider_name": "subnet", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/subnet/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_subnet for xcsh_subnet.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["subnetCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_subnet landing."
 ---
+
+# xcsh_subnet landing
+
+<a id="canonical-2030233332213333-3213211200222203-3230133323032230-1012203021120130-0010113332012110-2331021111131003-0132121132331301-3312323301120210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_subnet
+<a id="canonical-3211003112101300-2021312222313120-0331230021230312-1131303231331102-0331130202130023-0203120000332011-3120122003320121-1102202221032110"></a>
+
+## xcsh_subnet — xcsh_subnet / 221220131001 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an
 interface of a vm/pod. it is created in user or shared namespace. configuration.
 
-## Prerequisites
+<a id="canonical-1312230102232132-2201310032122231-1103022131131321-2003100231203033-1201010200320221-3001130023312320-0110103103231030-3121000023213223"></a>
+
+## Prerequisites — xcsh_subnet / 221220131001 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1213200002002311-2031300122030311-2033021232123023-2032221102313311-3010121300231302-1210030330123000-1131032320223322-2033123133303133"></a>
+
+## Minimal configuration — xcsh_subnet / 221220131001 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "subnet_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2021033121103321-2231200312200230-0100202120322203-1212020112331303-2212110000310013-2321203122030201-3112321331023113-1123110331023332"></a>
+
+## Root configuration — xcsh_subnet / 221220131001 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0202223002203121-3300302110230212-2210210021003200-1313323203130111-1013211022331033-1303003032023122-3312323201320203-3331301311121312"></a>
 
-- [Property reference](../guides/data-sources--subnet--reference.md)
-- [Examples](../guides/data-sources--subnet--examples.md)
+## Next pages — xcsh_subnet / 221220131001 / 6
+
+- [Property reference](../guides/data-sources--subnet--reference--group-001.md#canonical-1102121302112331-0211122202223320-2203331110131003-2103332020023301-0010122012201110-0113221330320300-0120000001313021-1001213230013200)
+- [Examples](../guides/data-sources--subnet--examples--group-001.md#canonical-1321312032030121-3122133013001130-0302032100203212-2123030011002321-3123332220300233-2113302010220023-2033110210311003-2002122223201211)

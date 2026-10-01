@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_firewall"
+page_title: "xcsh_network_firewall landing"
 subcategory: "Security"
-description: "xcsh_network_firewall for xcsh_network_firewall."
-xcsh_docs: {"aliases": [], "body_bytes": 1513, "body_sha256": "sha256:5891cb8424d51185e20352c22eedbac623426871fe7b04195246216b7d2bbf31", "canonical_id": "xcsh-docs:resources:network_firewall:fundamentals", "child_ids": ["xcsh-docs:resources:network_firewall:reference", "xcsh-docs:resources:network_firewall:examples", "xcsh-docs:resources:network_firewall:import", "xcsh-docs:resources:network_firewall:timeouts"], "collection_id": "xcsh-docs:resources:network_firewall:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_firewall:fundamentals", "parent_id": null, "path": "docs/resources/network_firewall.md", "provider_name": "network_firewall", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_firewall for xcsh_network_firewall.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_firewallCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_firewall landing."
 ---
+
+# xcsh_network_firewall landing
+
+<a id="canonical-0002103131303200-3202220110210100-2001233131212311-3322200221303002-0011132331222322-2101102312302011-0113033313013211-2001132200001333"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_firewall
+<a id="canonical-1021103002011230-1111103230332102-2100022012332223-3110103200220233-1002030022003112-2102330033032023-2311331311013302-1120331010133312"></a>
+
+## xcsh_network_firewall — xcsh_network_firewall / 312100320000 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users
 in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-2232323301320100-0010223331203203-1320221321210322-3231300231033302-1010112221310330-1100103031331300-1333013023122033-0132322301023233"></a>
+
+## Prerequisites — xcsh_network_firewall / 312100320000 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-1030023210320210-3300332300031232-1232100221331113-1111021011223300-1021000211312322-3210322330131330-3320213233000032-2202321303013312"></a>
+
+## Minimal configuration — xcsh_network_firewall / 312100320000 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_network_firewall" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1022021033221112-0231321331003303-3001103313012230-0030222020332123-0210101203202020-3123123030322101-3100011113012233-0312132033123213"></a>
+
+## Root configuration — xcsh_network_firewall / 312100320000 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1332003202012020-1030221010310201-3213202221001120-1321101320221221-0313001123021023-0231303221133133-0321311133320113-1112211020023300"></a>
 
-- [Property reference](../guides/resources--network_firewall--reference.md)
-- [Examples](../guides/resources--network_firewall--examples.md)
-- [Import](../guides/resources--network_firewall--import.md)
-- [Timeouts](../guides/resources--network_firewall--timeouts.md)
+## Next pages — xcsh_network_firewall / 312100320000 / 6
+
+- [Property reference](../guides/resources--network_firewall--reference--group-001.md#canonical-1131321320323100-0133323001330022-1211003101102003-2000211000122312-2031221212010020-2323201312033210-3331113002030021-0010133133330010)
+- [Examples](../guides/resources--network_firewall--examples--group-001.md#canonical-1031032103323200-0122100200112332-1320330020112301-3331011310010120-3320010130103103-2232331310312302-0023100313031112-2201332200222201)
+- [Import](../guides/resources--network_firewall--lifecycle--group-001.md#canonical-0332032223301202-2101103111010232-0221122011112100-2222113100031120-3212302122222311-2300100022022233-0032223123323302-3012203132031203)
+- [Timeouts](../guides/resources--network_firewall--lifecycle--group-001.md#canonical-1213033313223021-2211131133110302-3320210111131202-0101220223232111-2130122331002203-1030202230301312-2300222223333031-3211011232232230)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_smsv2_aws_runtime"
+page_title: "xcsh_smsv2_aws_runtime landing"
 subcategory: ""
-description: "xcsh_smsv2_aws_runtime for xcsh_smsv2_aws_runtime."
-xcsh_docs: {"aliases": [], "body_bytes": 1684, "body_sha256": "sha256:c016538e1dbe710684bbb6cf3cdf9b3f48dd3bf8cc18b8d39b4dc00973098ae6", "canonical_id": "xcsh-docs:data-sources:smsv2_aws_runtime:fundamentals", "child_ids": ["xcsh-docs:data-sources:smsv2_aws_runtime:reference", "xcsh-docs:data-sources:smsv2_aws_runtime:examples"], "collection_id": "xcsh-docs:data-sources:smsv2_aws_runtime:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:smsv2_aws_runtime:fundamentals", "parent_id": null, "path": "docs/data-sources/smsv2_aws_runtime.md", "provider_name": "smsv2_aws_runtime", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/smsv2_aws_runtime/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_smsv2_aws_runtime for xcsh_smsv2_aws_runtime.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_smsv2_aws_runtime landing."
 ---
+
+# xcsh_smsv2_aws_runtime landing
+
+<a id="canonical-1120113232301113-0213023023132120-1120122010310202-0111213100202201-0123213030213220-2303201220111233-2220132332120003-3013101222121310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_smsv2_aws_runtime
+<a id="canonical-2032322011133101-2310311223000023-2022033010033133-3211032233312020-3321001130201111-3222221030010132-1120230232211023-3103322112333221"></a>
+
+## xcsh_smsv2_aws_runtime — xcsh_smsv2_aws_runtime / 333312302301 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Correlates AWS ENI identities with SMSv2 configuration, site provisioning and published
 physical-link status.
 
-## Prerequisites
+<a id="canonical-1202032013301300-1133013300331222-2233303000311320-2331020310322030-0013113023201332-2032020000202032-1213113020201030-3121111301110303"></a>
+
+## Prerequisites — xcsh_smsv2_aws_runtime / 333312302301 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3130020213132030-0331020100002223-0111310132023121-2000122101132020-0302003021120223-0212003122123312-2310011001000123-2332201210213303"></a>
+
+## Minimal configuration — xcsh_smsv2_aws_runtime / 333312302301 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -68,11 +77,15 @@ output "smsv2_healthy" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0210112132330302-2111132303230102-2130232100033311-2102303023311310-2203303201203301-0132321322330303-0132203001021213-2212110103021022"></a>
+
+## Root configuration — xcsh_smsv2_aws_runtime / 333312302301 / 5
 
 Required root properties: `namespace`, `nodes`, `site`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2332133000003333-3132330232030213-0330031030302231-0300202203311202-0213132003122231-0213111321313003-2132233012023311-1020123321010003"></a>
 
-- [Property reference](../guides/data-sources--smsv2_aws_runtime--reference.md)
-- [Examples](../guides/data-sources--smsv2_aws_runtime--examples.md)
+## Next pages — xcsh_smsv2_aws_runtime / 333312302301 / 6
+
+- [Property reference](../guides/data-sources--smsv2_aws_runtime--reference--group-001.md#canonical-1131203033100032-2003330011020220-3022010022132201-2022013302210203-1333333332220120-3012021230132301-0322030310002231-3122323132101032)
+- [Examples](../guides/data-sources--smsv2_aws_runtime--examples--group-001.md#canonical-0133013233122312-1321111213003103-0302002301312333-3233212133322132-1120031213220132-2300020203302100-0031003332102011-2112330331200013)

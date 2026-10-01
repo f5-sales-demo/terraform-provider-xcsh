@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_ike1"
+page_title: "xcsh_ike1 landing"
 subcategory: ""
-description: "xcsh_ike1 for xcsh_ike1."
-xcsh_docs: {"aliases": [], "body_bytes": 1184, "body_sha256": "sha256:2f10819f2fd3c1cbd32d32383857a6de023c578edbd4ffb2e608ddd0254fa650", "canonical_id": "xcsh-docs:data-sources:ike1:fundamentals", "child_ids": ["xcsh-docs:data-sources:ike1:reference", "xcsh-docs:data-sources:ike1:examples"], "collection_id": "xcsh-docs:data-sources:ike1:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:ike1:fundamentals", "parent_id": null, "path": "docs/data-sources/ike1.md", "provider_name": "ike1", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike1/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_ike1 for xcsh_ike1.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["ike1CreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_ike1 landing."
 ---
+
+# xcsh_ike1 landing
+
+<a id="canonical-2112011122002111-1121301111312122-3021231213103111-3131302213110331-0301300202011011-1200320222013102-3321012020321333-1000030102103313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_ike1
+<a id="canonical-0222203300201323-0313232230200033-3012311132133110-0000133232032203-3002211031102133-1223233031233030-3333222300220221-0211211112220300"></a>
+
+## xcsh_ike1 — xcsh_ike1 / 131013031210 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a Ike1 resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.
 
-## Prerequisites
+<a id="canonical-0331100033322312-1003212330223233-0331120321323333-0003320123231031-2031023013001031-3132220102022011-3110222002212202-1201223210223003"></a>
+
+## Prerequisites — xcsh_ike1 / 131013031210 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1213010323130112-0113201313012211-2031012303223103-0232112000210102-0033031122313301-1002321032332210-2323131223300321-0011312300120230"></a>
+
+## Minimal configuration — xcsh_ike1 / 131013031210 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "ike1_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1231130103031120-1310022112002231-0022323331223032-2020131022201112-1023011103003221-3323210321303011-2123000320210111-1013110231330302"></a>
+
+## Root configuration — xcsh_ike1 / 131013031210 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2131202233221111-2021233030212313-1202101210012101-2300202023312120-2012113220220323-2222002000002003-2123233200131020-3210000010301121"></a>
 
-- [Property reference](../guides/data-sources--ike1--reference.md)
-- [Examples](../guides/data-sources--ike1--examples.md)
+## Next pages — xcsh_ike1 / 131013031210 / 6
+
+- [Property reference](../guides/data-sources--ike1--reference--group-001.md#canonical-2113121021131213-0322330121000333-0232103301210212-3101112300210032-3102213101322310-0311031112112121-1311322002110322-0313010312330013)
+- [Examples](../guides/data-sources--ike1--examples--group-001.md#canonical-3132332313110102-2301103110101323-3013231113332213-2101031223111032-3332331103131323-1221301031101331-1200200320022232-2002033021333210)

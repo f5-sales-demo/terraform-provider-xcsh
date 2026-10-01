@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_public_ip"
+page_title: "xcsh_public_ip landing"
 subcategory: ""
-description: "xcsh_public_ip for xcsh_public_ip."
-xcsh_docs: {"aliases": [], "body_bytes": 1321, "body_sha256": "sha256:32aaf8a01c94aa0693e34f1726d503442017c28f132eb1f541e398dfe229438c", "canonical_id": "xcsh-docs:data-sources:public_ip:fundamentals", "child_ids": ["xcsh-docs:data-sources:public_ip:reference", "xcsh-docs:data-sources:public_ip:examples"], "collection_id": "xcsh-docs:data-sources:public_ip:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:public_ip:fundamentals", "parent_id": null, "path": "docs/data-sources/public_ip.md", "provider_name": "public_ip", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/public_ip/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_public_ip for xcsh_public_ip.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_public_ip landing."
 ---
+
+# xcsh_public_ip landing
+
+<a id="canonical-1031112030301010-2311310020031031-2211013213012022-1133000123132320-1321011231003203-2132100011003132-1013002332020322-0201311232021222"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_public_ip
+<a id="canonical-2123232321013230-3100311223322100-2331021210020303-1301310201102233-1110113211321333-1121013320121323-1231330203313112-2030033303012001"></a>
+
+## xcsh_public_ip — xcsh_public_ip / 023112110012 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Public IP resource in F5 Distributed Cloud for get public\_ip will get the object from the
 storage backend for namespace metadata.namespace. configuration. (read-only data source)
 
-## Prerequisites
+<a id="canonical-1322001102010210-1303300310131001-3303013330200312-2330030122310320-2200113002213011-1101030310313322-3313221101331332-0312302320231231"></a>
+
+## Prerequisites — xcsh_public_ip / 023112110012 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2222133120133033-0213332302130113-3102123022322212-2131102213331301-1333132320030301-1101003112021300-3210313123312211-0012131312103003"></a>
+
+## Minimal configuration — xcsh_public_ip / 023112110012 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "public_ip_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1312301133233303-3133210230112323-2023113011100323-0203021002232331-3321302120320033-3030020113211002-1013320323230201-0330223002220013"></a>
+
+## Root configuration — xcsh_public_ip / 023112110012 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1310032010303013-0103313222332030-0022312002213002-1301122202110301-1323310211232202-3332102332012211-3130111100331011-1220022121120233"></a>
 
-- [Property reference](../guides/data-sources--public_ip--reference.md)
-- [Examples](../guides/data-sources--public_ip--examples.md)
+## Next pages — xcsh_public_ip / 023112110012 / 6
+
+- [Property reference](../guides/data-sources--public_ip--reference--group-001.md#canonical-1320331200230230-1110321111312310-1320320001202310-3322211120133022-3333120310113022-0300120302121212-2210030111311112-1221332130113230)
+- [Examples](../guides/data-sources--public_ip--examples--group-001.md#canonical-1212333320001102-0203132121132100-2013320123101220-2103330233200323-3331232102031102-2300100221033032-3000232033221101-3010310211300333)

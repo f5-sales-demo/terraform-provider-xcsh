@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_user_identification"
+page_title: "xcsh_user_identification landing"
 subcategory: ""
-description: "xcsh_user_identification for xcsh_user_identification."
-xcsh_docs: {"aliases": [], "body_bytes": 1505, "body_sha256": "sha256:f3b27b0ab8975ae95aacd50da9eb35a8ee81b22596c9e5e70399ea161994538a", "canonical_id": "xcsh-docs:resources:user_identification:fundamentals", "child_ids": ["xcsh-docs:resources:user_identification:reference", "xcsh-docs:resources:user_identification:examples", "xcsh-docs:resources:user_identification:import", "xcsh-docs:resources:user_identification:timeouts"], "collection_id": "xcsh-docs:resources:user_identification:collection", "completeness": "complete", "id": "xcsh-docs:resources:user_identification:fundamentals", "parent_id": null, "path": "docs/resources/user_identification.md", "provider_name": "user_identification", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/user_identification/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_user_identification for xcsh_user_identification.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["user_identificationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_user_identification landing."
 ---
+
+# xcsh_user_identification landing
+
+<a id="canonical-0201231202111123-2212302023331001-3101130201301022-3011301201311121-1111130303322010-0031212223102323-3302121201312013-2312300311320112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_user_identification
+<a id="canonical-2300301231003002-2031001101013002-0101221111022010-0212101031121310-2222322003301000-1201021030221300-3102231120212110-0211011221013222"></a>
+
+## xcsh_user_identification — xcsh_user_identification / 000000203230 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages user\_identification creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0023322231020012-2211003111330302-1201022233231003-2023032333212032-3033222110331103-3023311331220132-3322313120002333-1212313011202332"></a>
+
+## Prerequisites — xcsh_user_identification / 000000203230 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1300012121232032-0202223113310323-1033300011122302-1103010033012110-3103320030121201-2201030203332113-1220310333023313-3233321011310302"></a>
+
+## Minimal configuration — xcsh_user_identification / 000000203230 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_user_identification" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1012230220022321-2033130030231211-0300313130002022-0002231113113033-3323231332300003-2333022213233323-0200333303331100-3330321320211322"></a>
+
+## Root configuration — xcsh_user_identification / 000000203230 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3030222232122020-3312203032321303-3233001300322222-0322010211101201-0301231313102311-0003130101310113-3012111011001213-0031302330003220"></a>
 
-- [Property reference](../guides/resources--user_identification--reference.md)
-- [Examples](../guides/resources--user_identification--examples.md)
-- [Import](../guides/resources--user_identification--import.md)
-- [Timeouts](../guides/resources--user_identification--timeouts.md)
+## Next pages — xcsh_user_identification / 000000203230 / 6
+
+- [Property reference](../guides/resources--user_identification--reference--group-001.md#canonical-0302203110230111-0101003133213200-0113030211023221-0210202013332211-1333132032000320-3231230023111133-2312332203222120-3011231133232311)
+- [Examples](../guides/resources--user_identification--examples--group-001.md#canonical-1132012213120121-0213210121131211-3213202000202211-1310002332322212-0300103222133000-0303110110313011-2011101000122021-2233010301011232)
+- [Import](../guides/resources--user_identification--lifecycle--group-001.md#canonical-0100101021131001-3320300133032202-1010122102032110-1002122121202103-1310010102233133-3000200232000333-3110030122330012-2300300223331230)
+- [Timeouts](../guides/resources--user_identification--lifecycle--group-001.md#canonical-0200103110221213-0302102001110303-0202111202202202-3101310133020000-2122123020112312-0130113332312003-1123110121212323-2332330123202310)

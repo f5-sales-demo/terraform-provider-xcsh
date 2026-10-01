@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cminstance"
+page_title: "xcsh_cminstance landing"
 subcategory: ""
-description: "xcsh_cminstance for xcsh_cminstance."
-xcsh_docs: {"aliases": [], "body_bytes": 1247, "body_sha256": "sha256:b1cac04016ec2b87d56f1fb84c22e5d98dba09f7c61bed774083f4ba5a7a0e56", "canonical_id": "xcsh-docs:data-sources:cminstance:fundamentals", "child_ids": ["xcsh-docs:data-sources:cminstance:reference", "xcsh-docs:data-sources:cminstance:examples"], "collection_id": "xcsh-docs:data-sources:cminstance:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cminstance:fundamentals", "parent_id": null, "path": "docs/data-sources/cminstance.md", "provider_name": "cminstance", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cminstance/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cminstance for xcsh_cminstance.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cminstanceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cminstance landing."
 ---
+
+# xcsh_cminstance landing
+
+<a id="canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cminstance
+<a id="canonical-3021232203221320-2123233021122002-2231110001030313-2202121112300001-1000300122320130-2010023313200212-2211301001031023-1130022023230101"></a>
+
+## xcsh_cminstance — xcsh_cminstance / 203003131223 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-2232300321033101-2332111011323113-1310103021002032-1033303220121102-2313101112313322-2100131023113222-1212120112223210-1132031011021321"></a>
+
+## Prerequisites — xcsh_cminstance / 203003131223 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2211321021011010-2200111032321031-0313210022231331-0200322303123123-0112102102111230-3023031321301010-2030010331300020-2013112333101322"></a>
+
+## Minimal configuration — xcsh_cminstance / 203003131223 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "cminstance_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0321031001211123-0002210323232303-0332203021302202-3331213100112021-3131203023103330-3120323201021132-1220220020203221-3030132021033301"></a>
+
+## Root configuration — xcsh_cminstance / 203003131223 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1112023331100013-2132100123332303-0213132222020030-1220122330110102-3301230301210213-3020232210331311-1322220102311010-0130031102221003"></a>
 
-- [Property reference](../guides/data-sources--cminstance--reference.md)
-- [Examples](../guides/data-sources--cminstance--examples.md)
+## Next pages — xcsh_cminstance / 203003131223 / 6
+
+- [Property reference](../guides/data-sources--cminstance--reference--group-001.md#canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202)
+- [Examples](../guides/data-sources--cminstance--examples--group-001.md#canonical-2213332301233130-3302331022010303-2123033122303330-2001220110232311-3121111202200321-3232321201300311-0122300113032220-2021013313103203)

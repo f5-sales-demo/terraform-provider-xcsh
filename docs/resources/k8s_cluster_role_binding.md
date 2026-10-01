@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_k8s_cluster_role_binding"
+page_title: "xcsh_k8s_cluster_role_binding landing"
 subcategory: ""
-description: "xcsh_k8s_cluster_role_binding for xcsh_k8s_cluster_role_binding."
-xcsh_docs: {"aliases": [], "body_bytes": 1587, "body_sha256": "sha256:4e5baa1a55f229e9ef154ca4ccd057e8842475ddbf70a2f1eeecff098d3e84d5", "canonical_id": "xcsh-docs:resources:k8s_cluster_role_binding:fundamentals", "child_ids": ["xcsh-docs:resources:k8s_cluster_role_binding:reference", "xcsh-docs:resources:k8s_cluster_role_binding:examples", "xcsh-docs:resources:k8s_cluster_role_binding:import", "xcsh-docs:resources:k8s_cluster_role_binding:timeouts"], "collection_id": "xcsh-docs:resources:k8s_cluster_role_binding:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_cluster_role_binding:fundamentals", "parent_id": null, "path": "docs/resources/k8s_cluster_role_binding.md", "provider_name": "k8s_cluster_role_binding", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role_binding/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_k8s_cluster_role_binding for xcsh_k8s_cluster_role_binding.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["k8s_cluster_role_bindingCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_k8s_cluster_role_binding landing."
 ---
+
+# xcsh_k8s_cluster_role_binding landing
+
+<a id="canonical-1203120300333222-3203223200312120-0002210222112313-1113120331003323-3102000331030303-1133200312133122-1031101033120033-3233030130121012"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_k8s_cluster_role_binding
+<a id="canonical-2212321132101120-0113031113001103-0003210030213122-3301130322133031-2331123213331202-2210230132322321-2213311310121013-1302011200230031"></a>
+
+## xcsh_k8s_cluster_role_binding — xcsh_k8s_cluster_role_binding / 213100333020 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages k8s\_cluster\_role\_binding will create the object in the storage backend for namespace
 metadata.namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2011103013033111-3012203110303113-2131032112010330-0332112101211332-3122131111011010-3033330103113100-0330330200333022-1321110311123311"></a>
+
+## Prerequisites — xcsh_k8s_cluster_role_binding / 213100333020 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0122001302213032-3030001212012030-2113033333310100-1223301220312302-0221000220223131-2322231112111101-3210332001102232-0003210011112222"></a>
+
+## Minimal configuration — xcsh_k8s_cluster_role_binding / 213100333020 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_k8s_cluster_role_binding" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1301031221300131-2213112211323211-0331102313031013-2220320331320213-0212122110120233-2013200302222330-1202130331332111-3123120033331132"></a>
+
+## Root configuration — xcsh_k8s_cluster_role_binding / 213100333020 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1202133003130103-3322323011213012-3331021201120212-0320222123310222-1002000321003111-3320330101112001-0010023303033110-1110001230110223"></a>
 
-- [Property reference](../guides/resources--k8s_cluster_role_binding--reference.md)
-- [Examples](../guides/resources--k8s_cluster_role_binding--examples.md)
-- [Import](../guides/resources--k8s_cluster_role_binding--import.md)
-- [Timeouts](../guides/resources--k8s_cluster_role_binding--timeouts.md)
+## Next pages — xcsh_k8s_cluster_role_binding / 213100333020 / 6
+
+- [Property reference](../guides/resources--k8s_cluster_role_binding--reference--group-001.md#canonical-3122222001022132-1111202303122022-2033123222301020-0030321020302103-0030301220220131-0121213310030202-3231213321200003-3112033132100012)
+- [Examples](../guides/resources--k8s_cluster_role_binding--examples--group-001.md#canonical-3202231300133132-3310113211111032-0121303111333113-1033211121101033-3222112220320110-3303010121013223-3121003123201210-2103112030123323)
+- [Import](../guides/resources--k8s_cluster_role_binding--lifecycle--group-001.md#canonical-2200110211313011-0101011230210131-3310310000320012-3302230000112323-3223020122121020-3013120000003322-3213003213103332-1010101321132211)
+- [Timeouts](../guides/resources--k8s_cluster_role_binding--lifecycle--group-001.md#canonical-3303230312332332-0312203331312031-2033032101003132-2111302033133231-0023032333312333-0112303200100121-0120002113120031-0121110202122101)

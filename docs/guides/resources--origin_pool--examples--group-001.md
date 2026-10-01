@@ -1,0 +1,484 @@
+---
+page_title: "xcsh_origin_pool examples"
+subcategory: "Load Balancing"
+description: "Complete grouped canonical reference for xcsh_origin_pool examples."
+---
+
+# xcsh_origin_pool examples
+
+<a id="canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1231103230313310-3133132312031302-0230312123331312-0132131320122322-1230303312020220-2102013211203301-1010110133203203-2310020323012101"></a>
+
+## Examples — Examples / 003033213111 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- Examples
+
+<a id="canonical-2022010320121111-0212012313130300-0021302020320321-1021112223312300-0032001330220313-0332000020332020-1232313330031121-3000203101311001"></a>
+
+## Complete configurations — Examples / 003033213111 / 3
+
+- [Labels update](resources--origin_pool--examples--group-001.md#canonical-1121331123332011-0030013012030301-0323033030212313-1123120031123301-2213300211123332-1312212023121130-1033012130222210-3320011010230103): valid configuration.
+
+- [Multiple origins](resources--origin_pool--examples--group-001.md#canonical-3233022010022103-0131333231223300-2112303032010131-2303302301330233-2232110202113013-3300113312232223-3100330113013101-1232322222220303): valid configuration.
+
+- [Nested labels](resources--origin_pool--examples--group-001.md#canonical-2012132311320030-0222302331123230-3111030023131032-0022302033301311-3302201233221101-2031232202313322-1010131321002110-2000223021131332): valid configuration.
+
+- [Port](resources--origin_pool--examples--group-001.md#canonical-2033033132020302-1000101012303013-0301322021333133-2131303012132211-2211011303031212-1233013200323322-0313223000323133-0212103003310103): valid configuration.
+
+- [Public ip](resources--origin_pool--examples--group-001.md#canonical-0130130230222231-2122330321101001-3002302010012230-3310302321220300-3103121001032121-0223122131022201-2022032000120302-0001031222111212): valid configuration.
+
+- [Resource](resources--origin_pool--examples--group-001.md#canonical-2030033210101022-2320311212030202-0001133120032331-1201133130223313-1320023002203021-0000300133122232-3112200112030310-3313211330330102): valid configuration.
+
+- [With labels](resources--origin_pool--examples--group-001.md#canonical-2311121333023321-0221132131023221-1102302002223221-2320012302100233-0020022101223001-1023222202000033-2322203032102330-3002213122132033): valid configuration.
+
+<a id="canonical-0321310121110111-3011331033302020-2103123322232312-0011010031302030-3112322310112021-0013310032033330-3332103302121211-0301013101031133"></a>
+
+## Next pages — Examples / 003033213111 / 4
+
+- [Labels update](resources--origin_pool--examples--group-001.md#canonical-1121331123332011-0030013012030301-0323033030212313-1123120031123301-2213300211123332-1312212023121130-1033012130222210-3320011010230103)
+- [Multiple origins](resources--origin_pool--examples--group-001.md#canonical-3233022010022103-0131333231223300-2112303032010131-2303302301330233-2232110202113013-3300113312232223-3100330113013101-1232322222220303)
+- [Nested labels](resources--origin_pool--examples--group-001.md#canonical-2012132311320030-0222302331123230-3111030023131032-0022302033301311-3302201233221101-2031232202313322-1010131321002110-2000223021131332)
+- [Port](resources--origin_pool--examples--group-001.md#canonical-2033033132020302-1000101012303013-0301322021333133-2131303012132211-2211011303031212-1233013200323322-0313223000323133-0212103003310103)
+- [Public ip](resources--origin_pool--examples--group-001.md#canonical-0130130230222231-2122330321101001-3002302010012230-3310302321220300-3103121001032121-0223122131022201-2022032000120302-0001031222111212)
+- [Resource](resources--origin_pool--examples--group-001.md#canonical-2030033210101022-2320311212030202-0001133120032331-1201133130223313-1320023002203021-0000300133122232-3112200112030310-3313211330330102)
+- [With labels](resources--origin_pool--examples--group-001.md#canonical-2311121333023321-0221132131023221-1102302002223221-2320012302100233-0020022101223001-1023222202000033-2322203032102330-3002213122132033)
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+
+<a id="canonical-1121331123332011-0030013012030301-0323033030212313-1123120031123301-2213300211123332-1312212023121130-1033012130222210-3320011010230103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2111323131232220-0132002131022201-2001013233213223-2223102303331013-2231201131130113-3331000222332021-2122231103033232-3113101123120310"></a>
+
+## Labels update — Labels update / 202132303101 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- Labels update
+
+Acceptance-test-derived fixture; no new live API execution is claimed.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_origin_pool/labels-update.tf`; digest `sha256:d2a6e4ca39384f01c4d80efec2f06fdf2e82a0293580f75d7c78c1f61e96c022`.
+
+```terraform
+# LabelsUpdate — Acceptance-test-derived Configuration
+# Extracted from an acceptance test helper.
+# No new live API validation is claimed.
+
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+resource "xcsh_origin_pool" "test" {
+  name      = "example"
+  namespace = "system"
+
+  port = 443
+
+  labels = {
+    environment = "example-value"
+  }
+
+  origin_servers {
+    public_name {
+      dns_name = "example.com"
+    }
+  }
+
+  no_tls                = {}
+  same_as_endpoint_port = {}
+}
+```
+
+<a id="canonical-1022213130310020-2013201332101323-3123333131133300-3103111233333202-1223202331313201-2203013023212202-2001013133211120-3030231310001001"></a>
+
+## Next pages — Labels update / 202132303101 / 3
+
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+
+<a id="canonical-3233022010022103-0131333231223300-2112303032010131-2303302301330233-2232110202113013-3300113312232223-3100330113013101-1232322222220303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0212231121230131-3110021133223131-1202223022320101-0321013021221320-1100312022332021-0333200011132003-2002333001001231-2032130210111002"></a>
+
+## Multiple origins — Multiple origins / 132031011213 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- Multiple origins
+
+Acceptance-test-derived fixture; no new live API execution is claimed.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_origin_pool/multiple-origins.tf`; digest `sha256:bd8a184b9c325d4b7310968c1937c2417c67cf0e0a8113c2bf868b7ccb8905ff`.
+
+```terraform
+# MultipleOrigins — Acceptance-test-derived Configuration
+# Extracted from an acceptance test helper.
+# No new live API validation is claimed.
+
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+resource "xcsh_origin_pool" "test" {
+  name      = "example"
+  namespace = "system"
+
+  port = 443
+
+  origin_servers {
+    public_name {
+      dns_name = "backend1.example.com"
+    }
+  }
+
+  origin_servers {
+    public_name {
+      dns_name = "backend2.example.com"
+    }
+  }
+
+  no_tls                = {}
+  same_as_endpoint_port = {}
+}
+```
+
+<a id="canonical-3230332021001122-3023210111303103-3230212321230230-3000021031121311-3302233013301322-3021223111123331-1202023210022032-2013020002310320"></a>
+
+## Next pages — Multiple origins / 132031011213 / 3
+
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+
+<a id="canonical-2012132311320030-0222302331123230-3111030023131032-0022302033301311-3302201233221101-2031232202313322-1010131321002110-2000223021131332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2202323031230023-3120031233030220-1003221130222212-3303120020120211-3021333023221202-3011131131102023-2111110011331030-1303023002232111"></a>
+
+## Nested labels — Nested labels / 121322021230 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- Nested labels
+
+Acceptance-test-derived fixture; no new live API execution is claimed.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_origin_pool/nested-labels.tf`; digest `sha256:2a2c2b7a5d041bafee98f9e4a0464b2e4b5c967ac5f5b30fa2f474ff4f6ef535`.
+
+```terraform
+# NestedLabels — Acceptance-test-derived Configuration
+# Extracted from an acceptance test helper.
+# No new live API validation is claimed.
+
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+resource "xcsh_origin_pool" "test" {
+  name      = "example"
+  namespace = "system"
+
+  port = 8080
+
+  origin_servers {
+    public_ip {
+      ip = "192.0.2.1"
+    }
+    labels = {
+      "env" = "test"
+      "app" = "demo"
+    }
+  }
+
+  no_tls                = {}
+  same_as_endpoint_port = {}
+}
+```
+
+<a id="canonical-3210002220031112-3031221001021332-0020123322101000-1012130222301110-2231232221231130-0121322133302010-2123003022303133-1032323131301222"></a>
+
+## Next pages — Nested labels / 121322021230 / 3
+
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+
+<a id="canonical-2033033132020302-1000101012303013-0301322021333133-2131303012132211-2211011303031212-1233013200323322-0313223000323133-0212103003310103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1102302112100001-0033000302203330-3122320020030312-2222022101103233-0323032300223222-3001300111033113-2231213321120302-2102311203103130"></a>
+
+## Port — Port / 122302120032 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- Port
+
+Acceptance-test-derived fixture; no new live API execution is claimed.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_origin_pool/port.tf`; digest `sha256:3852ca8c70ab22d421232a89d1c20cf56857ad2339faf797aa538bea24c6a139`.
+
+```terraform
+# Port — Acceptance-test-derived Configuration
+# Extracted from an acceptance test helper.
+# No new live API validation is claimed.
+
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+resource "xcsh_origin_pool" "test" {
+  name      = "example"
+  namespace = "system"
+
+  port = 443
+
+  origin_servers {
+    public_name {
+      dns_name = "example.com"
+    }
+  }
+
+  no_tls                = {}
+  same_as_endpoint_port = {}
+}
+```
+
+<a id="canonical-0300131033001200-2120110211012220-3130203313313232-1030232100131021-1222302232303203-1120021010221212-0223230131232312-2200101110322001"></a>
+
+## Next pages — Port / 122302120032 / 3
+
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+
+<a id="canonical-0130130230222231-2122330321101001-3002302010012230-3310302321220300-3103121001032121-0223122131022201-2022032000120302-0001031222111212"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1112200000321212-2131031133220331-2311103221010101-1020130231233033-3000012320013222-2223133012021030-1011213010220021-0300331133123321"></a>
+
+## Public ip — Public ip / 231020021323 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- Public ip
+
+Acceptance-test-derived fixture; no new live API execution is claimed.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_origin_pool/public-ip.tf`; digest `sha256:1dade891c9c99d46213e707ba46387f7c7b5eed90053ec8616b5c928911c7d54`.
+
+```terraform
+# PublicIp — Acceptance-test-derived Configuration
+# Extracted from an acceptance test helper.
+# No new live API validation is claimed.
+
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+resource "xcsh_origin_pool" "test" {
+  name      = "example"
+  namespace = "system"
+
+  port = 8080
+
+  origin_servers {
+    public_ip {
+      ip = "192.0.2.1"
+    }
+  }
+
+  no_tls                = {}
+  same_as_endpoint_port = {}
+}
+```
+
+<a id="canonical-0103021023110221-1212302301000230-3123032312131310-2200301111001200-1333131311032121-1211310033130021-3113012333330100-0200202323330033"></a>
+
+## Next pages — Public ip / 231020021323 / 3
+
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+
+<a id="canonical-2030033210101022-2320311212030202-0001133120032331-1201133130223313-1320023002203021-0000300133122232-3112200112030310-3313211330330102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3010102313122203-1320331220333222-1003211110101320-0330021200123111-1102302233100201-0023123120012110-0212021010132332-1010213001221023"></a>
+
+## Resource — Resource / 212200001122 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- Resource
+
+Schema-derived minimal configuration validated with the checked-out provider.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_origin_pool/resource.tf`; digest `sha256:d9f0fe93931beb085130f6173ace667305af3adbe1e9448009e07911a7af8fa0`.
+
+```terraform
+# OriginPool Resource Example
+# Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets.
+
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+# Basic OriginPool configuration
+resource "xcsh_origin_pool" "example" {
+  name      = "example-origin-pool"
+  namespace = "staging"
+}
+```
+
+<a id="canonical-3112003333112311-3103122202112012-3133211001103020-3101200213303112-3302120321200202-1322332300321331-3020112223033301-2100233220232020"></a>
+
+## Next pages — Resource / 212200001122 / 3
+
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+
+<a id="canonical-2311121333023321-0221132131023221-1102302002223221-2320012302100233-0020022101223001-1023222202000033-2322203032102330-3002213122132033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0022120000330110-0033232020020313-0002110201230332-1310123113300203-1112330210220312-1221113321332201-3122323332133120-1020322202220023"></a>
+
+## With labels — With labels / 321300012211 / 2
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- With labels
+
+Acceptance-test-derived fixture; no new live API execution is claimed.
+
+Expected outcome: **valid configuration**.
+
+Source: `examples/resources/xcsh_origin_pool/with-labels.tf`; digest `sha256:492fffafa075a1f28ad253873263057c634ae541eb762e94f4e227737c234dcd`.
+
+```terraform
+# WithLabels — Acceptance-test-derived Configuration
+# Extracted from an acceptance test helper.
+# No new live API validation is claimed.
+
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+resource "xcsh_origin_pool" "test" {
+  name        = "example"
+  namespace   = "system"
+  description = "Test origin pool"
+
+  port = 443
+
+  labels = {
+    environment = "test"
+    team        = "platform"
+  }
+
+  origin_servers {
+    public_name {
+      dns_name = "example.com"
+    }
+  }
+
+  no_tls                = {}
+  same_as_endpoint_port = {}
+}
+```
+
+<a id="canonical-3333331233232333-2212022111122320-1303001210301221-1103203222002122-2110103121222120-2131220110111021-1323302100110202-1211333102203111"></a>
+
+## Next pages — With labels / 321300012211 / 3
+
+- [Examples](resources--origin_pool--examples--group-001.md#canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030)
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)

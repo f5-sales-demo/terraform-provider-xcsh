@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_service_policy"
+page_title: "xcsh_service_policy landing"
 subcategory: "Security"
-description: "xcsh_service_policy for xcsh_service_policy."
-xcsh_docs: {"aliases": [], "body_bytes": 1331, "body_sha256": "sha256:fb36cd073510f8ffbe510a0b6cddd923883bb7f7c9a5bbe092e8aa69f7273d0c", "canonical_id": "xcsh-docs:data-sources:service_policy:fundamentals", "child_ids": ["xcsh-docs:data-sources:service_policy:reference", "xcsh-docs:data-sources:service_policy:examples"], "collection_id": "xcsh-docs:data-sources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy:fundamentals", "parent_id": null, "path": "docs/data-sources/service_policy.md", "provider_name": "service_policy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_service_policy for xcsh_service_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_service_policy landing."
 ---
+
+# xcsh_service_policy landing
+
+<a id="canonical-1112022302333333-1130100232232301-3023212310221022-3103031003221200-2030020130230132-1201210321332200-2212311003030121-1321310310032303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_service_policy
+<a id="canonical-3300211201003011-1330120233232002-3203032332111311-0210112313303312-1112313003010123-2321220230031331-1333011111021032-2310313131132232"></a>
+
+## xcsh_service_policy — xcsh_service_policy / 312220120333 / 2
 
 Breadcrumbs:
 
@@ -18,13 +23,17 @@ Breadcrumbs:
 Manages service\_policy creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0213313033031100-3220333301202313-2100223122301022-2102121322301221-2213003022302221-3031001111202231-0033312233230211-0332302013100312"></a>
+
+## Prerequisites — xcsh_service_policy / 312220120333 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-## Minimal configuration
+<a id="canonical-1013210103100321-2230330333022332-2210200211113023-0122211002013212-0212001202213113-1211121020303221-2003220033002300-2203130302310202"></a>
+
+## Minimal configuration — xcsh_service_policy / 312220120333 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -53,11 +62,15 @@ output "service_policy_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2302112330132031-0132231020011232-2003310100330103-3000110001231321-3030230112130100-0220002222103321-1120321323233300-0321123323232211"></a>
+
+## Root configuration — xcsh_service_policy / 312220120333 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2032031203212220-2010101312003000-0301302033130021-2000320212211132-2133011003300131-2113311022303120-1113131133103003-2101120131121031"></a>
 
-- [Property reference](../guides/data-sources--service_policy--reference.md)
-- [Examples](../guides/data-sources--service_policy--examples.md)
+## Next pages — xcsh_service_policy / 312220120333 / 6
+
+- [Property reference](../guides/data-sources--service_policy--reference--group-001.md#canonical-3312102302111103-0221020013211300-2120323123300113-1101123102331230-1032322121222101-1332231300102132-0233300331323303-0031323122032013)
+- [Examples](../guides/data-sources--service_policy--examples--group-001.md#canonical-2310032000213002-0013023100320201-1122323331333212-3213302213103111-0003331221123320-2033213121331022-2322303123023213-0001233132023000)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_artifact_registry_token"
+page_title: "xcsh_artifact_registry_token landing"
 subcategory: ""
-description: "xcsh_artifact_registry_token for xcsh_artifact_registry_token."
-xcsh_docs: {"aliases": [], "body_bytes": 1227, "body_sha256": "sha256:ce14176b63fc9552205766285c13bd98d56b2bab93ce051eee4f15242bd9e9a8", "canonical_id": "xcsh-docs:ephemeral-resources:artifact_registry_token:fundamentals", "child_ids": ["xcsh-docs:ephemeral-resources:artifact_registry_token:reference", "xcsh-docs:ephemeral-resources:artifact_registry_token:examples", "xcsh-docs:ephemeral-resources:artifact_registry_token:lifecycle"], "collection_id": "xcsh-docs:ephemeral-resources:artifact_registry_token:collection", "completeness": "complete", "id": "xcsh-docs:ephemeral-resources:artifact_registry_token:fundamentals", "parent_id": null, "path": "docs/ephemeral-resources/artifact_registry_token.md", "provider_name": "artifact_registry_token", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "ephemeral-resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/ephemeral-resources/artifact_registry_token/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_artifact_registry_token for xcsh_artifact_registry_token.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_artifact_registry_token landing."
 ---
+
+# xcsh_artifact_registry_token landing
+
+<a id="canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_artifact_registry_token
+<a id="canonical-0132312021321102-2332032013302130-2112220222302102-2302223023322120-2332112331101223-0320223101303120-3233332201030123-2203011333030033"></a>
+
+## xcsh_artifact_registry_token — xcsh_artifact_registry_token / 303232111233 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Authentication credential for access control.
 
-## Prerequisites
+<a id="canonical-1001331212122233-2023213110203001-0212031021010322-1102123311020033-0030000230202330-1220112101132300-2303333100030132-1203132301101113"></a>
+
+## Prerequisites — xcsh_artifact_registry_token / 303232111233 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3331313133031232-3331322332101103-0130111013220213-2213102311330211-1111000023023202-1313031013233301-3002232011311233-0113113330032222"></a>
+
+## Minimal configuration — xcsh_artifact_registry_token / 303232111233 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -44,12 +53,16 @@ ephemeral "xcsh_artifact_registry_token" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0011330212311202-3020210312301323-0010030313333303-3111222320232112-1333200031233233-3323222100020232-3132221332110333-2132230023310230"></a>
+
+## Root configuration — xcsh_artifact_registry_token / 303232111233 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0031301303123033-1222000002131311-0001123202101230-3133021300031321-0103122103223002-0110131133103002-0033320302110202-3000030232002203"></a>
 
-- [Property reference](../guides/ephemeral-resources--artifact_registry_token--reference.md)
-- [Examples](../guides/ephemeral-resources--artifact_registry_token--examples.md)
-- [Lifecycle](../guides/ephemeral-resources--artifact_registry_token--lifecycle.md)
+## Next pages — xcsh_artifact_registry_token / 303232111233 / 6
+
+- [Property reference](../guides/ephemeral-resources--artifact_registry_token--reference--group-001.md#canonical-2203313033322030-0113022202301111-0210200113320313-3110001101012332-3113033331112210-1332120310221123-3101023200110313-3312021311022023)
+- [Examples](../guides/ephemeral-resources--artifact_registry_token--examples--group-001.md#canonical-0011313231110131-0332120013220332-0111300222332010-0023102120300323-0123110301313201-3222121230031110-3232221322111321-3103110203301113)
+- [Lifecycle](../guides/ephemeral-resources--artifact_registry_token--lifecycle--group-001.md#canonical-0110331221331200-1213300003313222-3323030310312122-1030322232211301-2032112231002313-3030211103001311-3321022033312021-3221211010230000)

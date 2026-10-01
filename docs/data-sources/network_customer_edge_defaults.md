@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_customer_edge_defaults"
+page_title: "xcsh_network_customer_edge_defaults landing"
 subcategory: ""
-description: "xcsh_network_customer_edge_defaults for xcsh_network_customer_edge_defaults."
-xcsh_docs: {"aliases": [], "body_bytes": 1707, "body_sha256": "sha256:b04386e33cf3ccc164e1ca9dba97117372f65133a5c72cc5fb35a327903fcb06", "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:fundamentals", "child_ids": ["xcsh-docs:data-sources:network_customer_edge_defaults:reference", "xcsh-docs:data-sources:network_customer_edge_defaults:examples"], "collection_id": "xcsh-docs:data-sources:network_customer_edge_defaults:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:network_customer_edge_defaults:fundamentals", "parent_id": null, "path": "docs/data-sources/network_customer_edge_defaults.md", "provider_name": "network_customer_edge_defaults", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_customer_edge_defaults/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_customer_edge_defaults for xcsh_network_customer_edge_defaults.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_customer_edge_defaults landing."
 ---
+
+# xcsh_network_customer_edge_defaults landing
+
+<a id="canonical-2030202230323022-0201110111033011-3112302323000311-1231130201223133-0123022101003012-2310121012022212-0120311221210122-2230332213331100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_customer_edge_defaults
+<a id="canonical-2321231200300301-1333003313331000-0023021311200330-2133021010003131-0111303030222032-0310313313033021-2303202012201133-0001232130212122"></a>
+
+## xcsh_network_customer_edge_defaults — xcsh_network_customer_edge_defaults / 121321031120 / 2
 
 Breadcrumbs:
 
@@ -19,11 +24,15 @@ Default DNS and NTP destinations for Customer Edge firewall rules. Values are bu
 pinned OpenAPI release; this data source performs no network request. Ports and traffic direction
 are not encoded in the manifest.
 
-## Prerequisites
+<a id="canonical-1301323210202133-1103302302033231-3330300301301020-3011100330213332-0012000202123131-0003223302220200-2121301003133320-3103030322322033"></a>
+
+## Prerequisites — xcsh_network_customer_edge_defaults / 121321031120 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0213112021003012-1301322030222000-1110031221113332-3010112220100321-3123320222322220-2012311213301310-2303310001322231-0302131202332302"></a>
+
+## Minimal configuration — xcsh_network_customer_edge_defaults / 121321031120 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,11 +68,15 @@ output "customer_edge_default_egress" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2123233300300300-3122312011202331-2012213133123203-3003323133103120-3310021312221211-3031310121332123-1321311223201213-1321213330330011"></a>
+
+## Root configuration — xcsh_network_customer_edge_defaults / 121321031120 / 5
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0300201213022131-3000233331300333-3033203133203310-1322210210223001-0320312230211112-2201321032220221-0232022332000122-0023120011332110"></a>
 
-- [Property reference](../guides/data-sources--network_customer_edge_defaults--reference.md)
-- [Examples](../guides/data-sources--network_customer_edge_defaults--examples.md)
+## Next pages — xcsh_network_customer_edge_defaults / 121321031120 / 6
+
+- [Property reference](../guides/data-sources--network_customer_edge_defaults--reference--group-001.md#canonical-2131013332023213-0010232033113021-0202033330201320-2220210231031321-0211222320311011-1100301313023322-0211102303121020-0101122212031210)
+- [Examples](../guides/data-sources--network_customer_edge_defaults--examples--group-001.md#canonical-3122311111020020-0121221101322000-1332133023312001-2223023020210131-0201032210033320-1030130221333023-3011100312033110-3033021330133130)

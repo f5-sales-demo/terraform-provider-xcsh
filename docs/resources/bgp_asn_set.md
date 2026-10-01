@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bgp_asn_set"
+page_title: "xcsh_bgp_asn_set landing"
 subcategory: ""
-description: "xcsh_bgp_asn_set for xcsh_bgp_asn_set."
-xcsh_docs: {"aliases": [], "body_bytes": 1442, "body_sha256": "sha256:3d65476ef8424ebfa6f50a825053a54c97fbca9e1b9077fecc0b5acc77b73613", "canonical_id": "xcsh-docs:resources:bgp_asn_set:fundamentals", "child_ids": ["xcsh-docs:resources:bgp_asn_set:reference", "xcsh-docs:resources:bgp_asn_set:examples", "xcsh-docs:resources:bgp_asn_set:import", "xcsh-docs:resources:bgp_asn_set:timeouts"], "collection_id": "xcsh-docs:resources:bgp_asn_set:collection", "completeness": "complete", "id": "xcsh-docs:resources:bgp_asn_set:fundamentals", "parent_id": null, "path": "docs/resources/bgp_asn_set.md", "provider_name": "bgp_asn_set", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bgp_asn_set/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bgp_asn_set for xcsh_bgp_asn_set.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["bgp_asn_setCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bgp_asn_set landing."
 ---
+
+# xcsh_bgp_asn_set landing
+
+<a id="canonical-3010010321231122-0133331023021212-0330320220102302-0102122320130321-1110011002112302-3010211202300010-0031103320123032-3230133030121103"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bgp_asn_set
+<a id="canonical-0313313201130223-1113311212210111-1123332120112101-1322021212232111-0000333232201311-2023200301121003-1302020122020121-2020320223110230"></a>
+
+## xcsh_bgp_asn_set — xcsh_bgp_asn_set / 011232023203 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages bgp\_asn\_set creates a new object in the storage backend for metadata.namespace in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2212222210201221-0010301022212300-0333031230220213-0231231011220303-1120110131011333-1200200011002110-1320312123013030-1310031211203113"></a>
+
+## Prerequisites — xcsh_bgp_asn_set / 011232023203 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0311010310112213-0312031332012203-3200122230321310-1211003030312121-3012133012020330-1022020323202200-1210312002113211-0230002201032101"></a>
+
+## Minimal configuration — xcsh_bgp_asn_set / 011232023203 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_bgp_asn_set" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3032322210300033-3221333221133323-0120023010132323-1130011130332122-2330022301313223-0200123221021231-3123010300331122-3221203303202011"></a>
+
+## Root configuration — xcsh_bgp_asn_set / 011232023203 / 5
 
 Required root properties: `as_numbers`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3213332123213101-1321133320230002-1331222023210230-1020323123333112-2133330233320230-3102310212020232-0032212112123212-3020021100312101"></a>
 
-- [Property reference](../guides/resources--bgp_asn_set--reference.md)
-- [Examples](../guides/resources--bgp_asn_set--examples.md)
-- [Import](../guides/resources--bgp_asn_set--import.md)
-- [Timeouts](../guides/resources--bgp_asn_set--timeouts.md)
+## Next pages — xcsh_bgp_asn_set / 011232023203 / 6
+
+- [Property reference](../guides/resources--bgp_asn_set--reference--group-001.md#canonical-2221001120333021-0023132212300332-0300031102333013-0012022101331031-3232222323021231-0110023232233332-0120221100112302-0102233011221200)
+- [Examples](../guides/resources--bgp_asn_set--examples--group-001.md#canonical-1311312101312312-0003113031020322-3000212100121303-1310231031111133-0303022310101211-1323001112323220-1210220310300300-1033220312010023)
+- [Import](../guides/resources--bgp_asn_set--lifecycle--group-001.md#canonical-1010101200311130-1022032330233022-1101101220110023-1033122000033231-3222131220110102-0000203222212233-0033113220302332-3130102330112100)
+- [Timeouts](../guides/resources--bgp_asn_set--lifecycle--group-001.md#canonical-2231101132322311-0031203302331011-1103202230200221-2020032032103322-0002203010133332-0322333211232230-0022233031100312-2333111302123033)

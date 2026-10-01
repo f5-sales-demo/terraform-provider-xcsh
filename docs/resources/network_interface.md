@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_network_interface"
+page_title: "xcsh_network_interface landing"
 subcategory: ""
-description: "xcsh_network_interface for xcsh_network_interface."
-xcsh_docs: {"aliases": [], "body_bytes": 1561, "body_sha256": "sha256:7f27ff8507445b60ae7faff624320ad796df6622f1abd50d5c910422fad04ed7", "canonical_id": "xcsh-docs:resources:network_interface:fundamentals", "child_ids": ["xcsh-docs:resources:network_interface:reference", "xcsh-docs:resources:network_interface:examples", "xcsh-docs:resources:network_interface:import", "xcsh-docs:resources:network_interface:timeouts"], "collection_id": "xcsh-docs:resources:network_interface:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_interface:fundamentals", "parent_id": null, "path": "docs/resources/network_interface.md", "provider_name": "network_interface", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_interface/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_network_interface for xcsh_network_interface.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["network_interfaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_network_interface landing."
 ---
+
+# xcsh_network_interface landing
+
+<a id="canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_network_interface
+<a id="canonical-0323222203220321-1100111301200103-0001013200323302-1030023330203022-0101032001112302-1331210013032123-0120223323022022-0211001223113232"></a>
+
+## xcsh_network_interface — xcsh_network_interface / 331323123200 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Network Interface resource in F5 Distributed Cloud for network interface represents
 configuration of a network device. it is created by users in system namespace. configuration.
 
-## Prerequisites
+<a id="canonical-2023121031220312-1101210112332110-1302333022221300-3003232303131210-0302200330123123-3120330232111321-1302230300200202-1323101203300111"></a>
+
+## Prerequisites — xcsh_network_interface / 331323123200 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0220332000322311-3233101220331030-3302123030212222-2311223031320330-3012011121010122-3303211221130302-1232300001132002-3301322232200302"></a>
+
+## Minimal configuration — xcsh_network_interface / 331323123200 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_network_interface" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2330311100333332-3330011110032121-1332222320030321-3021200033120120-3231031010032232-0303022201222023-2300032023303320-1030132333132320"></a>
+
+## Root configuration — xcsh_network_interface / 331323123200 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3311103310222311-1002132122330301-1013313302220002-2122303312110300-3023203112030011-0000300010231001-3213103220033020-1103311030102311"></a>
 
-- [Property reference](../guides/resources--network_interface--reference.md)
-- [Examples](../guides/resources--network_interface--examples.md)
-- [Import](../guides/resources--network_interface--import.md)
-- [Timeouts](../guides/resources--network_interface--timeouts.md)
+## Next pages — xcsh_network_interface / 331323123200 / 6
+
+- [Property reference](../guides/resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [Examples](../guides/resources--network_interface--examples--group-001.md#canonical-3132230203221132-3031330331333000-0222013331322211-1113211033302102-3103023331112012-3211203130301301-3301101022012211-2303213321321031)
+- [Import](../guides/resources--network_interface--lifecycle--group-001.md#canonical-3202322311332023-0100223231033130-2213001230333101-2302222313120021-0323233203000131-3310112033131001-0021311030221121-1111303211301112)
+- [Timeouts](../guides/resources--network_interface--lifecycle--group-001.md#canonical-2033302012022012-1312232211112223-1021312110301132-0310112010313230-3023131210132302-3311122130200000-0213222102103133-0320121212031221)

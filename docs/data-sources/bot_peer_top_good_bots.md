@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_peer_top_good_bots"
+page_title: "xcsh_bot_peer_top_good_bots landing"
 subcategory: ""
-description: "xcsh_bot_peer_top_good_bots for xcsh_bot_peer_top_good_bots."
-xcsh_docs: {"aliases": [], "body_bytes": 1199, "body_sha256": "sha256:b7945e021bc5a40a3c8a997c94dd76c9f4b5abfb06893bfd9bac84bddc89e828", "canonical_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_peer_top_good_bots:reference", "xcsh-docs:data-sources:bot_peer_top_good_bots:examples"], "collection_id": "xcsh-docs:data-sources:bot_peer_top_good_bots:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_peer_top_good_bots:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_peer_top_good_bots.md", "provider_name": "bot_peer_top_good_bots", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_top_good_bots/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_peer_top_good_bots for xcsh_bot_peer_top_good_bots.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_peer_top_good_bots landing."
 ---
+
+# xcsh_bot_peer_top_good_bots landing
+
+<a id="canonical-3030001313332130-0200112302220223-2231210320202203-3301330023332321-1010113230110223-1130212301220213-3012200130111102-0020213232203302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_peer_top_good_bots
+<a id="canonical-1112102322103332-0001101320011231-2023211320200012-3331120210322032-3130233113303122-3111222130223211-2213122210122100-1121312002300020"></a>
+
+## xcsh_bot_peer_top_good_bots — xcsh_bot_peer_top_good_bots / 221012013200 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Bot detection and defense configuration.
 
-## Prerequisites
+<a id="canonical-0212122003330320-3201021233031311-2220023312301301-3102103210332313-2331221113012221-1213112103111311-2022311013113223-3101332323030201"></a>
+
+## Prerequisites — xcsh_bot_peer_top_good_bots / 221012013200 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2032120223033213-3103131110121103-0332011120003200-0102230113032110-3320300322323220-0332231112310121-3202330002212010-2021122012203111"></a>
+
+## Minimal configuration — xcsh_bot_peer_top_good_bots / 221012013200 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "bot_peer_top_good_bots_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2131000121022223-2232101212210031-2332310313123310-1223311032302300-2000121320201231-1201302021300110-3011031322012333-1112323020102012"></a>
+
+## Root configuration — xcsh_bot_peer_top_good_bots / 221012013200 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2222131111332001-3221232101231030-2102102201023131-2113220221212103-0113113201031121-0011320223311232-0300302033100123-1111210130221210"></a>
 
-- [Property reference](../guides/data-sources--bot_peer_top_good_bots--reference.md)
-- [Examples](../guides/data-sources--bot_peer_top_good_bots--examples.md)
+## Next pages — xcsh_bot_peer_top_good_bots / 221012013200 / 6
+
+- [Property reference](../guides/data-sources--bot_peer_top_good_bots--reference--group-001.md#canonical-1222302012121320-3310003310000213-1123332130111312-0011233021231032-0101303313230300-0003312003231211-2302311133103331-3323312201112032)
+- [Examples](../guides/data-sources--bot_peer_top_good_bots--examples--group-001.md#canonical-3123030123000202-0322300120230232-0200003123301123-1221112202031331-0211032313011311-1310102100131213-3313302112000322-3130220133313121)

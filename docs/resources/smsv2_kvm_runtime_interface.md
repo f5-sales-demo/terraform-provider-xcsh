@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_smsv2_kvm_runtime_interface"
+page_title: "xcsh_smsv2_kvm_runtime_interface landing"
 subcategory: ""
-description: "xcsh_smsv2_kvm_runtime_interface for xcsh_smsv2_kvm_runtime_interface."
-xcsh_docs: {"aliases": [], "body_bytes": 1400, "body_sha256": "sha256:e2bb72e2fda9eb8e1c4559b1bfcf80832130e3dc4d6c5af7d6dc17f38f15e4ee", "canonical_id": "xcsh-docs:resources:smsv2_kvm_runtime_interface:fundamentals", "child_ids": ["xcsh-docs:resources:smsv2_kvm_runtime_interface:reference", "xcsh-docs:resources:smsv2_kvm_runtime_interface:examples"], "collection_id": "xcsh-docs:resources:smsv2_kvm_runtime_interface:collection", "completeness": "complete", "id": "xcsh-docs:resources:smsv2_kvm_runtime_interface:fundamentals", "parent_id": null, "path": "docs/resources/smsv2_kvm_runtime_interface.md", "provider_name": "smsv2_kvm_runtime_interface", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/smsv2_kvm_runtime_interface/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_smsv2_kvm_runtime_interface for xcsh_smsv2_kvm_runtime_interface.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_smsv2_kvm_runtime_interface landing."
 ---
+
+# xcsh_smsv2_kvm_runtime_interface landing
+
+<a id="canonical-0233003001122211-1020213201010101-2002322101121221-3331312002100322-3220301113102331-2301333011333001-3210222301200020-1102130003212303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_smsv2_kvm_runtime_interface
+<a id="canonical-3213100121310221-1123031220030232-2011330133301133-2023303023033303-0303031222302122-3302113302300010-2230012301102020-1002213001223010"></a>
+
+## xcsh_smsv2_kvm_runtime_interface — xcsh_smsv2_kvm_runtime_interface / 233113113103 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Adopts one existing XC-owned KVM Secure Mesh Site v2 SLI child and manages only its DHCP/static IPv4
 mode. It never creates or deletes the runtime child.
 
-## Prerequisites
+<a id="canonical-2033111221212131-1112223310110002-1222223001001230-1131233023221232-0121031210131322-3200211012332101-3021213103201021-0022130330103200"></a>
+
+## Prerequisites — xcsh_smsv2_kvm_runtime_interface / 233113113103 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1212210030113331-2112022101101312-0302131100213211-2122301011330130-0122330311020122-1010320322120112-3030120113221220-2203220020123230"></a>
+
+## Minimal configuration — xcsh_smsv2_kvm_runtime_interface / 233113113103 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ resource "xcsh_smsv2_kvm_runtime_interface" "sli" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1023300012232012-3112302001233010-3310132010220213-3000320212203030-1020020032022213-3200303202332123-2001220100333030-0223033130130032"></a>
+
+## Root configuration — xcsh_smsv2_kvm_runtime_interface / 233113113103 / 5
 
 Required root properties: `expected_mac`, `ipv4_cidr`, `site`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0222301201032232-0020311010322323-3033120120001000-3012021212230003-0032223030212112-2122120000310300-0203303313011223-1202233122000003"></a>
 
-- [Property reference](../guides/resources--smsv2_kvm_runtime_interface--reference.md)
-- [Examples](../guides/resources--smsv2_kvm_runtime_interface--examples.md)
+## Next pages — xcsh_smsv2_kvm_runtime_interface / 233113113103 / 6
+
+- [Property reference](../guides/resources--smsv2_kvm_runtime_interface--reference--group-001.md#canonical-3012122202201230-2332231032003301-1332213012132300-3230003001013213-3113211202002223-1111020221310310-3232001000230113-0323321321201001)
+- [Examples](../guides/resources--smsv2_kvm_runtime_interface--examples--group-001.md#canonical-3011002130312120-1033333003130030-2223021023111030-1210133003313201-0020030302311203-3333330322030123-2222303322223031-0332113320101331)

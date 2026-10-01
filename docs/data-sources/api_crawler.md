@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_api_crawler"
+page_title: "xcsh_api_crawler landing"
 subcategory: ""
-description: "xcsh_api_crawler for xcsh_api_crawler."
-xcsh_docs: {"aliases": [], "body_bytes": 1207, "body_sha256": "sha256:deb5dbf6f40c779c07477f5d4746fe2b52b396573a97d954ffd7c5d02ab13ab0", "canonical_id": "xcsh-docs:data-sources:api_crawler:fundamentals", "child_ids": ["xcsh-docs:data-sources:api_crawler:reference", "xcsh-docs:data-sources:api_crawler:examples"], "collection_id": "xcsh-docs:data-sources:api_crawler:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:api_crawler:fundamentals", "parent_id": null, "path": "docs/data-sources/api_crawler.md", "provider_name": "api_crawler", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_crawler/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_api_crawler for xcsh_api_crawler.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["api_crawlerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_api_crawler landing."
 ---
+
+# xcsh_api_crawler landing
+
+<a id="canonical-3032313323203012-2021301131010010-1211333201122111-1021320230300330-0211003112312030-1200030031330121-3012320020032333-2333221312222211"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_api_crawler
+<a id="canonical-2221310030212111-0212133102202202-0001133031203122-0211201222313303-3102203332031020-3032102000121003-0202012120320223-2333233203123213"></a>
+
+## xcsh_api_crawler — xcsh_api_crawler / 233120232213 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a API Crawler resource in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0302000202132012-2031033212013202-2231033130323102-3303232022213010-2111323012303021-1013131100010332-0231110323003113-3012122123102131"></a>
+
+## Prerequisites — xcsh_api_crawler / 233120232213 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1221231102010331-2202202023132331-3022332031332100-1201301002331133-0223302212213213-2130222200202331-1222113302213233-3211002300021221"></a>
+
+## Minimal configuration — xcsh_api_crawler / 233120232213 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "api_crawler_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3031010021202303-1300333002033200-0002233232210300-2333313003032201-0103101002233023-3221201230300322-0323232113032212-3011133133231323"></a>
+
+## Root configuration — xcsh_api_crawler / 233120232213 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1121202111103133-2223300030011330-2310221102012313-1330010121012133-3012313130320112-3222023301303102-3022212112001023-1203321032001323"></a>
 
-- [Property reference](../guides/data-sources--api_crawler--reference.md)
-- [Examples](../guides/data-sources--api_crawler--examples.md)
+## Next pages — xcsh_api_crawler / 233120232213 / 6
+
+- [Property reference](../guides/data-sources--api_crawler--reference--group-001.md#canonical-0220220322223001-1320313010233203-3300000030200300-0201002302301013-0210212312130310-0300333002303302-1311323021220123-2132303221000023)
+- [Examples](../guides/data-sources--api_crawler--examples--group-001.md#canonical-3033332101013230-0112123023331122-1221102333031200-0302111301111031-1120302110301131-1023232102311101-1120221301330013-3333200122200111)

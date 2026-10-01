@@ -1,0 +1,516 @@
+---
+page_title: "xcsh_cluster reference"
+subcategory: ""
+description: "Complete grouped canonical reference for xcsh_cluster reference."
+---
+
+# xcsh_cluster reference
+
+<a id="canonical-1130212001211333-0033203332131212-3000011323203200-3203011210313221-0022010013222032-0133010321211222-0122203131332020-0013323313202031"></a>
+
+## namespace property — trusted_ca_list / 103020002213 / 6
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0301131130020121-1102321302221000-2213122213100100-0110031033331033-1112123312020313-3322220012302102-0231132301303121-0011101311131123"></a>
+
+<a id="canonical-1120002031231010-1132031131030113-2201100102330031-2333213132122332-1010131131231320-1132023032023130-2002322232123212-1031033212221212"></a>
+
+## tenant property — trusted_ca_list / 103020002213 / 7
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2323321121011121-1323102303012131-2300113320111023-0222203320220011-1232120212213323-1013320011330013-0301031012032103-3323322032211210"></a>
+
+<a id="canonical-2130301031332300-3330033102211012-2121311021003310-2113020012002002-1322132120210330-0330010121310103-1011031222211233-2200200111002031"></a>
+
+## uid property — trusted_ca_list / 103020002213 / 8
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1002022110213011-1211320332120032-1013122103232333-3311323123220321-2000103330123332-1313110321321001-1203101321030331-2220320323220220"></a>
+
+## Next pages — trusted_ca_list / 103020002213 / 9
+
+- [tls_parameters.common_params.validation_params.trusted_ca](data-sources--cluster--reference--group-001.md#canonical-2131030032102121-2232130121132133-2222233320102200-3020321232333101-3320331002022311-0230030310122103-1122032113030020-1201030230302231)
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+
+<a id="canonical-0030303201213312-2002233020110002-0103213003202313-0231023111222112-0213131221031201-1302110222212321-3200100310301122-3232332322003330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3010120021130231-0321111122203103-2012321223123130-1321000302032012-2203313013210113-2310201031012231-3013001112212113-3321103333220231"></a>
+
+## tls_parameters.default_session_key_caching — default_session_key_caching / 023330013301 / 2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+- [Property reference](data-sources--cluster--reference--group-001.md#canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200)
+- [tls_parameters](data-sources--cluster--reference--group-001.md#canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031)
+- tls_parameters.default_session_key_caching
+
+<a id="canonical-0020132322020000-2220201301121210-3130113132111221-2123311202220002-1010313220223102-0220312132310131-1321201312200331-3130110101312233"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for default session key caching.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1121203233330010-3333233321120022-2013030111030213-2200321023212220-0013003100001011-2030211000120010-0332033312130023-2111032122011221"></a>
+
+## Direct properties — default_session_key_caching / 023330013301 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3213323010302332-0300112031212003-1032311133003011-3212312100231112-3233022302133310-3233111011201001-1100110222033230-1302011121222331"></a>
+
+## Next pages — default_session_key_caching / 023330013301 / 4
+
+- [tls_parameters](data-sources--cluster--reference--group-001.md#canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031)
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+
+<a id="canonical-3131003313100023-2011121223333200-0211332321102113-3302131121032312-1301111301003330-3020313203010010-1213131322111210-1232103311201020"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3200112330110300-2333201113331113-1102220133123111-2000312323331313-3321000220330010-1121120302122130-3220222033312101-3000213221303120"></a>
+
+## tls_parameters.disable_session_key_caching — disable_session_key_caching / 313222113231 / 2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+- [Property reference](data-sources--cluster--reference--group-001.md#canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200)
+- [tls_parameters](data-sources--cluster--reference--group-001.md#canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031)
+- tls_parameters.disable_session_key_caching
+
+<a id="canonical-0013102131022122-0322331031333310-1133301322200323-3130000112013123-1313212320200100-1023012212332300-1100212021011323-0010230221220121"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable session key caching.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3311001203121202-0321322001012312-3111120300003031-0021031010102021-3300311100220222-2030233020101032-0233202210120033-3221213322023332"></a>
+
+## Direct properties — disable_session_key_caching / 313222113231 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1122302302103012-3110303013023003-3122302030100111-1002323011212331-0231122210021130-2023302201222030-3230003100011031-2111313202202200"></a>
+
+## Next pages — disable_session_key_caching / 313222113231 / 4
+
+- [tls_parameters](data-sources--cluster--reference--group-001.md#canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031)
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+
+<a id="canonical-1130130133200210-1010212021311333-2111122320031101-0333233313010021-0323213330130012-2122211020012332-0212311203233110-0313123311210301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3013331231320111-3331100333022230-0132233222213311-0100222121322013-1312220232101320-2023011233013200-2022322013003231-1211301032111311"></a>
+
+## tls_parameters.disable_sni — disable_sni / 213312320200 / 2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+- [Property reference](data-sources--cluster--reference--group-001.md#canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200)
+- [tls_parameters](data-sources--cluster--reference--group-001.md#canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031)
+- tls_parameters.disable_sni
+
+<a id="canonical-2223002332030032-1012200132302111-3202003203333003-0230030132030210-0221333123123002-2313312130233001-1121312003002202-2132113112132320"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable sni.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3230130331110011-1031030032101120-2220221101000301-3332102001020131-2131112132320012-1020303211232032-1031002113031320-2331201100001300"></a>
+
+## Direct properties — disable_sni / 213312320200 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1222312321301312-1322230301303022-3100200300213232-0231312023321032-2033101212011031-3012103313112212-3123302331323221-1030020120000303"></a>
+
+## Next pages — disable_sni / 213312320200 / 4
+
+- [tls_parameters](data-sources--cluster--reference--group-001.md#canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031)
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+
+<a id="canonical-2223202311322031-0130323103302030-3212303312011321-1130013200232211-2120320001110303-0210223212222320-3120323210123323-3231021123203130"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0322103230222211-1313112132000223-3212031011110133-3300113100300321-3000310100110330-1331233222310022-2122033133322333-2202101223200110"></a>
+
+## tls_parameters.use_host_header_as_sni — use_host_header_as_sni / 330010313223 / 2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+- [Property reference](data-sources--cluster--reference--group-001.md#canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200)
+- [tls_parameters](data-sources--cluster--reference--group-001.md#canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031)
+- tls_parameters.use_host_header_as_sni
+
+<a id="canonical-2013110333111220-1222102320022320-3221310000202032-1012033010233330-1133110033133110-3122322311111221-0311121001312330-2100213320030111"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2030221333320122-0310233122032033-1103011110200031-0333303012111003-1213311102111001-3322031331120201-1101023102030031-1120312120111331"></a>
+
+## Direct properties — use_host_header_as_sni / 330010313223 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2133300110300032-3230111101022212-0213002002022320-2313130113030310-2131020113323231-2210202001222210-0113133033112131-3101123303213130"></a>
+
+## Next pages — use_host_header_as_sni / 330010313223 / 4
+
+- [tls_parameters](data-sources--cluster--reference--group-001.md#canonical-3000331110120102-1313102013232321-0131210230113302-0010210120302330-0120211233030302-1220001101121231-0213222102031020-1101021100303031)
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+
+<a id="canonical-0313001211201301-0220311332132120-1031132020332300-1331101230303030-2110211232132032-3032132311122313-0201333030230221-2110023012110012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0302233320231212-2220133221023322-2312322231130203-2101321211011021-0311333100111312-3232002233012000-1332013003130310-3021120332213202"></a>
+
+## upstream_conn_pool_reuse_type — upstream_conn_pool_reuse_type / 201322130110 / 2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+- [Property reference](data-sources--cluster--reference--group-001.md#canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200)
+- upstream_conn_pool_reuse_type
+
+<a id="canonical-0022220233122111-0100101301121003-2023000303213331-1302120002102111-1012311112211200-0101133111202031-1133222103113333-1221211022000220"></a>
+
+Type: `"single"`. Computed.
+
+Select upstream connection pool reuse state for every downstream connection. This configuration
+choice is for HTTP(S) LB only.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-map_downstream_to_upstream_conn_pool_type": "[\"disable_conn_pool_reuse\",\"enable_conn_pool_reuse\"]"
+}
+```
+
+<a id="canonical-0113312001101300-0001002300002333-0312112113303203-1120330021231122-0320133020300211-2020013322100331-1232200020011223-3300210333311301"></a>
+
+## Direct properties — upstream_conn_pool_reuse_type / 201322130110 / 3
+
+- [disable_conn_pool_reuse](data-sources--cluster--reference--group-002.md#canonical-3100330022133011-1311223112002301-0000310020011311-0302201301230001-1211102111320303-2021102023222112-2021130211020312-3233303110123010): complete subsection reference.
+
+- [enable_conn_pool_reuse](data-sources--cluster--reference--group-002.md#canonical-1201023120022202-1133133111310330-1211223333003113-2200301021101033-1131032220121222-1330020213203012-2321322033220003-1021132220223303): complete subsection reference.
+
+<a id="canonical-3012122301011301-2003122211300231-3200032003213333-1320300131003122-1322231210201012-0311211022223010-0111223322201221-3120212103002033"></a>
+
+## Next pages — upstream_conn_pool_reuse_type / 201322130110 / 4
+
+- [upstream_conn_pool_reuse_type.disable_conn_pool_reuse](data-sources--cluster--reference--group-002.md#canonical-3100330022133011-1311223112002301-0000310020011311-0302201301230001-1211102111320303-2021102023222112-2021130211020312-3233303110123010)
+- [upstream_conn_pool_reuse_type.enable_conn_pool_reuse](data-sources--cluster--reference--group-002.md#canonical-1201023120022202-1133133111310330-1211223333003113-2200301021101033-1131032220121222-1330020213203012-2321322033220003-1021132220223303)
+- [Property reference](data-sources--cluster--reference--group-001.md#canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200)
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+
+<a id="canonical-3100330022133011-1311223112002301-0000310020011311-0302201301230001-1211102111320303-2021102023222112-2021130211020312-3233303110123010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1132131310101032-1213131002111202-0102012012131001-1300320010200231-0120313311201030-0113220122212323-0312120001313222-3112302200011033"></a>
+
+## upstream_conn_pool_reuse_type.disable_conn_pool_reuse — disable_conn_pool_reuse / 103332223212 / 2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+- [Property reference](data-sources--cluster--reference--group-001.md#canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200)
+- [upstream_conn_pool_reuse_type](data-sources--cluster--reference--group-002.md#canonical-0313001211201301-0220311332132120-1031132020332300-1331101230303030-2110211232132032-3032132311122313-0201333030230221-2110023012110012)
+- upstream_conn_pool_reuse_type.disable_conn_pool_reuse
+
+<a id="canonical-0211233012013322-3003020020021130-3312103330213112-3233101213002130-2131003200102012-3211331012023103-2112300133111102-0211203032320210"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for disable conn pool reuse.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1333120300010013-1113020222230323-2223310222113030-0322303021312233-1332222303313030-3123113230001311-0212021132103101-0320111110000203"></a>
+
+## Direct properties — disable_conn_pool_reuse / 103332223212 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1303220033210213-0131201302100013-2120002300302031-0323331003322132-0100012132003033-0223003312211300-1010013103320333-1323210013110221"></a>
+
+## Next pages — disable_conn_pool_reuse / 103332223212 / 4
+
+- [upstream_conn_pool_reuse_type](data-sources--cluster--reference--group-002.md#canonical-0313001211201301-0220311332132120-1031132020332300-1331101230303030-2110211232132032-3032132311122313-0201333030230221-2110023012110012)
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+
+<a id="canonical-1201023120022202-1133133111310330-1211223333003113-2200301021101033-1131032220121222-1330020213203012-2321322033220003-1021132220223303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0122132102302101-0102221121012332-0303221100100301-1331221022001220-3033010031031012-2211102021313130-0212110212100132-0200132132331203"></a>
+
+## upstream_conn_pool_reuse_type.enable_conn_pool_reuse — enable_conn_pool_reuse / 233101003123 / 2
+
+Breadcrumbs:
+
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)
+- [Property reference](data-sources--cluster--reference--group-001.md#canonical-2020311230233013-2301231333200031-0000133110133310-2200103231211020-2210231033130123-0133012030321013-2220221320010211-0023211323121200)
+- [upstream_conn_pool_reuse_type](data-sources--cluster--reference--group-002.md#canonical-0313001211201301-0220311332132120-1031132020332300-1331101230303030-2110211232132032-3032132311122313-0201333030230221-2110023012110012)
+- upstream_conn_pool_reuse_type.enable_conn_pool_reuse
+
+<a id="canonical-1111133231100310-0321301220320333-2112112032010331-3320133000332222-3020122220111331-3301322223110012-1130221203102232-2223220032131301"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for enable conn pool reuse.
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1212231310210232-1202122001130011-2021213011001120-3100111203111330-0321231033130331-2120203033321110-1211101123321220-2011300100320010"></a>
+
+## Direct properties — enable_conn_pool_reuse / 233101003123 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0203101221122133-1132321210322022-0021012301122302-2211013103110202-2202112001232323-3030120122230313-2333302201333003-3033121112023111"></a>
+
+## Next pages — enable_conn_pool_reuse / 233101003123 / 4
+
+- [upstream_conn_pool_reuse_type](data-sources--cluster--reference--group-002.md#canonical-0313001211201301-0220311332132120-1031132020332300-1331101230303030-2110211232132032-3032132311122313-0201333030230221-2110023012110012)
+- [xcsh_cluster](../data-sources/cluster.md#canonical-0232210231030021-1231211333330303-2032130210102220-2102012032113202-2202232210201313-2210112130121033-3133211302133121-1202210031003013)

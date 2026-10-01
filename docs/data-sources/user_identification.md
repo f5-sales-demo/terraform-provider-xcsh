@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_user_identification"
+page_title: "xcsh_user_identification landing"
 subcategory: ""
-description: "xcsh_user_identification for xcsh_user_identification."
-xcsh_docs: {"aliases": [], "body_bytes": 1352, "body_sha256": "sha256:03397cc65b38e6d21c8aff2b3912a1a4dabbfbf5d4addfbf81d357df05b8178f", "canonical_id": "xcsh-docs:data-sources:user_identification:fundamentals", "child_ids": ["xcsh-docs:data-sources:user_identification:reference", "xcsh-docs:data-sources:user_identification:examples"], "collection_id": "xcsh-docs:data-sources:user_identification:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:user_identification:fundamentals", "parent_id": null, "path": "docs/data-sources/user_identification.md", "provider_name": "user_identification", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_user_identification for xcsh_user_identification.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["user_identificationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_user_identification landing."
 ---
+
+# xcsh_user_identification landing
+
+<a id="canonical-2201200133133200-1323022002031211-0333333233002132-2202230300203100-0300223221213321-3023000331000320-1020113111130300-2213210002320321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_user_identification
+<a id="canonical-1011111102121321-2013033211231312-0330023032221003-2213033301212120-2003132010122003-0011020111221120-0322130113310121-3012303031123021"></a>
+
+## xcsh_user_identification — xcsh_user_identification / 213231023031 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages user\_identification creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3112320113331221-0310032010311132-3033203113331333-1303021213303230-0030232200111033-0322020322212333-3221011331012001-0212101332312301"></a>
+
+## Prerequisites — xcsh_user_identification / 213231023031 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2211331100232233-1100310112130101-0332003222210201-1103332233130032-1200133131132300-0300202313331320-0312102111021102-0311130313021331"></a>
+
+## Minimal configuration — xcsh_user_identification / 213231023031 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "user_identification_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1133021332021323-2233210103210030-2122133310312300-2331101211112311-2110310211330310-2132110112200100-3110101013213103-3111213220313110"></a>
+
+## Root configuration — xcsh_user_identification / 213231023031 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3110303003331332-3221032312210111-3200013032221022-3313203232003331-3021320122030012-0311213010100100-3331300132303303-2032132300003310"></a>
 
-- [Property reference](../guides/data-sources--user_identification--reference.md)
-- [Examples](../guides/data-sources--user_identification--examples.md)
+## Next pages — xcsh_user_identification / 213231023031 / 6
+
+- [Property reference](../guides/data-sources--user_identification--reference--group-001.md#canonical-3310121033102132-2303003001031311-1133201000013200-3221030012100122-3312001102312332-2301122032131033-0221223313103222-0332010121330113)
+- [Examples](../guides/data-sources--user_identification--examples--group-001.md#canonical-2332023102210113-1231211101202322-2303231032012131-0320023202113003-3233222222302313-1020333202322011-0000013021301000-1003303030200123)

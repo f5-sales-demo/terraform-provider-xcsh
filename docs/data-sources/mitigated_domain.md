@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_mitigated_domain"
+page_title: "xcsh_mitigated_domain landing"
 subcategory: ""
-description: "xcsh_mitigated_domain for xcsh_mitigated_domain."
-xcsh_docs: {"aliases": [], "body_bytes": 1251, "body_sha256": "sha256:c702183d6d64053890f2a7c89c490ff3ee7928fc3b5b5995db35eb54902eb991", "canonical_id": "xcsh-docs:data-sources:mitigated_domain:fundamentals", "child_ids": ["xcsh-docs:data-sources:mitigated_domain:reference", "xcsh-docs:data-sources:mitigated_domain:examples"], "collection_id": "xcsh-docs:data-sources:mitigated_domain:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:mitigated_domain:fundamentals", "parent_id": null, "path": "docs/data-sources/mitigated_domain.md", "provider_name": "mitigated_domain", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/mitigated_domain/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_mitigated_domain for xcsh_mitigated_domain.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["mitigated_domainCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_mitigated_domain landing."
 ---
+
+# xcsh_mitigated_domain landing
+
+<a id="canonical-3233303323320020-3201003222322030-3103103212101100-1321230323023131-3310220303032323-0211212333301333-1330120302113020-2012202211332310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_mitigated_domain
+<a id="canonical-0110211322303221-0232020022022030-2122301020033230-2023220210133312-3230003302022111-1131103113212111-1120113023312002-1331101133200331"></a>
+
+## xcsh_mitigated_domain — xcsh_mitigated_domain / 203200010302 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Mitigated Domain in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2122111212012210-2211101130301131-1032121001113013-2033023130313331-2313013012103131-2311012211021321-3101102313130312-2130103222011100"></a>
+
+## Prerequisites — xcsh_mitigated_domain / 203200010302 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0122203213203320-0120001200200121-2002000001302202-1023000213300211-1020203030131202-1120221310131220-2120103020002312-0030121032003011"></a>
+
+## Minimal configuration — xcsh_mitigated_domain / 203200010302 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "mitigated_domain_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2133132031200332-2232033122212231-2230033021230323-1332113233231130-0031033320031333-2222130012223100-3233313031302103-2232331311231332"></a>
+
+## Root configuration — xcsh_mitigated_domain / 203200010302 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0021101132320010-3330111123233223-1211110122001030-3230311102102121-2111003022101301-3331203001010000-0031120103321322-1321133023010221"></a>
 
-- [Property reference](../guides/data-sources--mitigated_domain--reference.md)
-- [Examples](../guides/data-sources--mitigated_domain--examples.md)
+## Next pages — xcsh_mitigated_domain / 203200010302 / 6
+
+- [Property reference](../guides/data-sources--mitigated_domain--reference--group-001.md#canonical-0201213223313332-2132200331130222-1202220001302010-1022310120223013-3020032223131202-2123112211203031-2213120030001221-2330123113023202)
+- [Examples](../guides/data-sources--mitigated_domain--examples--group-001.md#canonical-1230120121021001-2100330101330313-0000131010233210-3233021320010013-2322121011013130-2330100102101222-0132023121130001-2233232331220210)

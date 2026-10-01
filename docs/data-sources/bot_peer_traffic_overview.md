@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_bot_peer_traffic_overview"
+page_title: "xcsh_bot_peer_traffic_overview landing"
 subcategory: ""
-description: "xcsh_bot_peer_traffic_overview for xcsh_bot_peer_traffic_overview."
-xcsh_docs: {"aliases": [], "body_bytes": 1212, "body_sha256": "sha256:992e034158555bf22df0bc94ac6514781e9c5d105984563f0f620ca7ec3a6fee", "canonical_id": "xcsh-docs:data-sources:bot_peer_traffic_overview:fundamentals", "child_ids": ["xcsh-docs:data-sources:bot_peer_traffic_overview:reference", "xcsh-docs:data-sources:bot_peer_traffic_overview:examples"], "collection_id": "xcsh-docs:data-sources:bot_peer_traffic_overview:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bot_peer_traffic_overview:fundamentals", "parent_id": null, "path": "docs/data-sources/bot_peer_traffic_overview.md", "provider_name": "bot_peer_traffic_overview", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_peer_traffic_overview/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_bot_peer_traffic_overview for xcsh_bot_peer_traffic_overview.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_bot_peer_traffic_overview landing."
 ---
+
+# xcsh_bot_peer_traffic_overview landing
+
+<a id="canonical-1123001103021232-1031112101301311-0233312222211013-0202321023223122-3222120111310211-0001130132131101-3010132202021212-0221102121013113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_bot_peer_traffic_overview
+<a id="canonical-2032231300010000-1332212222322003-3030123101311121-0111020321203020-3023232331021332-2203221131332011-1211312303001202-3322010023031033"></a>
+
+## xcsh_bot_peer_traffic_overview — xcsh_bot_peer_traffic_overview / 002011000333 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource creation operation.
 
-## Prerequisites
+<a id="canonical-2102021101013103-2313101310222033-2031033112322310-0331032302102031-0330101302030100-2103121132021233-2120233012030213-2202313323313220"></a>
+
+## Prerequisites — xcsh_bot_peer_traffic_overview / 002011000333 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0301003111000001-3333312032022130-2303211313320311-2003103232011233-1112210011011203-1001030303330202-2032111031322131-3022212002333021"></a>
+
+## Minimal configuration — xcsh_bot_peer_traffic_overview / 002011000333 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,11 +57,15 @@ output "bot_peer_traffic_overview_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3112213113321021-1100012023322032-3001023112320033-1121100323022130-2031212311103233-0223330132110210-0203230010013030-2113130032103000"></a>
+
+## Root configuration — xcsh_bot_peer_traffic_overview / 002011000333 / 5
 
 Required root properties: `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3223001213330010-0230231201132112-1201120111013210-1201110030200330-1330331320110331-3120103231130032-3222020003330011-0110232330221100"></a>
 
-- [Property reference](../guides/data-sources--bot_peer_traffic_overview--reference.md)
-- [Examples](../guides/data-sources--bot_peer_traffic_overview--examples.md)
+## Next pages — xcsh_bot_peer_traffic_overview / 002011000333 / 6
+
+- [Property reference](../guides/data-sources--bot_peer_traffic_overview--reference--group-001.md#canonical-1103031213222001-1003122002030331-1121300031120000-1103232121210320-1003000301131102-3132201013033132-1001310031332103-2310031113130322)
+- [Examples](../guides/data-sources--bot_peer_traffic_overview--examples--group-001.md#canonical-0322022003103201-2112122103103021-0101101112323221-3332001032101210-2033223120303102-2200003130331002-1020101003213103-2310223133303303)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protocol_inspection"
+page_title: "xcsh_protocol_inspection landing"
 subcategory: ""
-description: "xcsh_protocol_inspection for xcsh_protocol_inspection."
-xcsh_docs: {"aliases": [], "body_bytes": 1364, "body_sha256": "sha256:141dd2cdfcd1b5a434e6fb226b6cf1e9564693bbd17910285b031d98ac8ef3c5", "canonical_id": "xcsh-docs:data-sources:protocol_inspection:fundamentals", "child_ids": ["xcsh-docs:data-sources:protocol_inspection:reference", "xcsh-docs:data-sources:protocol_inspection:examples"], "collection_id": "xcsh-docs:data-sources:protocol_inspection:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protocol_inspection:fundamentals", "parent_id": null, "path": "docs/data-sources/protocol_inspection.md", "provider_name": "protocol_inspection", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protocol_inspection for xcsh_protocol_inspection.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protocol_inspectionCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protocol_inspection landing."
 ---
+
+# xcsh_protocol_inspection landing
+
+<a id="canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protocol_inspection
+<a id="canonical-0203313102131132-3212320332220110-0201223213000012-1120132222303012-3003122100103031-1212300112332021-2233130231322213-3021323301010231"></a>
+
+## xcsh_protocol_inspection — xcsh_protocol_inspection / 212302112102 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Protocol Inspection Specification in a given namespace. If one already exists it will give
 an error in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1221022232222022-1002003131222313-0031033332113300-2332003231032332-1012332201233131-2230012003223332-3233320321033003-0010222331310130"></a>
+
+## Prerequisites — xcsh_protocol_inspection / 212302112102 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3302212001230033-1300321333313303-2120200322020331-3320201030012203-1301210331032122-0130022300103021-2220320201112001-3330231120002320"></a>
+
+## Minimal configuration — xcsh_protocol_inspection / 212302112102 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "protocol_inspection_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0102212111323120-3101331020020123-0221331131332201-3203013303111103-2333232233131211-1210203022111001-2103313022010310-3322321113012223"></a>
+
+## Root configuration — xcsh_protocol_inspection / 212302112102 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1223203210012130-2112302301320320-2330211211113321-2000012100133111-1032323103013103-3213001130001200-2121101110233323-1011012331320231"></a>
 
-- [Property reference](../guides/data-sources--protocol_inspection--reference.md)
-- [Examples](../guides/data-sources--protocol_inspection--examples.md)
+## Next pages — xcsh_protocol_inspection / 212302112102 / 6
+
+- [Property reference](../guides/data-sources--protocol_inspection--reference--group-001.md#canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023)
+- [Examples](../guides/data-sources--protocol_inspection--examples--group-001.md#canonical-2222200023121001-2120130320002212-3002302310233020-3021231113212123-3120033122221302-2013033122021310-1313023233113113-1023111323332123)

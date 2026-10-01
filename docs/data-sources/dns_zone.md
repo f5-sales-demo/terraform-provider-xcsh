@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_dns_zone"
+page_title: "xcsh_dns_zone landing"
 subcategory: "DNS"
-description: "xcsh_dns_zone for xcsh_dns_zone."
-xcsh_docs: {"aliases": [], "body_bytes": 1718, "body_sha256": "sha256:02fdc031fce61afd2e4a0c8fbd3f3c9bd746eff88f571dbc711e32f7f2291e33", "canonical_id": "xcsh-docs:data-sources:dns_zone:fundamentals", "child_ids": ["xcsh-docs:data-sources:dns_zone:reference", "xcsh-docs:data-sources:dns_zone:examples"], "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:fundamentals", "parent_id": null, "path": "docs/data-sources/dns_zone.md", "provider_name": "dns_zone", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_dns_zone for xcsh_dns_zone.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_dns_zone landing."
 ---
+
+# xcsh_dns_zone landing
+
+<a id="canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_dns_zone
+<a id="canonical-2223200121332322-1102120230011223-3212330230221302-2111230012231232-3100300022313321-3312112202323332-2001320301211312-1330010233112313"></a>
+
+## xcsh_dns_zone — xcsh_dns_zone / 000301011221 / 2
 
 Breadcrumbs:
 
@@ -18,7 +23,9 @@ Breadcrumbs:
 Manages DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed
 Cloud.
 
-## Prerequisites
+<a id="canonical-2232203022211023-1122003310021303-2022013033201320-0322203012113330-3232010211213013-3111233003330100-1312313230110322-3303133121122002"></a>
+
+## Prerequisites — xcsh_dns_zone / 000301011221 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
@@ -28,7 +35,9 @@ Optional integrations: `dns_load_balancer`.
 
 - dns_load_balancer: Geographic or weighted DNS routing
 
-## Minimal configuration
+<a id="canonical-1121022113312033-3112212301312233-3320212110001211-2012003230332232-1301032201032103-3310003110101002-1201123231123130-1211312311033111"></a>
+
+## Minimal configuration — xcsh_dns_zone / 000301011221 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -70,11 +79,15 @@ output "dns_zone_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1311310132311313-3330131112310012-0330231120303132-3211312003303130-3021201302210320-3122202202233303-2222121122100202-3120210213311210"></a>
+
+## Root configuration — xcsh_dns_zone / 000301011221 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3333110221202203-0111023223101102-3321210223010000-2023310013301120-0031002332223333-0113220313001122-3331302001321220-1033112233213331"></a>
 
-- [Property reference](../guides/data-sources--dns_zone--reference.md)
-- [Examples](../guides/data-sources--dns_zone--examples.md)
+## Next pages — xcsh_dns_zone / 000301011221 / 6
+
+- [Property reference](../guides/data-sources--dns_zone--reference--group-001.md#canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011)
+- [Examples](../guides/data-sources--dns_zone--examples--group-001.md#canonical-0113332031001202-0203203323031122-1110313201121223-0211122311121012-1002330222223130-0033020333320010-2320222023212020-2311211332221300)

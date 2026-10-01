@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_udp_loadbalancer"
+page_title: "xcsh_udp_loadbalancer landing"
 subcategory: ""
-description: "xcsh_udp_loadbalancer for xcsh_udp_loadbalancer."
-xcsh_docs: {"aliases": [], "body_bytes": 1314, "body_sha256": "sha256:676812335e6a9e8312df34330f2bac1d16f52e47fd5cde9fd9bc093ff74965cd", "canonical_id": "xcsh-docs:data-sources:udp_loadbalancer:fundamentals", "child_ids": ["xcsh-docs:data-sources:udp_loadbalancer:reference", "xcsh-docs:data-sources:udp_loadbalancer:examples"], "collection_id": "xcsh-docs:data-sources:udp_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:udp_loadbalancer:fundamentals", "parent_id": null, "path": "docs/data-sources/udp_loadbalancer.md", "provider_name": "udp_loadbalancer", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_udp_loadbalancer for xcsh_udp_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["udp_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_udp_loadbalancer landing."
 ---
+
+# xcsh_udp_loadbalancer landing
+
+<a id="canonical-0111123322321202-3332321330232132-0032130102310300-0213133321331211-2320232221123003-0303120113132321-1130032130200121-1121203011232203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_udp_loadbalancer
+<a id="canonical-2301303021013312-3101303022030300-2113112132123312-1202121101223212-0220301320101003-0013023032303120-3013211310330213-2312032023110220"></a>
+
+## xcsh_udp_loadbalancer — xcsh_udp_loadbalancer / 023312302133 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across
 origin pools.
 
-## Prerequisites
+<a id="canonical-1332321222132201-0203202231131311-3022013030313130-3100020110033300-0232003020331012-3330132120122333-3203000311020002-3301220103010220"></a>
+
+## Prerequisites — xcsh_udp_loadbalancer / 023312302133 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1023221211030332-1030202023210122-0123001323303132-3302112233330312-3010332001010332-3103232021330212-2233023022002020-2303210002011020"></a>
+
+## Minimal configuration — xcsh_udp_loadbalancer / 023312302133 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "udp_loadbalancer_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2201112130212001-3222003122223223-3023112231302202-3031233131121223-3120003231311321-2321322023303333-3022031032122202-2102131211231200"></a>
+
+## Root configuration — xcsh_udp_loadbalancer / 023312302133 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3220312330301111-3312020122301121-2032021001310323-3320130001002023-3312003012322201-1221002110010223-1133231033212301-0111100330311232"></a>
 
-- [Property reference](../guides/data-sources--udp_loadbalancer--reference.md)
-- [Examples](../guides/data-sources--udp_loadbalancer--examples.md)
+## Next pages — xcsh_udp_loadbalancer / 023312302133 / 6
+
+- [Property reference](../guides/data-sources--udp_loadbalancer--reference--group-001.md#canonical-2100233330113013-1011020101321013-1113020011303120-3332020200220223-1130023001010003-0211031020201213-0121011023231220-3020101330032130)
+- [Examples](../guides/data-sources--udp_loadbalancer--examples--group-001.md#canonical-3320030331211200-1233322332302002-3111203123123123-1000011112201332-1323220022102231-1010130310033302-2113232220113311-3310022022322132)

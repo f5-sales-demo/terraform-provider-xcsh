@@ -48,6 +48,24 @@ class SnapshotTests(unittest.TestCase):
             for file in (root / "first").iterdir():
                 assert file.read_bytes() == (root / "second" / file.name).read_bytes()
 
+    def test_complete_canonical_archive_includes_discovery(self) -> None:
+        """Canonical receipts include source Markdown and progressive indexes."""
+        with tempfile.TemporaryDirectory():
+            assets, manifest = SNAPSHOT.canonical_assets("v12.0.6")
+            expected = set(
+                SNAPSHOT.run(
+                    "git", "ls-tree", "-r", "--name-only", "v12.0.6", "documentation"
+                )
+                .decode()
+                .splitlines()
+            )
+            assert {item["path"] for item in manifest["files"]} == expected
+            assert "canonical-documentation.tar.gz" in assets
+            assert (
+                manifest["source_commit"]
+                == SNAPSHOT.run("git", "rev-parse", "v12.0.6^{commit}").decode().strip()
+            )
+
     def test_plain_markdown_and_invalid_metadata(self) -> None:
         """Plain Markdown gets fallback metadata; enriched hashes fail closed."""
         body, meta = SNAPSHOT.metadata(

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_infraprotect_mitigation_ips"
+page_title: "xcsh_infraprotect_mitigation_ips landing"
 subcategory: ""
-description: "xcsh_infraprotect_mitigation_ips for xcsh_infraprotect_mitigation_ips."
-xcsh_docs: {"aliases": [], "body_bytes": 1285, "body_sha256": "sha256:85a0c462a185d1aa50c79269e0e54776e4b419d4ecd269769b2f4f1f6e514cc9", "canonical_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:fundamentals", "child_ids": ["xcsh-docs:data-sources:infraprotect_mitigation_ips:reference", "xcsh-docs:data-sources:infraprotect_mitigation_ips:examples"], "collection_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:fundamentals", "parent_id": null, "path": "docs/data-sources/infraprotect_mitigation_ips.md", "provider_name": "infraprotect_mitigation_ips", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/infraprotect_mitigation_ips/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_infraprotect_mitigation_ips for xcsh_infraprotect_mitigation_ips.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_infraprotect_mitigation_ips landing."
 ---
+
+# xcsh_infraprotect_mitigation_ips landing
+
+<a id="canonical-1223233033223000-1032001012013022-1301320302130033-2311101100202302-3130231002213230-3320300113130330-0113131111131313-3222111203302102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_infraprotect_mitigation_ips
+<a id="canonical-0333300311102013-1321012212201103-3122023122331332-3010102120322020-0113330303223212-0221010330121020-3313331021321122-0223332030332320"></a>
+
+## xcsh_infraprotect_mitigation_ips — xcsh_infraprotect_mitigation_ips / 103101230321 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Resource retrieval operation.
 
-## Prerequisites
+<a id="canonical-0221303010111213-0112020211231331-1100202232311223-1313331113110320-1102002112111230-3233201322301223-2221000312020000-0001001110001331"></a>
+
+## Prerequisites — xcsh_infraprotect_mitigation_ips / 103101230321 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3132200300031133-1121202223302301-3222001001101233-3131121001310001-3003233301200122-2110021103323001-2223333011220103-0200100202120031"></a>
+
+## Minimal configuration — xcsh_infraprotect_mitigation_ips / 103101230321 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -49,11 +58,15 @@ output "infraprotect_mitigation_ips_result" {
 }
 ```
 
-## Root configuration
+<a id="canonical-3133112011130320-1120112112122301-1333213210210300-0103303111101211-3001230131030133-2031002233220132-3311221111113033-1113232311230133"></a>
+
+## Root configuration — xcsh_infraprotect_mitigation_ips / 103101230321 / 5
 
 Required root properties: `mitigation_id`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2031222212301101-0112011120122112-1112320021222111-0220201101321230-2221213121220310-1111310001202102-1220201102030011-3220203220310131"></a>
 
-- [Property reference](../guides/data-sources--infraprotect_mitigation_ips--reference.md)
-- [Examples](../guides/data-sources--infraprotect_mitigation_ips--examples.md)
+## Next pages — xcsh_infraprotect_mitigation_ips / 103101230321 / 6
+
+- [Property reference](../guides/data-sources--infraprotect_mitigation_ips--reference--group-001.md#canonical-3211003101332320-2011321310020021-1301100203211023-1330101230021031-1102102332023332-0031020312103202-2022313110031312-3331302220003310)
+- [Examples](../guides/data-sources--infraprotect_mitigation_ips--examples--group-001.md#canonical-2230332003132330-3003232213123221-1023033101300311-0101332232032132-1020000311020311-2102222232300101-2130223103131322-2223023103332200)

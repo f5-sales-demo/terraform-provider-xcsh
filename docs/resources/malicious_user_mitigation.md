@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_malicious_user_mitigation"
+page_title: "xcsh_malicious_user_mitigation landing"
 subcategory: ""
-description: "xcsh_malicious_user_mitigation for xcsh_malicious_user_mitigation."
-xcsh_docs: {"aliases": [], "body_bytes": 1576, "body_sha256": "sha256:e5e7b0b0193322ddc9d1f832f52bb16172602a188d74ce2617d31e5523606c6c", "canonical_id": "xcsh-docs:resources:malicious_user_mitigation:fundamentals", "child_ids": ["xcsh-docs:resources:malicious_user_mitigation:reference", "xcsh-docs:resources:malicious_user_mitigation:examples", "xcsh-docs:resources:malicious_user_mitigation:import", "xcsh-docs:resources:malicious_user_mitigation:timeouts"], "collection_id": "xcsh-docs:resources:malicious_user_mitigation:collection", "completeness": "complete", "id": "xcsh-docs:resources:malicious_user_mitigation:fundamentals", "parent_id": null, "path": "docs/resources/malicious_user_mitigation.md", "provider_name": "malicious_user_mitigation", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/malicious_user_mitigation/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_malicious_user_mitigation for xcsh_malicious_user_mitigation.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["malicious_user_mitigationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_malicious_user_mitigation landing."
 ---
+
+# xcsh_malicious_user_mitigation landing
+
+<a id="canonical-1101131202021321-3221321112031101-3221121031010113-2211012203220000-0302111121132132-3121301122233133-1013203002033303-3311201201113123"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_malicious_user_mitigation
+<a id="canonical-1321321011200123-2002232201023130-1021013031213222-3201311313022232-0310322233112302-1330131102122112-2232021201021300-1312122203120012"></a>
+
+## xcsh_malicious_user_mitigation — xcsh_malicious_user_mitigation / 211223011103 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages malicious\_user\_mitigation creates a new object in the storage backend for
 metadata.namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1301301323231103-3333301112111132-0213220111032303-3000012101030001-3103302100101122-0200121023210010-1112202221101103-0211233011000230"></a>
+
+## Prerequisites — xcsh_malicious_user_mitigation / 211223011103 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0311021323022310-1110322011212330-3012110221233121-0123312221200330-2322031011221122-3320013103103232-1211023200213220-2111201131201331"></a>
+
+## Minimal configuration — xcsh_malicious_user_mitigation / 211223011103 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_malicious_user_mitigation" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2001120120003201-2122031220311112-2012210011232011-3003323333002223-0022122001223103-2130200311111103-2220322020012111-2101033213221232"></a>
+
+## Root configuration — xcsh_malicious_user_mitigation / 211223011103 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2323121130332230-3023313000001301-1103203133300313-1312123212313003-0303222213020303-1233331100013232-2230231130111211-1032210320213120"></a>
 
-- [Property reference](../guides/resources--malicious_user_mitigation--reference.md)
-- [Examples](../guides/resources--malicious_user_mitigation--examples.md)
-- [Import](../guides/resources--malicious_user_mitigation--import.md)
-- [Timeouts](../guides/resources--malicious_user_mitigation--timeouts.md)
+## Next pages — xcsh_malicious_user_mitigation / 211223011103 / 6
+
+- [Property reference](../guides/resources--malicious_user_mitigation--reference--group-001.md#canonical-1110001002333302-2300113210021312-0300220333020331-3110232013111231-2133223211023113-1021322132102302-1212032231131231-3211212320213101)
+- [Examples](../guides/resources--malicious_user_mitigation--examples--group-001.md#canonical-0122333121121121-2133233012323031-2100322101123321-3101010121133222-1002313333123011-2132000233033313-0320000203211130-1132123110011023)
+- [Import](../guides/resources--malicious_user_mitigation--lifecycle--group-001.md#canonical-0201333231030120-0021033003300132-2301313031132121-0303001233310032-0322010201302101-1333031132113002-1310121202003303-3013211320321122)
+- [Timeouts](../guides/resources--malicious_user_mitigation--lifecycle--group-001.md#canonical-2003311330130020-0321230120033220-0313222211013010-2030201021331333-3210202020023022-3223320132011101-1013032130200110-2222303103223111)

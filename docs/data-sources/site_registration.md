@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_site_registration"
+page_title: "xcsh_site_registration landing"
 subcategory: ""
-description: "xcsh_site_registration for xcsh_site_registration."
-xcsh_docs: {"aliases": [], "body_bytes": 3559, "body_sha256": "sha256:1f906b1ae133709f0d882baf301905136fbe894a2e19668e697af6c221d952e5", "canonical_id": "xcsh-docs:data-sources:site_registration:fundamentals", "child_ids": ["xcsh-docs:data-sources:site_registration:reference", "xcsh-docs:data-sources:site_registration:examples"], "collection_id": "xcsh-docs:data-sources:site_registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:site_registration:fundamentals", "parent_id": null, "path": "docs/data-sources/site_registration.md", "provider_name": "site_registration", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_registration/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_site_registration for xcsh_site_registration.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": [], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_site_registration landing."
 ---
+
+# xcsh_site_registration landing
+
+<a id="canonical-0221320201003103-1113221123313022-3012232320202111-1102003100013311-1211333210300221-2033323203332313-2123023330321203-0021132030210102"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_site_registration
+<a id="canonical-0313013313120312-1030322002000021-1320030132111003-3022033231312200-0111311132213002-2200223011101132-1222031130100330-0033222011321011"></a>
+
+## xcsh_site_registration — xcsh_site_registration / 013301332131 / 2
 
 Breadcrumbs:
 
@@ -34,11 +39,15 @@ resource "xcsh\_registration\_approval" "ce" \{ count = data.xcsh\_site\_registr
 \*\*Possible \`state\` values:\*\* \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`,
 \`FAILED\`, \`DONE\`, \`PENDING\`, \`ONLINE\`, \`UPGRADING\`, \`MAINTENANCE\`, \`FAILED\_INACTIVE\`.
 
-## Prerequisites
+<a id="canonical-2020200103202033-0021022011303330-3233133212110232-0030313220132211-1311102103323012-2000131010013303-1210212210133103-0221102012003211"></a>
+
+## Prerequisites — xcsh_site_registration / 013301332131 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0231200301011102-2201320113023021-0000201332201332-2001213121110310-0021303112013032-1030331121102022-2103113032112020-1112222322223203"></a>
+
+## Minimal configuration — xcsh_site_registration / 013301332131 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -99,11 +108,15 @@ resource "xcsh_registration_approval" "ce" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2011110112322133-3001022310102312-2103011223021002-3202222132310212-3213313013223332-3312331302232023-1330031213010123-0213001000101333"></a>
+
+## Root configuration — xcsh_site_registration / 013301332131 / 5
 
 Required root properties: `site_name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1212012233111323-3200212230211002-1203203133122220-2212031202220113-2022011032222332-2003033002100321-3132010103202021-2302312100030213"></a>
 
-- [Property reference](../guides/data-sources--site_registration--reference.md)
-- [Examples](../guides/data-sources--site_registration--examples.md)
+## Next pages — xcsh_site_registration / 013301332131 / 6
+
+- [Property reference](../guides/data-sources--site_registration--reference--group-001.md#canonical-2320211032313111-3313013020320031-3112023331221310-0200221133230022-3003012012313303-0233000303323100-2311002300202220-2110132031202120)
+- [Examples](../guides/data-sources--site_registration--examples--group-001.md#canonical-0233333013220313-2223303100001112-2221330231210023-3102200200300210-3032123020221200-0013203103123133-2201222130300113-3122022233323033)

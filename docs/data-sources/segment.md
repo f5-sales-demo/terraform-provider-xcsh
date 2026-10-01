@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_segment"
+page_title: "xcsh_segment landing"
 subcategory: ""
-description: "xcsh_segment for xcsh_segment."
-xcsh_docs: {"aliases": [], "body_bytes": 1178, "body_sha256": "sha256:e6ae374a2db74710e036481a13e69e35afa8ea4ff3c166df72f1a674c1589102", "canonical_id": "xcsh-docs:data-sources:segment:fundamentals", "child_ids": ["xcsh-docs:data-sources:segment:reference", "xcsh-docs:data-sources:segment:examples"], "collection_id": "xcsh-docs:data-sources:segment:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:segment:fundamentals", "parent_id": null, "path": "docs/data-sources/segment.md", "provider_name": "segment", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/segment/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_segment for xcsh_segment.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["segmentCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_segment landing."
 ---
+
+# xcsh_segment landing
+
+<a id="canonical-1322202313211133-3232200032023212-3030131113213211-1232130001132103-2232301233230330-2022002332021123-3031321121233232-3101311003121100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_segment
+<a id="canonical-1100330210032022-2031031120110020-2301213303032022-0030120201112331-2130031330231012-0321011103333113-1111310023210120-3013320311000020"></a>
+
+## xcsh_segment — xcsh_segment / 023111203000 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages a Segment resource in F5 Distributed Cloud for segment. configuration.
 
-## Prerequisites
+<a id="canonical-0222131030303110-0223320112211210-2200133021001313-1220011033101322-1331300332313311-0100000230303122-2223100002021022-1133030020323311"></a>
+
+## Prerequisites — xcsh_segment / 023111203000 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-1023120033220022-1001003123230122-1222023031300133-0122132131321010-2200003310010023-2210001002202201-1123010222222210-2220232230103233"></a>
+
+## Minimal configuration — xcsh_segment / 023111203000 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "segment_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2230133003100332-0232020320331033-0130211011232212-2223133201221331-1232030300133110-3121220012013011-1030300312200020-2310221121032012"></a>
+
+## Root configuration — xcsh_segment / 023111203000 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-1122033132303012-1120201302321110-0102310100311200-2121301132100122-2120321112223002-1131110131033132-3101213022221231-2320030011012132"></a>
 
-- [Property reference](../guides/data-sources--segment--reference.md)
-- [Examples](../guides/data-sources--segment--examples.md)
+## Next pages — xcsh_segment / 023111203000 / 6
+
+- [Property reference](../guides/data-sources--segment--reference--group-001.md#canonical-1110023031331322-0210111201230333-1322101312131120-3013310220132303-3223212001102311-1012321231332121-2223100100323021-0213000200231233)
+- [Examples](../guides/data-sources--segment--examples--group-001.md#canonical-0210203003102130-2132223030332301-3223100302300300-3131312102123022-1311222120010123-0220311130321330-1300000003331333-1121130121113311)

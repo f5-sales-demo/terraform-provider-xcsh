@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_app_setting"
+page_title: "xcsh_app_setting landing"
 subcategory: ""
-description: "xcsh_app_setting for xcsh_app_setting."
-xcsh_docs: {"aliases": [], "body_bytes": 1366, "body_sha256": "sha256:5d8e57f1c01f97b2dd5dc7dd22600f3538c1af29fbb200175c19b41a876a4186", "canonical_id": "xcsh-docs:resources:app_setting:fundamentals", "child_ids": ["xcsh-docs:resources:app_setting:reference", "xcsh-docs:resources:app_setting:examples", "xcsh-docs:resources:app_setting:import", "xcsh-docs:resources:app_setting:timeouts"], "collection_id": "xcsh-docs:resources:app_setting:collection", "completeness": "complete", "id": "xcsh-docs:resources:app_setting:fundamentals", "parent_id": null, "path": "docs/resources/app_setting.md", "provider_name": "app_setting", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/app_setting/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_app_setting for xcsh_app_setting.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["app_settingCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_app_setting landing."
 ---
+
+# xcsh_app_setting landing
+
+<a id="canonical-0233122232111213-1333023112003320-0002130023110121-2101210112133031-2122112013202200-0320103020032232-0130220110001230-2003323312222110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_app_setting
+<a id="canonical-3002313012022020-3212323203232233-3220330023230123-2001103213301211-3132230321331211-1010301203003223-3211020310221033-1132330320332233"></a>
+
+## xcsh_app_setting — xcsh_app_setting / 011132123332 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages App setting configuration in namespace metadata.namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3301303222122113-0220112113020010-2223300101031101-1221303331213101-1110033111330301-3301211133202120-1200121020010020-3121110230012200"></a>
+
+## Prerequisites — xcsh_app_setting / 011132123332 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2223202221123113-2020111120130333-2330202323030032-3210000322001330-0022231322333331-1023203002003023-0310131012323030-2120000221302300"></a>
+
+## Minimal configuration — xcsh_app_setting / 011132123332 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -47,13 +56,17 @@ resource "xcsh_app_setting" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1131112303022121-0203111310130323-3121013210221213-0122223222103120-3021301123211232-2233332223200312-2200001311103311-1220020201223132"></a>
+
+## Root configuration — xcsh_app_setting / 011132123332 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2213320333223013-1311023010301113-0202313302123001-1302230030233332-0010331002313321-3313031311021313-3202211323120002-1333232323303031"></a>
 
-- [Property reference](../guides/resources--app_setting--reference.md)
-- [Examples](../guides/resources--app_setting--examples.md)
-- [Import](../guides/resources--app_setting--import.md)
-- [Timeouts](../guides/resources--app_setting--timeouts.md)
+## Next pages — xcsh_app_setting / 011132123332 / 6
+
+- [Property reference](../guides/resources--app_setting--reference--group-001.md#canonical-2122310201222303-0130033213230301-0221313313103320-2312231332122202-2212322133022101-3100330100032011-2330302131301110-0022232333200010)
+- [Examples](../guides/resources--app_setting--examples--group-001.md#canonical-3320122113230000-3221120120232111-0331321100100320-1223112322232312-0212003023000333-3013212020121300-1022310012331022-1323330321021011)
+- [Import](../guides/resources--app_setting--lifecycle--group-001.md#canonical-0020100003210303-3312011210033212-3313003111212202-2010110121101100-0032231120133233-0030303031013133-3011203100112232-2003002330113223)
+- [Timeouts](../guides/resources--app_setting--lifecycle--group-001.md#canonical-3320223010201200-0221132032121332-2120300123022030-1232002232301201-3303200231131300-1300031003122321-0210313211200023-3003133112012003)

@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_healthcheck"
+page_title: "xcsh_healthcheck landing"
 subcategory: "Monitoring"
-description: "xcsh_healthcheck for xcsh_healthcheck."
-xcsh_docs: {"aliases": [], "body_bytes": 1419, "body_sha256": "sha256:514a672098361f709c6988247902d3aa3e5b01aa1b49230ae5bde2cc4ad8df61", "canonical_id": "xcsh-docs:data-sources:healthcheck:fundamentals", "child_ids": ["xcsh-docs:data-sources:healthcheck:reference", "xcsh-docs:data-sources:healthcheck:examples"], "collection_id": "xcsh-docs:data-sources:healthcheck:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:healthcheck:fundamentals", "parent_id": null, "path": "docs/data-sources/healthcheck.md", "provider_name": "healthcheck", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_healthcheck for xcsh_healthcheck.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["healthcheckCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_healthcheck landing."
 ---
+
+# xcsh_healthcheck landing
+
+<a id="canonical-1302112230101233-2202130312331232-0231113312211032-1103323302011301-3303300020333020-2302311211132100-1303020110013123-3330132302312212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_healthcheck
+<a id="canonical-3212100002012132-3221101132220021-1033132332130320-2310121013033230-1331000300030333-3312320033333112-1332333330230232-2231213012112032"></a>
+
+## xcsh_healthcheck — xcsh_healthcheck / 310333021331 / 2
 
 Breadcrumbs:
 
@@ -19,13 +24,17 @@ Manages a Healthcheck resource in F5 Distributed Cloud for healthcheck object de
 determine if the given endpoint is healthy. single healthcheck object can be referred to by one or
 many cluster objects. configuration.
 
-## Prerequisites
+<a id="canonical-1313311312013310-3311113122330021-0031303201113203-2100213010230313-1033101312111230-2020132123311302-0122012233012230-0123013302221130"></a>
+
+## Prerequisites — xcsh_healthcheck / 310333021331 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Standard.
 
-## Minimal configuration
+<a id="canonical-1000122322013301-2203012021012303-0322323100201020-3022133332102021-0233113003203322-3123031013213012-1010310030300120-1010312003020230"></a>
+
+## Minimal configuration — xcsh_healthcheck / 310333021331 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,11 +63,15 @@ output "healthcheck_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0231323122322110-2212101113221131-1203313220033302-1031200030312100-3232323330021020-2111131023311332-2221100211311222-0133320311033130"></a>
+
+## Root configuration — xcsh_healthcheck / 310333021331 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0330302330332112-2013023213123121-3102330220303213-0211222313033211-1202301233231012-2102223032103212-3233020113312112-3100000323310032"></a>
 
-- [Property reference](../guides/data-sources--healthcheck--reference.md)
-- [Examples](../guides/data-sources--healthcheck--examples.md)
+## Next pages — xcsh_healthcheck / 310333021331 / 6
+
+- [Property reference](../guides/data-sources--healthcheck--reference--group-001.md#canonical-2233200310100332-2033003002302200-0110210311211131-2311120103323110-0232222133220131-1110332103312313-1221101021321013-1120313110032312)
+- [Examples](../guides/data-sources--healthcheck--examples--group-001.md#canonical-3300231312022010-3123302121132032-1100300103132332-3130120233103111-1022032131210033-2333031103310022-3211103132313203-3201230321020110)

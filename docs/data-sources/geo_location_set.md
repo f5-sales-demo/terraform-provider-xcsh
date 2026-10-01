@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_geo_location_set"
+page_title: "xcsh_geo_location_set landing"
 subcategory: ""
-description: "xcsh_geo_location_set for xcsh_geo_location_set."
-xcsh_docs: {"aliases": [], "body_bytes": 1234, "body_sha256": "sha256:c55d9eb9fae48cb2790eae05bedcf50b45400e0bb7ebbb2e2507ed2e8e974b28", "canonical_id": "xcsh-docs:data-sources:geo_location_set:fundamentals", "child_ids": ["xcsh-docs:data-sources:geo_location_set:reference", "xcsh-docs:data-sources:geo_location_set:examples"], "collection_id": "xcsh-docs:data-sources:geo_location_set:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:geo_location_set:fundamentals", "parent_id": null, "path": "docs/data-sources/geo_location_set.md", "provider_name": "geo_location_set", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/geo_location_set/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_geo_location_set for xcsh_geo_location_set.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["geo_location_setCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_geo_location_set landing."
 ---
+
+# xcsh_geo_location_set landing
+
+<a id="canonical-1001100000212311-3233013232003113-2232222223002331-1133222232220002-1101232133012211-1121021022203120-3302330011301312-1023310223132122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_geo_location_set
+<a id="canonical-3132313023330011-1233122312201003-1201310303213103-1123222202122231-3311012031210101-3211022112130133-3213313222333113-3133012013001333"></a>
+
+## xcsh_geo_location_set — xcsh_geo_location_set / 110112111000 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages Geolocation Set in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-1123201221132302-2032333211033313-1203203132133013-0302111102200123-3032023322012312-1212321030230113-0213223030333022-1130102102301200"></a>
+
+## Prerequisites — xcsh_geo_location_set / 110112111000 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2200203223200103-1222133020121221-1123121333110102-2113331333021013-1113311121121213-3203323000200200-3220220221330223-1100001101032200"></a>
+
+## Minimal configuration — xcsh_geo_location_set / 110112111000 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "geo_location_set_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1321131200020113-2011311200232232-0310010303031113-2233023221222031-0333003123131301-3323220310010021-0311210010000133-2130223121002121"></a>
+
+## Root configuration — xcsh_geo_location_set / 110112111000 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3300002200113233-2313133131011133-3320131302212101-2131002011101203-0233202022012110-3003330000101101-3320233031130012-2012222012310030"></a>
 
-- [Property reference](../guides/data-sources--geo_location_set--reference.md)
-- [Examples](../guides/data-sources--geo_location_set--examples.md)
+## Next pages — xcsh_geo_location_set / 110112111000 / 6
+
+- [Property reference](../guides/data-sources--geo_location_set--reference--group-001.md#canonical-1123331121000122-0300310122302103-1323002103311113-2222120103331101-2033133122011030-3102030113320122-1333103020013031-1112201210133330)
+- [Examples](../guides/data-sources--geo_location_set--examples--group-001.md#canonical-2031131031200303-2230312001031111-3111020122302131-2121021112302021-2301112222112312-1300332102121221-0000201012031202-2220313030203111)

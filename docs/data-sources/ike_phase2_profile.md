@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_ike_phase2_profile"
+page_title: "xcsh_ike_phase2_profile landing"
 subcategory: ""
-description: "xcsh_ike_phase2_profile for xcsh_ike_phase2_profile."
-xcsh_docs: {"aliases": [], "body_bytes": 1334, "body_sha256": "sha256:c8706e6a5e29845ef50819e77993e5859cff46e2828d47993c6de44f35e00e0b", "canonical_id": "xcsh-docs:data-sources:ike_phase2_profile:fundamentals", "child_ids": ["xcsh-docs:data-sources:ike_phase2_profile:reference", "xcsh-docs:data-sources:ike_phase2_profile:examples"], "collection_id": "xcsh-docs:data-sources:ike_phase2_profile:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:ike_phase2_profile:fundamentals", "parent_id": null, "path": "docs/data-sources/ike_phase2_profile.md", "provider_name": "ike_phase2_profile", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/ike_phase2_profile/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_ike_phase2_profile for xcsh_ike_phase2_profile.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["ike_phase2_profileCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_ike_phase2_profile landing."
 ---
+
+# xcsh_ike_phase2_profile landing
+
+<a id="canonical-3110330013310011-0121322330132310-2300311200301300-0223012032021201-1220120002002021-3100202000033331-0211031202223101-3022233301301130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_ike_phase2_profile
+<a id="canonical-2222202011120133-2201213003123002-0333231233023023-3021011302002233-3011001221101323-2012212002032302-3331113020011312-2210011022203131"></a>
+
+## xcsh_ike_phase2_profile — xcsh_ike_phase2_profile / 201232122032 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification.
 configuration.
 
-## Prerequisites
+<a id="canonical-3302211233130013-1011320313131101-0232313130130230-3033130222332222-0231033323102232-2012223231030133-3132222120033210-2012233030012220"></a>
+
+## Prerequisites — xcsh_ike_phase2_profile / 201232122032 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3020231230123000-1213313220300210-1302321212321122-1012333020230310-3222033320123331-1222111011203212-3132010313303223-0112111120133320"></a>
+
+## Minimal configuration — xcsh_ike_phase2_profile / 201232122032 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -51,11 +60,15 @@ output "ike_phase2_profile_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-1301230332333003-3111100113230123-0013321100200330-2012111210030010-2300130213313111-2113112230302313-1310202301102313-3102322102002212"></a>
+
+## Root configuration — xcsh_ike_phase2_profile / 201232122032 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3101300223300320-0020332000022330-2020011010212102-0000133001310021-3303013313320111-1002133123033221-1003321011300302-0201032013233223"></a>
 
-- [Property reference](../guides/data-sources--ike_phase2_profile--reference.md)
-- [Examples](../guides/data-sources--ike_phase2_profile--examples.md)
+## Next pages — xcsh_ike_phase2_profile / 201232122032 / 6
+
+- [Property reference](../guides/data-sources--ike_phase2_profile--reference--group-001.md#canonical-1221020020223301-3321201330233132-0012122311312233-0211331333321112-1210022031000211-2123121212122103-1000331210101312-1310102310302122)
+- [Examples](../guides/data-sources--ike_phase2_profile--examples--group-001.md#canonical-1121112020300021-3233110313120222-0322131211210022-1311222232320300-1301122133123101-2131331322210303-3200100030131231-1301120232011312)

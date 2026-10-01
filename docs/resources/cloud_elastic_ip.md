@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_cloud_elastic_ip"
+page_title: "xcsh_cloud_elastic_ip landing"
 subcategory: ""
-description: "xcsh_cloud_elastic_ip for xcsh_cloud_elastic_ip."
-xcsh_docs: {"aliases": [], "body_bytes": 1486, "body_sha256": "sha256:e90ac0c473176580f991565f92dde549194b9e4bb325024ef764a81367d846aa", "canonical_id": "xcsh-docs:resources:cloud_elastic_ip:fundamentals", "child_ids": ["xcsh-docs:resources:cloud_elastic_ip:reference", "xcsh-docs:resources:cloud_elastic_ip:examples", "xcsh-docs:resources:cloud_elastic_ip:import", "xcsh-docs:resources:cloud_elastic_ip:timeouts"], "collection_id": "xcsh-docs:resources:cloud_elastic_ip:collection", "completeness": "complete", "id": "xcsh-docs:resources:cloud_elastic_ip:fundamentals", "parent_id": null, "path": "docs/resources/cloud_elastic_ip.md", "provider_name": "cloud_elastic_ip", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_elastic_ip/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_cloud_elastic_ip for xcsh_cloud_elastic_ip.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["cloud_elastic_ipCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_cloud_elastic_ip landing."
 ---
+
+# xcsh_cloud_elastic_ip landing
+
+<a id="canonical-1012233313021212-0003222033112111-1303213323303313-1020020302213310-1211110033020313-2122312122003031-2320202301023301-3102202323122130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_cloud_elastic_ip
+<a id="canonical-3222011013031322-3111321033032113-2023233221213002-3110023120300233-1221112012220202-1200323112332003-0303022120022011-3320312202201301"></a>
+
+## xcsh_cloud_elastic_ip — xcsh_cloud_elastic_ip / 020013110333 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5
 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-2031200032231101-3331222223020333-0132310210232112-3320112301331330-3330020102300012-0321200121331230-2200302033002011-0301312330232221"></a>
+
+## Prerequisites — xcsh_cloud_elastic_ip / 020013110333 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-3100213133133022-2110110103103232-3333331231101303-1331010310111233-1101321202300230-2301020220202010-2202203112332312-1123331133033321"></a>
+
+## Minimal configuration — xcsh_cloud_elastic_ip / 020013110333 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,13 +59,17 @@ resource "xcsh_cloud_elastic_ip" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2101123130001331-0301331221011031-1322013012110113-0300330332210223-2123301201022120-2101111331110301-2023203303211303-0130331030133211"></a>
+
+## Root configuration — xcsh_cloud_elastic_ip / 020013110333 / 5
 
 Required root properties: `item_count`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3001201321211010-0122023303310302-3010130233022023-0323012132323222-3010020202010300-0013130100312120-1103122203020201-1103332111233100"></a>
 
-- [Property reference](../guides/resources--cloud_elastic_ip--reference.md)
-- [Examples](../guides/resources--cloud_elastic_ip--examples.md)
-- [Import](../guides/resources--cloud_elastic_ip--import.md)
-- [Timeouts](../guides/resources--cloud_elastic_ip--timeouts.md)
+## Next pages — xcsh_cloud_elastic_ip / 020013110333 / 6
+
+- [Property reference](../guides/resources--cloud_elastic_ip--reference--group-001.md#canonical-3000332101332101-3033231112032333-3203132203302322-1221122003220232-1112221212310323-1330110330201000-0101323211230023-3313311003132210)
+- [Examples](../guides/resources--cloud_elastic_ip--examples--group-001.md#canonical-0131101220123332-1213332212210201-1213012320222330-1201113223023221-2313030213232111-1003202233132311-1231101021130003-2221323011023332)
+- [Import](../guides/resources--cloud_elastic_ip--lifecycle--group-001.md#canonical-1100222313213321-3102211332332302-0121312102002123-2212121031030030-2231021010322103-0032031232020320-3310221223102311-2222322011311333)
+- [Timeouts](../guides/resources--cloud_elastic_ip--lifecycle--group-001.md#canonical-2313202201103131-1101223201312300-2201132311211020-1313201233302113-2113323233223000-2013223000211120-3103310331200201-0333030201213301)

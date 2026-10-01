@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_protected_application"
+page_title: "xcsh_protected_application landing"
 subcategory: ""
-description: "xcsh_protected_application for xcsh_protected_application."
-xcsh_docs: {"aliases": [], "body_bytes": 1322, "body_sha256": "sha256:d84e1a918629e3ce8a0194f450e5a372fb8947ec400af9e6198f46eff1f0d520", "canonical_id": "xcsh-docs:data-sources:protected_application:fundamentals", "child_ids": ["xcsh-docs:data-sources:protected_application:reference", "xcsh-docs:data-sources:protected_application:examples"], "collection_id": "xcsh-docs:data-sources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:protected_application:fundamentals", "parent_id": null, "path": "docs/data-sources/protected_application.md", "provider_name": "protected_application", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protected_application/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_protected_application for xcsh_protected_application.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_protected_application landing."
 ---
+
+# xcsh_protected_application landing
+
+<a id="canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_protected_application
+<a id="canonical-2033332023323113-2120213110211223-1233023130232121-0002330122000300-1321332121201303-2233001330330210-0220100111202103-2133112003300230"></a>
+
+## xcsh_protected_application — xcsh_protected_application / 012121032032 / 2
 
 Breadcrumbs:
 
@@ -17,11 +22,15 @@ Breadcrumbs:
 
 Manages applications protected by Bot Defense in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-0132103123100031-3013022210312021-3113313222020333-1112000213220223-1231220000101231-0322012130030032-0101323222011301-1321320010013232"></a>
+
+## Prerequisites — xcsh_protected_application / 012121032032 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2201323013131022-3302012120001011-1013101011300333-1132033022320212-3003321100013232-0032222121013223-2101320200120030-0103230321201012"></a>
+
+## Minimal configuration — xcsh_protected_application / 012121032032 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -50,11 +59,15 @@ output "protected_application_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0232323223100120-2310323123330011-2112122033030021-3112322003212231-2331022032310200-0101030133302223-3300332310111000-1110320311012312"></a>
+
+## Root configuration — xcsh_protected_application / 012121032032 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-3301102332223301-1233303121322121-3311112331113323-3213203332300113-2032311002323332-2303122101000111-1320112202201321-0201123103130000"></a>
 
-- [Property reference](../guides/data-sources--protected_application--reference.md)
-- [Examples](../guides/data-sources--protected_application--examples.md)
+## Next pages — xcsh_protected_application / 012121032032 / 6
+
+- [Property reference](../guides/data-sources--protected_application--reference--group-001.md#canonical-0001333200233223-0322212201111301-1102320330030121-1213300312333233-0100033112300113-2331020111321030-1332233011232311-1112113101312102)
+- [Examples](../guides/data-sources--protected_application--examples--group-001.md#canonical-2201033120231331-3003011110101323-2002010000323102-3000312102110323-2131311201000033-2021230001203130-1330202023130023-2223332012123102)

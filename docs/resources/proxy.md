@@ -1,15 +1,20 @@
 ---
-page_title: "xcsh_proxy"
+page_title: "xcsh_proxy landing"
 subcategory: ""
-description: "xcsh_proxy for xcsh_proxy."
-xcsh_docs: {"aliases": [], "body_bytes": 1325, "body_sha256": "sha256:f725dd00c398c9c2db025daad459ef8a11bb0e7b1708a607027c365f4ef1cd53", "canonical_id": "xcsh-docs:resources:proxy:fundamentals", "child_ids": ["xcsh-docs:resources:proxy:reference", "xcsh-docs:resources:proxy:examples", "xcsh-docs:resources:proxy:import", "xcsh-docs:resources:proxy:timeouts"], "collection_id": "xcsh-docs:resources:proxy:collection", "completeness": "complete", "id": "xcsh-docs:resources:proxy:fundamentals", "parent_id": null, "path": "docs/resources/proxy.md", "provider_name": "proxy", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/proxy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_proxy for xcsh_proxy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["proxyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_proxy landing."
 ---
+
+# xcsh_proxy landing
+
+<a id="canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_proxy
+<a id="canonical-3001030221130200-0130303122222220-3020000332221103-2313230133301022-0102220010211110-1301220020122322-3322233111110022-2031001301002022"></a>
+
+## xcsh_proxy — xcsh_proxy / 122131023030 / 2
 
 Breadcrumbs:
 
@@ -18,11 +23,15 @@ Breadcrumbs:
 Manages a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification.
 configuration.
 
-## Prerequisites
+<a id="canonical-0333300320213012-1101121011102313-3210233111102103-1323332322111031-3330021130302312-3010003302200111-0033001121213322-1013300122131300"></a>
+
+## Prerequisites — xcsh_proxy / 122131023030 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-0311122301032013-2320310201111302-0232012210230100-0020012011230122-3012130121121000-0223121220003320-1131102213011121-0220322010303023"></a>
+
+## Minimal configuration — xcsh_proxy / 122131023030 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -48,13 +57,17 @@ resource "xcsh_proxy" "example" {
 }
 ```
 
-## Root configuration
+<a id="canonical-2102332200110332-2013331132332232-0213300101002301-2323202203312101-2021110100111303-0012121100312112-2011312312112102-1321022203311122"></a>
+
+## Root configuration — xcsh_proxy / 122131023030 / 5
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-2312011131112322-0012021010132233-2233032220131122-0331013122012213-1231022022033310-3132101330033113-3031332313333202-3301032100302312"></a>
 
-- [Property reference](../guides/resources--proxy--reference.md)
-- [Examples](../guides/resources--proxy--examples.md)
-- [Import](../guides/resources--proxy--import.md)
-- [Timeouts](../guides/resources--proxy--timeouts.md)
+## Next pages — xcsh_proxy / 122131023030 / 6
+
+- [Property reference](../guides/resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [Examples](../guides/resources--proxy--examples--group-001.md#canonical-1312000312222230-1120313213032320-3301302120322211-0333033013030102-3131013101001131-1002001223123002-1133320233001021-0211303231120120)
+- [Import](../guides/resources--proxy--lifecycle--group-001.md#canonical-2233020331221110-3220321131302032-0111012300331101-3323011320113313-0213103313030023-3211320021321122-1013320201322113-2220013020312123)
+- [Timeouts](../guides/resources--proxy--lifecycle--group-001.md#canonical-2113131330220223-2001220323122123-0121230010120202-3110010332021132-0003333100000123-1011010130232203-1023002230231330-2233320000121132)

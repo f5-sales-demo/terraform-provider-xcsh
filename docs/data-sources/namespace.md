@@ -1,27 +1,36 @@
 ---
-page_title: "xcsh_namespace"
+page_title: "xcsh_namespace landing"
 subcategory: ""
-description: "xcsh_namespace for xcsh_namespace."
-xcsh_docs: {"aliases": [], "body_bytes": 1243, "body_sha256": "sha256:e6f06ab9159ec909e36bc5e0545c797bc9ed0b8a4ac399e7b49ff7abeaf53452", "canonical_id": "xcsh-docs:data-sources:namespace:fundamentals", "child_ids": ["xcsh-docs:data-sources:namespace:reference", "xcsh-docs:data-sources:namespace:examples"], "collection_id": "xcsh-docs:data-sources:namespace:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:namespace:fundamentals", "parent_id": null, "path": "docs/data-sources/namespace.md", "provider_name": "namespace", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "publishing_destination": "registry", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/namespace/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_namespace for xcsh_namespace.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["namespaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+description: "Complete grouped canonical reference for xcsh_namespace landing."
 ---
+
+# xcsh_namespace landing
+
+<a id="canonical-2013030003332230-3323112220123010-1133000333310232-3133330332200222-0123031332332100-3300310323320232-0203323000033132-1310310302002112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-# xcsh_namespace
+<a id="canonical-0123211001311111-3101231010100200-2203213321201131-0201103123203131-3112133011121012-1322302321313331-2022210332011300-1233202111210301"></a>
+
+## xcsh_namespace — xcsh_namespace / 213022313012 / 2
 
 Breadcrumbs:
 
 - xcsh_namespace
 
-Manages new namespace. Name of the object is name of the name space in F5 Distributed Cloud.
+Manages new namespace. Name of the object is name of the namespace in F5 Distributed Cloud.
 
-## Prerequisites
+<a id="canonical-3123231023002103-2011030003030100-1331312113130013-3132313032103021-0103202322320213-2311011103101310-1203002301320003-1301300022022322"></a>
+
+## Prerequisites — xcsh_namespace / 213022313012 / 3
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-## Minimal configuration
+<a id="canonical-2031033332020100-2113312113303200-1103311211131301-0120300331121203-3121223102131311-3231331300311333-2020320010123003-2202331012122111"></a>
+
+## Minimal configuration — xcsh_namespace / 213022313012 / 4
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -52,11 +61,15 @@ output "namespace_id" {
 }
 ```
 
-## Root configuration
+<a id="canonical-0123133131312210-0031233111332321-0223100132112310-1011003132020320-0000321322033301-0322321103301310-3200332022000220-3011211111312110"></a>
+
+## Root configuration — xcsh_namespace / 213022313012 / 5
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-## Next pages
+<a id="canonical-0323003010123201-1011000202132113-0001332002002211-1002012330301321-3002211010213331-2120112110101122-1320003220100103-2000032322331302"></a>
 
-- [Property reference](../guides/data-sources--namespace--reference.md)
-- [Examples](../guides/data-sources--namespace--examples.md)
+## Next pages — xcsh_namespace / 213022313012 / 6
+
+- [Property reference](../guides/data-sources--namespace--reference--group-001.md#canonical-1233101021033332-1222000332100203-2301103231011223-1201002301311201-3021202223213233-0113330233212033-2200103302332302-0032213221333113)
+- [Examples](../guides/data-sources--namespace--examples--group-001.md#canonical-0103010212031000-3110032213333233-1300320330100230-0132203113231333-2303211220001201-2022030333123213-2113111320021123-0131231021231332)

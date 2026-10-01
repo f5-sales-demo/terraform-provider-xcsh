@@ -1,0 +1,1876 @@
+---
+page_title: "xcsh_bot_endpoint_policy reference"
+subcategory: ""
+description: "Complete grouped canonical reference for xcsh_bot_endpoint_policy reference."
+---
+
+# xcsh_bot_endpoint_policy reference
+
+<a id="canonical-1121133023320222-2213211230333203-1301011101100233-2023133132201221-1323330311223121-3031130003232100-1003230233211322-3120131001102020"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_none — response_body_none / 023120000012 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body](data-sources--bot_endpoint_policy--reference--group-012.md#canonical-3002120302230233-2030303202231231-2233223130300111-1113023211313210-2021132012021312-0110301201302331-0333333010001323-1330231032023130)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_none
+
+<a id="canonical-0001232013013013-0223033201220001-0000111110021100-1202100012021321-0023311032130113-2123003132102211-3032212121111133-1121000222012001"></a>
+
+Type: `"single"`. Computed.
+
+Response Body Matcher. Response Body matcher Choice.
+
+<a id="canonical-2020221233302311-3022210311331210-3223211003300111-3231131120312213-2020100202323030-0221220201322221-1212211223130133-1103111010111202"></a>
+
+## Direct properties — response_body_none / 023120000012 / 3
+
+- [response_body_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0231033211201011-2112210302031000-1330222022003321-0003312310131100-2310023302000130-1323112212311010-1202231131303203-3201100001000002): complete subsection reference.
+
+<a id="canonical-0302002223103030-1200002300123300-3023231312223131-0131222211112232-3101231301103111-0102001122202101-2211100201030111-1220111030030331"></a>
+
+## Next pages — response_body_none / 023120000012 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_none.response_body_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0231033211201011-2112210302031000-1330222022003321-0003312310131100-2310023302000130-1323112212311010-1202231131303203-3201100001000002)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body](data-sources--bot_endpoint_policy--reference--group-012.md#canonical-3002120302230233-2030303202231231-2233223130300111-1113023211313210-2021132012021312-0110301201302331-0333333010001323-1330231032023130)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-0231033211201011-2112210302031000-1330222022003321-0003312310131100-2310023302000130-1323112212311010-1202231131303203-3201100001000002"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3122320231011203-3002011103011112-0101320313301100-0020112003202021-0321320300300113-0112232311123031-1302010010311202-3213223101013030"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_none.response_body_match_v2 — response_body_match_v2 / 200231020012 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body](data-sources--bot_endpoint_policy--reference--group-012.md#canonical-3002120302230233-2030303202231231-2233223130300111-1113023211313210-2021132012021312-0110301201302331-0333333010001323-1330231032023130)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_none](data-sources--bot_endpoint_policy--reference--group-012.md#canonical-2101210231103210-1202312100010221-0300222012132212-3013231112203221-3210210300223200-2101131123302011-3231321132211231-3133103010321211)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_none.response_body_match_v2
+
+<a id="canonical-2310022030000202-2132333022211030-3132033222132101-2000101213011302-0332220233113330-3133301020200322-1111332121333110-0013231211122223"></a>
+
+Type: `"list"`. Computed.
+
+Response Body Matcher(s). Response Body Matchers.
+
+<a id="canonical-1231133123122031-0123011231210230-3012103020013010-0331213330321302-3230310212111113-2132132210113301-0231000022033121-0003002000123020"></a>
+
+## Direct properties — response_body_match_v2 / 200231020012 / 3
+
+<a id="canonical-2110113320330022-1123202033233030-2233300012233202-3132030202310330-2301001211300103-2121211321320322-1321133031023233-1332102310303001"></a>
+
+<a id="canonical-0323302121003331-0131132330201220-3101201212113113-1033311100102230-2222003000121031-3312022313231111-1223100003013232-0130000332001001"></a>
+
+## case_sensitive property — response_body_match_v2 / 200231020012 / 4
+
+Type: `"bool"`. Computed.
+
+Configuration parameter for case sensitive.
+
+<a id="canonical-0100112002120111-2310232221330123-0130303221310302-2332001030001321-3010212211233110-1203121011120113-2102212033132301-3313103030221122"></a>
+
+<a id="canonical-3012333011111102-3122313022013233-3110301212313211-1010123123201122-0210223313200130-2032331223031102-0102333330212230-1101301313301230"></a>
+
+## not property — response_body_match_v2 / 200231020012 / 5
+
+Type: `"bool"`. Computed.
+
+Not(!). Configuration parameter for not
+
+<a id="canonical-2212332321301010-1033021332012113-2021132232110132-2022221132313301-1030212012313203-0330321330102011-2100023031231022-3322013331032200"></a>
+
+<a id="canonical-1311030120212232-1301303221222113-3332303303011303-0132133312021332-0023002002112101-1002322332013233-0131121213131102-3031210001112013"></a>
+
+## operator property — response_body_match_v2 / 200231020012 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+RESPONSE\_OPERATOR\_EQUALS\_TO|RESPONSE\_OPERATOR\_CONTAINS|RESPONSE\_OPERATOR\_STARTS\_WITH|RESPONSE\_OPERATOR\_ENDS\_WITH\]
+&#8203;- RESPONSE\_OPERATOR\_EQUALS\_TO: EQUALS\_TO value - RESPONSE\_OPERATOR\_CONTAINS: CONTAINS value -
+RESPONSE\_OPERATOR\_STARTS\_WITH: STARTS\_WITH value - RESPONSE\_OPERATOR\_ENDS\_WITH: ENDS\_WITH
+value. Possible values are \`RESPONSE\_OPERATOR\_EQUALS\_TO\`, \`RESPONSE\_OPERATOR\_CONTAINS\`,
+\`RESPONSE\_OPERATOR\_STARTS\_WITH\`, \`RESPONSE\_OPERATOR\_ENDS\_WITH\`. Defaults to
+\`RESPONSE\_OPERATOR\_EQUALS\_TO\`.
+
+<a id="canonical-2223001021311001-1203013133222313-2120203211123313-0303322002133130-2203012132012221-3000001112332120-1303023113100001-0211112331231233"></a>
+
+<a id="canonical-0102000332322021-0122303220313210-2232001103023132-0210332001113313-0302223213211320-3001101312101230-1133312023311012-2123000011212020"></a>
+
+## value property — response_body_match_v2 / 200231020012 / 7
+
+Type: `"string"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-2012211303001310-2211232132013212-1203332122021102-0211321330022011-0013013021233113-2320313001233013-2312130201011120-2121022233312132"></a>
+
+## Next pages — response_body_match_v2 / 200231020012 / 8
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_none](data-sources--bot_endpoint_policy--reference--group-012.md#canonical-2101210231103210-1202312100010221-0300222012132212-3013231112203221-3210210300223200-2101131123302011-3231321132211231-3133103010321211)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2020203200212022-3201103212231112-2102111320330133-2202013321213002-0300210321331003-2003300320102230-3110303012021313-2122222000100310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2030121100321230-0131112103012302-2212120031223210-1012323312021122-1201303320202211-0012323201210333-2023011133303133-2023031320220322"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_or — response_body_or / 022032221023 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body](data-sources--bot_endpoint_policy--reference--group-012.md#canonical-3002120302230233-2030303202231231-2233223130300111-1113023211313210-2021132012021312-0110301201302331-0333333010001323-1330231032023130)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_or
+
+<a id="canonical-3020312010200230-0011313120223132-0320331123232213-3101122010001321-2322321032133303-0022311220120212-2231032122123122-3021013023330333"></a>
+
+Type: `"single"`. Computed.
+
+Response Body Matcher. Response Body matcher Choice.
+
+<a id="canonical-2131132213002120-1201112230331311-0033003011223331-3310303212033211-1233112311102121-3333213233201002-3012221101030021-2202310330013003"></a>
+
+## Direct properties — response_body_or / 022032221023 / 3
+
+- [response_body_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1031301221100012-1320200330222302-3211311132311010-3011133011123000-3013220132022013-2312330112031321-2121111320233210-0021131113221323): complete subsection reference.
+
+<a id="canonical-0333022030013030-1033331103231123-2311201121331001-1321310313002220-1102213022103220-0101121031200102-3100133203231031-1323313233013123"></a>
+
+## Next pages — response_body_or / 022032221023 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_or.response_body_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1031301221100012-1320200330222302-3211311132311010-3011133011123000-3013220132022013-2312330112031321-2121111320233210-0021131113221323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body](data-sources--bot_endpoint_policy--reference--group-012.md#canonical-3002120302230233-2030303202231231-2233223130300111-1113023211313210-2021132012021312-0110301201302331-0333333010001323-1330231032023130)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-1031301221100012-1320200330222302-3211311132311010-3011133011123000-3013220132022013-2312330112031321-2121111320233210-0021131113221323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2020103322213332-2031121212331113-0022023023031011-0332323330213203-2300010000222303-3022212310121220-2112211331220232-0030132003100322"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_or.response_body_match_v2 — response_body_match_v2 / 102033112132 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body](data-sources--bot_endpoint_policy--reference--group-012.md#canonical-3002120302230233-2030303202231231-2233223130300111-1113023211313210-2021132012021312-0110301201302331-0333333010001323-1330231032023130)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2020203200212022-3201103212231112-2102111320330133-2202013321213002-0300210321331003-2003300320102230-3110303012021313-2122222000100310)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_or.response_body_match_v2
+
+<a id="canonical-0110003310130223-3130021131033033-3322002100230022-1020210322030022-1200221332131132-2031001112331000-1102310202320132-3130110103000222"></a>
+
+Type: `"list"`. Computed.
+
+Response Body Matcher(s). Response Body Matchers.
+
+<a id="canonical-2012003223310220-1312022100300012-1232320331212201-3133032323000031-1330221331212110-2330003230111200-1211330131010303-0130001323212233"></a>
+
+## Direct properties — response_body_match_v2 / 102033112132 / 3
+
+<a id="canonical-2322210123221001-3331113002320202-0232103300023010-0323223121112103-0112323001301021-1021201320021002-3301210113311010-1021001112133232"></a>
+
+<a id="canonical-1300123012010032-0033303210212123-1331030012032000-2220223032130233-1201202210133010-3211201102003312-1300322222011322-0003323320120113"></a>
+
+## case_sensitive property — response_body_match_v2 / 102033112132 / 4
+
+Type: `"bool"`. Computed.
+
+Configuration parameter for case sensitive.
+
+<a id="canonical-0322010201311020-3231102202022311-1321002303223100-1000031122023002-3021300022230122-0201331333123102-3102203021311232-0123222033233201"></a>
+
+<a id="canonical-2221331102113311-2220200013332300-3232202113000132-1011023020223213-2100122110100312-0013130320011032-1221020202122002-3333330302301131"></a>
+
+## not property — response_body_match_v2 / 102033112132 / 5
+
+Type: `"bool"`. Computed.
+
+Not(!). Configuration parameter for not
+
+<a id="canonical-2011011123000011-2110320112233020-0003300010212201-1333102233121133-0003301012031333-0213100000013010-3212232132121103-0032133112133112"></a>
+
+<a id="canonical-1303223111113202-1001122001131033-1030013132301302-3001200213033023-0113333302121222-3102223221011222-3122122300221332-3110200332220312"></a>
+
+## operator property — response_body_match_v2 / 102033112132 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+RESPONSE\_OPERATOR\_EQUALS\_TO|RESPONSE\_OPERATOR\_CONTAINS|RESPONSE\_OPERATOR\_STARTS\_WITH|RESPONSE\_OPERATOR\_ENDS\_WITH\]
+&#8203;- RESPONSE\_OPERATOR\_EQUALS\_TO: EQUALS\_TO value - RESPONSE\_OPERATOR\_CONTAINS: CONTAINS value -
+RESPONSE\_OPERATOR\_STARTS\_WITH: STARTS\_WITH value - RESPONSE\_OPERATOR\_ENDS\_WITH: ENDS\_WITH
+value. Possible values are \`RESPONSE\_OPERATOR\_EQUALS\_TO\`, \`RESPONSE\_OPERATOR\_CONTAINS\`,
+\`RESPONSE\_OPERATOR\_STARTS\_WITH\`, \`RESPONSE\_OPERATOR\_ENDS\_WITH\`. Defaults to
+\`RESPONSE\_OPERATOR\_EQUALS\_TO\`.
+
+<a id="canonical-0033210330330213-1322023322212221-1111321301020132-2331121212223013-0000221203012121-3103001102013312-2332231131302331-3132223003312123"></a>
+
+<a id="canonical-3320320303000222-1131101302132022-0012112100202320-1002330031103102-2121212101123213-3331002202011330-3202221331100302-0201231001000202"></a>
+
+## value property — response_body_match_v2 / 102033112132 / 7
+
+Type: `"string"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-2200000222303011-2311132010232122-2021120322321311-3220011323231312-2002220122023330-3313122211030300-1303011023032331-1001332023001311"></a>
+
+## Next pages — response_body_match_v2 / 102033112132 / 8
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_body.response_body_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2020203200212022-3201103212231112-2102111320330133-2202013321213002-0300210321331003-2003300320102230-3110303012021313-2122222000100310)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3233000220122200-0110213023331010-1312130321020212-2320133102130020-0133002332210222-1300321330031233-2330023103122332-1130112223300322"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code — response_code / 123312011223 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code
+
+<a id="canonical-2022231120202123-1110232102301232-3103320021322311-0120033033222203-0030000032333212-3013003322222110-0120220112211013-2232013210231100"></a>
+
+Type: `"single"`. Computed.
+
+Response Code.
+
+<a id="canonical-1211102210331122-3031033000003310-2233131030023013-3231122233030010-0302113012103312-3331231113011330-0220022322211330-1030332311310112"></a>
+
+## Direct properties — response_code / 123312011223 / 3
+
+- [response_code_all](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3131320000021303-0033333133011321-2100320212200232-0222112210123031-0030131301330110-3332012110110210-0100202230231112-3303001220300331): complete subsection reference.
+
+- [response_code_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3021330300323020-2311303203111002-0301333121303301-0032013202310121-2121122113113203-0002231123002202-1122130021010031-1312301211200123): complete subsection reference.
+
+- [response_code_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1012003101022030-0313210232011200-1130232020312231-3110333100202032-1312103130221220-1302021200300030-2100133310012031-2033320110010131): complete subsection reference.
+
+- [response_code_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3320022111333221-3012032132213201-2111100112120032-3132332303012320-3111101313222033-2131023321100232-0132231122003033-2232331202203321): complete subsection reference.
+
+<a id="canonical-2101001312312021-3231233120222212-2310301010030133-0113220020103130-2031330213013300-2213311310201131-3010300312202300-2210231311110331"></a>
+
+## Next pages — response_code / 123312011223 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_all](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3131320000021303-0033333133011321-2100320212200232-0222112210123031-0030131301330110-3332012110110210-0100202230231112-3303001220300331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3021330300323020-2311303203111002-0301333121303301-0032013202310121-2121122113113203-0002231123002202-1122130021010031-1312301211200123)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1012003101022030-0313210232011200-1130232020312231-3110333100202032-1312103130221220-1302021200300030-2100133310012031-2033320110010131)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3320022111333221-3012032132213201-2111100112120032-3132332303012320-3111101313222033-2131023321100232-0132231122003033-2232331202203321)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3131320000021303-0033333133011321-2100320212200232-0222112210123031-0030131301330110-3332012110110210-0100202230231112-3303001220300331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1212120000122210-2012202020013322-0300231120011201-3120031013022313-1130302321212001-3013323313002320-1210120102320131-3000033032231203"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_all — response_code_all / 333232302202 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_all
+
+<a id="canonical-1223130111100111-3101312122323112-1010322100300223-0021203303221301-0001030101231231-0131110013021212-2331030033001102-2331201032311233"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+<a id="canonical-3010311113032010-1103320132010023-1033012012220122-0103121023113000-3011012231032132-3022321031101231-0033210011200132-2321023212310311"></a>
+
+## Direct properties — response_code_all / 333232302202 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0012022133121232-3111023333311322-3122132013212121-3312130013220333-3300102311012112-1220320301122311-3011111231111112-1303123111200003"></a>
+
+## Next pages — response_code_all / 333232302202 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3021330300323020-2311303203111002-0301333121303301-0032013202310121-2121122113113203-0002231123002202-1122130021010031-1312301211200123"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0000330303111012-3233033220200303-0203223202120001-1011230201130321-0212002100121030-0013010232323032-1021232102000232-3022112323123230"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_and — response_code_and / 322133120222 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_and
+
+<a id="canonical-0132032310012101-0012201221020010-2210011320012011-3301211110002131-2001033033202213-1330002331311012-1103311131221020-3211100020311011"></a>
+
+Type: `"single"`. Computed.
+
+Response Code Matcher. Response Header matcher choice.
+
+<a id="canonical-1332011202033230-2301021302330110-2233321201201311-2113201220203131-2110222121031122-0200200313021132-0332332011231222-1230320233130233"></a>
+
+## Direct properties — response_code_and / 322133120222 / 3
+
+- [response_code_match](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3103200111220132-1110020233012031-0122230223011112-0103002303233131-1331211000000331-3203232131013011-3013321200213300-3023233013200201): complete subsection reference.
+
+<a id="canonical-0122220321033032-3000201131120213-0220323300233331-1122212331013333-3210202323002321-0301013321222222-3002002000021232-3113022332333103"></a>
+
+## Next pages — response_code_and / 322133120222 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_and.response_code_match](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3103200111220132-1110020233012031-0122230223011112-0103002303233131-1331211000000331-3203232131013011-3013321200213300-3023233013200201)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3103200111220132-1110020233012031-0122230223011112-0103002303233131-1331211000000331-3203232131013011-3013321200213300-3023233013200201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2333220231110311-1322213131001332-0231110010002232-0332001333303332-3103101100311333-3221101320231120-3030130032322333-1001223211131230"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_and.response_code_match — response_code_match / 112111211033 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3021330300323020-2311303203111002-0301333121303301-0032013202310121-2121122113113203-0002231123002202-1122130021010031-1312301211200123)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_and.response_code_match
+
+<a id="canonical-3232202232121133-2101201011330312-1312203330130231-2211321221111132-0033211001212123-1312121102001031-1231132211231020-3211311331330110"></a>
+
+Type: `"list"`. Computed.
+
+Response Code Matcher(s). Response Code Matchers.
+
+<a id="canonical-1002012212001110-2333132203312102-0110213012211330-2113003322002321-3100311231023302-2211200101322131-0022112010203330-0223220213111213"></a>
+
+## Direct properties — response_code_match / 112111211033 / 3
+
+<a id="canonical-2120301213220321-3203031332023323-1010112130012000-0331123112100202-1111033220231100-2120111232123323-0311102002331121-2030113311301300"></a>
+
+<a id="canonical-0331322330332330-0213002012210123-0002232122201000-3322120231200313-3010133132133302-0303111112013331-2002122123020103-3300322001330213"></a>
+
+## operator property — response_code_match / 112111211033 / 4
+
+Type: `"string"`. Computed.
+
+\[Enum:
+CODE\_EQUALS|CODE\_NOT\_EQUAL\_TO|CODE\_LESS\_THAN|CODE\_GREATER\_THAN|CODE\_LESS\_THAN\_OR\_EQUAlS\_TO|CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO\]
+&#8203;- CODE\_EQUALS: EQUALS value - CODE\_NOT\_EQUAL\_TO: NOT\_EQUAL\_TO value - CODE\_LESS\_THAN:
+LESS\_THAN value - CODE\_GREATER\_THAN: GREATER\_THAN value - CODE\_LESS\_THAN\_OR\_EQUAlS\_TO:
+LESS\_THAN\_OR\_EQUAlS\_TO value - CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO:
+GREATER\_THAN\_OR\_EQUAlS\_TO value. Possible values are \`CODE\_EQUALS\`, \`CODE\_NOT\_EQUAL\_TO\`,
+\`CODE\_LESS\_THAN\`, \`CODE\_GREATER\_THAN\`, \`CODE\_LESS\_THAN\_OR\_EQUAlS\_TO\`,
+\`CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO\`. Defaults to \`CODE\_EQUALS\`.
+
+<a id="canonical-1033302333013013-2233120120223000-1132222203211331-3103323032222121-3302122210321323-1311022311201131-1302132323023213-2030320203133203"></a>
+
+<a id="canonical-1302032333222211-0321223320300330-0312111310001320-0211211133213211-3111030103322020-0231103310021210-2333130020220032-3212130303032103"></a>
+
+## value property — response_code_match / 112111211033 / 5
+
+Type: `"number"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-2112212212220132-2031100100110301-0323301212113001-2010233033010321-3031000103032330-2210312322133320-3031023303331322-1322230033310022"></a>
+
+## Next pages — response_code_match / 112111211033 / 6
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3021330300323020-2311303203111002-0301333121303301-0032013202310121-2121122113113203-0002231123002202-1122130021010031-1312301211200123)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-1012003101022030-0313210232011200-1130232020312231-3110333100202032-1312103130221220-1302021200300030-2100133310012031-2033320110010131"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1330113212212023-0112332321333120-0001012011311111-0130213001003313-0322003221210131-3001123002210032-1222110021302311-3100110212320303"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_none — response_code_none / 331032223222 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_none
+
+<a id="canonical-1202200021302110-0002310110233310-3201203333302023-0110230131210122-2320310002112111-1330122131021212-3120331302222231-3231000211210313"></a>
+
+Type: `"single"`. Computed.
+
+Response Code Matcher. Response Header matcher choice.
+
+<a id="canonical-1211331202001001-2222311020301213-0102330032312100-2330323323120122-1233112101133320-2213331102023103-3203132013111321-3131100023101112"></a>
+
+## Direct properties — response_code_none / 331032223222 / 3
+
+- [response_code_match](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0301001110033233-3211212311303212-0002113331121030-2211033203232330-0011221002231303-2311131200332300-1131111220312300-2233013321031223): complete subsection reference.
+
+<a id="canonical-3213313003023301-3301200333230123-3000332112202000-1103331003211031-0210023313131100-0123322122001310-0233032023111232-0032223202002222"></a>
+
+## Next pages — response_code_none / 331032223222 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_none.response_code_match](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0301001110033233-3211212311303212-0002113331121030-2211033203232330-0011221002231303-2311131200332300-1131111220312300-2233013321031223)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-0301001110033233-3211212311303212-0002113331121030-2211033203232330-0011221002231303-2311131200332300-1131111220312300-2233013321031223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2020311203113000-1333031011213203-2113120030323232-1003233133112132-2312022311323113-2123022032011001-1302302301332221-2000203132212001"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_none.response_code_match — response_code_match / 333110030132 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1012003101022030-0313210232011200-1130232020312231-3110333100202032-1312103130221220-1302021200300030-2100133310012031-2033320110010131)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_none.response_code_match
+
+<a id="canonical-0212202101200122-3121021302002312-0133010332010332-1133001202131121-3031032311012131-1120201211210030-2303331223010120-3001023121232012"></a>
+
+Type: `"list"`. Computed.
+
+Response Code Matcher(s). Response Code Matchers.
+
+<a id="canonical-0000011300122200-1200213220323003-0000222012320313-2202311222002220-3023133200123112-0012202212000213-1330020113110311-1032330133303121"></a>
+
+## Direct properties — response_code_match / 333110030132 / 3
+
+<a id="canonical-0023001022222122-2201112233223010-3100231023232211-2202130320103333-0113131200211110-2111103021030112-1300201303022001-3201323203212122"></a>
+
+<a id="canonical-1231231020010211-3230310200203311-2313012203322000-2232332202231222-1302213311332231-2010333232011220-1301201321123012-2221212031121221"></a>
+
+## operator property — response_code_match / 333110030132 / 4
+
+Type: `"string"`. Computed.
+
+\[Enum:
+CODE\_EQUALS|CODE\_NOT\_EQUAL\_TO|CODE\_LESS\_THAN|CODE\_GREATER\_THAN|CODE\_LESS\_THAN\_OR\_EQUAlS\_TO|CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO\]
+&#8203;- CODE\_EQUALS: EQUALS value - CODE\_NOT\_EQUAL\_TO: NOT\_EQUAL\_TO value - CODE\_LESS\_THAN:
+LESS\_THAN value - CODE\_GREATER\_THAN: GREATER\_THAN value - CODE\_LESS\_THAN\_OR\_EQUAlS\_TO:
+LESS\_THAN\_OR\_EQUAlS\_TO value - CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO:
+GREATER\_THAN\_OR\_EQUAlS\_TO value. Possible values are \`CODE\_EQUALS\`, \`CODE\_NOT\_EQUAL\_TO\`,
+\`CODE\_LESS\_THAN\`, \`CODE\_GREATER\_THAN\`, \`CODE\_LESS\_THAN\_OR\_EQUAlS\_TO\`,
+\`CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO\`. Defaults to \`CODE\_EQUALS\`.
+
+<a id="canonical-2211030021110131-0001302012233030-0112123303012303-3212112320122103-2022212332310030-2201321320320333-0213022330132220-0213103101022111"></a>
+
+<a id="canonical-1000113223202033-1231211001002130-0211100313300000-3032121212022102-2101313000332002-2223130203031110-0123121311200002-1020211310030102"></a>
+
+## value property — response_code_match / 333110030132 / 5
+
+Type: `"number"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-0031323123212231-0100331131310332-2303013303003203-0310311020230231-1111213211301003-0300302232231132-2311310002203331-3110201001011212"></a>
+
+## Next pages — response_code_match / 333110030132 / 6
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1012003101022030-0313210232011200-1130232020312231-3110333100202032-1312103130221220-1302021200300030-2100133310012031-2033320110010131)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3320022111333221-3012032132213201-2111100112120032-3132332303012320-3111101313222033-2131023321100232-0132231122003033-2232331202203321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0020211310330333-0220031131220001-0300000223332133-0211003301012322-0103200011223212-3323003122201313-3113311231230300-0213313010122202"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_or — response_code_or / 223013230010 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_or
+
+<a id="canonical-3001010321113321-3210023330310313-3000022221101320-0113111222132130-1213201023322020-0310102231110221-3102012002123301-2003013212302333"></a>
+
+Type: `"single"`. Computed.
+
+Response Code Matcher. Response Header matcher choice.
+
+<a id="canonical-0130331311110131-3012302300113333-0310211212230113-2121323230111332-1303021131130213-1312321123023133-0322330220130112-1031031302300323"></a>
+
+## Direct properties — response_code_or / 223013230010 / 3
+
+- [response_code_match](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0131220112010111-0100130212213201-0013030211201023-1120210311023100-3003231311030300-2122123231033332-1232221010122002-3302211321320301): complete subsection reference.
+
+<a id="canonical-1133112113103222-1121223230010021-3322121131201313-2312211322313222-0001310102020320-3002212202130330-0100203022001220-3322031110210232"></a>
+
+## Next pages — response_code_or / 223013230010 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_or.response_code_match](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0131220112010111-0100130212213201-0013030211201023-1120210311023100-3003231311030300-2122123231033332-1232221010122002-3302211321320301)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-0131220112010111-0100130212213201-0013030211201023-1120210311023100-3003231311030300-2122123231033332-1232221010122002-3302211321320301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0321102202223113-3301211003310222-1320213012022212-0321022102033230-2230013012203033-1203210213333203-1333212310202203-1123333203230302"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_or.response_code_match — response_code_match / 033311133320 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1202202320211232-0300212103222132-3102033132323312-3030312100102301-1211320022220222-0022223230003331-0213121133330312-2020101123331203)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3320022111333221-3012032132213201-2111100112120032-3132332303012320-3111101313222033-2131023321100232-0132231122003033-2232331202203321)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_or.response_code_match
+
+<a id="canonical-2120101013032103-0230110012023220-2300101203123211-0001111232133012-2011003100013000-3010223013131231-2103332230103132-2013032331311311"></a>
+
+Type: `"list"`. Computed.
+
+Response Code Matcher(s). Response Code Matchers.
+
+<a id="canonical-3310101320220210-2032223023031012-0003222123021320-1102000323033222-1023212223132301-0130302300000201-2022012202100111-3212121122322021"></a>
+
+## Direct properties — response_code_match / 033311133320 / 3
+
+<a id="canonical-2000230312131221-2022013033113130-1331212303202212-1310213302031002-3301100222233132-2121323211010233-2020023103311211-0310322002102303"></a>
+
+<a id="canonical-1001022231322221-0031313100002020-1030031110221303-1032032131112022-3330213110122003-3332011121201330-3011213212013033-0113222322100022"></a>
+
+## operator property — response_code_match / 033311133320 / 4
+
+Type: `"string"`. Computed.
+
+\[Enum:
+CODE\_EQUALS|CODE\_NOT\_EQUAL\_TO|CODE\_LESS\_THAN|CODE\_GREATER\_THAN|CODE\_LESS\_THAN\_OR\_EQUAlS\_TO|CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO\]
+&#8203;- CODE\_EQUALS: EQUALS value - CODE\_NOT\_EQUAL\_TO: NOT\_EQUAL\_TO value - CODE\_LESS\_THAN:
+LESS\_THAN value - CODE\_GREATER\_THAN: GREATER\_THAN value - CODE\_LESS\_THAN\_OR\_EQUAlS\_TO:
+LESS\_THAN\_OR\_EQUAlS\_TO value - CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO:
+GREATER\_THAN\_OR\_EQUAlS\_TO value. Possible values are \`CODE\_EQUALS\`, \`CODE\_NOT\_EQUAL\_TO\`,
+\`CODE\_LESS\_THAN\`, \`CODE\_GREATER\_THAN\`, \`CODE\_LESS\_THAN\_OR\_EQUAlS\_TO\`,
+\`CODE\_GREATER\_THAN\_OR\_EQUAlS\_TO\`. Defaults to \`CODE\_EQUALS\`.
+
+<a id="canonical-3300313233233303-1002312231311330-0301221022002002-2001233102313012-3122332301301021-0230003012132010-0020321131321000-2333220323303122"></a>
+
+<a id="canonical-2200232231002232-3112032310212313-1300203200323233-0101132000020302-0323110330133032-3021310000100233-0333200013312020-2020032111033221"></a>
+
+## value property — response_code_match / 033311133320 / 5
+
+Type: `"number"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-1131332211112200-3022010133203333-0103330030103301-1113013122100320-1032121111231222-2031000123322000-2113321131202223-1031200032323311"></a>
+
+## Next pages — response_code_match / 033311133320 / 6
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_code.response_code_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3320022111333221-3012032132213201-2111100112120032-3132332303012320-3111101313222033-2131023321100232-0132231122003033-2232331202203321)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2132222330012031-3331121213322002-3011211030100002-1123312101313103-2021233111032232-3310220030033212-3112300020113123-1000211201011011"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2 — response_header_v2 / 233010120311 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2
+
+<a id="canonical-3313110311223020-2122120131303201-0023023000333111-0122133301132102-3021032130121232-2303123023122012-3323030011313131-2332331020302100"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for response header v2.
+
+<a id="canonical-3033111110300310-3203133212030213-2110332010221032-1332332321323120-3213121112131112-3030311002121112-0100322121203223-1120121313100320"></a>
+
+## Direct properties — response_header_v2 / 233010120311 / 3
+
+- [response_header_all](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1332002301202023-2310120320003032-2113131131023023-0133032301310331-1211312332201222-2212121022023021-0101232033300011-2102330223223311): complete subsection reference.
+
+- [response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121): complete subsection reference.
+
+- [response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120): complete subsection reference.
+
+- [response_header_or](data-sources--bot_endpoint_policy--reference--group-014.md#canonical-2000323010232330-3200312200333103-0331211320033213-2131022132301221-0002231320231100-3113002330223033-1210200020222220-1311232001310322): complete subsection reference.
+
+<a id="canonical-3113320221003300-2130332321113200-1213001322210202-0000012303030331-3130031132132213-3132123210100132-3003131333030203-1312131223131333"></a>
+
+## Next pages — response_header_v2 / 233010120311 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_all](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1332002301202023-2310120320003032-2113131131023023-0133032301310331-1211312332201222-2212121022023021-0101232033300011-2102330223223311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_or](data-sources--bot_endpoint_policy--reference--group-014.md#canonical-2000323010232330-3200312200333103-0331211320033213-2131022132301221-0002231320231100-3113002330223033-1210200020222220-1311232001310322)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-1332002301202023-2310120320003032-2113131131023023-0133032301310331-1211312332201222-2212121022023021-0101232033300011-2102330223223311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0002013020130311-1321132232200333-1111323012102211-3301330121311032-1023013312220012-2003130210203211-1030003130332323-2010201221131102"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_all — response_header_all / 021020233100 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_all
+
+<a id="canonical-2001010023021311-2132033211230002-2032202330032301-1321113221003221-0012020133223020-2020210122132330-0100311213310020-1312122222210210"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for response header all.
+
+<a id="canonical-0121021210131332-1013012300002130-1222321323133000-0031001132310221-1323220222023332-3003330120330021-3021220120211300-3101001233020303"></a>
+
+## Direct properties — response_header_all / 021020233100 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1010332322203331-1230323303131232-1123333133320003-0330021122032222-3021020230323300-2210231112220310-1010210203312302-3230030311033213"></a>
+
+## Next pages — response_header_all / 021020233100 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1100031111321231-1231220201120011-0132032132222300-3011130230121123-3220202312333001-2033033112102022-0221110132322331-1212203112013002"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and — response_header_and / 320210022303 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and
+
+<a id="canonical-0220101230320000-3223001010022332-3211101031302210-1110021103131111-1200132310213133-0102212331212312-3032120012332312-3131303002233230"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for response header and.
+
+<a id="canonical-2032010222233202-1213110311123320-2121220131033101-2232130111113101-1313001122123131-0102222212202110-3233232333200300-0322003132230333"></a>
+
+## Direct properties — response_header_and / 320210022303 / 3
+
+- [response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311): complete subsection reference.
+
+<a id="canonical-2300320321201301-2322333322300313-3003002112010023-3112222220320020-0133033200022210-2201233333132321-3020102323130111-3130103230303332"></a>
+
+## Next pages — response_header_and / 320210022303 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1030221233121322-0111230210130133-3132122323331130-3321201330000232-2100021022101000-0131111231130132-2021303321320122-1001201032103220"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator — response_header_operator / 012000121323 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator
+
+<a id="canonical-1210132111113000-0201311022333223-0331332102200200-2223110003233233-1100112112332231-3222002220030200-3012101302303022-0221302323300130"></a>
+
+Type: `"list"`. Computed.
+
+Configuration parameter for response header operator.
+
+<a id="canonical-0213102213223123-3011133233123021-3310101320231001-0212323200332012-3100103103111331-2033013310010032-2011013331020333-1010102000320013"></a>
+
+## Direct properties — response_header_operator / 012000121323 / 3
+
+- [header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321): complete subsection reference.
+
+<a id="canonical-2011121321230030-1103223330302213-3033200132332133-3320200322112022-1031022012103011-2232003313121313-2210320112112231-0030020113122010"></a>
+
+<a id="canonical-0203031231131133-1333001021200322-0033211031201111-2100120032032030-0313121322133300-3201021013001123-1203300101031332-0322303023330333"></a>
+
+## name property — response_header_operator / 012000121323 / 4
+
+Type: `"string"`. Computed.
+
+Header Name. Header Name.
+
+<a id="canonical-3311030220001320-2002120122003131-0320023310232230-3120023013023323-2300112312210033-1320230101321332-2002001211021202-0303013101333201"></a>
+
+## Next pages — response_header_operator / 012000121323 / 5
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3132222120201211-0202133213112103-1121220003131322-0113323200301100-1332102133012220-3100133122223013-0231231330111311-1312110001011200"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header — header / 331210122323 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header
+
+<a id="canonical-2313330302033131-0300231313120311-1323230320231030-3113133131300102-2220202133311013-2120321000302101-0320013231012201-0031233122322222"></a>
+
+Type: `"single"`. Computed.
+
+Operator. Operator
+
+<a id="canonical-3012230322301331-2322203133020331-2202221110020111-3231310332313333-3121132232013332-1330211211300230-1121021221103101-1033230233000012"></a>
+
+## Direct properties — header / 331210122323 / 3
+
+- [header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1000320013131022-1310323313222220-0321003101121221-2130220000111302-0031021112002330-3113123123311333-1002332203100312-0233112233200001): complete subsection reference.
+
+- [header_anything](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0103133121331102-3133113022330221-2231010030000130-3303320020132320-1110110030312321-3332330131211230-2113003112330232-0322101023031120): complete subsection reference.
+
+- [header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0322032111203220-0033211232133113-3333211330322212-0301320300202121-2323223103332101-1310001001331011-3233212133033011-3201022101321023): complete subsection reference.
+
+- [header_not_present](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2200031303101011-1033020033213002-2102212303313133-2201312311323100-0112200330333103-1102110123321002-1231232323113331-3302031122132211): complete subsection reference.
+
+- [header_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3313122103313312-1212103130001033-0223131201001332-2310030111213101-3221232302300313-2313003120120201-3132203132302213-0311222230011301): complete subsection reference.
+
+<a id="canonical-0023003332301223-3201231200022200-2123233033220313-3233130130311123-1123031320321212-3102233212113113-0023031031211113-2323323332232120"></a>
+
+## Next pages — header / 331210122323 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1000320013131022-1310323313222220-0321003101121221-2130220000111302-0031021112002330-3113123123311333-1002332203100312-0233112233200001)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_anything](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0103133121331102-3133113022330221-2231010030000130-3303320020132320-1110110030312321-3332330131211230-2113003112330232-0322101023031120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0322032111203220-0033211232133113-3333211330322212-0301320300202121-2323223103332101-1310001001331011-3233212133033011-3201022101321023)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_not_present](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2200031303101011-1033020033213002-2102212303313133-2201312311323100-0112200330333103-1102110123321002-1231232323113331-3302031122132211)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3313122103313312-1212103130001033-0223131201001332-2310030111213101-3221232302300313-2313003120120201-3132203132302213-0311222230011301)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-1000320013131022-1310323313222220-0321003101121221-2130220000111302-0031021112002330-3113123123311333-1002332203100312-0233112233200001"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0203002312310321-3111200221111302-0323000200223123-1011332132120312-0230111102322332-1322232230202331-2322220130211332-3111320333231301"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and — header_and / 110323100300 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and
+
+<a id="canonical-0121231020022333-0000203103233030-1321211122120221-0303021221333210-1300130013300223-0301000130000302-3023031122300330-2002111103232303"></a>
+
+Type: `"single"`. Computed.
+
+Header Matcher. Response Header matcher Choice.
+
+<a id="canonical-0320201311211103-3212320123130002-1010333330001213-1212322231133201-2002103033300301-3222002012101331-0000220111330032-2032320022310230"></a>
+
+## Direct properties — header_and / 110323100300 / 3
+
+- [response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2002033001202233-1020122331103202-1230202102100112-1002312133120111-1021300003010032-3031212210212131-0222202211021120-3023211021101110): complete subsection reference.
+
+<a id="canonical-1332102023010121-1210131210231100-1020120313100320-3311112200002230-1212301232233231-2030123000020200-1303001333323202-1202311323322212"></a>
+
+## Next pages — header_and / 110323100300 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and.response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2002033001202233-1020122331103202-1230202102100112-1002312133120111-1021300003010032-3031212210212131-0222202211021120-3023211021101110)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2002033001202233-1020122331103202-1230202102100112-1002312133120111-1021300003010032-3031212210212131-0222202211021120-3023211021101110"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1331302333323221-1010203002120210-3203020113013322-0310102100200221-1102033310012002-1101311032203102-1121131033010301-1201032300230130"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and.response_header_match_v2 — response_header_match_v2 / 103222132031 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1000320013131022-1310323313222220-0321003101121221-2130220000111302-0031021112002330-3113123123311333-1002332203100312-0233112233200001)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and.response_header_match_v2
+
+<a id="canonical-0130223123300313-0131220021133111-3320021303110021-2132123322212221-3330310222030211-3321021133031223-1221132311300130-0331301131122303"></a>
+
+Type: `"list"`. Computed.
+
+Response Header Matcher(s). Response Header Matchers.
+
+<a id="canonical-1302021302110210-3100132323230122-2213031012122200-0132313332200301-2321201312132221-3032000303231013-1232203311301003-3233301211222000"></a>
+
+## Direct properties — response_header_match_v2 / 103222132031 / 3
+
+<a id="canonical-3100310021311012-2123013011121103-1220311222310023-0012112013210300-0210233223033200-0202313133223301-2113203012322301-1123201310311020"></a>
+
+<a id="canonical-3321011200101320-2100331120112320-2210013220020203-2032101211022001-0323313330122110-2223321001203231-3033330313311010-3222023331131000"></a>
+
+## case_sensitive property — response_header_match_v2 / 103222132031 / 4
+
+Type: `"bool"`. Computed.
+
+Configuration parameter for case sensitive.
+
+<a id="canonical-0033120232032031-0213112000232030-0223210112322032-0230132132123303-2333010202013122-2002202322111000-1232200003331101-2122010212030202"></a>
+
+<a id="canonical-3011000211231231-0223132213123332-0210102212013212-0312220201021330-0210200210202110-1101113110012030-3022301133033030-1332313103220111"></a>
+
+## not property — response_header_match_v2 / 103222132031 / 5
+
+Type: `"bool"`. Computed.
+
+Not(!). Configuration parameter for not
+
+<a id="canonical-2012202101103003-3111332132310221-1303223030322102-2033210133310211-0110231223200333-0130323102121330-0313023023210001-3322022021012231"></a>
+
+<a id="canonical-0030222021221332-2132031030011313-3201121211033001-1233321000322201-1132022103031121-3323201121122031-3331002331001001-1020233113030112"></a>
+
+## operator property — response_header_match_v2 / 103222132031 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+RESPONSE\_OPERATOR\_EQUALS\_TO|RESPONSE\_OPERATOR\_CONTAINS|RESPONSE\_OPERATOR\_STARTS\_WITH|RESPONSE\_OPERATOR\_ENDS\_WITH\]
+&#8203;- RESPONSE\_OPERATOR\_EQUALS\_TO: EQUALS\_TO value - RESPONSE\_OPERATOR\_CONTAINS: CONTAINS value -
+RESPONSE\_OPERATOR\_STARTS\_WITH: STARTS\_WITH value - RESPONSE\_OPERATOR\_ENDS\_WITH: ENDS\_WITH
+value. Possible values are \`RESPONSE\_OPERATOR\_EQUALS\_TO\`, \`RESPONSE\_OPERATOR\_CONTAINS\`,
+\`RESPONSE\_OPERATOR\_STARTS\_WITH\`, \`RESPONSE\_OPERATOR\_ENDS\_WITH\`. Defaults to
+\`RESPONSE\_OPERATOR\_EQUALS\_TO\`.
+
+<a id="canonical-1213123230132212-1230233203121132-0221133233031332-3000110112301233-1300322110002233-3003232011121011-1213010120311312-3300112011232213"></a>
+
+<a id="canonical-0122012233123021-1201023011321122-3221321212022023-1313011322213321-1223222231011333-3310233122210131-3221100102202103-0011102102320032"></a>
+
+## value property — response_header_match_v2 / 103222132031 / 7
+
+Type: `"string"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-0130012222001100-1322133130031323-0313330221022203-0202323132320110-0310123122223103-1223232002132311-0120122320133122-2012120110230113"></a>
+
+## Next pages — response_header_match_v2 / 103222132031 / 8
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1000320013131022-1310323313222220-0321003101121221-2130220000111302-0031021112002330-3113123123311333-1002332203100312-0233112233200001)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-0103133121331102-3133113022330221-2231010030000130-3303320020132320-1110110030312321-3332330131211230-2113003112330232-0322101023031120"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1011322331322200-0212012231302233-0302001100233112-2020111002202222-1113333300221323-1302332210102233-2033230013102032-2123130312210202"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_anything — header_anything / 020122203331 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_anything
+
+<a id="canonical-1002132020101310-2002133122302102-3132200012100331-2312211201102011-3133102003320310-0101320210000023-2102130001302001-0200213232131033"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for header anything.
+
+<a id="canonical-2131300031303101-1002201232112110-2213032203301200-2230302102023323-1311022313132230-0232200103311213-2311100001012330-1130211310111102"></a>
+
+## Direct properties — header_anything / 020122203331 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0222120123220220-1001121322002310-3231232100302300-2133233110210013-1320113231303001-1110301030031122-0231230301210300-0302212321333132"></a>
+
+## Next pages — header_anything / 020122203331 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-0322032111203220-0033211232133113-3333211330322212-0301320300202121-2323223103332101-1310001001331011-3233212133033011-3201022101321023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2232303122320201-0131311030333211-0000203131310211-2030122130212110-1103312311232022-0011131330220031-1323312233030100-0133323312311313"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_none — header_none / 030222310323 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_none
+
+<a id="canonical-3031223022020030-2121301113022023-0322121200232233-0111103300103103-0202122000021130-0121233210123332-0032213330100233-2323232010323023"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for header none.
+
+<a id="canonical-2303332131122233-0302023000031201-1203301200111013-2020130213003120-3232223302002331-1111020310333030-3122120120201122-0230303121110133"></a>
+
+## Direct properties — header_none / 030222310323 / 3
+
+- [response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1132001303020103-2130203122203102-2020030010011133-1233302232232023-3010323200010032-3300103211201203-3213330110301300-1112110110010233): complete subsection reference.
+
+<a id="canonical-3022300312132132-2111321121030231-1030323323021310-0303130233010132-3220332221312320-0220133213102031-1300113011131231-3320110232300330"></a>
+
+## Next pages — header_none / 030222310323 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_none.response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1132001303020103-2130203122203102-2020030010011133-1233302232232023-3010323200010032-3300103211201203-3213330110301300-1112110110010233)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-1132001303020103-2130203122203102-2020030010011133-1233302232232023-3010323200010032-3300103211201203-3213330110301300-1112110110010233"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0132000112212100-3231030133322222-2133021122231233-1301311331220201-0312120011100010-2113311113230230-1103311030213322-3333212032122100"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_none.response_header_match_v2 — response_header_match_v2 / 111000223223 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0322032111203220-0033211232133113-3333211330322212-0301320300202121-2323223103332101-1310001001331011-3233212133033011-3201022101321023)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_none.response_header_match_v2
+
+<a id="canonical-3012220123233311-0031311222312233-1331020133133132-3001302101013113-1002223020130331-0202221233000001-3131110233101103-1312003221322210"></a>
+
+Type: `"list"`. Computed.
+
+Response Header Matcher(s). Response Header Matchers.
+
+<a id="canonical-0220333212132221-1203312012312330-1121233002311132-1132202311021131-0031321301112123-0203312222320011-3132022003032320-2323322323203223"></a>
+
+## Direct properties — response_header_match_v2 / 111000223223 / 3
+
+<a id="canonical-3022112231120030-2321332023012303-1001133030110310-2212202130130021-0122313132312020-2101030120301302-1301100001022033-2332122013233132"></a>
+
+<a id="canonical-0133321122210032-3230012333232113-2120003303311231-1322332021012000-3103331030003002-2332013023312211-1211110111122121-2122300101021022"></a>
+
+## case_sensitive property — response_header_match_v2 / 111000223223 / 4
+
+Type: `"bool"`. Computed.
+
+Configuration parameter for case sensitive.
+
+<a id="canonical-1130313321302003-3212123131322332-1303321022311321-0301000331012312-1032022112220232-2133002121102300-3110010112000221-1010203011101002"></a>
+
+<a id="canonical-3233120330210113-2133330331100022-3203311101310231-0323010210002110-3100032122133230-3031002210203001-3133103003030110-2301220302203003"></a>
+
+## not property — response_header_match_v2 / 111000223223 / 5
+
+Type: `"bool"`. Computed.
+
+Not(!). Configuration parameter for not
+
+<a id="canonical-1323310313302231-2222311102332323-0010332330323202-3301223313300100-2000302032123113-1201213331223113-0311123023130112-2001113322222200"></a>
+
+<a id="canonical-1103222021231331-2112210310321121-1310000023102032-0003123233330232-2302303313000212-0201213112003101-1123231330321201-2122330320330232"></a>
+
+## operator property — response_header_match_v2 / 111000223223 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+RESPONSE\_OPERATOR\_EQUALS\_TO|RESPONSE\_OPERATOR\_CONTAINS|RESPONSE\_OPERATOR\_STARTS\_WITH|RESPONSE\_OPERATOR\_ENDS\_WITH\]
+&#8203;- RESPONSE\_OPERATOR\_EQUALS\_TO: EQUALS\_TO value - RESPONSE\_OPERATOR\_CONTAINS: CONTAINS value -
+RESPONSE\_OPERATOR\_STARTS\_WITH: STARTS\_WITH value - RESPONSE\_OPERATOR\_ENDS\_WITH: ENDS\_WITH
+value. Possible values are \`RESPONSE\_OPERATOR\_EQUALS\_TO\`, \`RESPONSE\_OPERATOR\_CONTAINS\`,
+\`RESPONSE\_OPERATOR\_STARTS\_WITH\`, \`RESPONSE\_OPERATOR\_ENDS\_WITH\`. Defaults to
+\`RESPONSE\_OPERATOR\_EQUALS\_TO\`.
+
+<a id="canonical-1321322032332332-2302233033002302-0331011201323021-1202322213300010-1231210002210300-0131121331203121-3311101030030230-0101310221221201"></a>
+
+<a id="canonical-2301231231212001-3220232211033112-3020201020232202-0131030300110332-0320212113232300-3230232122200312-1120220303111331-0202323331301112"></a>
+
+## value property — response_header_match_v2 / 111000223223 / 7
+
+Type: `"string"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-3231111301321202-1110210000310030-2221301111302312-1212121111231010-1111320101101322-3013213233113222-2012001300201323-0000322330232311"></a>
+
+## Next pages — response_header_match_v2 / 111000223223 / 8
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0322032111203220-0033211232133113-3333211330322212-0301320300202121-2323223103332101-1310001001331011-3233212133033011-3201022101321023)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2200031303101011-1033020033213002-2102212303313133-2201312311323100-0112200330333103-1102110123321002-1231232323113331-3302031122132211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3311130113301320-2333331313202322-2130010310231313-1000112023010121-1100323200122211-1222300010303001-3222321030110231-1030020211011303"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_not_present — header_not_present / 033320313211 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_not_present
+
+<a id="canonical-2020323113123120-1020021110301110-2303203321313003-0102311100330202-3221301000021232-3232113022101033-2221012130003031-0203232220321230"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for header not present.
+
+<a id="canonical-1000102210102313-2003233013331222-2132313001210310-1302020232303202-0130023101020221-2211022302010121-1033012300313320-0110110332101121"></a>
+
+## Direct properties — header_not_present / 033320313211 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2103120132111210-1113323303120111-2200320101131003-1332120200330033-3021210113121122-2031010120332220-0232123123100223-3333201003310231"></a>
+
+## Next pages — header_not_present / 033320313211 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3313122103313312-1212103130001033-0223131201001332-2310030111213101-3221232302300313-2313003120120201-3132203132302213-0311222230011301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1100033213220333-1111123322123031-2013113021001131-0303220200111232-1033112011221323-2013300231011112-0100312211332120-2112330202003200"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_or — header_or / 023122220103 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_or
+
+<a id="canonical-0112310303100031-1330301303333220-2102202221113300-1310123001300000-1100031111031312-1311323300233001-3120020223110010-1122302222331321"></a>
+
+Type: `"single"`. Computed.
+
+Header Matcher. Response Header matcher Choice.
+
+<a id="canonical-1310223002313300-2310333101321310-0020013033033311-1303002303231312-3110122220132220-3120310222230212-1003320212011213-1010210331002310"></a>
+
+## Direct properties — header_or / 023122220103 / 3
+
+- [response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3002203213211313-0121312211232312-1010030212122230-0023313022013320-2223100133013112-1332020000000012-1032131330022133-2021020322122022): complete subsection reference.
+
+<a id="canonical-0020000210221002-2031201302001132-2303210232003101-2300030123200332-1332312122332103-0001321133012220-1231130133112303-2312020201131211"></a>
+
+## Next pages — header_or / 023122220103 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_or.response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3002203213211313-0121312211232312-1010030212122230-0023313022013320-2223100133013112-1332020000000012-1032131330022133-2021020322122022)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3002203213211313-0121312211232312-1010030212122230-0023313022013320-2223100133013112-1332020000000012-1032131330022133-2021020322122022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1020322100202002-0002220013330231-0300030210232331-3103010230310223-2112132212333110-1010133122001121-1000331321132232-2302322220103301"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_or.response_header_match_v2 — response_header_match_v2 / 112131202113 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2230223320220022-2213201131030220-2131103213202103-1213003331211020-2110101201322220-3200312310331033-3310111113220202-0123230121121121)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3001031211030011-0221333021302221-1003202133002210-0232321213013013-3301121131312021-1232322320022301-3223301333130020-2012031010020311)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-1232032001201103-0301130032030300-0213032101332030-2322130001013123-0011231023300130-2121203312022020-0100132033212132-3302301023212321)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3313122103313312-1212103130001033-0223131201001332-2310030111213101-3221232302300313-2313003120120201-3132203132302213-0311222230011301)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_or.response_header_match_v2
+
+<a id="canonical-3302330123120033-1313112120132203-0301221023203332-1211233211212011-0323110233022133-0310003013222320-3222301312023321-2112020122021201"></a>
+
+Type: `"list"`. Computed.
+
+Response Header Matcher(s). Response Header Matchers.
+
+<a id="canonical-3232303333120030-1120131022111233-3230311113303110-2220310002211203-2012022032131033-2133310022133222-3130303001031332-0320230320303331"></a>
+
+## Direct properties — response_header_match_v2 / 112131202113 / 3
+
+<a id="canonical-0222022201231020-3013130101100201-1323333232311000-1021323120233002-2221112301100033-3130111111003320-2032223133010120-1301110122201020"></a>
+
+<a id="canonical-3320131221230003-1031020001202111-1110332212213113-2312031231211113-0003232201212320-1110223122022332-2023113131210001-2113230301331323"></a>
+
+## case_sensitive property — response_header_match_v2 / 112131202113 / 4
+
+Type: `"bool"`. Computed.
+
+Configuration parameter for case sensitive.
+
+<a id="canonical-2121202110311312-2130312111230013-0013331331130330-1223100000103120-0033220123233232-1002013313000031-0222011131020232-2300200001221210"></a>
+
+<a id="canonical-0200030331023032-1301233320002100-2333033131123222-3032233333220012-0020031033120211-2313000300323312-2033000002132130-2220102322320202"></a>
+
+## not property — response_header_match_v2 / 112131202113 / 5
+
+Type: `"bool"`. Computed.
+
+Not(!). Configuration parameter for not
+
+<a id="canonical-2100303110320033-1301310311022223-0311213113103101-3313211120002310-2212310110311123-2231220032323001-0233203121011031-2123113011111032"></a>
+
+<a id="canonical-1120133103201113-0101203010322213-1302133310220013-0202202133222010-1200231222321203-0300113013211232-2200100033010223-2310033213020010"></a>
+
+## operator property — response_header_match_v2 / 112131202113 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+RESPONSE\_OPERATOR\_EQUALS\_TO|RESPONSE\_OPERATOR\_CONTAINS|RESPONSE\_OPERATOR\_STARTS\_WITH|RESPONSE\_OPERATOR\_ENDS\_WITH\]
+&#8203;- RESPONSE\_OPERATOR\_EQUALS\_TO: EQUALS\_TO value - RESPONSE\_OPERATOR\_CONTAINS: CONTAINS value -
+RESPONSE\_OPERATOR\_STARTS\_WITH: STARTS\_WITH value - RESPONSE\_OPERATOR\_ENDS\_WITH: ENDS\_WITH
+value. Possible values are \`RESPONSE\_OPERATOR\_EQUALS\_TO\`, \`RESPONSE\_OPERATOR\_CONTAINS\`,
+\`RESPONSE\_OPERATOR\_STARTS\_WITH\`, \`RESPONSE\_OPERATOR\_ENDS\_WITH\`. Defaults to
+\`RESPONSE\_OPERATOR\_EQUALS\_TO\`.
+
+<a id="canonical-3331031000333123-3232031210321230-2023220232331220-3103323020313321-2031301210020201-3311320330133213-3312200213021121-2333320213033110"></a>
+
+<a id="canonical-3310230110120021-0313123112331110-0102231330111211-3101021220322110-0322313102203313-0000113203103212-2113020211003203-2020233133301310"></a>
+
+## value property — response_header_match_v2 / 112131202113 / 7
+
+Type: `"string"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-2200011012130331-0322202202032002-0303230203232013-0300332123202101-0332222012301001-1310100302302221-1223022203030130-2111220112032232"></a>
+
+## Next pages — response_header_match_v2 / 112131202113 / 8
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_and.response_header_operator.header.header_or](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3313122103313312-1212103130001033-0223131201001332-2310030111213101-3221232302300313-2313003120120201-3132203132302213-0311222230011301)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0302232203131310-3032220010312011-0003321111000012-0201030201030000-1310100303111232-3323230033011021-2122020100003333-3111121130230132"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none — response_header_none / 113331210201 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none
+
+<a id="canonical-0230021221232331-3321310302331202-2030120230020221-1233230122112000-3110211031122300-3113102221231230-3232112322123012-3012220323031012"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for response header none.
+
+<a id="canonical-3033031012300302-2100232030212213-2203201130030332-0202333003221121-3333122202300201-3100033101322212-0312000233120212-0113112322213111"></a>
+
+## Direct properties — response_header_none / 113331210201 / 3
+
+- [response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322): complete subsection reference.
+
+<a id="canonical-2211101201023113-0011132101101021-0321200210133231-1001213311223313-3102110020122221-1232312230123310-3032003220100232-0211012001211132"></a>
+
+## Next pages — response_header_none / 113331210201 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1300111302321032-0032312101012132-2012203132211313-2101121001133231-0320222301312303-1221200121320000-0232320113201321-2302112220021031"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator — response_header_operator / 212021001022 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator
+
+<a id="canonical-2013330202310113-1122101311323223-2320133220123321-1303022310010311-0020010120330002-3313332101122010-3330302323211212-1112313001031321"></a>
+
+Type: `"list"`. Computed.
+
+Configuration parameter for response header operator.
+
+<a id="canonical-2131011100112322-0030001221131000-2311102330101130-2220300213223331-3101223221213023-0021313110102212-0323033012213100-1311120323101011"></a>
+
+## Direct properties — response_header_operator / 212021001022 / 3
+
+- [header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223): complete subsection reference.
+
+<a id="canonical-2110331233121131-1220211212211332-2313120333233233-1023331310102131-2220013311001000-0333323001033231-0102032020233011-3112213020213200"></a>
+
+<a id="canonical-1023311310301211-2201200011221021-0201000330210032-1310133012031031-2031102231022320-2123230222230300-3221111101110211-2012201022231030"></a>
+
+## name property — response_header_operator / 212021001022 / 4
+
+Type: `"string"`. Computed.
+
+Header Name. Header Name.
+
+<a id="canonical-3213312322200320-1301331322213122-2311102312232233-1123310312333111-3021133320310332-3310230002203322-1220322200233312-1232100210003313"></a>
+
+## Next pages — response_header_operator / 212021001022 / 5
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2030113302311132-0230220300132101-3233123131302030-0102200131223023-0132132302001303-1131231122113111-0031310012300123-3312030020310001"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header — header / 130022320310 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header
+
+<a id="canonical-0330223021301131-0333030000233120-2311021210000023-2303323303111330-3023311000203010-3220221313013331-0120331102203333-0201312301130102"></a>
+
+Type: `"single"`. Computed.
+
+Operator. Operator
+
+<a id="canonical-2023210110133222-2200230212010200-2123212020111212-1133220013003011-1030020022100302-2102230230202310-0032021332313102-3113222302231213"></a>
+
+## Direct properties — header / 130022320310 / 3
+
+- [header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2112032002332030-0100131100012322-0100033022030120-3201022331232320-2323102301030033-1132032133023322-1310322332021230-0301212130332333): complete subsection reference.
+
+- [header_anything](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2202021133310332-1122311111101111-1000031232121003-0112233203331011-1223210210332123-2112330322302032-2230103322301002-1031002230313102): complete subsection reference.
+
+- [header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3323013012020210-1210233100210333-1333323023113013-3133031212030310-2223033302200031-1202100300002032-0133333322303021-2001003011332233): complete subsection reference.
+
+- [header_not_present](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2301211321232103-3200110321033303-3333030301301032-1103330210231110-3120031333133333-0101110002221023-1102323133110322-0103103230111032): complete subsection reference.
+
+- [header_or](data-sources--bot_endpoint_policy--reference--group-014.md#canonical-0220232103120110-2133212102101333-2011022312130333-1303133110031002-2011301111222110-2020213110210222-2232220210221233-3330100202312113): complete subsection reference.
+
+<a id="canonical-2330100122023102-0133133302133223-2332221123221311-3222001313333203-2100231310311311-3003010230321113-1310011102021123-0031010012100332"></a>
+
+## Next pages — header / 130022320310 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2112032002332030-0100131100012322-0100033022030120-3201022331232320-2323102301030033-1132032133023322-1310322332021230-0301212130332333)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_anything](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2202021133310332-1122311111101111-1000031232121003-0112233203331011-1223210210332123-2112330322302032-2230103322301002-1031002230313102)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3323013012020210-1210233100210333-1333323023113013-3133031212030310-2223033302200031-1202100300002032-0133333322303021-2001003011332233)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_not_present](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2301211321232103-3200110321033303-3333030301301032-1103330210231110-3120031333133333-0101110002221023-1102323133110322-0103103230111032)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_or](data-sources--bot_endpoint_policy--reference--group-014.md#canonical-0220232103120110-2133212102101333-2011022312130333-1303133110031002-2011301111222110-2020213110210222-2232220210221233-3330100202312113)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2112032002332030-0100131100012322-0100033022030120-3201022331232320-2323102301030033-1132032133023322-1310322332021230-0301212130332333"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3330233103300303-0233122103133030-3111123322111131-2311311010320123-1313202313033300-2013120200023131-0230133102330330-2320310211333132"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_and — header_and / 111222313330 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_and
+
+<a id="canonical-1230110200122312-2023302131303231-2311231321033202-1022210212110231-0030021313313330-3300000311320213-1201322230323100-0002333301322210"></a>
+
+Type: `"single"`. Computed.
+
+Header Matcher. Response Header matcher Choice.
+
+<a id="canonical-3112111211130302-0301332100003130-0323021210121203-1210010020203011-2221222100013210-2231001022322003-0031133132212223-0222313130212220"></a>
+
+## Direct properties — header_and / 111222313330 / 3
+
+- [response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0031110032313032-0320312101300000-1332302310113331-3202202210013301-3023132001310302-3122312101100013-1232233203131220-1003020122123310): complete subsection reference.
+
+<a id="canonical-0303200230020302-3201210302112211-1011202232320323-0000311321220132-3332113231013011-3220313230232202-3221031133002203-3131232032021110"></a>
+
+## Next pages — header_and / 111222313330 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_and.response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0031110032313032-0320312101300000-1332302310113331-3202202210013301-3023132001310302-3122312101100013-1232233203131220-1003020122123310)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-0031110032313032-0320312101300000-1332302310113331-3202202210013301-3023132001310302-3122312101100013-1232233203131220-1003020122123310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1232332103333321-2003211200201233-3020121032001220-2233301213321033-0223321130003000-3130000213101013-2332313102112010-3203023020203313"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_and.response_header_match_v2 — response_header_match_v2 / 003013313100 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2112032002332030-0100131100012322-0100033022030120-3201022331232320-2323102301030033-1132032133023322-1310322332021230-0301212130332333)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_and.response_header_match_v2
+
+<a id="canonical-3311203210313323-0020020322002311-3221320121221223-1011123220012200-3221111300300300-3322023302333010-1212011010303111-2103203131310013"></a>
+
+Type: `"list"`. Computed.
+
+Response Header Matcher(s). Response Header Matchers.
+
+<a id="canonical-3322203321231030-3001000121332232-2220201031031112-2302002121322221-3000121000012022-3030301122111323-2232103320111323-3302102113312333"></a>
+
+## Direct properties — response_header_match_v2 / 003013313100 / 3
+
+<a id="canonical-1130012213033030-1110201333312010-1233110021003212-0111110032302331-3203120010233031-1113112311113300-2332323321011003-0100120301133133"></a>
+
+<a id="canonical-2001112321213022-0123200331302211-3313330321111302-2120302230010220-2201230113301021-0312031030030022-3012003213031312-3222022020330121"></a>
+
+## case_sensitive property — response_header_match_v2 / 003013313100 / 4
+
+Type: `"bool"`. Computed.
+
+Configuration parameter for case sensitive.
+
+<a id="canonical-2321232213031002-0030331330002312-1032222133212230-3202323111232213-2123312212202122-1300023132030102-1131311013133310-3032313210102111"></a>
+
+<a id="canonical-3310231202323210-3132033233323233-1302020022201231-3031313112133120-2122311331100320-0233023303203201-3212121030011031-2322221023011302"></a>
+
+## not property — response_header_match_v2 / 003013313100 / 5
+
+Type: `"bool"`. Computed.
+
+Not(!). Configuration parameter for not
+
+<a id="canonical-0001132220200320-0020133303333320-0201113333022323-0023133020331033-3133000111031231-0013203333033330-2001002313021302-1311103110231202"></a>
+
+<a id="canonical-1123300033032001-1333320313022233-0213020322203120-3303010303120213-0233300230201321-3020303201203001-2102222121310202-2200032211230201"></a>
+
+## operator property — response_header_match_v2 / 003013313100 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+RESPONSE\_OPERATOR\_EQUALS\_TO|RESPONSE\_OPERATOR\_CONTAINS|RESPONSE\_OPERATOR\_STARTS\_WITH|RESPONSE\_OPERATOR\_ENDS\_WITH\]
+&#8203;- RESPONSE\_OPERATOR\_EQUALS\_TO: EQUALS\_TO value - RESPONSE\_OPERATOR\_CONTAINS: CONTAINS value -
+RESPONSE\_OPERATOR\_STARTS\_WITH: STARTS\_WITH value - RESPONSE\_OPERATOR\_ENDS\_WITH: ENDS\_WITH
+value. Possible values are \`RESPONSE\_OPERATOR\_EQUALS\_TO\`, \`RESPONSE\_OPERATOR\_CONTAINS\`,
+\`RESPONSE\_OPERATOR\_STARTS\_WITH\`, \`RESPONSE\_OPERATOR\_ENDS\_WITH\`. Defaults to
+\`RESPONSE\_OPERATOR\_EQUALS\_TO\`.
+
+<a id="canonical-3013031103321203-3031312330233101-1331302000220023-3113100020132322-2110103220030203-0230131330101223-3202121112312230-2010023232020301"></a>
+
+<a id="canonical-0210312221221022-3112220130322230-0120203031230110-0103013033323202-2103313330121012-2232322220233031-2101300111331210-0121030111032200"></a>
+
+## value property — response_header_match_v2 / 003013313100 / 7
+
+Type: `"string"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-0120331323002301-3212302203301013-2021313212303010-1220100333212031-1102120122300122-3310101200220212-0123132103311330-2001003331131011"></a>
+
+## Next pages — response_header_match_v2 / 003013313100 / 8
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_and](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2112032002332030-0100131100012322-0100033022030120-3201022331232320-2323102301030033-1132032133023322-1310322332021230-0301212130332333)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2202021133310332-1122311111101111-1000031232121003-0112233203331011-1223210210332123-2112330322302032-2230103322301002-1031002230313102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0010313021333312-1330003000020231-3233223030032103-3222031120301102-2203320211213202-3200213001313323-3112232021132311-2323120012211102"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_anything — header_anything / 201221011302 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_anything
+
+<a id="canonical-1332132311000002-2011202332233002-3111202231300103-2322101122323220-0013110313321232-0222213230020022-2000200033131302-3212001002202300"></a>
+
+Type: `["object", {}]`. Computed.
+
+Configuration parameter for header anything.
+
+<a id="canonical-3303001121102312-1221312220212322-0123301310200123-3311031203300313-2112222113020330-1000230113010011-0220023301020130-1302331100322230"></a>
+
+## Direct properties — header_anything / 201221011302 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1130032133112230-2313222113303023-1111022212233222-2000011310310300-3102131020212032-1133310223002103-2113003203031231-2202011210012333"></a>
+
+## Next pages — header_anything / 201221011302 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-3323013012020210-1210233100210333-1333323023113013-3133031212030310-2223033302200031-1202100300002032-0133333322303021-2001003011332233"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2231233021303333-3332310112012313-3233100310300333-0100130321010200-0210100303011200-0231120230123032-1332221110103012-0100111011202021"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_none — header_none / 102322311131 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_none
+
+<a id="canonical-0322211231001100-0320023223323213-0223323231030323-0121130110203323-1022101301320323-1112102300100131-0202312223232123-0032102032203231"></a>
+
+Type: `"single"`. Computed.
+
+Configuration parameter for header none.
+
+<a id="canonical-0013102022302220-2222111300133220-1001013211322100-3232121330022223-0030011122300211-2131013200233312-2000101203120332-2032001233131101"></a>
+
+## Direct properties — header_none / 102322311131 / 3
+
+- [response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0010101223123111-1032220123003210-2113030101310111-2331230211322212-3011023031003130-1033303022202000-0312213012032202-1112110321131030): complete subsection reference.
+
+<a id="canonical-3313232013000212-3130100213333231-3310313303333321-3121200300033123-0131213200013020-2011130010300322-1130112112331132-2201030031002003"></a>
+
+## Next pages — header_none / 102322311131 / 4
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_none.response_header_match_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-0010101223123111-1032220123003210-2113030101310111-2331230211322212-3011023031003130-1033303022202000-0312213012032202-1112110321131030)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-0010101223123111-1032220123003210-2113030101310111-2331230211322212-3011023031003130-1033303022202000-0312213012032202-1112110321131030"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0223212110221221-0021101222032330-0222101111001031-2000231032011132-2121330132332021-1001103213101223-2111300221202300-2022223201111203"></a>
+
+## endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_none.response_header_match_v2 — response_header_match_v2 / 320210330313 / 2
+
+Breadcrumbs:
+
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+- [Property reference](data-sources--bot_endpoint_policy--reference--group-001.md#canonical-2201213100123012-2230231320333220-2132303223203302-0013322032200310-2032113232303323-2311011301021201-2323010133021002-1332121131020011)
+- [endpoint_policy_content](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-0210213102330220-1113322211223022-2131332133130302-2331330321103210-2202002320311112-0131102003032103-3022330010213201-0033101113331032)
+- [endpoint_policy_content.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1003332120300123-0311030111211122-1303003012311012-2302120100300322-1002321233323110-3130120012030100-0110031123111213-2333130222330103)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints](data-sources--bot_endpoint_policy--reference--group-004.md#canonical-1132111333013010-2211321310011120-3233013002110322-0333103123021110-3221130131311113-1302021130310201-2001321322333130-2120320222330331)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria](data-sources--bot_endpoint_policy--reference--group-009.md#canonical-2022103320231012-2113101132303022-0012113203100131-2013302331010013-1312310032132013-0133303212133133-0320132302211101-1211322223330302)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success](data-sources--bot_endpoint_policy--reference--group-011.md#canonical-2322030202013023-3001302202021133-3112000310011100-0031011321302223-1102233201020123-0013022001322022-1131120302121312-3023120203313323)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3022210332102010-3303200122333013-0102311003130323-2211203103022001-0102331021233001-2102132331021020-0331133302201322-0010302032211132)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3302111211031100-1311032010300101-2101022111113030-0203110303121023-0311202001221122-1012010233203330-1102123333222321-0332031310023120)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2013202120300103-0013133200330312-3220033331033232-2313302112112210-1212310030111021-3102221103211333-0220212332123232-0003203322020322)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-2300130213331331-3323112110132010-2230220000302103-2231012000022020-3111301312330223-2321310003302303-1031330122332032-0333031213132223)
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3323013012020210-1210233100210333-1333323023113013-3133031212030310-2223033302200031-1202100300002032-0133333322303021-2001003011332233)
+- endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_none.response_header_match_v2
+
+<a id="canonical-3110312330333021-3230020100131223-1113211300220111-2032010003133011-2330133202111302-2010322111111130-1122000021211112-2213231032202033"></a>
+
+Type: `"list"`. Computed.
+
+Response Header Matcher(s). Response Header Matchers.
+
+<a id="canonical-3230111012232002-1102012223223133-3112030131002322-2003030231202031-2001030203120211-2300220132012102-3121003011322032-1330012010012130"></a>
+
+## Direct properties — response_header_match_v2 / 320210330313 / 3
+
+<a id="canonical-3333113232102010-0003230220113221-2221200322132323-1303200110232123-0211221202311100-1133311331312321-2110132120320211-3201013202011132"></a>
+
+<a id="canonical-0110030313220322-2003231311032211-0230121212031300-2220113112213322-0000122311322001-3312330010313112-2203203122331303-2211020201320332"></a>
+
+## case_sensitive property — response_header_match_v2 / 320210330313 / 4
+
+Type: `"bool"`. Computed.
+
+Configuration parameter for case sensitive.
+
+<a id="canonical-0320013210312021-3213000211311331-0200331213220212-1221202030213333-1012220112203322-0001121122313111-2023113223321110-3222133221023322"></a>
+
+<a id="canonical-1123032020120330-1310320300030001-0232012010221202-3203221312001230-3113313003321012-3021330201302021-2331303301111322-1000202320222131"></a>
+
+## not property — response_header_match_v2 / 320210330313 / 5
+
+Type: `"bool"`. Computed.
+
+Not(!). Configuration parameter for not
+
+<a id="canonical-0300232301301120-1212013301323300-0031222111213002-0223312102201303-0010010311220220-0212202202302212-1331301030210111-3120311001110133"></a>
+
+<a id="canonical-3101031203031113-3223031000210113-1023033032310220-1302001231113011-2233110102203020-3220210310212100-0010023332131003-2202103311323113"></a>
+
+## operator property — response_header_match_v2 / 320210330313 / 6
+
+Type: `"string"`. Computed.
+
+\[Enum:
+RESPONSE\_OPERATOR\_EQUALS\_TO|RESPONSE\_OPERATOR\_CONTAINS|RESPONSE\_OPERATOR\_STARTS\_WITH|RESPONSE\_OPERATOR\_ENDS\_WITH\]
+&#8203;- RESPONSE\_OPERATOR\_EQUALS\_TO: EQUALS\_TO value - RESPONSE\_OPERATOR\_CONTAINS: CONTAINS value -
+RESPONSE\_OPERATOR\_STARTS\_WITH: STARTS\_WITH value - RESPONSE\_OPERATOR\_ENDS\_WITH: ENDS\_WITH
+value. Possible values are \`RESPONSE\_OPERATOR\_EQUALS\_TO\`, \`RESPONSE\_OPERATOR\_CONTAINS\`,
+\`RESPONSE\_OPERATOR\_STARTS\_WITH\`, \`RESPONSE\_OPERATOR\_ENDS\_WITH\`. Defaults to
+\`RESPONSE\_OPERATOR\_EQUALS\_TO\`.
+
+<a id="canonical-1023122211202033-1031013333123201-3300012210313100-0310331223311212-0212103112232203-1130310310002103-2002102010012100-1002200223022112"></a>
+
+<a id="canonical-3332202322130323-0101300221203001-0022110330020102-0133121232101321-0312000110302132-2200311022233112-2023233200120322-0021231011320132"></a>
+
+## value property — response_header_match_v2 / 320210330313 / 7
+
+Type: `"string"`. Computed.
+
+Value. Configuration parameter for value
+
+<a id="canonical-1123332001102111-1233220122331012-2301031131031023-2111312120011332-0302202202313032-3130312331023003-3320102000210021-3101020321023011"></a>
+
+## Next pages — response_header_match_v2 / 320210330313 / 8
+
+- [endpoint_policy_content.protected_mobile_endpoints.protected_mobile_endpoints.transaction_result_criteria.transaction_result_success.response_header_v2.response_header_none.response_header_operator.header.header_none](data-sources--bot_endpoint_policy--reference--group-013.md#canonical-3323013012020210-1210233100210333-1333323023113013-3133031212030310-2223033302200031-1202100300002032-0133333322303021-2001003011332233)
+- [xcsh_bot_endpoint_policy](../data-sources/bot_endpoint_policy.md#canonical-0320011110221201-2100233230203101-3330100033222310-3313200201232233-3120023321332231-0201323030313010-1100103303021130-0133102322333231)
+
+<a id="canonical-2301211321232103-3200110321033303-3333030301301032-1103330210231110-3120031333133333-0101110002221023-1102323133110322-0103103230111032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
