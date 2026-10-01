@@ -65,6 +65,14 @@ var (
 )
 
 func main() {
+	importCommand := exec.Command("python3", "tools/generate-import-examples.py")
+	importCommand.Stdout = os.Stdout
+	importCommand.Stderr = os.Stderr
+	if err := importCommand.Run(); err != nil {
+		fmt.Fprintf(os.Stderr, "generate import examples: %v\n", err)
+		os.Exit(1)
+	}
+
 	surface, err := releasesurface.Load("provider-release-surface.json")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "load release surface: %v\n", err)

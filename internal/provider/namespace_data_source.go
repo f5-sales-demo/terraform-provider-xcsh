@@ -53,8 +53,8 @@ func (d *NamespaceDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				Required:            true,
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Namespace exists.",
-				Required:            true,
+				MarkdownDescription: "Namespaces are tenant-level objects. Omit this argument.",
+				Optional:            true,
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Description of the Namespace.",

@@ -3,6 +3,8 @@
 package codegen
 
 import (
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
@@ -41,5 +43,37 @@ func TestDNSZoneExamplesEnforceManagedRecordPrerequisite(t *testing.T) {
 func TestExampleNamespaceRetainsUnclassifiedFallback(t *testing.T) {
 	if got := ExampleNamespace(nil, "unregistered_query_only_data_source"); got != "staging" {
 		t.Fatalf("ExampleNamespace() = %q, want staging", got)
+	}
+}
+
+func TestNamespaceExamplesOmitNamespaceAndConfigureProvider(t *testing.T) {
+	for _, example := range []string{
+		RenderResourceExampleHCL(&openapi.ResourceTemplate{}, "namespace", "staging"),
+		RenderDataSourceExampleHCL("namespace", "staging"),
+	} {
+		if strings.Contains(example, "namespace =") {
+			t.Errorf("tenant-level example sets namespace: %s", example)
+		}
+		if !strings.Contains(example, `provider "xcsh" {}`) {
+			t.Errorf("standalone example lacks provider: %s", example)
+		}
+	}
+}
+
+func TestNamespaceDataSourceSchemaAllowsOmittedNamespace(t *testing.T) {
+	dir := t.TempDir()
+	if err := GenerateDataSource(&openapi.ResourceTemplate{Name: "namespace", TitleCase: "Namespace"}, dir); err != nil {
+		t.Fatal(err)
+	}
+	data, err := os.ReadFile(filepath.Join(dir, "namespace_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	source := string(data)
+	start := strings.Index(source, `"namespace": schema.StringAttribute{`)
+	end := strings.Index(source[start:], "},")
+	block := source[start : start+end]
+	if strings.Contains(block, "Required:") || !strings.Contains(block, "Optional:") {
+		t.Fatalf("namespace must be optional: %s", block)
 	}
 }

@@ -118,7 +118,11 @@ echo "🔍 Checking for generated files..."
 
 # Get list of files to check (from CHANGED_FILES env var if set, else staged files)
 STAGED_FILES=()
-if [ -n "$CHANGED_FILES" ]; then
+if [ "${1:-}" = --stdin ]; then
+  while IFS= read -r file; do
+    [ -n "$file" ] && STAGED_FILES+=("$file")
+  done
+elif [ -n "${CHANGED_FILES:-}" ]; then
   for file in $CHANGED_FILES; do
     STAGED_FILES+=("$file")
   done
@@ -162,7 +166,7 @@ for file in "${STAGED_FILES[@]}"; do
     continue
   fi
   for pattern in "${GENERATED_PATTERNS[@]}"; do
-    if echo "$file" | grep -qE "$pattern"; then
+    if [[ "$file" =~ $pattern ]]; then
       if [ "$GENERATOR_TOOLS_MODIFIED" = true ]; then
         allowed=false
         for allowed_pattern in "${ALLOWED_WITH_GENERATORS[@]}"; do

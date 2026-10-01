@@ -12,8 +12,10 @@ terraform {
   }
 }
 
+# Credentials are supplied externally.
+provider "xcsh" {}
+
 # Basic Namespace configuration
-resource "xcsh_namespace" "example" {
-  name      = "example-namespace"
-  namespace = "staging"
+resource "xcsh_namespace" "this" {
+  name = "example-namespace"
 }

@@ -56,10 +56,19 @@ func RenderResourceExampleHCL(rt *openapi.ResourceTemplate, resourceName, namesp
 	sb.WriteString("\n")
 	sb.WriteString("terraform {\n  required_version = \">= 1.0\"\n\n  required_providers {\n    xcsh = {\n      source  = \"f5-sales-demo/xcsh\"\n      version = \">= 0.1.0\"\n    }\n  }\n}\n\n")
 
+	if resourceName == "namespace" {
+		sb.WriteString("# Credentials are supplied externally.\nprovider \"xcsh\" {}\n\n")
+	}
 	sb.WriteString(fmt.Sprintf("# Basic %s configuration\n", human))
-	sb.WriteString(fmt.Sprintf("resource \"xcsh_%s\" \"example\" {\n", resourceName))
+	address := "example"
+	if resourceName == "namespace" {
+		address = "this"
+	}
+	sb.WriteString(fmt.Sprintf("resource \"xcsh_%s\" \"%s\" {\n", resourceName, address))
 	sb.WriteString(fmt.Sprintf("  name      = \"example-%s\"\n", strings.ReplaceAll(resourceName, "_", "-")))
-	sb.WriteString(fmt.Sprintf("  %s = %q\n", "namespace", namespaceVal))
+	if resourceName != "namespace" {
+		sb.WriteString(fmt.Sprintf("  %s = %q\n", "namespace", namespaceVal))
+	}
 	if resourceName == "token" {
 		sb.WriteString("  type      = 1\n")
 		sb.WriteString("  site_name = \"example-securemesh-site\"\n")
@@ -95,10 +104,15 @@ func RenderDataSourceExampleHCL(resourceName, namespaceVal string) string {
 	var sb strings.Builder
 	sb.WriteString(fmt.Sprintf("# %s Data Source Example\n\n", human))
 	sb.WriteString("terraform {\n  required_version = \">= 1.0\"\n\n  required_providers {\n    xcsh = {\n      source  = \"f5-sales-demo/xcsh\"\n      version = \">= 0.1.0\"\n    }\n  }\n}\n\n")
+	if resourceName == "namespace" {
+		sb.WriteString("# Credentials are supplied externally.\nprovider \"xcsh\" {}\n\n")
+	}
 	sb.WriteString(fmt.Sprintf("# Look up an existing %s by name\n", human))
 	sb.WriteString(fmt.Sprintf("data \"xcsh_%s\" \"example\" {\n", resourceName))
 	sb.WriteString(fmt.Sprintf("  name      = \"example-%s\"\n", strings.ReplaceAll(resourceName, "_", "-")))
-	sb.WriteString(fmt.Sprintf("  %s = %q\n", "namespace", namespaceVal))
+	if resourceName != "namespace" {
+		sb.WriteString(fmt.Sprintf("  %s = %q\n", "namespace", namespaceVal))
+	}
 	sb.WriteString("}\n")
 	if resourceName == "dns_zone" {
 		sb.WriteString("\n# Fail closed when this stack depends on an externally owned zone.\n")

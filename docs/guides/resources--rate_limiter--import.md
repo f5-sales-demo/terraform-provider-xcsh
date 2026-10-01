@@ -2,7 +2,7 @@
 page_title: "Import"
 subcategory: "Security"
 description: "Import for xcsh_rate_limiter."
-xcsh_docs: {"aliases": [], "body_bytes": 406, "body_sha256": "sha256:408f69817987120c13da9aa6559f7218fb9a10acacdb5beeb44f22e501c091dc", "canonical_id": "xcsh-docs:resources:rate_limiter:import", "child_ids": [], "collection_id": "xcsh-docs:resources:rate_limiter:collection", "completeness": "complete", "id": "xcsh-docs:resources:rate_limiter:import", "parent_id": "xcsh-docs:resources:rate_limiter:fundamentals", "path": "docs/guides/resources--rate_limiter--import.md", "provider_name": "rate_limiter", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "publishing_destination": "registry", "role": "import", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter/lifecycle/import/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Import for xcsh_rate_limiter.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["rate_limiterCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+xcsh_docs: {"aliases": [], "body_bytes": 378, "body_sha256": "sha256:41314ab4ad81faa1a1ddca39f707073383698f653d260beb8f866a77af03c4fb", "canonical_id": "xcsh-docs:resources:rate_limiter:import", "child_ids": [], "collection_id": "xcsh-docs:resources:rate_limiter:collection", "completeness": "complete", "id": "xcsh-docs:resources:rate_limiter:import", "import_guidance": "Import using the `namespace/name` identifier format.", "parent_id": "xcsh-docs:resources:rate_limiter:fundamentals", "path": "docs/guides/resources--rate_limiter--import.md", "provider_name": "rate_limiter", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "publishing_destination": "registry", "role": "import", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/rate_limiter/lifecycle/import/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Import for xcsh_rate_limiter.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["rate_limiterCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -16,7 +16,7 @@ Breadcrumbs:
 - [xcsh_rate_limiter](../resources/rate_limiter.md)
 - Import
 
-Import an existing object with the identifier syntax supported by this resource.
+Import using the `namespace/name` identifier format.
 
 ```shell
 terraform import xcsh_rate_limiter.example system/example

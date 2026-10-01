@@ -1,4 +1,4 @@
-# ruff: noqa: INP001, PT009
+# ruff: noqa: INP001, PT009, PT027
 """Contract tests for complete schema traversal and progressive retrieval."""
 
 import importlib.util
@@ -44,6 +44,87 @@ class CollectionTests(unittest.TestCase):
             root,
             "sha256:" + "c" * 64,
         )
+
+    def test_namespace_import_contract(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "internal/provider/namespace_resource.go"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "// Import ID format: name (no namespace for this resource type)\nfunc (r *NamespaceResource) ImportState() {}"
+            )
+            example = root / "examples/resources/xcsh_namespace/resource.tf"
+            example.parent.mkdir(parents=True)
+            example.write_text('resource "xcsh_namespace" "this" {}\n')
+            collection = DOCS.Collection(
+                "resources",
+                "namespace",
+                {"block": {}},
+                FixtureSpecs(),
+                {},
+                root,
+                "sha256:" + "c" * 64,
+            )
+            page = next(p for p in collection.pages.values() if p["role"] == "import")
+            self.assertEqual(
+                page["import"],
+                "terraform import xcsh_namespace.this example-namespace\n",
+            )
+            self.assertIn("tenant-level", collection.body(page))
+            self.assertIn("omitted", collection.body(page))
+
+    def test_namespace_registry_projection_uses_bare_name(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "internal/provider/namespace_resource.go"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "// Import ID format: name\nfunc (r *NamespaceResource) ImportState() {}"
+            )
+            example = root / "examples/resources/xcsh_namespace/resource.tf"
+            example.parent.mkdir(parents=True)
+            example.write_text(
+                'provider "xcsh" {}\nresource "xcsh_namespace" "this" { name = "example-namespace" }\n'
+            )
+            collection = DOCS.Collection(
+                "resources",
+                "namespace",
+                {"block": {}},
+                FixtureSpecs(),
+                {},
+                root,
+                "sha256:" + "c" * 64,
+            )
+            pages = list(collection.pages.values())
+            for page in pages:
+                page["body"] = collection.body(page)
+            outputs = DOCS.registry_project(
+                pages, {"xcsh-docs:resources:namespace:collection": ""}
+            )
+            imports = [
+                content
+                for content in outputs.values()
+                if "terraform import " in content
+            ]
+            self.assertTrue(imports)
+            self.assertTrue(
+                all(
+                    "terraform import xcsh_namespace.this example-namespace" in content
+                    for content in imports
+                )
+            )
+            self.assertTrue(all("system/example" not in content for content in imports))
+
+    def test_unknown_import_contract_fails(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "internal/provider/fixture_resource.go"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "// Import ID format: made-up\nfunc (r *FixtureResource) ImportState() {}"
+            )
+            with self.assertRaisesRegex(ValueError, "unrecognized import"):
+                self.collection(root, {})
 
     def test_deep_repeated_empty_choices_and_sensitive_objects(self):
         block = {
@@ -214,7 +295,7 @@ class CollectionTests(unittest.TestCase):
             self.assertIn("[xcsh_fixture](fixture.md)", page)
             self.assertNotIn("functions", page)
         del outputs["docs/resources/fixture.md"]
-        with self.assertRaisesRegex(ValueError, "missing navigation target"):  # noqa: PT027 - standard-library CI runner
+        with self.assertRaisesRegex(ValueError, "missing navigation target"):
             DOCS.registry_navigation(surface, outputs)
 
     def test_generated_manifest_and_progressive_http_navigation(self):
