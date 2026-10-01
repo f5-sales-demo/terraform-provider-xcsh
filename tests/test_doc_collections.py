@@ -285,6 +285,19 @@ class CollectionTests(unittest.TestCase):
             for path, text in outputs.items():
                 self.assertLessEqual(len(text.encode()), DOCS.REGISTRY_LIMIT, path)
 
+    def test_registry_navigation_uses_exact_surface_and_valid_targets(self):
+        surface = {key: ["fixture"] for _, key, _, _ in DOCS.TYPES.values()}
+        outputs = {f"docs/{kind}/fixture.md": "# fixture\n" for kind in DOCS.TYPES}
+        DOCS.registry_navigation(surface, outputs)
+        for kind in DOCS.TYPES:
+            page = outputs[f"docs/{kind}/index.md"]
+            self.assertIn("includes 1 ", page)
+            self.assertIn("[xcsh_fixture](fixture.md)", page)
+            self.assertNotIn("functions", page)
+        del outputs["docs/resources/fixture.md"]
+        with self.assertRaisesRegex(ValueError, "missing navigation target"):  # noqa: PT027 - standard-library CI runner
+            DOCS.registry_navigation(surface, outputs)
+
     def test_generated_manifest_and_progressive_http_navigation(self):
         manifest_file = ROOT / "documentation/generated-manifest.json"
         if not manifest_file.exists():

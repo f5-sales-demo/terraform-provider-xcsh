@@ -1044,6 +1044,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	expected["semgrep.yml/semgrep"] = true
 	expected["super-linter.yml/linked-issue"] = true
 	expected["workflow-security-audit.yml/audit"] = true
+	expected["terraform-docs-snapshot.yml/publish"] = true
 	if _, err := os.Stat(filepath.Join(workflowDir, "dependabot-auto-merge.yml")); err == nil {
 		expected["dependabot-auto-merge.yml/auto-merge"] = true
 	} else if !os.IsNotExist(err) {

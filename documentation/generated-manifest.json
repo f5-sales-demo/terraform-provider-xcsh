@@ -28,6 +28,10 @@
       "bytes": 2615,
       "sha256": "sha256:f142a5c5194c7be4aaefc486ff62e773789a9f45ca59d5ba58648e770a04a95e"
     },
+    "docs/actions/index.md": {
+      "bytes": 942,
+      "sha256": "sha256:72300da99f06d6d6e2a09b3a0385b38983819b4f46e139fadfb54eca6ab7a725"
+    },
     "docs/actions/infraprotect_synchronize_configuration.md": {
       "bytes": 2970,
       "sha256": "sha256:6e72e5cbbf7a82c702e3878a9c879501fd7c3bc2f367d0d590d533995acd44db"
@@ -436,6 +440,10 @@
       "bytes": 2765,
       "sha256": "sha256:1f52f3e5dbaec30582a0568a3922e61fdd338a66e37d4e9c8cd1190f4ab04ed1"
     },
+    "docs/data-sources/index.md": {
+      "bytes": 9862,
+      "sha256": "sha256:5620265def334214abb20ffd085dac6457b1cca7dd6b3d074bfab9304c46cb2c"
+    },
     "docs/data-sources/infraprotect_mitigation_ips.md": {
       "bytes": 2800,
       "sha256": "sha256:530cd0c595ce9569e5613282cce0da30b75250ca2405f6cd6b5ea936050c549a"
@@ -839,6 +847,10 @@
     "docs/ephemeral-resources/artifact_registry_token.md": {
       "bytes": 2813,
       "sha256": "sha256:0f9f7eb44177b2a08c1156d5b39f6d9d02edb05843ee6c89280f22287138ee93"
+    },
+    "docs/ephemeral-resources/index.md": {
+      "bytes": 326,
+      "sha256": "sha256:f95e2df14bb0fdcdf34a86da3fcf06c0d1777024f0e68d54ffed6f883e96d749"
     },
     "docs/ephemeral-resources/kubernetes_manifests.md": {
       "bytes": 2730,
@@ -75611,6 +75623,10 @@
     "docs/resources/ike_phase2_profile.md": {
       "bytes": 3105,
       "sha256": "sha256:595206a0c01663e98a4152bc8264d4e5e7e557ae31d8fc8c975053d6ab280285"
+    },
+    "docs/resources/index.md": {
+      "bytes": 5904,
+      "sha256": "sha256:da8f195bb01e4da3542e46761acb5652e06b7461db095e325119af9e55ac3509"
     },
     "docs/resources/ip_prefix_set.md": {
       "bytes": 2859,
