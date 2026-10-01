@@ -1,0 +1,40 @@
+name: Publish Terraform Documentation Snapshot
+
+on:
+  workflow_dispatch:
+    inputs:
+      provider_tag:
+        description: Published stable provider version (empty selects newest)
+        required: false
+        type: string
+  schedule:
+    - cron: '17 8 * * *'
+
+permissions: {}
+
+concurrency:
+  group: terraform-documentation-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: managed-socketless
+    permissions:
+      contents: write # create immutable snapshot release and upload assets
+    steps:
+      - name: Checkout publisher and exact provider tags
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Publish snapshot without rebuilding schemas
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROVIDER_TAG: ${{ inputs.provider_tag }}
+        run: |
+          set -euo pipefail
+          args=(--publish --output "$RUNNER_TEMP/terraform-documentation")
+          if [ -n "$PROVIDER_TAG" ]; then
+            args+=(--tag "$PROVIDER_TAG")
+          fi
+          python3 scripts/terraform-docs-snapshot.py "${args[@]}"

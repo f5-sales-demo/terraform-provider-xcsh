@@ -955,6 +955,31 @@ def validate(pages, collections, outputs):
                 raise ValueError(f"invalid property destination: {path}")
 
 
+def registry_navigation(surface, outputs):
+    """Own navigation indexes and validate every exact release-surface target."""
+    for kind, (_, key, _, _) in TYPES.items():
+        names = sorted(surface[key])
+        title = kind.replace("-", " ").title()
+        links = []
+        for name in names:
+            target = f"docs/{kind}/{name}.md"
+            if target not in outputs:
+                raise ValueError(f"missing navigation target: {target}")
+            links.append(f"- [xcsh_{name}]({name}.md)")
+        related = [
+            f"- [{other.replace(chr(45), chr(32)).title()}](../{other}/index.md)"
+            for other in TYPES
+            if other != kind
+        ]
+        outputs[f"docs/{kind}/index.md"] = (
+            f"# {title}\n\nThis provider includes {len(names)} {kind.replace(chr(45), chr(32))}.\n\n"
+            + "\n".join(links)
+            + "\n\n## Related Documentation\n\n"
+            + "\n".join(related)
+            + "\n"
+        )
+
+
 def generate(root, schema_path, constraints_path):
     schema_bytes = Path(schema_path).read_bytes()
     provider = json.loads(schema_bytes)["provider_schemas"][PROVIDER]
@@ -995,6 +1020,7 @@ def generate(root, schema_path, constraints_path):
                 outputs[page["path"]] = frontmatter(page, body, collection.category)
                 pages.append(page)
     outputs.update(registry_project(pages, categories))
+    registry_navigation(surface, outputs)
     provider_index = (root / "templates/index.md.tmpl").read_text(encoding="utf-8")
     provider_example = (root / "examples/provider/provider.tf").read_text(
         encoding="utf-8"
